@@ -49,7 +49,7 @@ export function Portfolio() {
               {/* Content */}
               <div className="relative -mt-16 z-10 p-8">
                 <div className="mb-4 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-[#dd7bbb]/20 bg-[#dd7bbb]/10 px-3 py-1 text-xs font-medium text-[#dd7bbb]">
+                  <span className="rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-3 py-1 text-xs font-medium text-[#5B8AEF]">
                     Web Design
                   </span>
                   <span className="rounded-full border border-[#4c7894]/20 bg-[#4c7894]/10 px-3 py-1 text-xs font-medium text-[#4c7894]">

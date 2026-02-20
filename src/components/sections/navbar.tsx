@@ -21,7 +21,7 @@ export function Navbar() {
           className="font-[var(--font-heading)] text-xl font-bold tracking-tight text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Sunny<span className="text-[#dd7bbb]">Patel</span>
+          Sunny<span className="text-[#5B8AEF]">Patel</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -38,7 +38,7 @@ export function Navbar() {
 
         <a
           href="#contact"
-          className="hidden rounded-xl border border-[#dd7bbb]/20 bg-[#dd7bbb]/10 px-5 py-2.5 text-sm font-medium text-[#dd7bbb] transition-all duration-300 hover:border-[#dd7bbb]/40 hover:bg-[#dd7bbb]/20 hover:shadow-[0_0_20px_rgba(221,123,187,0.15)] md:inline-flex"
+          className="hidden rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-5 py-2.5 text-sm font-medium text-[#5B8AEF] transition-all duration-300 hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/20 hover:shadow-[0_0_20px_rgba(91,138,239,0.15)] md:inline-flex"
         >
           Get a Quote
         </a>
@@ -68,7 +68,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="rounded-xl border border-[#dd7bbb]/20 bg-[#dd7bbb]/10 px-5 py-2.5 text-center text-sm font-medium text-[#dd7bbb]"
+              className="rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-5 py-2.5 text-center text-sm font-medium text-[#5B8AEF]"
             >
               Get a Quote
             </a>

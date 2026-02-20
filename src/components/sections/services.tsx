@@ -64,13 +64,13 @@ export function Services() {
         className="absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-[0.04] blur-[120px]"
         style={{
           background:
-            "radial-gradient(circle, #dd7bbb, transparent 70%)",
+            "radial-gradient(circle, #5B8AEF, transparent 70%)",
         }}
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#dd7bbb]">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#5B8AEF]">
             Specialist Services
           </p>
           <h2

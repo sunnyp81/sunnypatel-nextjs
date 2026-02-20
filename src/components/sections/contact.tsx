@@ -43,11 +43,11 @@ export function Contact() {
             <div className="space-y-6">
               {[
                 {
-                  icon: <Mail className="h-5 w-5 text-[#dd7bbb]" />,
+                  icon: <Mail className="h-5 w-5 text-[#5B8AEF]" />,
                   label: "Email",
                   value: "Hello@SunnyPatel.co.uk",
-                  borderColor: "border-[#dd7bbb]/20",
-                  bgColor: "bg-[#dd7bbb]/10",
+                  borderColor: "border-[#5B8AEF]/20",
+                  bgColor: "bg-[#5B8AEF]/10",
                 },
                 {
                   icon: <Phone className="h-5 w-5 text-[#4c7894]" />,
@@ -103,7 +103,7 @@ export function Contact() {
                       type={field.type}
                       id={field.id}
                       placeholder={field.placeholder}
-                      className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#dd7bbb]/40 focus:shadow-[0_0_20px_rgba(221,123,187,0.1)] focus:outline-none"
+                      className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none"
                     />
                   </div>
                 ))}
@@ -118,7 +118,7 @@ export function Contact() {
                     id="message"
                     rows={4}
                     placeholder="Tell me about your project and goals..."
-                    className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#dd7bbb]/40 focus:shadow-[0_0_20px_rgba(221,123,187,0.1)] focus:outline-none"
+                    className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none"
                   />
                 </div>
                 <button

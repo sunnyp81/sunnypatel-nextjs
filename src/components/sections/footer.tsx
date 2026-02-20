@@ -19,7 +19,7 @@ export function Footer() {
               className="text-xl font-bold tracking-tight text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Sunny<span className="text-[#dd7bbb]">Patel</span>
+              Sunny<span className="text-[#5B8AEF]">Patel</span>
             </a>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground" style={{ lineHeight: 1.7 }}>
               SEO consultant and AI strategist helping UK businesses grow
@@ -27,7 +27,7 @@ export function Footer() {
             </p>
             <a
               href="#"
-              className="mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#dd7bbb]"
+              className="mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"
             >
               <Linkedin className="h-5 w-5" />
               LinkedIn

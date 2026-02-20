@@ -1,34 +1,33 @@
-import { reader } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
-import { ContentPage } from "@/components/content-page";
-import { renderMarkdoc } from "@/lib/render-markdoc";
+import { Navbar } from "@/components/sections/navbar";
+import { Footer } from "@/components/sections/footer";
+import { AboutHero } from "@/components/about/about-hero";
+import { AboutStory } from "@/components/about/about-story";
+import { AboutTimeline } from "@/components/about/about-timeline";
+import { AboutValues } from "@/components/about/about-values";
+import { AboutFaq } from "@/components/about/about-faq";
+import { Cta } from "@/components/sections/cta";
 
-export async function generateMetadata() {
-  const page = await reader.singletons.about.read();
+export function generateMetadata() {
   return buildMetadata({
-    title: page?.title || "About | Sunny Patel",
-    description: page?.description,
-    ogImage: page?.ogImage,
+    title: "About Sunny Patel | SEO Consultant & AI Strategist | Berkshire",
+    description:
+      "Sunny Patel is a Berkshire-based SEO consultant specialising in semantic SEO, topical authority, and AI search optimisation. 15+ years delivering measurable traffic growth.",
     path: "/about",
   });
 }
 
-export default async function AboutPage() {
-  const page = await reader.singletons.about.read();
-  if (!page) {
-    return (
-      <ContentPage h1="About Sunny Patel">
-        <p>Content coming soon. Edit this page in the Keystatic admin.</p>
-      </ContentPage>
-    );
-  }
-
-  const content = await page.content();
-  const rendered = renderMarkdoc(content);
-
+export default function AboutPage() {
   return (
-    <ContentPage h1={page.h1 || "About"} subtitle={page.subtitle} badge="About">
-      {rendered}
-    </ContentPage>
+    <main className="relative min-h-screen bg-background">
+      <Navbar />
+      <AboutHero />
+      <AboutStory />
+      <AboutTimeline />
+      <AboutValues />
+      <AboutFaq />
+      <Cta />
+      <Footer />
+    </main>
   );
 }

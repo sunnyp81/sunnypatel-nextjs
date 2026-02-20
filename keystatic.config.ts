@@ -146,7 +146,25 @@ export default config({
           itemLabel: (props) => props.value,
         }),
         featured: fields.checkbox({ label: "Featured", defaultValue: false }),
-        content: fields.markdoc({ label: "Case Study Content" }),
+        // Structured case study fields
+        client: fields.text({ label: "Client Name" }),
+        industry: fields.text({ label: "Industry" }),
+        services: fields.text({ label: "Services Delivered" }),
+        year: fields.text({ label: "Year" }),
+        problem: fields.text({ label: "The Problem", multiline: true }),
+        solution: fields.text({ label: "The Solution", multiline: true }),
+        result: fields.text({ label: "The Result", multiline: true }),
+        metrics: fields.array(
+          fields.object({
+            value: fields.text({ label: "Value (e.g. +340%)" }),
+            label: fields.text({ label: "Label (e.g. Organic Traffic)" }),
+          }),
+          { label: "Result Metrics", itemLabel: (props) => props.fields.label.value }
+        ),
+        testimonialText: fields.text({ label: "Testimonial Quote", multiline: true }),
+        testimonialAuthor: fields.text({ label: "Testimonial Author" }),
+        testimonialRole: fields.text({ label: "Testimonial Role / Company" }),
+        content: fields.markdoc({ label: "Additional Case Study Content" }),
       },
     }),
   },

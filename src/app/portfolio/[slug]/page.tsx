@@ -1,8 +1,11 @@
 import { reader } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
-import { ContentPage } from "@/components/content-page";
 import { notFound } from "next/navigation";
 import { renderMarkdoc } from "@/lib/render-markdoc";
+import { Navbar } from "@/components/sections/navbar";
+import { Footer } from "@/components/sections/footer";
+import { Cta } from "@/components/sections/cta";
+import { PortfolioDetail } from "@/components/portfolio/portfolio-detail";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.portfolio.list();
@@ -37,27 +40,17 @@ export default async function PortfolioPage({
   const content = await project.content();
   const rendered = renderMarkdoc(content);
 
+  const { title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole } = project;
+
   return (
-    <ContentPage
-      h1={project.title}
-      badge="Case Study"
-      backHref="/portfolio"
-      backLabel="All Work"
-      showCta={true}
-    >
-      {project.tags && project.tags.length > 0 && (
-        <div className="not-prose mb-8 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-3 py-1 text-xs font-medium text-[#5B8AEF]"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-      {rendered}
-    </ContentPage>
+    <main className="relative min-h-screen bg-background">
+      <Navbar />
+      <PortfolioDetail
+        project={{ title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole }}
+        renderedContent={rendered}
+      />
+      <Cta />
+      <Footer />
+    </main>
   );
 }

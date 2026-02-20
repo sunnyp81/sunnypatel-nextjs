@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -10,6 +11,8 @@ export function ContentPage({
   backHref,
   backLabel = "Back",
   dateLine,
+  tags,
+  heroImage,
   showCta = false,
   children,
 }: {
@@ -19,6 +22,8 @@ export function ContentPage({
   backHref?: string;
   backLabel?: string;
   dateLine?: string;
+  tags?: string[];
+  heroImage?: string;
   showCta?: boolean;
   children: React.ReactNode;
 }) {
@@ -77,14 +82,45 @@ export function ContentPage({
             </p>
           )}
 
-          {dateLine && (
-            <p className="mt-4 text-sm text-muted-foreground/70">{dateLine}</p>
+          {(dateLine || (tags && tags.length > 0)) && (
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              {dateLine && (
+                <span className="text-sm text-muted-foreground/70">{dateLine}</span>
+              )}
+              {dateLine && tags && tags.length > 0 && (
+                <span className="text-muted-foreground/30">|</span>
+              )}
+              {tags?.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
         </div>
 
         {/* Separator */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
       </div>
+
+      {/* Hero image */}
+      {heroImage && (
+        <div className="mx-auto max-w-4xl px-6 -mt-2 mb-4">
+          <div className="relative aspect-[2/1] overflow-hidden rounded-2xl border border-white/[0.06]">
+            <Image
+              src={heroImage}
+              alt={h1}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 896px"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Content */}
       <div className="mx-auto max-w-3xl px-6 py-16">

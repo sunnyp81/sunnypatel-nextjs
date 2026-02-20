@@ -2,6 +2,7 @@ import { reader } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -76,13 +77,25 @@ export default async function BlogIndex() {
             {/* Featured post */}
             {featured && (
               <Link href={`/blog/${featured.slug}`} className="group mb-6 block">
-                <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 transition-all duration-300 hover:border-[#5B8AEF]/20 hover:bg-white/[0.04] md:p-10">
+                <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-[#5B8AEF]/20 hover:bg-white/[0.04]">
                   {/* Hover glow */}
                   <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(91,138,239,0.04), transparent 60%)" }} />
 
-                  <div className="relative flex flex-col gap-4 md:flex-row md:items-start md:gap-10">
-                    <div className="flex-1">
+                  <div className="relative flex flex-col md:flex-row">
+                    {/* Featured image */}
+                    {featured.entry.ogImage && (
+                      <div className="relative aspect-[16/9] w-full shrink-0 md:aspect-auto md:w-[340px] lg:w-[420px]">
+                        <Image
+                          src={featured.entry.ogImage}
+                          alt={featured.entry.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 420px"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-1 flex-col justify-center p-8 md:p-10">
                       <div className="mb-3 flex items-center gap-3">
                         <span className="rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-2.5 py-0.5 text-xs font-medium text-[#5B8AEF]">
                           Latest
@@ -120,10 +133,10 @@ export default async function BlogIndex() {
                           ))}
                         </div>
                       )}
-                    </div>
-                    <div className="flex shrink-0 items-center gap-1.5 text-sm font-medium text-muted-foreground/50 transition-all duration-200 group-hover:gap-2.5 group-hover:text-[#5B8AEF] md:mt-1">
-                      Read article
-                      <ArrowRight className="h-4 w-4" />
+                      <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-muted-foreground/50 transition-all duration-200 group-hover:gap-2.5 group-hover:text-[#5B8AEF]">
+                        Read article
+                        <ArrowRight className="h-4 w-4" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -137,42 +150,55 @@ export default async function BlogIndex() {
                   <Link
                     key={post.slug}
                     href={`/blog/${post.slug}`}
-                    className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
                   >
-                    {post.entry.date && (
-                      <div className="mb-3 text-xs text-muted-foreground">
-                        {new Date(post.entry.date).toLocaleDateString("en-GB", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
+                    {post.entry.ogImage && (
+                      <div className="relative aspect-[16/9] w-full">
+                        <Image
+                          src={post.entry.ogImage}
+                          alt={post.entry.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
                       </div>
                     )}
-                    <h2
-                      className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF]"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {post.entry.title}
-                    </h2>
-                    {post.entry.description && (
-                      <p className="mb-4 text-sm leading-relaxed text-muted-foreground line-clamp-2">
-                        {post.entry.description}
-                      </p>
-                    )}
-                    {post.entry.tags && post.entry.tags.length > 0 && (
-                      <div className="mb-4 flex flex-wrap gap-1.5">
-                        {post.entry.tags.slice(0, 3).map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                    <div className="flex flex-1 flex-col p-6">
+                      {post.entry.date && (
+                        <div className="mb-3 text-xs text-muted-foreground">
+                          {new Date(post.entry.date).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </div>
+                      )}
+                      <h2
+                        className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF]"
+                        style={{ fontFamily: "var(--font-heading)" }}
+                      >
+                        {post.entry.title}
+                      </h2>
+                      {post.entry.description && (
+                        <p className="mb-4 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                          {post.entry.description}
+                        </p>
+                      )}
+                      {post.entry.tags && post.entry.tags.length > 0 && (
+                        <div className="mb-4 flex flex-wrap gap-1.5">
+                          {post.entry.tags.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                        Read more <ArrowRight className="h-3 w-3" />
                       </div>
-                    )}
-                    <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
-                      Read more <ArrowRight className="h-3 w-3" />
                     </div>
                   </Link>
                 ))}

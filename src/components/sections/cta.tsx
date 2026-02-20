@@ -59,7 +59,7 @@ export function Cta() {
           <div className="absolute -inset-3 animate-ping rounded-full bg-[#5B8AEF]/10 duration-[2000ms]" />
           <div className="absolute -inset-1.5 rounded-full bg-[#5B8AEF]/5" />
           <GradientButton asChild>
-            <a href="#contact" className="relative gap-2">
+            <a href="/contact" className="relative gap-2">
               Book Free Consultation
               <ArrowRight className="h-5 w-5" />
             </a>

@@ -72,7 +72,7 @@ export default async function PortfolioIndex() {
             Case studies coming soon.
           </p>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className={`grid gap-4 ${sorted.length === 1 ? "mx-auto max-w-2xl" : "md:grid-cols-2"}`}>
             {sorted.map((project) => (
               <Link
                 key={project.slug}

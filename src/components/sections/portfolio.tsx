@@ -31,7 +31,7 @@ export function Portfolio() {
           className="mx-auto max-w-4xl"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <div className="relative rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3">

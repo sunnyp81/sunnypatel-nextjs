@@ -33,14 +33,21 @@ export function ProjectCover({
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: `radial-gradient(ellipse at 25% 60%, ${color}35, transparent 55%)`,
+          background: `radial-gradient(ellipse at 30% 65%, ${color}60, transparent 55%)`,
         }}
       />
       {/* Secondary blob */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: `radial-gradient(ellipse at 75% 35%, ${secondary}20, transparent 50%)`,
+          background: `radial-gradient(ellipse at 75% 30%, ${secondary}40, transparent 50%)`,
+        }}
+      />
+      {/* Top-right accent */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse at 85% 15%, ${color}25, transparent 40%)`,
         }}
       />
       {/* Dot grid */}

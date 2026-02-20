@@ -65,7 +65,7 @@ export function AboutValues() {
               key={v.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, amount: 0.01 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative rounded-[1.25rem] border-[0.75px] border-border p-2"
             >

@@ -109,7 +109,7 @@ export function PortfolioDetail({
               transition={{ duration: 0.5, delay: 0.15 }}
             >
               {meta.map((m) => (
-                <div key={m.label} className="flex flex-col bg-background px-6 py-4">
+                <div key={m.label} className="flex min-w-[120px] flex-1 flex-col bg-background px-5 py-4">
                   <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/60">
                     {m.label}
                   </span>
@@ -138,7 +138,7 @@ export function PortfolioDetail({
               className="grid grid-cols-2 gap-8 md:grid-cols-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.01 }}
               transition={{ duration: 0.6 }}
             >
               {project.metrics.map((m, i) => (
@@ -147,7 +147,7 @@ export function PortfolioDetail({
                   className="text-center"
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.01 }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                 >
                   <div
@@ -174,7 +174,7 @@ export function PortfolioDetail({
                 className="relative rounded-[1.25rem] border-[0.75px] border-border p-2"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
+                viewport={{ once: true, amount: 0.01 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.01} borderWidth={3} />
@@ -201,7 +201,7 @@ export function PortfolioDetail({
               className="relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 md:p-10"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, amount: 0.01 }}
               transition={{ duration: 0.6 }}
             >
               <Quote className="mb-6 h-8 w-8 text-[#d79f1e]/40" />

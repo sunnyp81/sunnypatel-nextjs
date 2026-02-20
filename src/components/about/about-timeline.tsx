@@ -76,7 +76,7 @@ export function AboutTimeline() {
                 }`}
                 initial={{ opacity: 0, x: i % 2 === 0 ? 24 : -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
+                viewport={{ once: true, amount: 0.01 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 {/* Dot on the line */}

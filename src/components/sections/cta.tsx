@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 export function Cta() {
   return (
@@ -18,7 +18,7 @@ export function Cta() {
         className="absolute inset-0 opacity-[0.05]"
         style={{
           background:
-            "radial-gradient(ellipse at 30% 50%, #dd7bbb, transparent 50%)",
+            "radial-gradient(ellipse at 30% 50%, #5B8AEF, transparent 50%)",
         }}
       />
       <div
@@ -47,8 +47,8 @@ export function Cta() {
       </svg>
 
       {/* Lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#dd7bbb]/15 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#dd7bbb]/15 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5B8AEF]/15 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5B8AEF]/15 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <h2
@@ -56,7 +56,7 @@ export function Cta() {
           style={{
             fontFamily: "var(--font-heading)",
             letterSpacing: "-0.03em",
-            textShadow: "0 0 60px rgba(221,123,187,0.15)",
+            textShadow: "0 0 60px rgba(91,138,239,0.15)",
           }}
         >
           Ready to grow your organic traffic?
@@ -66,28 +66,12 @@ export function Cta() {
           on where your SEO stands and what to do next.
         </p>
 
-        {/* CTA button with glowing effect */}
-        <div className="inline-block">
-          <div className="relative rounded-2xl p-[2px]">
-            <GlowingEffect
-              spread={60}
-              glow={true}
-              disabled={false}
-              proximity={100}
-              inactiveZone={0.01}
-              borderWidth={2}
-              movementDuration={1}
-            />
-            <a
-              href="#contact"
-              className="group relative inline-flex items-center gap-2 rounded-2xl bg-foreground px-10 py-5 font-semibold text-background transition-transform duration-200 hover:scale-105 active:scale-95"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Book Free Consultation
-              <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </a>
-          </div>
-        </div>
+        <GradientButton asChild>
+          <a href="#contact" className="gap-2">
+            Book Free Consultation
+            <ArrowRight className="h-5 w-5" />
+          </a>
+        </GradientButton>
       </div>
     </section>
   );

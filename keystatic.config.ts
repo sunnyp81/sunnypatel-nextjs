@@ -8,7 +8,7 @@ export default config({
   singletons: {
     siteSettings: singleton({
       label: "Site Settings",
-      path: "src/content/site-settings",
+      path: "src/content/site-settings/",
       schema: {
         siteName: fields.text({ label: "Site Name" }),
         siteUrl: fields.text({ label: "Site URL" }),
@@ -23,7 +23,7 @@ export default config({
     }),
     about: singleton({
       label: "About Page",
-      path: "src/content/pages/about",
+      path: "src/content/pages/about/",
       schema: {
         title: fields.text({ label: "Title Tag" }),
         description: fields.text({ label: "Meta Description", multiline: true }),
@@ -35,7 +35,7 @@ export default config({
     }),
     contact: singleton({
       label: "Contact Page",
-      path: "src/content/pages/contact",
+      path: "src/content/pages/contact/",
       schema: {
         title: fields.text({ label: "Title Tag" }),
         description: fields.text({ label: "Meta Description", multiline: true }),
@@ -80,7 +80,7 @@ export default config({
     }),
     terms: singleton({
       label: "Terms of Use",
-      path: "src/content/pages/terms",
+      path: "src/content/pages/terms/",
       schema: {
         title: fields.text({ label: "Title Tag" }),
         description: fields.text({ label: "Meta Description", multiline: true }),
@@ -89,7 +89,7 @@ export default config({
     }),
     privacy: singleton({
       label: "Privacy Policy",
-      path: "src/content/pages/privacy",
+      path: "src/content/pages/privacy/",
       schema: {
         title: fields.text({ label: "Title Tag" }),
         description: fields.text({ label: "Meta Description", multiline: true }),
@@ -101,7 +101,7 @@ export default config({
     services: collection({
       label: "Services",
       slugField: "title",
-      path: "src/content/services/*",
+      path: "src/content/services/*/",
       schema: {
         title: fields.slug({ name: { label: "Service Name" } }),
         metaTitle: fields.text({ label: "Title Tag" }),
@@ -118,7 +118,7 @@ export default config({
     blog: collection({
       label: "Blog Posts",
       slugField: "title",
-      path: "src/content/blog/*",
+      path: "src/content/blog/*/",
       schema: {
         title: fields.slug({ name: { label: "Post Title" } }),
         metaTitle: fields.text({ label: "Title Tag" }),
@@ -135,7 +135,7 @@ export default config({
     portfolio: collection({
       label: "Portfolio",
       slugField: "title",
-      path: "src/content/portfolio/*",
+      path: "src/content/portfolio/*/",
       schema: {
         title: fields.slug({ name: { label: "Project Name" } }),
         metaTitle: fields.text({ label: "Title Tag" }),

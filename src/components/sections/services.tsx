@@ -85,7 +85,7 @@ export function Services() {
           </h2>
         </div>
 
-        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:grid-rows-2">
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}

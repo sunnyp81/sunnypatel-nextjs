@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, X, Sparkles } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export function BlogStickyCta() {
@@ -26,72 +26,79 @@ export function BlogStickyCta() {
   if (dismissed || !visible) return null;
 
   return (
-    <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      {/* Outer wrapper for GlowingEffect border */}
-      <div className="relative rounded-2xl border-[0.75px] border-border p-px">
+    <div className="fixed bottom-6 left-1/2 z-50 w-[calc(100%-3rem)] max-w-md -translate-x-1/2 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      {/* Outer glow wrapper */}
+      <div className="relative rounded-2xl border-[0.75px] border-border p-[2px]">
         <GlowingEffect
-          spread={40}
+          spread={50}
           glow={true}
           disabled={false}
-          proximity={80}
+          proximity={100}
           inactiveZone={0.01}
           borderWidth={2}
-          blur={4}
+          blur={6}
         />
 
         {/* Inner card */}
-        <Link
-          href="/contact"
-          className="group relative flex items-center gap-4 rounded-[calc(1rem-1px)] bg-[#0a0a0f]/95 px-5 py-3.5 shadow-2xl shadow-black/40 backdrop-blur-xl transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99]"
-        >
-          {/* Subtle blue underglow */}
+        <div className="relative overflow-hidden rounded-[calc(1rem-1px)] bg-[#08080d]/98 shadow-2xl shadow-black/50 backdrop-blur-2xl">
+          {/* Ambient background effects */}
           <div
-            className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-[0.06]"
+            className="pointer-events-none absolute inset-0 opacity-[0.08]"
             style={{
               background:
-                "radial-gradient(ellipse at 50% 100%, #5B8AEF, transparent 70%)",
+                "radial-gradient(ellipse at 20% 50%, #5B8AEF, transparent 60%), radial-gradient(ellipse at 80% 50%, #7B5AEF, transparent 60%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute bottom-0 left-0 right-0 h-px opacity-30"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, #5B8AEF, #7B5AEF, transparent)",
             }}
           />
 
-          {/* Branding */}
-          <span className="relative text-xs font-semibold tracking-wide text-[#5B8AEF]" style={{ fontFamily: "var(--font-heading)" }}>
-            SunnyPatel
-          </span>
-
-          {/* Divider */}
-          <div className="relative h-4 w-px bg-white/[0.1]" />
-
-          {/* Text */}
-          <p className="relative text-sm font-medium text-foreground">
-            Free 30-min consultation
-          </p>
-
-          {/* Button */}
-          <span
-            className="relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg px-5 py-2.5 text-xs font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.3)] transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(91,138,239,0.5)]"
-            style={{
-              fontFamily: "var(--font-heading)",
-              background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
-            }}
+          <Link
+            href="/contact"
+            className="group relative flex items-center justify-between gap-3 px-5 py-4 transition-transform duration-200 active:scale-[0.99] sm:gap-5"
           >
-            <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(135deg, #6B9AFF 0%, #8B6AFF 100%)" }} />
-            <span className="relative">Book Now</span>
-            <ArrowRight className="relative h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-          </span>
+            {/* Left: icon + text */}
+            <div className="relative flex items-center gap-3">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 text-[#5B8AEF] transition-colors duration-300 group-hover:border-[#5B8AEF]/40 group-hover:bg-[#5B8AEF]/20">
+                <Sparkles className="h-3.5 w-3.5" />
+              </div>
+              <p className="text-sm font-medium text-foreground sm:text-[15px]">
+                Free 30-min consultation
+              </p>
+            </div>
+
+            {/* Right: button */}
+            <span
+              className="relative inline-flex shrink-0 items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2.5 text-xs font-semibold text-white shadow-[0_0_24px_rgba(91,138,239,0.35)] transition-all duration-300 group-hover:shadow-[0_0_36px_rgba(91,138,239,0.55)] sm:px-5"
+              style={{
+                fontFamily: "var(--font-heading)",
+                background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+              }}
+            >
+              <span
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{
+                  background: "linear-gradient(135deg, #6B9AFF 0%, #8B6AFF 100%)",
+                }}
+              />
+              <span className="relative">Book Now</span>
+              <ArrowRight className="relative h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </span>
+          </Link>
 
           {/* Dismiss */}
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setDismissed(true);
-            }}
-            className="relative rounded-md p-1 text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+            onClick={() => setDismissed(true)}
+            className="absolute right-2 top-2 z-10 rounded-full p-1 text-muted-foreground/30 transition-colors hover:text-muted-foreground/70"
             aria-label="Dismiss"
           >
-            <X className="h-3.5 w-3.5" />
+            <X className="h-3 w-3" />
           </button>
-        </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 
 export default config({
-  storage: { kind: "local" },
+  storage: {
+    kind: "github",
+    repo: "sunnyp81/sunnypatel-nextjs",
+  },
   ui: {
     brand: { name: "Sunny Patel" },
   },

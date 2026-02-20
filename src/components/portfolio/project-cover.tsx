@@ -1,11 +1,15 @@
 "use client";
 
 const tagColorMap: Array<{ test: RegExp; color: string; secondary: string }> = [
-  { test: /health|medical|aesthet|care/i, color: "#5B8AEF", secondary: "#4c7894" },
-  { test: /design|brand|creative/i,       color: "#d79f1e", secondary: "#5B8AEF" },
-  { test: /dev|code|tech|software/i,      color: "#4c7894", secondary: "#5a922c" },
-  { test: /seo|content|search|organic/i,  color: "#5a922c", secondary: "#4c7894" },
-  { test: /legal|law|finance/i,           color: "#8b5cf6", secondary: "#5B8AEF" },
+  { test: /health|medical|aesthet|care/i,          color: "#5B8AEF", secondary: "#4c7894" }, // Blue
+  { test: /\bai\b|copilot|citation|generative/i,   color: "#8b5cf6", secondary: "#5B8AEF" }, // Purple
+  { test: /analytics|cross.platform|audit/i,       color: "#d79f1e", secondary: "#5B8AEF" }, // Gold
+  { test: /edtech|education|tutor/i,               color: "#d79f1e", secondary: "#5a922c" }, // Gold
+  { test: /affiliate|conversion|e-commerce/i,      color: "#4c7894", secondary: "#5a922c" }, // Teal
+  { test: /design|brand|creative/i,                color: "#d79f1e", secondary: "#5B8AEF" }, // Gold
+  { test: /dev|code|tech|software/i,               color: "#4c7894", secondary: "#5a922c" }, // Teal
+  { test: /seo|content|search|organic/i,           color: "#5a922c", secondary: "#4c7894" }, // Green
+  { test: /legal|law|finance/i,                    color: "#8b5cf6", secondary: "#5B8AEF" }, // Purple
 ];
 
 function getColors(tags: readonly string[], industry?: string | null) {

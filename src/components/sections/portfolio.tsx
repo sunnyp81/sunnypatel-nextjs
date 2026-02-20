@@ -1,19 +1,31 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ProjectCover } from "@/components/portfolio/project-cover";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { motion } from "motion/react";
 
-export function Portfolio() {
+export type FeaturedProject = {
+  slug: string;
+  title: string;
+  description: string;
+  tags: readonly string[];
+  industry: string;
+  metrics: ReadonlyArray<{ value: string; label: string }>;
+};
+
+export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] }) {
   return (
     <section id="portfolio" className="relative overflow-hidden py-24 md:py-32">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
+        {/* Header */}
         <motion.div
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6 }}
         >
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#d79f1e]">
@@ -27,93 +39,106 @@ export function Portfolio() {
           </h2>
         </motion.div>
 
+        {/* Cards grid */}
+        <div
+          className={`grid gap-4 ${
+            featuredItems.length === 1
+              ? "mx-auto max-w-xl"
+              : featuredItems.length === 2
+              ? "sm:grid-cols-2"
+              : "sm:grid-cols-2 lg:grid-cols-3"
+          }`}
+        >
+          {featuredItems.map((project, i) => (
+            <motion.div
+              key={project.slug}
+              className="h-full"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.01 }}
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+            >
+              <Link href={`/portfolio/${project.slug}`} className="group block h-full">
+                <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 transition-transform duration-200 group-hover:scale-[1.01]">
+                  <GlowingEffect
+                    spread={60}
+                    glow={true}
+                    disabled={false}
+                    proximity={80}
+                    inactiveZone={0.01}
+                    borderWidth={3}
+                  />
+                  <div className="flex h-full flex-col overflow-hidden rounded-xl border-[0.75px] bg-background shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+                    <ProjectCover
+                      title={project.title}
+                      tags={project.tags}
+                      industry={project.industry}
+                    />
+                    <div className="flex flex-1 flex-col p-5">
+                      {/* Tags row */}
+                      <div className="mb-3 flex items-start justify-between gap-2">
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tags?.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/40 transition-all duration-200 group-hover:border-[#d79f1e]/20 group-hover:bg-[#d79f1e]/10 group-hover:text-[#d79f1e]">
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      {project.description && (
+                        <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                          {project.description}
+                        </p>
+                      )}
+
+                      {/* First 2 metrics */}
+                      {project.metrics && project.metrics.length > 0 && (
+                        <div className="mt-auto grid grid-cols-2 gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
+                          {project.metrics.slice(0, 2).map((metric) => (
+                            <div key={metric.label}>
+                              <div
+                                className="text-lg font-bold text-[#d79f1e]"
+                                style={{ fontFamily: "var(--font-heading)" }}
+                              >
+                                {metric.value}
+                              </div>
+                              <div className="text-xs text-muted-foreground">
+                                {metric.label}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* View all CTA */}
         <motion.div
-          className="mx-auto max-w-4xl"
-          initial={{ opacity: 0, y: 32 }}
+          className="mt-10 text-center"
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.01 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <div className="relative rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3">
-            <GlowingEffect
-              spread={60}
-              glow={true}
-              disabled={false}
-              proximity={80}
-              inactiveZone={0.01}
-              borderWidth={3}
-            />
-            <div className="group relative overflow-hidden rounded-xl border-[0.75px] bg-background shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden md:h-80">
-                <Image
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=400&fit=crop&q=80"
-                  alt="Aatma Aesthetics case study"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-              </div>
-
-              {/* Content */}
-              <div className="relative -mt-16 z-10 p-8">
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {[
-                    { label: "Web Design", color: "text-[#5B8AEF]", border: "border-[#5B8AEF]/20", bg: "bg-[#5B8AEF]/10" },
-                    { label: "SEO", color: "text-[#4c7894]", border: "border-[#4c7894]/20", bg: "bg-[#4c7894]/10" },
-                    { label: "Development", color: "text-[#5a922c]", border: "border-[#5a922c]/20", bg: "bg-[#5a922c]/10" },
-                  ].map((tag) => (
-                    <span
-                      key={tag.label}
-                      className={`rounded-full border ${tag.border} ${tag.bg} px-3 py-1 text-xs font-medium ${tag.color}`}
-                    >
-                      {tag.label}
-                    </span>
-                  ))}
-                </div>
-                <h3
-                  className="mb-3 text-2xl font-bold text-foreground"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  Aatma Aesthetics
-                </h3>
-                <p className="mb-6 leading-relaxed text-muted-foreground">
-                  Complete website design, development, and SEO strategy for a
-                  medical aesthetics clinic. Delivered page-one rankings for
-                  competitive local terms within 6 months.
-                </p>
-
-                {/* Result metrics */}
-                <div className="mb-6 grid grid-cols-3 gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-                  {[
-                    { value: "+340%", label: "Organic traffic" },
-                    { value: "#1", label: "Local rankings" },
-                    { value: "6mo", label: "Time to results" },
-                  ].map((metric) => (
-                    <div key={metric.label} className="text-center">
-                      <div
-                        className="text-xl font-bold text-[#d79f1e]"
-                        style={{ fontFamily: "var(--font-heading)" }}
-                      >
-                        {metric.value}
-                      </div>
-                      <div className="mt-0.5 text-xs text-muted-foreground">
-                        {metric.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="/portfolio/aatma-aesthetics-website-design-development-seo"
-                  className="inline-flex items-center gap-2 font-medium text-[#d79f1e] transition-all duration-200 hover:gap-3"
-                >
-                  View full case study
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </div>
+          <GradientButton variant="variant" asChild>
+            <Link href="/portfolio" className="inline-flex items-center gap-2">
+              View all case studies
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </GradientButton>
         </motion.div>
       </div>
     </section>

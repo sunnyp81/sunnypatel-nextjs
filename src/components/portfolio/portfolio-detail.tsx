@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowLeft, Quote } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ChartHero } from "@/components/portfolio/chart-hero";
 
 type Metric = { readonly value: string; readonly label: string };
 
@@ -121,6 +122,13 @@ export function PortfolioDetail({
 
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
       </div>
+
+      {/* Chart hero visual */}
+      <ChartHero
+        tags={project.tags}
+        industry={project.industry}
+        metrics={project.metrics}
+      />
 
       {/* Metrics strip */}
       {project.metrics && project.metrics.length > 0 && (

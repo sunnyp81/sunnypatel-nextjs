@@ -41,10 +41,10 @@ metrics:
     label: Top earner in 45-site portfolio
   - value: '1,777'
     label: Monthly affiliate clicks
-  - value: Consistent
-    label: Year-round revenue
-  - value: '£83+'
-    label: Monthly commission
+  - value: Year-round
+    label: Revenue consistency
+  - value: '£1,000+'
+    label: Annual passive income
 testimonialText: ''
 testimonialAuthor: ''
 testimonialRole: ''

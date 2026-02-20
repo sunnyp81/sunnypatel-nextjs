@@ -1,0 +1,44 @@
+title: TheTutorLink — EdTech Platform Growth
+metaTitle: 'TheTutorLink EdTech Platform SEO & Growth — Sunny Patel'
+description: >-
+  How TheTutorLink, an online tutoring marketplace, achieved 600 percent organic
+  traffic growth through technical SEO, platform optimisation, and a
+  dual-domain strategy targeting both the marketing site and web application.
+ogImage: ''
+tags:
+  - SEO
+  - Development
+featured: false
+client: TheTutorLink
+industry: Education Technology
+services: 'Technical SEO, Platform Growth, Web Development, Multi-Domain Strategy'
+year: '2025'
+problem: >-
+  TheTutorLink is an online tutoring marketplace connecting students with
+  tutors. The platform had minimal organic visibility — the web application and
+  marketing site were generating fewer than 10 clicks per month combined, with
+  no structured SEO strategy in place for either domain.
+solution: >-
+  Implemented a dual-domain SEO strategy — optimising the marketing site
+  (thetutor.link) for informational and transactional keywords while improving
+  the web application (app.thetutor.link) for tutor profile indexing and subject
+  page visibility. Technical SEO foundations were built including structured
+  data, sitemap optimisation, and crawl efficiency improvements.
+result: >-
+  The web application achieved 600 percent organic traffic growth over three
+  months, while the marketing site maintained steady growth at 47 clicks per
+  quarter. Combined platform visibility reached 89 organic clicks per quarter
+  with strong upward momentum, and Bing performance outpaced Google by 2.2x on
+  the marketing domain.
+metrics:
+  - value: '+600%'
+    label: App organic growth
+  - value: 3 months
+    label: Time to results
+  - value: '2.2×'
+    label: Bing outperformance
+  - value: Dual-domain
+    label: SEO strategy
+testimonialText: ''
+testimonialAuthor: ''
+testimonialRole: ''

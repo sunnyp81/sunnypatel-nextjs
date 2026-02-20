@@ -107,9 +107,11 @@ export function Contact() {
               {contactItems.map((item, i) => {
                 const inner = (
                   <div
-                    className={`flex items-center gap-4 p-4 transition-all duration-200 ${item.href ? "hover:bg-[#5B8AEF]/5" : ""}`}
+                    className={`flex items-center gap-4 px-5 py-4 transition-all duration-200 ${item.href ? "hover:bg-[#5B8AEF]/5" : ""}`}
                   >
-                    <div className="shrink-0">{item.icon}</div>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04]">
+                      {item.icon}
+                    </div>
                     <div>
                       <div className="text-xs text-muted-foreground">
                         {item.label}
@@ -122,7 +124,7 @@ export function Contact() {
                 );
                 return (
                   <div key={item.label}>
-                    {i > 0 && <div className="mx-4 border-t border-white/[0.06]" />}
+                    {i > 0 && <div className="border-t border-white/[0.06]" />}
                     {item.href ? (
                       <a href={item.href}>{inner}</a>
                     ) : (

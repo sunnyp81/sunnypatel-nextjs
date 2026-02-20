@@ -145,7 +145,7 @@ function HeroGeometric({
                 />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 md:px-6">
+            <div className="relative z-10 container mx-auto px-4 pt-24 md:px-6 md:pt-28">
                 <div className="max-w-3xl mx-auto text-center">
                     <motion.div
                         custom={0}

@@ -39,7 +39,7 @@ export function Navbar() {
 
         <a
           href="/contact"
-          className="hidden rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-5 py-2.5 text-sm font-medium text-[#5B8AEF] transition-all duration-300 hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/20 hover:shadow-[0_0_20px_rgba(91,138,239,0.15)] md:inline-flex"
+          className="hidden rounded-xl border border-[#5B8AEF]/30 bg-[#5B8AEF]/10 px-5 py-2.5 text-sm font-semibold text-[#5B8AEF] shadow-[0_0_14px_rgba(91,138,239,0.18)] transition-all duration-200 hover:scale-[1.05] hover:border-[#5B8AEF]/60 hover:bg-[#5B8AEF]/20 hover:shadow-[0_0_28px_rgba(91,138,239,0.40)] active:scale-[0.97] md:inline-flex"
         >
           Get a Quote
         </a>

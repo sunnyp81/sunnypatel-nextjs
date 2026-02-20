@@ -28,28 +28,28 @@ export function Hero() {
         </GradientButton>
       </div>
 
-      <div className="mt-16 mx-auto grid max-w-lg grid-cols-3 gap-8">
+      <div className="mt-16 mx-auto grid max-w-lg grid-cols-3 gap-4">
         {[
           { value: "100+", label: "Clients", color: "#d79f1e" },
           { value: "15+", label: "Years", color: "#5B8AEF" },
           { value: "150%", label: "Avg Growth", color: "#5a922c" },
-        ].map((stat, i) => (
+        ].map((stat) => (
           <div
             key={stat.label}
-            className={`relative text-center ${i === 1 ? "border-x border-white/10" : ""}`}
+            className="group relative cursor-default rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-5 text-center transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] hover:scale-[1.04]"
           >
-            {/* Subtle glow behind the number */}
+            {/* Glow behind the number — intensifies on hover */}
             <div
-              className="pointer-events-none absolute inset-x-0 top-0 h-12 rounded-full opacity-20 blur-2xl"
+              className="pointer-events-none absolute inset-x-0 top-0 h-16 rounded-full opacity-15 blur-2xl transition-opacity duration-300 group-hover:opacity-40"
               style={{ background: stat.color }}
             />
             <div
-              className="relative text-2xl font-bold md:text-3xl"
+              className="relative text-2xl font-bold transition-transform duration-300 group-hover:scale-110 md:text-3xl"
               style={{ fontFamily: "var(--font-heading)", color: stat.color }}
             >
               {stat.value}
             </div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-white/40">
+            <div className="mt-1 text-xs uppercase tracking-wider text-white/40 transition-colors duration-300 group-hover:text-white/60">
               {stat.label}
             </div>
           </div>

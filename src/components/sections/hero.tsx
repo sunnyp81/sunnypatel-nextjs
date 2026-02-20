@@ -30,17 +30,22 @@ export function Hero() {
 
       <div className="mt-16 mx-auto grid max-w-lg grid-cols-3 gap-8">
         {[
-          { value: "100+", label: "Clients" },
-          { value: "15+", label: "Years" },
-          { value: "150%", label: "Avg Growth" },
+          { value: "100+", label: "Clients", color: "#d79f1e" },
+          { value: "15+", label: "Years", color: "#5B8AEF" },
+          { value: "150%", label: "Avg Growth", color: "#5a922c" },
         ].map((stat, i) => (
           <div
             key={stat.label}
-            className={`text-center ${i === 1 ? "border-x border-white/10" : ""}`}
+            className={`relative text-center ${i === 1 ? "border-x border-white/10" : ""}`}
           >
+            {/* Subtle glow behind the number */}
             <div
-              className="text-2xl font-bold text-white md:text-3xl"
-              style={{ fontFamily: "var(--font-heading)" }}
+              className="pointer-events-none absolute inset-x-0 top-0 h-12 rounded-full opacity-20 blur-2xl"
+              style={{ background: stat.color }}
+            />
+            <div
+              className="relative text-2xl font-bold md:text-3xl"
+              style={{ fontFamily: "var(--font-heading)", color: stat.color }}
             >
               {stat.value}
             </div>

@@ -103,11 +103,11 @@ export function Contact() {
               happy to chat. Response time is typically within 24 hours.
             </p>
 
-            <div className="space-y-4">
-              {contactItems.map((item) => {
+            <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.03]">
+              {contactItems.map((item, i) => {
                 const inner = (
                   <div
-                    className={`flex items-center gap-4 rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 transition-all duration-200 ${item.href ? "hover:border-[#5B8AEF]/30 hover:bg-[#5B8AEF]/5" : ""}`}
+                    className={`flex items-center gap-4 p-4 transition-all duration-200 ${item.href ? "hover:bg-[#5B8AEF]/5" : ""}`}
                   >
                     <div className="shrink-0">{item.icon}</div>
                     <div>
@@ -120,12 +120,15 @@ export function Contact() {
                     </div>
                   </div>
                 );
-                return item.href ? (
-                  <a key={item.label} href={item.href}>
-                    {inner}
-                  </a>
-                ) : (
-                  <div key={item.label}>{inner}</div>
+                return (
+                  <div key={item.label}>
+                    {i > 0 && <div className="mx-4 border-t border-white/[0.06]" />}
+                    {item.href ? (
+                      <a href={item.href}>{inner}</a>
+                    ) : (
+                      inner
+                    )}
+                  </div>
                 );
               })}
             </div>

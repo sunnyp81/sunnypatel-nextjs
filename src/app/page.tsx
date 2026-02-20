@@ -7,6 +7,11 @@ import { Cta } from "@/components/sections/cta";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 import { Navbar } from "@/components/sections/navbar";
+import { buildMetadata } from "@/lib/metadata";
+
+export function generateMetadata() {
+  return buildMetadata({ path: "/" });
+}
 
 export default function Home() {
   return (

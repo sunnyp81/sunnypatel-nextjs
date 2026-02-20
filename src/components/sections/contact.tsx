@@ -12,27 +12,18 @@ const contactItems = [
     label: "Email",
     value: "Hello@SunnyPatel.co.uk",
     href: "mailto:Hello@SunnyPatel.co.uk",
-    borderColor: "border-[#5B8AEF]/20",
-    bgColor: "bg-[#5B8AEF]/10",
-    hoverColor: "hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/15",
   },
   {
-    icon: <Phone className="h-5 w-5 text-[#4c7894]" />,
+    icon: <Phone className="h-5 w-5 text-[#5B8AEF]" />,
     label: "Phone",
     value: "073055 23333",
     href: "tel:07305523333",
-    borderColor: "border-[#4c7894]/20",
-    bgColor: "bg-[#4c7894]/10",
-    hoverColor: "hover:border-[#4c7894]/40 hover:bg-[#4c7894]/15",
   },
   {
-    icon: <MapPin className="h-5 w-5 text-[#5a922c]" />,
+    icon: <MapPin className="h-5 w-5 text-[#5B8AEF]" />,
     label: "Location",
     value: "Reading, Berkshire, UK",
     href: null,
-    borderColor: "border-[#5a922c]/20",
-    bgColor: "bg-[#5a922c]/10",
-    hoverColor: "hover:border-[#5a922c]/40 hover:bg-[#5a922c]/15",
   },
 ];
 
@@ -116,7 +107,7 @@ export function Contact() {
               {contactItems.map((item) => {
                 const inner = (
                   <div
-                    className={`flex items-center gap-4 rounded-xl border p-4 transition-all duration-200 ${item.borderColor} ${item.bgColor} ${item.href ? item.hoverColor : ""}`}
+                    className={`flex items-center gap-4 rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 transition-all duration-200 ${item.href ? "hover:border-[#5B8AEF]/30 hover:bg-[#5B8AEF]/5" : ""}`}
                   >
                     <div className="shrink-0">{item.icon}</div>
                     <div>

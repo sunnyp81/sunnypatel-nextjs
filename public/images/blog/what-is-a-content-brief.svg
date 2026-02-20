@@ -1,37 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
 <defs>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.6" fill="#ffffff12"/>
-    </pattern>
-    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#5B8AEF" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#050507" stop-opacity="0"/>
-    </radialGradient>
+    <!-- Noise texture -->
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <!-- Soft blur for atmosphere -->
+    <filter id="blur-lg"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur-md"><feGaussianBlur stdDeviation="35"/></filter>
+    <filter id="blur-sm"><feGaussianBlur stdDeviation="18"/></filter>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
   </defs>
-  <rect width="1200" height="630" fill="#050507"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="#050507"/>
 
-  <!-- Main document -->
-  <rect x="460" y="170" width="220" height="290" rx="8" fill="none" stroke="#5B8AEF" stroke-width="2" opacity="0.4"/>
-  <!-- Corner fold -->
-  <path d="M640,170 L680,170 L680,210 L640,210 Z" fill="#050507" stroke="#5B8AEF" stroke-width="2" opacity="0.4"/>
-  <path d="M640,170 L680,210" fill="none" stroke="#5B8AEF" stroke-width="1.5" opacity="0.3"/>
-  <!-- Structure lines -->
-  <rect x="485" y="200" width="80" height="10" rx="3" fill="#d79f1e" opacity="0.3"/>
-  <line x1="485" y1="235" x2="640" y2="235" stroke="#ffffff12" stroke-width="2"/>
-  <line x1="485" y1="260" x2="620" y2="260" stroke="#ffffff12" stroke-width="2"/>
-  <line x1="485" y1="285" x2="635" y2="285" stroke="#ffffff12" stroke-width="2"/>
+  <ellipse cx="580" cy="310" rx="250" ry="210" fill="#5B8AEF" opacity="0.05" filter="url(#blur-lg)"/>
+  <!-- Document with structure -->
+  <rect x="450" y="170" width="240" height="310" rx="14" fill="#5B8AEF" opacity="0.04" stroke="#5B8AEF" stroke-width="1" stroke-opacity="0.12"/>
+  <!-- Heading block -->
+  <rect x="480" y="205" width="100" height="12" rx="6" fill="#d79f1e" opacity="0.2" filter="url(#glow)"/>
+  <!-- Content lines -->
+  <line x1="480" y1="245" x2="660" y2="245" stroke="#5B8AEF" stroke-width="1.5" opacity="0.1"/>
+  <line x1="480" y1="270" x2="630" y2="270" stroke="#5B8AEF" stroke-width="1.5" opacity="0.08"/>
+  <line x1="480" y1="295" x2="650" y2="295" stroke="#5B8AEF" stroke-width="1.5" opacity="0.06"/>
   <!-- Section divider -->
-  <line x1="485" y1="310" x2="655" y2="310" stroke="#5B8AEF" stroke-width="1" opacity="0.2"/>
+  <line x1="480" y1="325" x2="660" y2="325" stroke="#d79f1e" stroke-width="0.5" opacity="0.1"/>
   <!-- Sub heading -->
-  <rect x="485" y="325" width="60" height="8" rx="3" fill="#d79f1e" opacity="0.2"/>
-  <line x1="485" y1="352" x2="630" y2="352" stroke="#ffffff12" stroke-width="2"/>
-  <line x1="485" y1="377" x2="610" y2="377" stroke="#ffffff12" stroke-width="2"/>
-  <line x1="485" y1="402" x2="625" y2="402" stroke="#ffffff12" stroke-width="2"/>
-  <line x1="485" y1="427" x2="580" y2="427" stroke="#ffffff12" stroke-width="2"/>
-  <!-- Annotation arrow -->
-  <path d="M710,250 L670,250" fill="none" stroke="#d79f1e" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.4"/>
-  <circle cx="716" cy="250" r="3" fill="#d79f1e" opacity="0.4"/>
+  <rect x="480" y="345" width="70" height="10" rx="5" fill="#d79f1e" opacity="0.12"/>
+  <!-- More lines -->
+  <line x1="480" y1="378" x2="640" y2="378" stroke="#5B8AEF" stroke-width="1.5" opacity="0.06"/>
+  <line x1="480" y1="403" x2="620" y2="403" stroke="#5B8AEF" stroke-width="1.5" opacity="0.05"/>
+  <line x1="480" y1="428" x2="645" y2="428" stroke="#5B8AEF" stroke-width="1.5" opacity="0.04"/>
+  <!-- Corner fold -->
+  <path d="M660,170 L690,170 L690,200 Z" fill="#5B8AEF" opacity="0.06"/>
 
+<!-- Noise overlay -->
+<rect width="1200" height="630" filter="url(#noise)" opacity="0.03"/>
 </svg>

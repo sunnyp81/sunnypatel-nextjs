@@ -1,36 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
 <defs>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.6" fill="#ffffff12"/>
-    </pattern>
-    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#5B8AEF" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#050507" stop-opacity="0"/>
-    </radialGradient>
+    <!-- Noise texture -->
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <!-- Soft blur for atmosphere -->
+    <filter id="blur-lg"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur-md"><feGaussianBlur stdDeviation="35"/></filter>
+    <filter id="blur-sm"><feGaussianBlur stdDeviation="18"/></filter>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
   </defs>
-  <rect width="1200" height="630" fill="#050507"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="#050507"/>
 
-  <!-- Pyramid blocks -->
-  <!-- Top -->
-  <rect x="565" y="190" width="70" height="45" rx="6" fill="#d79f1e" opacity="0.25" stroke="#d79f1e" stroke-width="1.5" stroke-opacity="0.4"/>
-  <!-- Middle row -->
-  <rect x="500" y="260" width="70" height="45" rx="6" fill="#5B8AEF" opacity="0.2" stroke="#5B8AEF" stroke-width="1.5" stroke-opacity="0.3"/>
-  <rect x="630" y="260" width="70" height="45" rx="6" fill="#5B8AEF" opacity="0.2" stroke="#5B8AEF" stroke-width="1.5" stroke-opacity="0.3"/>
-  <!-- Bottom row -->
-  <rect x="435" y="330" width="70" height="45" rx="6" fill="#5B8AEF" opacity="0.12" stroke="#5B8AEF" stroke-width="1" stroke-opacity="0.2"/>
-  <rect x="565" y="330" width="70" height="45" rx="6" fill="#5B8AEF" opacity="0.12" stroke="#5B8AEF" stroke-width="1" stroke-opacity="0.2"/>
-  <rect x="695" y="330" width="70" height="45" rx="6" fill="#5B8AEF" opacity="0.12" stroke="#5B8AEF" stroke-width="1" stroke-opacity="0.2"/>
-  <!-- Connecting lines -->
-  <line x1="600" y1="235" x2="535" y2="260" stroke="#5B8AEF" stroke-width="1" opacity="0.3"/>
-  <line x1="600" y1="235" x2="665" y2="260" stroke="#5B8AEF" stroke-width="1" opacity="0.3"/>
-  <line x1="535" y1="305" x2="470" y2="330" stroke="#5B8AEF" stroke-width="1" opacity="0.2"/>
-  <line x1="535" y1="305" x2="600" y2="330" stroke="#5B8AEF" stroke-width="1" opacity="0.2"/>
-  <line x1="665" y1="305" x2="600" y2="330" stroke="#5B8AEF" stroke-width="1" opacity="0.2"/>
-  <line x1="665" y1="305" x2="730" y2="330" stroke="#5B8AEF" stroke-width="1" opacity="0.2"/>
-  <!-- Lines inside blocks (content) -->
-  <line x1="578" y1="207" x2="622" y2="207" stroke="#d79f1e" stroke-width="2" opacity="0.5"/>
-  <line x1="583" y1="218" x2="615" y2="218" stroke="#d79f1e" stroke-width="2" opacity="0.3"/>
+  <ellipse cx="600" cy="280" rx="250" ry="200" fill="#5B8AEF" opacity="0.05" filter="url(#blur-lg)"/>
+  <!-- Hierarchy — pillar page top, clusters below -->
+  <circle cx="600" cy="210" r="24" fill="#d79f1e" opacity="0.25" filter="url(#glow-strong)"/>
+  <circle cx="480" cy="320" r="18" fill="#5B8AEF" opacity="0.2" filter="url(#glow)"/>
+  <circle cx="600" cy="340" r="18" fill="#5B8AEF" opacity="0.2" filter="url(#glow)"/>
+  <circle cx="720" cy="320" r="18" fill="#5B8AEF" opacity="0.2" filter="url(#glow)"/>
+  <!-- Bottom tier -->
+  <circle cx="420" cy="420" r="12" fill="#5B8AEF" opacity="0.1" filter="url(#glow)"/>
+  <circle cx="530" cy="430" r="12" fill="#5B8AEF" opacity="0.1" filter="url(#glow)"/>
+  <circle cx="670" cy="430" r="12" fill="#5B8AEF" opacity="0.1" filter="url(#glow)"/>
+  <circle cx="780" cy="420" r="12" fill="#5B8AEF" opacity="0.1" filter="url(#glow)"/>
+  <!-- Connections -->
+  <line x1="600" y1="234" x2="480" y2="302" stroke="#5B8AEF" stroke-width="1" opacity="0.15"/>
+  <line x1="600" y1="234" x2="600" y2="322" stroke="#5B8AEF" stroke-width="1" opacity="0.15"/>
+  <line x1="600" y1="234" x2="720" y2="302" stroke="#5B8AEF" stroke-width="1" opacity="0.15"/>
+  <line x1="480" y1="338" x2="420" y2="408" stroke="#5B8AEF" stroke-width="0.8" opacity="0.1"/>
+  <line x1="480" y1="338" x2="530" y2="418" stroke="#5B8AEF" stroke-width="0.8" opacity="0.1"/>
+  <line x1="720" y1="338" x2="670" y2="418" stroke="#5B8AEF" stroke-width="0.8" opacity="0.1"/>
+  <line x1="720" y1="338" x2="780" y2="408" stroke="#5B8AEF" stroke-width="0.8" opacity="0.1"/>
 
+<!-- Noise overlay -->
+<rect width="1200" height="630" filter="url(#noise)" opacity="0.03"/>
 </svg>

@@ -1,24 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
 <defs>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.6" fill="#ffffff12"/>
-    </pattern>
-    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#5B8AEF" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#050507" stop-opacity="0"/>
-    </radialGradient>
+    <!-- Noise texture -->
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <!-- Soft blur for atmosphere -->
+    <filter id="blur-lg"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur-md"><feGaussianBlur stdDeviation="35"/></filter>
+    <filter id="blur-sm"><feGaussianBlur stdDeviation="18"/></filter>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="pin-grad" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#5B8AEF" stop-opacity="0.8"/>
+  <stop offset="100%" stop-color="#5B8AEF" stop-opacity="0.2"/>
+</linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="#050507"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="#050507"/>
 
-  <!-- Pin -->
-  <path d="M600,220 C570,220 545,248 545,280 C545,330 600,400 600,400 C600,400 655,330 655,280 C655,248 630,220 600,220 Z"
-    fill="none" stroke="#5B8AEF" stroke-width="2.5" opacity="0.7"/>
-  <circle cx="600" cy="278" r="18" fill="#d79f1e" opacity="0.35"/>
-  <!-- Radiating location circles -->
-  <circle cx="600" cy="350" r="60" fill="none" stroke="#5B8AEF" stroke-width="1" opacity="0.12" stroke-dasharray="4,4"/>
-  <circle cx="600" cy="350" r="100" fill="none" stroke="#5B8AEF" stroke-width="1" opacity="0.08" stroke-dasharray="4,4"/>
-  <circle cx="600" cy="350" r="140" fill="none" stroke="#5B8AEF" stroke-width="1" opacity="0.05" stroke-dasharray="4,4"/>
+  <ellipse cx="600" cy="340" rx="250" ry="200" fill="#5B8AEF" opacity="0.05" filter="url(#blur-lg)"/>
+  <!-- Radiating pulses -->
+  <circle cx="600" cy="370" r="150" fill="none" stroke="#5B8AEF" stroke-width="0.8" opacity="0.06"/>
+  <circle cx="600" cy="370" r="110" fill="none" stroke="#5B8AEF" stroke-width="1" opacity="0.08"/>
+  <circle cx="600" cy="370" r="70" fill="none" stroke="#5B8AEF" stroke-width="1" opacity="0.12"/>
+  <!-- Pin shape — elegant -->
+  <path d="M600,210 C565,210 540,240 540,275 C540,325 600,390 600,390 C600,390 660,325 660,275 C660,240 635,210 600,210 Z"
+    fill="url(#pin-grad)" opacity="0.4" filter="url(#glow)"/>
+  <!-- Pin inner dot -->
+  <circle cx="600" cy="270" r="14" fill="#d79f1e" opacity="0.4" filter="url(#glow)"/>
 
+<!-- Noise overlay -->
+<rect width="1200" height="630" filter="url(#noise)" opacity="0.03"/>
 </svg>

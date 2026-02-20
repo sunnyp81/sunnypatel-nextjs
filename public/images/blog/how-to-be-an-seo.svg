@@ -1,27 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
 <defs>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="0.6" fill="#ffffff12"/>
-    </pattern>
-    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
-      <stop offset="0%" stop-color="#5B8AEF" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#050507" stop-opacity="0"/>
-    </radialGradient>
+    <!-- Noise texture -->
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <!-- Soft blur for atmosphere -->
+    <filter id="blur-lg"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur-md"><feGaussianBlur stdDeviation="35"/></filter>
+    <filter id="blur-sm"><feGaussianBlur stdDeviation="18"/></filter>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
   </defs>
-  <rect width="1200" height="630" fill="#050507"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+<!-- Background -->
+<rect width="1200" height="630" fill="#050507"/>
 
-  <!-- Simple person icon -->
-  <circle cx="520" cy="270" r="22" fill="none" stroke="#5B8AEF" stroke-width="2.5"/>
-  <path d="M495,340 Q495,300 520,295 Q545,300 545,340" fill="none" stroke="#5B8AEF" stroke-width="2.5"/>
-  <!-- Career stepping stones going up -->
-  <rect x="580" y="380" width="50" height="8" rx="4" fill="#5B8AEF" opacity="0.3"/>
-  <rect x="620" y="340" width="50" height="8" rx="4" fill="#5B8AEF" opacity="0.4"/>
-  <rect x="660" y="300" width="50" height="8" rx="4" fill="#5B8AEF" opacity="0.5"/>
-  <rect x="700" y="260" width="50" height="8" rx="4" fill="#d79f1e" opacity="0.6"/>
-  <!-- Arrow going up -->
-  <polyline points="605,384 645,344 685,304 725,264" fill="none" stroke="#d79f1e" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
-  <polygon points="728,258 730,270 720,265" fill="#d79f1e" opacity="0.5"/>
+  <ellipse cx="650" cy="300" rx="280" ry="230" fill="#5B8AEF" opacity="0.06" filter="url(#blur-lg)"/>
+  <!-- Ascending steps — bold, confident -->
+  <rect x="380" y="400" width="80" height="10" rx="5" fill="#5B8AEF" opacity="0.15" filter="url(#glow)"/>
+  <rect x="470" y="360" width="80" height="10" rx="5" fill="#5B8AEF" opacity="0.22" filter="url(#glow)"/>
+  <rect x="560" y="320" width="80" height="10" rx="5" fill="#5B8AEF" opacity="0.3" filter="url(#glow)"/>
+  <rect x="650" y="280" width="80" height="10" rx="5" fill="#5B8AEF" opacity="0.4" filter="url(#glow)"/>
+  <rect x="740" y="240" width="80" height="10" rx="5" fill="#d79f1e" opacity="0.5" filter="url(#glow-strong)"/>
+  <!-- Connecting path -->
+  <path d="M420,395 L510,355 L600,315 L690,275 L780,235"
+    fill="none" stroke="#5B8AEF" stroke-width="1" opacity="0.15" stroke-dasharray="4,6"/>
+  <!-- Glow at top step -->
+  <ellipse cx="780" cy="240" rx="60" ry="40" fill="#d79f1e" opacity="0.06" filter="url(#blur-md)"/>
 
+<!-- Noise overlay -->
+<rect width="1200" height="630" filter="url(#noise)" opacity="0.03"/>
 </svg>

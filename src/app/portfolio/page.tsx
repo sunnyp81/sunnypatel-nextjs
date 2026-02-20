@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ProjectCover } from "@/components/portfolio/project-cover";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -87,45 +88,43 @@ export default async function PortfolioIndex() {
                     inactiveZone={0.01}
                     borderWidth={3}
                   />
-                  <div className="relative flex h-full flex-col rounded-xl border-[0.75px] bg-background p-8 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
-                    {/* Top row */}
-                    <div className="mb-4 flex items-start justify-between gap-4">
-                      <div>
-                        {project.entry.featured && (
-                          <span className="mb-2 inline-block rounded-full border border-[#d79f1e]/20 bg-[#d79f1e]/10 px-2.5 py-0.5 text-xs font-medium text-[#d79f1e]">
-                            Featured
-                          </span>
-                        )}
-                        <h2
-                          className="text-xl font-bold text-foreground"
-                          style={{ fontFamily: "var(--font-heading)" }}
-                        >
-                          {project.entry.title}
-                        </h2>
+                  <div className="relative flex h-full flex-col overflow-hidden rounded-xl border-[0.75px] bg-background shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+                    {/* Gradient cover */}
+                    <ProjectCover
+                      title={project.entry.title}
+                      tags={project.entry.tags}
+                      industry={(project.entry as { industry?: string }).industry}
+                    />
+
+                    {/* Card body */}
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="mb-3 flex items-start justify-between gap-3">
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.entry.featured && (
+                            <span className="rounded-full border border-[#d79f1e]/20 bg-[#d79f1e]/10 px-2.5 py-0.5 text-xs font-medium text-[#d79f1e]">
+                              Featured
+                            </span>
+                          )}
+                          {project.entry.tags?.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/40 transition-all duration-200 group-hover:border-[#d79f1e]/20 group-hover:bg-[#d79f1e]/10 group-hover:text-[#d79f1e]">
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                        </div>
                       </div>
-                      <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-2 text-muted-foreground/40 transition-all duration-200 group-hover:border-[#d79f1e]/20 group-hover:bg-[#d79f1e]/10 group-hover:text-[#d79f1e]">
-                        <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                      </div>
+
+                      {project.entry.description && (
+                        <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                          {project.entry.description}
+                        </p>
+                      )}
                     </div>
-
-                    {project.entry.description && (
-                      <p className="mb-6 flex-1 leading-relaxed text-muted-foreground">
-                        {project.entry.description}
-                      </p>
-                    )}
-
-                    {project.entry.tags && project.entry.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {project.entry.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs text-muted-foreground"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </div>
               </Link>

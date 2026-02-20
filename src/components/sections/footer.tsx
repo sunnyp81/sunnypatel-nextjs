@@ -1,10 +1,11 @@
 import { Linkedin } from "lucide-react";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#contact", label: "Contact" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Footer() {
@@ -15,7 +16,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <a
-              href="#"
+              href="/"
               className="text-xl font-bold tracking-tight text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
@@ -67,7 +68,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="/privacy-policy"
                   className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground/80"
                 >
                   Privacy Policy
@@ -75,10 +76,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/terms-of-use"
                   className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground/80"
                 >
-                  Terms of Service
+                  Terms of Use
                 </a>
               </li>
             </ul>

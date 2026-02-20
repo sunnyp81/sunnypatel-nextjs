@@ -37,18 +37,21 @@ export function BlogStickyCta() {
           }}
         />
 
-        <p className="relative text-sm text-muted-foreground">
-          <span className="hidden sm:inline">Need help with your SEO? </span>
-          <span className="font-medium text-foreground">Free 30-min consultation</span>
+        <p className="relative text-sm font-medium text-foreground">
+          Free 30-min consultation
         </p>
 
         <Link
           href="/contact"
-          className="relative inline-flex items-center gap-1.5 rounded-lg bg-[#5B8AEF] px-4 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#4a79de] hover:scale-[1.02] active:scale-[0.98]"
-          style={{ fontFamily: "var(--font-heading)" }}
+          className="group/btn relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg px-5 py-2.5 text-xs font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.3)] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_30px_rgba(91,138,239,0.5)] active:scale-[0.97]"
+          style={{
+            fontFamily: "var(--font-heading)",
+            background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+          }}
         >
-          Book Now
-          <ArrowRight className="h-3 w-3" />
+          <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" style={{ background: "linear-gradient(135deg, #6B9AFF 0%, #8B6AFF 100%)" }} />
+          <span className="relative">Book Now</span>
+          <ArrowRight className="relative h-3 w-3 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
         </Link>
 
         <button

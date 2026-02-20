@@ -3,28 +3,37 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { motion } from "motion/react";
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="portfolio" className="relative overflow-hidden py-24 md:py-32">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="mb-16 text-center">
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#d79f1e]">
             Portfolio
           </p>
           <h2
             className="text-3xl font-bold tracking-tight text-foreground md:text-5xl"
-            style={{
-              fontFamily: "var(--font-heading)",
-              letterSpacing: "-0.03em",
-            }}
+            style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
             Real results for real businesses
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Portfolio card with glowing effect */}
-        <div className="mx-auto max-w-4xl">
+        <motion.div
+          className="mx-auto max-w-4xl"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           <div className="relative rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3">
             <GlowingEffect
               spread={60}
@@ -49,15 +58,18 @@ export function Portfolio() {
               {/* Content */}
               <div className="relative -mt-16 z-10 p-8">
                 <div className="mb-4 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-3 py-1 text-xs font-medium text-[#5B8AEF]">
-                    Web Design
-                  </span>
-                  <span className="rounded-full border border-[#4c7894]/20 bg-[#4c7894]/10 px-3 py-1 text-xs font-medium text-[#4c7894]">
-                    SEO
-                  </span>
-                  <span className="rounded-full border border-[#5a922c]/20 bg-[#5a922c]/10 px-3 py-1 text-xs font-medium text-[#5a922c]">
-                    Development
-                  </span>
+                  {[
+                    { label: "Web Design", color: "text-[#5B8AEF]", border: "border-[#5B8AEF]/20", bg: "bg-[#5B8AEF]/10" },
+                    { label: "SEO", color: "text-[#4c7894]", border: "border-[#4c7894]/20", bg: "bg-[#4c7894]/10" },
+                    { label: "Development", color: "text-[#5a922c]", border: "border-[#5a922c]/20", bg: "bg-[#5a922c]/10" },
+                  ].map((tag) => (
+                    <span
+                      key={tag.label}
+                      className={`rounded-full border ${tag.border} ${tag.bg} px-3 py-1 text-xs font-medium ${tag.color}`}
+                    >
+                      {tag.label}
+                    </span>
+                  ))}
                 </div>
                 <h3
                   className="mb-3 text-2xl font-bold text-foreground"
@@ -70,8 +82,30 @@ export function Portfolio() {
                   medical aesthetics clinic. Delivered page-one rankings for
                   competitive local terms within 6 months.
                 </p>
+
+                {/* Result metrics */}
+                <div className="mb-6 grid grid-cols-3 gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                  {[
+                    { value: "+340%", label: "Organic traffic" },
+                    { value: "#1", label: "Local rankings" },
+                    { value: "6mo", label: "Time to results" },
+                  ].map((metric) => (
+                    <div key={metric.label} className="text-center">
+                      <div
+                        className="text-xl font-bold text-[#d79f1e]"
+                        style={{ fontFamily: "var(--font-heading)" }}
+                      >
+                        {metric.value}
+                      </div>
+                      <div className="mt-0.5 text-xs text-muted-foreground">
+                        {metric.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
                 <a
-                  href="#contact"
+                  href="/portfolio/aatma-aesthetics-website-design-development-seo"
                   className="inline-flex items-center gap-2 font-medium text-[#d79f1e] transition-all duration-200 hover:gap-3"
                 >
                   View full case study
@@ -80,7 +114,7 @@ export function Portfolio() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

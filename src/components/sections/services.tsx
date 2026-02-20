@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 
 const services = [
   {
@@ -59,35 +60,43 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="relative py-24 md:py-32">
-      {/* Background accent */}
       <div
         className="absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-[0.04] blur-[120px]"
-        style={{
-          background:
-            "radial-gradient(circle, #5B8AEF, transparent 70%)",
-        }}
+        style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="mb-16 text-center">
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#5B8AEF]">
             Specialist Services
           </p>
           <h2
             className="text-3xl font-bold tracking-tight text-foreground md:text-5xl"
-            style={{
-              fontFamily: "var(--font-heading)",
-              letterSpacing: "-0.03em",
-            }}
+            style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
             Everything you need to
             <br className="hidden md:block" /> dominate organic search
           </h2>
-        </div>
+        </motion.div>
 
         <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:grid-rows-2">
-          {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+          {services.map((service, i) => (
+            <motion.li
+              key={service.title}
+              className={cn("min-h-[14rem] list-none", service.area)}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <ServiceCard {...service} />
+            </motion.li>
           ))}
         </ul>
       </div>
@@ -96,7 +105,7 @@ export function Services() {
 }
 
 function ServiceCard({
-  area,
+  area: _area,
   icon,
   title,
   description,
@@ -107,35 +116,33 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <li className={cn("min-h-[14rem] list-none", area)}>
-      <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3">
-        <GlowingEffect
-          spread={40}
-          glow={true}
-          disabled={false}
-          proximity={64}
-          inactiveZone={0.01}
-          borderWidth={3}
-        />
-        <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-background p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6">
-          <div className="relative flex flex-1 flex-col justify-between gap-3">
-            <div className="w-fit rounded-lg border-[0.75px] border-border bg-muted p-2">
-              {icon}
-            </div>
-            <div className="space-y-3">
-              <h3
-                className="pt-0.5 text-xl font-semibold leading-[1.375rem] tracking-[-0.04em] text-balance text-foreground md:text-2xl md:leading-[1.875rem]"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {title}
-              </h3>
-              <p className="text-sm leading-[1.125rem] text-muted-foreground md:text-base md:leading-[1.375rem]">
-                {description}
-              </p>
-            </div>
+    <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3">
+      <GlowingEffect
+        spread={40}
+        glow={true}
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+        borderWidth={3}
+      />
+      <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-background p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6">
+        <div className="relative flex flex-1 flex-col justify-between gap-3">
+          <div className="w-fit rounded-lg border-[0.75px] border-border bg-muted p-2">
+            {icon}
+          </div>
+          <div className="space-y-3">
+            <h3
+              className="pt-0.5 text-xl font-semibold leading-[1.375rem] tracking-[-0.04em] text-balance text-foreground md:text-2xl md:leading-[1.875rem]"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              {title}
+            </h3>
+            <p className="text-sm leading-[1.125rem] text-muted-foreground md:text-base md:leading-[1.375rem]">
+              {description}
+            </p>
           </div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }

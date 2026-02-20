@@ -1,12 +1,8 @@
 "use client";
 
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import {
-  Sparkles,
-  MapPin,
-  BarChart3,
-  Brain,
-} from "lucide-react";
+import { Sparkles, MapPin, BarChart3, Brain } from "lucide-react";
+import { motion } from "motion/react";
 
 const highlights = [
   {
@@ -37,8 +33,7 @@ const highlights = [
 
 export function About() {
   return (
-    <section id="about" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Dot grid */}
+    <section id="about" className="relative overflow-hidden py-24 md:py-32">
       <div
         className="absolute inset-0 opacity-[0.08]"
         style={{
@@ -53,26 +48,33 @@ export function About() {
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="mb-16 text-center">
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#5a922c]">
             Why Work With Sunny
           </p>
           <h2
             className="text-3xl font-bold tracking-tight text-foreground md:text-5xl"
-            style={{
-              fontFamily: "var(--font-heading)",
-              letterSpacing: "-0.03em",
-            }}
+            style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
             Results-driven SEO that
             <br className="hidden md:block" /> compounds over time
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {highlights.map((item) => (
-            <div
+          {highlights.map((item, i) => (
+            <motion.div
               key={item.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3"
             >
               <GlowingEffect
@@ -99,7 +101,7 @@ export function About() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

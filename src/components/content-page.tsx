@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { BlogStickyCta } from "@/components/blog-sticky-cta";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -14,6 +15,7 @@ export function ContentPage({
   tags,
   heroImage,
   showCta = false,
+  isBlog = false,
   children,
 }: {
   h1: string;
@@ -25,6 +27,7 @@ export function ContentPage({
   tags?: string[];
   heroImage?: string;
   showCta?: boolean;
+  isBlog?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -123,11 +126,48 @@ export function ContentPage({
       )}
 
       {/* Content */}
-      <div className="mx-auto max-w-3xl px-6 py-16">
-        <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#5B8AEF] prose-blockquote:border-l-[#5B8AEF]/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]">
-          {children}
+      <div className="relative overflow-hidden">
+        {/* Blog background decorations */}
+        {isBlog && (
+          <>
+            {/* Side glow accents */}
+            <div
+              className="pointer-events-none absolute -left-32 top-[20%] h-[500px] w-[400px] rounded-full opacity-[0.025] blur-[100px]"
+              style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
+            />
+            <div
+              className="pointer-events-none absolute -right-32 top-[50%] h-[400px] w-[350px] rounded-full opacity-[0.02] blur-[100px]"
+              style={{ background: "radial-gradient(circle, #4c7894, transparent 70%)" }}
+            />
+            <div
+              className="pointer-events-none absolute -left-20 top-[75%] h-[300px] w-[300px] rounded-full opacity-[0.02] blur-[80px]"
+              style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
+            />
+            {/* Subtle dot grid that fades in/out */}
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.03]"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, rgba(91,138,239,0.15) 1px, transparent 1px)",
+                backgroundSize: "48px 48px",
+                maskImage:
+                  "linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%)",
+              }}
+            />
+          </>
+        )}
+
+        <div className="relative mx-auto max-w-3xl px-6 py-16">
+          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#5B8AEF] prose-blockquote:border-l-[#5B8AEF]/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]">
+            {children}
+          </div>
         </div>
       </div>
+
+      {/* Sticky blog CTA */}
+      {isBlog && <BlogStickyCta />}
 
       {/* Optional CTA */}
       {showCta && (

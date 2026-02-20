@@ -4,8 +4,10 @@ description: >-
   B2B content marketing fails when agencies apply B2C tactics to complex business
   sales. Here's what actually works for B2B lead generation.
 ogImage: /images/blog/b2b-content-marketing-services.svg
-date: '2026-01-15'
-tags:
-  - B2B Marketing
-  - Content Marketing
-  - Lead Generation
+h1: B2B Content Marketing Services
+subtitle: >-
+  Strategic content marketing for complex B2B sales cycles. Education-first
+  content that builds trust, generates leads, and shortens sales cycles.
+icon: FileText
+featured: false
+sortOrder: 15

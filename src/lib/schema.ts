@@ -7,7 +7,11 @@ export function personSchema() {
     name: "Sunny Patel",
     jobTitle: "SEO Consultant & AI Strategist",
     url: SITE_URL,
-    sameAs: ["https://www.linkedin.com/in/sunny-patel-co-uk/"],
+    sameAs: [
+      "https://www.linkedin.com/in/sunny-patel-co-uk/",
+      "https://g.co/kgs/SunnyPatelSEO",
+      "https://www.sunnypatel.co.uk",
+    ],
     areaServed: {
       "@type": "Country",
       name: "United Kingdom",
@@ -32,6 +36,10 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo.png`,
     founder: { "@id": `${SITE_URL}/#person` },
+    sameAs: [
+      "https://www.linkedin.com/in/sunny-patel-co-uk/",
+      "https://g.co/kgs/SunnyPatelSEO",
+    ],
   };
 }
 
@@ -60,6 +68,10 @@ export function localBusinessSchema() {
     },
     founder: { "@id": `${SITE_URL}/#person` },
     priceRange: "$$",
+    sameAs: [
+      "https://www.linkedin.com/in/sunny-patel-co-uk/",
+      "https://g.co/kgs/SunnyPatelSEO",
+    ],
   };
 }
 

@@ -4,8 +4,10 @@ description: >-
   Traffic dropped after a Google update? How to diagnose what changed, identify
   the cause, and build a recovery strategy that actually works.
 ogImage: /images/blog/google-algorithm-update-recovery.svg
-date: '2026-01-15'
-tags:
-  - Google Updates
-  - SEO Recovery
-  - Algorithm
+h1: Google Algorithm Update Recovery
+subtitle: >-
+  Diagnose ranking drops, identify root causes, and build a recovery strategy
+  that restores your organic traffic after Google core updates.
+icon: TrendingUp
+featured: false
+sortOrder: 17

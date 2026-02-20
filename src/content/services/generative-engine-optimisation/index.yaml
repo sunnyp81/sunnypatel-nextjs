@@ -5,8 +5,10 @@ description: >-
   appear in AI-generated answers. Learn what it is, why it matters, and how to
   start.
 ogImage: /images/blog/generative-engine-optimisation-2.svg
-date: '2026-01-15'
-tags:
-  - GEO
-  - AI Search
-  - Generative Engine
+h1: 'Generative Engine Optimisation (GEO)'
+subtitle: >-
+  Optimise your content for AI-generated answers. Get cited by Bing Copilot,
+  ChatGPT Search, and Google AI Overviews.
+icon: Brain
+featured: false
+sortOrder: 16

@@ -3,6 +3,7 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { AboutHero } from "@/components/about/about-hero";
 import { AboutStory } from "@/components/about/about-story";
+import { AboutMethodology } from "@/components/about/about-methodology";
 import { AboutTimeline } from "@/components/about/about-timeline";
 import { AboutValues } from "@/components/about/about-values";
 import { AboutFaq } from "@/components/about/about-faq";
@@ -31,6 +32,7 @@ export default function AboutPage() {
       <Navbar />
       <AboutHero />
       <AboutStory />
+      <AboutMethodology />
       <AboutTimeline />
       <AboutValues />
       <AboutFaq />

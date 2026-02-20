@@ -74,6 +74,7 @@ export default async function BlogPost({
         }
         tags={post.tags ? [...post.tags] : undefined}
         heroImage={post.ogImage || undefined}
+        isBlog={true}
       >
         {rendered}
       </ContentPage>

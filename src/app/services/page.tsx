@@ -17,6 +17,7 @@ import {
   Link2,
   ArrowRight,
   Layers,
+  ShieldAlert,
 } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -35,6 +36,9 @@ const iconMap: Record<string, ReactNode> = {
   "internal-linking": <Link2 className="h-5 w-5" />,
   "keyword-research": <Search className="h-5 w-5" />,
   "how-much-does-seo-cost": <FileText className="h-5 w-5" />,
+  "b2b-content-marketing-services": <FileText className="h-5 w-5" />,
+  "generative-engine-optimisation": <Brain className="h-5 w-5" />,
+  "google-algorithm-update-recovery": <ShieldAlert className="h-5 w-5" />,
 };
 
 const locationSlugs = [

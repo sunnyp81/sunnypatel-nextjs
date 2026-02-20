@@ -1,0 +1,7 @@
+{
+  "style": "professional dark-mode split-screen comparison, OG social card format",
+  "scene": "A dark analytics dashboard split vertically into two halves. The left half shows a Bing logo area with a strong upward green chart line and the number 906. The right half shows a Google logo area with a flat red chart line near zero and the number 14. A large 107x label sits in the center where the two halves meet. Dark charcoal background (#0a0a0a). Clean data visualization with glowing chart lines. Minimal, analytical, high-contrast.",
+  "text_overlay": "107× Performance Gap",
+  "palette": ["#0a0a0a", "#5a922c", "#ef4444", "#ffffff", "#d79f1e"],
+  "mood": "analytical, discovery, contrast"
+}

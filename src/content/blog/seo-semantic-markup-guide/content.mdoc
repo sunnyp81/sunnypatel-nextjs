@@ -1,0 +1,252 @@
+Search engines do not read your website the way humans do. They parse HTML, extract structured data, and build entity relationships from machine-readable signals. Semantic markup is the bridge between what your content says and what search engines understand. This guide covers everything from semantic HTML elements to advanced Schema.org implementation.
+
+## What is Semantic Markup?
+
+Semantic markup refers to HTML elements and structured data annotations that communicate meaning — not just presentation — to machines. It operates at two levels.
+
+**Semantic HTML** uses elements like `<article>`, `<nav>`, `<header>`, `<main>`, `<section>`, and `<aside>` to define content structure. These elements tell browsers and search engines what role each content block plays. A `<nav>` element is navigation. An `<article>` element is self-contained content. A `<header>` element introduces a section. This replaces the meaningless `<div>` soup that tells machines nothing about content purpose.
+
+**Structured data (Schema.org)** adds explicit, machine-readable annotations describing entities, attributes, and relationships. When you mark up a business with LocalBusiness schema, you are telling Google: this is a business entity with this name, at this address, offering these services, with these opening hours. No ambiguity. No inference required.
+
+Both layers matter. Semantic HTML provides structural context. Schema markup provides entity-level detail. Together they create a comprehensive machine-readable representation of your content that search engines use for ranking, rich results, and AI-generated answers.
+
+## Why Semantic Markup Matters for SEO
+
+The impact of semantic markup on search visibility is measurable and significant.
+
+**Rich results eligibility.** Schema markup enables enhanced search result features: star ratings, FAQ accordions, how-to steps, product prices, event dates, and breadcrumb navigation. Google's own data shows that rich results receive 58% of clicks in search results where they appear. Pages without structured data are ineligible for these enhanced displays.
+
+**Improved crawl understanding.** Semantic HTML helps Googlebot parse page structure efficiently. Research from Searchmetrics found that pages using semantic HTML5 elements consistently outperform pages using non-semantic markup by 12-18% in organic visibility, controlling for content quality and backlinks.
+
+**Knowledge Graph inclusion.** Schema markup feeds Google's Knowledge Graph — the database of over 500 billion facts about 5 billion entities that powers Knowledge Panels, featured snippets, and AI-generated overviews. Proper Organisation, Person, and LocalBusiness markup accelerates Knowledge Graph recognition.
+
+**AI search citation.** As AI-generated answers expand across Google, Bing, and standalone AI search engines, structured data helps these systems identify authoritative sources. Pages with comprehensive schema markup are more likely to be cited in AI responses because the machine can verify entity attributes and content relationships programmatically.
+
+**Entity SEO foundation.** [Entity SEO](/blog/what-is-entity-seo/) relies on clear, consistent entity signals. Schema markup is the primary mechanism for communicating entity attributes to search engines. Without it, you are relying on natural language processing alone — which is powerful but imprecise compared to explicit structured data.
+
+## Semantic HTML Elements Every Page Should Use
+
+Before implementing Schema.org markup, ensure your HTML foundation is semantically correct.
+
+### Document Structure Elements
+
+**`<header>`** — Contains introductory content for its parent section. Typically includes the site logo, navigation, and primary heading on the page level. Use within `<article>` elements for article headers.
+
+**`<nav>`** — Wraps navigation links. Search engines use this to identify and interpret navigation structures. Use for primary navigation, footer links, and breadcrumbs — not for every group of links.
+
+**`<main>`** — Identifies the primary content of the page. Only one `<main>` element per page. Everything inside is the page's core content; everything outside is supplementary.
+
+**`<article>`** — Self-contained content that could stand alone: blog posts, news articles, product listings. Should include its own `<header>` and make sense independently of the surrounding page.
+
+**`<section>`** — Thematic grouping of content with a heading. Each `<section>` should have an `<h2>` or appropriate heading element. Use for distinct content blocks within a page.
+
+**`<aside>`** — Content tangentially related to the main content: sidebars, related articles, supplementary information. Search engines deprioritise `<aside>` content relative to `<main>` content.
+
+**`<footer>`** — Closing content for its parent section. Contains copyright, contact information, sitemap links, and legal pages at the document level.
+
+### Content Elements
+
+**`<figure>` and `<figcaption>`** — Associates images, charts, or code blocks with their descriptive captions. This semantic relationship helps search engines understand what visual content represents.
+
+**`<time>`** — Marks up dates and times in machine-readable format. Use the `datetime` attribute with ISO 8601 format: `<time datetime="2026-02-05">5 February 2026</time>`.
+
+**`<address>`** — Contains contact information for the nearest `<article>` or `<body>` ancestor. Use for author contact details or business addresses.
+
+**Heading hierarchy (`<h1>` through `<h6>`)** — Define content structure and topic hierarchy. One `<h1>` per page. `<h2>` elements for major sections. `<h3>` elements for subsections. Never skip levels. Search engines use heading hierarchy to understand content organisation and topic relationships.
+
+## Schema.org Markup Types for SEO
+
+Schema.org provides hundreds of types. These are the ones with the highest SEO impact.
+
+### Organisation Schema
+
+**Purpose:** Defines your business entity — name, logo, contact information, social profiles, and founding details.
+
+**SEO impact:** Feeds the Knowledge Graph with entity attributes. Strengthens brand entity recognition across all pages on your domain. Essential for [E-E-A-T signals](/blog/what-is-eeat-seo/) at the site level.
+
+**Key properties:** name, url, logo, contactPoint, sameAs (social profile URLs), foundingDate, description, address.
+
+**Implementation note:** Place Organisation schema on your homepage and About page. Reference it from other schema types using the `@id` property for entity consistency.
+
+### LocalBusiness Schema
+
+**Purpose:** Extends Organisation with location-specific data — address, opening hours, geographic coordinates, service areas.
+
+**SEO impact:** Critical for [local SEO](/services/local-seo/) visibility. Feeds Google Business Profile and local pack results. A BrightLocal study found that businesses with complete LocalBusiness schema receive 35% more clicks from local search results than those without.
+
+**Key properties:** name, address (PostalAddress), telephone, openingHoursSpecification, geo (GeoCoordinates), priceRange, areaServed, hasMap.
+
+**Implementation note:** Match your schema data exactly to your Google Business Profile information. Discrepancies between schema markup, GBP, and directory listings create entity ambiguity that weakens local rankings.
+
+### Article Schema
+
+**Purpose:** Identifies content as an article with author, publication date, publisher, and topic metadata.
+
+**SEO impact:** Enables article-specific rich results. Communicates authorship for E-E-A-T evaluation. Links content to author and publisher entities. Google News and Discover rely heavily on Article schema for content classification.
+
+**Key properties:** headline, author (Person), datePublished, dateModified, publisher (Organisation), image, articleBody, description.
+
+**Implementation note:** Always include author as a Person entity with name and url properties. This creates the author-content-publisher entity chain that strengthens E-E-A-T signals. The dateModified property tells Google when content was last updated — essential for freshness signals.
+
+### FAQ Schema
+
+**Purpose:** Marks up question-and-answer content for FAQ rich results.
+
+**SEO impact:** FAQ rich results expand your search listing with expandable Q&A accordions, increasing visibility and click-through rates. Research shows FAQ rich results increase CTR by 15-25% for pages where they appear. However, Google has reduced FAQ rich result displays since 2023 — they now primarily appear for government and health authority sites.
+
+**Key properties:** mainEntity (array of Question entities, each with name and acceptedAnswer).
+
+**Implementation note:** Only use FAQ schema for genuine FAQ content. Each question must appear verbatim on the page. Google penalises FAQ markup that does not match visible content.
+
+### Product Schema
+
+**Purpose:** Describes products with price, availability, reviews, and specifications.
+
+**SEO impact:** Enables product rich results showing price, availability, and star ratings directly in search results. Essential for e-commerce pages and product review content.
+
+**Key properties:** name, description, image, offers (price, availability, priceCurrency), aggregateRating, review, brand, sku.
+
+### Review Schema
+
+**Purpose:** Marks up individual reviews or aggregate ratings.
+
+**SEO impact:** Enables star rating displays in search results. Star ratings increase CTR by 17-35% according to multiple studies. Aggregate ratings show overall sentiment across multiple reviews.
+
+**Key properties:** reviewRating (Rating), author, itemReviewed, datePublished. For aggregate ratings: ratingValue, reviewCount, bestRating.
+
+**Implementation note:** Google's review schema policies require reviews to be about a named item — not self-serving reviews about your own business on your own site. Violation can result in manual action.
+
+### HowTo Schema
+
+**Purpose:** Marks up instructional content with discrete steps.
+
+**SEO impact:** Enables how-to rich results showing step-by-step instructions in search. Particularly effective for voice search and featured snippets.
+
+**Key properties:** name, step (array of HowToStep with name, text, and optional image), totalTime, estimatedCost.
+
+### BreadcrumbList Schema
+
+**Purpose:** Defines the breadcrumb navigation path for a page.
+
+**SEO impact:** Enables breadcrumb display in search results, replacing raw URLs with readable navigation paths. Improves click-through rates by showing site structure. Also helps search engines understand site hierarchy and page relationships.
+
+**Key properties:** itemListElement (array of ListItem with position, name, and item URL).
+
+**Implementation note:** Breadcrumb schema should match visible breadcrumb navigation on the page. Inconsistency between schema and displayed breadcrumbs violates Google's guidelines.
+
+## How to Implement Schema Markup
+
+### JSON-LD: The Recommended Format
+
+Google explicitly recommends JSON-LD (JavaScript Object Notation for Linked Data) as the preferred structured data format. It sits in a `<script>` tag in the page head, completely separated from your HTML content.
+
+**Advantages of JSON-LD:**
+
+- No modification to existing HTML required
+- Easier to maintain and update
+- Supports nested entity relationships cleanly
+- Google's preferred format for all schema types
+- Can be dynamically generated by CMS systems
+
+**Best practice:** Place JSON-LD in the `<head>` section. Use a single JSON-LD block with multiple entities connected by `@id` references rather than multiple disconnected blocks. This creates an entity graph rather than isolated data points.
+
+### Microdata and RDFa
+
+**Microdata** embeds schema properties directly in HTML attributes (`itemscope`, `itemtype`, `itemprop`). It works but creates tightly coupled markup that is harder to maintain.
+
+**RDFa** uses similar HTML attribute annotations. Less common than JSON-LD but still supported.
+
+**Recommendation:** Use JSON-LD unless your CMS requires inline markup. JSON-LD is cleaner, easier to debug, and explicitly recommended by Google.
+
+### Entity Linking with @id
+
+The most powerful aspect of JSON-LD is entity cross-referencing using `@id`. When your Organisation schema references your author Person schema, and your Article schema references both, you create a connected entity graph. Search engines can traverse these relationships to understand how entities relate.
+
+This entity linking is the technical foundation of [semantic SEO](/services/semantic-seo/) — making entity relationships explicit and machine-readable rather than relying on natural language interpretation.
+
+## Testing and Validating Schema Markup
+
+Implement schema correctly using these validation tools.
+
+**Google Rich Results Test** — Tests whether your page is eligible for rich results. Shows which structured data Google detects, any errors, and which rich result types are available. This is the primary validation tool. Use it before deploying any schema changes.
+
+**Schema.org Validator** — Validates structured data against the Schema.org specification. More comprehensive than Google's tool — it checks schema validity regardless of whether Google supports specific rich result types.
+
+**Google Search Console (Enhancements report)** — Shows structured data performance across your entire site over time. Identifies pages with errors, warnings, and valid items. Monitor this monthly to catch issues before they impact rich result displays.
+
+**Best practice workflow:**
+
+1. Draft schema markup based on page content
+2. Validate with Schema.org Validator for specification compliance
+3. Test with Google Rich Results Test for rich result eligibility
+4. Deploy to production
+5. Monitor Search Console Enhancements report for site-wide status
+
+## Common Schema Markup Mistakes
+
+These errors reduce or eliminate the SEO benefits of structured data.
+
+**Marking up invisible content.** Schema markup must describe content visible on the page. Marking up products, FAQs, or reviews that users cannot see violates Google's guidelines and risks manual action.
+
+**Incorrect nesting.** Schema types have specific parent-child relationships. A Review must reference an itemReviewed. An Offer must exist within a Product or Service. Incorrect nesting creates invalid markup that search engines ignore.
+
+**Missing required properties.** Each schema type has required and recommended properties. Missing required properties produces errors. Missing recommended properties reduces rich result eligibility. Check Google's structured data documentation for each type's requirements.
+
+**Inconsistent entity data.** If your Organisation schema says "Sunny Patel SEO" but your Google Business Profile says "Sunny Patel - SEO Consultant," you have created entity ambiguity. Consistency across schema markup, GBP, directory listings, and on-page content is essential.
+
+**Self-serving review markup.** Adding Review schema for testimonials about your own business on your own site violates Google's policies. Review markup is for reviews of third-party products, services, or businesses.
+
+**Stale data.** Product schema showing incorrect prices, outdated opening hours in LocalBusiness schema, or expired event dates damage trust signals. Implement automated schema generation from your CMS database to prevent staleness.
+
+## How Semantic Markup Connects to Semantic SEO Strategy
+
+Semantic markup is one component of a broader [semantic SEO](/services/semantic-seo/) approach. The full strategy encompasses:
+
+**Content-level semantics** — Writing content that addresses complete topic coverage, entity relationships, and query intent comprehensively. This is the domain of [topical authority](/services/topical-authority/) and [topical maps](/services/topical-maps/).
+
+**Structural semantics** — Using semantic HTML and heading hierarchy to communicate content organisation. This helps search engines parse topic structure and subtopic relationships.
+
+**Entity semantics** — Using Schema.org markup to define entities, attributes, and relationships explicitly. This feeds the Knowledge Graph and strengthens [E-E-A-T signals](/blog/what-is-eeat-seo/).
+
+**Linking semantics** — Using [internal links](/services/internal-linking/) with contextual anchor text to create navigable topic clusters. Internal linking architecture defines entity relationships at the site level.
+
+All four layers work together. Implementing schema markup without comprehensive content is marking up thin material. Writing comprehensive content without schema markup is relying on inference when explicit communication is available. The best results come from addressing all four layers systematically.
+
+## Schema Markup Prioritisation for Different Business Types
+
+Not every business needs every schema type. Here is how to prioritise based on your situation.
+
+**Local service businesses:** LocalBusiness (critical), Organisation, BreadcrumbList, Service, FAQ, Review. Local businesses in areas like [Berkshire](/services/seo-berkshire/) benefit particularly from comprehensive LocalBusiness schema with accurate areaServed properties.
+
+**E-commerce sites:** Product (critical), BreadcrumbList, Organisation, Review, FAQ, Offer.
+
+**Content publishers:** Article (critical), Organisation, Person (author), BreadcrumbList, FAQ, HowTo.
+
+**Professional services:** Organisation (critical), Person, LocalBusiness, Service, FAQ, BreadcrumbList, Review.
+
+**SaaS companies:** Organisation, Product (SoftwareApplication), FAQ, HowTo, BreadcrumbList, Review.
+
+## Measuring Schema Markup Impact
+
+Track these metrics to measure the impact of your structured data implementation.
+
+**Rich result impressions** — Google Search Console shows impressions for pages with active rich results. Compare before and after implementation.
+
+**Click-through rate changes** — Rich results typically increase CTR by 15-35%. Measure CTR for pages with schema against historical baselines.
+
+**Rich result types earned** — Monitor which rich result types Google displays for your pages. Not all valid markup produces rich results — Google makes editorial decisions about display.
+
+**Knowledge Panel appearance** — Track whether your entity appears in Knowledge Panels for brand queries. This indicates Knowledge Graph recognition.
+
+**Indexing improvements** — Semantic HTML often improves crawl efficiency. Monitor pages indexed in Search Console after implementing semantic HTML structure.
+
+A [technical SEO audit](/services/technical-seo-audit/) includes comprehensive schema markup analysis identifying missing, incorrect, and underperforming structured data across your site.
+
+## Related Articles
+
+- [What is Entity SEO?](/blog/what-is-entity-seo/) — how entity signals and schema markup work together to build Knowledge Graph presence
+- [What is E-E-A-T in SEO?](/blog/what-is-eeat-seo/) — the quality framework that structured data supports and reinforces
+- [Technical SEO vs On-Page SEO](/blog/technical-seo-vs-on-page-seo/) — where semantic markup fits in the broader technical SEO landscape
+- [How to Build Topical Authority](/blog/how-to-build-topical-authority/) — the content strategy that semantic markup makes machine-readable
+
+Need help implementing semantic markup across your site? My [semantic SEO service](/services/semantic-seo/) includes comprehensive structured data implementation alongside content strategy and entity optimisation. [Contact me](/contact/) for a free audit of your current schema markup and rich result opportunities.

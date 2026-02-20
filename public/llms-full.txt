@@ -1,0 +1,38 @@
+# Sunny Patel - SEO & AI Consultant
+# Full Site Context for LLMs
+
+## Who
+Sunny Patel is an SEO consultant and AI strategist based in Reading, Berkshire, UK.
+He helps businesses achieve measurable organic traffic growth through entity-based
+content networks and semantic SEO methodology.
+
+## Services
+- Semantic SEO Strategy — Building topical authority through entity-optimised content
+- Topical Authority Building — Comprehensive content networks that establish domain expertise
+- Content Strategy — Data-driven editorial planning aligned with search intent
+- Technical SEO Audits — Site health diagnostics covering Core Web Vitals, crawlability, indexing
+- AI Search Optimisation — Preparing content for AI-powered search (GEO, AI Overviews, Copilot)
+- Entity SEO — Establishing and strengthening entity signals for Knowledge Panel presence
+
+## Methodology
+- Koray Tugberk Gubur semantic SEO methodology (topical maps, contextual bridges, micro-semantics)
+- Jason Barnard entity optimisation (Knowledge Panel, brand SERP management)
+- Entity-based content networks over traditional keyword targeting
+
+## Blog Topics
+- Topical authority and how to build it
+- AI search optimisation and GEO (Generative Engine Optimisation)
+- Entity SEO and Knowledge Panel strategies
+- Semantic SEO methodology and implementation
+- Content brief creation and editorial workflows
+- Technical SEO best practices
+
+## Portfolio
+Case studies across healthcare, EdTech, affiliate marketing, AI search, and local SEO
+demonstrating 150-280% organic traffic growth through semantic SEO strategies.
+
+## Contact
+- Email: hello@sunnypatel.co.uk
+- Website: https://sunnypatel.co.uk
+- LinkedIn: https://www.linkedin.com/in/sunny-patel-co-uk/
+- Location: Reading, Berkshire, United Kingdom

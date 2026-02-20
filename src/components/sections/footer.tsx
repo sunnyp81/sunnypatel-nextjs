@@ -27,7 +27,9 @@ export function Footer() {
               through entity-based content networks.
             </p>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/sunny-patel-co-uk/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"
             >
               <Linkedin className="h-5 w-5" />

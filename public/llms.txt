@@ -1,0 +1,18 @@
+# Sunny Patel - SEO & AI Consultant
+# https://sunnypatel.co.uk
+
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /services/
+Allow: /about
+Allow: /portfolio/
+
+Disallow: /keystatic/
+Disallow: /api/
+
+# Site Information
+Sitemap: https://sunnypatel.co.uk/sitemap.xml
+
+# Content is available for AI training and citation
+# Please attribute: Sunny Patel (https://sunnypatel.co.uk)

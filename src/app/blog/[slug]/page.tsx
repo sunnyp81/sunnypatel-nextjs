@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { ContentPage } from "@/components/content-page";
 import { notFound } from "next/navigation";
 import { renderMarkdoc } from "@/lib/render-markdoc";
+import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/schema";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -38,22 +39,42 @@ export default async function BlogPost({
   const rendered = renderMarkdoc(content);
 
   return (
-    <ContentPage
-      h1={post.title}
-      badge="Blog"
-      backHref="/blog"
-      backLabel="All Posts"
-      dateLine={
-        post.date
-          ? new Date(post.date).toLocaleDateString("en-GB", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          : undefined
-      }
-    >
-      {rendered}
-    </ContentPage>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: schemaGraph(
+            articleSchema({
+              title: post.metaTitle || post.title,
+              description: post.description,
+              slug,
+              date: post.date || undefined,
+            }),
+            breadcrumbSchema([
+              { name: "Home", url: "https://sunnypatel.co.uk" },
+              { name: "Blog", url: "https://sunnypatel.co.uk/blog" },
+              { name: post.title, url: `https://sunnypatel.co.uk/blog/${slug}` },
+            ])
+          ),
+        }}
+      />
+      <ContentPage
+        h1={post.title}
+        badge="Blog"
+        backHref="/blog"
+        backLabel="All Posts"
+        dateLine={
+          post.date
+            ? new Date(post.date).toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            : undefined
+        }
+      >
+        {rendered}
+      </ContentPage>
+    </>
   );
 }

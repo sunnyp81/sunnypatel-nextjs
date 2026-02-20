@@ -7,6 +7,8 @@ import { AboutTimeline } from "@/components/about/about-timeline";
 import { AboutValues } from "@/components/about/about-values";
 import { AboutFaq } from "@/components/about/about-faq";
 import { Cta } from "@/components/sections/cta";
+import { faqSchema, schemaGraph } from "@/lib/schema";
+import { faqs } from "@/lib/faq-data";
 
 export function generateMetadata() {
   return buildMetadata({
@@ -20,6 +22,12 @@ export function generateMetadata() {
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: schemaGraph(faqSchema(faqs)),
+        }}
+      />
       <Navbar />
       <AboutHero />
       <AboutStory />

@@ -6,6 +6,7 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { Cta } from "@/components/sections/cta";
 import { PortfolioDetail } from "@/components/portfolio/portfolio-detail";
+import { portfolioSchema, breadcrumbSchema, schemaGraph } from "@/lib/schema";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.portfolio.list();
@@ -44,6 +45,23 @@ export default async function PortfolioPage({
 
   return (
     <main className="relative min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: schemaGraph(
+            portfolioSchema({
+              title,
+              description,
+              slug,
+            }),
+            breadcrumbSchema([
+              { name: "Home", url: "https://sunnypatel.co.uk" },
+              { name: "Portfolio", url: "https://sunnypatel.co.uk/portfolio" },
+              { name: title, url: `https://sunnypatel.co.uk/portfolio/${slug}` },
+            ])
+          ),
+        }}
+      />
       <Navbar />
       <PortfolioDetail
         project={{ title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole }}

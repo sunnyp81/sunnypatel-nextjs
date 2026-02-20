@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+import {
+  personSchema,
+  organizationSchema,
+  localBusinessSchema,
+  schemaGraph,
+} from "@/lib/schema";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
@@ -30,6 +36,16 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: schemaGraph(
+              personSchema(),
+              organizationSchema(),
+              localBusinessSchema()
+            ),
+          }}
+        />
         {children}
       </body>
     </html>

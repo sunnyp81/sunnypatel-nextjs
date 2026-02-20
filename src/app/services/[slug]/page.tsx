@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { ContentPage } from "@/components/content-page";
 import { notFound } from "next/navigation";
 import { renderMarkdoc } from "@/lib/render-markdoc";
+import { serviceSchema, breadcrumbSchema, schemaGraph } from "@/lib/schema";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.services.list();
@@ -38,15 +39,34 @@ export default async function ServicePage({
   const rendered = renderMarkdoc(content);
 
   return (
-    <ContentPage
-      h1={service.h1 || service.title}
-      subtitle={service.subtitle}
-      badge="Services"
-      backHref="/services"
-      backLabel="All Services"
-      showCta={true}
-    >
-      {rendered}
-    </ContentPage>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: schemaGraph(
+            serviceSchema({
+              name: service.title,
+              description: service.description,
+              slug,
+            }),
+            breadcrumbSchema([
+              { name: "Home", url: "https://sunnypatel.co.uk" },
+              { name: "Services", url: "https://sunnypatel.co.uk/services" },
+              { name: service.title, url: `https://sunnypatel.co.uk/services/${slug}` },
+            ])
+          ),
+        }}
+      />
+      <ContentPage
+        h1={service.h1 || service.title}
+        subtitle={service.subtitle}
+        badge="Services"
+        backHref="/services"
+        backLabel="All Services"
+        showCta={true}
+      >
+        {rendered}
+      </ContentPage>
+    </>
   );
 }

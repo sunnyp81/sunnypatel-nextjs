@@ -38,9 +38,15 @@ export default async function PortfolioPage({
   const rendered = renderMarkdoc(content);
 
   return (
-    <ContentPage h1={project.title}>
+    <ContentPage
+      h1={project.title}
+      badge="Case Study"
+      backHref="/portfolio"
+      backLabel="All Work"
+      showCta={true}
+    >
       {project.tags && project.tags.length > 0 && (
-        <div className="mb-8 flex flex-wrap gap-2">
+        <div className="not-prose mb-8 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}

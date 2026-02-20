@@ -38,16 +38,21 @@ export default async function BlogPost({
   const rendered = renderMarkdoc(content);
 
   return (
-    <ContentPage h1={post.title}>
-      {post.date && (
-        <p className="mb-8 text-sm text-muted-foreground">
-          {new Date(post.date).toLocaleDateString("en-GB", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </p>
-      )}
+    <ContentPage
+      h1={post.title}
+      badge="Blog"
+      backHref="/blog"
+      backLabel="All Posts"
+      dateLine={
+        post.date
+          ? new Date(post.date).toLocaleDateString("en-GB", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          : undefined
+      }
+    >
       {rendered}
     </ContentPage>
   );

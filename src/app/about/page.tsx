@@ -27,7 +27,7 @@ export default async function AboutPage() {
   const rendered = renderMarkdoc(content);
 
   return (
-    <ContentPage h1={page.h1 || "About"} subtitle={page.subtitle}>
+    <ContentPage h1={page.h1 || "About"} subtitle={page.subtitle} badge="About">
       {rendered}
     </ContentPage>
   );

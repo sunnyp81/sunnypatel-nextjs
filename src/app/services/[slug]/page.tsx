@@ -38,7 +38,14 @@ export default async function ServicePage({
   const rendered = renderMarkdoc(content);
 
   return (
-    <ContentPage h1={service.h1 || service.title} subtitle={service.subtitle}>
+    <ContentPage
+      h1={service.h1 || service.title}
+      subtitle={service.subtitle}
+      badge="Services"
+      backHref="/services"
+      backLabel="All Services"
+      showCta={true}
+    >
       {rendered}
     </ContentPage>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const links = [
   { href: "/services", label: "Services" },
@@ -37,12 +38,22 @@ export function Navbar() {
           ))}
         </div>
 
-        <a
-          href="/contact"
-          className="hidden rounded-xl border border-[#5B8AEF]/30 bg-[#5B8AEF]/10 px-5 py-2.5 text-sm font-semibold text-[#5B8AEF] shadow-[0_0_14px_rgba(91,138,239,0.18)] transition-all duration-200 hover:scale-[1.05] hover:border-[#5B8AEF]/60 hover:bg-[#5B8AEF]/20 hover:shadow-[0_0_28px_rgba(91,138,239,0.40)] active:scale-[0.97] md:inline-flex"
-        >
-          Get a Quote
-        </a>
+        <div className="relative hidden rounded-xl border border-[#5B8AEF]/25 bg-[#5B8AEF]/8 transition-transform duration-200 hover:scale-[1.05] active:scale-[0.97] md:inline-flex">
+          <GlowingEffect
+            spread={35}
+            glow={true}
+            disabled={false}
+            proximity={80}
+            inactiveZone={0.01}
+            borderWidth={1.5}
+          />
+          <a
+            href="/contact"
+            className="relative px-5 py-2.5 text-sm font-semibold text-[#5B8AEF] transition-colors duration-200 hover:text-[#7aa6f5]"
+          >
+            Get a Quote
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}

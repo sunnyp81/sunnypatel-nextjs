@@ -8,7 +8,7 @@ const localBaseDirectory = path.resolve(process.cwd());
 
 const handler = makeGenericAPIRouteHandler(
   { config: keystaticConfig },
-  { localBaseDirectory }
+  { localBaseDirectory } as Record<string, unknown>
 );
 
 async function wrappedHandler(request: Request) {
@@ -18,7 +18,7 @@ async function wrappedHandler(request: Request) {
     request = new Request(url.toString(), request);
   }
   const { body, headers, status } = await handler(request);
-  return new Response(body, { status, headers });
+  return new Response(body as BodyInit | null, { status, headers });
 }
 
 export const GET = wrappedHandler;

@@ -5,6 +5,8 @@ import {
   personSchema,
   organizationSchema,
   localBusinessSchema,
+  webSiteSchema,
+  topicEntitySchemas,
   schemaGraph,
 } from "@/lib/schema";
 
@@ -42,7 +44,9 @@ export default function RootLayout({
             __html: schemaGraph(
               personSchema(),
               organizationSchema(),
-              localBusinessSchema()
+              localBusinessSchema(),
+              webSiteSchema(),
+              ...topicEntitySchemas()
             ),
           }}
         />

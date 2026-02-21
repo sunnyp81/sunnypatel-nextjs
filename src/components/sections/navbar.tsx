@@ -26,12 +26,12 @@ export function Navbar() {
           Sunny<span className="text-[#5B8AEF]">Patel</span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              className="rounded-lg border border-transparent px-3 py-1.5 text-sm text-muted-foreground transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.04] hover:text-foreground hover:shadow-[0_0_10px_rgba(91,138,239,0.12)]"
             >
               {link.label}
             </a>

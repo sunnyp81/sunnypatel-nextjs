@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import {
   personSchema,
@@ -51,6 +52,16 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SJRTDNRZG6"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-config" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SJRTDNRZG6');
+        `}</Script>
       </body>
     </html>
   );

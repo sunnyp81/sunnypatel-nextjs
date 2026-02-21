@@ -69,20 +69,16 @@ interface GradientMenuProps {
 }
 
 export default function GradientMenu({ size = "md" }: GradientMenuProps) {
-  // Desktop (md): tiny ghost pills — barely visible at rest, vivid on hover
-  // Mobile (sm): slightly larger for touch targets
   const pillBase =
     size === "sm"
-      ? "w-[42px] h-[42px] hover:w-[120px]"
-      : "w-[32px] h-[32px] hover:w-[100px]";
-  const gap = size === "sm" ? "gap-2" : "gap-1";
-  const iconSize = size === "sm" ? "text-lg" : "text-[15px]";
-  const labelSize = "text-[10px]";
-  // Desktop icons are very muted; mobile slightly more visible
-  const iconColor = size === "sm" ? "text-white/50" : "text-white/40";
+      ? "w-[46px] h-[46px] hover:w-[130px]"
+      : "w-[56px] h-[56px] hover:w-[160px]";
+  const gap = size === "sm" ? "gap-2" : "gap-3";
+  const iconSize = size === "sm" ? "text-xl" : "text-2xl";
+  const labelSize = size === "sm" ? "text-[11px]" : "text-sm";
 
   return (
-    <ul className={`flex items-center ${gap}`}>
+    <ul className={`flex ${gap}`}>
       {menuItems.map(({ title, icon, href, gradientFrom, gradientTo }, idx) => (
         <li
           key={idx}
@@ -92,22 +88,28 @@ export default function GradientMenu({ size = "md" }: GradientMenuProps) {
               "--gradient-to": gradientTo,
             } as React.CSSProperties
           }
-          className={`relative ${pillBase} bg-white/[0.06] border border-white/[0.10] rounded-full flex items-center justify-center transition-all duration-500 hover:border-white/[0.04] group cursor-pointer`}
+          className={`relative ${pillBase} bg-white/[0.06] border border-white/10 rounded-full flex items-center justify-center transition-all duration-500 hover:border-transparent hover:shadow-none group cursor-pointer`}
         >
-          {/* Gradient fill on hover — muted */}
-          <span className="absolute inset-0 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] opacity-0 transition-opacity duration-500 group-hover:opacity-30" />
+          {/* Gradient fill on hover */}
+          <span className="absolute inset-0 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-          {/* Soft glow — very restrained */}
-          <span className="absolute top-[6px] inset-x-0 h-full rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] blur-[10px] opacity-0 -z-10 transition-opacity duration-500 group-hover:opacity-20" />
+          {/* Inner glow — tight, bright core */}
+          <span className="absolute inset-0 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] blur-[6px] opacity-0 transition-opacity duration-500 group-hover:opacity-60" />
 
-          {/* Icon — dims slightly on hover, stays visible */}
-          <span className={`relative z-10 transition-all duration-400 group-hover:opacity-0 group-hover:scale-75 ${iconColor}`}>
-            <span className={iconSize}>{icon}</span>
+          {/* Outer glow bloom — wide, diffused */}
+          <span className="absolute -inset-1 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] blur-[18px] opacity-0 -z-10 transition-opacity duration-500 group-hover:opacity-70" />
+
+          {/* Far glow — very wide, atmospheric */}
+          <span className="absolute -inset-2 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] blur-[32px] opacity-0 -z-10 transition-opacity duration-500 group-hover:opacity-40" />
+
+          {/* Icon — fades/scales out on hover */}
+          <span className="relative z-10 transition-all duration-300 group-hover:scale-0 group-hover:opacity-0">
+            <span className={`${iconSize} text-muted-foreground`}>{icon}</span>
           </span>
 
-          {/* Label — fades in softly */}
+          {/* Label — scales in on hover */}
           <span
-            className={`absolute z-10 text-white/80 uppercase tracking-widest font-medium ${labelSize} opacity-0 scale-95 transition-all duration-300 delay-75 group-hover:opacity-100 group-hover:scale-100 whitespace-nowrap pointer-events-none`}
+            className={`absolute z-10 text-white uppercase tracking-wide font-medium ${labelSize} scale-0 opacity-0 transition-all duration-300 delay-100 group-hover:scale-100 group-hover:opacity-100 whitespace-nowrap pointer-events-none`}
           >
             {title}
           </span>

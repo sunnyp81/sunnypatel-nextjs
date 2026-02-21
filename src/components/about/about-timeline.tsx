@@ -71,7 +71,7 @@ export function AboutTimeline() {
             {entries.map((entry, i) => (
               <motion.div
                 key={entry.role + entry.company}
-                className={`relative flex gap-6 md:w-[calc(50%-2rem)] ${
+                className={`relative flex gap-6 pl-10 md:pl-0 md:w-[calc(50%-2rem)] ${
                   i % 2 === 0 ? "md:ml-auto md:pl-10" : "md:mr-auto md:pr-10 md:flex-row-reverse md:text-right"
                 }`}
                 initial={{ opacity: 0, x: i % 2 === 0 ? 24 : -24 }}
@@ -81,9 +81,9 @@ export function AboutTimeline() {
               >
                 {/* Dot on the line */}
                 <div
-                  className={`absolute top-5 h-3 w-3 rounded-full border-2 bg-background md:top-5 ${
+                  className={`absolute top-5 h-3 w-3 rounded-full border-2 bg-background ${
                     i % 2 === 0
-                      ? "left-[-26px] md:left-[-6px]"
+                      ? "left-[13px] md:left-[-6px]"
                       : "left-[13px] md:right-[-6px] md:left-auto"
                   }`}
                   style={{ borderColor: entry.color }}

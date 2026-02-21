@@ -163,7 +163,7 @@ function HeroGeometric({
                     <motion.div
                         custom={1}
                         variants={fadeUpVariants}
-                        initial="hidden"
+                        initial={{ opacity: 1, y: 30 }}
                         animate="visible"
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">

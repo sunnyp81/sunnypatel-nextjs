@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420">
+  <defs>
+    <filter id="barGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="glowBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7BA4FF"/>
+      <stop offset="100%" stop-color="#5B8AEF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="16" ry="16" fill="#0a0a0f"/>
+
+  <!-- Title -->
+  <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Content Length vs Performance</text>
+  <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: Orbit Media, 2025</text>
+
+  <!-- Y-axis labels and grid lines -->
+  <!-- 0% -->
+  <text x="60" y="368" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="end" opacity="0.6">0%</text>
+  <line x1="70" y1="365" x2="680" y2="365" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- 10% -->
+  <text x="60" y="308" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="end" opacity="0.6">10%</text>
+  <line x1="70" y1="305" x2="680" y2="305" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- 20% -->
+  <text x="60" y="248" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="end" opacity="0.6">20%</text>
+  <line x1="70" y1="245" x2="680" y2="245" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- 30% -->
+  <text x="60" y="188" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="end" opacity="0.6">30%</text>
+  <line x1="70" y1="185" x2="680" y2="185" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- 40% -->
+  <text x="60" y="128" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="end" opacity="0.6">40%</text>
+  <line x1="70" y1="125" x2="680" y2="125" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Industry Average dashed line at 21% (y = 365 - (21/40)*240 = 365 - 126 = 239) -->
+  <line x1="70" y1="239" x2="680" y2="239" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="6,4" opacity="0.35"/>
+  <text x="682" y="235" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5" text-anchor="end">Industry Avg</text>
+
+  <!-- Bar 1: Under 500 words — 14% (height = (14/40)*240 = 84) -->
+  <rect x="115" y="281" width="90" height="84" rx="4" ry="4" fill="#4c7894"/>
+  <text x="160" y="273" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">14%</text>
+  <text x="160" y="388" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle" opacity="0.7">Under 500</text>
+  <text x="160" y="402" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" text-anchor="middle" opacity="0.5">words</text>
+
+  <!-- Bar 2: 500-1,000 words — 18% (height = (18/40)*240 = 108) -->
+  <rect x="255" y="257" width="90" height="108" rx="4" ry="4" fill="#4c7894"/>
+  <text x="300" y="249" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">18%</text>
+  <text x="300" y="388" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle" opacity="0.7">500 - 1,000</text>
+  <text x="300" y="402" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" text-anchor="middle" opacity="0.5">words</text>
+
+  <!-- Bar 3: 1,000-2,000 words — 21% (height = (21/40)*240 = 126) -->
+  <rect x="395" y="239" width="90" height="126" rx="4" ry="4" fill="#5B8AEF"/>
+  <text x="440" y="231" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">21%</text>
+  <text x="440" y="388" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle" opacity="0.7">1,000 - 2,000</text>
+  <text x="440" y="402" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" text-anchor="middle" opacity="0.5">words</text>
+
+  <!-- Bar 4: 2,000+ words — 39% (height = (39/40)*240 = 234) — HERO BAR with glow -->
+  <rect x="525" y="131" width="110" height="234" rx="4" ry="4" fill="#5B8AEF" opacity="0.15" filter="url(#barGlow)"/>
+  <rect x="530" y="131" width="100" height="234" rx="4" ry="4" fill="url(#glowBar)"/>
+  <text x="580" y="123" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">39%</text>
+  <text x="580" y="388" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" text-anchor="middle" opacity="0.7">2,000+</text>
+  <text x="580" y="402" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" text-anchor="middle" opacity="0.5">words</text>
+
+  <!-- Annotation arrow pointing to 2,000+ bar -->
+  <!-- Curved annotation line -->
+  <path d="M 635,108 C 660,108 670,140 650,155" stroke="#e0e0e0" stroke-width="1" fill="none" opacity="0.5"/>
+  <polygon points="648,155 654,155 651,162" fill="#e0e0e0" opacity="0.5"/>
+  <text x="672" y="100" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#d79f1e" text-anchor="end" opacity="0.8">Only 9% of</text>
+  <text x="672" y="113" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#d79f1e" text-anchor="end" opacity="0.8">bloggers write</text>
+  <text x="672" y="126" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#d79f1e" text-anchor="end" opacity="0.8">this length</text>
+
+  <!-- Y-axis title -->
+  <text x="18" y="250" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" text-anchor="middle" opacity="0.5" transform="rotate(-90,18,250)">% reporting strong results</text>
+
+  <!-- Branding -->
+  <text x="684" y="404" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5B8AEF" text-anchor="end" opacity="0.35">sunnypatel.co.uk</text>
+</svg>

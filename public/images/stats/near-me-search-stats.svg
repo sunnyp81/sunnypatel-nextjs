@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420">
+  <defs>
+    <filter id="cardShadow2">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="16" ry="16" fill="#0a0a0f"/>
+
+  <!-- Title -->
+  <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Near Me Search Statistics</text>
+  <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: BrightLocal / Backlinko, 2025</text>
+
+  <!-- Card 1: Top-left (Blue border) — 1.5B monthly searches -->
+  <rect x="36" y="80" width="316" height="140" rx="10" ry="10" fill="#111118" filter="url(#cardShadow2)"/>
+  <rect x="36" y="80" width="316" height="3" rx="2" ry="2" fill="#5B8AEF"/>
+  <text x="56" y="130" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="bold" fill="#5B8AEF">1.5B</text>
+  <text x="56" y="156" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0">monthly searches</text>
+  <text x="56" y="178" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" opacity="0.5">50 million per day</text>
+
+  <!-- Card 2: Top-right (Gold border) — 76% store visit -->
+  <rect x="368" y="80" width="316" height="140" rx="10" ry="10" fill="#111118" filter="url(#cardShadow2)"/>
+  <rect x="368" y="80" width="316" height="3" rx="2" ry="2" fill="#d79f1e"/>
+  <text x="388" y="130" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="bold" fill="#d79f1e">76%</text>
+  <text x="388" y="156" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0">lead to store visit</text>
+  <text x="388" y="178" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" opacity="0.5">within 24 hours</text>
+
+  <!-- Card 3: Bottom-left (Green border) — 136% growth -->
+  <rect x="36" y="240" width="316" height="140" rx="10" ry="10" fill="#111118" filter="url(#cardShadow2)"/>
+  <rect x="36" y="240" width="316" height="3" rx="2" ry="2" fill="#5a922c"/>
+  <text x="56" y="290" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="bold" fill="#5a922c">136%</text>
+  <text x="56" y="316" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0">growth since 2018</text>
+  <text x="56" y="338" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" opacity="0.5">still accelerating</text>
+
+  <!-- Card 4: Bottom-right (Teal border) — 28% same-day purchase -->
+  <rect x="368" y="240" width="316" height="140" rx="10" ry="10" fill="#111118" filter="url(#cardShadow2)"/>
+  <rect x="368" y="240" width="316" height="3" rx="2" ry="2" fill="#4c7894"/>
+  <text x="388" y="290" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="bold" fill="#4c7894">28%</text>
+  <text x="388" y="316" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0">same-day purchase</text>
+  <text x="388" y="338" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" opacity="0.5">from local search</text>
+
+  <!-- Branding -->
+  <text x="684" y="404" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5B8AEF" text-anchor="end" opacity="0.35">sunnypatel.co.uk</text>
+</svg>

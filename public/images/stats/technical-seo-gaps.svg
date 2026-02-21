@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420">
+  <defs>
+    <clipPath id="bar1Clip">
+      <rect x="200" y="98" width="440" height="28" rx="6" ry="6"/>
+    </clipPath>
+    <clipPath id="bar2Clip">
+      <rect x="200" y="168" width="440" height="28" rx="6" ry="6"/>
+    </clipPath>
+    <clipPath id="bar3Clip">
+      <rect x="200" y="238" width="440" height="28" rx="6" ry="6"/>
+    </clipPath>
+    <clipPath id="bar4Clip">
+      <rect x="200" y="308" width="440" height="28" rx="6" ry="6"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="16" ry="16" fill="#0a0a0f"/>
+
+  <!-- Title -->
+  <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Technical SEO: The Opportunity Gap</text>
+  <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Sources: HTTP Archive, Google, Sixth City Marketing, 2025</text>
+
+  <!-- ROW 1: Core Web Vitals Pass Rate — 49.7% -->
+  <text x="36" y="100" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0">Core Web Vitals</text>
+  <text x="36" y="116" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Pass Rate</text>
+
+  <!-- Track -->
+  <rect x="200" y="98" width="440" height="28" rx="6" ry="6" fill="#1a1a24"/>
+  <!-- Filled bar 49.7% of 440 = 218.68 -->
+  <rect x="200" y="98" width="219" height="28" rx="6" ry="6" fill="#e05252" clip-path="url(#bar1Clip)"/>
+  <!-- Percentage label -->
+  <text x="425" y="117" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">49.7%</text>
+  <!-- Description -->
+  <text x="200" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.45">49.7% of mobile sites pass CWV</text>
+  <!-- Target line at 100% -->
+  <line x1="639" y1="95" x2="639" y2="129" stroke="#ffffff" stroke-width="1" stroke-dasharray="3,2" opacity="0.25"/>
+  <text x="639" y="90" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" text-anchor="middle" opacity="0.3">100%</text>
+
+  <!-- ROW 2: Schema Markup Adoption — 30% -->
+  <text x="36" y="170" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0">Schema Markup</text>
+  <text x="36" y="186" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Adoption</text>
+
+  <!-- Track -->
+  <rect x="200" y="168" width="440" height="28" rx="6" ry="6" fill="#1a1a24"/>
+  <!-- Filled bar 30% of 440 = 132 -->
+  <rect x="200" y="168" width="132" height="28" rx="6" ry="6" fill="#d79f1e" clip-path="url(#bar2Clip)"/>
+  <!-- Percentage label -->
+  <text x="338" y="187" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">30%</text>
+  <!-- Description -->
+  <text x="200" y="212" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.45">Only 30% of pages use schema</text>
+
+  <!-- ROW 3: HTTPS Adoption — 93% -->
+  <text x="36" y="240" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0">HTTPS Adoption</text>
+  <text x="36" y="256" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Web Traffic</text>
+
+  <!-- Track -->
+  <rect x="200" y="238" width="440" height="28" rx="6" ry="6" fill="#1a1a24"/>
+  <!-- Filled bar 93% of 440 = 409.2 -->
+  <rect x="200" y="238" width="409" height="28" rx="6" ry="6" fill="#5a922c" clip-path="url(#bar3Clip)"/>
+  <!-- Percentage label -->
+  <text x="615" y="257" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">93%</text>
+  <!-- Description -->
+  <text x="200" y="282" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.45">93% of web traffic encrypted</text>
+
+  <!-- ROW 4: Speed Test Pass — 47% -->
+  <text x="36" y="310" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0">Speed Test Pass</text>
+  <text x="36" y="326" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Load under 3s</text>
+
+  <!-- Track -->
+  <rect x="200" y="308" width="440" height="28" rx="6" ry="6" fill="#1a1a24"/>
+  <!-- Filled bar 47% of 440 = 206.8 -->
+  <rect x="200" y="308" width="207" height="28" rx="6" ry="6" fill="#5B8AEF" clip-path="url(#bar4Clip)"/>
+  <!-- Percentage label -->
+  <text x="413" y="327" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">47%</text>
+  <!-- Description -->
+  <text x="200" y="352" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.45">53% of users abandon slow sites</text>
+
+  <!-- Callout box: Schema markup CTR boost -->
+  <rect x="36" y="372" width="340" height="34" rx="8" ry="8" fill="#d79f1e" opacity="0.08" stroke="#d79f1e" stroke-width="1" opacity="0.3"/>
+  <text x="54" y="394" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#d79f1e">Schema markup = +30% CTR increase</text>
+
+  <!-- Branding -->
+  <text x="684" y="404" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5B8AEF" text-anchor="end" opacity="0.35">sunnypatel.co.uk</text>
+</svg>

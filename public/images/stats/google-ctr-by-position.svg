@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420">
+  <defs>
+    <clipPath id="chart-clip-ctr">
+      <rect x="0" y="0" width="720" height="420" rx="16" ry="16"/>
+    </clipPath>
+    <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5B8AEF"/>
+      <stop offset="100%" stop-color="#4a75d4"/>
+    </linearGradient>
+    <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5580e0"/>
+      <stop offset="100%" stop-color="#4a6dc0"/>
+    </linearGradient>
+    <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5076d1"/>
+      <stop offset="100%" stop-color="#4666ad"/>
+    </linearGradient>
+    <linearGradient id="barGrad4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4c7894"/>
+      <stop offset="100%" stop-color="#3f6a84"/>
+    </linearGradient>
+    <linearGradient id="barGrad5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a7590"/>
+      <stop offset="100%" stop-color="#3c6580"/>
+    </linearGradient>
+    <linearGradient id="barGrad6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#48728c"/>
+      <stop offset="100%" stop-color="#3a607a"/>
+    </linearGradient>
+    <linearGradient id="barGrad7" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#466e86"/>
+      <stop offset="100%" stop-color="#385c72"/>
+    </linearGradient>
+    <linearGradient id="barGrad8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#446b82"/>
+      <stop offset="100%" stop-color="#36586c"/>
+    </linearGradient>
+    <linearGradient id="barGrad9" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#42687e"/>
+      <stop offset="100%" stop-color="#345466"/>
+    </linearGradient>
+    <linearGradient id="barGrad10" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#40657a"/>
+      <stop offset="100%" stop-color="#325060"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#chart-clip-ctr)">
+    <!-- Background -->
+    <rect width="720" height="420" fill="#0a0a0f" rx="16" ry="16"/>
+
+    <!-- Title -->
+    <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Google Organic CTR by Position</text>
+    <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: Backlinko, 2025</text>
+
+    <!-- Chart area: x=60..690, y=90..360, baseline y=360 -->
+    <!-- Max CTR = 27.6%, chart height = 270px, scale = 270/28 = 9.64 px per % -->
+    <!-- Bar width = 48, gap between bars = 15, total = 10*48 + 9*15 = 615, start x=68 -->
+
+    <!-- Horizontal grid lines -->
+    <line x1="55" y1="360" x2="695" y2="360" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <line x1="55" y1="312" x2="695" y2="312" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <text x="48" y="316" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4" text-anchor="end">5%</text>
+    <line x1="55" y1="264" x2="695" y2="264" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <text x="48" y="268" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4" text-anchor="end">10%</text>
+    <line x1="55" y1="216" x2="695" y2="216" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <text x="48" y="220" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4" text-anchor="end">15%</text>
+    <line x1="55" y1="168" x2="695" y2="168" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <text x="48" y="172" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4" text-anchor="end">20%</text>
+    <line x1="55" y1="120" x2="695" y2="120" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <text x="48" y="124" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4" text-anchor="end">25%</text>
+
+    <!-- Bars: y = 360 - (value * 9.64) -->
+    <!-- #1: 27.6% → h=266, y=94 -->
+    <rect x="68" y="94" width="48" height="266" rx="4" ry="4" fill="url(#barGrad1)"/>
+    <text x="92" y="86" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">27.6%</text>
+    <text x="92" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#1</text>
+
+    <!-- #2: 15.8% → h=152, y=208 -->
+    <rect x="131" y="208" width="48" height="152" rx="4" ry="4" fill="url(#barGrad2)"/>
+    <text x="155" y="200" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">15.8%</text>
+    <text x="155" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#2</text>
+
+    <!-- #3: 11.0% → h=106, y=254 -->
+    <rect x="194" y="254" width="48" height="106" rx="4" ry="4" fill="url(#barGrad3)"/>
+    <text x="218" y="246" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">11.0%</text>
+    <text x="218" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#3</text>
+
+    <!-- #4: 8.4% → h=81, y=279 -->
+    <rect x="257" y="279" width="48" height="81" rx="4" ry="4" fill="url(#barGrad4)"/>
+    <text x="281" y="271" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">8.4%</text>
+    <text x="281" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#4</text>
+
+    <!-- #5: 6.3% → h=61, y=299 -->
+    <rect x="320" y="299" width="48" height="61" rx="4" ry="4" fill="url(#barGrad5)"/>
+    <text x="344" y="291" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">6.3%</text>
+    <text x="344" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#5</text>
+
+    <!-- #6: 4.9% → h=47, y=313 -->
+    <rect x="383" y="313" width="48" height="47" rx="4" ry="4" fill="url(#barGrad6)"/>
+    <text x="407" y="305" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4.9%</text>
+    <text x="407" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#6</text>
+
+    <!-- #7: 3.9% → h=38, y=322 -->
+    <rect x="446" y="322" width="48" height="38" rx="4" ry="4" fill="url(#barGrad7)"/>
+    <text x="470" y="314" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">3.9%</text>
+    <text x="470" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#7</text>
+
+    <!-- #8: 3.3% → h=32, y=328 -->
+    <rect x="509" y="328" width="48" height="32" rx="4" ry="4" fill="url(#barGrad8)"/>
+    <text x="533" y="320" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">3.3%</text>
+    <text x="533" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#8</text>
+
+    <!-- #9: 2.7% → h=26, y=334 -->
+    <rect x="572" y="334" width="48" height="26" rx="4" ry="4" fill="url(#barGrad9)"/>
+    <text x="596" y="326" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">2.7%</text>
+    <text x="596" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#9</text>
+
+    <!-- #10: 2.4% → h=23, y=337 -->
+    <rect x="635" y="337" width="48" height="23" rx="4" ry="4" fill="url(#barGrad10)"/>
+    <text x="659" y="329" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">2.4%</text>
+    <text x="659" y="378" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">#10</text>
+
+    <!-- Top 3 annotation bracket -->
+    <line x1="68" y1="76" x2="242" y2="76" stroke="#5B8AEF" stroke-width="1.5" opacity="0.7"/>
+    <line x1="68" y1="76" x2="68" y2="82" stroke="#5B8AEF" stroke-width="1.5" opacity="0.7"/>
+    <line x1="242" y1="76" x2="242" y2="82" stroke="#5B8AEF" stroke-width="1.5" opacity="0.7"/>
+    <text x="155" y="72" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#5B8AEF" text-anchor="middle" opacity="0.85">Top 3 = 68.7% of all clicks</text>
+
+    <!-- Branding -->
+    <text x="684" y="412" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5B8AEF" opacity="0.35" text-anchor="end">sunnypatel.co.uk</text>
+  </g>
+</svg>

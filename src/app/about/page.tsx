@@ -8,7 +8,7 @@ import { AboutTimeline } from "@/components/about/about-timeline";
 import { AboutValues } from "@/components/about/about-values";
 import { AboutFaq } from "@/components/about/about-faq";
 import { Cta } from "@/components/sections/cta";
-import { faqSchema, schemaGraph } from "@/lib/schema";
+import { faqSchema, profileImageSchema, schemaGraph } from "@/lib/schema";
 import { faqs } from "@/lib/faq-data";
 
 export function generateMetadata() {
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: schemaGraph(faqSchema(faqs)),
+          __html: schemaGraph(faqSchema(faqs), profileImageSchema()),
         }}
       />
       <Navbar />

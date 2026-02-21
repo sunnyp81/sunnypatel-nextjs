@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { ArrowRight } from "lucide-react";
@@ -39,6 +40,19 @@ export function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          {/* Portrait */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative h-36 w-36 overflow-hidden rounded-full ring-2 ring-[#5B8AEF]/30 ring-offset-4 ring-offset-background">
+              <Image
+                src="/images/sunny-patel-seo-consultant-reading-berkshire.png"
+                alt="Sunny Patel, SEO Consultant based in Reading, Berkshire"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+          </div>
+
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
             SEO & AI Consultant
           </span>
@@ -47,17 +61,17 @@ export function AboutHero() {
             className="mb-6 text-4xl font-bold text-foreground md:text-6xl lg:text-7xl"
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.04em", lineHeight: 1.1 }}
           >
-            Where AI meets
+            Sunny Patel
             <br />
             <span className="bg-gradient-to-r from-[#5B8AEF] via-[#4c7894] to-[#5a922c] bg-clip-text text-transparent">
-              SEO intelligence
+              SEO Consultant & AI Strategist
             </span>
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             I help businesses grow organic traffic through semantic SEO, topical
-            authority, and AI-powered search strategies. Based in Berkshire with
-            15+ years of hands-on experience.
+            authority, and AI-powered search strategies. Based in Reading,
+            Berkshire with 15+ years of hands-on experience.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

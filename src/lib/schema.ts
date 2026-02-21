@@ -376,13 +376,18 @@ export function personSchema() {
     "@type": "Person",
     "@id": `${SITE_URL}/#person`,
     name: "Sunny Patel",
+    description:
+      "Sunny Patel is an SEO consultant and AI strategist based in Reading, Berkshire, specialising in semantic SEO, topical authority, and AI search optimisation for UK businesses. 15+ years of experience building and ranking content sites.",
     jobTitle: "SEO Consultant & AI Strategist",
     url: SITE_URL,
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
-      "https://g.co/kgs/SunnyPatelSEO",
-      "https://www.sunnypatel.co.uk",
     ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Figment Agency",
+      url: "https://figmentagency.co.uk",
+    },
     hasOccupation: {
       "@type": "Occupation",
       name: "SEO Consultant",
@@ -488,7 +493,16 @@ export function personSchema() {
       "@type": "Country",
       name: "United Kingdom",
     },
-    image: `${SITE_URL}/images/sunny-patel.jpg`,
+    image: {
+      "@type": "ImageObject",
+      "@id": `${SITE_URL}/#photo`,
+      url: `${SITE_URL}/images/sunny-patel-seo-consultant-reading-berkshire.png`,
+      contentUrl: `${SITE_URL}/images/sunny-patel-seo-consultant-reading-berkshire.png`,
+      description: "Sunny Patel, SEO Consultant and AI Strategist based in Reading, Berkshire, United Kingdom",
+      caption: "Sunny Patel — SEO Consultant & AI Strategist, Reading, Berkshire",
+      representativeOfPage: true,
+      creator: { "@id": `${SITE_URL}/#person` },
+    },
   };
 }
 
@@ -510,7 +524,7 @@ export function organizationSchema() {
     founder: { "@id": `${SITE_URL}/#person` },
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
-      "https://g.co/kgs/SunnyPatelSEO",
+      `${SITE_URL}/#localbusiness`,
     ],
     knowsAbout: Object.entries(TOPICS).map(([key, t]) => ({
       "@type": "DefinedTerm",
@@ -567,8 +581,11 @@ export function localBusinessSchema() {
     "@id": `${SITE_URL}/#localbusiness`,
     name: "Sunny Patel SEO",
     url: SITE_URL,
-    telephone: "",
     email: "hello@sunnypatel.co.uk",
+    sameAs: [
+      "https://www.linkedin.com/in/sunny-patel-co-uk/",
+      `${SITE_URL}/#organization`,
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Reading",
@@ -591,10 +608,6 @@ export function localBusinessSchema() {
     ],
     founder: { "@id": `${SITE_URL}/#person` },
     priceRange: "$$",
-    sameAs: [
-      "https://www.linkedin.com/in/sunny-patel-co-uk/",
-      "https://g.co/kgs/SunnyPatelSEO",
-    ],
     makesOffer: [
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Semantic SEO", url: `${SITE_URL}/services/semantic-seo/` } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Local SEO", url: `${SITE_URL}/services/local-seo/` } },
@@ -673,11 +686,13 @@ export function articleSchema({
   description,
   slug,
   date,
+  image,
 }: {
   title: string;
   description: string;
   slug: string;
   date?: string;
+  image?: string;
 }) {
   const topics = BLOG_TOPICS[slug];
   const aboutRefs = topics ? resolveRefs(topics.about) : [];
@@ -688,7 +703,8 @@ export function articleSchema({
     headline: title,
     description,
     url: `${SITE_URL}/blog/${slug}`,
-    ...(date && { datePublished: date }),
+    ...(date && { datePublished: date, dateModified: date }),
+    ...(image && { image: `${SITE_URL}${image}` }),
     author: { "@id": `${SITE_URL}/#person` },
     publisher: { "@id": `${SITE_URL}/#organization` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
@@ -780,6 +796,30 @@ export function portfolioSchema({
     url: `${SITE_URL}/portfolio/${slug}`,
     author: { "@id": `${SITE_URL}/#person` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
+  };
+}
+
+/**
+ * Standalone ImageObject for Sunny Patel's profile photo.
+ * Injected on the /about page so Google can index it in Google Images
+ * and associate it with the Person entity via the @id reference.
+ *
+ * Semantic triples expressed:
+ *   [Photo] -> @type -> ImageObject
+ *   [Photo] -> creator -> Sunny Patel (Person via @id)
+ *   [Photo] -> representativeOfPage -> true
+ */
+export function profileImageSchema() {
+  return {
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/#photo`,
+    url: `${SITE_URL}/images/sunny-patel-seo-consultant-reading-berkshire.png`,
+    contentUrl: `${SITE_URL}/images/sunny-patel-seo-consultant-reading-berkshire.png`,
+    description: "Sunny Patel, SEO Consultant and AI Strategist based in Reading, Berkshire, United Kingdom",
+    caption: "Sunny Patel — SEO Consultant & AI Strategist, Reading, Berkshire",
+    representativeOfPage: true,
+    creator: { "@id": `${SITE_URL}/#person` },
+    inLanguage: "en-GB",
   };
 }
 

@@ -91,33 +91,33 @@ export function AboutStory() {
             </div>
           </motion.div>
 
-          {/* Right — two photos, overlapping offset layout */}
+          {/* Right — two photos, absolute overlap layout */}
           <motion.div
-            className="relative"
+            className="relative h-[520px] md:h-[580px]"
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {/* Whiteboard photo — top, full width */}
-            <div className="overflow-hidden rounded-2xl border border-white/[0.06]">
+            {/* Whiteboard photo — top-right, large */}
+            <div className="absolute right-0 top-0 w-[85%] overflow-hidden rounded-2xl border border-white/[0.08]">
               <Image
                 src="/images/sunny-patel-seo-consultant-teaching.png"
                 alt="Sunny Patel explaining SEO strategy on a whiteboard"
-                width={600}
-                height={500}
+                width={560}
+                height={420}
                 className="w-full object-cover"
                 priority
               />
             </div>
 
-            {/* Leaning photo — bottom-left, offset up to overlap */}
-            <div className="ml-8 -mt-16 overflow-hidden rounded-2xl border border-white/[0.06] shadow-2xl">
+            {/* Portrait — bottom-left, overlapping */}
+            <div className="absolute bottom-0 left-0 w-[45%] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-white/10">
               <Image
                 src="/images/sunny-patel-seo-consultant.png"
                 alt="Sunny Patel, SEO Consultant based in Reading, Berkshire"
-                width={320}
-                height={420}
+                width={280}
+                height={380}
                 className="w-full object-cover object-top"
               />
             </div>

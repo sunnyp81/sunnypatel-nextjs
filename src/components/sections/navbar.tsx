@@ -31,7 +31,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg border border-transparent px-3 py-1.5 text-sm text-muted-foreground transition-all duration-200 hover:border-white/[0.08] hover:bg-white/[0.04] hover:text-foreground hover:shadow-[0_0_10px_rgba(91,138,239,0.12)]"
+              className="rounded-lg border border-white/[0.06] px-3 py-1.5 text-sm text-muted-foreground shadow-[0_0_8px_rgba(91,138,239,0.07)] transition-all duration-300 hover:border-[#5B8AEF]/30 hover:bg-[#5B8AEF]/[0.06] hover:text-foreground hover:shadow-[0_0_20px_rgba(91,138,239,0.28)] hover:scale-[1.04]"
             >
               {link.label}
             </a>
@@ -54,24 +54,25 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/5 bg-background/95 px-6 py-4 md:hidden">
-          <div className="flex flex-col gap-4">
+        <div className="border-t border-white/[0.06] bg-background/95 backdrop-blur-xl px-6 py-5 md:hidden">
+          <div className="flex flex-col gap-1 mb-5">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="rounded-lg border border-white/[0.04] px-3 py-2.5 text-sm text-muted-foreground transition-all duration-200 hover:border-[#5B8AEF]/25 hover:bg-[#5B8AEF]/[0.05] hover:text-foreground hover:shadow-[0_0_16px_rgba(91,138,239,0.2)]"
               >
                 {link.label}
               </a>
             ))}
-            <GradientButton asChild className="min-w-0 text-sm leading-none">
-              <a href="/contact" onClick={() => setOpen(false)}>
-                Get a Quote
-              </a>
-            </GradientButton>
           </div>
+          <div className="mb-5 h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+          <GradientButton asChild className="min-w-0 w-full text-sm leading-none">
+            <a href="/contact" onClick={() => setOpen(false)}>
+              Get a Quote
+            </a>
+          </GradientButton>
         </div>
       )}
     </nav>

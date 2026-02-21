@@ -7,7 +7,7 @@ export function AboutStory() {
   return (
     <section className="relative py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-start">
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
           {/* Left — text + framework card */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -91,36 +91,24 @@ export function AboutStory() {
             </div>
           </motion.div>
 
-          {/* Right — two photos, absolute overlap layout */}
+          {/* Right — whiteboard photo */}
           <motion.div
-            className="relative h-[520px] md:h-[580px]"
+            className="relative overflow-hidden rounded-2xl border border-white/[0.08]"
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {/* Whiteboard photo — top-right, large */}
-            <div className="absolute right-0 top-0 w-[85%] overflow-hidden rounded-2xl border border-white/[0.08]">
-              <Image
-                src="/images/sunny-patel-seo-consultant-teaching.png"
-                alt="Sunny Patel explaining SEO strategy on a whiteboard"
-                width={560}
-                height={420}
-                className="w-full object-cover"
-                priority
-              />
-            </div>
-
-            {/* Portrait — bottom-left, overlapping */}
-            <div className="absolute bottom-0 left-0 w-[45%] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-white/10">
-              <Image
-                src="/images/sunny-patel-seo-consultant.png"
-                alt="Sunny Patel, SEO Consultant based in Reading, Berkshire"
-                width={280}
-                height={380}
-                className="w-full object-cover object-top"
-              />
-            </div>
+            <Image
+              src="/images/sunny-patel-seo-consultant-teaching.png"
+              alt="Sunny Patel explaining SEO strategy on a whiteboard"
+              width={600}
+              height={500}
+              className="w-full object-cover"
+              priority
+            />
+            {/* Dark overlay to match site tone */}
+            <div className="pointer-events-none absolute inset-0 bg-black/30" />
           </motion.div>
         </div>
       </div>

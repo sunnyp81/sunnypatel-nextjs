@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { ArrowRight } from "lucide-react";
@@ -40,19 +39,6 @@ export function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Portrait */}
-          <div className="mb-8 flex justify-center">
-            <div className="relative h-36 w-36 overflow-hidden rounded-full ring-2 ring-[#5B8AEF]/30 ring-offset-4 ring-offset-background">
-              <Image
-                src="/images/sunny-patel-seo-consultant-reading-berkshire.png"
-                alt="Sunny Patel, SEO Consultant based in Reading, Berkshire"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-          </div>
-
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
             SEO & AI Consultant
           </span>

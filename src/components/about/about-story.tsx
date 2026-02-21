@@ -1,13 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 
 export function AboutStory() {
   return (
     <section className="relative py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
-          {/* Left — text */}
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-start">
+          {/* Left — text + framework card */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -25,7 +26,7 @@ export function AboutStory() {
               <br />
               Powered by innovation.
             </h2>
-            <div className="space-y-4 leading-relaxed text-muted-foreground">
+            <div className="mb-8 space-y-4 leading-relaxed text-muted-foreground">
               <p>
                 My hands-on experience across 40+ sites informs every consulting
                 engagement. I&apos;ve tested strategies on real businesses facing
@@ -37,15 +38,8 @@ export function AboutStory() {
                 understanding with authentic, trust-building content.
               </p>
             </div>
-          </motion.div>
 
-          {/* Right — 60/40 framework card */}
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+            {/* 60/40 framework card */}
             <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02]">
               <div className="border-b border-white/[0.06] px-6 py-4">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
@@ -53,7 +47,6 @@ export function AboutStory() {
                 </p>
               </div>
               <div className="p-6">
-                {/* Bar */}
                 <div className="mb-6 flex h-3 overflow-hidden rounded-full">
                   <div
                     className="h-full bg-gradient-to-r from-[#5B8AEF] to-[#4c7894] transition-all duration-1000"
@@ -64,7 +57,6 @@ export function AboutStory() {
                     style={{ width: "40%" }}
                   />
                 </div>
-
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/5 p-4">
                     <div
@@ -96,6 +88,38 @@ export function AboutStory() {
                   </div>
                 </div>
               </div>
+            </div>
+          </motion.div>
+
+          {/* Right — two photos, overlapping offset layout */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            {/* Whiteboard photo — top, full width */}
+            <div className="overflow-hidden rounded-2xl border border-white/[0.06]">
+              <Image
+                src="/images/sunny-patel-seo-consultant-teaching.png"
+                alt="Sunny Patel explaining SEO strategy on a whiteboard"
+                width={600}
+                height={500}
+                className="w-full object-cover"
+                priority
+              />
+            </div>
+
+            {/* Leaning photo — bottom-left, offset up to overlap */}
+            <div className="ml-8 -mt-16 overflow-hidden rounded-2xl border border-white/[0.06] shadow-2xl">
+              <Image
+                src="/images/sunny-patel-seo-consultant.png"
+                alt="Sunny Patel, SEO Consultant based in Reading, Berkshire"
+                width={320}
+                height={420}
+                className="w-full object-cover object-top"
+              />
             </div>
           </motion.div>
         </div>

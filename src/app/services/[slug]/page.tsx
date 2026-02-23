@@ -1,10 +1,9 @@
 import React from "react";
-import Markdoc from "@markdoc/markdoc";
+import Markdoc, { type RenderableTreeNode } from "@markdoc/markdoc";
 import { reader } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { ContentPage } from "@/components/content-page";
 import { notFound } from "next/navigation";
-import { renderMarkdoc } from "@/lib/render-markdoc";
 import { serviceSchema, breadcrumbSchema, schemaGraph } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { TestimonialGrid } from "@/components/services/TestimonialGrid";
@@ -311,46 +310,52 @@ const SPECIFIC_DATA: Record<string, ConversionData> = {
   "ai-search-optimisation": AI_SEARCH_DATA,
 };
 
-/* ── Split Markdoc AST at H2 boundaries ──────────────────── */
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function splitAtH2(content: any): any[] {
-  const node = content?.node ?? content;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const children: any[] = (node as any).children ?? [];
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const groups: (any[])[] = [];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let current: any[] = [];
-
-  for (const child of children) {
-    if (
-      child.type === "heading" &&
-      child.attributes?.level === 2 &&
-      current.length > 0
-    ) {
-      groups.push(current);
-      current = [child];
-    } else {
-      current.push(child);
-    }
-  }
-  if (current.length > 0) groups.push(current);
-
-  return groups.map((g) => ({ ...node, children: g }));
-}
+/* ── Split rendered Markdoc tree at H2 boundaries ───────── */
 
 function buildSections(
   rawContent: unknown,
   convData: ConversionData,
   slug: string
 ) {
-  const groups = splitAtH2(rawContent);
+  // Transform the full document first (requires the real Node instance),
+  // then split the resulting plain RenderableTree objects at h2 headings.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const node = (rawContent as any)?.node ?? rawContent;
+  const transformed = Markdoc.transform(node);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const allBlocks: RenderableTreeNode[] = (transformed as any)?.children ?? [];
+  const wrapper = transformed; // keep name/attributes from the document tag
+
+  // Split allBlocks at h2 tags
+  const groups: RenderableTreeNode[][] = [];
+  let current: RenderableTreeNode[] = [];
+
+  for (const block of allBlocks) {
+    if (
+      block &&
+      typeof block === "object" &&
+      !Array.isArray(block) &&
+      (block as { name?: string }).name === "h2" &&
+      current.length > 0
+    ) {
+      groups.push(current);
+      current = [block];
+    } else {
+      current.push(block);
+    }
+  }
+  if (current.length > 0) groups.push(current);
+
   const n = groups.length;
 
-  // Render each chunk
-  const rendered = groups.map((g) => renderMarkdoc(g));
+  // Render each chunk via renderers.react (RenderableTree is plain objects — safe to spread)
+  const rendered = groups.map((g) =>
+    Markdoc.renderers.react(
+      { ...(wrapper as object), children: g } as RenderableTreeNode,
+      React
+    )
+  );
 
   // Injection positions — spread components across the content
   const pos = {

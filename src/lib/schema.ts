@@ -106,7 +106,7 @@ interface TopicMapping {
   mentions: string[];
 }
 
-const SERVICE_TOPICS: Record<string, TopicMapping> = {
+export const SERVICE_TOPICS: Record<string, TopicMapping> = {
   "semantic-seo": {
     about: ["semantic-seo"],
     mentions: ["entity-seo", "topical-authority"],
@@ -382,6 +382,7 @@ export function personSchema() {
     url: SITE_URL,
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
+      SITE_URL,
     ],
     worksFor: {
       "@type": "Organization",
@@ -686,12 +687,14 @@ export function articleSchema({
   description,
   slug,
   date,
+  lastUpdated,
   image,
 }: {
   title: string;
   description: string;
   slug: string;
   date?: string;
+  lastUpdated?: string;
   image?: string;
 }) {
   const topics = BLOG_TOPICS[slug];
@@ -703,9 +706,10 @@ export function articleSchema({
     headline: title,
     description,
     url: `${SITE_URL}/blog/${slug}`,
-    ...(date && { datePublished: date, dateModified: date }),
+    ...(date && { datePublished: date, dateModified: lastUpdated || date }),
     ...(image && { image: `${SITE_URL}${image}` }),
     author: { "@id": `${SITE_URL}/#person` },
+    editor: { "@id": `${SITE_URL}/#person` },
     publisher: { "@id": `${SITE_URL}/#organization` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
     ...(aboutRefs.length > 0 && { about: aboutRefs }),
@@ -742,6 +746,7 @@ export function serviceSchema({
     description,
     url: `${SITE_URL}/services/${slug}`,
     provider: { "@id": `${SITE_URL}/#person` },
+    editor: { "@id": `${SITE_URL}/#person` },
     offeredBy: { "@id": `${SITE_URL}/#organization` },
     areaServed: {
       "@type": "Country",
@@ -820,6 +825,34 @@ export function profileImageSchema() {
     representativeOfPage: true,
     creator: { "@id": `${SITE_URL}/#person` },
     inLanguage: "en-GB",
+  };
+}
+
+export function reviewSchema(
+  reviews: readonly { text: string; author: string; role: string }[]
+) {
+  return {
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#localbusiness`,
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      reviewBody: r.text,
+      author: {
+        "@type": "Person",
+        name: r.author,
+      },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: 5,
+        bestRating: 5,
+      },
+    })),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: 5,
+      reviewCount: reviews.length,
+      bestRating: 5,
+    },
   };
 }
 

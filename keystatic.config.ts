@@ -127,10 +127,21 @@ export default config({
         description: fields.text({ label: "Meta Description", multiline: true }),
         ogImage: fields.text({ label: "OG Image URL" }),
         date: fields.date({ label: "Publish Date" }),
+        lastUpdated: fields.date({ label: "Last Updated Date" }),
         tags: fields.array(fields.text({ label: "Tag" }), {
           label: "Tags",
           itemLabel: (props) => props.value,
         }),
+        faqs: fields.array(
+          fields.object({
+            question: fields.text({ label: "Question" }),
+            answer: fields.text({ label: "Answer", multiline: true }),
+          }),
+          {
+            label: "FAQs",
+            itemLabel: (props) => props.fields.question.value || "FAQ",
+          }
+        ),
         content: fields.markdoc({ label: "Post Content" }),
       },
     }),

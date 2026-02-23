@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/services/generative-engine-optimisation",
+        destination: "/services/ai-search-optimisation",
+        permanent: true,
+      },
+    ];
+  },
   experimental: {
     optimizeCss: true,
   },

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { reader } from "@/lib/content";
+import { slugifyTag } from "@/lib/utils";
 
 const SITE_URL = "https://sunnypatel.co.uk";
 
@@ -48,5 +49,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...blogEntries, ...serviceEntries, ...portfolioEntries];
+  // Tag pages
+  const allTags = new Set<string>();
+  for (const slug of blogSlugs) {
+    const p = await reader.collections.blog.read(slug);
+    for (const tag of p?.tags ?? []) {
+      allTags.add(slugifyTag(tag));
+    }
+  }
+  const tagEntries = Array.from(allTags).map((tag) => ({
+    url: `${SITE_URL}/blog/tag/${tag}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  // Author page
+  const authorEntry = {
+    url: `${SITE_URL}/author/sunny-patel`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  };
+
+  return [...staticRoutes, authorEntry, ...blogEntries, ...serviceEntries, ...portfolioEntries, ...tagEntries];
 }

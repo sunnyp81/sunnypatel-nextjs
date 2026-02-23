@@ -8,8 +8,10 @@ import {
   localBusinessSchema,
   webSiteSchema,
   topicEntitySchemas,
+  reviewSchema,
   schemaGraph,
 } from "@/lib/schema";
+import { TESTIMONIALS } from "@/lib/testimonial-data";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
@@ -50,7 +52,8 @@ export default function RootLayout({
               organizationSchema(),
               localBusinessSchema(),
               webSiteSchema(),
-              ...topicEntitySchemas()
+              ...topicEntitySchemas(),
+              ...(TESTIMONIALS.length > 0 ? [reviewSchema(TESTIMONIALS)] : [])
             ),
           }}
         />

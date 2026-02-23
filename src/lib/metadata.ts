@@ -10,11 +10,15 @@ export function buildMetadata({
   description,
   ogImage,
   path = "",
+  type = "website",
+  articleMeta,
 }: {
   title?: string;
   description?: string;
   ogImage?: string;
   path?: string;
+  type?: "website" | "article";
+  articleMeta?: { publishedTime?: string; authors?: string[] };
 }): Metadata {
   const metaTitle = title || DEFAULT_TITLE;
   const metaDesc = description || DEFAULT_DESCRIPTION;
@@ -29,8 +33,13 @@ export function buildMetadata({
       description: metaDesc,
       url,
       siteName: "Sunny Patel",
-      type: "website",
+      locale: "en_GB",
+      type,
       ...(ogImage && { images: [{ url: ogImage }] }),
+      ...(type === "article" && articleMeta && {
+        publishedTime: articleMeta.publishedTime,
+        authors: articleMeta.authors,
+      }),
     },
     twitter: {
       card: "summary_large_image",

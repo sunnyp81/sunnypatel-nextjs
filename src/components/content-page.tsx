@@ -1,9 +1,34 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { BlogStickyCta } from "@/components/blog-sticky-cta";
+import { HumanEditedBadge } from "@/components/human-edited-badge";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { slugifyTag } from "@/lib/utils";
+
+function AuthorByline() {
+  return (
+    <Link
+      href="/author/sunny-patel"
+      className="mt-5 inline-flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 transition-colors duration-200 hover:border-white/[0.1] hover:bg-white/[0.04]"
+    >
+      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10">
+        <Image
+          src="/images/sunny-patel.jpg"
+          alt="Sunny Patel"
+          fill
+          className="object-cover"
+          sizes="32px"
+        />
+      </div>
+      <div className="text-left">
+        <p className="text-xs font-semibold text-foreground">Sunny Patel</p>
+        <p className="text-xs text-muted-foreground">SEO Consultant & AI Strategist</p>
+      </div>
+    </Link>
+  );
+}
 
 export function ContentPage({
   h1,
@@ -16,6 +41,7 @@ export function ContentPage({
   heroImage,
   showCta = false,
   isBlog = false,
+  afterContent,
   children,
 }: {
   h1: string;
@@ -28,6 +54,7 @@ export function ContentPage({
   heroImage?: string;
   showCta?: boolean;
   isBlog?: boolean;
+  afterContent?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -94,15 +121,24 @@ export function ContentPage({
                 <span className="text-muted-foreground/30">|</span>
               )}
               {tags?.map((tag) => (
-                <span
+                <Link
                   key={tag}
-                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground"
+                  href={`/blog/tag/${slugifyTag(tag)}`}
+                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-[#5B8AEF]/20 hover:text-[#5B8AEF]"
                 >
                   {tag}
-                </span>
+                </Link>
               ))}
             </div>
           )}
+
+          {isBlog && (
+            <div className="mt-4">
+              <HumanEditedBadge />
+            </div>
+          )}
+
+          {isBlog && <AuthorByline />}
         </div>
 
         {/* Separator */}
@@ -165,6 +201,9 @@ export function ContentPage({
           </div>
         </div>
       </div>
+
+      {/* Related content */}
+      {afterContent}
 
       {/* Sticky blog CTA */}
       {isBlog && <BlogStickyCta />}

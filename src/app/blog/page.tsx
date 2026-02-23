@@ -5,6 +5,7 @@ import { Footer } from "@/components/sections/footer";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { slugifyTag } from "@/lib/utils";
 
 export async function generateMetadata() {
   const page = await reader.singletons.blogIndex.read();
@@ -124,12 +125,14 @@ export default async function BlogIndex() {
                       {featured.entry.tags && featured.entry.tags.length > 0 && (
                         <div className="mt-4 flex flex-wrap gap-1.5">
                           {featured.entry.tags.slice(0, 4).map((tag) => (
-                            <span
+                            <Link
                               key={tag}
-                              className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-muted-foreground"
+                              href={`/blog/tag/${slugifyTag(tag)}`}
+                              className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:bg-[#5B8AEF]/10 hover:text-[#5B8AEF]"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               {tag}
-                            </span>
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -187,12 +190,14 @@ export default async function BlogIndex() {
                       {post.entry.tags && post.entry.tags.length > 0 && (
                         <div className="mb-4 flex flex-wrap gap-1.5">
                           {post.entry.tags.slice(0, 3).map((tag) => (
-                            <span
+                            <Link
                               key={tag}
-                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground"
+                              href={`/blog/tag/${slugifyTag(tag)}`}
+                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground transition-colors duration-200 hover:bg-[#5B8AEF]/10 hover:text-[#5B8AEF]"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               {tag}
-                            </span>
+                            </Link>
                           ))}
                         </div>
                       )}

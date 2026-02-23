@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, Quote } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ChartHero } from "@/components/portfolio/chart-hero";
+import { HumanEditedBadge } from "@/components/human-edited-badge";
 
 type Metric = { readonly value: string; readonly label: string };
 
@@ -98,6 +99,10 @@ export function PortfolioDetail({
                 {project.description}
               </p>
             )}
+
+            <div className="mt-4">
+              <HumanEditedBadge />
+            </div>
           </motion.div>
 
           {/* Metadata row */}

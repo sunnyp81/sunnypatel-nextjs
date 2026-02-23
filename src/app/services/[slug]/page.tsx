@@ -328,10 +328,12 @@ export default async function ServicePage({
                 </div>
               </>
             )}
-            <RelatedServices
-              currentSlug={slug}
-              allServices={serviceSummaries}
-            />
+            {!convData && (
+              <RelatedServices
+                currentSlug={slug}
+                allServices={serviceSummaries}
+              />
+            )}
           </>
         }
       >

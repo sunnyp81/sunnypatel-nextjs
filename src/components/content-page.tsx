@@ -1,3 +1,4 @@
+import React from "react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { BlogStickyCta } from "@/components/blog-sticky-cta";
@@ -30,6 +31,9 @@ function AuthorByline() {
   );
 }
 
+const PROSE_CLASS =
+  "prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#5B8AEF] prose-blockquote:border-l-[#5B8AEF]/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]";
+
 export function ContentPage({
   h1,
   subtitle,
@@ -42,6 +46,7 @@ export function ContentPage({
   showCta = false,
   isBlog = false,
   afterContent,
+  sections,
   children,
 }: {
   h1: string;
@@ -55,7 +60,8 @@ export function ContentPage({
   showCta?: boolean;
   isBlog?: boolean;
   afterContent?: React.ReactNode;
-  children: React.ReactNode;
+  sections?: Array<{ content: React.ReactNode; after?: React.ReactNode }>;
+  children?: React.ReactNode;
 }) {
   return (
     <main className="relative min-h-screen bg-background">
@@ -196,9 +202,18 @@ export function ContentPage({
         )}
 
         <div className="relative mx-auto max-w-3xl px-6 py-16">
-          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#5B8AEF] prose-blockquote:border-l-[#5B8AEF]/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]">
-            {children}
-          </div>
+          {sections ? (
+            sections.map((section, i) => (
+              <React.Fragment key={i}>
+                <div className={PROSE_CLASS}>{section.content}</div>
+                {section.after && (
+                  <div className="my-10">{section.after}</div>
+                )}
+              </React.Fragment>
+            ))
+          ) : (
+            <div className={PROSE_CLASS}>{children}</div>
+          )}
         </div>
       </div>
 

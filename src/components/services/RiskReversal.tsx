@@ -1,7 +1,7 @@
 import { Shield } from "lucide-react";
 
 export function RiskReversal({
-  heading = "Zero-Risk Guarantee",
+  heading = "Zero-Risk Engagement",
   points,
   accentColor,
 }: {
@@ -11,11 +11,16 @@ export function RiskReversal({
 }) {
   return (
     <div
-      className="my-10 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6"
+      className="rounded-2xl border border-[#5B8AEF]/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]"
       style={{ borderLeftWidth: 3, borderLeftColor: accentColor }}
     >
       <div className="mb-4 flex items-center gap-3">
-        <Shield className="h-6 w-6" style={{ color: accentColor }} />
+        <div
+          className="flex h-9 w-9 items-center justify-center rounded-xl"
+          style={{ backgroundColor: `${accentColor}18` }}
+        >
+          <Shield className="h-5 w-5" style={{ color: accentColor }} />
+        </div>
         <h3
           className="text-lg font-bold text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -24,10 +29,10 @@ export function RiskReversal({
         </h3>
       </div>
 
-      <ul className="space-y-2.5">
+      <ul className="space-y-3">
         {points.map((point, i) => (
           <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-            <span style={{ color: accentColor }} className="mt-0.5 shrink-0">
+            <span style={{ color: accentColor }} className="mt-0.5 shrink-0 font-bold">
               ✓
             </span>
             {point}

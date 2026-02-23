@@ -14,10 +14,12 @@ export function CaseStudyCard({
   accentColor: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div
+      className="rounded-2xl border border-[#5B8AEF]/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)] transition-shadow duration-300 hover:shadow-[0_0_36px_rgba(91,138,239,0.18)]"
+    >
       <span
         className="mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
-        style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+        style={{ backgroundColor: `${accentColor}18`, color: accentColor }}
       >
         {industry}
       </span>
@@ -27,17 +29,13 @@ export function CaseStudyCard({
           <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">
             Challenge
           </p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {challenge}
-          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">{challenge}</p>
         </div>
         <div>
           <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">
             Result
           </p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {result}
-          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">{result}</p>
         </div>
       </div>
 
@@ -45,7 +43,7 @@ export function CaseStudyCard({
         <p className="text-lg font-bold" style={{ color: accentColor }}>
           {metric}
         </p>
-        <span className="rounded-full border border-white/[0.06] bg-white/[0.02] px-3 py-1 text-xs text-muted-foreground">
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs text-muted-foreground">
           {timeline}
         </span>
       </div>

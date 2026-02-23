@@ -1,9 +1,14 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 
+const isLocal = process.env.NODE_ENV === "development";
+
 export default config({
-  storage: {
-    kind: "local",
-  },
+  storage: isLocal
+    ? { kind: "local" }
+    : {
+        kind: "github",
+        repo: "sunnyp81/sunnypatel-nextjs",
+      },
   ui: {
     brand: { name: "Sunny Patel" },
   },

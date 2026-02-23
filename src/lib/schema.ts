@@ -346,6 +346,10 @@ const BLOG_TOPICS: Record<string, TopicMapping> = {
     about: ["content-strategy"],
     mentions: ["semantic-seo", "topical-authority", "keyword-research"],
   },
+  "chatgpt-ads": {
+    about: ["ai-search-optimisation"],
+    mentions: ["llm-optimisation", "semantic-seo", "content-strategy"],
+  },
 };
 
 // =============================================================================

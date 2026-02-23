@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { ContentPage } from "@/components/content-page";
 import { notFound } from "next/navigation";
 import { renderMarkdoc } from "@/lib/render-markdoc";
-import { articleSchema, faqSchema, breadcrumbSchema, schemaGraph } from "@/lib/schema";
+import { articleSchema, faqSchema, breadcrumbSchema, personSchema, schemaGraph } from "@/lib/schema";
 import { RelatedPosts } from "@/components/related-posts";
 
 export async function generateStaticParams() {
@@ -70,6 +70,7 @@ export default async function BlogPost({
               lastUpdated: post.lastUpdated || undefined,
               image: post.ogImage || undefined,
             }),
+            personSchema(),
             breadcrumbSchema([
               { name: "Home", url: "https://sunnypatel.co.uk" },
               { name: "Blog", url: "https://sunnypatel.co.uk/blog" },

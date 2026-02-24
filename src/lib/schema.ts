@@ -243,6 +243,10 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["local-seo", "semantic-seo"],
     mentions: ["technical-seo", "content-strategy"],
   },
+  "seo-strategy-reading": {
+    about: ["semantic-seo", "content-strategy"],
+    mentions: ["local-seo", "topical-authority", "technical-seo"],
+  },
 };
 
 const BLOG_TOPICS: Record<string, TopicMapping> = {

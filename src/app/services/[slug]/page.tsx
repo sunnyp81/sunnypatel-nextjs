@@ -499,6 +499,28 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       a: "Windsor hospitality and tourism businesses see initial Google Maps and local pack improvements within 3–4 months. Professional services and local businesses targeting residential audiences require 6–9 months to build the topical authority needed to rank competitively against established local providers.",
     },
   ],
+  "seo-strategy-reading": [
+    {
+      q: "What is an SEO strategy for a Reading business?",
+      a: "An SEO strategy for a Reading business is a documented, prioritised plan connecting organic search activity to business outcomes. It covers topical map creation (content architecture), a technical SEO roadmap, and a semantic content strategy — all tailored to Reading's competitive landscape across Thames Valley's professional services, technology, and SME sectors.",
+    },
+    {
+      q: "How much does an SEO strategy cost in Reading?",
+      a: "SEO strategy costs in Reading range from £200 for a focused 90-minute session and recommendations document, £800–£2,500 for a standalone topical map, and £1,500–£3,500 for a full strategy including technical roadmap and 12-month phased plan. Strategy plus implementation retainers run £2,000–£5,000+ monthly.",
+    },
+    {
+      q: "How long does developing an SEO strategy take?",
+      a: "A complete SEO strategy for a Reading business typically takes 2–3 weeks: Week 1 covers technical audit and competitor research; Week 2 builds the topical map and content gap analysis; Week 3 delivers the 12-month roadmap with phased priorities and effort estimates.",
+    },
+    {
+      q: "Who needs a bespoke SEO strategy in Reading?",
+      a: "Bespoke SEO strategy suits Reading businesses scaling content production without a framework, businesses recovering from algorithm updates, in-house teams needing senior strategic direction, and businesses evaluating SEO ROI before committing to a full retainer. It is also valuable for companies that have plateaued despite ongoing SEO activity.",
+    },
+    {
+      q: "How is an SEO strategy different from ongoing SEO consulting?",
+      a: "An SEO strategy is a finite deliverable — a documented roadmap built over 2–3 weeks. Ongoing SEO consulting applies and evolves that strategy over time through monthly sessions, implementation oversight, and performance analysis. Many Reading businesses start with a strategy engagement before committing to consulting.",
+    },
+  ],
   "seo-agency-reading": [
     {
       q: "What is an SEO agency in Reading?",

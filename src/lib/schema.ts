@@ -239,6 +239,10 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["local-seo"],
     mentions: ["semantic-seo"],
   },
+  "seo-agency-reading": {
+    about: ["local-seo", "semantic-seo"],
+    mentions: ["technical-seo", "content-strategy"],
+  },
 };
 
 const BLOG_TOPICS: Record<string, TopicMapping> = {
@@ -609,12 +613,14 @@ export function localBusinessSchema() {
     },
     areaServed: [
       { "@type": "Country", name: "United Kingdom" },
-      {
-        "@type": "AdministrativeArea",
-        name: "Berkshire",
-        containedIn: { "@type": "Country", name: "United Kingdom" },
-      },
+      { "@type": "AdministrativeArea", name: "Berkshire" },
+      { "@type": "AdministrativeArea", name: "Thames Valley" },
       { "@type": "City", name: "Reading" },
+      { "@type": "City", name: "Bracknell" },
+      { "@type": "City", name: "Slough" },
+      { "@type": "City", name: "Windsor" },
+      { "@type": "City", name: "Maidenhead" },
+      { "@type": "City", name: "Wokingham" },
     ],
     founder: { "@id": `${SITE_URL}/#person` },
     priceRange: "$$",

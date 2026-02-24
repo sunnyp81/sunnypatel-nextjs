@@ -499,6 +499,28 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       a: "Windsor hospitality and tourism businesses see initial Google Maps and local pack improvements within 3–4 months. Professional services and local businesses targeting residential audiences require 6–9 months to build the topical authority needed to rank competitively against established local providers.",
     },
   ],
+  "seo-agency-reading": [
+    {
+      q: "What is an SEO agency in Reading?",
+      a: "An SEO agency in Reading provides organic search strategy and implementation for local businesses. The term covers traditional multi-staff agencies, specialist SEO shops, and independent SEO consultants — all delivering similar outcomes through different structures. Independent consultants like Sunny Patel offer direct senior expert access without the account manager overhead common in larger agencies.",
+    },
+    {
+      q: "Should I use an SEO agency or SEO consultant in Reading?",
+      a: "For most Reading businesses, an independent SEO consultant delivers equivalent results at lower cost than a traditional agency, because you access the strategist directly rather than through an account manager. Agencies suit businesses needing high-volume simultaneous content production. Consultants suit businesses wanting strategic expertise and direct accountability.",
+    },
+    {
+      q: "How much does an SEO agency in Reading cost?",
+      a: "Reading SEO agency pricing typically runs £1,500–£5,000+ monthly. Independent consultant pricing for equivalent strategic scope runs £1,500–£5,000+ monthly with more of that investment going directly into strategy and implementation rather than overhead. Technical audits start from £500; topical maps from £800.",
+    },
+    {
+      q: "Which areas of Reading does your SEO agency service cover?",
+      a: "SEO services cover Reading town centre, Green Park, Thames Valley Park, Caversham, Earley, Woodley, Winnersh, Tilehurst, and Calcot. Services extend across all Berkshire — Bracknell, Slough, Wokingham, Maidenhead, and Windsor — with remote consultancy available UK-wide.",
+    },
+    {
+      q: "How long does SEO take with a Reading SEO agency?",
+      a: "SEO timelines are consistent whether using an agency or consultant. Local SEO improvements typically show within 3–6 months. Topical authority building in competitive Reading markets requires 6–12 months. The pace is determined by Google's crawl and re-evaluation cycles, not headcount.",
+    },
+  ],
 };
 
 type ConversionData = typeof GENERIC_DATA;

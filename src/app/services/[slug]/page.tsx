@@ -300,32 +300,206 @@ const AI_SEARCH_DATA = {
   ],
 };
 
-const SEO_READING_FAQS = [
-  {
-    q: "Why should I hire an SEO consultant in Reading?",
-    a: "Hiring a local SEO consultant in Reading provides direct access to local market knowledge, face-to-face strategy sessions at our Green Park office, and understanding of Reading's competitive business landscape across Berkshire and Thames Valley. Local expertise combines with advanced semantic SEO methodology to deliver sustainable organic growth.",
-  },
-  {
-    q: "What SEO services are available in Reading?",
-    a: "SEO services available in Reading include technical SEO audits, local SEO optimisation for Google Business Profile and local pack visibility, topical map creation for long-term content architecture, content strategy for semantic SEO, and ongoing SEO consulting for in-house teams requiring expert direction.",
-  },
-  {
-    q: "Which areas of Reading do you cover?",
-    a: "SEO services cover Reading town centre, Caversham, Earley, Woodley, Winnersh, Tilehurst, Calcot, Green Park, and Thames Valley Park business districts. Remote consultations are available for businesses across the UK wanting Reading-based expertise.",
-  },
-  {
-    q: "How long does SEO take for Reading businesses?",
-    a: "Local SEO improvements for Reading businesses typically show within 3–6 months. Broader authority building in competitive Reading markets may require 6–12 months of consistent work. Technical fixes produce measurable changes within 4–8 weeks of implementation.",
-  },
-  {
-    q: "How much does an SEO consultant in Reading cost?",
-    a: "SEO consultant costs in Reading range from £500–£1,200 for a technical audit, £800–£2,500 for topical mapping, and £1,500–£5,000 per month for ongoing retainers depending on scope and competition. Free initial consultations include a brief website review and actionable recommendations.",
-  },
-  {
-    q: "What if previous SEO work did not deliver results for my Reading business?",
-    a: "Most failed SEO for Reading businesses results from generic advice without local market understanding, thin content without topical authority, or targeting isolated keywords without an interconnected content strategy. A methodology-led approach specific to the Reading and Thames Valley competitive landscape typically resolves these issues within 6–12 months.",
-  },
-];
+type FaqItem = { q: string; a: string };
+
+const SERVICE_FAQS: Record<string, FaqItem[]> = {
+  "seo-consultant-reading": [
+    {
+      q: "Why should I hire an SEO consultant in Reading?",
+      a: "Hiring a local SEO consultant in Reading provides direct access to local market knowledge, face-to-face strategy sessions at our Green Park office, and understanding of Reading's competitive business landscape across Berkshire and Thames Valley. Local expertise combines with advanced semantic SEO methodology to deliver sustainable organic growth.",
+    },
+    {
+      q: "What SEO services are available in Reading?",
+      a: "SEO services available in Reading include technical SEO audits, local SEO optimisation for Google Business Profile and local pack visibility, topical map creation for long-term content architecture, content strategy for semantic SEO, and ongoing SEO consulting for in-house teams requiring expert direction.",
+    },
+    {
+      q: "Which areas of Reading do you cover?",
+      a: "SEO services cover Reading town centre, Caversham, Earley, Woodley, Winnersh, Tilehurst, Calcot, Green Park, and Thames Valley Park business districts. Remote consultations are available for businesses across the UK wanting Reading-based expertise.",
+    },
+    {
+      q: "How long does SEO take for Reading businesses?",
+      a: "Local SEO improvements for Reading businesses typically show within 3–6 months. Broader authority building in competitive Reading markets may require 6–12 months of consistent work. Technical fixes produce measurable changes within 4–8 weeks of implementation.",
+    },
+    {
+      q: "How much does an SEO consultant in Reading cost?",
+      a: "SEO consultant costs in Reading range from £500–£1,200 for a technical audit, £800–£2,500 for topical mapping, and £1,500–£5,000 per month for ongoing retainers depending on scope and competition. Free initial consultations include a brief website review and actionable recommendations.",
+    },
+    {
+      q: "What if previous SEO work did not deliver results for my Reading business?",
+      a: "Most failed SEO for Reading businesses results from generic advice without local market understanding, thin content without topical authority, or targeting isolated keywords without an interconnected content strategy. A methodology-led approach specific to the Reading and Thames Valley competitive landscape typically resolves these issues within 6–12 months.",
+    },
+  ],
+  "technical-seo-audit": [
+    {
+      q: "What is a technical SEO audit?",
+      a: "A technical SEO audit is a comprehensive analysis of your website's infrastructure — covering crawlability, indexation, Core Web Vitals, mobile usability, structured data, and site architecture — that identifies the issues preventing search engines from effectively ranking your pages.",
+    },
+    {
+      q: "How much does a technical SEO audit cost?",
+      a: "Technical SEO audit costs range from £500 for small sites under 100 pages, £800 for medium sites with 100–500 pages, and £1,200+ for large sites over 500 pages. All audits include a 60-minute consultation call to review findings and discuss implementation priorities.",
+    },
+    {
+      q: "What does a technical SEO audit include?",
+      a: "A technical SEO audit covers 7 core areas: crawlability analysis, indexation review, Core Web Vitals performance, mobile usability, site architecture, schema markup validation, and security and accessibility compliance. Deliverables include an executive summary, prioritised recommendations spreadsheet, competitor benchmarking, and developer-ready implementation guidance.",
+    },
+    {
+      q: "How long does a technical SEO audit take?",
+      a: "A technical SEO audit typically takes 5–10 working days depending on site size. Small sites under 100 pages are delivered within 5 days; large sites over 500 pages may require up to 2 weeks for comprehensive analysis.",
+    },
+    {
+      q: "What happens after a technical SEO audit?",
+      a: "After a technical SEO audit you receive a prioritised action plan with effort/impact scoring. Most clients implement recommendations using their existing development team. Following technical fixes, many commission topical map creation to build content authority on the improved technical foundation.",
+    },
+  ],
+  "seo-consulting": [
+    {
+      q: "What is SEO consulting?",
+      a: "SEO consulting provides expert strategic guidance for businesses wanting direction without full-service implementation. Sessions cover current performance analysis, opportunity identification, prioritised recommendations, and a 12-month strategic roadmap — ideal for in-house teams needing specialist input.",
+    },
+    {
+      q: "How much does SEO consulting cost?",
+      a: "SEO consulting costs from £200 for a single 90-minute session, £600 per month for a 4-hour monthly retainer, and £500 for a quarterly strategy review. Most clients start with a single session to establish value before committing to ongoing consulting.",
+    },
+    {
+      q: "Who benefits from SEO consulting?",
+      a: "SEO consulting suits in-house marketing teams needing specialist input, businesses transitioning between agencies, startups establishing SEO foundations before scaling content, and organisations evaluating whether SEO is the right investment for their growth goals.",
+    },
+    {
+      q: "How is SEO consulting different from a full-service retainer?",
+      a: "SEO consulting provides strategic direction — analysis, recommendations, and roadmaps — while your team handles implementation. Full-service retainers include strategy plus execution: content creation, technical fixes, and ongoing optimisation. Consulting is typically 60–70% cheaper for businesses with capable in-house teams.",
+    },
+    {
+      q: "What topics does an SEO consulting session cover?",
+      a: "SEO consulting sessions address technical SEO strategy, semantic content methodology and topical authority building, local SEO and Google Business Profile optimisation, keyword research and topical mapping, internal linking architecture, and performance analysis and algorithm update assessment.",
+    },
+  ],
+  "how-much-does-seo-cost": [
+    {
+      q: "How much does SEO cost in the UK?",
+      a: "UK SEO costs range from £500 for a standalone technical audit to £5,000+ monthly for a comprehensive retainer. Typical ranges: technical audits £500–£1,200, topical maps £800–£2,500, local SEO from £600 monthly, SEO consulting from £200 per session, and full-service retainers £1,500–£5,000+ monthly.",
+    },
+    {
+      q: "Why is cheap SEO risky?",
+      a: "SEO services under £300 monthly typically rely on automated link building, template content, and basic reporting that fails to build topical authority. These approaches often trigger algorithmic penalties or produce results that collapse when Google updates, costing significantly more to repair than quality SEO would have cost upfront.",
+    },
+    {
+      q: "How long before SEO delivers positive ROI?",
+      a: "SEO ROI develops progressively: months 1–3 require investment before results materialise; months 3–6 deliver initial 2–3x ROI from early ranking improvements; months 6–12 reach 5–10x ROI as topical authority compounds; mature SEO at 12+ months typically delivers 10–20x ROI through sustained organic visibility.",
+    },
+    {
+      q: "Should I hire an SEO consultant or an agency?",
+      a: "SEO consultants suit businesses wanting strategic direction with in-house implementation — typically £1,500–£3,500 monthly for senior strategy. Agencies provide full-service execution at higher cost. A hybrid model combining consultant strategy with freelance execution often delivers the best quality-to-cost ratio.",
+    },
+    {
+      q: "What SEO budget does my business need?",
+      a: "Small local businesses typically need £800–£1,500 initial setup plus £600+ monthly. B2B service businesses require £3,000–£8,000 initial strategy plus £1,000–£2,000 monthly. E-commerce businesses need £5,000–£15,000 initial investment plus £2,000–£5,000 monthly for sustained growth.",
+    },
+  ],
+  "seo-berkshire": [
+    {
+      q: "What makes Berkshire SEO different from national SEO?",
+      a: "Berkshire SEO combines local market knowledge across Reading, Bracknell, Maidenhead, Windsor, Slough, and Wokingham with advanced semantic methodology. The Thames Valley commercial corridor creates specific competitive dynamics — high business density, London proximity, and affluent demographics — that generic national SEO approaches ignore.",
+    },
+    {
+      q: "Which Berkshire areas do you cover?",
+      a: "SEO services cover all Berkshire areas: Reading and West Berkshire, Bracknell Forest, Wokingham Borough, Royal Borough of Windsor and Maidenhead, and Slough Borough. Remote consultations are also available for businesses wanting Berkshire-based expertise without geographic restrictions.",
+    },
+    {
+      q: "How much does Berkshire SEO cost?",
+      a: "Berkshire SEO pricing: technical audits from £500, topical maps £800–£2,500+, local SEO from £600 monthly, and full retainers £1,500–£5,000+ monthly. Initial investment depends on competition level and existing site authority. Free consultations available to assess your specific requirements.",
+    },
+    {
+      q: "How long does SEO take for Berkshire businesses?",
+      a: "Berkshire SEO timelines depend on competition and market. Local service businesses see initial results within 3–4 months. Professional services require 6–9 months building topical authority. Technology B2B companies in competitive Thames Valley markets should plan for 9–15 months for dominant positions.",
+    },
+  ],
+  "seo-bracknell": [
+    {
+      q: "Why do Bracknell businesses need local SEO?",
+      a: "Bracknell's strong technology sector and professional services cluster create competitive local search markets. Businesses in The Lexicon, Doncastle Road, and Western Road business parks compete for local searches from an affluent commuter population. Local SEO ensures visibility when Bracknell buyers search for your services.",
+    },
+    {
+      q: "What SEO services work best for Bracknell businesses?",
+      a: "Bracknell businesses benefit most from local SEO for Google Business Profile and Map Pack visibility, technical SEO audits to fix indexation issues, topical map creation for industry authority beyond purely local searches, and content briefs for systematic semantic SEO content production.",
+    },
+    {
+      q: "How much does SEO cost for a Bracknell business?",
+      a: "Bracknell SEO investment ranges from £800–£2,500 initially for strategy and setup, followed by £600–£2,000+ monthly for ongoing implementation depending on service scope and competition. Free initial consultations assess your specific requirements and competitive landscape.",
+    },
+    {
+      q: "How long does SEO take in Bracknell markets?",
+      a: "Local service businesses in Bracknell see initial results within 3–4 months. Professional services and B2B companies require 6–9 months building topical authority. Technology businesses with complex sales cycles should plan 9–15 months for competitive positions in saturated markets.",
+    },
+  ],
+  "seo-slough": [
+    {
+      q: "What makes Slough SEO different from other areas?",
+      a: "Slough's diverse economy — spanning the Trading Estate, manufacturing, logistics, technology, and professional services — creates varied SEO requirements. B2B businesses need topical authority for procurement research, while local service businesses need Google Maps visibility for residential catchments across Langley, Cippenham, and Burnham.",
+    },
+    {
+      q: "What SEO services suit Slough businesses?",
+      a: "Slough businesses benefit from B2B SEO strategies building topical authority for long sales cycles, local SEO for service businesses in residential areas, technical audits for complex e-commerce and business sites, and content architecture addressing diverse buyer journeys from quick local decisions to extended B2B evaluation processes.",
+    },
+    {
+      q: "How much does SEO cost for a Slough business?",
+      a: "Slough SEO costs range from £500 for a standalone technical audit to £1,500–£5,000+ monthly for comprehensive retainers. B2B content strategy typically requires £3,000–£8,000 initial investment. Free consultations provide specific pricing based on your industry, competition, and growth objectives.",
+    },
+    {
+      q: "How long does SEO take for Slough businesses?",
+      a: "Local service businesses in Slough see initial improvements within 3–4 months through Google Business Profile and on-page optimisation. B2B companies on the Trading Estate typically require 9–15 months to build the topical authority needed to compete for procurement research queries.",
+    },
+  ],
+  "seo-wokingham": [
+    {
+      q: "Why do Wokingham businesses need specialist SEO?",
+      a: "Wokingham Borough's affluent and educated population creates sophisticated search patterns requiring advanced content strategies beyond basic keyword targeting. Businesses compete against established local providers and Reading-based services targeting the same audience, demanding topical authority differentiation to rank and convert.",
+    },
+    {
+      q: "What SEO services work for Wokingham businesses?",
+      a: "Wokingham businesses benefit from semantic SEO building topical authority for sophisticated buyer research, local SEO for Google Business Profile and Map Pack visibility, technical audits ensuring fast mobile performance for a technically literate audience, and comprehensive content strategy addressing detailed pre-purchase research patterns.",
+    },
+    {
+      q: "How much does SEO cost for a Wokingham business?",
+      a: "Wokingham SEO investment ranges from £800–£2,500 initially for strategy and audit, followed by £800–£2,500+ monthly for ongoing implementation. Professional services in competitive niches require higher investment to overcome established competitors. Free consultations provide accurate scoping based on your market.",
+    },
+    {
+      q: "How long does SEO take in Wokingham?",
+      a: "Local service businesses in Wokingham see initial results within 3–4 months. Professional services (financial advisors, solicitors, consultancies) require 6–9 months building the topical authority needed to outrank established local competitors with multi-year authority advantages.",
+    },
+  ],
+  "seo-maidenhead": [
+    {
+      q: "What makes Maidenhead SEO unique?",
+      a: "Maidenhead's position in the Royal Borough creates dual SEO opportunities: local resident searches from affluent commuter demographics, and tourism-driven visitor searches from Windsor overflow. Effective Maidenhead SEO addresses both intents — local service relationships and immediate visitor needs — with different content strategies.",
+    },
+    {
+      q: "What SEO services benefit Maidenhead businesses?",
+      a: "Maidenhead businesses benefit from tourism-focused local SEO capturing visitor searches, residential market targeting for local service businesses, content strategy balancing visitor intent with long-term resident relationships, and technical optimisation for fast mobile performance supporting on-the-move visitor searches.",
+    },
+    {
+      q: "How much does SEO cost for a Maidenhead business?",
+      a: "Maidenhead SEO investment ranges from £600–£1,500 monthly for local SEO maintenance to £2,000–£5,000+ monthly for comprehensive strategy covering both tourism and residential markets. Initial strategy and setup typically requires £800–£2,500. Free consultations provide specific pricing for your business type.",
+    },
+    {
+      q: "How long does SEO take for Maidenhead businesses?",
+      a: "Local service businesses and hospitality in Maidenhead typically see initial improvements within 3–4 months through Google Business Profile optimisation and local content. Businesses targeting both visitor and resident markets may require 6–9 months to build authority across both audience segments.",
+    },
+  ],
+  "seo-windsor": [
+    {
+      q: "What SEO opportunities exist for Windsor businesses?",
+      a: "Windsor's unique blend of international tourism, heritage-driven visitor searches, and established local business creates distinct SEO opportunities. Tourism-facing businesses capture high-volume visitor intent searches year-round, while local service businesses benefit from an affluent residential catchment across the Royal Borough.",
+    },
+    {
+      q: "How much does SEO cost for a Windsor business?",
+      a: "Windsor SEO costs range from £600+ monthly for local SEO to £1,500–£3,500+ monthly for comprehensive strategies covering both tourist and residential audiences. Initial audits start from £500. Free consultations assess your specific market position and growth objectives.",
+    },
+    {
+      q: "How long does SEO take for Windsor businesses?",
+      a: "Windsor hospitality and tourism businesses see initial Google Maps and local pack improvements within 3–4 months. Professional services and local businesses targeting residential audiences require 6–9 months to build the topical authority needed to rank competitively against established local providers.",
+    },
+  ],
+};
 
 type ConversionData = typeof GENERIC_DATA;
 
@@ -496,9 +670,7 @@ export default async function ServicePage({
                 url: `https://sunnypatel.co.uk/services/${slug}`,
               },
             ]),
-            ...(slug === "seo-consultant-reading"
-              ? [faqSchema(SEO_READING_FAQS)]
-              : [])
+            ...(SERVICE_FAQS[slug] ? [faqSchema(SERVICE_FAQS[slug])] : [])
           ),
         }}
       />

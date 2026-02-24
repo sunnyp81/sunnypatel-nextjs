@@ -584,25 +584,28 @@ export function organizationSchema() {
  */
 export function localBusinessSchema() {
   return {
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${SITE_URL}/#localbusiness`,
     name: "Sunny Patel SEO",
     url: SITE_URL,
     email: "hello@sunnypatel.co.uk",
+    telephone: "+447305523333",
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       `${SITE_URL}/#organization`,
     ],
     address: {
       "@type": "PostalAddress",
+      streetAddress: "450 Brook Drive",
       addressLocality: "Reading",
       addressRegion: "Berkshire",
+      postalCode: "RG2 6UU",
       addressCountry: "GB",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 51.4543,
-      longitude: -0.9781,
+      latitude: 51.4282,
+      longitude: -1.0111,
     },
     areaServed: [
       { "@type": "Country", name: "United Kingdom" },

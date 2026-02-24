@@ -6,6 +6,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 
 const links = [
   { href: "/services", label: "Services" },
+  { href: "/services/seo-consultant-reading", label: "SEO Reading" },
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },

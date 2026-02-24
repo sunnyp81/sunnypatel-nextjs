@@ -4,7 +4,7 @@ import { reader } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { ContentPage } from "@/components/content-page";
 import { notFound } from "next/navigation";
-import { serviceSchema, breadcrumbSchema, schemaGraph } from "@/lib/schema";
+import { serviceSchema, breadcrumbSchema, faqSchema, schemaGraph } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { TestimonialGrid } from "@/components/services/TestimonialGrid";
 import { ProcessTimeline } from "@/components/services/ProcessTimeline";
@@ -300,6 +300,33 @@ const AI_SEARCH_DATA = {
   ],
 };
 
+const SEO_READING_FAQS = [
+  {
+    q: "Why should I hire an SEO consultant in Reading?",
+    a: "Hiring a local SEO consultant in Reading provides direct access to local market knowledge, face-to-face strategy sessions at our Green Park office, and understanding of Reading's competitive business landscape across Berkshire and Thames Valley. Local expertise combines with advanced semantic SEO methodology to deliver sustainable organic growth.",
+  },
+  {
+    q: "What SEO services are available in Reading?",
+    a: "SEO services available in Reading include technical SEO audits, local SEO optimisation for Google Business Profile and local pack visibility, topical map creation for long-term content architecture, content strategy for semantic SEO, and ongoing SEO consulting for in-house teams requiring expert direction.",
+  },
+  {
+    q: "Which areas of Reading do you cover?",
+    a: "SEO services cover Reading town centre, Caversham, Earley, Woodley, Winnersh, Tilehurst, Calcot, Green Park, and Thames Valley Park business districts. Remote consultations are available for businesses across the UK wanting Reading-based expertise.",
+  },
+  {
+    q: "How long does SEO take for Reading businesses?",
+    a: "Local SEO improvements for Reading businesses typically show within 3–6 months. Broader authority building in competitive Reading markets may require 6–12 months of consistent work. Technical fixes produce measurable changes within 4–8 weeks of implementation.",
+  },
+  {
+    q: "How much does an SEO consultant in Reading cost?",
+    a: "SEO consultant costs in Reading range from £500–£1,200 for a technical audit, £800–£2,500 for topical mapping, and £1,500–£5,000 per month for ongoing retainers depending on scope and competition. Free initial consultations include a brief website review and actionable recommendations.",
+  },
+  {
+    q: "What if previous SEO work did not deliver results for my Reading business?",
+    a: "Most failed SEO for Reading businesses results from generic advice without local market understanding, thin content without topical authority, or targeting isolated keywords without an interconnected content strategy. A methodology-led approach specific to the Reading and Thames Valley competitive landscape typically resolves these issues within 6–12 months.",
+  },
+];
+
 type ConversionData = typeof GENERIC_DATA;
 
 // Pages with fully custom data — no RelatedServices shown on these
@@ -468,7 +495,10 @@ export default async function ServicePage({
                 name: service.title,
                 url: `https://sunnypatel.co.uk/services/${slug}`,
               },
-            ])
+            ]),
+            ...(slug === "seo-consultant-reading"
+              ? [faqSchema(SEO_READING_FAQS)]
+              : [])
           ),
         }}
       />

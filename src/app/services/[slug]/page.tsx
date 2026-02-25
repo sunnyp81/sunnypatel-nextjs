@@ -20,6 +20,13 @@ const GENERIC_DATA = {
   testimonials: [
     {
       quote:
+        "The SEO work delivered real results \u2014 I\u2019m seeing more clicks compared to this time last year in Google Analytics, without having to spend loads on advertising. Super impressed.",
+      name: "Dr Shaan Patel",
+      role: "Founder, Aatma Aesthetics",
+      location: "UK",
+    },
+    {
+      quote:
         "Before working with Sunny, we were getting around 180 organic visits a month. Nine months later we\u2019re at 620 and enquiries from organic have tripled.",
       name: "James W.",
       role: "Director",

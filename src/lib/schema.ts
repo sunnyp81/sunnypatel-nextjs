@@ -294,6 +294,10 @@ const BLOG_TOPICS: Record<string, TopicMapping> = {
     about: ["local-seo"],
     mentions: ["technical-seo", "content-strategy"],
   },
+  "seo-reading-guide": {
+    about: ["local-seo", "semantic-seo"],
+    mentions: ["technical-seo", "content-strategy", "topical-authority"],
+  },
   "what-is-a-content-brief": {
     about: ["content-strategy"],
     mentions: ["keyword-research", "semantic-seo"],

@@ -17,6 +17,13 @@ const nextConfig: NextConfig = {
       { source: "/seo-windsor", destination: "/services/seo-windsor", permanent: true },
       { source: "/seo-consultant-reading", destination: "/services/seo-consultant-reading", permanent: true },
       { source: "/technical-seo-audit", destination: "/services/technical-seo-audit", permanent: true },
+      // Old service pages from previous site — redirect to nearest equivalent
+      { source: "/seo-consulting-london", destination: "/services/seo-consulting", permanent: true },
+      { source: "/seo-consulting-london/", destination: "/services/seo-consulting", permanent: true },
+      { source: "/board-level-seo-reporting", destination: "/services/seo-strategy-consulting-expert-guidance-for-in-house-teams", permanent: true },
+      { source: "/board-level-seo-reporting/", destination: "/services/seo-strategy-consulting-expert-guidance-for-in-house-teams", permanent: true },
+      { source: "/pre-acquisition-seo-due-diligence", destination: "/services/technical-seo-audit", permanent: true },
+      { source: "/pre-acquisition-seo-due-diligence/", destination: "/services/technical-seo-audit", permanent: true },
       // Dev/staging pages that leaked into Bing index
       { source: "/main-home-pattern-1", destination: "/", permanent: true },
       { source: "/homepage-content-for-sunnypatel-co-uk", destination: "/", permanent: true },

@@ -18,6 +18,7 @@ const services = [
     description:
       "Build comprehensive content networks that establish your site as the definitive source in your niche through entity relationships.",
     color: "#5B8AEF",
+    href: "/services/topical-authority/",
   },
   {
     icon: Code,
@@ -25,6 +26,7 @@ const services = [
     description:
       "Deep crawl analysis, Core Web Vitals optimisation, schema markup, and site architecture improvements.",
     color: "#4c7894",
+    href: "/services/technical-seo-audit/",
   },
   {
     icon: Map,
@@ -32,6 +34,7 @@ const services = [
     description:
       "Strategic content architecture using root, node, and seed page hierarchy to signal topical completeness to search engines.",
     color: "#5a922c",
+    href: "/services/topical-maps/",
   },
   {
     icon: BarChart3,
@@ -39,6 +42,7 @@ const services = [
     description:
       "Strategic guidance for in-house teams. Monthly retainers with priority support and quarterly strategy reviews.",
     color: "#d79f1e",
+    href: "/services/seo-consulting/",
   },
   {
     icon: FileText,
@@ -46,6 +50,7 @@ const services = [
     description:
       "Semantic briefs, content calendars, and editorial workflows aligned with search intent.",
     color: "#5B8AEF",
+    href: "/services/content-briefs/",
   },
   {
     icon: TrendingUp,
@@ -53,6 +58,7 @@ const services = [
     description:
       "Diagnose traffic drops, recover lost rankings, and rebuild organic revenue from algorithm updates.",
     color: "#5a922c",
+    href: "/services/google-algorithm-update-recovery/",
   },
 ];
 
@@ -96,6 +102,7 @@ export function Services() {
                 viewport={{ once: true, amount: 0.01 }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
               >
+                <a href={service.href} className="block h-full">
                 <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2">
                   <GlowingEffect
                     spread={40}
@@ -133,6 +140,7 @@ export function Services() {
                     </p>
                   </div>
                 </div>
+                </a>
               </motion.div>
             );
           })}

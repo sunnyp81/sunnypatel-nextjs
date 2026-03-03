@@ -26,9 +26,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sunny Patel | SEO & AI Consultant | Reading, Berkshire",
+  title: "SEO Consultant Reading | 150%+ Avg Traffic Growth | Sunny Patel",
   description:
-    "SEO consultant and AI strategist helping businesses achieve 150-280% organic traffic growth through entity-based content networks and semantic SEO.",
+    "Reading-based SEO consultant with 15+ years experience. Clients see 150-280% organic traffic growth. Free 30-min consultation, no contracts. Book today.",
 };
 
 export default function RootLayout({

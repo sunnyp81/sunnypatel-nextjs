@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 const SITE_URL = "https://sunnypatel.co.uk";
-const DEFAULT_TITLE = "Sunny Patel | SEO & AI Consultant | Reading, Berkshire";
+const DEFAULT_TITLE = "SEO Consultant Reading | 150%+ Avg Traffic Growth | Sunny Patel";
 const DEFAULT_DESCRIPTION =
-  "SEO consultant and AI strategist helping UK businesses grow through entity-based content networks. Based in Reading, Berkshire.";
+  "Reading-based SEO consultant with 15+ years experience. Clients see 150-280% organic traffic growth. Free 30-min consultation, no contracts. Book today.";
 
 export function buildMetadata({
   title,

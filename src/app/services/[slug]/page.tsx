@@ -115,6 +115,9 @@ const GENERIC_DATA = {
     "New sites with fewer than 10 pages of content",
     "Companies with no capacity to publish or update content",
   ],
+  ctaTitle: "Ready to grow your organic traffic?",
+  ctaSubtitle:
+    "Book a free 30-minute consultation. Honest assessment of where your SEO stands and what to prioritise — no obligation.",
 };
 
 const SEO_READING_DATA = {
@@ -210,6 +213,107 @@ const SEO_READING_DATA = {
     "E-commerce stores with sub-12-month commitment windows",
     "Sites with fewer than 10 existing pages of content",
   ],
+  ctaTitle: "Ready to rank higher in Reading and Berkshire?",
+  ctaSubtitle:
+    "Book a free consultation. I\u2019ll review your current Reading rankings live on the call and tell you exactly what\u2019s holding you back.",
+};
+
+const SEO_LONDON_DATA = {
+  accent: "#5B8AEF",
+  testimonials: [
+    {
+      quote:
+        "Before working with Sunny, we were getting around 180 organic visits a month. Nine months later we\u2019re at 620 and enquiries from organic have tripled.",
+      name: "James W.",
+      role: "Director",
+      location: "London",
+    },
+    {
+      quote:
+        "Sunny\u2019s topical map approach was unlike any other SEO work we\u2019d had before. Within 6 months we were ranking for terms we\u2019d never appeared for.",
+      name: "Tom B.",
+      role: "MD, SaaS company",
+      location: "London",
+    },
+    {
+      quote:
+        "The SEO work delivered real results \u2014 I\u2019m seeing more clicks compared to this time last year without having to spend loads on advertising.",
+      name: "Dr Shaan Patel",
+      role: "Founder, Aatma Aesthetics",
+      location: "UK",
+    },
+    {
+      quote:
+        "The monthly reporting is clear, honest and always tied to actual business outcomes \u2014 not just vanity metrics.",
+      name: "Claire H.",
+      role: "Director, e-commerce brand",
+      location: "London",
+    },
+  ],
+  caseStudies: [
+    {
+      industry: "SaaS",
+      challenge: "180 organic visits/mo, no topical authority in a competitive London market",
+      result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
+      metric: "+244% organic traffic",
+      timeline: "9 months",
+      accentColor: "#5B8AEF",
+    },
+    {
+      industry: "Professional Services",
+      challenge: "Invisible in competitive London search results despite good content",
+      result: "Page-one positions across core service queries, sustained month-on-month growth",
+      metric: "3\u00d7 monthly enquiries",
+      timeline: "7 months",
+      accentColor: "#5B8AEF",
+    },
+  ],
+  timeline: [
+    {
+      phase: "Week 1",
+      label: "Technical audit + discovery",
+      description: "Site health, London competitor landscape, keyword opportunity sizing",
+    },
+    {
+      phase: "Weeks 2\u20134",
+      label: "Technical fixes + content plan",
+      description: "Priority fixes live, 12-month topical map drafted for your market",
+    },
+    {
+      phase: "Month 2\u20133",
+      label: "Topical content live",
+      description: "Cornerstone pages and supporting content published",
+    },
+    {
+      phase: "Month 4\u20136",
+      label: "Rankings build",
+      description: "Target pages climbing, authority signals strengthening",
+    },
+    {
+      phase: "Month 7\u201312+",
+      label: "Compound growth",
+      description: "Authority compound effect, content cluster dominance across London queries",
+    },
+  ],
+  riskPoints: [
+    "No minimum contract \u2014 monthly rolling, cancel with 30 days notice",
+    "You own everything \u2014 all content, data, and account access are yours from day one",
+    "Monthly reporting \u2014 traffic, rankings, and milestone progress every month",
+  ],
+  yesFor: [
+    "London businesses wanting sustainable organic traffic and enquiry growth",
+    "Professional services, fintech, SaaS, legal, and e-commerce companies",
+    "Founders and marketing leads who want transparent, data-backed reporting",
+    "Companies with a 6\u201312 month growth horizon",
+  ],
+  noFor: [
+    "Businesses expecting top London rankings within 4\u20136 weeks",
+    "New sites with fewer than 10 pages of content",
+    "Companies with no capacity to publish or update content",
+  ],
+  ctaTitle: "Ready to compete in London's search results?",
+  ctaSubtitle:
+    "Book a free 30-minute consultation. I\u2019ll review your London competitor landscape live on the call and show you exactly where the opportunities are.",
 };
 
 const AI_SEARCH_DATA = {
@@ -305,6 +409,9 @@ const AI_SEARCH_DATA = {
     "New sites with fewer than 10 content pages",
     "Businesses wanting results in under 6 weeks",
   ],
+  ctaTitle: "Ready to appear in AI search results?",
+  ctaSubtitle:
+    "Book a free consultation. I\u2019ll audit your current AI citation baseline and show you exactly where you\u2019re missing visibility.",
 };
 
 type FaqItem = { q: string; a: string };
@@ -420,6 +527,32 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       a: "Berkshire SEO timelines depend on competition and market. Local service businesses see initial results within 3–4 months. Professional services require 6–9 months building topical authority. Technology B2B companies in competitive Thames Valley markets should plan for 9–15 months for dominant positions.",
     },
   ],
+  "seo-consultant-london": [
+    {
+      q: "Why hire an independent SEO consultant instead of a London SEO agency?",
+      a: "Independent SEO consultants remove the agency overhead — office space, account managers, business development costs — that comprises 40–60% of a typical London agency retainer. You get direct access to a senior strategist on every call and decision, rather than a junior account executive relaying instructions. For London businesses wanting strategic expertise rather than volume execution, independent consultants consistently deliver better ROI.",
+    },
+    {
+      q: "How much does an SEO consultant in London cost?",
+      a: "London SEO consultant pricing: technical audits from £500–£1,200, topical maps from £800–£2,500, and monthly retainers from £1,500–£5,000+ depending on scope and competition. Compared to London agency rates of £3,000–£10,000 monthly, independent consultant pricing delivers senior-level strategy at 40–60% lower cost. Initial consultations are free.",
+    },
+    {
+      q: "Do you work with London clients remotely?",
+      a: "All client work is conducted remotely — video calls, collaborative sessions, and direct communication without geographic limitation. Remote-first working means London businesses across all boroughs receive the same quality of engagement as any other client. Consultations are scheduled at times convenient to you.",
+    },
+    {
+      q: "How long does SEO take for London businesses?",
+      a: "London SEO timelines depend on competition and market. Technical improvements appear within 4–8 weeks. Initial ranking improvements for mid-competition queries develop within 3–6 months. Competitive London professional services, legal, and fintech queries require 9–15 months for dominant positions. The compound effect of topical authority building accelerates growth significantly after month 6.",
+    },
+    {
+      q: "What London industries do you specialise in?",
+      a: "London SEO engagements cover fintech and financial services, legal and professional services, technology and SaaS, luxury and premium brands, e-commerce, and startups and scale-ups. Each sector requires distinct SEO methodology — fintech E-E-A-T requirements differ fundamentally from luxury brand entity authority strategies.",
+    },
+    {
+      q: "What makes London SEO different from other UK markets?",
+      a: "London competitors typically have 5–10 years of content investment and strong authority profiles, making methodological precision essential. Intent complexity is higher — London search users are more researched and evaluate multiple providers. E-E-A-T signals matter more in London's regulated industries. AI search impact is accelerating fastest in London's B2B markets. Generic SEO approaches that work in smaller markets fail in London.",
+    },
+  ],
   "seo-bracknell": [
     {
       q: "Why do Bracknell businesses need local SEO?",
@@ -530,35 +663,40 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
   ],
   "seo-agency-reading": [
     {
-      q: "What is an SEO agency in Reading?",
-      a: "An SEO agency in Reading provides organic search strategy and implementation for local businesses. The term covers traditional multi-staff agencies, specialist SEO shops, and independent SEO consultants — all delivering similar outcomes through different structures. Independent consultants like Sunny Patel offer direct senior expert access without the account manager overhead common in larger agencies.",
+      q: "What is an SEO company in Reading?",
+      a: "An SEO company in Reading provides organic search strategy and implementation for local businesses. The term is interchangeable with 'SEO agency' and 'SEO consultant' — all describe providers delivering the same outcome: sustainable rankings, organic traffic, and qualified leads. The meaningful difference is structure: traditional SEO companies employ multiple staff with account management layers, while independent consultants provide direct senior expert access without the overhead.",
     },
     {
-      q: "Should I use an SEO agency or SEO consultant in Reading?",
-      a: "For most Reading businesses, an independent SEO consultant delivers equivalent results at lower cost than a traditional agency, because you access the strategist directly rather than through an account manager. Agencies suit businesses needing high-volume simultaneous content production. Consultants suit businesses wanting strategic expertise and direct accountability.",
+      q: "Is there a difference between an SEO company and SEO agency in Reading?",
+      a: "No meaningful difference. Businesses searching 'SEO company Reading' and 'SEO agency Reading' are looking for the same thing: a provider who can improve their organic search visibility. The distinction that actually matters is whether you get direct access to the strategist making decisions, or whether your budget funds account managers and junior staff between you and the expertise.",
     },
     {
-      q: "How much does an SEO agency in Reading cost?",
-      a: "Reading SEO agency pricing typically runs £1,500–£5,000+ monthly. Independent consultant pricing for equivalent strategic scope runs £1,500–£5,000+ monthly with more of that investment going directly into strategy and implementation rather than overhead. Technical audits start from £500; topical maps from £800.",
+      q: "Should I use an SEO company, agency, or consultant in Reading?",
+      a: "For most Reading businesses, an independent SEO consultant delivers equivalent results at lower cost than a traditional SEO company or agency, because you access the strategist directly rather than through account management layers. SEO companies and agencies suit businesses needing high-volume simultaneous content production with large teams. Consultants suit businesses wanting strategic expertise and direct accountability for a similar or lower investment.",
     },
     {
-      q: "Which areas of Reading does your SEO agency service cover?",
+      q: "How much does an SEO company in Reading cost?",
+      a: "Reading SEO company pricing typically runs £1,500–£5,000+ monthly for mid-tier providers, rising to £3,000–£10,000+ for larger agencies. Independent consultant pricing for equivalent strategic scope runs £1,500–£5,000+ monthly — with more of that investment going directly into strategy rather than company overhead. Technical audits start from £500; topical maps from £800.",
+    },
+    {
+      q: "Which areas of Reading does your SEO service cover?",
       a: "SEO services cover Reading town centre, Green Park, Thames Valley Park, Caversham, Earley, Woodley, Winnersh, Tilehurst, and Calcot. Services extend across all Berkshire — Bracknell, Slough, Wokingham, Maidenhead, and Windsor — with remote consultancy available UK-wide.",
     },
     {
-      q: "How long does SEO take with a Reading SEO agency?",
-      a: "SEO timelines are consistent whether using an agency or consultant. Local SEO improvements typically show within 3–6 months. Topical authority building in competitive Reading markets requires 6–12 months. The pace is determined by Google's crawl and re-evaluation cycles, not headcount.",
+      q: "How long does SEO take with a Reading SEO company?",
+      a: "SEO timelines are consistent whether using an SEO company, agency, or consultant. Local SEO improvements typically show within 3–6 months. Topical authority building in competitive Reading markets requires 6–12 months. The pace is determined by Google's crawl and re-evaluation cycles, not headcount or company size.",
     },
   ],
 };
 
 type ConversionData = typeof GENERIC_DATA;
 
-// Pages with fully custom data — no RelatedServices shown on these
-const SPECIFIC_SLUGS = new Set(["seo-consultant-reading", "ai-search-optimisation"]);
+// Pages with fully custom conversion data
+const SPECIFIC_SLUGS = new Set(["seo-consultant-reading", "seo-consultant-london", "ai-search-optimisation"]);
 
 const SPECIFIC_DATA: Record<string, ConversionData> = {
   "seo-consultant-reading": SEO_READING_DATA,
+  "seo-consultant-london": SEO_LONDON_DATA,
   "ai-search-optimisation": AI_SEARCH_DATA,
 };
 
@@ -696,6 +834,7 @@ export default async function ServicePage({
     slug: s.slug,
     title: s.entry.title,
     subtitle: s.entry.subtitle,
+    description: s.entry.description,
   }));
 
   const convData = SPECIFIC_DATA[slug] ?? GENERIC_DATA;
@@ -731,15 +870,21 @@ export default async function ServicePage({
         badge="Services"
         backHref="/services"
         backLabel="All Services"
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: service.title },
+        ]}
         showCta={true}
+        isService={true}
+        ctaTitle={convData.ctaTitle}
+        ctaSubtitle={convData.ctaSubtitle}
         sections={sections}
         afterContent={
-          !isSpecific ? (
-            <RelatedServices
-              currentSlug={slug}
-              allServices={serviceSummaries}
-            />
-          ) : undefined
+          <RelatedServices
+            currentSlug={slug}
+            allServices={serviceSummaries}
+          />
         }
       />
     </>

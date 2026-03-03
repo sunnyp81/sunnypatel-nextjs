@@ -3,6 +3,7 @@ import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
 import { About } from "@/components/sections/about";
 import { Portfolio, type FeaturedProject } from "@/components/sections/portfolio";
+import { Testimonials } from "@/components/sections/testimonials";
 import { Cta } from "@/components/sections/cta";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
@@ -36,6 +37,7 @@ export default async function Home() {
       <Stats />
       <About />
       <Portfolio featuredItems={featuredItems} />
+      <Testimonials />
       <Cta />
       <Contact />
       <Footer />

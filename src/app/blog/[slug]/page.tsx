@@ -87,6 +87,11 @@ export default async function BlogPost({
         badge="Blog"
         backHref="/blog"
         backLabel="All Posts"
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: post.title },
+        ]}
         dateLine={
           post.date
             ? new Date(post.date).toLocaleDateString("en-GB", {

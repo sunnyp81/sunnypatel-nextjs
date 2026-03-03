@@ -3,9 +3,12 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { BlogStickyCta } from "@/components/blog-sticky-cta";
 import { HumanEditedBadge } from "@/components/human-edited-badge";
+import { GradientButton } from "@/components/ui/gradient-button";
+import { ServiceInlineForm } from "@/components/service-inline-form";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Shield, Sparkles } from "lucide-react";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { slugifyTag } from "@/lib/utils";
 
 function AuthorByline() {
@@ -34,6 +37,12 @@ function AuthorByline() {
 const PROSE_CLASS =
   "prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#5B8AEF] prose-blockquote:border-l-[#5B8AEF]/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]";
 
+const TRUST_BADGES = [
+  { icon: CalendarDays, label: "15+ years experience" },
+  { icon: Sparkles,     label: "Free consultation"    },
+  { icon: Shield,       label: "No contracts"         },
+] as const;
+
 export function ContentPage({
   h1,
   subtitle,
@@ -44,8 +53,12 @@ export function ContentPage({
   tags,
   heroImage,
   showCta = false,
+  isService = false,
   isBlog = false,
+  ctaTitle,
+  ctaSubtitle,
   afterContent,
+  breadcrumbItems,
   sections,
   children,
 }: {
@@ -58,8 +71,12 @@ export function ContentPage({
   tags?: string[];
   heroImage?: string;
   showCta?: boolean;
+  isService?: boolean;
   isBlog?: boolean;
+  ctaTitle?: string;
+  ctaSubtitle?: string;
   afterContent?: React.ReactNode;
+  breadcrumbItems?: Array<{ label: string; href?: string }>;
   sections?: Array<{ content: React.ReactNode; after?: React.ReactNode }>;
   children?: React.ReactNode;
 }) {
@@ -67,7 +84,7 @@ export function ContentPage({
     <main className="relative min-h-screen bg-background">
       <Navbar />
 
-      {/* Page header */}
+      {/* ── Page header ───────────────────────────────────────── */}
       <div className="relative overflow-hidden pb-12 pt-32">
         {/* Blue glow */}
         <div
@@ -89,7 +106,10 @@ export function ContentPage({
         />
 
         <div className="relative z-10 mx-auto max-w-3xl px-6">
-          {backHref && (
+          {breadcrumbItems && breadcrumbItems.length > 0 && (
+            <Breadcrumb items={breadcrumbItems} />
+          )}
+          {!breadcrumbItems && backHref && (
             <Link
               href={backHref}
               className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
@@ -116,6 +136,35 @@ export function ContentPage({
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               {subtitle}
             </p>
+          )}
+
+          {/* ── Service page: trust badges + header CTA ── */}
+          {isService && (
+            <>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                {TRUST_BADGES.map(({ icon: Icon, label }) => (
+                  <span
+                    key={label}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/[0.07] px-3 py-1.5 text-xs font-medium text-[#5B8AEF]"
+                  >
+                    <Icon className="h-3 w-3 shrink-0" />
+                    {label}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-7 flex flex-wrap items-center gap-4">
+                <GradientButton asChild>
+                  <Link href="/contact" className="gap-2">
+                    Book Free Consultation
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </GradientButton>
+                <span className="text-sm text-muted-foreground/70">
+                  Free 30-min · No obligation
+                </span>
+              </div>
+            </>
           )}
 
           {(dateLine || (tags && tags.length > 0)) && (
@@ -167,12 +216,11 @@ export function ContentPage({
         </div>
       )}
 
-      {/* Content */}
+      {/* ── Content ───────────────────────────────────────────── */}
       <div className="relative overflow-hidden">
         {/* Blog background decorations */}
         {isBlog && (
           <>
-            {/* Side glow accents */}
             <div
               className="pointer-events-none absolute -left-32 top-[20%] h-[500px] w-[400px] rounded-full opacity-[0.025] blur-[100px]"
               style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
@@ -185,7 +233,6 @@ export function ContentPage({
               className="pointer-events-none absolute -left-20 top-[75%] h-[300px] w-[300px] rounded-full opacity-[0.02] blur-[80px]"
               style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
             />
-            {/* Subtle dot grid that fades in/out */}
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.03]"
               style={{
@@ -205,7 +252,9 @@ export function ContentPage({
           {sections ? (
             sections.map((section, i) => (
               <React.Fragment key={i}>
-                <div className={PROSE_CLASS}>{section.content}</div>
+                <div className={isService ? `${PROSE_CLASS} prose-service` : PROSE_CLASS}>
+                  {section.content}
+                </div>
                 {section.after && (
                   <div className="my-10">{section.after}</div>
                 )}
@@ -220,36 +269,66 @@ export function ContentPage({
       {/* Related content */}
       {afterContent}
 
-      {/* Sticky blog CTA */}
-      {isBlog && <BlogStickyCta />}
+      {/* Sticky CTA — blogs and service pages */}
+      {(isBlog || isService) && <BlogStickyCta />}
 
-      {/* Optional CTA */}
+      {/* ── Bottom CTA ────────────────────────────────────────── */}
       {showCta && (
-        <div className="border-t border-white/[0.05]">
-          <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
-              Get Started
-            </p>
-            <h2
-              className="mb-4 text-2xl font-bold text-foreground md:text-3xl"
-              style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
-            >
-              Ready to grow your organic traffic?
-            </h2>
-            <p className="mx-auto mb-8 max-w-md text-muted-foreground">
-              Book a free 30-minute consultation. No obligation — just honest
-              advice on where your SEO stands and what to do next.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Book Free Consultation
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+        isService ? (
+          <ServiceInlineForm
+            ctaTitle={ctaTitle}
+            ctaSubtitle={ctaSubtitle}
+          />
+        ) : (
+          <div className="relative overflow-hidden border-t border-white/[0.05]">
+            {/* Ambient glow */}
+            <div
+              className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-[0.07] blur-[80px]"
+              style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
+            />
+
+            <div className="relative mx-auto max-w-3xl px-6 py-20 text-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+                Get Started
+              </p>
+              <h2
+                className="mb-4 text-2xl font-bold text-foreground md:text-3xl"
+                style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
+              >
+                {ctaTitle ?? "Ready to grow your organic traffic?"}
+              </h2>
+              <p className="mx-auto mb-8 max-w-md text-muted-foreground">
+                {ctaSubtitle ??
+                  "Book a free 30-minute consultation. No obligation — just honest advice on where your SEO stands and what to do next."}
+              </p>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Book Free Consultation
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+
+              {/* Trust micro-copy */}
+              <div className="mt-7 flex flex-wrap justify-center gap-5">
+                {TRUST_BADGES.map(({ icon: Icon, label }) => (
+                  <span
+                    key={label}
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/50"
+                  >
+                    <Icon className="h-3 w-3 text-[#5B8AEF]/50" />
+                    {label}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-3 text-xs text-muted-foreground/30">
+                Usually responds within a few hours
+              </p>
+            </div>
           </div>
-        </div>
+        )
       )}
 
       <Footer />

@@ -4,6 +4,7 @@ const SITE_URL = "https://sunnypatel.co.uk";
 const DEFAULT_TITLE = "SEO Consultant Reading | 150%+ Avg Traffic Growth | Sunny Patel";
 const DEFAULT_DESCRIPTION =
   "Reading-based SEO consultant with 15+ years experience. Clients see 150-280% organic traffic growth. Free 30-min consultation, no contracts. Book today.";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/sunny-patel-seo-consultant-reading-berkshire.png`;
 
 export function buildMetadata({
   title,
@@ -35,7 +36,7 @@ export function buildMetadata({
       siteName: "Sunny Patel",
       locale: "en_GB",
       type,
-      ...(ogImage && { images: [{ url: ogImage }] }),
+      images: [{ url: ogImage || DEFAULT_OG_IMAGE }],
       ...(type === "article" && articleMeta && {
         publishedTime: articleMeta.publishedTime,
         authors: articleMeta.authors,

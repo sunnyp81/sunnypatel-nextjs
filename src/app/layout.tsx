@@ -26,6 +26,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sunnypatel.co.uk"),
   title: "SEO Consultant Reading | 150%+ Avg Traffic Growth | Sunny Patel",
   description:
     "Reading-based SEO consultant with 15+ years experience. Clients see 150-280% organic traffic growth. Free 30-min consultation, no contracts. Book today.",

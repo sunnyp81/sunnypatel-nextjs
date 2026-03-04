@@ -5,8 +5,8 @@ import { Footer } from "@/components/sections/footer";
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "Contact Sunny Patel | Free SEO Consultation | Reading, Berkshire",
-    description: "Book a free 30-minute SEO consultation with Sunny Patel. Based in Reading, Berkshire. Response within 24 hours. No obligation.",
+    title: "Contact Sunny Patel | Book a Free Strategy Call",
+    description: "Get in touch with Sunny Patel for a free 30-minute strategy call. Response within 24 hours. No obligation.",
     path: "/contact",
   });
 }

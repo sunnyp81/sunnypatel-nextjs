@@ -24,14 +24,29 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // Old root-level location pages migrated to /services/
+      // Both trailing-slash and non-trailing-slash variants — Google indexed both
       { source: "/seo-berkshire", destination: "/services/seo-berkshire", permanent: true },
+      { source: "/seo-berkshire/", destination: "/services/seo-berkshire", permanent: true },
       { source: "/seo-bracknell", destination: "/services/seo-bracknell", permanent: true },
+      { source: "/seo-bracknell/", destination: "/services/seo-bracknell", permanent: true },
       { source: "/seo-slough", destination: "/services/seo-slough", permanent: true },
+      { source: "/seo-slough/", destination: "/services/seo-slough", permanent: true },
       { source: "/seo-maidenhead", destination: "/services/seo-maidenhead", permanent: true },
+      { source: "/seo-maidenhead/", destination: "/services/seo-maidenhead", permanent: true },
       { source: "/seo-wokingham", destination: "/services/seo-wokingham", permanent: true },
+      { source: "/seo-wokingham/", destination: "/services/seo-wokingham", permanent: true },
       { source: "/seo-windsor", destination: "/services/seo-windsor", permanent: true },
+      { source: "/seo-windsor/", destination: "/services/seo-windsor", permanent: true },
       { source: "/seo-consultant-reading", destination: "/services/seo-consultant-reading", permanent: true },
+      { source: "/seo-consultant-reading/", destination: "/services/seo-consultant-reading", permanent: true },
       { source: "/technical-seo-audit", destination: "/services/technical-seo-audit", permanent: true },
+      { source: "/technical-seo-audit/", destination: "/services/technical-seo-audit", permanent: true },
+      // Old root-level service pages still indexed by Google
+      { source: "/local-seo", destination: "/services/local-seo", permanent: true },
+      { source: "/local-seo/", destination: "/services/local-seo", permanent: true },
+      // Old category/tag pages from previous WordPress site
+      { source: "/category/:slug", destination: "/services", permanent: true },
+      { source: "/category/:slug/", destination: "/services", permanent: true },
       // Old service pages from previous site — redirect to nearest equivalent
       { source: "/seo-consulting-london", destination: "/services/seo-consulting", permanent: true },
       { source: "/seo-consulting-london/", destination: "/services/seo-consulting", permanent: true },

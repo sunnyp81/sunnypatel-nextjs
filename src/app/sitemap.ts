@@ -6,7 +6,7 @@ const SITE_URL = "https://sunnypatel.co.uk";
 
 // Static routes — use a fixed date rather than new Date() to avoid
 // telling Google every page changed on every build
-const LAST_DEPLOY = new Date("2026-03-03");
+const LAST_DEPLOY = new Date("2026-03-04");
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: SITE_URL,                   lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 1.0 },

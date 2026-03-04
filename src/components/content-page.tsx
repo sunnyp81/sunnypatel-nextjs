@@ -218,8 +218,8 @@ export function ContentPage({
 
       {/* ── Content ───────────────────────────────────────────── */}
       <div className="relative overflow-hidden">
-        {/* Blog background decorations */}
-        {isBlog && (
+        {/* Background decorations — blog and service pages */}
+        {(isBlog || isService) && (
           <>
             <div
               className="pointer-events-none absolute -left-32 top-[20%] h-[500px] w-[400px] rounded-full opacity-[0.025] blur-[100px]"
@@ -233,22 +233,24 @@ export function ContentPage({
               className="pointer-events-none absolute -left-20 top-[75%] h-[300px] w-[300px] rounded-full opacity-[0.02] blur-[80px]"
               style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
             />
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle, rgba(91,138,239,0.15) 1px, transparent 1px)",
-                backgroundSize: "48px 48px",
-                maskImage:
-                  "linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%)",
-              }}
-            />
           </>
         )}
+        {isBlog && (
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, rgba(91,138,239,0.15) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+              maskImage:
+                "linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%)",
+            }}
+          />
+        )}
 
-        <div className="relative mx-auto max-w-3xl px-6 py-16">
+        <div className={`relative mx-auto ${isService ? "max-w-4xl" : "max-w-3xl"} px-6 py-16`}>
           {sections ? (
             sections.map((section, i) => (
               <React.Fragment key={i}>
@@ -256,7 +258,7 @@ export function ContentPage({
                   {section.content}
                 </div>
                 {section.after && (
-                  <div className="my-10">{section.after}</div>
+                  <div className={isService ? "my-14" : "my-10"}>{section.after}</div>
                 )}
               </React.Fragment>
             ))

@@ -170,6 +170,90 @@
   color: #fff !important;
 }
 
+/* ── Service page section breaks — landing page feel ───────── */
+
+/* H2 section headers: accent bar + strong separation */
+.prose-service > h2 {
+  margin-top: 3.5rem !important;
+  padding-top: 2.5rem !important;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+}
+.prose-service > h2::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, #5B8AEF, transparent);
+}
+/* First H2 stays flush */
+.prose-service > h2:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none;
+}
+.prose-service > h2:first-child::before {
+  display: none;
+}
+
+/* Service tables — polished dark card look */
+.prose-service table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: 0.875rem !important;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  background: rgba(255,255,255,0.02);
+  width: 100%;
+}
+.prose-service thead th {
+  background: rgba(91,138,239,0.08) !important;
+  color: #5B8AEF !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 1.5rem !important;
+  border-bottom: 1px solid rgba(91,138,239,0.12) !important;
+  text-align: left;
+}
+.prose-service tbody td {
+  padding: 1rem 1.5rem !important;
+  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+  font-size: 0.9375rem;
+}
+.prose-service tbody tr:last-child td {
+  border-bottom: none !important;
+}
+.prose-service tbody tr {
+  transition: background 0.15s ease;
+}
+.prose-service tbody tr:hover {
+  background: rgba(91,138,239,0.04);
+}
+
+/* Bold-led list items — accent the label */
+.prose-service li > strong:first-child {
+  color: #5B8AEF !important;
+}
+
+/* Service HR dividers — glowing separator */
+.prose-service hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(91,138,239,0.35), transparent) !important;
+  margin: 3rem 0 !important;
+}
+
+/* Service blockquotes — accent card */
+.prose-service blockquote {
+  border-radius: 0.75rem;
+  background: rgba(91,138,239,0.04);
+  padding: 1.25rem 1.5rem !important;
+}
+
 /* ── Aurora blob animations ──────────────────────────────── */
 /* Aurora blob animations */
 @keyframes aurora-1 {

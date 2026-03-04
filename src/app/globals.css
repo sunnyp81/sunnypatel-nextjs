@@ -114,6 +114,63 @@
   }
 }
 
+/* ── Prose service CTA buttons — animated border-beam outline ───
+   Links that are the sole child of a <p> block and point to /contact
+   render as an animated spinning-border button. Inline /contact mentions
+   inside larger paragraphs are unaffected (a:only-child does not match). */
+
+@property --cta-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes cta-border-spin {
+  to { --cta-angle: 360deg; }
+}
+
+.prose-service p:has(> a:only-child[href^="/contact"]) {
+  margin-block: 2.25rem !important;
+  text-align: center;
+}
+.prose-service p:has(> a:only-child[href^="/contact"]) > a {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9375rem 2.25rem;
+  border-radius: 0.875rem;
+  /* Spinning conic-gradient border via background-clip technique */
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#08080d, #08080d) padding-box,
+    conic-gradient(
+      from var(--cta-angle) at 50% 50%,
+      #5B8AEF   0deg,
+      #9B7AFF  80deg,
+      #3d6fe8 180deg,
+      #9B7AFF 280deg,
+      #5B8AEF 360deg
+    ) border-box;
+  animation: cta-border-spin 3.5s linear infinite;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+  /* Subtle inner glow */
+  box-shadow: inset 0 0 18px rgba(91, 138, 239, 0.07), 0 0 20px rgba(91, 138, 239, 0.15);
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+.prose-service p:has(> a:only-child[href^="/contact"]) > a:hover {
+  transform: scale(1.025);
+  filter: brightness(1.18);
+  box-shadow: inset 0 0 24px rgba(91, 138, 239, 0.12), 0 0 36px rgba(91, 138, 239, 0.35);
+  text-decoration: none !important;
+  color: #fff !important;
+}
+
+/* ── Aurora blob animations ──────────────────────────────── */
 /* Aurora blob animations */
 @keyframes aurora-1 {
   0%, 100% { transform: translate(0, 0) scale(1); }

@@ -211,6 +211,10 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["semantic-seo", "eeat"],
     mentions: ["content-strategy", "entity-seo"],
   },
+  "seo-consultant-london": {
+    about: ["local-seo", "semantic-seo"],
+    mentions: ["entity-seo", "technical-seo", "ai-search-optimisation"],
+  },
   "seo-consultant-reading": {
     about: ["local-seo", "semantic-seo"],
     mentions: ["entity-seo"],
@@ -497,13 +501,11 @@ export function personSchema() {
       },
     ],
     workLocation: {
-      "@type": "Place",
-      name: "Reading, Berkshire",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Reading",
-        addressRegion: "Berkshire",
-        addressCountry: "GB",
+      "@type": "AdministrativeArea",
+      name: "Berkshire",
+      containedInPlace: {
+        "@type": "Country",
+        name: "United Kingdom",
       },
     },
     areaServed: {
@@ -606,19 +608,6 @@ export function localBusinessSchema() {
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       `${SITE_URL}/#organization`,
     ],
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "450 Brook Drive",
-      addressLocality: "Reading",
-      addressRegion: "Berkshire",
-      postalCode: "RG2 6UU",
-      addressCountry: "GB",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 51.4282,
-      longitude: -1.0111,
-    },
     areaServed: [
       { "@type": "Country", name: "United Kingdom" },
       { "@type": "AdministrativeArea", name: "Berkshire" },

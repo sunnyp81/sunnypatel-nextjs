@@ -13,7 +13,7 @@ import { WhoForGrid } from "@/components/services/WhoForGrid";
 import { CitationChecklist } from "@/components/services/CitationChecklist";
 import { CaseStudyCard } from "@/components/services/CaseStudyCard";
 import { StatsBar } from "@/components/services/StatsBar";
-import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
+import { ServiceInlineForm } from "@/components/service-inline-form";
 
 /* ── Conversion data ──────────────────────────────────────── */
 
@@ -776,7 +776,7 @@ function buildSections(
       <TestimonialGrid testimonials={convData.testimonials} />
     ),
     [pos.miniCta1]: (
-      <ServiceMiniCta />
+      <ServiceInlineForm compact />
     ),
     [pos.caseStudies]: (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -795,10 +795,7 @@ function buildSections(
       </>
     ),
     [pos.miniCta2]: (
-      <ServiceMiniCta
-        heading="Still Have Questions?"
-        text="Get a free site review and honest advice — no obligation, no contracts."
-      />
+      <ServiceInlineForm compact />
     ),
     [pos.whoFor]: (
       <WhoForGrid yesItems={convData.yesFor} noItems={convData.noFor} />

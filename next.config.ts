@@ -42,6 +42,11 @@ const nextConfig: NextConfig = {
       // Dev/staging pages that leaked into Bing index
       { source: "/main-home-pattern-1", destination: "/", permanent: true },
       { source: "/homepage-content-for-sunnypatel-co-uk", destination: "/", permanent: true },
+      // Explicit trailing-slash → non-trailing-slash 301s
+      // Next.js trailingSlash:false sends 308, but Google indexed both variants
+      // splitting authority on the money page. Explicit 301 reinforces the signal.
+      { source: "/services/:slug/", destination: "/services/:slug", permanent: true },
+      { source: "/blog/:slug/", destination: "/blog/:slug", permanent: true },
     ];
   },
   experimental: {

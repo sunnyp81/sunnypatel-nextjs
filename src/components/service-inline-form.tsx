@@ -146,10 +146,25 @@ export function ServiceInlineForm({
           </div>
 
           {/* ── Right: form ──────────────────────────────── */}
-          <div className="relative rounded-2xl border border-white/[0.12] bg-[#0f0f17] p-8 shadow-[0_0_60px_rgba(0,0,0,0.5)]">
+          <div className="relative rounded-2xl border border-[#5B8AEF]/20 bg-[#0f0f17] p-8 shadow-[0_0_60px_rgba(0,0,0,0.5),0_0_100px_rgba(91,138,239,0.10),0_0_40px_rgba(91,138,239,0.06)]">
+            {/* Animated glow ring */}
+            <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-40"
+              style={{
+                background: "conic-gradient(from var(--cta-angle) at 50% 50%, transparent 0deg, #5B8AEF 60deg, transparent 120deg, #7B5AEF 240deg, transparent 360deg)",
+                animation: "cta-border-spin 6s linear infinite",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "exclude",
+                WebkitMaskComposite: "xor",
+                padding: "1px",
+                borderRadius: "1rem",
+              }}
+            />
             {/* Blue corner accent */}
-            <div className="pointer-events-none absolute left-0 top-0 h-24 w-24 rounded-tl-2xl opacity-[0.15]"
+            <div className="pointer-events-none absolute left-0 top-0 h-32 w-32 rounded-tl-2xl opacity-[0.12]"
               style={{ background: "radial-gradient(circle at 0% 0%, #5B8AEF, transparent 70%)" }}
+            />
+            <div className="pointer-events-none absolute bottom-0 right-0 h-24 w-24 rounded-br-2xl opacity-[0.08]"
+              style={{ background: "radial-gradient(circle at 100% 100%, #7B5AEF, transparent 70%)" }}
             />
 
             {status === "success" ? (
@@ -256,8 +271,12 @@ export function ServiceInlineForm({
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
-                  style={{ fontFamily: "var(--font-heading)" }}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+                    boxShadow: "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
+                  }}
                 >
                   {status === "loading" ? (
                     <>

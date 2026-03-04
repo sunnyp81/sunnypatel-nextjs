@@ -12,6 +12,8 @@ import { RiskReversal } from "@/components/services/RiskReversal";
 import { WhoForGrid } from "@/components/services/WhoForGrid";
 import { CitationChecklist } from "@/components/services/CitationChecklist";
 import { CaseStudyCard } from "@/components/services/CaseStudyCard";
+import { StatsBar } from "@/components/services/StatsBar";
+import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
 
 /* ── Conversion data ──────────────────────────────────────── */
 
@@ -749,22 +751,32 @@ function buildSections(
 
   // Injection positions — spread components across the content
   const pos = {
-    testimonials: Math.max(0, Math.floor(n * 0.25)),
-    caseStudies: Math.max(1, Math.floor(n * 0.45)),
-    timeline: Math.max(2, Math.floor(n * 0.6)),
-    risk: Math.max(3, Math.floor(n * 0.75)),
+    statsBar: 0,
+    testimonials: Math.max(1, Math.floor(n * 0.25)),
+    miniCta1: Math.max(2, Math.floor(n * 0.35)),
+    caseStudies: Math.max(3, Math.floor(n * 0.45)),
+    timeline: Math.max(4, Math.floor(n * 0.6)),
+    risk: Math.max(5, Math.floor(n * 0.75)),
+    miniCta2: Math.max(6, Math.floor(n * 0.8)),
     whoFor: n - 1,
   };
 
   // Deduplicate — if two land on same index, push later one down
-  if (pos.caseStudies === pos.testimonials) pos.caseStudies++;
+  if (pos.testimonials <= pos.statsBar) pos.testimonials = pos.statsBar + 1;
+  if (pos.miniCta1 <= pos.testimonials) pos.miniCta1 = pos.testimonials + 1;
+  if (pos.caseStudies <= pos.miniCta1) pos.caseStudies = pos.miniCta1 + 1;
   if (pos.timeline <= pos.caseStudies) pos.timeline = pos.caseStudies + 1;
   if (pos.risk <= pos.timeline) pos.risk = pos.timeline + 1;
-  pos.whoFor = Math.max(pos.risk + 1, n - 1);
+  if (pos.miniCta2 <= pos.risk) pos.miniCta2 = pos.risk + 1;
+  pos.whoFor = Math.max(pos.miniCta2 + 1, n - 1);
 
   const injections: Record<number, React.ReactNode> = {
+    [pos.statsBar]: <StatsBar />,
     [pos.testimonials]: (
       <TestimonialGrid testimonials={convData.testimonials} />
+    ),
+    [pos.miniCta1]: (
+      <ServiceMiniCta />
     ),
     [pos.caseStudies]: (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -781,6 +793,12 @@ function buildSections(
         <RiskReversal points={convData.riskPoints} accentColor={convData.accent} />
         {slug === "ai-search-optimisation" && <CitationChecklist />}
       </>
+    ),
+    [pos.miniCta2]: (
+      <ServiceMiniCta
+        heading="Still Have Questions?"
+        text="Get a free site review and honest advice — no obligation, no contracts."
+      />
     ),
     [pos.whoFor]: (
       <WhoForGrid yesItems={convData.yesFor} noItems={convData.noFor} />

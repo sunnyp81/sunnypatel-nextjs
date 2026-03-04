@@ -234,9 +234,9 @@
   background: rgba(91,138,239,0.04);
 }
 
-/* Bold-led list items — accent the label */
+/* Bold-led list items — bright white, not blue (blue looks like links) */
 .prose-service li > strong:first-child {
-  color: #5B8AEF !important;
+  color: var(--foreground) !important;
 }
 
 /* Service HR dividers — glowing separator */

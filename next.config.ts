@@ -47,6 +47,8 @@ const nextConfig: NextConfig = {
       // Old category/tag pages from previous WordPress site
       { source: "/category/:slug", destination: "/services", permanent: true },
       { source: "/category/:slug/", destination: "/services", permanent: true },
+      // Consolidate agency page into consultant page — agency page has zero GSC data
+      { source: "/services/seo-agency-reading", destination: "/services/seo-consultant-reading", permanent: true },
       // Blog posts cannibalizing service pages — consolidate signals
       { source: "/blog/seo-reading-guide", destination: "/services/seo-consultant-reading", permanent: true },
       { source: "/blog/seo-reading-guide/", destination: "/services/seo-consultant-reading", permanent: true },

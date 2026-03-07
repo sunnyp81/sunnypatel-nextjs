@@ -215,9 +215,9 @@ const SEO_READING_DATA = {
     "E-commerce stores with sub-12-month commitment windows",
     "Sites with fewer than 10 existing pages of content",
   ],
-  ctaTitle: "Ready to rank higher in Reading and Berkshire?",
+  ctaTitle: "Stop losing Reading customers to competitors who rank above you",
   ctaSubtitle:
-    "Book a free consultation. I\u2019ll review your current Reading rankings live on the call and tell you exactly what\u2019s holding you back.",
+    "Book a free 30-minute audit. I\u2019ll pull up your site live, show you exactly where you\u2019re losing rankings, and give you a prioritised action plan \u2014 no obligation.",
 };
 
 const SEO_LONDON_DATA = {
@@ -421,28 +421,32 @@ type FaqItem = { q: string; a: string };
 const SERVICE_FAQS: Record<string, FaqItem[]> = {
   "seo-consultant-reading": [
     {
-      q: "Why should I hire an SEO consultant in Reading?",
-      a: "Hiring a local SEO consultant in Reading provides direct access to local market knowledge, face-to-face strategy sessions at our Green Park office, and understanding of Reading's competitive business landscape across Berkshire and Thames Valley. Local expertise combines with advanced semantic SEO methodology to deliver sustainable organic growth.",
+      q: "Why hire an SEO consultant in Reading instead of an agency?",
+      a: "An SEO consultant in Reading gives you direct access to the senior strategist on every call and deliverable — no account managers, no junior staff. You get the same services as a Reading SEO agency (technical audits, content strategy, local SEO, topical authority) at lower cost because you're not funding office overhead and management layers. Most Reading businesses see equivalent or better results from the independent model.",
     },
     {
-      q: "What SEO services are available in Reading?",
-      a: "SEO services available in Reading include technical SEO audits, local SEO optimisation for Google Business Profile and local pack visibility, topical map creation for long-term content architecture, content strategy for semantic SEO, and ongoing SEO consulting for in-house teams requiring expert direction.",
+      q: "What is the best SEO company in Reading?",
+      a: "The best SEO company in Reading depends on your needs. Traditional SEO agencies offer team capacity for high-volume work. Independent SEO consultants offer direct senior expertise and lower overhead. For most Reading businesses — professional services, tech companies, and growth-stage firms — an independent consultant delivers stronger ROI because every pound goes to strategy, not agency overhead.",
     },
     {
-      q: "Which areas of Reading do you cover?",
-      a: "SEO services cover Reading town centre, Caversham, Earley, Woodley, Winnersh, Tilehurst, Calcot, Green Park, and Thames Valley Park business districts. Remote consultations are available for businesses across the UK wanting Reading-based expertise.",
+      q: "What SEO services are available for Reading businesses?",
+      a: "Reading SEO services include technical SEO audits from £500, local SEO for Google Business Profile and local pack visibility, topical map creation for long-term content architecture from £800, semantic content strategy, AI search optimisation for ChatGPT and Google AI Overviews, and ongoing retainers from £1,500/month covering strategy, implementation oversight, and reporting.",
+    },
+    {
+      q: "Which areas of Reading and Berkshire do you cover?",
+      a: "SEO services cover Reading town centre, Caversham, Earley, Woodley, Winnersh, Tilehurst, Calcot, Green Park, and Thames Valley Park. Services extend across Berkshire including Bracknell, Wokingham, Maidenhead, Slough, and Windsor. Remote consultations available UK-wide.",
     },
     {
       q: "How long does SEO take for Reading businesses?",
-      a: "Local SEO improvements for Reading businesses typically show within 3–6 months. Broader authority building in competitive Reading markets may require 6–12 months of consistent work. Technical fixes produce measurable changes within 4–8 weeks of implementation.",
+      a: "Technical SEO fixes show measurable improvements within 4–8 weeks. Local SEO results for Reading businesses typically appear within 3–6 months. Competitive organic authority building takes 6–12 months. These timelines are the same whether you use an SEO agency or consultant — they're set by Google's evaluation cycles, not headcount.",
     },
     {
-      q: "How much does an SEO consultant in Reading cost?",
-      a: "SEO consultant costs in Reading range from £500–£1,200 for a technical audit, £800–£2,500 for topical mapping, and £1,500–£5,000 per month for ongoing retainers depending on scope and competition. Free initial consultations include a brief website review and actionable recommendations.",
+      q: "How much does an SEO consultant in Reading cost compared to an agency?",
+      a: "A Reading SEO consultant charges £500–£1,200 for technical audits, £800–£2,500 for topical maps, and £1,500–£5,000/month for retainers. Reading SEO agencies typically charge £2,000–£5,000/month for mid-tier, £3,000–£10,000+ for larger firms. The consultant model puts more budget into strategy rather than overhead. Free initial audits include a live site review and actionable recommendations.",
     },
     {
-      q: "What if previous SEO work did not deliver results for my Reading business?",
-      a: "Most failed SEO for Reading businesses results from generic advice without local market understanding, thin content without topical authority, or targeting isolated keywords without an interconnected content strategy. A methodology-led approach specific to the Reading and Thames Valley competitive landscape typically resolves these issues within 6–12 months.",
+      q: "What if previous SEO from an agency didn't work for my Reading business?",
+      a: "Most failed SEO for Reading businesses results from generic advice without local market knowledge, thin content without topical authority, or isolated keyword targeting without interconnected content networks. If an SEO company or agency didn't deliver, it was almost certainly a methodology problem. A data-led approach with Reading-specific competitive analysis typically resolves these issues within 6–12 months.",
     },
   ],
   "technical-seo-audit": [

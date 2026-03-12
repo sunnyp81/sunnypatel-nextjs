@@ -197,15 +197,14 @@ export function ServiceInlineForm({
                 htmlFor="message"
                 className="mb-2 block text-sm font-medium text-muted-foreground"
               >
-                How can I help? <span className="text-[#5B8AEF]">*</span>
+                How can I help? <span className="text-muted-foreground/40">(optional)</span>
               </label>
               <textarea
                 id="message"
                 rows={compact ? 3 : 4}
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Tell me about your website, current rankings, and what you're trying to achieve..."
-                required
+                placeholder="Your website URL and what you're trying to achieve — or just say hi, I'll ask the right questions."
                 disabled={status === "loading"}
                 className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
               />
@@ -244,6 +243,15 @@ export function ServiceInlineForm({
 
             <p className="text-center text-xs text-muted-foreground/40">
               No obligation · Free 30 minutes · Usually responds same day
+            </p>
+            <p className="text-center text-xs text-muted-foreground/30">
+              Prefer email?{" "}
+              <a
+                href="mailto:hello@sunnypatel.co.uk"
+                className="text-[#5B8AEF]/60 hover:text-[#5B8AEF] transition-colors"
+              >
+                hello@sunnypatel.co.uk
+              </a>
             </p>
           </form>
         )}
@@ -324,11 +332,17 @@ export function ServiceInlineForm({
               ))}
             </div>
 
-            {/* Response time */}
-            <p className="mt-5 flex items-center gap-1.5 text-xs text-muted-foreground/50">
-              <Clock className="h-3 w-3" />
-              Usually responds within a few hours
-            </p>
+            {/* Availability + response time */}
+            <div className="mt-5 space-y-2">
+              <p className="flex items-center gap-1.5 text-xs text-muted-foreground/50">
+                <Clock className="h-3 w-3" />
+                Usually responds within a few hours
+              </p>
+              <p className="flex items-center gap-1.5 text-xs">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                <span className="text-emerald-400/80">Currently accepting new clients</span>
+              </p>
+            </div>
           </div>
 
           {/* ── Right: form ──────────────────────────────── */}

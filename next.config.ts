@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
         destination: "/services/ai-search-optimisation",
         permanent: true,
       },
+      {
+        source: "/services/mayfair-luxury-brand-seo",
+        destination: "/services/seo-consultant-london",
+        permanent: true,
+      },
+      {
+        source: "/services/mayfair-luxury-brand-seo/",
+        destination: "/services/seo-consultant-london",
+        permanent: true,
+      },
       // Old root-level location pages migrated to /services/
       // Both trailing-slash and non-trailing-slash variants — Google indexed both
       { source: "/seo-berkshire", destination: "/services/seo-berkshire", permanent: true },

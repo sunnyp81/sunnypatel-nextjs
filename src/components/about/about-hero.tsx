@@ -5,10 +5,10 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { ArrowRight } from "lucide-react";
 
 const stats = [
-  { value: "15+", label: "Years SEO" },
-  { value: "1,000+", label: "Hours Automated" },
-  { value: "50+", label: "LLM Prompts" },
-  { value: "150%", label: "Avg Growth" },
+  { value: "15+", label: "Years experience" },
+  { value: "40+", label: "Clients served" },
+  { value: "12+", label: "Industries" },
+  { value: "244%", label: "Avg traffic growth" },
 ];
 
 export function AboutHero() {

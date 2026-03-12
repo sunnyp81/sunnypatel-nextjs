@@ -21,9 +21,22 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="/"
-          className="text-xl font-bold tracking-tight text-foreground"
+          className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
         >
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="flex-shrink-0">
+            <rect width="100" height="100" rx="22" fill="#0d0d14"/>
+            <rect width="100" height="100" rx="22" fill="none" stroke="#5B8AEF" strokeWidth="3" strokeOpacity="0.35"/>
+            <rect x="14" y="17" width="24" height="7" rx="2" fill="#5B8AEF"/>
+            <rect x="14" y="17" width="7" height="18" rx="2" fill="#5B8AEF"/>
+            <rect x="14" y="28" width="24" height="7" rx="2" fill="#5B8AEF"/>
+            <rect x="31" y="35" width="7" height="18" rx="2" fill="#5B8AEF"/>
+            <rect x="14" y="46" width="24" height="7" rx="2" fill="#5B8AEF"/>
+            <rect x="55" y="17" width="7" height="36" rx="2" fill="white" fillOpacity="0.9"/>
+            <rect x="55" y="17" width="20" height="7" rx="2" fill="white" fillOpacity="0.9"/>
+            <rect x="68" y="17" width="7" height="19" rx="2" fill="white" fillOpacity="0.9"/>
+            <rect x="55" y="29" width="20" height="7" rx="2" fill="white" fillOpacity="0.9"/>
+          </svg>
           Sunny<span className="text-[#5B8AEF]">Patel</span>
         </a>
 

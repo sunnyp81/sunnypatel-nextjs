@@ -1,26 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Dark background with rounded corners -->
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5B8AEF"/>
+      <stop offset="100%" stop-color="#7ba3f5"/>
+    </linearGradient>
+  </defs>
   <rect width="100" height="100" rx="22" fill="#0d0d14"/>
-  <!-- Subtle blue border -->
-  <rect width="100" height="100" rx="22" fill="none" stroke="#5B8AEF" stroke-width="3" stroke-opacity="0.35"/>
-  <!-- S letterform — constructed from rectangles -->
-  <!-- Top horizontal bar -->
-  <rect x="14" y="17" width="24" height="7" rx="2" fill="#5B8AEF"/>
-  <!-- Upper-left vertical -->
-  <rect x="14" y="17" width="7" height="18" rx="2" fill="#5B8AEF"/>
-  <!-- Middle bar -->
-  <rect x="14" y="28" width="24" height="7" rx="2" fill="#5B8AEF"/>
-  <!-- Lower-right vertical -->
-  <rect x="31" y="35" width="7" height="18" rx="2" fill="#5B8AEF"/>
-  <!-- Bottom horizontal bar -->
-  <rect x="14" y="46" width="24" height="7" rx="2" fill="#5B8AEF"/>
-  <!-- P letterform -->
-  <!-- Vertical stem -->
-  <rect x="55" y="17" width="7" height="36" rx="2" fill="white" fill-opacity="0.9"/>
-  <!-- P bowl top -->
-  <rect x="55" y="17" width="20" height="7" rx="2" fill="white" fill-opacity="0.9"/>
-  <!-- P bowl right -->
-  <rect x="68" y="17" width="7" height="19" rx="2" fill="white" fill-opacity="0.9"/>
-  <!-- P bowl bottom -->
-  <rect x="55" y="29" width="20" height="7" rx="2" fill="white" fill-opacity="0.9"/>
+  <rect width="100" height="100" rx="22" fill="none" stroke="#5B8AEF" stroke-width="2.5" stroke-opacity="0.3"/>
+  <text
+    x="50"
+    y="67"
+    text-anchor="middle"
+    font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif"
+    font-size="40"
+    font-weight="700"
+    letter-spacing="-1"
+    fill="url(#g)"
+  >SP</text>
 </svg>

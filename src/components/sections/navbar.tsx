@@ -24,18 +24,25 @@ export function Navbar() {
           className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="flex-shrink-0">
+          <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="flex-shrink-0">
+            <defs>
+              <linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#5B8AEF"/>
+                <stop offset="100%" stopColor="#7ba3f5"/>
+              </linearGradient>
+            </defs>
             <rect width="100" height="100" rx="22" fill="#0d0d14"/>
-            <rect width="100" height="100" rx="22" fill="none" stroke="#5B8AEF" strokeWidth="3" strokeOpacity="0.35"/>
-            <rect x="14" y="17" width="24" height="7" rx="2" fill="#5B8AEF"/>
-            <rect x="14" y="17" width="7" height="18" rx="2" fill="#5B8AEF"/>
-            <rect x="14" y="28" width="24" height="7" rx="2" fill="#5B8AEF"/>
-            <rect x="31" y="35" width="7" height="18" rx="2" fill="#5B8AEF"/>
-            <rect x="14" y="46" width="24" height="7" rx="2" fill="#5B8AEF"/>
-            <rect x="55" y="17" width="7" height="36" rx="2" fill="white" fillOpacity="0.9"/>
-            <rect x="55" y="17" width="20" height="7" rx="2" fill="white" fillOpacity="0.9"/>
-            <rect x="68" y="17" width="7" height="19" rx="2" fill="white" fillOpacity="0.9"/>
-            <rect x="55" y="29" width="20" height="7" rx="2" fill="white" fillOpacity="0.9"/>
+            <rect width="100" height="100" rx="22" fill="none" stroke="#5B8AEF" strokeWidth="2.5" strokeOpacity="0.3"/>
+            <text
+              x="50"
+              y="67"
+              textAnchor="middle"
+              fontFamily="-apple-system, 'Helvetica Neue', Arial, sans-serif"
+              fontSize="40"
+              fontWeight="700"
+              letterSpacing="-1"
+              fill="url(#ng)"
+            >SP</text>
           </svg>
           Sunny<span className="text-[#5B8AEF]">Patel</span>
         </a>

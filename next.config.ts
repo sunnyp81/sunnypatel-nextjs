@@ -67,6 +67,17 @@ const nextConfig: NextConfig = {
       // splitting authority on the money page. Explicit 301 reinforces the signal.
       { source: "/services/:slug/", destination: "/services/:slug", permanent: true },
       { source: "/blog/:slug/", destination: "/blog/:slug", permanent: true },
+      // Old WordPress root-level blog posts still indexed — redirect to /blog/ equivalents
+      { source: "/chatgpt-ads", destination: "/blog/chatgpt-ads", permanent: true },
+      { source: "/chatgpt-ads/", destination: "/blog/chatgpt-ads", permanent: true },
+      { source: "/legal-seo-magic-circle-firms", destination: "/services/legal-seo-magic-circle-firms-2", permanent: true },
+      { source: "/legal-seo-magic-circle-firms/", destination: "/services/legal-seo-magic-circle-firms-2", permanent: true },
+      { source: "/about-2", destination: "/about", permanent: true },
+      { source: "/about-2/", destination: "/about", permanent: true },
+      { source: "/how-many-keywords", destination: "/blog/how-many-keywords", permanent: true },
+      { source: "/how-many-keywords/", destination: "/blog/how-many-keywords", permanent: true },
+      { source: "/how-long-does-seo-take", destination: "/blog/how-long-does-seo-take", permanent: true },
+      { source: "/how-long-does-seo-take/", destination: "/blog/how-long-does-seo-take", permanent: true },
     ];
   },
   experimental: {

@@ -47,11 +47,10 @@ export function Cta() {
             textShadow: "0 0 60px rgba(91,138,239,0.15)",
           }}
         >
-          Ready to grow your organic traffic?
+          Get More Clients From Organic Search
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-          Book a free 30-minute consultation. No obligation. Just honest advice
-          on where your SEO stands and what to do next.
+          Free 30-minute consultation — I'll review your rankings live on the call and tell you exactly what's holding you back. No sales pitch. No obligation. Call <a href="tel:07305523333" className="text-foreground hover:text-white transition-colors">07305 523333</a> or book below.
         </p>
 
         {/* Pulsing ring wrapper */}

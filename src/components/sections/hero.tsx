@@ -7,9 +7,9 @@ import { ArrowRight } from "lucide-react";
 export function Hero() {
   return (
     <HeroGeometric
-      badge="SEO & AI Consultant"
-      title1="Building Topical Authority"
-      title2="Through Entity-Based Networks"
+      badge="SEO Consultant — Reading & UK-Wide"
+      title1="SEO Consulting That"
+      title2="Generates Clients, Not Reports"
     >
       <p className="text-base sm:text-lg md:text-xl text-white/40 mb-10 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
         <a href="/services/seo-consultant-reading" className="text-white/60 hover:text-white/80 underline underline-offset-2 transition-colors">SEO consultant in Reading, Berkshire</a>
@@ -31,9 +31,9 @@ export function Hero() {
 
       <div className="mt-16 mx-auto grid max-w-lg grid-cols-3 gap-4">
         {[
-          { value: "100+", label: "Clients", color: "#d79f1e" },
-          { value: "15+", label: "Years", color: "#5B8AEF" },
-          { value: "150%", label: "Avg Growth", color: "#5a922c" },
+          { value: "40+", label: "Clients Served", color: "#d79f1e" },
+          { value: "15+", label: "Years Experience", color: "#5B8AEF" },
+          { value: "244%", label: "Avg Traffic Growth", color: "#5a922c" },
         ].map((stat) => (
           <div
             key={stat.label}

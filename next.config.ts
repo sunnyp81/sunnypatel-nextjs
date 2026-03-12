@@ -54,9 +54,14 @@ const nextConfig: NextConfig = {
       // Old root-level service pages still indexed by Google
       { source: "/local-seo", destination: "/services/local-seo", permanent: true },
       { source: "/local-seo/", destination: "/services/local-seo", permanent: true },
-      // Old category/tag pages from previous WordPress site
-      { source: "/category/:slug", destination: "/services", permanent: true },
-      { source: "/category/:slug/", destination: "/services", permanent: true },
+      // Old category/tag/author pages from previous WordPress site
+      { source: "/category/:slug", destination: "/blog", permanent: true },
+      { source: "/category/:slug/", destination: "/blog", permanent: true },
+      { source: "/author/:slug", destination: "/about", permanent: true },
+      { source: "/author/:slug/", destination: "/about", permanent: true },
+      // Old root-level service pages still showing in GSC
+      { source: "/b2b-content-marketing-services", destination: "/services/b2b-seo", permanent: true },
+      { source: "/b2b-content-marketing-services/", destination: "/services/b2b-seo", permanent: true },
       // Consolidate agency page into consultant page — agency page has zero GSC data
       { source: "/services/seo-agency-reading", destination: "/services/seo-consultant-reading", permanent: true },
       // Blog posts cannibalizing service pages — consolidate signals

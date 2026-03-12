@@ -1,4 +1,4 @@
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 
 const links = [
   { href: "/services", label: "Services" },
@@ -28,6 +28,13 @@ export function Footer() {
               through entity-based content networks.
             </p>
             <div className="mt-6 flex flex-col gap-3">
+              <a
+                href="tel:07305523333"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"
+              >
+                <Phone className="h-4 w-4" />
+                07305 523333
+              </a>
               <a
                 href="mailto:hello@sunnypatel.co.uk"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"

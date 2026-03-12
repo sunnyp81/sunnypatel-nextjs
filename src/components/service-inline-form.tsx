@@ -245,7 +245,14 @@ export function ServiceInlineForm({
               No obligation · Free 30 minutes · Usually responds same day
             </p>
             <p className="text-center text-xs text-muted-foreground/30">
-              Prefer email?{" "}
+              Prefer to talk?{" "}
+              <a
+                href="tel:07305523333"
+                className="text-[#5B8AEF]/60 hover:text-[#5B8AEF] transition-colors"
+              >
+                07305 523333
+              </a>
+              {" · "}
               <a
                 href="mailto:hello@sunnypatel.co.uk"
                 className="text-[#5B8AEF]/60 hover:text-[#5B8AEF] transition-colors"

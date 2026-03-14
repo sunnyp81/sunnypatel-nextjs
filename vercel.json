@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.sunnypatel.co.uk" }],
+      "destination": "https://sunnypatel.co.uk/$1",
+      "permanent": true
+    }
+  ]
+}

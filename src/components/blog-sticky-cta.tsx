@@ -58,7 +58,7 @@ export function BlogStickyCta() {
           />
 
           <Link
-            href="/contact"
+            href="/contact/"
             className="group relative flex items-center justify-between gap-3 px-5 py-4 transition-transform duration-200 active:scale-[0.99] sm:gap-5"
           >
             {/* Left: icon + text */}

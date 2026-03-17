@@ -40,7 +40,7 @@ export function CitationChecklist() {
       </p>
 
       <Link
-        href="/contact"
+        href="/contact/"
         className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#5B8AEF] to-[#7BA5F5] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.40)] transition-all duration-200 hover:shadow-[0_0_28px_rgba(91,138,239,0.60)] hover:scale-[1.02] active:scale-[0.98]"
         style={{ fontFamily: "var(--font-heading)" }}
       >

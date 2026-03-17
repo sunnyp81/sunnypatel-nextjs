@@ -62,13 +62,13 @@ export function AboutHero() {
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <GradientButton asChild>
-              <a href="/contact" className="gap-2">
+              <a href="/contact/" className="gap-2">
                 Book Free Consultation
                 <ArrowRight className="h-4 w-4" />
               </a>
             </GradientButton>
             <GradientButton variant="variant" asChild>
-              <a href="/portfolio">View My Work</a>
+              <a href="/portfolio/">View My Work</a>
             </GradientButton>
           </div>
         </motion.div>

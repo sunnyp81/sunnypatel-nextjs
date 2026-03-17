@@ -717,7 +717,7 @@ export function articleSchema({
     "@type": "BlogPosting",
     headline: title,
     description,
-    url: `${SITE_URL}/blog/${slug}`,
+    url: `${SITE_URL}/blog/${slug}/`,
     ...(date && { datePublished: date, dateModified: lastUpdated || date }),
     ...(image && { image: `${SITE_URL}${image}` }),
     author: { "@id": `${SITE_URL}/#person` },
@@ -739,6 +739,47 @@ export function articleSchema({
  *   [Service] -> offeredBy -> Sunny Patel SEO (Organization via @id)
  *   [Service] -> areaServed -> United Kingdom (Country)
  */
+// Local service pages that need geo-specific areaServed
+const LOCAL_SERVICE_AREA: Record<string, Record<string, unknown>[]> = {
+  "seo-consultant-reading": [
+    { "@type": "City", name: "Reading" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+    { "@type": "AdministrativeArea", name: "Thames Valley" },
+  ],
+  "seo-berkshire": [
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+    { "@type": "AdministrativeArea", name: "Thames Valley" },
+  ],
+  "seo-bracknell": [
+    { "@type": "City", name: "Bracknell" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+  "seo-slough": [
+    { "@type": "City", name: "Slough" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+  "seo-maidenhead": [
+    { "@type": "City", name: "Maidenhead" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+  "seo-wokingham": [
+    { "@type": "City", name: "Wokingham" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+  "seo-windsor": [
+    { "@type": "City", name: "Windsor" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+  "digital-marketing-reading": [
+    { "@type": "City", name: "Reading" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+  "seo-strategy-reading": [
+    { "@type": "City", name: "Reading" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+};
+
 export function serviceSchema({
   name,
   description,
@@ -751,19 +792,19 @@ export function serviceSchema({
   const topics = SERVICE_TOPICS[slug];
   const aboutRefs = topics ? resolveRefs(topics.about) : [];
   const mentionRefs = topics ? resolveRefs(topics.mentions) : [];
+  const localArea = LOCAL_SERVICE_AREA[slug];
 
   return {
     "@type": "ProfessionalService",
     name,
     description,
-    url: `${SITE_URL}/services/${slug}`,
+    url: `${SITE_URL}/services/${slug}/`,
     provider: { "@id": `${SITE_URL}/#person` },
     editor: { "@id": `${SITE_URL}/#person` },
-    offeredBy: { "@id": `${SITE_URL}/#organization` },
-    areaServed: {
-      "@type": "Country",
-      name: "United Kingdom",
-    },
+    offeredBy: localArea
+      ? [{ "@id": `${SITE_URL}/#organization` }, { "@id": `${SITE_URL}/#localbusiness` }]
+      : { "@id": `${SITE_URL}/#organization` },
+    areaServed: localArea ?? { "@type": "Country", name: "United Kingdom" },
     ...(aboutRefs.length > 0 && { about: aboutRefs }),
     ...(mentionRefs.length > 0 && { mentions: mentionRefs }),
   };

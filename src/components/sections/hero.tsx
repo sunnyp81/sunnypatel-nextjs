@@ -12,7 +12,7 @@ export function Hero() {
       title2="Generates Clients, Not Reports"
     >
       <p className="text-base sm:text-lg md:text-xl text-white/40 mb-10 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-        <a href="/services/seo-consultant-reading" className="text-white/60 hover:text-white/80 underline underline-offset-2 transition-colors">SEO consultant in Reading, Berkshire</a>
+        <a href="/services/seo-consultant-reading/" className="text-white/60 hover:text-white/80 underline underline-offset-2 transition-colors">SEO consultant in Reading, Berkshire</a>
         {" "}— 15+ years helping UK businesses in professional services, medical
         aesthetics, and local markets achieve measurable organic growth.
       </p>

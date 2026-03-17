@@ -1,12 +1,12 @@
 import { Linkedin, Mail, Phone } from "lucide-react";
 
 const links = [
-  { href: "/services", label: "Services" },
-  { href: "/services/seo-consultant-reading", label: "SEO Reading" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/services/", label: "Services" },
+  { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
+  { href: "/about/", label: "About" },
+  { href: "/portfolio/", label: "Portfolio" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 export function Footer() {

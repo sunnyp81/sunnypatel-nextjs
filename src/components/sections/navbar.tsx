@@ -5,12 +5,12 @@ import { Menu, X } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button";
 
 const links = [
-  { href: "/services", label: "Services" },
-  { href: "/services/seo-consultant-reading", label: "SEO Reading" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/services/", label: "Services" },
+  { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
+  { href: "/about/", label: "About" },
+  { href: "/portfolio/", label: "Portfolio" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -61,7 +61,7 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <GradientButton asChild className="min-w-0 px-5 py-2.5 text-sm leading-none">
-            <a href="/contact">Get a Quote</a>
+            <a href="/contact/">Get a Quote</a>
           </GradientButton>
         </div>
 
@@ -90,7 +90,7 @@ export function Navbar() {
           </div>
           <div className="mb-5 h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
           <GradientButton asChild className="min-w-0 w-full text-sm leading-none">
-            <a href="/contact" onClick={() => setOpen(false)}>
+            <a href="/contact/" onClick={() => setOpen(false)}>
               Get a Quote
             </a>
           </GradientButton>

@@ -67,7 +67,7 @@ export function PortfolioDetail({
         <div className="relative z-10 mx-auto max-w-5xl px-6">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Link
-              href="/portfolio"
+              href="/portfolio/"
               className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft className="h-3.5 w-3.5" />

@@ -72,6 +72,13 @@ export function ServiceInlineForm({
       } else {
         setStatus("success");
         setFormData({ name: "", email: "", phone: "", message: "" });
+        // GA4 conversion tracking
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", {
+            event_category: "contact",
+            event_label: "service_inline_form",
+          });
+        }
       }
     } catch {
       setErrorMsg("Network error. Please try again.");

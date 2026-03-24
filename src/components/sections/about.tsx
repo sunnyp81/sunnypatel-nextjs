@@ -1,10 +1,16 @@
 "use client";
 
+import React from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Sparkles, MapPin, BarChart3, Brain } from "lucide-react";
 import { motion } from "motion/react";
 
-const highlights = [
+const highlights: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  href?: string;
+}[] = [
   {
     icon: <Sparkles className="h-5 w-5" />,
     title: "15 Years Hands-On SEO",
@@ -16,6 +22,7 @@ const highlights = [
     title: "Local Berkshire Expertise",
     description:
       "Based in Reading with deep knowledge of the local business landscape. Face-to-face meetings available.",
+    href: "/services/seo-consultant-reading/",
   },
   {
     icon: <BarChart3 className="h-5 w-5" />,
@@ -68,41 +75,50 @@ export function About() {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {highlights.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.01 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3"
-            >
-              <GlowingEffect
-                spread={40}
-                glow={true}
-                disabled={false}
-                proximity={64}
-                inactiveZone={0.01}
-                borderWidth={3}
-              />
-              <div className="relative flex h-full flex-col gap-4 overflow-hidden rounded-xl border-[0.75px] bg-background p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
-                <div className="w-fit rounded-lg border-[0.75px] border-border bg-muted p-2.5">
-                  {item.icon}
+          {highlights.map((item, i) => {
+            const card = (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.01 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3"
+              >
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
+                <div className="relative flex h-full flex-col gap-4 overflow-hidden rounded-xl border-[0.75px] bg-background p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+                  <div className="w-fit rounded-lg border-[0.75px] border-border bg-muted p-2.5">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3
+                      className="mb-2 text-lg font-semibold text-foreground"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3
-                    className="mb-2 text-lg font-semibold text-foreground"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+            return item.href ? (
+              <a key={item.title} href={item.href} className="block h-full">
+                {card}
+              </a>
+            ) : (
+              <div key={item.title}>{card}</div>
+            );
+          })}
         </div>
       </div>
     </section>

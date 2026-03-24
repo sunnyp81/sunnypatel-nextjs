@@ -1,104 +1,203 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { SERVICE_TOPICS } from "@/lib/schema";
+import { ArrowRight, Globe, Code, Map, BarChart3, FileText, TrendingUp } from "lucide-react";
+
+/* ── Static service data (used for blog → service linking) ──── */
+const STATIC_SERVICES = [
+  {
+    icon: Globe,
+    title: "Topical Authority",
+    description: "Build content networks that establish your site as the go-to source in your niche.",
+    href: "/services/topical-authority/",
+    color: "#5B8AEF",
+    keywords: ["topical", "authority", "content", "entity", "semantic", "niche"],
+  },
+  {
+    icon: Code,
+    title: "Technical SEO Audit",
+    description: "Core Web Vitals, crawl analysis, schema markup, and site architecture fixes.",
+    href: "/services/technical-seo-audit/",
+    color: "#4c7894",
+    keywords: ["technical", "audit", "core web vitals", "crawl", "speed", "schema", "structured data"],
+  },
+  {
+    icon: Map,
+    title: "Topical Maps",
+    description: "Strategic content architecture using root, node, and seed page hierarchy.",
+    href: "/services/topical-maps/",
+    color: "#5a922c",
+    keywords: ["topical map", "content strategy", "architecture", "hierarchy", "silo"],
+  },
+  {
+    icon: BarChart3,
+    title: "SEO Consulting",
+    description: "Strategic guidance for in-house teams with monthly retainers and priority support.",
+    href: "/services/seo-consulting/",
+    color: "#d79f1e",
+    keywords: ["consulting", "strategy", "retainer", "in-house", "team", "guidance"],
+  },
+  {
+    icon: FileText,
+    title: "Content Strategy",
+    description: "Semantic briefs, content calendars, and editorial workflows aligned with search intent.",
+    href: "/services/content-briefs/",
+    color: "#5B8AEF",
+    keywords: ["content", "brief", "calendar", "editorial", "intent", "keyword"],
+  },
+  {
+    icon: TrendingUp,
+    title: "Revenue Recovery",
+    description: "Diagnose traffic drops and recover lost rankings from algorithm updates.",
+    href: "/services/google-algorithm-update-recovery/",
+    color: "#5a922c",
+    keywords: ["recovery", "algorithm", "update", "penalty", "traffic drop", "ranking"],
+  },
+];
+
+const ICON_MAP: Record<string, typeof Globe> = {
+  "topical-authority": Globe,
+  "technical-seo-audit": Code,
+  "topical-maps": Map,
+  "seo-consulting": BarChart3,
+  "content-briefs": FileText,
+  "google-algorithm-update-recovery": TrendingUp,
+};
+
+const COLOR_MAP: Record<string, string> = {
+  "topical-authority": "#5B8AEF",
+  "technical-seo-audit": "#4c7894",
+  "topical-maps": "#5a922c",
+  "seo-consulting": "#d79f1e",
+  "content-briefs": "#5B8AEF",
+  "google-algorithm-update-recovery": "#5a922c",
+};
+
+function scoreService(service: typeof STATIC_SERVICES[number], tags: readonly string[], title: string) {
+  const text = `${tags.join(" ")} ${title}`.toLowerCase();
+  return service.keywords.filter((kw) => text.includes(kw)).length;
+}
 
 type ServiceSummary = {
   slug: string;
   title: string;
-  subtitle: string | null;
-  description?: string | null;
+  subtitle: string;
+  description: string;
 };
 
+/* ── Component ────────────────────────────────────────────────── */
 export function RelatedServices({
+  // Service page mode (dynamic list from Keystatic)
   currentSlug,
   allServices,
+  // Blog mode (keyword matching against static services)
+  currentTags,
+  postTitle,
 }: {
-  currentSlug: string;
-  allServices: ServiceSummary[];
+  currentSlug?: string;
+  allServices?: ServiceSummary[];
+  currentTags?: readonly string[];
+  postTitle?: string;
 }) {
-  const currentTopics = SERVICE_TOPICS[currentSlug];
-  if (!currentTopics) return null;
+  /* ── Service page mode: show other services ───────────────── */
+  if (currentSlug && allServices) {
+    const others = allServices.filter((s) => s.slug !== currentSlug).slice(0, 3);
+    if (others.length === 0) return null;
 
-  const currentKeys = new Set([...currentTopics.about, ...currentTopics.mentions]);
+    return (
+      <div className="border-t border-white/[0.05]">
+        <div className="mx-auto max-w-5xl px-6 py-16">
+          <h2
+            className="mb-8 text-2xl font-bold text-foreground"
+            style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
+          >
+            Other Services
+          </h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            {others.map((service) => {
+              const Icon = ICON_MAP[service.slug] || Globe;
+              const color = COLOR_MAP[service.slug] || "#5B8AEF";
+              return (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}/`}
+                  className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
+                >
+                  <div
+                    className="mb-4 w-fit rounded-lg border p-2"
+                    style={{ borderColor: `${color}28`, backgroundColor: `${color}10` }}
+                  >
+                    <Icon className="h-4 w-4" style={{ color }} />
+                  </div>
+                  <h3
+                    className="mb-2 text-base font-semibold text-foreground transition-colors group-hover:text-[#5B8AEF]"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                    {service.description}
+                  </p>
+                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                    Learn more <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  const scored = allServices
-    .filter((s) => s.slug !== currentSlug)
-    .map((s) => {
-      const topics = SERVICE_TOPICS[s.slug];
-      if (!topics) return { ...s, score: 0 };
-      const allKeys = [...topics.about, ...topics.mentions];
-      const overlap = allKeys.filter((k) => currentKeys.has(k)).length;
-      return { ...s, score: overlap };
-    })
-    .filter((s) => s.score > 0)
+  /* ── Blog mode: keyword-match static services ─────────────── */
+  const scored = STATIC_SERVICES
+    .map((s) => ({ ...s, score: scoreService(s, currentTags ?? [], postTitle ?? "") }))
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);
 
-  if (scored.length === 0) return null;
-
   return (
-    <div className="relative overflow-hidden border-t border-white/[0.05]">
-      {/* Subtle background glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-0 h-[250px] w-[500px] -translate-x-1/2 rounded-full opacity-[0.04] blur-[80px]"
-        style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
-      />
-
-      <div className="relative mx-auto max-w-5xl px-6 py-16">
-        {/* Section heading */}
-        <div className="mb-10">
-          <p className="mb-1.5 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
-            Related Services
-          </p>
-          <h2
-            className="text-2xl font-bold text-foreground"
-            style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
-          >
-            You Might Also Need
-          </h2>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-3">
-          {scored.map((service) => {
-            const excerpt = service.subtitle || service.description || null;
-            return (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-[#5B8AEF]/30 hover:bg-[#5B8AEF]/[0.04] hover:shadow-[0_0_32px_rgba(91,138,239,0.10)]"
+    <div className="my-12 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 md:p-8">
+      <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+        Related Services
+      </p>
+      <h3
+        className="mb-6 text-lg font-bold text-foreground md:text-xl"
+        style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
+      >
+        Need help implementing this?
+      </h3>
+      <div className="grid gap-3 md:grid-cols-3">
+        {scored.map((service) => {
+          const Icon = service.icon;
+          return (
+            <Link
+              key={service.href}
+              href={service.href}
+              className="group flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04]"
+            >
+              <div
+                className="mb-3 w-fit rounded-lg border p-2"
+                style={{
+                  borderColor: `${service.color}28`,
+                  backgroundColor: `${service.color}10`,
+                }}
               >
-                {/* Top accent line — slides in on hover */}
-                <div className="absolute left-0 right-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-[#5B8AEF] to-[#7B5AEF] transition-transform duration-500 group-hover:scale-x-100" />
-
-                {/* Service label */}
-                <span className="mb-4 inline-flex w-fit items-center rounded-full border border-[#5B8AEF]/15 bg-[#5B8AEF]/[0.07] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#5B8AEF]">
-                  Service
-                </span>
-
-                {/* Title */}
-                <h3
-                  className="mb-3 text-[15px] font-semibold leading-snug text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF]"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  {service.title}
-                </h3>
-
-                {/* Excerpt */}
-                {excerpt && (
-                  <p className="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground/80 line-clamp-3">
-                    {excerpt}
-                  </p>
-                )}
-
-                {/* CTA row */}
-                <div className="mt-auto flex items-center gap-1.5 text-xs font-semibold text-muted-foreground/40 transition-all duration-200 group-hover:text-[#5B8AEF]">
-                  Explore service
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+                <Icon className="h-4 w-4" style={{ color: service.color }} />
+              </div>
+              <h4
+                className="mb-1 text-sm font-semibold text-foreground transition-colors group-hover:text-[#5B8AEF]"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                {service.title}
+              </h4>
+              <p className="mb-3 flex-1 text-xs leading-relaxed text-muted-foreground">
+                {service.description}
+              </p>
+              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                Learn more <ArrowRight className="h-3 w-3" />
+              </span>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

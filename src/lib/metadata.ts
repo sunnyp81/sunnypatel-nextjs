@@ -23,7 +23,9 @@ export function buildMetadata({
 }): Metadata {
   const metaTitle = title || DEFAULT_TITLE;
   const metaDesc = description || DEFAULT_DESCRIPTION;
-  const url = `${SITE_URL}${path}`;
+  // Ensure trailing slash on canonical to match sitemap and trailingSlash config
+  const normalised = path && path !== "/" && !path.endsWith("/") ? `${path}/` : path;
+  const url = `${SITE_URL}${normalised}`;
 
   return {
     title: metaTitle,

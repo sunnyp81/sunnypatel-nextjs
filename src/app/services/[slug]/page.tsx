@@ -693,6 +693,24 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       a: "SEO timelines are consistent whether using an SEO company, agency, or consultant. Local SEO improvements typically show within 3–6 months. Topical authority building in competitive Reading markets requires 6–12 months. The pace is determined by Google's crawl and re-evaluation cycles, not headcount or company size.",
     },
   ],
+  "seo-consultant-kent": [
+    {
+      q: "How much does an SEO consultant in Kent cost?",
+      a: "Kent SEO consultant pricing: technical audits from £500, topical maps from £800–£2,500, and monthly retainers from £1,000–£4,000+ depending on competition level. Canterbury, Maidstone, and Tunbridge Wells are the most competitive Kent markets. Free 30-minute consultations available.",
+    },
+    {
+      q: "Which areas of Kent do you cover?",
+      a: "SEO services cover all of Kent including Canterbury, Maidstone, Tunbridge Wells, Folkestone, Ashford, Dartford, Gravesend, Sevenoaks, Tonbridge, and Herne Bay. All consultations conducted remotely with the same quality as in-person meetings.",
+    },
+    {
+      q: "How long does SEO take for Kent businesses?",
+      a: "Local service businesses in Kent see initial results within 3–4 months. Professional services in competitive markets like Canterbury and Tunbridge Wells require 6–9 months to build topical authority. E-commerce businesses should plan 9–12 months for sustained organic growth.",
+    },
+    {
+      q: "Why hire an independent SEO consultant instead of a Kent agency?",
+      a: "An independent consultant provides direct access to the senior strategist on every call — no account managers, no junior staff. Kent businesses get the same strategic depth as agency clients at 40–60% lower cost because there's no office overhead or management layers to fund.",
+    },
+  ],
 };
 
 type ConversionData = typeof GENERIC_DATA;

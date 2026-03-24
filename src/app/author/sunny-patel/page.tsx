@@ -68,6 +68,74 @@ export default async function AuthorPage() {
             building and ranking content sites through semantic SEO, topical authority,
             and entity optimisation.
           </p>
+
+          {/* E-E-A-T credentials */}
+          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
+            {[
+              { label: "15+ Years SEO", color: "#5B8AEF" },
+              { label: "40+ Clients", color: "#d79f1e" },
+              { label: "244% Avg Growth", color: "#5a922c" },
+              { label: "44 Managed Sites", color: "#4c7894" },
+            ].map((badge) => (
+              <span
+                key={badge.label}
+                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium"
+                style={{
+                  borderColor: `${badge.color}33`,
+                  backgroundColor: `${badge.color}10`,
+                  color: badge.color,
+                }}
+              >
+                {badge.label}
+              </span>
+            ))}
+          </div>
+
+          {/* Expertise areas */}
+          <div className="mx-auto mt-6 max-w-lg">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/40">
+              Specialisations
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {[
+                "Topical Authority",
+                "Entity SEO",
+                "Technical SEO",
+                "Local SEO",
+                "AI Search Optimisation",
+                "Content Strategy",
+                "Semantic SEO",
+                "Algorithm Recovery",
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 text-xs text-muted-foreground"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <Link
+              href="/contact/"
+              className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
+              style={{
+                fontFamily: "var(--font-heading)",
+                background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+              }}
+            >
+              Work with Sunny <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href="/services/"
+              className="text-sm text-muted-foreground transition-colors hover:text-[#5B8AEF]"
+            >
+              View services
+            </Link>
+          </div>
+
           <p className="mt-4 text-sm text-muted-foreground/60">
             {sorted.length} {sorted.length === 1 ? "article" : "articles"} published
           </p>

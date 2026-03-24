@@ -64,6 +64,25 @@ export function Cta() {
             </a>
           </GradientButton>
         </div>
+
+        {/* Internal links to key service pages */}
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
+          {[
+            { label: "SEO Reading", href: "/services/seo-consultant-reading/" },
+            { label: "SEO Berkshire", href: "/services/seo-berkshire/" },
+            { label: "Technical Audits", href: "/services/technical-seo-audit/" },
+            { label: "Topical Authority", href: "/services/topical-authority/" },
+            { label: "SEO Consulting", href: "/services/seo-consulting/" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-xs text-muted-foreground/60 transition-all duration-200 hover:border-[#5B8AEF]/20 hover:text-[#5B8AEF]"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

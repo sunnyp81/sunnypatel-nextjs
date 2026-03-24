@@ -12,6 +12,8 @@ import {
   schemaGraph,
 } from "@/lib/schema";
 import { TESTIMONIALS } from "@/lib/testimonial-data";
+import { AnalyticsEvents } from "@/components/analytics-events";
+import { ExitIntent } from "@/components/exit-intent";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
@@ -59,6 +61,8 @@ export default function RootLayout({
           }}
         />
         {children}
+        <ExitIntent />
+        <AnalyticsEvents />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SJRTDNRZG6"
           strategy="afterInteractive"

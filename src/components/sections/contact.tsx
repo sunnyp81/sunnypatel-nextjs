@@ -62,6 +62,13 @@ export function Contact() {
       } else {
         setStatus("success");
         setFormData({ name: "", email: "", phone: "", message: "" });
+        // GA4 conversion tracking
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", {
+            event_category: "contact",
+            event_label: "contact_form",
+          });
+        }
       }
     } catch {
       setErrorMsg("Network error. Please try again.");

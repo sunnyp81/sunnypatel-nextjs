@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { renderMarkdoc } from "@/lib/render-markdoc";
 import { articleSchema, faqSchema, breadcrumbSchema, personSchema, schemaGraph } from "@/lib/schema";
 import { RelatedPosts } from "@/components/related-posts";
+import { RelatedServices } from "@/components/related-services";
+import { BlogLeadMagnet } from "@/components/blog-lead-magnet";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -104,15 +106,20 @@ export default async function BlogPost({
         tags={post.tags ? [...post.tags] : undefined}
         heroImage={post.ogImage || undefined}
         isBlog={true}
+        showCta={true}
         afterContent={
-          <RelatedPosts
-            currentSlug={slug}
-            currentTags={post.tags ?? []}
-            allPosts={postSummaries}
-          />
+          <>
+            <RelatedPosts
+              currentSlug={slug}
+              currentTags={post.tags ?? []}
+              allPosts={postSummaries}
+            />
+          </>
         }
       >
         {rendered}
+        <RelatedServices currentTags={post.tags ?? []} postTitle={post.title} />
+        <BlogLeadMagnet />
       </ContentPage>
     </>
   );

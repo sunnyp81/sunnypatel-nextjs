@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { reader } from "@/lib/content";
-import { slugifyTag } from "@/lib/utils";
+
 
 const SITE_URL = "https://sunnypatel.co.uk";
 
@@ -36,13 +36,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // Service pages
+  const NOINDEX_SERVICE_SLUGS = new Set([
+    "seo-consultant-birmingham",
+    "seo-consultant-bradford",
+    "seo-consultant-brighton",
+    "seo-consultant-cardiff",
+    "seo-consultant-devon",
+    "seo-consultant-edinburgh",
+    "seo-consultant-essex",
+    "seo-consultant-glasgow",
+    "seo-consultant-harrogate",
+    "seo-consultant-leeds",
+    "seo-consultant-manchester",
+    "seo-consultant-nottingham",
+    "seo-consultant-oxford",
+    "seo-consultant-preston",
+    "seo-consultant-sheffield",
+    "seo-consultant-southampton",
+    "seo-consultant-surrey",
+    "seo-consultant-york",
+  ]);
+
   const serviceSlugs = await reader.collections.services.list();
-  const serviceEntries = serviceSlugs.map((slug) => ({
-    url: `${SITE_URL}/services/${slug}/`,
-    lastModified: LAST_DEPLOY,
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const serviceEntries = serviceSlugs
+    .filter((slug) => !NOINDEX_SERVICE_SLUGS.has(slug))
+    .map((slug) => ({
+      url: `${SITE_URL}/services/${slug}/`,
+      lastModified: LAST_DEPLOY,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }));
 
   // Portfolio pages
   const portfolioSlugs = await reader.collections.portfolio.list();
@@ -53,21 +76,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Tag pages
-  const allTags = new Set<string>();
-  for (const slug of blogSlugs) {
-    const p = await reader.collections.blog.read(slug);
-    for (const tag of p?.tags ?? []) {
-      allTags.add(slugifyTag(tag));
-    }
-  }
-  const tagEntries = Array.from(allTags).map((tag) => ({
-    url: `${SITE_URL}/blog/tag/${tag}/`,
-    lastModified: LAST_DEPLOY,
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
-
   // Author page
   const authorEntry = {
     url: `${SITE_URL}/author/sunny-patel/`,
@@ -76,5 +84,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   };
 
-  return [...staticRoutes, authorEntry, ...blogEntries, ...serviceEntries, ...portfolioEntries, ...tagEntries];
+  return [...staticRoutes, authorEntry, ...blogEntries, ...serviceEntries, ...portfolioEntries];
 }

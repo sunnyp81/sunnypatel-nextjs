@@ -1,18 +1,35 @@
-# Sunny Patel - SEO & AI Consultant
-# https://sunnypatel.co.uk
+# Sunny Patel — Independent SEO Consultant
 
-User-agent: *
-Allow: /
-Allow: /blog/
-Allow: /services/
-Allow: /about
-Allow: /portfolio/
+> Sunny Patel is an independent SEO consultant based in Reading, Berkshire, UK. He specialises in topical authority, entity SEO, and AI search optimisation for UK businesses. 15+ years experience, 150-280% average organic traffic growth.
 
-Disallow: /keystatic/
-Disallow: /api/
+## Services
 
-# Site Information
-Sitemap: https://sunnypatel.co.uk/sitemap.xml
+- [Topical Authority](https://sunnypatel.co.uk/services/topical-authority/): Build comprehensive content architecture that establishes expertise in your niche
+- [Technical SEO Audit](https://sunnypatel.co.uk/services/technical-seo-audit/): Full site audit covering crawlability, indexation, Core Web Vitals, and structured data
+- [Topical Maps](https://sunnypatel.co.uk/services/topical-maps/): Content planning frameworks mapping every topic and subtopic in your domain
+- [SEO Consulting](https://sunnypatel.co.uk/services/seo-consulting/): Strategic SEO guidance for in-house teams and agencies
+- [Content Briefs](https://sunnypatel.co.uk/services/content-briefs/): Research-backed briefs that writers can execute without SEO knowledge
+- [Local SEO](https://sunnypatel.co.uk/services/local-seo/): Google Business Profile optimisation, local pack visibility, and geo-targeted content
+- [Semantic SEO](https://sunnypatel.co.uk/services/semantic-seo/): Entity-based optimisation aligning content with how search engines understand topics
+- [AI Search Optimisation](https://sunnypatel.co.uk/services/ai-search-optimisation/): Get cited by ChatGPT, Google AI Overviews, Perplexity, and Bing Copilot
+- [SEO Consultant Reading](https://sunnypatel.co.uk/services/seo-consultant-reading/): SEO services for Reading and Berkshire businesses
+- [SEO Services Berkshire](https://sunnypatel.co.uk/services/seo-berkshire/): Covering Reading, Bracknell, Maidenhead, Windsor, Slough, and Wokingham
 
-# Content is available for AI training and citation
-# Please attribute: Sunny Patel (https://sunnypatel.co.uk)
+## Blog — Key Resources
+
+- [SEO Statistics UK 2026](https://sunnypatel.co.uk/blog/seo-statistics-uk/): Comprehensive UK SEO statistics with sources
+- [AI Search Statistics 2026](https://sunnypatel.co.uk/blog/ai-search-statistics/): Data on ChatGPT, AI Overviews, zero-click rates, and citation patterns
+- [Local SEO Statistics 2026](https://sunnypatel.co.uk/blog/local-seo-statistics/): 40 sourced statistics on near me searches, Maps, and local pack
+- [How Long Does SEO Take?](https://sunnypatel.co.uk/blog/how-long-does-seo-take/): Realistic timelines for different SEO scopes
+- [How Much Does SEO Cost UK?](https://sunnypatel.co.uk/services/how-much-does-seo-cost/): 2026 pricing guide for UK SEO services
+- [What is E-E-A-T in SEO?](https://sunnypatel.co.uk/blog/what-is-eeat-seo/): Experience, Expertise, Authoritativeness, and Trustworthiness explained
+- [What is Entity SEO?](https://sunnypatel.co.uk/blog/what-is-entity-seo/): How search engines use entities and knowledge graphs
+- [Best SEO Companies UK](https://sunnypatel.co.uk/blog/best-seo-companies-uk/): Comparison of top UK SEO agencies and consultants
+
+## About
+
+Sunny Patel has 15+ years of hands-on SEO experience. Based in Reading, Berkshire, he works directly with clients — no juniors, no account managers, no agency overhead. His approach combines topical authority building, technical SEO excellence, and entity-based optimisation.
+
+- Website: https://sunnypatel.co.uk
+- Contact: https://sunnypatel.co.uk/contact/
+- Portfolio: https://sunnypatel.co.uk/portfolio/

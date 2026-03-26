@@ -25,11 +25,14 @@ export async function generateMetadata({
 }) {
   const { tag } = await params;
   const label = tag.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  return buildMetadata({
-    title: `${label} Articles | Sunny Patel`,
-    description: `SEO articles and guides about ${label} by Sunny Patel.`,
-    path: `/blog/tag/${tag}`,
-  });
+  return {
+    ...buildMetadata({
+      title: `${label} Articles | Sunny Patel`,
+      description: `SEO articles and guides about ${label} by Sunny Patel.`,
+      path: `/blog/tag/${tag}`,
+    }),
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function TagPage({

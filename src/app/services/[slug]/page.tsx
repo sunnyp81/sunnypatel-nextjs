@@ -837,6 +837,27 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+const NOINDEX_SLUGS = new Set([
+  "seo-consultant-birmingham",
+  "seo-consultant-bradford",
+  "seo-consultant-brighton",
+  "seo-consultant-cardiff",
+  "seo-consultant-devon",
+  "seo-consultant-edinburgh",
+  "seo-consultant-essex",
+  "seo-consultant-glasgow",
+  "seo-consultant-harrogate",
+  "seo-consultant-leeds",
+  "seo-consultant-manchester",
+  "seo-consultant-nottingham",
+  "seo-consultant-oxford",
+  "seo-consultant-preston",
+  "seo-consultant-sheffield",
+  "seo-consultant-southampton",
+  "seo-consultant-surrey",
+  "seo-consultant-york",
+]);
+
 export async function generateMetadata({
   params,
 }: {
@@ -845,12 +866,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = await reader.collections.services.read(slug);
   if (!service) return {};
-  return buildMetadata({
-    title: service.metaTitle || service.title,
-    description: service.description,
-    ogImage: service.ogImage,
-    path: `/services/${slug}`,
-  });
+  return {
+    ...buildMetadata({
+      title: service.metaTitle || service.title,
+      description: service.description,
+      ogImage: service.ogImage,
+      path: `/services/${slug}`,
+    }),
+    ...(NOINDEX_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
+  };
 }
 
 export default async function ServicePage({

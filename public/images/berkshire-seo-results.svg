@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="680" y2="320">
+      <stop offset="0%" stop-color="#0d0d14"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5B8AEF"/>
+      <stop offset="100%" stop-color="#3b6fd6"/>
+    </linearGradient>
+    <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="320" rx="16" fill="url(#bgGrad)"/>
+  <rect width="680" height="320" rx="16" stroke="#5B8AEF" stroke-width="1" stroke-opacity="0.2" fill="none"/>
+
+  <!-- Title -->
+  <text x="340" y="36" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600">Berkshire Client Results — 9-Month SEO Engagement</text>
+
+  <!-- Before/After labels -->
+  <text x="200" y="72" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="500">BEFORE</text>
+  <text x="480" y="72" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="500">AFTER (9 MONTHS)</text>
+
+  <!-- Divider line -->
+  <line x1="340" y1="62" x2="340" y2="300" stroke="#5B8AEF" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4 4"/>
+
+  <!-- Before: Organic Visits -->
+  <rect x="80" y="90" width="120" height="48" rx="8" fill="#1e293b"/>
+  <text x="140" y="110" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Organic Visits</text>
+  <text x="140" y="130" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="18" font-weight="700">180/mo</text>
+
+  <!-- Before: Enquiries -->
+  <rect x="220" y="90" width="100" height="48" rx="8" fill="#1e293b"/>
+  <text x="270" y="110" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Enquiries</text>
+  <text x="270" y="130" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="18" font-weight="700">~4/mo</text>
+
+  <!-- Arrow -->
+  <path d="M330 114 L350 114" stroke="#5B8AEF" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#5B8AEF"/>
+    </marker>
+  </defs>
+
+  <!-- After: Organic Visits -->
+  <rect x="360" y="90" width="120" height="48" rx="8" fill="#132a1e"/>
+  <rect x="360" y="90" width="120" height="48" rx="8" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" fill="none"/>
+  <text x="420" y="110" text-anchor="middle" fill="#86efac" font-family="system-ui, sans-serif" font-size="11">Organic Visits</text>
+  <text x="420" y="130" text-anchor="middle" fill="#22c55e" font-family="system-ui, sans-serif" font-size="18" font-weight="700">620/mo</text>
+
+  <!-- After: Enquiries -->
+  <rect x="500" y="90" width="100" height="48" rx="8" fill="#132a1e"/>
+  <rect x="500" y="90" width="100" height="48" rx="8" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" fill="none"/>
+  <text x="550" y="110" text-anchor="middle" fill="#86efac" font-family="system-ui, sans-serif" font-size="11">Enquiries</text>
+  <text x="550" y="130" text-anchor="middle" fill="#22c55e" font-family="system-ui, sans-serif" font-size="18" font-weight="700">~12/mo</text>
+
+  <!-- Growth chart area -->
+  <text x="340" y="172" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="500">ORGANIC TRAFFIC GROWTH OVER 9 MONTHS</text>
+
+  <!-- Chart baseline -->
+  <line x1="80" y1="280" x2="600" y2="280" stroke="#334155" stroke-width="1"/>
+
+  <!-- Month labels -->
+  <text x="80" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M0</text>
+  <text x="145" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M1</text>
+  <text x="210" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M2</text>
+  <text x="275" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M3</text>
+  <text x="340" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M4</text>
+  <text x="405" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M5</text>
+  <text x="470" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M6</text>
+  <text x="535" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M7</text>
+  <text x="600" y="296" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">M9</text>
+
+  <!-- Growth curve (organic visits: 180, 185, 200, 230, 290, 360, 420, 510, 620) -->
+  <polyline points="80,262 145,261 210,258 275,251 340,237 405,221 470,207 535,186 600,160" stroke="url(#barGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Area fill under curve -->
+  <polygon points="80,262 145,261 210,258 275,251 340,237 405,221 470,207 535,186 600,160 600,280 80,280" fill="#5B8AEF" fill-opacity="0.08"/>
+
+  <!-- Data points -->
+  <circle cx="80" cy="262" r="3" fill="#5B8AEF"/>
+  <circle cx="600" cy="160" r="4" fill="#22c55e" stroke="#22c55e" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Y-axis labels -->
+  <text x="68" y="266" text-anchor="end" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">180</text>
+  <text x="68" y="164" text-anchor="end" fill="#22c55e" font-family="system-ui, sans-serif" font-size="9">620</text>
+
+  <!-- +244% badge -->
+  <rect x="530" y="148" width="64" height="22" rx="11" fill="#132a1e"/>
+  <rect x="530" y="148" width="64" height="22" rx="11" stroke="#22c55e" stroke-width="1" stroke-opacity="0.4" fill="none"/>
+  <text x="562" y="163" text-anchor="middle" fill="#22c55e" font-family="system-ui, sans-serif" font-size="11" font-weight="700">+244%</text>
+</svg>

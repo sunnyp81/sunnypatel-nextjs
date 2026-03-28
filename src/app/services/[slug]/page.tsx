@@ -13,7 +13,7 @@ import { WhoForGrid } from "@/components/services/WhoForGrid";
 import { CitationChecklist } from "@/components/services/CitationChecklist";
 import { CaseStudyCard } from "@/components/services/CaseStudyCard";
 import { StatsBar } from "@/components/services/StatsBar";
-import { ServiceInlineForm } from "@/components/service-inline-form";
+
 
 /* ── Conversion data ──────────────────────────────────────── */
 
@@ -775,30 +775,23 @@ function buildSections(
   const pos = {
     statsBar: 0,
     testimonials: Math.max(1, Math.floor(n * 0.25)),
-    miniCta1: Math.max(2, Math.floor(n * 0.35)),
-    caseStudies: Math.max(3, Math.floor(n * 0.45)),
-    timeline: Math.max(4, Math.floor(n * 0.6)),
-    risk: Math.max(5, Math.floor(n * 0.75)),
-    miniCta2: Math.max(6, Math.floor(n * 0.8)),
+    caseStudies: Math.max(2, Math.floor(n * 0.4)),
+    timeline: Math.max(3, Math.floor(n * 0.55)),
+    risk: Math.max(4, Math.floor(n * 0.7)),
     whoFor: n - 1,
   };
 
   // Deduplicate — if two land on same index, push later one down
   if (pos.testimonials <= pos.statsBar) pos.testimonials = pos.statsBar + 1;
-  if (pos.miniCta1 <= pos.testimonials) pos.miniCta1 = pos.testimonials + 1;
-  if (pos.caseStudies <= pos.miniCta1) pos.caseStudies = pos.miniCta1 + 1;
+  if (pos.caseStudies <= pos.testimonials) pos.caseStudies = pos.testimonials + 1;
   if (pos.timeline <= pos.caseStudies) pos.timeline = pos.caseStudies + 1;
   if (pos.risk <= pos.timeline) pos.risk = pos.timeline + 1;
-  if (pos.miniCta2 <= pos.risk) pos.miniCta2 = pos.risk + 1;
-  pos.whoFor = Math.max(pos.miniCta2 + 1, n - 1);
+  pos.whoFor = Math.max(pos.risk + 1, n - 1);
 
   const injections: Record<number, React.ReactNode> = {
     [pos.statsBar]: <StatsBar />,
     [pos.testimonials]: (
       <TestimonialGrid testimonials={convData.testimonials} />
-    ),
-    [pos.miniCta1]: (
-      <ServiceInlineForm compact />
     ),
     [pos.caseStudies]: (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -815,9 +808,6 @@ function buildSections(
         <RiskReversal points={convData.riskPoints} accentColor={convData.accent} />
         {slug === "ai-search-optimisation" && <CitationChecklist />}
       </>
-    ),
-    [pos.miniCta2]: (
-      <ServiceInlineForm compact />
     ),
     [pos.whoFor]: (
       <WhoForGrid yesItems={convData.yesFor} noItems={convData.noFor} />
@@ -866,13 +856,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = await reader.collections.services.read(slug);
   if (!service) return {};
+  const meta = buildMetadata({
+    title: service.metaTitle || service.title,
+    description: service.description,
+    ogImage: service.ogImage,
+    path: service.canonicalOverride || `/services/${slug}`,
+  });
   return {
-    ...buildMetadata({
-      title: service.metaTitle || service.title,
-      description: service.description,
-      ogImage: service.ogImage,
-      path: `/services/${slug}`,
-    }),
+    ...meta,
     ...(NOINDEX_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
   };
 }

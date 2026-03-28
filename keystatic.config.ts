@@ -119,6 +119,7 @@ export default config({
         icon: fields.text({ label: "Icon Name (lucide-react)" }),
         featured: fields.checkbox({ label: "Show on Homepage", defaultValue: false }),
         sortOrder: fields.integer({ label: "Sort Order", defaultValue: 0 }),
+        canonicalOverride: fields.text({ label: "Canonical URL Override (e.g. /services/seo-consultant-reading/)" }),
         content: fields.markdoc({ label: "Service Content" }),
       },
     }),

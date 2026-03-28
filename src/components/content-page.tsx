@@ -216,13 +216,6 @@ export function ContentPage({
         </div>
       )}
 
-      {/* Above-fold form — service pages only */}
-      {isService && (
-        <div className="mx-auto max-w-4xl px-6 py-8">
-          <ServiceInlineForm compact ctaTitle={ctaTitle} ctaSubtitle={ctaSubtitle} />
-        </div>
-      )}
-
       {/* ── Content ───────────────────────────────────────────── */}
       <div className="relative overflow-hidden">
         {/* Background decorations — blog and service pages */}

@@ -134,7 +134,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
           transition={{ duration: 0.5, delay: 0.25 }}
         >
           <GradientButton variant="variant" asChild>
-            <Link href="/portfolio" className="inline-flex items-center gap-2">
+            <Link href="/portfolio/" className="inline-flex items-center gap-2">
               View all case studies
               <ArrowRight className="h-4 w-4" />
             </Link>

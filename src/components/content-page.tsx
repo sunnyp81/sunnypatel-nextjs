@@ -14,7 +14,7 @@ import { slugifyTag } from "@/lib/utils";
 function AuthorByline() {
   return (
     <Link
-      href="/author/sunny-patel"
+      href="/author/sunny-patel/"
       className="mt-5 inline-flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 transition-colors duration-200 hover:border-white/[0.1] hover:bg-white/[0.04]"
     >
       <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10">

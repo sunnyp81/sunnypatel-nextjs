@@ -6,7 +6,7 @@ const SITE_URL = "https://sunnypatel.co.uk";
 
 // Static routes — use a fixed date rather than new Date() to avoid
 // telling Google every page changed on every build
-const LAST_DEPLOY = new Date("2026-03-26");
+const LAST_DEPLOY = new Date("2026-03-28");
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/`,                   lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 1.0 },
@@ -15,8 +15,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/portfolio/`,         lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE_URL}/blog/`,              lastModified: LAST_DEPLOY, changeFrequency: "daily",   priority: 0.9 },
   { url: `${SITE_URL}/contact/`,           lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.7 },
-  { url: `${SITE_URL}/privacy-policy/`,    lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.3 },
-  { url: `${SITE_URL}/terms-of-use/`,      lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.3 },
+  // privacy-policy and terms-of-use excluded — low crawl-priority, waste crawl budget
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -76,13 +75,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Author page
-  const authorEntry = {
-    url: `${SITE_URL}/author/sunny-patel/`,
-    lastModified: LAST_DEPLOY,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  };
-
-  return [...staticRoutes, authorEntry, ...blogEntries, ...serviceEntries, ...portfolioEntries];
+  return [...staticRoutes, ...blogEntries, ...serviceEntries, ...portfolioEntries];
 }

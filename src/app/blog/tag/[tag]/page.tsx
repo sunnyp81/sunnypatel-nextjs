@@ -66,7 +66,7 @@ export default async function TagPage({
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6">
           <Link
-            href="/blog"
+            href="/blog/"
             className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5" />

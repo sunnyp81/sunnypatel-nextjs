@@ -39,13 +39,13 @@ export default function NotFound() {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="/services"
+              href="/services/"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               View Services
             </Link>
             <Link
-              href="/blog"
+              href="/blog/"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Read Blog

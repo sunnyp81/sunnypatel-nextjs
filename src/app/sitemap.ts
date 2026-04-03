@@ -6,7 +6,7 @@ const SITE_URL = "https://sunnypatel.co.uk";
 
 // Static routes — use a fixed date rather than new Date() to avoid
 // telling Google every page changed on every build
-const LAST_DEPLOY = new Date("2026-03-28");
+const LAST_DEPLOY = new Date("2026-04-03");
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/`,                   lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 1.0 },
@@ -56,9 +56,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "seo-consultant-york",
   ]);
 
+  // Pages with canonicalOverride pointing to another page — exclude from sitemap
+  // to avoid diluting the canonical target's authority
+  const CANONICAL_OVERRIDE_SLUGS = new Set([
+    "seo-strategy-reading",
+    "digital-marketing-reading",
+    "seo-agency-reading",
+  ]);
+
   const serviceSlugs = await reader.collections.services.list();
   const serviceEntries = serviceSlugs
-    .filter((slug) => !NOINDEX_SERVICE_SLUGS.has(slug))
+    .filter((slug) => !NOINDEX_SERVICE_SLUGS.has(slug) && !CANONICAL_OVERRIDE_SLUGS.has(slug))
     .map((slug) => ({
       url: `${SITE_URL}/services/${slug}/`,
       lastModified: LAST_DEPLOY,

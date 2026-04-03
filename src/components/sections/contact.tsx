@@ -22,7 +22,7 @@ const contactItems = [
   {
     icon: <MapPin className="h-5 w-5 text-[#5B8AEF]" />,
     label: "Location",
-    value: "Reading, Berkshire, UK",
+    value: "Berkshire, UK (Remote & In-Person)",
     href: null,
   },
 ];

@@ -5,8 +5,8 @@ import { Footer } from "@/components/sections/footer";
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "Contact Sunny Patel | Book a Free Strategy Call",
-    description: "Get in touch with Sunny Patel for a free 30-minute strategy call. Response within 24 hours. No obligation.",
+    title: "Contact Sunny Patel | Book a Free SEO Strategy Call",
+    description: "Book a free 30-minute SEO strategy call with Sunny Patel. Get an honest assessment of your site's organic performance. Response within 24 hours, no obligation.",
     path: "/contact",
   });
 }

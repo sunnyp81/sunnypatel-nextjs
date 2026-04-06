@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0a0a0f"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="600" letter-spacing="0.3">Backlink Profile Comparison</text>
+  <text x="400" y="56" text-anchor="middle" fill="#6b7280" font-size="12">Volume is not the signal. Topical relevance and domain diversity are.</text>
+
+  <!-- ====== LEFT PANEL: Referring Domains Donut ====== -->
+  <text x="200" y="90" text-anchor="middle" fill="#a0aec0" font-size="13" font-weight="600">Referring Domains</text>
+
+  <!-- Competitor donut (outer ring) -->
+  <!-- Full circle background -->
+  <circle cx="200" cy="200" r="75" fill="none" stroke="#1e1e2e" stroke-width="22"/>
+  <!-- Competitor arc: 142 domains — draw as full ring with color -->
+  <circle cx="200" cy="200" r="75" fill="none" stroke="#f87171" stroke-width="22" stroke-dasharray="471" stroke-dashoffset="0" opacity="0.9"/>
+  <!-- You donut (inner ring) -->
+  <circle cx="200" cy="200" r="50" fill="none" stroke="#1e1e2e" stroke-width="18"/>
+  <!-- You arc: 54 domains — 54/142 = 38% of circle = 0.38 * 314 = 119px of 314 total -->
+  <circle cx="200" cy="200" r="50" fill="none" stroke="#5B8AEF" stroke-width="18" stroke-dasharray="119 195" stroke-dashoffset="78" opacity="0.9"/>
+
+  <!-- Centre labels -->
+  <text x="200" y="196" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">54</text>
+  <text x="200" y="213" text-anchor="middle" fill="#6b7280" font-size="11">you</text>
+
+  <!-- Outer label -->
+  <text x="200" y="303" text-anchor="middle" fill="#f87171" font-size="14" font-weight="700">142</text>
+  <text x="200" y="318" text-anchor="middle" fill="#6b7280" font-size="11">competitor</text>
+
+  <!-- Ring labels -->
+  <text x="200" y="344" text-anchor="middle" fill="#4b5563" font-size="10">Inner ring = you  ·  Outer ring = competitor</text>
+
+  <!-- ====== MIDDLE PANEL: Link Quality Distribution ====== -->
+  <text x="430" y="90" text-anchor="middle" fill="#a0aec0" font-size="13" font-weight="600">Link Quality Distribution</text>
+
+  <!-- Horizontal stacked bar — You -->
+  <text x="305" y="118" fill="#a0aec0" font-size="11">You</text>
+  <!-- Editorial links (high quality) -->
+  <rect x="340" y="105" width="62" height="22" rx="2" fill="#5B8AEF"/>
+  <text x="371" y="121" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">21%</text>
+  <!-- Industry directories -->
+  <rect x="402" y="105" width="54" height="22" rx="2" fill="#3b82f6" opacity="0.7"/>
+  <text x="429" y="121" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">18%</text>
+  <!-- Generic directories -->
+  <rect x="456" y="105" width="74" height="22" rx="2" fill="#1e3a5f" opacity="0.9"/>
+  <text x="493" y="121" text-anchor="middle" fill="#93c5fd" font-size="10">25%</text>
+  <!-- Low-quality / PBN -->
+  <rect x="530" y="105" width="108" height="22" rx="2" fill="#7f1d1d" opacity="0.9"/>
+  <text x="584" y="121" text-anchor="middle" fill="#fca5a5" font-size="10">36% low-qual</text>
+
+  <!-- Horizontal stacked bar — Competitor -->
+  <text x="305" y="156" fill="#a0aec0" font-size="11">Competitor</text>
+  <!-- Editorial links -->
+  <rect x="340" y="143" width="122" height="22" rx="2" fill="#f87171" opacity="0.85"/>
+  <text x="401" y="159" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">41%</text>
+  <!-- Industry-relevant -->
+  <rect x="462" y="143" width="84" height="22" rx="2" fill="#ef4444" opacity="0.65"/>
+  <text x="504" y="159" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">28%</text>
+  <!-- Directories -->
+  <rect x="546" y="143" width="54" height="22" rx="2" fill="#7f1d1d" opacity="0.6"/>
+  <text x="573" y="159" text-anchor="middle" fill="#fca5a5" font-size="10">18%</text>
+  <!-- Low quality -->
+  <rect x="600" y="143" width="38" height="22" rx="2" fill="#3d0000" opacity="0.8"/>
+  <text x="619" y="159" text-anchor="middle" fill="#fca5a5" font-size="9">13%</text>
+
+  <!-- ====== BOTTOM TABLE: Anchor Text Distribution ====== -->
+  <text x="430" y="210" text-anchor="middle" fill="#a0aec0" font-size="13" font-weight="600">Anchor Text Distribution</text>
+
+  <!-- Table header -->
+  <rect x="305" y="218" width="250" height="24" rx="3" fill="#111827"/>
+  <text x="355" y="234" text-anchor="middle" fill="#6b7280" font-size="11">Anchor Type</text>
+  <text x="470" y="234" text-anchor="middle" fill="#5B8AEF" font-size="11">You</text>
+  <text x="530" y="234" text-anchor="middle" fill="#f87171" font-size="11">Competitor</text>
+
+  <!-- Row 1 -->
+  <rect x="305" y="242" width="250" height="22" rx="0" fill="#0f172a"/>
+  <text x="355" y="257" text-anchor="middle" fill="#a0aec0" font-size="11">Branded</text>
+  <text x="470" y="257" text-anchor="middle" fill="#5B8AEF" font-size="11">38%</text>
+  <text x="530" y="257" text-anchor="middle" fill="#f87171" font-size="11">52%</text>
+
+  <!-- Row 2 -->
+  <rect x="305" y="264" width="250" height="22" rx="0" fill="#111827"/>
+  <text x="355" y="279" text-anchor="middle" fill="#a0aec0" font-size="11">Generic ("click here")</text>
+  <text x="470" y="279" text-anchor="middle" fill="#5B8AEF" font-size="11">12%</text>
+  <text x="530" y="279" text-anchor="middle" fill="#f87171" font-size="11">14%</text>
+
+  <!-- Row 3 -->
+  <rect x="305" y="286" width="250" height="22" rx="0" fill="#0f172a"/>
+  <text x="355" y="301" text-anchor="middle" fill="#a0aec0" font-size="11">Topical phrases</text>
+  <text x="470" y="301" text-anchor="middle" fill="#5B8AEF" font-size="11">18%</text>
+  <text x="530" y="301" text-anchor="middle" fill="#f87171" font-size="11">26%</text>
+
+  <!-- Row 4 — highlighted as problem -->
+  <rect x="305" y="308" width="250" height="22" rx="0" fill="#1c0a0a"/>
+  <text x="355" y="323" text-anchor="middle" fill="#a0aec0" font-size="11">Exact-match keyword</text>
+  <text x="470" y="323" text-anchor="middle" fill="#ef4444" font-size="11" font-weight="700">32% ⚠</text>
+  <text x="530" y="323" text-anchor="middle" fill="#f87171" font-size="11">8%</text>
+
+  <!-- Row 4 warning note -->
+  <text x="305" y="342" fill="#ef4444" font-size="10">⚠  High exact-match anchor ratio — manual penalty risk</text>
+
+  <!-- ====== VELOCITY SPARKLINE ====== -->
+  <text x="430" y="368" text-anchor="middle" fill="#a0aec0" font-size="13" font-weight="600">Link Velocity (12 months)</text>
+
+  <!-- Sparkline background -->
+  <rect x="305" y="376" width="250" height="50" rx="4" fill="#0f172a"/>
+
+  <!-- Competitor line — steady growth -->
+  <polyline points="315,418 336,413 357,408 378,404 399,400 420,397 441,393 462,390 483,386 504,384 525,381 546,378" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- You line — spike then flat -->
+  <polyline points="315,418 336,416 357,415 378,413 399,411 420,410 441,385 462,410 483,412 504,413 525,414 546,415" fill="none" stroke="#5B8AEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Spike annotation -->
+  <line x1="441" y1="385" x2="441" y2="375" stroke="#5B8AEF" stroke-width="1" stroke-dasharray="2"/>
+  <text x="441" y="373" text-anchor="middle" fill="#5B8AEF" font-size="9">link spike</text>
+
+  <!-- Month labels -->
+  <text x="315" y="432" fill="#4b5563" font-size="9">Apr</text>
+  <text x="399" y="432" fill="#4b5563" font-size="9">Aug</text>
+  <text x="483" y="432" fill="#4b5563" font-size="9">Dec</text>
+  <text x="546" y="432" fill="#4b5563" font-size="9">Mar</text>
+
+  <!-- Bottom caption -->
+  <text x="400" y="447" text-anchor="middle" fill="#4b5563" font-size="11">Consistent velocity signals organic link earning. Spikes flag artificial campaigns.</text>
+</svg>

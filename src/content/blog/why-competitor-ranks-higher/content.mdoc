@@ -1,0 +1,110 @@
+I manage 44 websites. On every single one, there's at least one competitor sitting above me on a query I should own. Over time, I've found there are exactly six reasons this happens — and only one of them is the one most people assume. Here's how to work out which one applies to you.
+
+## The Answer Is Rarely "They Have More Backlinks"
+
+That's the first thing most business owners say. "Their domain authority is higher." Sometimes it's true. Usually it isn't the whole story — and acting on that assumption means spending months on link building when the real problem is something you could fix in a day.
+
+I've had a site with a DR of 28 outrank competitors sitting at DR 55 on the same query. I've also had the reverse. Domain authority matters, but it's one input among six. Before you spend money building links, rule out the other five.
+
+## Reason 1: They Have Topical Depth and You Have a Page
+
+If your competitor has 12 pages covering a topic from every angle — the main guide, the comparisons, the how-tos, the FAQs, the specific use cases — and you have one page targeting the head keyword, they win. Full stop.
+
+Google's understanding of topical authority (which site is the most comprehensive, trustworthy source on a subject) is built on the breadth and depth of coverage. One well-optimised page isn't enough to compete against a site that's treated the topic as a dedicated content cluster.
+
+**How to check:** Search for your target keyword. Click through to the top-ranking competitor. Look at their internal links and site structure. How many pages do they have on this topic? Run `site:competitor.com "your topic"` to get a rough count. If they have 15 pages and you have 1, the gap is topical — not a backlink problem.
+
+**The fix:** Build a [hub-and-spoke content architecture](/services/topical-authority/) around the topic. One pillar page covering the broad topic, then 5-10 supporting pages covering specific subtopics, use cases, and questions. Each links back to the pillar. This is the pattern I've replicated across my portfolio — it's consistently the fastest way to close a ranking gap when the competitor has depth you don't.
+
+## Reason 2: Technical Issues Are Capping Your Rankings
+
+I found canonical problems on 23 of 44 sites when I audited my portfolio. These weren't new sites — some had been live for years. The technical issues don't crash your rankings overnight. They just prevent you from ever ranking as high as you should.
+
+The three most common technical suppressors I find:
+
+**Canonical splits.** Two versions of the same URL (with and without trailing slash, www vs non-www, HTTP vs HTTPS) both indexing, each collecting half the ranking signals that should be going to one page. On one of my sites, fixing this on 23 pages moved average position from 31.6 to 25.6 within 10 days.
+
+**Index bloat.** Google spending crawl budget on tag pages, parameter URLs, and empty archive pages instead of your real content. A site with 200 articles but 1,400 indexed pages is telling Google to treat most of its content as low-value.
+
+**Core Web Vitals failures.** If your Largest Contentful Paint is above 4 seconds on mobile, Google has a direct quality signal telling it your page is worse than competitors who've optimised. It won't block rankings entirely, but it's a persistent drag — especially in competitive niches where everything else is equal.
+
+**How to check:** Open Google Search Console (GSC). Go to Pages. Look at the "Not indexed" reasons and the split between indexed and non-indexed pages. Then check Core Web Vitals under Experience. If you see hundreds of pages in the "Duplicate, Google chose different canonical" report, that's your problem.
+
+## Reason 3: Their Content Has Better Quality Signals
+
+Google can't read your page the way a human does — but it can infer quality from signals that correlate with quality. Dwell time, scroll depth, CTR, low bounce-to-serp rate. If users are clicking your competitor's result and staying for 4 minutes, but clicking yours and leaving after 30 seconds, Google notices.
+
+This usually comes down to one of three things:
+
+**Structure.** Does your page answer the question clearly in the first 200 words, or does it bury the answer after 600 words of background context? Competitors who lead with the answer win on dwell time because users get what they came for and read more — they don't bounce back to the SERP.
+
+**Specificity.** Vague content that could have been written by anyone about anything performs worse than content that references specific data, real examples, and actual experience. If your competitor's page says "experts recommend 3-5 times per week" and yours says "research suggests frequency may vary," the user knows which one to trust.
+
+**Formatting.** Headers, tables, numbered lists, and inline images don't just help users — they increase scroll depth, which is a quality signal. A wall of text on the same topic as a well-formatted competitor page will underperform even if the underlying information is the same.
+
+## Reason 4: Their Backlink Profile Is Stronger on This Topic
+
+Now we get to domain authority — but with an important nuance. It's not just about how many backlinks they have overall. It's about whether their backlinks are topically relevant to the query you're competing on.
+
+A site with 500 backlinks from cooking and food blogs will outrank a site with 2,000 backlinks from random directories on any food-related query. Google's link evaluation is increasingly topic-aware.
+
+**How to check:** Export both backlink profiles from Ahrefs. Filter by "dofollow" referring domains. Then look at the anchor text distribution — are their links coming from pages that are thematically related to your target topic? Compare referring domain count on the specific page you're trying to rank (not just the root domain).
+
+![Backlink profile comparison: referring domain quality vs quantity](/images/stats/competitor-backlink-profile.svg)
+
+| Signal | You need to beat | Notes |
+|--------|-----------------|-------|
+| Referring domains (page-level) | Match within 20% | Root domain DR matters less than page-level links |
+| Topical relevance of linking sites | Match or exceed | A food blog link beats a generic directory |
+| Anchor text variety | Natural spread | 80%+ branded/generic anchors is healthy |
+| Link velocity | Consistent > spiky | Sudden spikes look manipulated |
+
+If you're behind on all four, that's a 6-12 month backlink campaign. If you're only behind on topical relevance, targeted digital PR to industry-specific publications is the lever.
+
+## Reason 5: They're Winning on Click Signals
+
+CTR is a ranking signal. If users see both results, click yours less often, and then bounce back to the SERP — Google interprets that as your result being less relevant. Over time, this depresses your position even if everything else is equal.
+
+Low CTR is almost always a title and meta description problem. I ran a full CTR audit across 8 of my sites in April 2026. I found pages ranking in positions 3-6 with CTRs of 0.8-1.2% when they should have been getting 5-8%. The common pattern: titles pulled from page H1s that weren't written for search results — too long, no benefit, no differentiation.
+
+**How to check:** GSC > Performance > filter by the queries where your competitor beats you. Look at your CTR against the benchmark for that position (position 1 averages around 28%, position 3 around 11%, position 5 around 7%). If you're significantly below those numbers, it's a title problem, not a ranking problem.
+
+**The fix:** Rewrite the title to include the primary keyword near the front, a clear benefit, and stay under 60 characters so it doesn't truncate. The meta description should answer "why click this result over the others?" — not repeat the title or describe the site.
+
+## Reason 6: The Domain Authority Gap Is Genuinely the Issue
+
+If you've ruled out topical depth, technical health, content quality, backlinks at the page level, and click signals — then yes, it's a domain authority problem. This is the hardest to fix quickly and the one that requires patience.
+
+A DR 65 site will beat a DR 20 site on competitive head keywords almost every time, regardless of how good the page is. Google uses domain authority as a tiebreaker and a trust signal for competitive queries. You're not going to close a 45-point DR gap in 6 months.
+
+But you can navigate around it. Go after long-tail queries with lower competition where your content depth is the deciding factor. Win there first, build the backlinks from those rankings, and gradually push up the authority. This is exactly what I did on several of my newer programmatic sites — start in the long tail, earn links from those positions, then push upward.
+
+## How to Diagnose Which Reason Applies to You
+
+Run through this checklist in order. Stop when you find the primary issue — that's where to focus first.
+
+**Step 1 — Topical coverage check (10 minutes)**
+Count how many pages your competitor has on your target topic vs how many you have. If the ratio is 10:1, that's the issue.
+
+**Step 2 — Technical audit (30 minutes)**
+Open GSC. Check indexed pages, canonical errors, and Core Web Vitals. If you have active technical issues, they're suppressing everything else — fix these first.
+
+**Step 3 — Content quality check (20 minutes)**
+Compare your page to the top-ranking result side by side. Is theirs more structured? More specific? Does it answer the question faster? Be honest.
+
+**Step 4 — CTR check (10 minutes)**
+GSC > Performance. Filter by the query. Is your CTR significantly below position-average benchmarks? If so, the title and description are the problem.
+
+**Step 5 — Page-level backlink comparison (20 minutes)**
+Ahrefs > compare the specific ranking page vs your page. Not root domain — the individual page. If they have 40 referring domains and you have 3, that's the gap.
+
+**Step 6 — Domain authority reality check**
+If all of the above are roughly equal and they still outrank you, the DR gap is the issue. Reframe your keyword strategy toward lower-competition queries.
+
+![Ranking gap analysis across 6 factors](/images/stats/competitor-ranking-gap-analysis.svg)
+
+## The Fix Is Usually Faster Than You Think
+
+Most ranking gaps aren't caused by domain authority. They're caused by topical gaps you can fill in 30 days or technical issues you can fix in an afternoon. The only situation where you're genuinely stuck is when the competitor has a 30+ point DR advantage on a head keyword with strong competition. In that case, the question isn't how to beat them on that keyword — it's how to build enough authority in the long tail that you eventually do.
+
+I do this analysis every week across 44 sites. If you'd like me to run it on yours — with actual GSC and Ahrefs data rather than guesswork — [get in touch](/contact/).

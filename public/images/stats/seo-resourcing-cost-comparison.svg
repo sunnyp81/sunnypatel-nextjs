@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="SEO resourcing cost comparison: in-house, agency, consultant">
+  <rect width="800" height="450" fill="#0a0a0f"/>
+
+  <!-- Title -->
+  <text x="400" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">SEO Resourcing: Annual Cost &amp; Capability Comparison</text>
+  <text x="400" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888899" text-anchor="middle">UK market rates, 2026</text>
+
+  <!-- Column headers -->
+  <text x="200" y="92" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#5B8AEF" text-anchor="middle">In-House</text>
+  <text x="400" y="92" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#5B8AEF" text-anchor="middle">Agency</text>
+  <text x="600" y="92" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#5B8AEF" text-anchor="middle">Consultant</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="100" x2="760" y2="100" stroke="#222233" stroke-width="1"/>
+
+  <!-- Cost bars section label -->
+  <text x="40" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="600">ANNUAL COST (£)</text>
+
+  <!-- Bar chart background tracks -->
+  <rect x="120" y="135" width="160" height="18" rx="3" fill="#1a1a2e"/>
+  <rect x="320" y="135" width="160" height="18" rx="3" fill="#1a1a2e"/>
+  <rect x="520" y="135" width="160" height="18" rx="3" fill="#1a1a2e"/>
+
+  <!-- In-house bar: £44K-£71K, show max ~£71K of £80K scale = 89% -->
+  <rect x="120" y="135" width="143" height="18" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <!-- range indicator lighter part -->
+  <rect x="120" y="135" width="88" height="18" rx="3" fill="#5B8AEF"/>
+  <text x="270" y="148" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#ccddff" text-anchor="end">£44K–£71K</text>
+
+  <!-- Agency bar: £18K-£60K, max = £60K of £80K = 75% -->
+  <rect x="320" y="135" width="120" height="18" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <rect x="320" y="135" width="36" height="18" rx="3" fill="#5B8AEF"/>
+  <text x="470" y="148" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#ccddff" text-anchor="end">£18K–£60K</text>
+
+  <!-- Consultant bar: £12K-£48K, max = £48K of £80K = 60% -->
+  <rect x="520" y="135" width="96" height="18" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <rect x="520" y="135" width="24" height="18" rx="3" fill="#5B8AEF"/>
+  <text x="670" y="148" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#ccddff" text-anchor="end">£12K–£48K</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="168" x2="760" y2="168" stroke="#1a1a2e" stroke-width="1"/>
+
+  <!-- Capability grid -->
+  <text x="40" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="600">CAPABILITY RATINGS</text>
+
+  <!-- Row labels + scores -->
+  <!-- Strategic depth -->
+  <text x="40" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccccdd">Strategic depth</text>
+  <!-- In-house: 3/5 -->
+  <circle cx="178" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="192" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="206" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="220" cy="211" r="5" fill="#222233"/>
+  <circle cx="234" cy="211" r="5" fill="#222233"/>
+  <!-- Agency: 3/5 -->
+  <circle cx="378" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="392" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="406" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="420" cy="211" r="5" fill="#222233"/>
+  <circle cx="434" cy="211" r="5" fill="#222233"/>
+  <!-- Consultant: 5/5 -->
+  <circle cx="578" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="592" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="606" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="620" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="634" cy="211" r="5" fill="#5B8AEF" opacity="0.9"/>
+
+  <!-- Execution volume -->
+  <text x="40" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccccdd">Execution volume</text>
+  <!-- In-house: 5/5 -->
+  <circle cx="178" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="192" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="206" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="220" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="234" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <!-- Agency: 5/5 -->
+  <circle cx="378" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="392" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="406" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="420" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="434" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <!-- Consultant: 2/5 -->
+  <circle cx="578" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="592" cy="241" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="606" cy="241" r="5" fill="#222233"/>
+  <circle cx="620" cy="241" r="5" fill="#222233"/>
+  <circle cx="634" cy="241" r="5" fill="#222233"/>
+
+  <!-- Flexibility -->
+  <text x="40" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccccdd">Flexibility / exit ease</text>
+  <!-- In-house: 1/5 -->
+  <circle cx="178" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="192" cy="271" r="5" fill="#222233"/>
+  <circle cx="206" cy="271" r="5" fill="#222233"/>
+  <circle cx="220" cy="271" r="5" fill="#222233"/>
+  <circle cx="234" cy="271" r="5" fill="#222233"/>
+  <!-- Agency: 3/5 -->
+  <circle cx="378" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="392" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="406" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="420" cy="271" r="5" fill="#222233"/>
+  <circle cx="434" cy="271" r="5" fill="#222233"/>
+  <!-- Consultant: 5/5 -->
+  <circle cx="578" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="592" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="606" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="620" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="634" cy="271" r="5" fill="#5B8AEF" opacity="0.9"/>
+
+  <!-- Speed to productive -->
+  <text x="40" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccccdd">Speed to productive</text>
+  <!-- In-house: 2/5 -->
+  <circle cx="178" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="192" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="206" cy="301" r="5" fill="#222233"/>
+  <circle cx="220" cy="301" r="5" fill="#222233"/>
+  <circle cx="234" cy="301" r="5" fill="#222233"/>
+  <!-- Agency: 3/5 -->
+  <circle cx="378" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="392" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="406" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="420" cy="301" r="5" fill="#222233"/>
+  <circle cx="434" cy="301" r="5" fill="#222233"/>
+  <!-- Consultant: 5/5 -->
+  <circle cx="578" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="592" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="606" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="620" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="634" cy="301" r="5" fill="#5B8AEF" opacity="0.9"/>
+
+  <!-- Cross-discipline coverage -->
+  <text x="40" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccccdd">Cross-discipline coverage</text>
+  <!-- In-house: 2/5 -->
+  <circle cx="178" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="192" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="206" cy="331" r="5" fill="#222233"/>
+  <circle cx="220" cy="331" r="5" fill="#222233"/>
+  <circle cx="234" cy="331" r="5" fill="#222233"/>
+  <!-- Agency: 5/5 -->
+  <circle cx="378" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="392" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="406" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="420" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="434" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <!-- Consultant: 4/5 -->
+  <circle cx="578" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="592" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="606" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="620" cy="331" r="5" fill="#5B8AEF" opacity="0.9"/>
+  <circle cx="634" cy="331" r="5" fill="#222233"/>
+
+  <!-- Divider -->
+  <line x1="40" y1="355" x2="760" y2="355" stroke="#1a1a2e" stroke-width="1"/>
+
+  <!-- Best for labels -->
+  <text x="40" y="375" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888899" font-weight="600">BEST FOR</text>
+  <text x="200" y="393" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aabbdd" text-anchor="middle">Scale execution</text>
+  <text x="200" y="408" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aabbdd" text-anchor="middle">post-traction</text>
+  <text x="400" y="393" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aabbdd" text-anchor="middle">Multi-channel or</text>
+  <text x="400" y="408" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aabbdd" text-anchor="middle">enterprise clients</text>
+  <text x="600" y="393" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aabbdd" text-anchor="middle">Strategy-first, growth</text>
+  <text x="600" y="408" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aabbdd" text-anchor="middle">stage or portfolio cos</text>
+
+  <!-- Column separator lines -->
+  <line x1="300" y1="80" x2="300" y2="430" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="500" y1="80" x2="500" y2="430" stroke="#1a1a2e" stroke-width="1"/>
+
+  <!-- Footer note -->
+  <text x="400" y="445" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#555566" text-anchor="middle">sunnypatel.co.uk — UK market rates 2026 — dots = rating out of 5</text>
+</svg>

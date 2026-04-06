@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0a0a0f"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="600" letter-spacing="0.3">Ranking Gap Analysis — 6 Factors</text>
+  <text x="400" y="58" text-anchor="middle" fill="#6b7280" font-size="12">Score 0–100 across each factor. Gap = competitor advantage over you.</text>
+
+  <!-- Legend -->
+  <rect x="530" y="74" width="12" height="12" rx="2" fill="#5B8AEF"/>
+  <text x="546" y="85" fill="#a0aec0" font-size="12">You</text>
+  <rect x="590" y="74" width="12" height="12" rx="2" fill="#f87171"/>
+  <text x="606" y="85" fill="#a0aec0" font-size="12">Competitor</text>
+
+  <!-- Grid lines -->
+  <line x1="120" y1="100" x2="760" y2="100" stroke="#1e1e2e" stroke-width="1"/>
+  <line x1="120" y1="145" x2="760" y2="145" stroke="#1e1e2e" stroke-width="1"/>
+  <line x1="120" y1="190" x2="760" y2="190" stroke="#1e1e2e" stroke-width="1"/>
+  <line x1="120" y1="235" x2="760" y2="235" stroke="#1e1e2e" stroke-width="1"/>
+  <line x1="120" y1="280" x2="760" y2="280" stroke="#1e1e2e" stroke-width="1"/>
+  <line x1="120" y1="325" x2="760" y2="325" stroke="#1e1e2e" stroke-width="1"/>
+  <line x1="120" y1="370" x2="760" y2="370" stroke="#1e1e2e" stroke-width="1"/>
+
+  <!-- Y-axis labels -->
+  <text x="108" y="374" text-anchor="end" fill="#6b7280" font-size="11">0</text>
+  <text x="108" y="329" text-anchor="end" fill="#6b7280" font-size="11">25</text>
+  <text x="108" y="284" text-anchor="end" fill="#6b7280" font-size="11">50</text>
+  <text x="108" y="239" text-anchor="end" fill="#6b7280" font-size="11">75</text>
+  <text x="108" y="194" text-anchor="end" fill="#6b7280" font-size="11">100</text>
+
+  <!-- Y-axis label -->
+  <text x="28" y="235" text-anchor="middle" fill="#6b7280" font-size="11" transform="rotate(-90,28,235)">Score (0-100)</text>
+
+  <!-- Factor 1: Topical Depth — You:32, Competitor:78 -->
+  <!-- You bar -->
+  <rect x="138" y="262" width="28" height="108" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <!-- Competitor bar -->
+  <rect x="170" y="162" width="28" height="208" rx="3" fill="#f87171" opacity="0.85"/>
+  <!-- Gap label -->
+  <text x="163" y="153" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">+46</text>
+  <!-- Value labels -->
+  <text x="152" y="258" text-anchor="middle" fill="#5B8AEF" font-size="10" font-weight="600">32</text>
+  <text x="184" y="158" text-anchor="middle" fill="#f87171" font-size="10" font-weight="600">78</text>
+  <text x="163" y="396" text-anchor="middle" fill="#a0aec0" font-size="11">Topical</text>
+  <text x="163" y="410" text-anchor="middle" fill="#a0aec0" font-size="11">Depth</text>
+
+  <!-- Factor 2: Technical Health — You:55, Competitor:82 -->
+  <rect x="240" y="228" width="28" height="142" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <rect x="272" y="153" width="28" height="217" rx="3" fill="#f87171" opacity="0.85"/>
+  <text x="256" y="144" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">+27</text>
+  <text x="254" y="224" text-anchor="middle" fill="#5B8AEF" font-size="10" font-weight="600">55</text>
+  <text x="286" y="149" text-anchor="middle" fill="#f87171" font-size="10" font-weight="600">82</text>
+  <text x="256" y="396" text-anchor="middle" fill="#a0aec0" font-size="11">Technical</text>
+  <text x="256" y="410" text-anchor="middle" fill="#a0aec0" font-size="11">Health</text>
+
+  <!-- Factor 3: Content Quality — You:61, Competitor:74 -->
+  <rect x="342" y="213" width="28" height="157" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <rect x="374" y="181" width="28" height="189" rx="3" fill="#f87171" opacity="0.85"/>
+  <text x="356" y="172" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">+13</text>
+  <text x="356" y="209" text-anchor="middle" fill="#5B8AEF" font-size="10" font-weight="600">61</text>
+  <text x="388" y="177" text-anchor="middle" fill="#f87171" font-size="10" font-weight="600">74</text>
+  <text x="356" y="396" text-anchor="middle" fill="#a0aec0" font-size="11">Content</text>
+  <text x="356" y="410" text-anchor="middle" fill="#a0aec0" font-size="11">Quality</text>
+
+  <!-- Factor 4: Backlink Profile — You:41, Competitor:69 -->
+  <rect x="444" y="245" width="28" height="125" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <rect x="476" y="197" width="28" height="173" rx="3" fill="#f87171" opacity="0.85"/>
+  <text x="458" y="188" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">+28</text>
+  <text x="458" y="241" text-anchor="middle" fill="#5B8AEF" font-size="10" font-weight="600">41</text>
+  <text x="490" y="193" text-anchor="middle" fill="#f87171" font-size="10" font-weight="600">69</text>
+  <text x="458" y="396" text-anchor="middle" fill="#a0aec0" font-size="11">Backlink</text>
+  <text x="458" y="410" text-anchor="middle" fill="#a0aec0" font-size="11">Profile</text>
+
+  <!-- Factor 5: CTR Signals — You:48, Competitor:66 -->
+  <rect x="546" y="232" width="28" height="138" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <rect x="578" y="197" width="28" height="173" rx="3" fill="#f87171" opacity="0.85"/>
+  <text x="560" y="188" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">+18</text>
+  <text x="560" y="228" text-anchor="middle" fill="#5B8AEF" font-size="10" font-weight="600">48</text>
+  <text x="592" y="193" text-anchor="middle" fill="#f87171" font-size="10" font-weight="600">66</text>
+  <text x="560" y="396" text-anchor="middle" fill="#a0aec0" font-size="11">CTR</text>
+  <text x="560" y="410" text-anchor="middle" fill="#a0aec0" font-size="11">Signals</text>
+
+  <!-- Factor 6: Domain Authority — You:38, Competitor:61 -->
+  <rect x="648" y="254" width="28" height="116" rx="3" fill="#5B8AEF" opacity="0.85"/>
+  <rect x="680" y="211" width="28" height="159" rx="3" fill="#f87171" opacity="0.85"/>
+  <text x="662" y="202" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">+23</text>
+  <text x="662" y="250" text-anchor="middle" fill="#5B8AEF" font-size="10" font-weight="600">38</text>
+  <text x="694" y="207" text-anchor="middle" fill="#f87171" font-size="10" font-weight="600">61</text>
+  <text x="662" y="396" text-anchor="middle" fill="#a0aec0" font-size="11">Domain</text>
+  <text x="662" y="410" text-anchor="middle" fill="#a0aec0" font-size="11">Authority</text>
+
+  <!-- Baseline -->
+  <line x1="120" y1="370" x2="760" y2="370" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- Bottom note -->
+  <text x="400" y="435" text-anchor="middle" fill="#4b5563" font-size="11">Largest gap = primary fix. Topical Depth is the most common, most overlooked.</text>
+</svg>

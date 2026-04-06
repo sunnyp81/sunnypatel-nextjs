@@ -38,7 +38,7 @@ export function buildMetadata({
       siteName: "Sunny Patel",
       locale: "en_GB",
       type,
-      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+      ...(ogImage && !ogImage.endsWith(".svg") ? { images: [{ url: ogImage }] } : {}),
       ...(type === "article" && articleMeta && {
         publishedTime: articleMeta.publishedTime,
         authors: articleMeta.authors,

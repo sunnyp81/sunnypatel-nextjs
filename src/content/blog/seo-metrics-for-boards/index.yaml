@@ -1,0 +1,41 @@
+title: SEO Metrics Your Board Should Actually See
+metaTitle: 'SEO Metrics Your Board Should Actually See (5 That Matter in 2026)'
+description: >-
+  Most SEO reports sent to boards are useless. Here are the 5 metrics that
+  actually predict whether SEO is working — from someone who reports on 44
+  sites.
+ogImage: /images/stats/seo-board-metrics-overview.svg
+date: '2026-04-06'
+tags:
+  - SEO Metrics
+  - SEO Strategy
+  - SEO Reporting
+faqs:
+  - question: What SEO metrics should I present to my board of directors?
+    answer: >-
+      Focus on five metrics: non-brand organic traffic trend, revenue per
+      organic visit, indexed page quality ratio, query diversity score, and
+      click-through rate by position bracket. These connect SEO directly to
+      business outcomes — revenue, competitive position, and asset quality —
+      rather than activity metrics like keywords tracked or backlinks built.
+  - question: Why is Domain Authority not a useful board metric?
+    answer: >-
+      Domain Authority is a third-party estimate created by Moz, not a Google
+      metric. It doesn't correlate reliably with traffic or revenue, can be
+      manipulated with spammy links, and tells a board nothing about whether
+      SEO is generating business results. Non-brand organic traffic and
+      revenue per visit are far more actionable.
+  - question: How do you calculate SEO ROI for investors?
+    answer: >-
+      Divide organic search revenue by total SEO investment (agency fees,
+      tools, content costs, internal headcount). Track revenue per organic
+      visit monthly to see whether traffic quality is improving. A rising
+      revenue-per-visit figure means SEO is attracting better-qualified
+      visitors, even if total traffic is flat.
+  - question: How often should SEO metrics be reported to a board?
+    answer: >-
+      Monthly reporting works for operational metrics like CTR and traffic
+      trends. Quarterly is better for strategic metrics like query diversity
+      and indexed page quality ratio, since these shift slowly. Avoid weekly
+      reporting — SEO data is noisy at short intervals and leads to reactive
+      decisions based on normal fluctuations.

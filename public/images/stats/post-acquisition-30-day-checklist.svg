@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420">
+  <defs>
+    <clipPath id="clip-30day">
+      <rect x="0" y="0" width="720" height="420" rx="16" ry="16"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-30day)">
+    <rect width="720" height="420" fill="#0a0a0f" rx="16" ry="16"/>
+
+    <!-- Title -->
+    <text x="36" y="38" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" fill="#ffffff">30-Day Post-Acquisition SEO Checklist</text>
+    <text x="36" y="56" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Priority-ranked actions to protect organic traffic after buying a business</text>
+
+    <!-- Priority legend -->
+    <circle cx="520" cy="33" r="5" fill="#ef4444"/>
+    <text x="530" y="37" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.6">Critical (Day 1)</text>
+    <circle cx="600" cy="33" r="5" fill="#d79f1e"/>
+    <text x="610" y="37" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.6">Week 1</text>
+    <circle cx="665" cy="33" r="5" fill="#5B8AEF"/>
+    <text x="675" y="37" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.6">Ongoing</text>
+
+    <!-- Column 1: Critical / Day 1-3 -->
+    <rect x="36" y="70" width="214" height="322" rx="10" fill="#111118"/>
+    <rect x="36" y="70" width="214" height="4" rx="2" fill="#ef4444"/>
+    <text x="56" y="98" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">CRITICAL — Day 1-3</text>
+
+    <!-- Item 1 -->
+    <rect x="52" y="114" width="16" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <polyline points="55,122 59,126 65,118" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="76" y="125" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Transfer GSC ownership</text>
+
+    <!-- Item 2 -->
+    <rect x="52" y="140" width="16" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <polyline points="55,148 59,152 65,144" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="76" y="151" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Check manual actions</text>
+
+    <!-- Item 3 -->
+    <rect x="52" y="166" width="16" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <polyline points="55,174 59,178 65,170" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="76" y="177" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Export backlink profile</text>
+
+    <!-- Item 4 -->
+    <rect x="52" y="192" width="16" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <polyline points="55,200 59,204 65,196" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="76" y="203" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Verify robots.txt</text>
+
+    <!-- Item 5 -->
+    <rect x="52" y="218" width="16" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <polyline points="55,226 59,230 65,222" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="76" y="229" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Check sitemap.xml</text>
+
+    <!-- Item 6 -->
+    <rect x="52" y="244" width="16" height="16" rx="3" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <polyline points="55,252 59,256 65,248" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="76" y="255" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Freeze all site changes</text>
+
+    <!-- Stat box -->
+    <rect x="52" y="280" width="182" height="48" rx="6" fill="#0a0a0f"/>
+    <text x="66" y="301" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ef4444">6</text>
+    <text x="84" y="301" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.7">tasks before anything else</text>
+    <text x="66" y="318" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Skip one = risk 30%+ traffic loss</text>
+
+    <!-- Column 2: Week 1 -->
+    <rect x="262" y="70" width="196" height="322" rx="10" fill="#111118"/>
+    <rect x="262" y="70" width="196" height="4" rx="2" fill="#d79f1e"/>
+    <text x="282" y="98" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#d79f1e">IMPORTANT — Day 4-7</text>
+
+    <!-- Item 1 -->
+    <rect x="278" y="114" width="16" height="16" rx="3" fill="none" stroke="#d79f1e" stroke-width="1.5"/>
+    <text x="302" y="125" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Full Screaming Frog crawl</text>
+
+    <!-- Item 2 -->
+    <rect x="278" y="140" width="16" height="16" rx="3" fill="none" stroke="#d79f1e" stroke-width="1.5"/>
+    <text x="302" y="151" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Document all URLs</text>
+
+    <!-- Item 3 -->
+    <rect x="278" y="166" width="16" height="16" rx="3" fill="none" stroke="#d79f1e" stroke-width="1.5"/>
+    <text x="302" y="177" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Map redirect chains</text>
+
+    <!-- Item 4 -->
+    <rect x="278" y="192" width="16" height="16" rx="3" fill="none" stroke="#d79f1e" stroke-width="1.5"/>
+    <text x="302" y="203" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Check canonical tags</text>
+
+    <!-- Item 5 -->
+    <rect x="278" y="218" width="16" height="16" rx="3" fill="none" stroke="#d79f1e" stroke-width="1.5"/>
+    <text x="302" y="229" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Audit structured data</text>
+
+    <!-- Item 6 -->
+    <rect x="278" y="244" width="16" height="16" rx="3" fill="none" stroke="#d79f1e" stroke-width="1.5"/>
+    <text x="302" y="255" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Count internal links/page</text>
+
+    <!-- Stat box -->
+    <rect x="278" y="280" width="164" height="48" rx="6" fill="#0a0a0f"/>
+    <text x="292" y="301" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#d79f1e">6</text>
+    <text x="310" y="301" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.7">baseline data exports</text>
+    <text x="292" y="318" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Your "before" snapshot</text>
+
+    <!-- Column 3: Ongoing monitoring -->
+    <rect x="470" y="70" width="214" height="322" rx="10" fill="#111118"/>
+    <rect x="470" y="70" width="214" height="4" rx="2" fill="#5B8AEF"/>
+    <text x="490" y="98" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#5B8AEF">MONITOR — Day 7-30</text>
+
+    <!-- Item 1 -->
+    <rect x="486" y="114" width="16" height="16" rx="3" fill="none" stroke="#5B8AEF" stroke-width="1.5"/>
+    <text x="510" y="125" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Non-brand clicks (weekly)</text>
+
+    <!-- Item 2 -->
+    <rect x="486" y="140" width="16" height="16" rx="3" fill="none" stroke="#5B8AEF" stroke-width="1.5"/>
+    <text x="510" y="151" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Indexed pages count</text>
+
+    <!-- Item 3 -->
+    <rect x="486" y="166" width="16" height="16" rx="3" fill="none" stroke="#5B8AEF" stroke-width="1.5"/>
+    <text x="510" y="177" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Crawl error rate</text>
+
+    <!-- Item 4 -->
+    <rect x="486" y="192" width="16" height="16" rx="3" fill="none" stroke="#5B8AEF" stroke-width="1.5"/>
+    <text x="510" y="203" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Core Web Vitals status</text>
+
+    <!-- Item 5 -->
+    <rect x="486" y="218" width="16" height="16" rx="3" fill="none" stroke="#5B8AEF" stroke-width="1.5"/>
+    <text x="510" y="229" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0">Top 20 pages traffic</text>
+
+    <!-- Red flag thresholds -->
+    <rect x="486" y="256" width="182" height="80" rx="6" fill="#0a0a0f"/>
+    <text x="500" y="274" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#ef4444">Red flag thresholds:</text>
+    <text x="500" y="292" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.7">Non-brand clicks -15% w/w</text>
+    <text x="500" y="306" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.7">Indexed pages -10% unexplained</text>
+    <text x="500" y="320" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.7">Any new 5xx crawl errors</text>
+
+    <!-- Bottom bar -->
+    <rect x="36" y="398" width="648" height="3" rx="1.5" fill="#5B8AEF" opacity="0.3"/>
+    <rect x="36" y="398" width="214" height="3" rx="1.5" fill="#ef4444"/>
+    <rect x="262" y="398" width="196" height="3" rx="1.5" fill="#d79f1e"/>
+    <rect x="470" y="398" width="214" height="3" rx="1.5" fill="#5B8AEF"/>
+
+    <!-- Timeline labels -->
+    <text x="110" y="414" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#e0e0e0" opacity="0.4" text-anchor="middle">Day 1-3</text>
+    <text x="360" y="414" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#e0e0e0" opacity="0.4" text-anchor="middle">Day 4-7</text>
+    <text x="577" y="414" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#e0e0e0" opacity="0.4" text-anchor="middle">Day 7-30</text>
+  </g>
+</svg>

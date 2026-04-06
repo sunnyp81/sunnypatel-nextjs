@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400">
+  <defs>
+    <clipPath id="clip-acq-timeline">
+      <rect x="0" y="0" width="720" height="400" rx="16" ry="16"/>
+    </clipPath>
+    <linearGradient id="dropGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="recoverGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#clip-acq-timeline)">
+    <rect width="720" height="400" fill="#0a0a0f" rx="16" ry="16"/>
+
+    <!-- Title -->
+    <text x="36" y="38" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" fill="#ffffff">Post-Acquisition Traffic Timeline</text>
+    <text x="36" y="56" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Typical organic traffic pattern after business acquisition (6-month view)</text>
+
+    <!-- Chart area card -->
+    <rect x="36" y="70" width="648" height="296" rx="10" fill="#111118"/>
+
+    <!-- Y-axis labels -->
+    <text x="52" y="102" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">100%</text>
+    <text x="58" y="155" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">80%</text>
+    <text x="58" y="208" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">60%</text>
+    <text x="58" y="261" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">40%</text>
+    <text x="58" y="314" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">20%</text>
+
+    <!-- Grid lines -->
+    <line x1="88" y1="98" x2="660" y2="98" stroke="#e0e0e0" stroke-opacity="0.06" stroke-width="1"/>
+    <line x1="88" y1="151" x2="660" y2="151" stroke="#e0e0e0" stroke-opacity="0.06" stroke-width="1"/>
+    <line x1="88" y1="204" x2="660" y2="204" stroke="#e0e0e0" stroke-opacity="0.06" stroke-width="1"/>
+    <line x1="88" y1="257" x2="660" y2="257" stroke="#e0e0e0" stroke-opacity="0.06" stroke-width="1"/>
+    <line x1="88" y1="310" x2="660" y2="310" stroke="#e0e0e0" stroke-opacity="0.06" stroke-width="1"/>
+
+    <!-- X-axis labels -->
+    <text x="88" y="345" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Pre-sale</text>
+    <text x="175" y="345" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Week 1</text>
+    <text x="260" y="345" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Month 1</text>
+    <text x="355" y="345" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Month 2</text>
+    <text x="450" y="345" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Month 3</text>
+    <text x="545" y="345" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Month 4</text>
+    <text x="630" y="345" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4">Month 6</text>
+
+    <!-- Acquisition marker -->
+    <line x1="183" y1="85" x2="183" y2="330" stroke="#d79f1e" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="188" y="92" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="bold" fill="#d79f1e">ACQUISITION</text>
+
+    <!-- Drop zone fill -->
+    <polygon points="183,105 230,140 270,178 310,195 350,205 370,210 370,330 183,330" fill="url(#dropGrad)"/>
+
+    <!-- Recovery zone fill -->
+    <polygon points="370,210 420,200 470,185 520,170 570,155 620,140 660,130 660,330 370,330" fill="url(#recoverGrad)"/>
+
+    <!-- GOOD PATH: Traffic line (stable → drop → recovery) -->
+    <polyline points="88,105 120,103 150,107 183,105 210,125 240,160 270,178 310,195 350,205 370,210 420,200 470,185 520,170 570,155 620,140 660,130"
+      stroke="#5B8AEF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- BAD PATH: No protection (drops further, slow recovery) -->
+    <polyline points="183,105 210,135 240,185 270,228 310,260 350,275 370,280 420,278 470,272 520,265 570,258 620,250 660,245"
+      stroke="#ef4444" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6,4"/>
+
+    <!-- Data points on good path -->
+    <circle cx="183" cy="105" r="4" fill="#5B8AEF"/>
+    <circle cx="270" cy="178" r="4" fill="#5B8AEF"/>
+    <circle cx="370" cy="210" r="4" fill="#5B8AEF"/>
+    <circle cx="520" cy="170" r="4" fill="#5B8AEF"/>
+    <circle cx="660" cy="130" r="4" fill="#5B8AEF"/>
+
+    <!-- Annotations -->
+    <text x="240" y="170" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#5B8AEF" opacity="0.8">-20% typical dip</text>
+    <text x="375" y="225" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#22c55e" opacity="0.8">Recovery begins</text>
+    <text x="560" y="125" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#22c55e" opacity="0.8">95% restored</text>
+    <text x="520" y="280" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#ef4444" opacity="0.8">No protection: -55%</text>
+
+    <!-- Legend -->
+    <line x1="90" y1="358" x2="110" y2="358" stroke="#5B8AEF" stroke-width="2.5"/>
+    <text x="114" y="362" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.6">With 90-day protection plan</text>
+    <line x1="310" y1="358" x2="330" y2="358" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="334" y="362" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.6">Without protection (changes made immediately)</text>
+  </g>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" fill="none">
+  <defs>
+    <clipPath id="outerClip2">
+      <rect width="720" height="400" rx="16"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#outerClip2)">
+    <rect width="720" height="400" fill="#0a0a0f" rx="16"/>
+    <text x="360" y="32" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">What to Report vs What to Stop Reporting</text>
+    <text x="360" y="50" text-anchor="middle" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="10" opacity="0.6">Board-level SEO metrics — meaningful vs vanity</text>
+
+    <!-- Left column header: Report These -->
+    <rect x="24" y="68" width="328" height="36" rx="10" fill="#111118"/>
+    <circle cx="46" cy="86" r="8" fill="#22c55e" opacity="0.2"/>
+    <text x="46" y="90" text-anchor="middle" fill="#22c55e" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700">&#x2713;</text>
+    <text x="62" y="91" fill="#22c55e" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">REPORT THESE</text>
+
+    <!-- Right column header: Stop Reporting -->
+    <rect x="368" y="68" width="328" height="36" rx="10" fill="#111118"/>
+    <circle cx="390" cy="86" r="8" fill="#ef4444" opacity="0.2"/>
+    <text x="390" y="90" text-anchor="middle" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700">&#x2717;</text>
+    <text x="406" y="91" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">STOP REPORTING</text>
+
+    <!-- Left items -->
+    <rect x="24" y="114" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="44" y="134" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">Non-Brand Organic Traffic</text>
+    <text x="44" y="150" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">Measures real SEO-driven demand, not brand awareness</text>
+
+    <rect x="24" y="170" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="44" y="190" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">Revenue Per Organic Visit</text>
+    <text x="44" y="206" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">Connects SEO directly to the P&amp;L — quality over volume</text>
+
+    <rect x="24" y="226" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="44" y="246" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">Indexed Page Quality Ratio</text>
+    <text x="44" y="262" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">% of indexed pages that actually get clicks (target: 30%+)</text>
+
+    <rect x="24" y="282" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="44" y="302" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">Query Diversity Score</text>
+    <text x="44" y="318" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">Traffic resilience — more queries = harder to disrupt</text>
+
+    <rect x="24" y="338" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="44" y="358" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">CTR by Position Bracket</text>
+    <text x="44" y="374" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">Are rankings converting into visits? Benchmark: 15-30% for P1-3</text>
+
+    <!-- Right items -->
+    <rect x="368" y="114" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="388" y="134" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" text-decoration="line-through">Domain Authority</text>
+    <text x="388" y="150" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">Third-party estimate, not a Google metric. Easily gamed.</text>
+
+    <rect x="368" y="170" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="388" y="190" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" text-decoration="line-through">Total Keywords Tracked</text>
+    <text x="388" y="206" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">Vanity metric. 10,000 rankings ≠ 10,000 visits.</text>
+
+    <rect x="368" y="226" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="388" y="246" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" text-decoration="line-through">Total Backlinks</text>
+    <text x="388" y="262" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">One FT link &gt; 500 spam links. Count means nothing.</text>
+
+    <rect x="368" y="282" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="388" y="302" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" text-decoration="line-through">Impressions (No Context)</text>
+    <text x="388" y="318" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">50K impressions at 0.3% CTR = 150 visits. Misleading alone.</text>
+
+    <rect x="368" y="338" width="328" height="48" rx="10" fill="#111118"/>
+    <text x="388" y="358" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" text-decoration="line-through">Brand Keyword Rankings</text>
+    <text x="388" y="374" fill="#e0e0e0" font-family="Arial, Helvetica, sans-serif" font-size="9" opacity="0.7">You should rank #1 for your name. That's not SEO.</text>
+  </g>
+</svg>

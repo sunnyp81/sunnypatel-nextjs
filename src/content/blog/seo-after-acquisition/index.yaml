@@ -1,0 +1,41 @@
+title: What Happens to SEO After You Acquire a Business
+metaTitle: 'What Happens to SEO After You Buy a Business (Protect Your Traffic)'
+description: >-
+  Organic traffic drops 10-30% after most acquisitions. I've managed 44 sites
+  through ownership changes — here's the 90-day plan to protect your rankings.
+ogImage: /images/stats/post-acquisition-seo-timeline.svg
+date: '2026-04-06'
+tags:
+  - SEO Due Diligence
+  - Technical SEO
+  - SEO Strategy
+faqs:
+  - question: Why does organic traffic drop after buying a business?
+    answer: >-
+      Traffic drops because acquisitions trigger changes that break ranking
+      signals. Domain migrations lose link equity, hosting changes slow page
+      speed, CMS switches alter URL structures, and content edits remove the
+      keywords Google was ranking for. Even transferring hosting without changing
+      anything else can cause a temporary 5-15% dip while Google recrawls from
+      the new IP.
+  - question: How long does it take for SEO to recover after an acquisition?
+    answer: >-
+      If you don't change anything on the site, traffic typically stabilises
+      within 2-4 weeks. If you've done a domain migration with proper 301
+      redirects, expect 3-6 months for full signal transfer. If URLs changed
+      without redirects, recovery can take 6-12 months — and some rankings
+      never come back.
+  - question: Should I change the domain name after acquiring a business?
+    answer: >-
+      Only if the brand requires it. Domain migrations carry real risk — even
+      with perfect 301 redirects, you'll lose 10-30% of organic traffic for
+      3-6 months while Google transfers signals. If the existing domain has
+      strong authority and backlinks, keeping it is almost always the safer
+      choice.
+  - question: What's the first thing to do with SEO after buying a website?
+    answer: >-
+      Transfer Google Search Console ownership immediately. Then do nothing
+      else for 30 days. Export a full crawl baseline with Screaming Frog,
+      document every URL and its traffic, verify all redirects work, and
+      check for manual actions. The goal is to understand exactly what you've
+      bought before making any changes.

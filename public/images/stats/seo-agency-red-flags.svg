@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <clipPath id="outerClip2">
+      <rect width="720" height="420" rx="16"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#outerClip2)">
+    <rect width="720" height="420" fill="#0a0a0f" rx="16"/>
+    <text x="360" y="36" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">SEO Agency Red Flag Scorecard</text>
+    <text x="360" y="56" fill="#e0e0e0" font-size="11" text-anchor="middle" opacity="0.6">Score your agency: 0-2 flags = monitor closely | 3-4 = serious talk needed | 5+ = time to leave</text>
+    <!-- Row 1 -->
+    <rect x="20" y="72" width="680" height="44" fill="#111118" rx="10"/>
+    <circle cx="48" cy="94" r="12" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="40" y1="86" x2="56" y2="102" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="56" y1="86" x2="40" y2="102" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="72" y="90" fill="#ffffff" font-size="13" font-weight="bold">No Google Search Console access</text>
+    <text x="72" y="106" fill="#e0e0e0" font-size="11" opacity="0.7">You should have owner access from day one. Non-negotiable.</text>
+    <rect x="618" y="80" width="68" height="26" fill="#ef4444" rx="6" opacity="0.15"/>
+    <text x="652" y="98" fill="#ef4444" font-size="11" font-weight="bold" text-anchor="middle">CRITICAL</text>
+    <!-- Row 2 -->
+    <rect x="20" y="124" width="680" height="44" fill="#111118" rx="10"/>
+    <circle cx="48" cy="146" r="12" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="40" y1="138" x2="56" y2="154" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="56" y1="138" x2="40" y2="154" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="72" y="142" fill="#ffffff" font-size="13" font-weight="bold">Domain Authority is the headline metric</text>
+    <text x="72" y="158" fill="#e0e0e0" font-size="11" opacity="0.7">DA is not a Google ranking factor. It's a third-party estimate.</text>
+    <rect x="618" y="132" width="68" height="26" fill="#ef4444" rx="6" opacity="0.15"/>
+    <text x="652" y="150" fill="#ef4444" font-size="11" font-weight="bold" text-anchor="middle">RED FLAG</text>
+    <!-- Row 3 -->
+    <rect x="20" y="176" width="680" height="44" fill="#111118" rx="10"/>
+    <circle cx="48" cy="198" r="12" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="40" y1="190" x2="56" y2="206" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="56" y1="190" x2="40" y2="206" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="72" y="194" fill="#ffffff" font-size="13" font-weight="bold">Reports show brand keyword rankings</text>
+    <text x="72" y="210" fill="#e0e0e0" font-size="11" opacity="0.7">You'd rank for your own name without an agency. This is padding.</text>
+    <rect x="618" y="184" width="68" height="26" fill="#ef4444" rx="6" opacity="0.15"/>
+    <text x="652" y="202" fill="#ef4444" font-size="11" font-weight="bold" text-anchor="middle">RED FLAG</text>
+    <!-- Row 4 -->
+    <rect x="20" y="228" width="680" height="44" fill="#111118" rx="10"/>
+    <circle cx="48" cy="250" r="12" fill="none" stroke="#d79f1e" stroke-width="2.5"/>
+    <text x="48" y="255" fill="#d79f1e" font-size="16" font-weight="bold" text-anchor="middle">!</text>
+    <text x="72" y="246" fill="#ffffff" font-size="13" font-weight="bold">Same report template every month</text>
+    <text x="72" y="262" fill="#e0e0e0" font-size="11" opacity="0.7">Copy-paste analysis means nobody reviewed your data individually.</text>
+    <rect x="618" y="236" width="68" height="26" fill="#d79f1e" rx="6" opacity="0.15"/>
+    <text x="652" y="254" fill="#d79f1e" font-size="11" font-weight="bold" text-anchor="middle">WARNING</text>
+    <!-- Row 5 -->
+    <rect x="20" y="280" width="680" height="44" fill="#111118" rx="10"/>
+    <circle cx="48" cy="302" r="12" fill="none" stroke="#d79f1e" stroke-width="2.5"/>
+    <text x="48" y="307" fill="#d79f1e" font-size="16" font-weight="bold" text-anchor="middle">!</text>
+    <text x="72" y="298" fill="#ffffff" font-size="13" font-weight="bold">No competitor analysis included</text>
+    <text x="72" y="314" fill="#e0e0e0" font-size="11" opacity="0.7">SEO without competitor context is flying blind.</text>
+    <rect x="618" y="288" width="68" height="26" fill="#d79f1e" rx="6" opacity="0.15"/>
+    <text x="652" y="306" fill="#d79f1e" font-size="11" font-weight="bold" text-anchor="middle">WARNING</text>
+    <!-- Row 6 -->
+    <rect x="20" y="332" width="680" height="44" fill="#111118" rx="10"/>
+    <circle cx="48" cy="354" r="12" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="40" y1="346" x2="56" y2="362" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="56" y1="346" x2="40" y2="362" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="72" y="350" fill="#ffffff" font-size="13" font-weight="bold">No technical fixes log in reports</text>
+    <text x="72" y="366" fill="#e0e0e0" font-size="11" opacity="0.7">If they can't list what they fixed, they probably didn't fix anything.</text>
+    <rect x="618" y="340" width="68" height="26" fill="#ef4444" rx="6" opacity="0.15"/>
+    <text x="652" y="358" fill="#ef4444" font-size="11" font-weight="bold" text-anchor="middle">RED FLAG</text>
+    <!-- Footer -->
+    <rect x="20" y="386" width="680" height="26" fill="#111118" rx="8"/>
+    <text x="360" y="404" fill="#5B8AEF" font-size="11" text-anchor="middle" font-weight="bold">3+ red flags? Request a technical SEO audit to see where your site actually stands.</text>
+  </g>
+</svg>

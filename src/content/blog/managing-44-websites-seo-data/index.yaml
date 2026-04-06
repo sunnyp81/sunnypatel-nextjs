@@ -1,0 +1,43 @@
+title: Managing 44 Websites SEO Data
+metaTitle: 'I Manage 44 Websites — Here''s What the SEO Data Actually Looks Like (2026)'
+description: >-
+  Real Google Search Console data from managing a portfolio of 44 websites.
+  Canonical splitting, title truncation at scale, page pruning results, and
+  what most agencies won't tell you about multi-site SEO.
+ogImage: /images/blog/managing-44-websites-seo-data.png
+date: '2026-04-06'
+tags:
+  - SEO Data
+  - Technical SEO
+  - SEO Portfolio
+  - SEO Strategy
+faqs:
+  - question: How many websites can one person realistically manage for SEO?
+    answer: >-
+      With the right systems and automation, a single consultant can manage
+      40-50 websites. The key is building repeatable processes — templated
+      audits, automated crawl monitoring, and systematic title/meta
+      frameworks. Manual content creation remains the bottleneck, not
+      technical management.
+  - question: What is canonical URL splitting and why does it hurt rankings?
+    answer: >-
+      Canonical splitting happens when Google indexes two versions of the
+      same page — typically with and without a trailing slash
+      (example.com/page vs example.com/page/). Each version accumulates
+      separate ranking signals, effectively halving your page's authority.
+      The fix is ensuring all internal links use one consistent URL format
+      and setting proper canonical tags.
+  - question: Does removing low-quality pages from Google index improve rankings?
+    answer: >-
+      Yes. Removing or noindexing thin, duplicate, or irrelevant pages
+      concentrates Google's crawl budget and ranking signals on your
+      strongest content. In one test across a consultant portfolio site,
+      noindexing 80+ low-value pages improved average position from 31.6
+      to 25.6 within 10 days.
+  - question: How do you manage SEO across a portfolio of websites?
+    answer: >-
+      Portfolio SEO requires centralised monitoring (Google Search Console
+      API for all properties), templated technical audits, and systematic
+      prioritisation based on revenue potential. The biggest wins come from
+      fixing issues that affect multiple sites simultaneously — like trailing
+      slash configuration or title tag truncation patterns.

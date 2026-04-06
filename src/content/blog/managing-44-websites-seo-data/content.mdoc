@@ -1,0 +1,137 @@
+I manage 44 websites. Not for clients — these are mine. Different niches, different stacks, different stages of growth. Some get 30,000 impressions a month. Some get 12. I run them all through Google Search Console, fix what's broken, and watch what happens.
+
+Most SEO content you'll read comes from agencies showing their best case study. One site, cherry-picked metrics, before-and-after screenshots that conveniently leave out the 6 months of flat growth in between.
+
+This is different. This is what the data actually looks like when you're managing a portfolio of sites — the patterns that repeat, the mistakes that compound, and the fixes that move numbers.
+
+![44 websites, one dashboard — real portfolio-wide stats](/images/stats/portfolio-overview-44-sites.svg)
+
+## The Same Three Issues Appeared Everywhere
+
+After auditing all 44 sites through Google Search Console, the same problems surfaced over and over. Not obscure technical edge cases — basic configuration issues silently bleeding ranking power across every site.
+
+**Canonical URL splitting** affected 23 of 44 sites. **Title tag truncation** was killing click-through rates on 8 sites with programmatic content. **Index bloat** — Google crawling and indexing pages that had no business being in search results — affected 31 sites.
+
+These aren't the kind of issues a standard SEO audit catches. They only become visible when you're looking at the same patterns across dozens of properties simultaneously.
+
+## Finding 1: A Single Character Was Splitting Rankings in Half
+
+One of my sites — a consultancy — had a page targeting "SEO consultant Reading" with 5,516 total impressions over 28 days. Respectable for a local service keyword. Except those impressions weren't on one page. They were split across two:
+
+- `/services/seo-consultant-reading` — 3,529 impressions
+- `/services/seo-consultant-reading/` — 1,987 impressions
+
+The only difference? A trailing slash.
+
+![How canonical URL splitting halves your ranking power](/images/stats/canonical-split-impact.svg)
+
+The site's configuration had `trailingSlash: true`, meaning every URL should end with a slash. But 872 internal links across 102 content files pointed to the non-trailing-slash version. Google followed those links, discovered both URLs, and indexed them separately.
+
+Each version accumulated its own impressions, its own click data, and its own ranking signals. Instead of one strong page, there were two weak ones competing against each other.
+
+### Why This Matters for Multi-Site Owners
+
+I found this same issue on 23 of 44 sites. The configuration varied — some had Astro's `trailingSlash: 'always'` missing, others had Next.js routing inconsistencies, others had WordPress permalink settings conflicting with CDN cache rules.
+
+The fix was different for each stack, but the pattern was identical: internal links not matching the canonical URL format, causing Google to index duplicate versions.
+
+**If you manage multiple websites**, check this right now. Open Google Search Console, go to Pages, and look for "Duplicate, Google chose different canonical" or "Alternate page with proper canonical tag." If you see those, you likely have the same problem.
+
+After fixing all 872 links on the consultancy site and deploying, the average position improved from **31.6 to 25.6** within 10 days. That's a 6-position jump from fixing internal links alone — no new content, no backlinks, no redesign.
+
+## Finding 2: 1,546 Page-One Rankings With Almost Zero Clicks
+
+One of the portfolio sites — a UK salary data platform — was generating 7,733 impressions per month across 2,376 indexed pages. Of those, **1,546 pages were ranking on Google's first page**. The click-through rate? **0.21%**.
+
+Nearly 1,600 pages on page one of Google, and almost nobody was clicking.
+
+![Title truncation killing CTR at scale](/images/stats/title-truncation-scale.svg)
+
+The problem was the titles. The site pulled job titles directly from ONS (Office for National Statistics) data. Official government job classifications are verbose:
+
+- "Programmers and software development professionals"
+- "Advertising accounts managers and creative directors"
+- "Production managers and directors in mining and energy"
+
+Google truncates title tags at roughly 55-60 characters. These ONS titles alone exceeded that before the word "Salary" even appeared. In search results, users saw:
+
+> **Programmers and software development professionals Salary G...**
+
+Nobody clicks on a truncated, bureaucratic title. They scroll past it to the result that says **"Software Developer Salary UK."**
+
+### The Template-Level Fix
+
+This wasn't a page-by-page problem. It was a template problem. Every one of the 2,376 pages generated its title from the same template, and every title used the raw ONS classification.
+
+The fix was a single mapping function — `shortOccName()` — that converted 40+ verbose ONS titles to what people actually search:
+
+| ONS Classification | Friendly Title |
+|---|---|
+| Programmers and software development professionals | Software Developers |
+| Advertising accounts managers and creative directors | Advertising Directors |
+| Cleaners and domestics | Cleaners |
+| Midwifery nurses | Nurses |
+| Metal working machine operatives | Machine Operators |
+
+One template change. 2,376 pages updated instantly. Within 5 days of deployment, daily impressions jumped from 383 to **898** — a **134% increase** — as Google discovered the freshly updated pages.
+
+The CTR improvement will take longer to show (Google needs to recrawl and re-render each page), but the early signals are strong. More pages are being discovered, and the new titles fit within Google's display limit.
+
+### Why This Matters for Multi-Site Owners
+
+If any of your portfolio companies use programmatic content — product pages, location pages, category pages, job listings — the titles are probably generated from a template. And if that template pulls from a database field that wasn't designed for search results, your titles are likely getting truncated.
+
+One template fix can affect thousands of pages simultaneously. That's the leverage of portfolio-level [technical SEO](/services/technical-seo-audit/).
+
+## Finding 3: Removing 80+ Pages Improved Everything
+
+The consultancy site had 178 pages indexed in Google. For a site with maybe 30 pages of genuine content, that's a problem. Where were the extra 148 pages coming from?
+
+- **62 tag pages** — auto-generated by the CMS, each one a thin list page with 1-3 posts
+- **18 remote city pages** — Birmingham, Manchester, York — targeting cities where the consultant doesn't operate, all ranking at positions 35-72 with zero clicks
+- **7+ ghost URLs** — old paths from a previous site structure that Google still had in its index
+
+None of these pages were helping. They were actively hurting.
+
+![Page pruning results — positions improved in 10 days](/images/stats/page-pruning-position-shift.svg)
+
+Every low-quality page in Google's index dilutes your site's overall quality signal. Google's crawl budget gets spent on pages that don't convert. Ranking signals get spread thin across URLs that don't deserve them.
+
+The fix was surgical:
+
+- **Noindexed** all 62 tag pages and removed them from the sitemap
+- **Noindexed** 18 remote city pages with zero clicks
+- **Removed** ghost URLs from the sitemap and set proper canonicals
+
+Within 10 days, average position across the site improved from **31.6 to 25.6**. The homepage moved from position **5.3 to 3.8**. Impressions per day dropped (expected — those 80 pages were generating impressions), but the remaining pages started ranking higher.
+
+### The Counterintuitive Truth
+
+Most site owners think more pages = more chances to rank. The opposite is usually true. Google interprets a site full of thin, low-value pages as lower quality overall. Removing the weak pages sends a signal: everything remaining is worth crawling.
+
+This is especially relevant for portfolio owners. If you have 5 sites and each one has 50+ auto-generated pages that add no value, you're diluting authority across 250 pages of dead weight. Prune those, and your strong pages climb.
+
+## What Portfolio Owners Should Take From This
+
+These three findings — canonical splitting, title truncation, and index bloat — weren't unique to one site. They appeared across nearly every site in the portfolio, in different forms, on different stacks.
+
+The common thread: **they're invisible unless you're looking at the data**. Your site looks fine. It loads fast. The content reads well. But in Google Search Console, impressions are being split, clicks are being lost, and crawl budget is being wasted on pages that don't matter.
+
+**If you manage multiple businesses or a portfolio of websites**, these issues are almost certainly present. They compound across sites. And fixing them at the portfolio level — systematically, across all properties — creates leverage that fixing one site at a time cannot match.
+
+## The Honest Caveat
+
+Some of these fixes are too recent for definitive results. The trailing slash consolidation needs 2-4 more weeks for Google to fully resolve the duplicate canonicals. The wagearea title fix needs recrawling across 2,376 pages. The page pruning data will mature over the next 30 days.
+
+I'll update this post with the full before-and-after data when it lands. That's also something you won't get from most SEO case studies — the honest timeline of how long changes actually take to show results. For more context on realistic timelines, see my piece on [how long SEO takes to work](/blog/how-long-does-seo-take/).
+
+If you'd like me to run a similar analysis across your portfolio, [get in touch](/contact/). I do this every day — not as a one-off audit, but as ongoing technical management across dozens of sites.
+
+---
+
+**Related reading:**
+
+- [SEO Statistics UK — 2026 Data](/blog/seo-statistics-uk/)
+- [Common SEO Mistakes (And How to Fix Them)](/blog/seo-mistakes/)
+- [How to Increase Organic Traffic](/blog/increase-organic-traffic/)
+- [Technical SEO vs On-Page SEO](/blog/technical-seo-vs-on-page-seo/)

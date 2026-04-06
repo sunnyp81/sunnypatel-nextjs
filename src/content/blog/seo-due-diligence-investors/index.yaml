@@ -1,0 +1,42 @@
+title: SEO Due Diligence Investors
+metaTitle: 'SEO Due Diligence: What Investors Miss When Buying Businesses (2026)'
+description: >-
+  I manage 44 websites. Here's what sellers hide about organic traffic — and the
+  5 Google Search Console checks every investor should run before signing.
+ogImage: /images/blog/seo-due-diligence-investors.png
+date: '2026-04-06'
+tags:
+  - SEO Due Diligence
+  - Technical SEO
+  - SEO Strategy
+faqs:
+  - question: What is SEO due diligence and why does it matter for acquisitions?
+    answer: >-
+      SEO due diligence is the process of auditing a website's organic search
+      performance, technical health, and traffic quality before buying a
+      business. It matters because organic traffic is often the primary revenue
+      driver — and sellers routinely present inflated or misleading traffic
+      figures. A proper audit checks Google Search Console data, backlink
+      quality, indexation health, and whether traffic is defensible long-term.
+  - question: How can I tell if a website's organic traffic is real or inflated?
+    answer: >-
+      Split the traffic into brand vs non-brand queries in Google Search
+      Console. If 80% or more of impressions come from brand terms, the site
+      has almost no organic discovery — people are searching for it by name,
+      not finding it through SEO. Also check for seasonal spikes and one-off
+      viral content that inflates averages without representing sustainable
+      traffic.
+  - question: What are the biggest SEO red flags when buying a business?
+    answer: >-
+      The five deal-killers are: manual penalties in Google Search Console,
+      80%+ brand-only traffic, declining non-brand traffic over 6+ months,
+      private blog network (PBN) backlinks that could trigger future penalties,
+      and severe index bloat where Google has indexed thousands of thin or
+      duplicate pages that dilute the site's authority.
+  - question: Should I hire an SEO consultant for acquisition due diligence?
+    answer: >-
+      Yes, if organic traffic represents more than 20% of revenue. A technical
+      SEO audit typically costs between £500-£2,000 and can identify hidden
+      liabilities worth tens of thousands. The consultant should have direct
+      Google Search Console access — not rely on third-party traffic estimates
+      from tools like Ahrefs or SEMrush, which can be off by 50% or more.

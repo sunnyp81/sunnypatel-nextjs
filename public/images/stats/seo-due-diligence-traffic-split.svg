@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400">
+  <defs>
+    <clipPath id="clip-traffic-split">
+      <rect x="0" y="0" width="720" height="400" rx="16" ry="16"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-traffic-split)">
+    <rect width="720" height="400" fill="#0a0a0f" rx="16" ry="16"/>
+
+    <!-- Title -->
+    <text x="36" y="38" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" fill="#ffffff">What Sellers Present vs What the Data Shows</text>
+    <text x="36" y="56" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Same site, same month — two very different stories</text>
+
+    <!-- Left card: Seller's Version -->
+    <rect x="36" y="78" width="310" height="290" rx="10" fill="#111118"/>
+    <text x="56" y="106" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0">Pitch Deck Version</text>
+    <text x="56" y="124" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.4">Total organic visits — June peak</text>
+
+    <!-- Big number -->
+    <text x="56" y="176" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="#22c55e">40,000</text>
+    <text x="56" y="198" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" opacity="0.6">monthly organic visits</text>
+
+    <!-- Fake upward trend line -->
+    <line x1="56" y1="280" x2="100" y2="268" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="100" y1="268" x2="145" y2="260" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="145" y1="260" x2="190" y2="250" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="190" y1="250" x2="235" y2="238" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="235" y1="238" x2="280" y2="224" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="280" y1="224" x2="315" y2="218" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+
+    <text x="56" y="310" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#22c55e" opacity="0.7">Looks like consistent growth</text>
+
+    <!-- Divider label -->
+    <text x="360" y="230" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#e0e0e0" opacity="0.3" text-anchor="middle">vs</text>
+
+    <!-- Right card: Reality -->
+    <rect x="380" y="78" width="310" height="290" rx="10" fill="#111118" stroke="#ef4444" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="400" y="106" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0">GSC Reality</text>
+    <text x="400" y="124" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.4">After filtering brand + seasonal + viral</text>
+
+    <!-- Breakdown bars -->
+    <text x="400" y="156" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Brand traffic</text>
+    <rect x="400" y="162" width="240" height="20" rx="4" fill="#111118" stroke="#333" stroke-width="0.5"/>
+    <rect x="400" y="162" width="192" height="20" rx="4" fill="#5B8AEF" opacity="0.7"/>
+    <text x="600" y="177" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#5B8AEF">32,000</text>
+
+    <text x="400" y="204" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Non-brand traffic</text>
+    <rect x="400" y="210" width="240" height="20" rx="4" fill="#111118" stroke="#333" stroke-width="0.5"/>
+    <rect x="400" y="210" width="38" height="20" rx="4" fill="#22c55e" opacity="0.7"/>
+    <text x="445" y="225" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">5,200</text>
+
+    <text x="400" y="252" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Viral one-off (Reddit post)</text>
+    <rect x="400" y="258" width="240" height="20" rx="4" fill="#111118" stroke="#333" stroke-width="0.5"/>
+    <rect x="400" y="258" width="17" height="20" rx="4" fill="#d79f1e" opacity="0.7"/>
+    <text x="424" y="273" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#d79f1e">2,800</text>
+
+    <!-- Actual SEO value -->
+    <rect x="400" y="300" width="260" height="48" rx="8" fill="#0a0a0f" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="416" y="322" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Actual defensible SEO traffic:</text>
+    <text x="416" y="340" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ef4444">5,200/mo</text>
+    <text x="530" y="340" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" opacity="0.4">(-87% from headline)</text>
+  </g>
+</svg>

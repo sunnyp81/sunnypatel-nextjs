@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420">
+  <defs>
+    <clipPath id="roundedBg2">
+      <rect width="720" height="420" rx="16" ry="16"/>
+    </clipPath>
+    <filter id="shadow2">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <g clip-path="url(#roundedBg2)">
+    <!-- Background -->
+    <rect width="720" height="420" rx="16" ry="16" fill="#0a0a0f"/>
+
+    <!-- Title -->
+    <text x="36" y="38" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">How AI Tools Choose Which Brands to Cite</text>
+    <text x="36" y="56" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: Authoritas, Seer Interactive, SE Ranking, 2025-2026</text>
+
+    <!-- LEFT COLUMN: Citation signals that work -->
+    <rect x="36" y="74" width="320" height="280" rx="10" ry="10" fill="#111118" filter="url(#shadow2)"/>
+    <text x="196" y="100" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#22c55e" text-anchor="middle">Signals That Get You Cited</text>
+
+    <!-- Signal bars -->
+    <!-- Third-party mentions -->
+    <rect x="56" y="118" width="260" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.08"/>
+    <rect x="56" y="118" width="260" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.25"/>
+    <text x="66" y="138" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Third-party mentions</text>
+    <text x="306" y="138" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#22c55e" text-anchor="end">Critical</text>
+
+    <!-- Direct answers first 200 words -->
+    <rect x="56" y="156" width="234" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.08"/>
+    <rect x="56" y="156" width="234" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.2"/>
+    <text x="66" y="176" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Direct answer in first 200 words</text>
+
+    <!-- Structured FAQ content -->
+    <rect x="56" y="194" width="208" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.08"/>
+    <rect x="56" y="194" width="208" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.18"/>
+    <text x="66" y="214" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Structured FAQ + schema</text>
+
+    <!-- Content freshness -->
+    <rect x="56" y="232" width="182" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.08"/>
+    <rect x="56" y="232" width="182" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.15"/>
+    <text x="66" y="252" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Content under 2 years old</text>
+
+    <!-- Entity consistency -->
+    <rect x="56" y="270" width="156" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.08"/>
+    <rect x="56" y="270" width="156" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.12"/>
+    <text x="66" y="290" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Entity consistency</text>
+
+    <!-- Reddit/forum presence -->
+    <rect x="56" y="308" width="130" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.08"/>
+    <rect x="56" y="308" width="130" height="30" rx="6" ry="6" fill="#22c55e" opacity="0.1"/>
+    <text x="66" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Reddit/forum presence</text>
+
+    <!-- RIGHT COLUMN: What AI ignores -->
+    <rect x="380" y="74" width="304" height="280" rx="10" ry="10" fill="#111118" filter="url(#shadow2)"/>
+    <text x="532" y="100" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">Signals AI Tools Ignore</text>
+
+    <!-- Ignored signals -->
+    <rect x="400" y="118" width="264" height="30" rx="6" ry="6" fill="#ef4444" opacity="0.06"/>
+    <line x1="400" y1="133" x2="664" y2="133" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
+    <text x="410" y="138" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Marketing copy without facts</text>
+    <text x="654" y="138" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#ef4444" text-anchor="end" opacity="0.5">x</text>
+
+    <rect x="400" y="160" width="264" height="30" rx="6" ry="6" fill="#ef4444" opacity="0.06"/>
+    <line x1="400" y1="175" x2="664" y2="175" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
+    <text x="410" y="180" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">800 words before the answer</text>
+    <text x="654" y="180" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#ef4444" text-anchor="end" opacity="0.5">x</text>
+
+    <rect x="400" y="202" width="264" height="30" rx="6" ry="6" fill="#ef4444" opacity="0.06"/>
+    <line x1="400" y1="217" x2="664" y2="217" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
+    <text x="410" y="222" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Brand authority only on own site</text>
+    <text x="654" y="222" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#ef4444" text-anchor="end" opacity="0.5">x</text>
+
+    <rect x="400" y="244" width="264" height="30" rx="6" ry="6" fill="#ef4444" opacity="0.06"/>
+    <line x1="400" y1="259" x2="664" y2="259" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
+    <text x="410" y="264" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Content behind JS rendering</text>
+    <text x="654" y="264" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#ef4444" text-anchor="end" opacity="0.5">x</text>
+
+    <rect x="400" y="286" width="264" height="30" rx="6" ry="6" fill="#ef4444" opacity="0.06"/>
+    <line x1="400" y1="301" x2="664" y2="301" stroke="#ef4444" stroke-width="1" opacity="0.15"/>
+    <text x="410" y="306" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.6">Legacy pages older than 2 years</text>
+    <text x="654" y="306" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#ef4444" text-anchor="end" opacity="0.5">x</text>
+
+    <!-- Bottom stat bar -->
+    <rect x="36" y="370" width="648" height="36" rx="10" ry="10" fill="#d79f1e" opacity="0.06" stroke="#d79f1e" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="360" y="393" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#d79f1e" text-anchor="middle">85% of URLs cited in AI Overviews were published within the last 2 years (Authoritas)</text>
+
+    <!-- Branding -->
+    <text x="684" y="414" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5B8AEF" text-anchor="end" opacity="0.35">sunnypatel.co.uk</text>
+  </g>
+</svg>

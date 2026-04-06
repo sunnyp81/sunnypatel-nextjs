@@ -1,0 +1,38 @@
+title: Why Your Brand Doesnt Appear in ChatGPT
+metaTitle: "Why Your Brand Doesn't Appear in ChatGPT or Perplexity (2026 Fix)"
+description: >-
+  Your competitors show up in ChatGPT answers. You don't. Here's why, with real
+  data from 44 sites, and the exact fixes to get your brand cited by AI.
+ogImage: /images/blog/brand-not-appearing-in-chatgpt.png
+date: '2026-04-06'
+tags:
+  - AI Search
+  - AI Visibility
+  - Technical SEO
+faqs:
+  - question: How long does it take to appear in ChatGPT answers?
+    answer: >-
+      It depends on the platform. Perplexity crawls the live web, so changes can
+      surface within days. ChatGPT relies on periodic training data updates,
+      meaning it can take 3-6 months for new content to appear in its responses.
+      Google AI Overviews sit somewhere in between, pulling from indexed pages
+      within weeks of publication.
+  - question: Does ranking number 1 on Google mean I'll appear in AI answers?
+    answer: >-
+      No. Google rankings and AI citations use different signals. AI tools
+      prioritise content that gives direct, structured answers and is cited by
+      third-party sources. 85% of URLs cited in AI Overviews were published
+      within the last 2 years, so freshness matters more than legacy authority.
+  - question: What is an llms.txt file and do I need one?
+    answer: >-
+      An llms.txt file sits in your site's root directory and tells AI crawlers
+      what your site is about, what topics you cover, and where to find key
+      content. It's similar to robots.txt but designed specifically for large
+      language models. Adding one helps AI systems understand and cite your
+      content more accurately.
+  - question: Will AI search replace Google entirely?
+    answer: >-
+      Not in 2026. Google still drives 191 billion referrals per year compared
+      to 2 billion from all AI platforms combined. But AI referral traffic grew
+      778% year-over-year, and that trajectory matters. Smart businesses
+      optimise for both channels now rather than waiting.

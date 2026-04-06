@@ -1,0 +1,121 @@
+I've reviewed the SEO data on 44 websites over the past two years. Not client sites where I see the good version — my own properties, where I see everything. The messy Google Search Console reports. The traffic that looks great until you filter by query type. The technical debt hiding under a clean homepage.
+
+That experience taught me something investors rarely hear: **the organic traffic number in a pitch deck is almost always wrong**. Not fraudulently wrong. Structurally wrong. And if you don't know how to read the data behind it, you'll overpay for traffic that's already declining.
+
+This is what I check before anyone should sign.
+
+## Why Organic Traffic Numbers in Pitch Decks Mislead
+
+Sellers present organic traffic as a single number. "40,000 monthly visits from Google." Sounds strong. But that number hides three problems.
+
+**Brand vs non-brand traffic.** If 32,000 of those visits come from people searching the company name, the site's SEO isn't driving discovery — its brand awareness is. Strip out brand queries and you might find only 8,000 visits from actual organic ranking. That's an 80% haircut on the headline number.
+
+**Seasonal spikes.** A gardening site showing 40,000 visits in June might average 9,000 across winter months. Sellers pick the peak month. You need 12 months minimum — 16 months is better, so you can compare year-on-year.
+
+**One-off viral content.** A single blog post that hit Reddit or Hacker News can inflate a 3-month average by 300%. That traffic doesn't come back. Filter by page in Google Search Console and check whether traffic is distributed or concentrated.
+
+![Seller-presented vs actual traffic breakdown](/images/stats/seo-due-diligence-traffic-split.svg)
+
+> If the seller won't give you direct Google Search Console access, walk away. Third-party tools like Ahrefs and SEMrush estimate traffic — they don't measure it. I've seen Ahrefs overestimate a site's traffic by 4x and underestimate another by 60%.
+
+## The 5 Things to Check in Google Search Console Before Buying
+
+These are the five reports I open first when evaluating any acquisition target. They take 30 minutes and they'll tell you more than a 50-page pitch deck.
+
+### 1. Indexed Pages vs Actual Content
+
+Go to **Pages > Indexed**. Compare that number to the actual pages on the site. If the site has 200 blog posts but Google has indexed 1,400 pages, there's index bloat — tag pages, parameter URLs, pagination, or duplicate content Google shouldn't be crawling.
+
+I found this on [31 of my 44 sites](/blog/managing-44-websites-seo-data/). Index bloat dilutes crawl budget and can suppress rankings on the pages that actually matter.
+
+### 2. Canonical Issues
+
+Under **Pages**, look for "Duplicate, Google chose different canonical" and "Alternate page with proper canonical tag." These mean Google found multiple versions of the same content and had to pick one.
+
+On one of my sites, a single trailing slash inconsistency split ranking signals across 23 pages. The fix improved average position by 6 places in 10 days — but an investor looking at top-line traffic would never have spotted the problem. I've written about this pattern [in detail here](/blog/managing-44-websites-seo-data/).
+
+### 3. Manual Actions
+
+**Security & Manual Actions > Manual Actions.** This is non-negotiable. A manual penalty means Google has flagged the site for violating guidelines — thin content, unnatural links, or spam. Recovery takes 3-12 months with no guarantee of full restoration.
+
+If there's an active manual action, the site's organic traffic has an expiry date.
+
+### 4. Traffic Trend by Query Type
+
+In **Performance**, filter by query. Separate branded queries (company name, domain name, product names) from non-brand queries. Then look at the 12-month trend for non-brand only.
+
+**Stable or growing non-brand traffic = organic SEO is working.** Declining non-brand traffic = the site is losing ground to competitors, regardless of what the total number shows.
+
+### 5. Mobile vs Desktop Split
+
+Check the device filter. If 80%+ of traffic comes from desktop in a B2C niche, something's wrong — either the site has mobile usability issues suppressing rankings, or the traffic is coming from non-consumer sources (scrapers, bots, internal employees).
+
+For most B2C businesses, mobile should represent 60-75% of organic traffic. A desktop-heavy split in a consumer niche is a signal to investigate further.
+
+## Technical Debt That Doesn't Show in Traffic Numbers
+
+Traffic can look stable while the site accumulates [technical problems](/blog/seo-mistakes/) that will suppress future growth. These are the three I find most often.
+
+**Trailing slash splits.** Two versions of every URL being indexed, each collecting half the ranking signals. I found this on 23 of 44 sites in my portfolio. It doesn't crash traffic overnight — it just prevents pages from ranking as high as they should.
+
+**Index bloat.** Google indexing thousands of pages that add no value: empty tag archives, paginated listings, parameter variations. This wastes crawl budget and can trigger quality filters at scale. One of my sites had 1,400 indexed pages for 200 real articles.
+
+**Title truncation.** Pages ranking on page one with 0.2% click-through rates because Google truncates their titles at 55-60 characters. I found this pattern across 8 sites with programmatic content — [the salary data example](/blog/managing-44-websites-seo-data/) is the clearest case.
+
+None of these show up in a traffic dashboard. All of them suppress revenue.
+
+## How to Evaluate Whether SEO Traffic Is Defensible
+
+Not all organic traffic is created equal. Some traffic survives algorithm updates. Some vanishes overnight. Here's how to tell the difference.
+
+### Topical Authority vs Single-Keyword Dependence
+
+Check how many unique queries drive traffic. If 50%+ of non-brand traffic comes from fewer than 10 queries, the site is fragile. One algorithm shift or one new competitor can wipe out half the organic channel overnight.
+
+Sites with genuine [topical authority](/services/topical-authority/) spread traffic across hundreds or thousands of queries. They rank for long-tail variations because Google recognises them as comprehensive sources on a topic. That's defensible.
+
+### Backlink Quality
+
+Export the backlink profile from Ahrefs or Moz. Look for:
+
+| Signal | Healthy | Dangerous |
+|--------|---------|-----------|
+| Referring domains | Diverse, editorial sites | Concentrated in 5-10 domains |
+| Anchor text | Varied, natural language | Exact-match keyword anchors |
+| Link sources | News sites, industry blogs, directories | PBNs, guest post farms, link exchanges |
+| Growth pattern | Gradual over years | Spikes from link building campaigns |
+
+A site with 500 backlinks from 40 referring domains is more fragile than one with 200 backlinks from 180 domains. Diversity matters more than volume.
+
+![SEO traffic defensibility scorecard](/images/stats/seo-due-diligence-defensibility.svg)
+
+## Red Flags That Should Kill a Deal
+
+These aren't yellow flags. If you find any of these, either renegotiate the price significantly or walk away.
+
+- **80%+ brand traffic.** The SEO isn't working. You're buying brand awareness, not organic discovery. If the brand doesn't transfer cleanly (and it rarely does in acquisitions), that traffic disappears.
+- **Declining non-brand traffic over 6+ months.** Something structural is wrong — either a Google algorithm update hit the site, a competitor overtook it, or the content is decaying. Reversing a 6-month decline takes another 6-12 months. Budget for that.
+- **Active manual penalties.** Recovery is uncertain. Timeline is long. And the penalty may indicate deeper issues with the site's link profile or content quality.
+- **PBN backlinks.** Private blog networks are a ticking time bomb. Google's spam team detects them in waves. If the site's authority relies on PBN links, a future cleanup could drop traffic by 40-70%.
+- **Single-page traffic concentration.** If one page drives 60%+ of organic traffic, you're not buying a site — you're buying a page. One SERP change and the business model breaks.
+
+## What a Proper SEO Due Diligence Audit Includes
+
+If organic traffic represents more than 20% of the business's revenue, you need a [technical SEO audit](/services/technical-seo-audit/) before closing. Here's what it should cover:
+
+1. **Google Search Console deep dive** — the 5 checks above, plus Core Web Vitals, crawl stats, and structured data errors
+2. **Backlink forensics** — full profile export, PBN detection, anchor text distribution, and penalty risk scoring
+3. **Content quality assessment** — thin content ratio, duplicate content percentage, and content decay analysis
+4. **Technical infrastructure review** — hosting stability, page speed, mobile rendering, JavaScript dependencies that could break indexing
+5. **Competitive position mapping** — where the site ranks vs competitors for its top 50 non-brand queries, and the trajectory of those positions
+6. **Traffic valuation** — what the organic traffic is actually worth based on equivalent PPC cost, adjusted for brand vs non-brand split
+
+This isn't a 30-minute job. A thorough audit takes 2-3 days and should cost £500-£2,000 depending on the site's size. That's a rounding error on most acquisition prices — and it's the difference between buying a growing asset and inheriting someone else's technical debt.
+
+## The Bottom Line
+
+Organic traffic is one of the most valuable assets in a digital business. It's also one of the most misunderstood. The number in the pitch deck tells you almost nothing. The data behind it tells you everything.
+
+Before you sign, get Google Search Console access. Run the five checks. Look at query-level data, not aggregates. And if the seller hesitates to share raw data, that tells you something too.
+
+I've written more about the technical patterns that affect multi-site portfolios in [managing 44 websites with real SEO data](/blog/managing-44-websites-seo-data/), and about [how long SEO improvements actually take](/blog/how-long-does-seo-take/) to show results — both relevant context if you're modelling post-acquisition growth.

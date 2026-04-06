@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400">
+  <defs>
+    <clipPath id="clip-tech-debt">
+      <rect x="0" y="0" width="720" height="400" rx="16" ry="16"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-tech-debt)">
+    <rect width="720" height="400" fill="#0a0a0f" rx="16" ry="16"/>
+
+    <!-- Title -->
+    <text x="36" y="38" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" fill="#ffffff">Technical Debt Across 44 Websites</text>
+    <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">One bad template pattern affects every site that uses it</text>
+
+    <!-- Horizontal bar chart -->
+    <!-- Bar 1: Index Bloat -->
+    <text x="36" y="100" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0">Index bloat</text>
+    <rect x="170" y="86" width="406" height="22" rx="4" fill="#111118"/>
+    <rect x="170" y="86" width="286" height="22" rx="4" fill="#5B8AEF"/>
+    <text x="464" y="102" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#5B8AEF"> 31 / 44</text>
+    <text x="554" y="102" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.4">sites (70%)</text>
+
+    <!-- Bar 2: Canonical Splitting -->
+    <text x="36" y="142" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0">Canonical splitting</text>
+    <rect x="170" y="128" width="406" height="22" rx="4" fill="#111118"/>
+    <rect x="170" y="128" width="213" height="22" rx="4" fill="#ef4444"/>
+    <text x="391" y="144" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#ef4444"> 23 / 44</text>
+    <text x="481" y="144" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.4">sites (52%)</text>
+
+    <!-- Bar 3: Title Truncation -->
+    <text x="36" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0">Title truncation</text>
+    <rect x="170" y="170" width="406" height="22" rx="4" fill="#111118"/>
+    <rect x="170" y="170" width="74" height="22" rx="4" fill="#d79f1e"/>
+    <text x="252" y="186" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#d79f1e"> 8 / 44</text>
+    <text x="334" y="186" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.4">sites (18%)</text>
+
+    <!-- Divider -->
+    <line x1="36" y1="216" x2="684" y2="216" stroke="#e0e0e0" stroke-opacity="0.1" stroke-width="1"/>
+
+    <!-- Impact cards -->
+    <text x="36" y="244" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0">Fix leverage — one change, portfolio-wide impact</text>
+
+    <!-- Card 1: Template fix -->
+    <rect x="36" y="264" width="210" height="110" rx="10" fill="#111118" stroke="#22c55e" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="52" y="288" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5" letter-spacing="1">TEMPLATE FIX</text>
+    <text x="52" y="310" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0">wagearea.com title mapping</text>
+    <text x="52" y="340" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="#22c55e">2,376</text>
+    <text x="52" y="358" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">pages fixed instantly</text>
+
+    <!-- Card 2: Position improvement -->
+    <rect x="258" y="264" width="210" height="110" rx="10" fill="#111118" stroke="#22c55e" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="274" y="288" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5" letter-spacing="1">TRAILING SLASH FIX</text>
+    <text x="274" y="310" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0">sunnypatel.co.uk canonicals</text>
+    <text x="274" y="340" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#ef4444">31.6 </text>
+    <text x="325" y="340" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" opacity="0.5"> → </text>
+    <text x="350" y="340" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#22c55e">25.6</text>
+    <text x="274" y="358" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">avg position (10 days)</text>
+
+    <!-- Card 3: Impression jump -->
+    <rect x="480" y="264" width="210" height="110" rx="10" fill="#111118" stroke="#22c55e" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="496" y="288" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5" letter-spacing="1">TITLE REWRITE</text>
+    <text x="496" y="310" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0">wagearea.com impressions</text>
+    <text x="496" y="340" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#22c55e">+134%</text>
+    <text x="496" y="358" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">383 → 898 daily (5 days)</text>
+  </g>
+</svg>

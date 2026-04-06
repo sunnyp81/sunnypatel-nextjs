@@ -1,0 +1,37 @@
+title: Website Redesign SEO Checklist
+metaTitle: 'Website Redesign SEO Checklist: Don''t Lose Your Rankings (2026)'
+description: >-
+  The exact checklist I use across 44 websites to protect organic traffic during
+  redesigns. Before, during, and after steps to avoid ranking drops.
+ogImage: /images/stats/redesign-seo-checklist-phases.svg
+date: '2026-04-06'
+tags:
+  - Technical SEO
+  - Website Migration
+  - SEO Checklist
+faqs:
+  - question: How much traffic do you lose during a website redesign?
+    answer: >-
+      A well-managed redesign typically causes a 10-20% traffic dip for 2-4
+      weeks while Google recrawls and reassesses pages. Without proper redirect
+      mapping and content preservation, drops of 40-60% are common and recovery
+      can take 3-6 months. The difference is preparation.
+  - question: Do I need 301 redirects if I'm keeping the same domain?
+    answer: >-
+      Yes, if any URL paths change. Moving from /blog/post-name to
+      /articles/post-name creates a completely new URL in Google's index. Without
+      a 301 redirect from the old path to the new one, Google treats it as a new
+      page with zero authority. Every changed path needs a redirect.
+  - question: How long does it take to recover rankings after a redesign?
+    answer: >-
+      With proper redirect mapping and content preservation, most sites recover
+      within 2-4 weeks. Without redirects, recovery takes 3-6 months if the
+      content still exists, or may never fully recover if pages were removed. The
+      more pages affected, the longer the timeline.
+  - question: Should I redesign and migrate to a new CMS at the same time?
+    answer: >-
+      Ideally, no. Changing the design and the CMS simultaneously doubles the
+      risk because you're changing both the front-end and the URL generation
+      logic at once. If you must do both, treat it as a migration project first
+      and a design project second. Get every redirect mapped before touching any
+      templates.

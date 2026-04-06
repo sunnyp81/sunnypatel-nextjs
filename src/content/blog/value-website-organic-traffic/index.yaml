@@ -1,0 +1,41 @@
+title: How to Value a Website by Its Organic Traffic
+metaTitle: 'How to Value a Website by Its Organic Traffic (Investor Guide 2026)'
+description: >-
+  Monthly organic revenue × multiplier isn't enough. Here's how to calculate
+  real organic traffic value using GSC data, not broker vanity metrics.
+ogImage: /images/stats/organic-traffic-valuation-formula.svg
+date: '2026-04-06'
+tags:
+  - SEO Valuation
+  - SEO Due Diligence
+  - SEO Strategy
+faqs:
+  - question: What multiplier should I use to value a website's organic traffic?
+    answer: >-
+      Stable, diversified organic traffic typically commands a 24-36x monthly
+      revenue multiplier. Sites with declining non-brand traffic, high keyword
+      concentration, or thin backlink profiles sit at the lower end. Sites with
+      growing commercial-intent traffic across hundreds of queries push toward
+      36x or higher.
+  - question: Why are broker traffic numbers usually inflated?
+    answer: >-
+      Brokers typically use Google Analytics total traffic, which includes bot
+      visits, brand searches, direct traffic, and referral traffic bundled into
+      one number. The real organic value comes from non-brand clicks in Google
+      Search Console multiplied by conversion rate and average order value.
+      That figure is almost always 40-70% lower than the headline number.
+  - question: How do I calculate the replacement cost of organic traffic?
+    answer: >-
+      Take the top 20 non-brand keywords driving clicks in Google Search
+      Console. Look up each keyword's Google Ads CPC. Multiply CPC by monthly
+      clicks for each keyword, then sum the totals. This gives you the monthly
+      cost to replace that organic traffic with paid ads — a concrete,
+      comparable valuation benchmark.
+  - question: What are the biggest red flags when valuing a website's organic traffic?
+    answer: >-
+      Five red flags that should reduce your valuation: declining non-brand
+      traffic over three or more months, a single page driving 40% or more of
+      total traffic, private blog network backlinks, fewer than 50 unique
+      ranking queries relative to total pages, and no technical SEO
+      fundamentals like proper canonicals, mobile optimisation, or structured
+      data.

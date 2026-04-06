@@ -1,0 +1,145 @@
+I manage 44 websites. Not client sites — my own properties, where I see every Google Search Console report, every revenue line, every traffic drop. That data has taught me something uncomfortable: most website valuations get organic traffic wrong. Not slightly wrong. Structurally wrong.
+
+The problem isn't fraud. It's that sellers, brokers, and even experienced investors use the wrong numbers. They look at total traffic when they should look at non-brand clicks. They treat all organic visits equally when commercial-intent traffic is worth 5x more than informational traffic. They skip the defensibility question entirely.
+
+Here's how I value organic traffic — the same method I use when assessing my own [portfolio of 44 sites](/blog/managing-44-websites-seo-data/).
+
+## The Basic Valuation Formula (and Why It's Incomplete)
+
+The standard formula is simple:
+
+**Monthly organic revenue × multiplier = website value**
+
+Multipliers typically range from 24x to 36x for sites with stable organic traffic. A site earning £3,000/month from organic search would be valued at £72,000 to £108,000.
+
+That formula works — if you get the "monthly organic revenue" number right. Most people don't.
+
+The mistake is using total organic traffic from Google Analytics. That number includes brand searches (people who already know the business), bot traffic, and visits that never convert. It's a vanity metric dressed up as a revenue driver.
+
+The real calculation:
+
+**Non-brand organic clicks (from GSC) × conversion rate × average order value = actual monthly organic revenue**
+
+On one of my sites, the Google Analytics "organic traffic" number was 14,200 visits/month. After filtering to non-brand clicks in Search Console and matching against actual conversions, the revenue-generating organic traffic was 3,800 visits. That's a 73% reduction from the headline number. At a 30x multiplier, that's the difference between a £142,000 valuation and a £38,000 valuation.
+
+## Why Broker Traffic Numbers Are Almost Always Inflated
+
+Brokers have an incentive to present the largest number possible. They're not lying — they're choosing the most flattering metric.
+
+Here's what typically gets bundled into "organic traffic" on a listing:
+
+- **Brand searches.** Someone typing "companyname.com" into Google and clicking through is counted as organic. It's not SEO-driven traffic — it's brand awareness.
+- **Bot and spam traffic.** Google Analytics doesn't filter all bots. I've seen sites where 15-20% of "organic" sessions were non-human.
+- **Seasonal peaks.** Brokers pick the best 3-month window. A site averaging 6,000 visits/month might show 12,000 in its peak quarter.
+- **One-page spikes.** A single article going viral on Reddit or Hacker News inflates the average. That traffic doesn't recur.
+
+The fix is straightforward: ask for Google Search Console access. Filter to non-brand queries. Look at 12-16 months of data, not 3. If the seller won't share GSC, that tells you everything.
+
+I covered the full due diligence process in my [SEO due diligence guide for investors](/blog/seo-due-diligence-investors/).
+
+## Traffic Quality Multipliers: Not All Clicks Are Equal
+
+A site getting 1,000 visits/month from "buy standing desk uk" queries is worth more than a site getting 10,000 visits/month from "what is a standing desk" queries. The first site captures people ready to spend money. The second captures people reading for free.
+
+Here's how I segment traffic quality:
+
+| Query Type | Intent | Value Multiplier |
+|---|---|---|
+| "buy [product]", "best [product] uk", "[product] price" | Commercial | 3-5x base |
+| "[product] vs [product]", "[product] review" | Comparison | 2-3x base |
+| "how to [task]", "what is [topic]" | Informational | 1x base |
+| "[brand name]", "[domain]" | Brand/navigational | 0.5x base |
+
+When I audit a potential acquisition, I export all queries from GSC, classify them by intent, and weight the traffic accordingly. A site with 80% commercial-intent traffic at 5,000 visits/month is worth more than a site with 80% informational traffic at 20,000 visits/month.
+
+![Traffic quality multipliers — commercial vs informational](/images/stats/traffic-quality-multipliers.svg)
+
+This is also why [SEO metrics for board reporting](/blog/seo-metrics-for-boards/) should separate traffic by intent — it changes the story completely.
+
+## The Equivalent Paid Traffic Method
+
+This is the valuation method I trust most, because it gives you a number you can compare against actual ad spend.
+
+Take the top 20 non-brand keywords driving organic clicks. For each one:
+
+1. Look up the Google Ads CPC (use Google Keyword Planner, not third-party estimates)
+2. Multiply CPC by monthly organic clicks for that keyword
+3. Sum the totals
+
+The result is the "replacement cost" — what you'd pay in Google Ads to buy the same traffic.
+
+**Example from a real site in my portfolio:**
+
+| Keyword | Monthly Clicks | CPC | Equivalent Paid Value |
+|---|---|---|---|
+| "best robot lawn mower uk" | 340 | £1.82 | £619 |
+| "robot mower review" | 210 | £1.45 | £305 |
+| "husqvarna automower problems" | 180 | £0.68 | £122 |
+| "robot mower for hills" | 95 | £2.10 | £200 |
+| ... (16 more keywords) | ... | ... | ... |
+| **Top 20 total** | **1,840** | — | **£3,280/month** |
+
+That site's organic traffic generates £3,280/month in equivalent paid value. At a 30x multiplier, the organic traffic alone is worth roughly £98,400. That's a defensible number an investor can benchmark against their own paid acquisition costs.
+
+![Organic traffic valuation formula — broker number vs real number](/images/stats/organic-traffic-valuation-formula.svg)
+
+## Defensibility: The Metric Investors Miss
+
+Traffic value means nothing if it disappears after the next algorithm update. Defensibility is the question most buyers skip.
+
+The metric I use: **query diversity ratio**.
+
+**Unique queries with clicks ÷ total indexed pages = query diversity score**
+
+A score above 3.0 means the site ranks for a wide spread of terms across many pages. A score below 1.0 means most pages aren't earning any organic traffic — and the traffic that exists is concentrated.
+
+**Why this matters:** If 60% or more of a site's traffic comes from 5 keywords, one Google update targeting that topic cluster could wipe half the site's value overnight. I've watched it happen. A site in my portfolio lost 44% of its traffic in 8 days when a core update reshuffled rankings for its primary keyword cluster.
+
+Diversified traffic is harder to kill. A site ranking for 2,000 different queries is far more resilient than one ranking for 20 — even if the total traffic is the same.
+
+This is directly connected to what happens [after an acquisition](/blog/seo-after-acquisition/) — concentrated traffic demands immediate diversification work, which costs time and money.
+
+## Red Flags That Should Reduce Your Valuation
+
+Six signals that tell me a site's organic traffic is worth less than the headline number suggests:
+
+1. **Declining non-brand traffic (3-month trend).** Filter GSC to non-brand queries and compare the last 3 months to the previous 3 months. A downward trend means the site is losing organic ground, regardless of what total traffic shows.
+
+2. **Single-page dependency.** If one page drives 40% or more of total organic traffic, the site's value is fragile. One ranking drop on that page and the business model breaks.
+
+3. **Thin content propping up rankings.** Pages ranking with 200-word articles and no depth. These are first to drop in a quality update. Check the top 10 traffic-driving pages — are they genuinely useful or are they ranking on domain authority alone?
+
+4. **PBN or toxic backlinks.** Private blog network links are a time bomb. They work until Google identifies the network, then every site linked from it gets hit. Use Ahrefs to check for patterns: same IP range, same registrar, same thin content across linking domains.
+
+5. **No technical SEO foundation.** Missing canonicals, broken internal links, no mobile optimisation, no structured data. A site ranking despite these problems is borrowing time. A [technical SEO audit](/services/technical-seo-audit/) should be part of every acquisition.
+
+6. **Low query diversity.** Fewer than 50 unique ranking queries across the whole site means the traffic is concentrated and vulnerable. Healthy sites rank for hundreds or thousands of unique terms.
+
+## Real Numbers From My Portfolio
+
+I'll use two of my own sites to illustrate how the same traffic metric tells different stories.
+
+**Site A — wagearea.co.uk (high impressions, low value per visit):** This site generates 14,000+ impressions per month across salary-related queries. Sounds impressive. But the clicks are low (position 57 average), the queries are informational ("what does a [job] earn"), and there's no direct monetisation path. The equivalent paid traffic value is under £200/month because salary CPCs are low and the intent is research, not purchase. High volume, low value.
+
+**Site B — deadhangs.com (lower volume, higher value per page):** This site has far fewer total impressions but stronger metrics where they count. Real clicks from people searching specific product-related and technique-related queries. Higher CTR because the content matches intent precisely. The equivalent paid traffic value per page is 4x higher than Site A because the queries have commercial intent (equipment, programmes, techniques people pay for).
+
+The lesson: don't compare raw traffic numbers between sites. Compare equivalent paid traffic value per page. That normalises for intent, volume, and monetisation potential.
+
+## The Valuation Checklist
+
+Before putting a number on any site's organic traffic:
+
+1. Get GSC access — not Google Analytics, not Ahrefs estimates
+2. Filter to non-brand queries only
+3. Calculate equivalent paid traffic value for top 20 keywords
+4. Check query diversity ratio (target above 3.0)
+5. Review 12-month non-brand traffic trend
+6. Identify single-page dependencies
+7. Audit backlink profile for PBN patterns
+8. Classify traffic by intent (commercial vs informational)
+
+Do this before you apply any multiplier. The multiplier only makes sense when the base number is honest.
+
+I've written more about the metrics that matter for ongoing monitoring in my [SEO metrics for boards](/blog/seo-metrics-for-boards/) guide, and the full technical checklist in my [due diligence framework for investors](/blog/seo-due-diligence-investors/).
+
+Organic traffic has real, measurable value. But only if you measure the right things.

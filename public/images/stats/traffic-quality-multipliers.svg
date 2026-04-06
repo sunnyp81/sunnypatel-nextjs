@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400">
+  <defs>
+    <clipPath id="clip-quality">
+      <rect x="0" y="0" width="720" height="400" rx="16" ry="16"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-quality)">
+    <rect width="720" height="400" fill="#0a0a0f" rx="16" ry="16"/>
+
+    <!-- Title -->
+    <text x="36" y="38" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" fill="#ffffff">Traffic Quality Multipliers by Query Intent</text>
+    <text x="36" y="56" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">1,000 commercial clicks are worth more than 10,000 informational clicks</text>
+
+    <!-- Commercial card -->
+    <rect x="36" y="78" width="310" height="140" rx="10" fill="#111118"/>
+    <rect x="36" y="78" width="4" height="140" rx="2" fill="#22c55e"/>
+    <text x="56" y="104" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">Commercial Intent</text>
+    <text x="56" y="122" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5">"buy standing desk uk", "best robot mower"</text>
+    <text x="56" y="156" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="bold" fill="#22c55e">3-5x</text>
+    <text x="175" y="156" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#e0e0e0" opacity="0.6">value multiplier</text>
+    <text x="56" y="180" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.7">1,000 visits/mo → £4,800 equiv. paid value</text>
+    <text x="56" y="200" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#22c55e" opacity="0.7">High CPC · High conversion · Direct revenue path</text>
+
+    <!-- Comparison card -->
+    <rect x="374" y="78" width="310" height="140" rx="10" fill="#111118"/>
+    <rect x="374" y="78" width="4" height="140" rx="2" fill="#5B8AEF"/>
+    <text x="394" y="104" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#5B8AEF">Comparison Intent</text>
+    <text x="394" y="122" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5">"product A vs B", "best [product] review"</text>
+    <text x="394" y="156" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="bold" fill="#5B8AEF">2-3x</text>
+    <text x="510" y="156" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#e0e0e0" opacity="0.6">value multiplier</text>
+    <text x="394" y="180" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.7">1,000 visits/mo → £2,400 equiv. paid value</text>
+    <text x="394" y="200" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#5B8AEF" opacity="0.7">Mid CPC · Mid conversion · Affiliate potential</text>
+
+    <!-- Informational card -->
+    <rect x="36" y="236" width="310" height="140" rx="10" fill="#111118"/>
+    <rect x="36" y="236" width="4" height="140" rx="2" fill="#d79f1e"/>
+    <text x="56" y="262" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#d79f1e">Informational Intent</text>
+    <text x="56" y="280" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5">"what is a standing desk", "how to [topic]"</text>
+    <text x="56" y="314" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="bold" fill="#d79f1e">1x</text>
+    <text x="110" y="314" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#e0e0e0" opacity="0.6">base value</text>
+    <text x="56" y="338" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.7">10,000 visits/mo → £1,200 equiv. paid value</text>
+    <text x="56" y="358" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#d79f1e" opacity="0.7">Low CPC · Low conversion · Ad revenue only</text>
+
+    <!-- Brand card -->
+    <rect x="374" y="236" width="310" height="140" rx="10" fill="#111118"/>
+    <rect x="374" y="236" width="4" height="140" rx="2" fill="#ef4444"/>
+    <text x="394" y="262" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">Brand / Navigational</text>
+    <text x="394" y="280" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.5">"companyname", "brand.com login"</text>
+    <text x="394" y="314" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="bold" fill="#ef4444">0.5x</text>
+    <text x="478" y="314" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#e0e0e0" opacity="0.6">or less</text>
+    <text x="394" y="338" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.7">Not SEO-driven — brand awareness value only</text>
+    <text x="394" y="358" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#ef4444" opacity="0.7">Zero CPC · Already know the brand · Not organic growth</text>
+  </g>
+</svg>

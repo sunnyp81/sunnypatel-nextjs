@@ -9,6 +9,7 @@ const links = [
   { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
   { href: "/about/", label: "About" },
   { href: "/portfolio/", label: "Portfolio" },
+  { href: "/tools/", label: "Tools" },
   { href: "/blog/", label: "Blog" },
   { href: "/contact/", label: "Contact" },
 ];

@@ -68,6 +68,60 @@ const tools = [
     href: "/tools/internal-links/",
     category: "Content",
   },
+  {
+    name: "Word Counter",
+    description: "Count words, characters, sentences, and paragraphs. See reading time and top keywords.",
+    href: "/tools/word-counter/",
+    category: "Content",
+  },
+  {
+    name: "Text Diff Checker",
+    description: "Compare two texts side by side. Highlight additions, deletions, and modifications.",
+    href: "/tools/text-diff/",
+    category: "Content",
+  },
+  {
+    name: "Website Grader",
+    description: "Get an instant A–F grade covering SEO, page speed, security, and content quality.",
+    href: "/tools/website-grader/",
+    category: "Website Audit",
+  },
+  {
+    name: "Website Speed Checker",
+    description: "Test Core Web Vitals — LCP, CLS, and more — with actionable speed recommendations.",
+    href: "/tools/speed-checker/",
+    category: "Website Audit",
+  },
+  {
+    name: "Broken Link Checker",
+    description: "Scan any page for broken links and 404 errors. Export results as CSV.",
+    href: "/tools/broken-links/",
+    category: "Website Audit",
+  },
+  {
+    name: "SSL Certificate Checker",
+    description: "Check SSL expiry, issuer, and chain validity. HTTPS is a Google ranking signal.",
+    href: "/tools/ssl-checker/",
+    category: "Website Audit",
+  },
+  {
+    name: "Open Graph Preview",
+    description: "See how your URL looks when shared on Facebook, Twitter/X, and LinkedIn.",
+    href: "/tools/og-preview/",
+    category: "Social & Sharing",
+  },
+  {
+    name: "Google Review Link Generator",
+    description: "Generate a direct link for customers to leave a Google review. Boost local SEO.",
+    href: "/tools/review-link/",
+    category: "Local SEO",
+  },
+  {
+    name: "Image Compressor",
+    description: "Compress images in-browser to improve page speed. No upload — 100% private.",
+    href: "/tools/image-compressor/",
+    category: "Page Speed",
+  },
 ];
 
 const categories = [...new Set(tools.map((t) => t.category))];
@@ -76,7 +130,7 @@ export function generateMetadata() {
   return {
     title: "Free SEO Tools | Keyword Research, Technical SEO & Content Analysis | Sunny Patel",
     description:
-      "11 free SEO tools — keyword scraper, SERP previewer, schema generator, robots.txt builder, readability checker, and more. No sign-up required.",
+      "20 free SEO tools — website grader, speed checker, keyword scraper, schema generator, image compressor, and more. No sign-up required.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/" },
   };
 }

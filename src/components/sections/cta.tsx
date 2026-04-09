@@ -73,6 +73,7 @@ export function Cta() {
             { label: "Technical Audits", href: "/services/technical-seo-audit/" },
             { label: "Topical Authority", href: "/services/topical-authority/" },
             { label: "SEO Consulting", href: "/services/seo-consulting/" },
+            { label: "Free SEO Tools", href: "/tools/" },
           ].map((link) => (
             <a
               key={link.href}

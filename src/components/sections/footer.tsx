@@ -4,6 +4,7 @@ const links = [
   { href: "/services/", label: "Services" },
   { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
   { href: "/services/seo-berkshire/", label: "SEO Berkshire" },
+  { href: "/tools/", label: "Free SEO Tools" },
   { href: "/about/", label: "About" },
   { href: "/portfolio/", label: "Portfolio" },
   { href: "/blog/", label: "Blog" },
@@ -23,7 +24,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/5 bg-[#050507]">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-5">
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-1">
             <a
@@ -96,6 +97,35 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground/80"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Free Tools */}
+          <div>
+            <h4
+              className="mb-4 text-sm font-semibold text-foreground"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Free Tools
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/tools/website-grader/", label: "Website Grader" },
+                { href: "/tools/speed-checker/", label: "Speed Checker" },
+                { href: "/tools/keyword-scraper/", label: "Keyword Scraper" },
+                { href: "/tools/schema-generator/", label: "Schema Generator" },
+                { href: "/tools/broken-links/", label: "Broken Link Checker" },
+                { href: "/tools/", label: "View All 20 Tools" },
+              ].map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}

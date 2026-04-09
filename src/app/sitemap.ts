@@ -6,7 +6,7 @@ const SITE_URL = "https://sunnypatel.co.uk";
 
 // Static routes — use a fixed date rather than new Date() to avoid
 // telling Google every page changed on every build
-const LAST_DEPLOY = new Date("2026-04-03");
+const LAST_DEPLOY = new Date("2026-04-09");
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/`,                   lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 1.0 },
@@ -15,6 +15,28 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/portfolio/`,         lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE_URL}/blog/`,              lastModified: LAST_DEPLOY, changeFrequency: "daily",   priority: 0.9 },
   { url: `${SITE_URL}/contact/`,           lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.7 },
+  // Tools hub + individual tools
+  { url: `${SITE_URL}/tools/`,                lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.9 },
+  { url: `${SITE_URL}/tools/keyword-scraper/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/serp-preview/`,    lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/title-checker/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/schema-generator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/robots-generator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/hreflang-generator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/redirect-checker/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/utm-builder/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/keyword-density/`,  lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/readability-score/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/internal-links/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/word-counter/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/text-diff/`,        lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/website-grader/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${SITE_URL}/tools/speed-checker/`,    lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/broken-links/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/ssl-checker/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/og-preview/`,       lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/review-link/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/image-compressor/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   // privacy-policy and terms-of-use excluded — low crawl-priority, waste crawl budget
 ];
 

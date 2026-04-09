@@ -199,6 +199,18 @@ export function RelatedServices({
           );
         })}
       </div>
+      <div className="mt-4 rounded-xl border border-[#5B8AEF]/15 bg-[#5B8AEF]/[0.03] p-4">
+        <Link
+          href="/tools/"
+          className="group flex items-center justify-between"
+        >
+          <div>
+            <p className="text-sm font-medium text-foreground">Try our free SEO tools</p>
+            <p className="text-xs text-muted-foreground">Website grader, speed checker, keyword scraper, and 17 more — no sign-up required.</p>
+          </div>
+          <ArrowRight className="h-4 w-4 flex-shrink-0 text-[#5B8AEF] transition-transform group-hover:translate-x-1" />
+        </Link>
+      </div>
     </div>
   );
 }

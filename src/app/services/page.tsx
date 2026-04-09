@@ -171,6 +171,27 @@ export default async function ServicesIndex() {
           ))}
         </div>
 
+        {/* Free Tools CTA */}
+        <div className="mt-16">
+          <Link
+            href="/tools/"
+            className="group flex items-center justify-between rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/[0.04] p-6 transition-all duration-300 hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.07] hover:shadow-[0_0_32px_rgba(91,138,239,0.12)]"
+          >
+            <div>
+              <h3
+                className="text-lg font-semibold text-foreground"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Free SEO Tools
+              </h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                20 free tools — website grader, speed checker, keyword scraper, schema generator, and more. No sign-up required.
+              </p>
+            </div>
+            <ArrowRight className="h-5 w-5 flex-shrink-0 text-[#5B8AEF] transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
+        </div>
+
         {/* Location pages */}
         {locationServices.length > 0 && (
           <div className="mt-16">

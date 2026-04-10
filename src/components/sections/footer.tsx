@@ -9,6 +9,7 @@ const links = [
   { href: "/portfolio/", label: "Portfolio" },
   { href: "/blog/", label: "Blog" },
   { href: "/contact/", label: "Contact" },
+  { href: "https://www.seo.associates/", label: "SEO.Associates" },
 ];
 
 const serviceLinks = [

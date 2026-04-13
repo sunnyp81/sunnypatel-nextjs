@@ -22,7 +22,7 @@
     <rect x="36" y="182" width="648" height="72" rx="8" fill="#111118" stroke="#ef4444" stroke-opacity="0.2" stroke-width="1"/>
     <text x="52" y="204" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5B8AEF">Programmers and software development professionals Salary G...</text>
     <rect x="52" y="212" width="580" height="2" rx="1" fill="#ef4444" opacity="0.15"/>
-    <text x="52" y="228" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#22c55e" opacity="0.8">wagearea.com &#x203A; programmer-and-software-development-professional</text>
+    <text x="52" y="228" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#22c55e" opacity="0.8">wagearea.com &rsaquo; programmer-and-software-development-professional</text>
     <text x="52" y="244" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.4">Average salary data for programmers and software development professionals in the UK...</text>
 
     <!-- Truncation indicator -->
@@ -35,7 +35,7 @@
     <!-- Fake SERP result AFTER -->
     <rect x="36" y="292" width="648" height="72" rx="8" fill="#111118" stroke="#22c55e" stroke-opacity="0.2" stroke-width="1"/>
     <text x="52" y="314" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5B8AEF">Software Developers Salary UK — 2025 Average Pay | wagearea.com</text>
-    <text x="52" y="338" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#22c55e" opacity="0.8">wagearea.com &#x203A; software-developer</text>
+    <text x="52" y="338" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#22c55e" opacity="0.8">wagearea.com &rsaquo; software-developer</text>
     <text x="52" y="354" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.4">UK software developer salaries by city and region. Median pay, hourly rates, and career...</text>
 
     <!-- Clean indicator -->

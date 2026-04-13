@@ -32,6 +32,16 @@ export const metadata: Metadata = {
   title: "SEO Consultant Reading | 150%+ Avg Traffic Growth | Sunny Patel",
   description:
     "Reading-based SEO consultant with 15+ years experience. Clients see 150-280% organic traffic growth. Free 30-min consultation, no contracts. Book today.",
+  openGraph: {
+    type: "website",
+    siteName: "Sunny Patel — SEO Consultant",
+    locale: "en_GB",
+    url: "https://sunnypatel.co.uk",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@sunnypat81",
+  },
 };
 
 export default function RootLayout({

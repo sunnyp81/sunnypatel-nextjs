@@ -36,6 +36,8 @@ const nextConfig: NextConfig = {
       // Old root-level location pages migrated to /services/
       { source: "/seo-berkshire", destination: "/services/seo-berkshire/", permanent: true },
       { source: "/seo-berkshire/", destination: "/services/seo-berkshire/", permanent: true },
+      { source: "/seo-consultant-berkshire", destination: "/services/seo-berkshire/", permanent: true },
+      { source: "/seo-consultant-berkshire/", destination: "/services/seo-berkshire/", permanent: true },
       { source: "/seo-bracknell", destination: "/services/seo-bracknell/", permanent: true },
       { source: "/seo-bracknell/", destination: "/services/seo-bracknell/", permanent: true },
       { source: "/seo-slough", destination: "/services/seo-slough/", permanent: true },

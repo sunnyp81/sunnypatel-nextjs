@@ -219,6 +219,10 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["local-seo", "semantic-seo"],
     mentions: ["entity-seo"],
   },
+  "local-seo-reading": {
+    about: ["local-seo"],
+    mentions: ["technical-seo", "content-strategy", "semantic-seo"],
+  },
   "seo-berkshire": {
     about: ["local-seo"],
     mentions: ["semantic-seo"],
@@ -366,6 +370,10 @@ const BLOG_TOPICS: Record<string, TopicMapping> = {
     about: ["ai-search-optimisation"],
     mentions: ["llm-optimisation", "semantic-seo", "content-strategy"],
   },
+  "seo-consultant-vs-agency": {
+    about: ["semantic-seo"],
+    mentions: ["local-seo", "eeat", "content-strategy"],
+  },
 };
 
 // =============================================================================
@@ -403,6 +411,11 @@ export function personSchema() {
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       SITE_URL,
+      // Add verified profile URLs below as each goes live:
+      // "https://clutch.co/profile/sunny-patel-seo",
+      // "https://www.bark.com/en/gb/company/sunny-patel-seo/...",
+      // "https://www.yell.com/biz/sunny-patel-seo-reading-...",
+      // "https://www.designrush.com/agency/sunny-patel-seo",
     ],
     worksFor: {
       "@type": "Organization",
@@ -778,27 +791,36 @@ const LOCAL_SERVICE_AREA: Record<string, Record<string, unknown>[]> = {
     { "@type": "City", name: "Reading" },
     { "@type": "AdministrativeArea", name: "Berkshire" },
   ],
+  "local-seo-reading": [
+    { "@type": "City", name: "Reading" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+    { "@type": "AdministrativeArea", name: "Thames Valley" },
+  ],
 };
 
 export function serviceSchema({
   name,
   description,
   slug,
+  dateModified,
 }: {
   name: string;
   description: string;
   slug: string;
+  dateModified?: string;
 }) {
   const topics = SERVICE_TOPICS[slug];
   const aboutRefs = topics ? resolveRefs(topics.about) : [];
   const mentionRefs = topics ? resolveRefs(topics.mentions) : [];
   const localArea = LOCAL_SERVICE_AREA[slug];
+  const modifiedDate = dateModified ?? "2026-04-14";
 
   return {
     "@type": "ProfessionalService",
     name,
     description,
     url: `${SITE_URL}/services/${slug}/`,
+    dateModified: modifiedDate,
     provider: { "@id": `${SITE_URL}/#person` },
     editor: { "@id": `${SITE_URL}/#person` },
     offeredBy: localArea
@@ -807,6 +829,10 @@ export function serviceSchema({
     areaServed: localArea ?? { "@type": "Country", name: "United Kingdom" },
     ...(aboutRefs.length > 0 && { about: aboutRefs }),
     ...(mentionRefs.length > 0 && { mentions: mentionRefs }),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".service-intro", ".case-study", "h2 + p", ".stats-bar"],
+    },
   };
 }
 

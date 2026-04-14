@@ -411,11 +411,12 @@ export function personSchema() {
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       SITE_URL,
-      // Add verified profile URLs below as each goes live:
-      // "https://clutch.co/profile/sunny-patel-seo",
-      // "https://www.bark.com/en/gb/company/sunny-patel-seo/...",
-      // "https://www.yell.com/biz/sunny-patel-seo-reading-...",
-      // "https://www.designrush.com/agency/sunny-patel-seo",
+      "https://clutch.co/profile/sunny-patel",
+      // Add these when live:
+      // "https://g.page/r/[CID]/review",        ← GBP: get from dashboard → Share profile
+      // "https://www.bark.com/en/gb/...",        ← create at bark.com
+      // "https://www.yell.com/biz/...",          ← create at yell.com/add-your-business
+      // "https://www.designrush.com/agency/...", ← check submission status
     ],
     worksFor: {
       "@type": "Organization",

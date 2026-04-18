@@ -143,11 +143,11 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
           <div className="flex flex-col gap-1">
-            <p className="text-xs text-muted-foreground/50">
+            <p className="text-xs text-muted-foreground/80">
               &copy; 2026 Sunny Patel. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground/30">
-              Part of <span className="text-muted-foreground/50">ND Media Ltd</span> &mdash; Company No. 10784524
+            <p className="text-xs text-muted-foreground/40">
+              Part of <span className="text-muted-foreground/60">ND Media Ltd</span> &mdash; Company No. 10784524
             </p>
           </div>
           <div className="flex gap-4">

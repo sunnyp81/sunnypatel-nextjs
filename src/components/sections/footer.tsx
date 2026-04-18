@@ -142,9 +142,14 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
-          <p className="text-xs text-muted-foreground/50">
-            &copy; 2026 Sunny Patel. All rights reserved.
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs text-muted-foreground/50">
+              &copy; 2026 Sunny Patel. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground/30">
+              Part of <span className="text-muted-foreground/50">ND Media Ltd</span> &mdash; Company No. 10784524
+            </p>
+          </div>
           <div className="flex gap-4">
             <a href="/privacy-policy/" className="text-xs text-muted-foreground/30 transition-colors hover:text-muted-foreground/60">Privacy Policy</a>
             <a href="/terms-of-use/" className="text-xs text-muted-foreground/30 transition-colors hover:text-muted-foreground/60">Terms of Use</a>

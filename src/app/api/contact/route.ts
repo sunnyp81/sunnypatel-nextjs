@@ -38,6 +38,14 @@ export async function POST(request: Request) {
       ].join("\n"),
     });
 
+    if (process.env.AAA_INTAKE_SECRET) {
+      fetch("https://aaa-intake.sunnypat81.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-intake-secret": process.env.AAA_INTAKE_SECRET },
+        body: JSON.stringify({ brand: "SP", name, email, phone: phone || null, message }),
+      }).catch(() => {});
+    }
+
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Contact API error:", err);

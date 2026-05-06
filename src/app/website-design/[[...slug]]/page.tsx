@@ -4,6 +4,7 @@ import { ContentPage } from "@/components/content-page";
 import { renderMarkdoc } from "@/lib/render-markdoc";
 import { notFound } from "next/navigation";
 import { breadcrumbSchema, schemaGraph } from "@/lib/schema";
+import { getWebsiteDesignVisuals } from "@/data/website-design-visuals";
 import Link from "next/link";
 
 const SITE_URL = "https://sunnypatel.co.uk";
@@ -108,6 +109,7 @@ export default async function WebsiteDesignPage({
   const rendered = renderMarkdoc(rawContent);
   const breadcrumbItems = buildBreadcrumbs(slugStr, page.title);
   const isRoot = slugStr === "website-design";
+  const visuals = getWebsiteDesignVisuals(slugStr);
 
   return (
     <>
@@ -140,9 +142,11 @@ export default async function WebsiteDesignPage({
         ctaTitle="Want a price for your project?"
         ctaSubtitle="Message me at Hello@SunnyPatel.co.uk or call 073055 23333. Same working day response with a fixed quote and a timeline."
       >
+        {visuals?.intro}
         <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:my-6 prose-th:text-foreground prose-td:text-muted-foreground">
           {rendered}
         </div>
+        {visuals?.close}
         <div className="mt-12 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
           <h3 className="text-lg font-semibold text-foreground">Explore the website design cluster</h3>
           <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 text-sm">

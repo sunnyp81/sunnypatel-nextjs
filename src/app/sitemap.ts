@@ -105,5 +105,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...blogEntries, ...serviceEntries, ...portfolioEntries];
+  // Website design cluster
+  const websiteDesignSlugs = await reader.collections.websiteDesign.list();
+  const websiteDesignEntries = websiteDesignSlugs.map((slug) => ({
+    url:
+      slug === "website-design"
+        ? `${SITE_URL}/website-design/`
+        : `${SITE_URL}/website-design/${slug}/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly" as const,
+    priority: slug === "website-design" ? 0.9 : 0.8,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...blogEntries,
+    ...serviceEntries,
+    ...portfolioEntries,
+    ...websiteDesignEntries,
+  ];
 }

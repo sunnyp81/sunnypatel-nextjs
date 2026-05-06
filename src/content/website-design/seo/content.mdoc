@@ -1,0 +1,178 @@
+## What designers usually mean by "SEO-friendly"
+
+Open ten UK web design agency sites and count how many list "SEO-friendly" as a feature. All of them.
+
+Now ask each one what it actually means. You'll get:
+
+- "We use semantic HTML." (So does every theme since 2014.)
+- "We add meta titles." (That's not SEO, that's a checkbox.)
+- "We make sure it's mobile-responsive." (Default in every theme.)
+- "We install Yoast." (Configured? Customised? Or just installed?)
+
+None of those move rankings. They're table stakes. They've been table stakes since 2018.
+
+What actually moves rankings is the architecture decisions made before a page is designed: URL structure, internal linking topology, schema graph, topical clustering, page templates that match how Google parses content. Those are the things designers don't do — because they're SEO decisions, not design decisions, and most builders don't know the difference.
+
+That's the gap I fill. I'm a [working SEO consultant](/services/seo-consulting/) who happens to build websites. The order matters.
+
+## Site architecture and topical authority — designed before a page is built
+
+Every build starts with a topical map. For a small business that's an hour of work — what are your five-to-eight services, what supporting content do they need, how do they link, what's the natural URL hierarchy? For a Growth-package build that's a full [topical authority](/services/topical-authority/) exercise.
+
+The result is a sitemap that:
+
+- Reflects how your buyers research, not how you organise internally
+- Has clear cluster heads and supporting pages
+- Uses URL hierarchy to communicate parent/child relationships to Google
+- Is finite and finishable, not an open-ended content brief
+
+Most agency builds have a sitemap that was decided in a kick-off meeting in week one and never revisited. Mine has a sitemap that's been pressure-tested against your search demand before the first design comp.
+
+## URL structure, internal linking and breadcrumbs
+
+URLs are decided once and rarely changed. Get them right.
+
+What I default to:
+
+- **Lowercase, hyphenated, descriptive.** `/website-design/wordpress/` not `/Services/Web-Design-WordPress/`.
+- **Hierarchical when it earns its place.** `/website-design/wordpress/` because WordPress sits inside the website-design parent. Not nested for the sake of it.
+- **Trailing slash, consistent.** WordPress defaults to trailing slash, I keep it.
+- **No category slug bloat.** `/blog/post-name/` not `/category/uncategorized/blog/post-name/`.
+- **Permanent.** Decided at design time, never changed. If anything moves, a 301 redirect goes in.
+
+Internal linking gets the same treatment. Every commercial page links to its parent hub, its sibling commercial pages, and the proof pages that support conversion. That's not a copywriter's job — it's an architecture decision built into the templates.
+
+Breadcrumbs are visible on the page and emitted as BreadcrumbList schema. Both are non-negotiable.
+
+## On-page — titles, headings, schema, image alts, internal links
+
+The on-page checklist I apply to every page:
+
+- **One H1 per page,** matching the search intent.
+- **H2-H4 hierarchy** that reflects content structure, not visual styling.
+- **Meta title** under 60 characters, primary keyword early, brand at the end.
+- **Meta description** under 155 characters, action-led, includes the primary keyword.
+- **Image alt text** descriptive, not "image123.jpg".
+- **Schema markup** at the template level (see below).
+- **Internal links** in the body, descriptive anchor text, never "click here".
+- **External links** open in same tab unless they leave the site, then `rel="noopener"` and new tab.
+
+These get baked into the WordPress templates so every new page inherits them automatically. Your team doesn't need to remember.
+
+## Core Web Vitals — concrete targets I won't ship below
+
+I don't launch a site that doesn't hit these on the home and main service pages:
+
+| Metric | Target | Field threshold |
+|---|---|---|
+| Largest Contentful Paint (LCP) | Under 2.0s | Under 2.5s |
+| Cumulative Layout Shift (CLS) | Under 0.05 | Under 0.10 |
+| Interaction to Next Paint (INP) | Under 150ms | Under 200ms |
+| Total Blocking Time (TBT) | Under 200ms | — |
+| Time to First Byte (TTFB) | Under 0.6s | Under 0.8s |
+
+Tested in Lighthouse mobile + WebPageTest + the Search Console Core Web Vitals report after launch.
+
+How they get hit:
+
+- Image optimisation on upload (WebP/AVIF, responsive sizes, lazy loading)
+- WP Rocket caching with critical CSS
+- Font loading optimised (`font-display: swap`, preload)
+- No render-blocking JavaScript above the fold
+- Hosting on actual SSDs with HTTP/2 or HTTP/3
+- No Elementor on the home page
+
+If your existing site fails on any of these, the [website speed optimisation](/services/website-speed-optimization/) service tackles them as a one-off. For new builds, they're included.
+
+## Schema markup — what's actually deployed
+
+The schema graph I build into every site:
+
+- **Organization** — site-wide, includes logo, name, URL, sameAs links.
+- **LocalBusiness** — for any business with a physical address or service area, includes phone, address, opening hours, geo coordinates.
+- **Person** — for the business owner where it adds E-E-A-T (consultancies, healthcare, legal, professional services).
+- **Service** — one per service page, with pricing where stated.
+- **FAQPage** — on pages with FAQ sections (and only those — Google penalises FAQ schema on pages without visible FAQs).
+- **BreadcrumbList** — every page that isn't the home.
+- **Article** — blog posts.
+- **Product / Offer** — if WooCommerce is part of the build.
+
+This isn't a Yoast checkbox. It's hand-tuned JSON-LD in the templates that I've validated against Google's Rich Results test before launch.
+
+## Indexation — sitemap, robots, canonicals, noindex hygiene
+
+The boring bits that quietly tank sites:
+
+- **XML sitemap** — Rank Math generates it, I check the includes. Tag archives, search pages, attachment pages noindexed.
+- **robots.txt** — explicit allow for the user agents that matter, no accidental blocks. Sitemap referenced.
+- **Canonical tags** — self-referencing on every page, no duplicate canonical pointing at home.
+- **noindex hygiene** — staging URL fully blocked, production fully open, query strings handled.
+- **301 redirects** — `/services/old-page/` to `/services/new-page/` if anything moves.
+- **Trailing slash consistency** — one or the other, never both serving the same content.
+
+If you're migrating from an existing site, indexation hygiene during the launch is where most agencies break SEO equity. I treat it as a checklist with sign-off.
+
+## Local SEO baked in for UK service businesses
+
+For any business with a UK service area:
+
+- LocalBusiness schema with full NAP and geo coordinates
+- Google Business Profile setup audited or rebuilt
+- Service area page or pages — proper service area pages with unique content per area, not thin templates
+- Citation submissions to top 20 UK directories if not already listed (Yell, Yelp, Bark, Cylex, Thomson Local, etc.)
+- NAP consistency check across the website, GBP, and existing citations
+
+Local SEO baked into the build typically pays back the entire £1,800 within the first six months in additional enquiries.
+
+## The difference at month 3 — measured, not promised
+
+Most agency-built sites take six to nine months to start ranking for anything beyond the brand name. SEO-led builds start ranking inside three to four months because the foundations are correct on day one.
+
+What I expect to see by month 3 on a Standard build:
+
+- Indexed in Search Console — every page submitted, no errors
+- Ranking in the top 30 for the primary keywords on the home and main service pages
+- Local pack visibility for at least the brand+service queries
+- Core Web Vitals green in field data (CrUX report)
+- First impressions on long-tail keywords from the supporting pages
+
+By month 6, most clients see top 10 positions on the main commercial keywords for their market.
+
+I don't promise this in writing. The variables (your competition, your domain history, your content velocity post-launch) are real. But the foundation makes it more likely than the alternative.
+
+## Pricing
+
+| What | Approximate price |
+|---|---|
+| Standard build with on-page SEO baked in | From £1,800 (= the [Standard package](/website-design/packages/)) |
+| Growth build with full topical map and schema graph | From £2,750+ |
+| Existing site SEO retrofit (no rebuild) | From £800 (audit + on-page fixes only) |
+| [SEO retainer](/services/seo-consulting/) post-launch | From £600 per month |
+
+VAT additional. Fixed quote. Discovery call free.
+
+## FAQs
+
+**Will this guarantee rankings?**
+No, and any SEO who promises that is lying. What I can guarantee is that the technical and on-page foundations are correct — which is the part you control. Rankings depend on those plus your content quality, your competition's authority, and Google's mood.
+
+**How is this different from a normal Standard package?**
+It is the Standard package. SEO is baked in by default at the £2,000 tier. I just describe it explicitly here because most agencies don't.
+
+**Do you do SEO retrofits on sites I already own?**
+Yes — that's a [website redesign](/website-design/redesign/) if it needs structural changes, or a one-off [technical SEO audit](/services/technical-seo-audit/) plus implementation if the site bones are sound.
+
+**What if my site is on Wix or Squarespace — can you still do SEO web design?**
+Partially. Schema, meta titles, internal linking and topical structure are all possible. Core Web Vitals are constrained by the platform — Wix sites struggle to hit green field data without moving off Wix.
+
+**Do I need an ongoing SEO retainer after launch?**
+Optional. The build sets up everything for organic growth. A retainer accelerates it but isn't required for the basics to work.
+
+**Why £1,800 instead of £1,500?**
+The £1,800 is the Standard package, which adds the full topical SEO architecture on top of the £1,500 Starter foundation. If you only need the Starter SEO basics (meta, schema, sitemap) without the topical architecture, £1,500 covers that.
+
+## Get a quote
+
+Want a quote for an SEO-led build? Message me at [Hello@SunnyPatel.co.uk](mailto:Hello@SunnyPatel.co.uk) or call **073055 23333**. Same working day response.
+
+[← Back to website design](/website-design/) | [SEO and performance hub →](/website-design/seo-performance/) | [WordPress builds →](/website-design/wordpress/)

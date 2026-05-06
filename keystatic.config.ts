@@ -151,6 +151,32 @@ export default config({
         content: fields.markdoc({ label: "Post Content" }),
       },
     }),
+    websiteDesign: collection({
+      label: "Website Design Pages",
+      slugField: "title",
+      path: "src/content/website-design/*/",
+      schema: {
+        title: fields.slug({ name: { label: "Page Slug" } }),
+        metaTitle: fields.text({ label: "Title Tag" }),
+        description: fields.text({ label: "Meta Description", multiline: true }),
+        ogImage: fields.text({ label: "OG Image URL" }),
+        h1: fields.text({ label: "Page Heading (H1)" }),
+        subtitle: fields.text({ label: "Subtitle", multiline: true }),
+        sortOrder: fields.integer({ label: "Sort Order", defaultValue: 0 }),
+        priceFrom: fields.integer({ label: "Price From (£)", defaultValue: 1500 }),
+        nodeType: fields.select({
+          label: "Node Type",
+          options: [
+            { label: "ROOT", value: "root" },
+            { label: "NODE Hub", value: "node" },
+            { label: "SEED Page", value: "seed" },
+          ],
+          defaultValue: "seed",
+        }),
+        parentNode: fields.text({ label: "Parent NODE Slug (optional)" }),
+        content: fields.markdoc({ label: "Page Content" }),
+      },
+    }),
     portfolio: collection({
       label: "Portfolio",
       slugField: "title",

@@ -1,0 +1,132 @@
+## The cost of bolting SEO on after a website launches
+
+Every site I rebuild for an existing business has the same five problems. They're cheap to fix during the build and expensive to fix afterwards.
+
+1. **URL structure decided by the WordPress default.** `/?p=4827` instead of `/website-design/wordpress/`. Fixable post-launch but costs a redirect map, an indexation reset, and three months of ranking volatility.
+2. **No schema.** Or Yoast schema on every post type identically, so the home page emits Article schema. Fix takes 4-8 hours of template work.
+3. **Internal linking architecture absent.** Every page links back to home and the contact page; nothing else. Fix takes a content audit and a manual rebuild of the link graph.
+4. **Core Web Vitals red.** LCP at 4 seconds because the hero image is 2MB unoptimised. CLS at 0.3 because fonts shift on load. INP at 600ms because of three uncached scripts. Fix takes 1-3 days of optimisation.
+5. **Indexation issues.** Tag archives indexed, search pages indexed, attachment URLs indexed. Fix takes 2-4 hours of Rank Math configuration.
+
+Each one of these is a few hundred pounds of fix, individually. Together, on a site that wasn't built with SEO in mind, you're looking at £1,500-£3,000 of retrofit. That's the same as building it right the first time.
+
+## Core Web Vitals — the three numbers I won't ship a site without hitting
+
+LCP under 2.0 seconds, CLS under 0.05, INP under 150ms. On mobile, in field data — not just lab data.
+
+How they get hit:
+
+- Image optimisation on upload (WebP/AVIF, responsive `srcset`, lazy-loading below the fold, eager-loading the LCP image)
+- WP Rocket caching with critical CSS and async JavaScript
+- Font loading optimised — `font-display: swap`, preload the woff2, no FOIT
+- No Elementor or page-builder bloat above the fold
+- Hosting on actual SSDs with HTTP/2 or HTTP/3
+- Database queries trimmed (object cache, autoload optimisation)
+
+Tested on launch in Lighthouse mobile, WebPageTest, and the Search Console Core Web Vitals report after 28 days.
+
+## On-page SEO baked into the build
+
+[Detailed on-page approach is on the dedicated SEO web design page](/website-design/seo/) — but in summary, every page template emits:
+
+- One H1 matching search intent
+- H2-H4 hierarchy that reflects content structure
+- Meta title under 60 characters, primary keyword early
+- Meta description under 155 characters, action-led
+- Schema markup at the template level
+- Descriptive image alt text
+- Internal links to parent and sibling pages
+
+Set up once in the templates so your team doesn't have to remember.
+
+## Technical foundations
+
+The boring layer that quietly tanks sites:
+
+- XML sitemap configured with the right includes and excludes
+- robots.txt with explicit user-agent rules
+- Canonical tags self-referencing per page
+- noindex on tag archives, search pages, attachment pages
+- Trailing slash consistency
+- 301 redirects (not 302s) for any URL changes
+- HTTPS with a valid certificate
+- HSTS where appropriate
+- Strict-Transport-Security headers
+
+Set up at launch as a checklist with sign-off, not as a "we'll get to it" promise.
+
+## Responsive and mobile-first — not a checkbox, an architecture
+
+Sixty to seventy per cent of UK service business traffic is mobile. The site is designed mobile-first — meaning the mobile view is the canonical view and the desktop is the larger version, not the other way round.
+
+What this changes in practice:
+
+- Hero CTAs are sized for thumbs, not mouse cursors
+- Phone numbers are click-to-call by default
+- Forms have three fields max
+- Body text is 16-18px minimum, never the 14px desktop default
+- Images are responsive `srcset`, not loaded large-and-shrunk
+- Navigation is hamburger-default for under 1024px
+
+Tested on real devices — iPhone 12-15, Pixel, mid-range Android — not just Chrome DevTools.
+
+## Accessibility (WCAG 2.2 AA) — and why it matters for SEO too
+
+Targets met as standard:
+
+- Colour contrast 4.5:1 for body text, 3:1 for large text
+- All interactive elements keyboard-accessible
+- Focus states visible
+- Form labels associated with inputs
+- Alt text on every image (descriptive, not decorative)
+- ARIA where it adds clarity, not where it doesn't
+- No reliance on colour alone to convey meaning
+- Heading hierarchy respected (no skipping H1 to H4)
+
+The SEO benefit: Google's quality systems weight accessibility positively. The legal benefit: UK Equality Act 2010 applies to private business websites. The commercial benefit: 15-20% of UK adults have a disability that affects digital interaction.
+
+## Hosting and how it affects rankings
+
+Hosting decides three things SEO cares about: speed (TTFB), uptime, and IP reputation.
+
+What I recommend:
+
+- **Under 5,000 visits/month:** SiteGround, Cloudways, 20i. £15-30/month. Fine for service businesses.
+- **5,000-50,000 visits/month:** Kinsta, WP Engine, Pressable. £30-100/month. Faster TTFB, better support.
+- **Over 50,000 visits/month:** Cloudways scaled up, Kinsta enterprise, AWS/DO with Runcloud. £100+/month.
+
+Avoid GoDaddy, BlueHost, and the supermarket-brand shared hosts. Their TTFB regularly exceeds 1.5 seconds, which alone fails the LCP target.
+
+## The Aatma redesign — what changed when I rebuilt with SEO in mind
+
+The published case study covers the full methodology. In short: the existing site had Core Web Vitals red, no schema, no service area pages, and indexation issues. After the redesign with SEO baked in, the site:
+
+- Hit Core Web Vitals green within 8 weeks of launch
+- Started ranking for service+location queries within 3-5 months
+- Showed in the Google local pack for the main treatment terms inside 5 months
+
+Full numbers in the [case study](/website-design/case-studies/).
+
+## Pricing
+
+| Build type | Approx price |
+|---|---|
+| Standard build with on-page SEO baked in | £2,000 (= [Standard package](/website-design/packages/)) |
+| Growth build with full topical map and schema graph | £2,750+ |
+| Existing site SEO retrofit (no rebuild) | From £800 (audit + fixes) |
+| One-off Core Web Vitals fix | From £400 |
+
+VAT additional. Fixed quote.
+
+## Related services on the wider site
+
+- [Technical SEO audit](/services/technical-seo-audit/) — for sites that don't need a redesign but need SEO retrofit
+- [Website speed optimisation](/services/website-speed-optimization/) — Core Web Vitals one-off project
+- [Website migration](/services/website-migration/) — preserving SEO equity through platform changes
+- [Internal linking](/services/internal-linking/) — the architectural part, applied to existing sites
+
+## Get a quote
+
+Want a build that ranks from launch? Message me at [Hello@SunnyPatel.co.uk](mailto:Hello@SunnyPatel.co.uk) or call **073055 23333**.
+
+[← Back to website design](/website-design/) | [SEO web design →](/website-design/seo/) | [Redesign →](/website-design/redesign/)

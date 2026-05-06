@@ -1,0 +1,158 @@
+## The three reasons UK businesses redesign — and which one you actually have
+
+Most redesign enquiries come in framed as "the site looks dated". When I dig in, the real reason is usually one of three:
+
+1. **The leads have dropped.** Search Console impressions are flat, traffic is down 30-60% year-on-year, the phone isn't ringing. The visual refresh is a proxy for "fix the lead pipeline".
+
+2. **The technology is unmaintainable.** The original developer left, the WordPress version is two majors behind, plugins are abandoned, every change feels risky. The redesign is really a rebuild.
+
+3. **The brand has changed.** New positioning, new logo, new services, new audience. The site is genuinely out of date because the business has moved on.
+
+Each one needs a different fix. A visual refresh on top of a leads problem doesn't solve the leads problem — it just costs you £4,000 and disappoints you in three months. The diagnosis matters.
+
+## The diagnostic audit I run before quoting
+
+Free, thirty minutes, on the call. I pull up:
+
+- **Your Search Console** — impressions, clicks, average position, top queries by clicks and impressions over 16 months. Where the drop happened, what fell, what's still ranking.
+- **Your site live** — Core Web Vitals, mobile usability, indexation, schema, internal links, the obvious conversion issues.
+- **Your competitors** — top three for your main service queries, what they're doing that you're not.
+- **Your analytics** — sessions, conversions if tracked, bounce rate by landing page.
+
+By the end I can usually tell you whether you need:
+
+- A full redesign (visual + structural + SEO)
+- A landing page rebuild on the existing site (cheaper, sometimes fixes the leads problem alone)
+- A [technical SEO audit](/services/technical-seo-audit/) and on-page fixes (no redesign, save £2,000)
+- A new build (the existing site is past saving)
+
+I'd rather lose the redesign quote and get the diagnosis right than sell you something that doesn't fix what's broken.
+
+## When a full redesign is the right call
+
+Yes to a full redesign when:
+
+- The site is on a platform you can't easily extend (old custom CMS, Wix that's outgrown, Squarespace with structural limits).
+- The information architecture doesn't match how your buyers research now.
+- Mobile traffic exceeds 50% and the site was clearly designed desktop-first.
+- The brand has changed and the site is visibly the old brand.
+- Core Web Vitals are red and can't be fixed without restructuring templates.
+- The page count has grown to 30+ but only 5-6 generate any organic traffic.
+
+No to a full redesign — and yes to something cheaper — when:
+
+- The site looks fine, the leads have just dropped because of organic ranking issues. Fix [the SEO](/services/technical-seo-audit/) instead.
+- The conversion path is broken on the home page only. Rebuild the home + landing pages, leave the rest.
+- The site is structurally sound but content is thin. Commission [content briefs](/services/content-briefs/) and add pages.
+
+## Content migration — keeping the SEO equity you already earned
+
+This is the bit most agencies break.
+
+When you redesign, your existing pages have rankings, backlinks, and Google's trust built up over years. Lose any of that and the new site starts from zero in terms of organic visibility. Three to six months of traffic gone.
+
+What I do to preserve it:
+
+- **URL audit before design** — list every existing URL with its impressions, clicks, and backlink count.
+- **Content audit** — what's worth keeping, what's worth merging, what's worth dropping.
+- **One-to-one URL mapping** — every old URL maps to either the same URL on the new site, a new URL with a 301 redirect, or a `410 Gone` for pages we're dropping deliberately.
+- **Content port with structural improvements** — keep what's earning rankings, restructure the headings, tighten copy, add internal links.
+- **Schema preserved or improved** — old Article schema doesn't get lost, new Service / FAQ schema gets added.
+- **Image metadata preserved** — alt text and filenames carried across.
+
+The result is a redesigned site that keeps its existing rankings instead of restarting them.
+
+## Redirects — the bit most agencies break
+
+If you take one thing from this page: don't launch a redesigned site without a complete redirect map.
+
+Common agency failures I clean up after:
+
+- Old `/blog/post-slug/` URLs not redirected because the agency changed the blog structure.
+- Trailing slash inconsistency — old `/services/page` doesn't redirect to new `/services/page/`.
+- 302s instead of 301s — Google doesn't pass equity through a 302.
+- Wildcard redirects that catch the wrong things.
+- Internal links not updated so they hit the redirect chain rather than the new URL directly.
+
+What I deliver: a redirect spreadsheet with every old URL, the new destination, the redirect type, and a verification log post-launch. Set up in `.htaccess` for Apache, Rank Math redirects for managed WordPress, or NGINX config for custom hosting.
+
+## Visual refresh vs full rebuild — picking the right scope
+
+Three scopes, three prices:
+
+| Scope | What it covers | Approx price |
+|---|---|---|
+| **Visual refresh** | New design, same templates, same content, same URLs | £1,500-£2,000 |
+| **Standard redesign** | New design + restructured content + URL audit + redirects + on-page SEO | £2,000-£3,500 |
+| **Full rebuild** | New platform / new CMS / new IA + everything in Standard | £3,500-£6,000 |
+
+Most clients land on Standard. Visual refresh suits sites where the bones are good and the look is the only complaint. Full rebuild suits sites moving off Wix/Squarespace or where the existing platform is unmaintainable.
+
+## Mobile, accessibility and Core Web Vitals as part of the redesign
+
+Non-negotiable on every redesign:
+
+- Mobile-first design (tested on real devices, not just Chrome DevTools)
+- WCAG 2.2 AA accessibility targets (colour contrast, keyboard nav, focus states, alt text, ARIA where needed)
+- Core Web Vitals green at launch (LCP under 2.0s, CLS under 0.05, INP under 150ms)
+
+If your existing site is failing any of these, the redesign fixes them as part of the scope. No separate line item.
+
+## Aatma — a real redesign with measured results
+
+The Aatma Aesthetics redesign is the published case study. Healthcare clinic, existing WordPress site, leads stagnant despite local search demand. After the redesign:
+
+- Local pack visibility for the main service queries within five months
+- Organic traffic up year-on-year (full numbers in the [case study](/website-design/case-studies/))
+- The owner's testimonial: more clicks, more enquiries, without spending on ads
+
+I won't pretend every redesign hits these numbers. The variables are real. But this is what's possible when the diagnosis is right and the migration is handled cleanly.
+
+## Timeline
+
+- **Visual refresh:** 3-4 weeks.
+- **Standard redesign:** 4-6 weeks.
+- **Full rebuild:** 6-10 weeks.
+
+The biggest variable is content. If you're keeping most existing copy, redesigns run fast. If we're rewriting alongside, expect the upper end.
+
+## Pricing
+
+| Scope | Approximate price |
+|---|---|
+| Visual refresh | From £1,500 |
+| Standard redesign (audit + migration + redirects + SEO retrofit) | From £2,000 |
+| Full rebuild including platform migration | From £3,500 |
+| Add-on copywriting | £80 per page |
+| Add-on monthly maintenance post-launch | £40 per month |
+
+VAT additional. Fifty per cent deposit, balance on launch. No retainer lock-in.
+
+## FAQs
+
+**Will my rankings drop during the migration?**
+A small dip in the first 2-4 weeks is normal as Google re-indexes the new URLs. With a clean redirect map and content preserved, rankings recover and usually improve within 8-12 weeks. With a botched migration, rankings can drop 40-70% and take six months to recover. The redirects are the single most important variable.
+
+**Can you redesign without changing the URLs?**
+Yes — and I'll usually argue for it. Same URLs, new design, content kept, on-page tightened. This is the cheapest, lowest-risk redesign. Visual refresh starts at £1,500.
+
+**What if I'm on Wix or Squarespace and want to move to WordPress?**
+Full rebuild scope, £3,500-£5,000 depending on page count. Includes content migration, redirects, GBP and analytics carry-over, and a video walkthrough so your team can edit WordPress.
+
+**How long do I keep my existing site live during the redesign?**
+Until launch. The redesign is built on a staging URL you can review daily. Switch-over happens over a one-hour window with the redirect map activated and Search Console resubmitted.
+
+**Will you train my team on the new site?**
+Standard handover is a thirty-minute video walkthrough covering content edits, image uploads, and basic SEO updates. A live one-day training session is available as an add-on at £300.
+
+**What happens after launch?**
+Thirty days of bug fixes included. Twelve months of free minor edits. Optional [SEO retainer](/services/seo-consulting/) from £600/month if you want ongoing growth work.
+
+**My site lost rankings after a Google update — is a redesign the answer?**
+Probably not on its own. Algorithm penalties are usually content quality or E-E-A-T issues, not design. Run an [algorithm update recovery audit](/services/google-algorithm-update-recovery/) first.
+
+## Get a quote
+
+Free thirty-minute diagnostic — Search Console review, site audit, competitor check, honest answer on whether you need a redesign or something cheaper. Message me at [Hello@SunnyPatel.co.uk](mailto:Hello@SunnyPatel.co.uk) or call **073055 23333**.
+
+[← Back to website design](/website-design/) | [Redesign + UX hub →](/website-design/redesign-ux/) | [Aatma case study →](/website-design/case-studies/)

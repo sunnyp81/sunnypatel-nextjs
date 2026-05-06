@@ -2,6 +2,7 @@ import { Linkedin, Mail, Phone } from "lucide-react";
 
 const links = [
   { href: "/services/", label: "Services" },
+  { href: "/website-design/", label: "Website Design" },
   { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
   { href: "/services/seo-berkshire/", label: "SEO Berkshire" },
   { href: "/tools/", label: "Free SEO Tools" },
@@ -17,6 +18,10 @@ const serviceLinks = [
   { href: "/services/technical-seo-audit/", label: "Technical SEO Audit" },
   { href: "/services/seo-consulting/", label: "SEO Consulting" },
   { href: "/services/content-briefs/", label: "Content Strategy" },
+  { href: "/website-design/", label: "Website Design" },
+  { href: "/website-design/wordpress/", label: "WordPress Web Design" },
+  { href: "/website-design/packages/", label: "Web Design Packages" },
+  { href: "/website-design/redesign/", label: "Website Redesign" },
   { href: "/services/google-algorithm-update-recovery/", label: "Revenue Recovery" },
   { href: "/services/local-seo/", label: "Local SEO" },
 ];

@@ -1,0 +1,149 @@
+## Why WordPress is still my default for UK business websites in 2026
+
+WordPress runs over 40% of the web. That's not because it's the prettiest CMS — it's because nothing else hits the same balance of flexibility, plugin maturity, hosting choice, and team usability. For most UK service businesses, that balance is worth more than chasing whatever framework is trending on Twitter.
+
+The other reasons it stays my default:
+
+- **SEO plugin ecosystem.** Rank Math and Yoast are decade-mature. The Astra and GeneratePress themes are built with Core Web Vitals in mind. The schema landscape is fully solved.
+- **You can hire someone else later.** Every developer in the UK knows WordPress. Pick a custom Astro or Webflow build and your future hire pool shrinks.
+- **Your team can update it.** Your office manager can add a blog post or swap a phone number without raising a developer ticket.
+- **It's cheap to host well.** Decent managed hosting is £20-40 per month. Custom-coded sites need engineers to deploy.
+
+The exceptions still matter. If you're shipping ecommerce above fifty SKUs, [Shopify is usually the right call](/website-design/platforms/). If page speed is the conversion lever, a custom static build wins. For everything else — five-to-eight page service business sites — WordPress.
+
+## What "WordPress web design" should mean — and what it usually does
+
+The market is full of "WordPress web design" that means dragging a generic Astra Starter Site through Elementor and changing the colours. That isn't web design. It's repackaging.
+
+What I actually mean by WordPress web design:
+
+1. Custom design in Figma, signed off before a line of code.
+2. A custom child theme built on a fast parent (Astra, GeneratePress or Kadence) — not a bloated multipurpose theme.
+3. SEO architecture decided at design time — URL structure, internal linking, breadcrumbs, schema.
+4. On-page templates that match how Google parses pages: clear H1, semantic H2 hierarchy, FAQ schema where it earns its place.
+5. Post-launch handover so your team can edit safely.
+
+Everything else — animations, hero videos, sliders — is a layer on top, not the substance.
+
+## The plugin stack I install
+
+The plugins I default to:
+
+- **Rank Math** — SEO, schema, redirects, indexation control.
+- **WP Rocket** — caching, lazy loading, critical CSS.
+- **Imagify or ShortPixel** — image compression on upload.
+- **Wordfence or Solid Security** — security baseline.
+- **WPForms or Fluent Forms** — contact and lead capture.
+- **GA4 site kit or Google tag manager** — depending on your tracking setup.
+
+Plugins I refuse to install:
+
+- **Jetpack** — bloated, sends data to Automattic, slows the site.
+- **Elementor Pro on a five-page site** — overkill that costs a hundred milliseconds of LCP.
+- **Anything that "increases SEO" automatically** — it doesn't.
+
+The rule: every plugin earns its place. If a feature can be a hundred lines of theme code instead of a plugin, it goes in the theme.
+
+## Page builders — where each one fits
+
+Not every site needs a page builder. The starter package usually doesn't — Gutenberg is enough.
+
+When I do reach for one:
+
+- **Gutenberg** — for content-led sites where editors will be writing posts and adding images. Native, fast, modern.
+- **Bricks** — for sites where the team needs visual control over layout but you want clean HTML output and good performance.
+- **Elementor** — only when the client already uses it and migrating off would be more disruptive than helpful. The performance overhead is real.
+
+I won't build new sites in Elementor unless the client explicitly asks for it.
+
+## Custom themes vs starter themes
+
+I build on a starter theme — Astra, GeneratePress or Kadence — about 80% of the time. They're fast, well-maintained, and the customisation hooks are mature. A custom child theme on top gives you all the flexibility without the baggage of a from-scratch build.
+
+The other 20% — when the project warrants it — gets a custom theme. Usually for sites that want a specific design language the starter themes can't reach, or where future template flexibility matters more than launch speed.
+
+A from-scratch theme adds £500-£1,000 to the build. Most service businesses don't need it.
+
+## SEO baked in
+
+This is where the SEO consultant background earns its keep:
+
+- **Rank Math configured properly** — not the default settings. Schema turned on per post type, indexation controlled, sitemap structured.
+- **Schema markup at the template level** — Organization, LocalBusiness, Service, FAQPage, BreadcrumbList. Not as a plugin afterthought.
+- **Internal linking architecture** — the [topical authority](/services/topical-authority/) approach baked into how pages link to each other.
+- **Indexation hygiene** — noindex on tag archives, search pages, and other low-value URLs.
+- **URL structure** — `/website-design/wordpress/` not `/?p=4827`.
+- **Core Web Vitals targets** — LCP under 2.5s, CLS under 0.1, INP under 200ms. Tested on launch.
+
+The result is a site that ranks faster than a designer-led WordPress build because the foundations are already correct.
+
+## Hosting choices
+
+What I recommend by site size:
+
+- **Under 5,000 visits per month** — SiteGround, Cloudways, or 20i. £15-30 per month. Fine for most service businesses.
+- **5,000-50,000 visits per month** — Kinsta, WP Engine, Pressable. £30-100 per month. Faster, better support, easier scaling.
+- **Over 50,000 visits per month or ecommerce** — managed cloud hosting (Cloudways scaled up, Kinsta enterprise, or AWS/DO with Runcloud). £100+ per month.
+
+Avoid GoDaddy, BlueHost, and the other big-name shared hosts. They're cheap because they oversell.
+
+## WooCommerce — when to add it
+
+WooCommerce is the right call for WordPress sites that need to sell something but aren't pure-play ecommerce. Memberships, course sales, services with deposits, twenty-product shops. Anything beyond that, [Shopify is usually a better fit](/website-design/platforms/).
+
+Adding WooCommerce to a Standard build adds £500-£1,500 depending on product count, payment gateways and shipping rules.
+
+## What's included in a WordPress build at £1,500
+
+The Starter package, on WordPress:
+
+- Custom design in Figma based on your brand
+- Five pages — Home, About, Services, Contact, plus one chosen page
+- Mobile-first responsive build
+- Astra or GeneratePress base with custom child theme
+- Rank Math SEO configured
+- Schema markup (Organization + LocalBusiness)
+- GA4 setup
+- Sitemap and robots.txt
+- Contact form with email notifications
+- Basic accessibility (WCAG 2.2 AA targets)
+- Page speed targets met (Core Web Vitals green)
+- Thirty days of post-launch fixes
+- One year of free minor edits
+
+Standard at £2,000 adds three more pages, FAQ schema, full topical SEO setup, internal linking architecture and a custom blog template. [Full package details](/website-design/packages/).
+
+## Maintenance after launch
+
+Most service business WordPress sites need ten to twenty minutes of attention per month — plugin updates, security checks, backup verification, the occasional page edit.
+
+I offer this as a £40 per month maintenance bundle. It covers updates, backups, uptime monitoring, and small content tweaks. If you'd rather handle it in-house, the handover documents include everything your team needs.
+
+## Pricing
+
+From £1,500 for a five-page WordPress build with Rank Math, schema, GA4, and a year of free minor edits. Standard build with full SEO architecture from £2,000. WooCommerce add-on £500-£1,500. Custom theme +£500-£1,000.
+
+VAT additional. Fifty per cent deposit, balance on launch. No retainer lock-in.
+
+## FAQs
+
+**Why WordPress and not Webflow or Framer?**
+Plugin maturity, hireable developer pool, and your team can update content. Webflow and Framer are great for design-led brochure sites — but the moment you need a third-party integration, the gap shows.
+
+**Will I get locked into a page builder I can't change later?**
+No. I default to Gutenberg or a clean theme structure. If we use Bricks, you'll still own the site and can hire any WordPress developer to work on it.
+
+**What happens if Rank Math goes paid-only?**
+It already has a paid tier. The free version covers everything most sites need. If pricing changes, Yoast or SEOPress are drop-in replacements.
+
+**Can you migrate my existing WordPress site?**
+Yes. Migrations come in as part of a [redesign project](/website-design/redesign/). Includes content migration, redirects and SEO retrofit.
+
+**Do I get the source code?**
+Yes — it's a WordPress theme. You own the site, the database, the hosting account, and the domain. I don't retain anything.
+
+## Get a quote
+
+Want a WordPress build quote? Message me at [Hello@SunnyPatel.co.uk](mailto:Hello@SunnyPatel.co.uk) or call **073055 23333**. Same working day response with a fixed quote and timeline.
+
+[← Back to website design](/website-design/) | [Compare packages →](/website-design/packages/) | [SEO-led builds →](/website-design/seo/)

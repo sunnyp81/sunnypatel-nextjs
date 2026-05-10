@@ -62,6 +62,13 @@ const services = [
   },
 ];
 
+const localServices = [
+  { label: "SEO Consultant Reading", href: "/services/seo-consultant-reading/" },
+  { label: "SEO Berkshire", href: "/services/seo-berkshire/" },
+  { label: "SEO Bracknell", href: "/services/seo-bracknell/" },
+  { label: "SEO Maidenhead", href: "/services/seo-maidenhead/" },
+];
+
 export function Services() {
   return (
     <section id="services" className="relative py-24 md:py-32">
@@ -144,6 +151,19 @@ export function Services() {
               </motion.div>
             );
           })}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <span className="text-sm text-muted-foreground">Local:</span>
+          {localServices.map((s) => (
+            <a
+              key={s.href}
+              href={s.href}
+              className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-sm text-white/50 transition-colors hover:border-white/[0.16] hover:text-white/80"
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
       </div>
     </section>

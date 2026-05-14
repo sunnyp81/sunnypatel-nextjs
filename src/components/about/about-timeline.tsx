@@ -10,7 +10,7 @@ const entries = [
     role: "SEO Growth Manager",
     company: "Figment Agency",
     description:
-      "Managing 11+ client campaigns across diverse industries. Pioneered AI/LLM optimisation strategies and launched a YouTube SEO service line for scalable content growth.",
+      "Managing 13 active client campaigns across diverse industries. Pioneered AI/LLM optimisation strategies and launched a YouTube SEO service line for scalable content growth.",
     color: "#5B8AEF",
     border: "border-[#5B8AEF]/20",
     bg: "bg-[#5B8AEF]/10",

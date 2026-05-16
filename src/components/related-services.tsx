@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Globe, Code, Map, BarChart3, FileText, TrendingUp } from "lucide-react";
+import { ArrowRight, Globe, Code, Map, BarChart3, FileText, TrendingUp, Palette } from "lucide-react";
 
 /* ── Static service data (used for blog → service linking) ──── */
 const STATIC_SERVICES = [
@@ -50,6 +50,14 @@ const STATIC_SERVICES = [
     href: "/services/google-algorithm-update-recovery/",
     color: "#5a922c",
     keywords: ["recovery", "algorithm", "update", "penalty", "traffic drop", "ranking"],
+  },
+  {
+    icon: Palette,
+    title: "Website Design",
+    description: "SEO-optimised websites built for performance, conversions, and search visibility.",
+    href: "/website-design/",
+    color: "#7c3aed",
+    keywords: ["website", "design", "redesign", "build", "web design", "development"],
   },
 ];
 

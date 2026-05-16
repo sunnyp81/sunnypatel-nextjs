@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CalendarDays, Shield, Sparkles } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { BlogTOC } from "@/components/blog-toc";
 import { slugifyTag } from "@/lib/utils";
 
 function AuthorByline() {
@@ -270,6 +271,9 @@ export function ContentPage({
 
       {/* Related content */}
       {afterContent}
+
+      {/* TOC — blog posts */}
+      {isBlog && <BlogTOC />}
 
       {/* Sticky CTA — blogs and service pages */}
       {(isBlog || isService) && <BlogStickyCta />}

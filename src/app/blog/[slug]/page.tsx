@@ -7,6 +7,7 @@ import { articleSchema, faqSchema, breadcrumbSchema, personSchema, schemaGraph }
 import { RelatedPosts } from "@/components/related-posts";
 import { RelatedServices } from "@/components/related-services";
 import { BlogLeadMagnet } from "@/components/blog-lead-magnet";
+import { bestSeoCompaniesUkSchemas } from "@/lib/schema-best-seo-companies-uk";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -80,7 +81,8 @@ export default async function BlogPost({
             ]),
             ...(post.faqs && post.faqs.length > 0
               ? [faqSchema(post.faqs.map((f) => ({ q: f.question, a: f.answer })))]
-              : [])
+              : []),
+            ...(slug === "best-seo-companies-uk" ? bestSeoCompaniesUkSchemas() : [])
           ),
         }}
       />

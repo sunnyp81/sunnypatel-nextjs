@@ -29,9 +29,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sunnypatel.co.uk"),
-  title: "SEO Consultant Reading — 150%+ Traffic Growth | Sunny Patel",
+  title: "SEO Consultant Reading | 150%+ Growth",
   description:
-    "Independent SEO consultant in Reading, Berkshire. 15+ years delivering 150-280% organic growth for UK businesses. Free 30-min audit, no contracts.",
+    "Independent SEO consultant in Reading. 15+ years, 150-280% organic growth for UK businesses. Free 30-min audit, no contracts.",
   openGraph: {
     type: "website",
     siteName: "Sunny Patel — SEO Consultant",

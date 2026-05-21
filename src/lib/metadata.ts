@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const SITE_URL = "https://sunnypatel.co.uk";
 const DEFAULT_TITLE = "SEO Consultant UK | 150%+ Organic Growth";
 const DEFAULT_DESCRIPTION =
-  "UK SEO consultant. 15+ years delivering 150-280% organic growth. Free 30-min audit.";
+  "SEO consultant UK delivering 150-280% organic growth. 15+ years, proven results, free consultation available today.";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/images/sunny-patel-seo-consultant.png`;
 
 export function buildMetadata({

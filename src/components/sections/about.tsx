@@ -29,12 +29,14 @@ const highlights: {
     title: "Measurable Results",
     description:
       "Every campaign tracked through Google Search Console with transparent monthly reporting. No vanity metrics.",
+    href: "/services/",
   },
   {
     icon: <Brain className="h-5 w-5" />,
     title: "AI-Integrated Strategy",
     description:
       "Leveraging AI tools for content optimisation, entity mapping, and competitive analysis at scale.",
+    href: "/blog/ai-search-statistics/",
   },
 ];
 

@@ -153,7 +153,16 @@ export function Services() {
           })}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-10 flex justify-center">
+          <a
+            href="/services/"
+            className="rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/5 px-6 py-2 text-sm font-medium text-[#5B8AEF] transition-colors hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/10"
+          >
+            View All Services
+          </a>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <span className="text-sm text-muted-foreground">Local:</span>
           {localServices.map((s) => (
             <a

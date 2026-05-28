@@ -3,7 +3,8 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { Globe, Network, BookOpen } from "lucide-react";
+import { BookOpen } from "lucide-react";
+import { ComparisonTable } from "./ComparisonTable";
 
 const frameworks = [
   {
@@ -115,6 +116,8 @@ export function AboutMethodology() {
             </motion.div>
           ))}
         </div>
+
+        <ComparisonTable />
 
         {/* Connecting statement */}
         <motion.p

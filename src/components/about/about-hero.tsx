@@ -55,15 +55,14 @@ export function AboutHero() {
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I help businesses grow organic traffic through semantic SEO, topical
-            authority, and AI-powered search strategies. Based in Reading,
-            Berkshire with 15+ years of hands-on experience.
+            I enable businesses to achieve sustainable organic growth using advanced semantic SEO, topical
+            authority building, and AI-powered search strategies. Based in Reading, Berkshire, I offer over 15 years of hands-on experience, including expert web development strategy.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <GradientButton asChild>
               <a href="/contact/" className="gap-2">
-                Book Free Consultation
+                Get a Free SEO Audit
                 <ArrowRight className="h-4 w-4" />
               </a>
             </GradientButton>

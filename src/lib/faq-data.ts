@@ -19,4 +19,16 @@ export const faqs = [
     q: "Can you help recover from a Google ranking drop?",
     a: "Yes. I specialise in diagnosing and recovering from ranking drops caused by algorithm updates, technical issues, competitor movements, or content quality problems. I provide a detailed action plan to recover and strengthen your positions.",
   },
+  {
+    q: "What specific services do you offer beyond general SEO?",
+    a: "Beyond core SEO, I specialise in AI search optimisation, technical SEO audits, semantic SEO strategy, topical authority building, and integrating web development for optimal search performance. This ensures a holistic approach to organic growth.",
+  },
+  {
+    q: "How does your client engagement process work?",
+    a: "My process typically begins with a free consultation to understand your goals. This leads to a tailored audit and proposal, followed by strategy implementation, regular reporting, and iterative optimisation, ensuring transparent communication throughout.",
+  },
+  {
+    q: "What makes your AI search optimisation approach unique?",
+    a: "My AI search optimisation leverages advanced semantic analysis and entity-based strategies to ensure your content is not just found by traditional search engines, but also accurately retrieved and cited by AI models like Google AI Overviews, Perplexity, and ChatGPT.",
+  },
 ];

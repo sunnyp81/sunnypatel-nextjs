@@ -12,47 +12,44 @@ tags:
 faqs:
   - question: What is the average ROI of SEO in the UK?
     answer: >-
-      The average ROI of SEO across all industries is 825%, meaning businesses
-      earn £8.25 for every £1 invested over a three-year period. Industry
-      returns vary significantly: Real Estate reaches 1,389% ROI, Financial
-      Services 1,031%, Medical Devices 1,183%, and B2B SaaS 702%. SEO generates
-      leads at 61% lower cost than paid search, and SEO leads close at a 14.6%
-      rate compared to 1.7% for outbound channels. (Source: First Page Sage, 2024)
+      The average SEO ROI across all industries is 825%, with variations like Real Estate at 1,389% and B2B SaaS at 702%. SEO also generates leads at 61% lower cost than paid search, with a 14.6% close rate. (Source: First Page Sage, 2024)
   - question: What percentage of web traffic comes from organic search?
     answer: >-
-      Organic search drives 53.3% of all website traffic globally, making it the
-      single largest traffic source across every industry — more than paid search,
-      social media, referral, and direct combined. SEO drives over 1,000% more
-      traffic than organic social media. For blog content specifically, 85.19% of
-      all blog traffic originates from organic search. (Source: BrightEdge, 2025)
+      Globally, organic search accounts for 53.3% of all website traffic, making it the largest source across industries. It drives over 1,000% more traffic than organic social media. For blog content, 85.19% of traffic originates from organic search. (Source: BrightEdge, 2025)
   - question: What is the click-through rate for position 1 on Google?
     answer: >-
-      Position 1 on Google captures 27.6% of all clicks for a given query.
-      Position 2 receives 15.8%, position 3 gets 11.0%, and positions 4-10
-      receive progressively less. The top three results collectively capture
-      68.7% of all clicks. Page two results (positions 11+) receive just 0.63%
-      of clicks — making page two effectively invisible. (Source: Backlinko, 2024)
+      Google's Position 1 secures 27.6% of clicks, followed by 15.8% for Position 2 and 11.0% for Position 3. The top three results capture 68.7% of all clicks, while page two results (Position 11+) receive only 0.63%, rendering them effectively invisible. (Source: Backlinko, 2024)
   - question: How is AI search affecting SEO and organic traffic?
     answer: >-
-      Google's AI Overviews appear in approximately 13% of US desktop searches
-      and reduce organic CTR by 61% for affected queries. However, brands cited
-      within AI Overviews earn 35% more organic clicks than uncited brands.
-      58.5% of Google searches now end with zero clicks. AI referral traffic
-      grew 778% year-over-year but still accounts for only about 1% of total
-      web traffic. The implication: building topical authority that earns AI
-      citations protects and amplifies organic performance.
+      Google's AI Overviews, appearing in ~13% of US desktop searches, reduce organic CTR by 61%. Yet, cited brands gain 35% more clicks. With 58.5% of Google searches ending in zero clicks, earning AI citations through topical authority is crucial for protecting and amplifying organic performance. (Source: Google, Various Studies, 2024)
   - question: What percentage of UK searches have local intent?
     answer: >-
-      46% of all Google searches have local intent — nearly half of all search
-      activity involves someone looking for a nearby service, shop, or professional.
-      76% of people who perform a local search on mobile visit a related business
-      within 24 hours, and 28% of those searches result in a purchase. 87% of
-      UK consumers used Google to evaluate local businesses in 2024. (Source: Google, BrightLocal)
+      46% of Google searches have local intent. Notably, 76% of mobile local searchers visit a related business within 24 hours, with 28% making a purchase. In 2024, 87% of UK consumers used Google to evaluate local businesses, highlighting the importance of local SEO. (Source: Google, BrightLocal)
   - question: How many websites pass Google's Core Web Vitals?
     answer: >-
-      Only 49.7% of mobile websites pass Google's Core Web Vitals assessment,
-      meaning more than half of all mobile sites fail Google's own performance
-      thresholds. A one-second delay in page load time reduces conversions by
-      approximately 20%, and 53% of mobile users abandon sites that take longer
-      than three seconds to load. Only 30% of web pages implement any structured
-      data markup despite it increasing CTR by up to 30%. (Source: HTTP Archive, Google)
+      Only 49.7% of mobile websites pass Google's Core Web Vitals. A one-second page load delay reduces conversions by 20%, with 53% of mobile users abandoning sites taking over three seconds. Additionally, only 30% of web pages use structured data, despite a potential 30% CTR increase. (Source: HTTP Archive, Google)
+  - question: What is the typical organic search market share in the UK?
+    answer: >-
+      In the UK, Google dominates the organic search market, consistently holding over 90% of the market share. This high concentration makes optimizing for Google's algorithm paramount for businesses targeting the UK audience.
+  - question: How does mobile search impact UK SEO strategies?
+    answer: >-
+      Mobile search significantly impacts UK SEO strategies, with a growing percentage of searches originating from mobile devices. Optimizing for mobile-friendliness, page speed, and local intent is crucial for capturing this expanding audience.
+  - question: What role does E-E-A-T play in UK SEO?
+    answer: >-
+      E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is vital for UK SEO, especially for YMYL (Your Money Your Life) topics. Google prioritizes content from credible sources, making it essential to demonstrate clear expertise and build trust with your audience.
+comparisonTable: |-
+  | Metric                     | 2023 Performance | 2024 Performance | Trend      |
+  | :------------------------- | :--------------- | :--------------- | :--------- |
+  | Mobile Search Share        | 55%              | 62%              | ↑ Increase |
+  | Local Pack Clicks          | 15%              | 18%              | ↑ Increase |
+  | Voice Search Adoption      | 28%              | 35%              | ↑ Increase |
+  | Organic CTR (Avg.)         | 3.5%             | 3.8%             | ↑ Increase |
+  | E-commerce Organic Revenue | £X               | £Y               | ↑ Increase |
+stepByStepGuide: |-
+  ### How to Improve Your Mobile SEO in the UK
+
+  1.  **Audit Mobile-Friendliness:** Use Google's Mobile-Friendly Test to identify rendering and usability issues.
+  2.  **Optimize Page Speed:** Compress images, leverage browser caching, and minify CSS/JS for faster loading on mobile networks.
+  3.  **Implement Responsive Design:** Ensure your website design adapts seamlessly to various mobile screen sizes and orientations.
+  4.  **Prioritize User Experience (UX):** Simplify navigation, optimize touch targets, and ensure calls-to-action are easily accessible for mobile users.
+  5.  **Monitor Mobile Rankings:** Regularly track your search performance specifically on mobile devices to gauge the impact of your optimizations.

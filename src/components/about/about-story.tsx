@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { HowIWorkSteps } from "./HowIWorkSteps";
 
 export function AboutStory() {
   return (
@@ -37,7 +38,12 @@ export function AboutStory() {
                 analysis tools, creating a methodology that balances algorithmic
                 understanding with authentic, trust-building content.
               </p>
+              <p>
+                This website focuses on B2B SEO consulting, AI search optimisation, strategic portfolio management, and web development services. It does not cover PPC management, generic content writing, email marketing, or CRO.
+              </p>
             </div>
+
+            <HowIWorkSteps />
 
             {/* 60/40 framework card */}
             <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02]">

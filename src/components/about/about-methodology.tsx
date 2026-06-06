@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Globe, Network } from "lucide-react";
 import { ComparisonTable } from "./ComparisonTable";
 
 const frameworks = [

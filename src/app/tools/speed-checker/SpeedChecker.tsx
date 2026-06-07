@@ -354,7 +354,7 @@ export default function SpeedChecker() {
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !loading) runTest();
             }}
-            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
             placeholder="https://example.com"
             disabled={loading}
           />
@@ -362,7 +362,7 @@ export default function SpeedChecker() {
         <button
           onClick={runTest}
           disabled={loading || !url.trim()}
-          className="rounded-lg bg-[#5B8AEF] px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50"
+          className="rounded-lg bg-brand px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50"
         >
           {loading ? 'Testing...' : 'Test Speed'}
         </button>
@@ -371,7 +371,7 @@ export default function SpeedChecker() {
       {/* Loading state */}
       {loading && (
         <div className="mb-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
-          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-white/10 border-t-[#5B8AEF]" />
+          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-white/10 border-t-brand" />
           <p className="text-sm font-medium text-foreground">
             Analysing... this usually takes 10-20 seconds
           </p>
@@ -405,7 +405,7 @@ export default function SpeedChecker() {
                     onClick={() => setActiveTab(s)}
                     className={`px-4 py-2 text-sm font-medium transition-colors ${
                       activeTab === s
-                        ? 'bg-[#5B8AEF] text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
+                        ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
                         : 'bg-white/[0.03] text-muted-foreground hover:text-foreground'
                     }`}
                   >
@@ -498,12 +498,12 @@ export default function SpeedChecker() {
             your Core Web Vitals is one of the highest-ROI technical SEO tasks
             you can do.
           </p>
-          <div className="mt-4 rounded-lg border border-[#5B8AEF]/20 bg-[#5B8AEF]/5 p-4">
+          <div className="mt-4 rounded-lg border border-brand/20 bg-brand/5 p-4">
             <p className="text-sm text-foreground">
               Need help improving your Core Web Vitals?{' '}
               <a
                 href="/contact/"
-                className="font-medium text-[#5B8AEF] underline underline-offset-2 hover:text-[#5B8AEF]/80"
+                className="font-medium text-brand underline underline-offset-2 hover:text-brand/80"
               >
                 Get in touch
               </a>{' '}

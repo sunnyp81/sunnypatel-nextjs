@@ -94,7 +94,7 @@ export default async function AuthorPage() {
 
           {/* Expertise areas */}
           <div className="mx-auto mt-6 max-w-lg">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/40">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/70">
               Specialisations
             </p>
             <div className="flex flex-wrap justify-center gap-2">
@@ -131,7 +131,7 @@ export default async function AuthorPage() {
             </Link>
             <Link
               href="/services/"
-              className="text-sm text-muted-foreground transition-colors hover:text-[#5B8AEF]"
+              className="text-sm text-muted-foreground transition-colors hover:text-brand"
             >
               View services
             </Link>
@@ -174,7 +174,7 @@ export default async function AuthorPage() {
                   </div>
                 )}
                 <h2
-                  className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF]"
+                  className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {post.entry.title}
@@ -184,7 +184,7 @@ export default async function AuthorPage() {
                     {post.entry.description}
                   </p>
                 )}
-                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                   Read more <ArrowRight className="h-3 w-3" />
                 </div>
               </div>

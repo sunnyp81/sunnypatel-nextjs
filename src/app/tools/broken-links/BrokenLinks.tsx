@@ -69,7 +69,7 @@ function truncateUrl(url: string, max: number = 60): string {
 /* ------------------------------------------------------------------ */
 function Spinner() {
   return (
-    <svg className="h-5 w-5 animate-spin text-[#5B8AEF]" viewBox="0 0 24 24" fill="none">
+    <svg className="h-5 w-5 animate-spin text-brand" viewBox="0 0 24 24" fill="none">
       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
       <path
         className="opacity-75"
@@ -202,12 +202,12 @@ export default function BrokenLinks() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+            className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           />
           <button
             type="submit"
             disabled={loading || !url.trim()}
-            className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {loading ? (
               <span className="flex items-center gap-2">
@@ -237,7 +237,7 @@ export default function BrokenLinks() {
           </div>
           <div className="h-2 rounded-full bg-white/[0.06] overflow-hidden">
             <div
-              className="h-2 rounded-full bg-[#5B8AEF] transition-all duration-500 animate-pulse"
+              className="h-2 rounded-full bg-brand transition-all duration-500 animate-pulse"
               style={{ width: '60%' }}
             />
           </div>
@@ -294,7 +294,7 @@ export default function BrokenLinks() {
                   onClick={() => setFilter(tab.key)}
                   className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                     filter === tab.key
-                      ? 'bg-[#5B8AEF]/20 text-[#5B8AEF] border border-[#5B8AEF]/30'
+                      ? 'bg-brand/20 text-brand border border-brand/30'
                       : 'text-muted-foreground hover:text-foreground border border-white/[0.08]'
                   }`}
                 >
@@ -341,7 +341,7 @@ export default function BrokenLinks() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-mono text-xs text-foreground/80 hover:text-[#5B8AEF] transition-colors"
+                          className="font-mono text-xs text-foreground/80 hover:text-brand transition-colors"
                           title={link.url}
                         >
                           {truncateUrl(link.url)}
@@ -358,7 +358,7 @@ export default function BrokenLinks() {
                         <span
                           className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                             link.internal
-                              ? 'bg-[#5B8AEF]/15 text-[#5B8AEF]'
+                              ? 'bg-brand/15 text-brand'
                               : 'bg-purple-500/15 text-purple-400'
                           }`}
                         >

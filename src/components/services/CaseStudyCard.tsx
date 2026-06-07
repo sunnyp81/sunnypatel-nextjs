@@ -15,7 +15,7 @@ export function CaseStudyCard({
 }) {
   return (
     <div
-      className="rounded-2xl border border-[#5B8AEF]/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)] transition-shadow duration-300 hover:shadow-[0_0_36px_rgba(91,138,239,0.18)]"
+      className="rounded-2xl border border-brand/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)] transition-shadow duration-300 hover:shadow-[0_0_36px_rgba(91,138,239,0.18)]"
     >
       <span
         className="mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"

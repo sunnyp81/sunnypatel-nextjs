@@ -69,7 +69,7 @@ export function RelatedPosts({
                   </div>
                 )}
                 <h3
-                  className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF]"
+                  className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {post.title}
@@ -79,7 +79,7 @@ export function RelatedPosts({
                     {post.description}
                   </p>
                 )}
-                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                   Read more <ArrowRight className="h-3 w-3" />
                 </div>
               </div>

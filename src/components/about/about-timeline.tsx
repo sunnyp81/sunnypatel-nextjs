@@ -12,8 +12,8 @@ const entries = [
     description:
       "Managing 13 active client campaigns across diverse industries. Pioneered AI/LLM optimisation strategies and launched a YouTube SEO service line for scalable content growth.",
     color: "#5B8AEF",
-    border: "border-[#5B8AEF]/20",
-    bg: "bg-[#5B8AEF]/10",
+    border: "border-brand/20",
+    bg: "bg-brand/10",
   },
   {
     icon: <Code2 className="h-4 w-4" />,
@@ -23,8 +23,8 @@ const entries = [
     description:
       "Built and ranked 40+ profitable content websites from scratch. Full-stack SEO covering keyword research, content strategy, link acquisition, and advanced AI prompt engineering for automation.",
     color: "#5a922c",
-    border: "border-[#5a922c]/20",
-    bg: "bg-[#5a922c]/10",
+    border: "border-success/20",
+    bg: "bg-success/10",
   },
 ];
 
@@ -52,7 +52,7 @@ export function AboutTimeline() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#d79f1e]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">
             Background
           </p>
           <h2
@@ -65,7 +65,7 @@ export function AboutTimeline() {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-[#5B8AEF]/30 via-white/[0.08] to-transparent md:left-1/2 md:-translate-x-px" />
+          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-brand/30 via-white/[0.08] to-transparent md:left-1/2 md:-translate-x-px" />
 
           <div className="space-y-8">
             {entries.map((entry, i) => (

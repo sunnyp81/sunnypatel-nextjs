@@ -274,7 +274,7 @@ export default function KeywordScraper() {
               onChange={(e) => setKeywords(e.target.value)}
               disabled={isRunning}
               rows={10}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 disabled:opacity-50 font-mono"
+              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 disabled:opacity-50 font-mono"
               placeholder="seo consultant&#10;keyword research&#10;..."
             />
           </div>
@@ -295,7 +295,7 @@ export default function KeywordScraper() {
                     checked={engines[engine.id]}
                     onChange={() => toggleEngine(engine.id)}
                     disabled={isRunning}
-                    className="h-3.5 w-3.5 rounded border-white/20 accent-[#5B8AEF]"
+                    className="h-3.5 w-3.5 rounded border-white/20 accent-brand"
                   />
                   {engine.label}
                 </label>
@@ -316,7 +316,7 @@ export default function KeywordScraper() {
               onChange={(e) => setPositives(e.target.value)}
               disabled={isRunning}
               rows={6}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 disabled:opacity-50 font-mono"
+              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 disabled:opacity-50 font-mono"
               placeholder="how&#10;best&#10;what&#10;near me"
             />
           </div>
@@ -330,7 +330,7 @@ export default function KeywordScraper() {
               onChange={(e) => setNegatives(e.target.value)}
               disabled={isRunning}
               rows={5}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 disabled:opacity-50 font-mono"
+              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 disabled:opacity-50 font-mono"
               placeholder="spam word&#10;irrelevant"
             />
           </div>
@@ -341,7 +341,7 @@ export default function KeywordScraper() {
           <button
             onClick={handleStart}
             disabled={isRunning}
-            className="w-full rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {isRunning ? 'Running…' : 'Start'}
           </button>
@@ -354,7 +354,7 @@ export default function KeywordScraper() {
           </button>
           {isRunning && (
             <div className="flex items-center gap-2">
-              <div className="h-2 w-2 animate-pulse rounded-full bg-[#5B8AEF]" />
+              <div className="h-2 w-2 animate-pulse rounded-full bg-brand" />
               <span className="text-xs text-muted-foreground">Scraping…</span>
             </div>
           )}
@@ -367,7 +367,7 @@ export default function KeywordScraper() {
           <div className="flex items-center justify-between">
             <label className="text-sm font-medium text-foreground">
               Results{' '}
-              <span className="ml-2 rounded-full bg-[#5B8AEF]/15 px-2 py-0.5 text-xs font-mono text-[#5B8AEF]">
+              <span className="ml-2 rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand">
                 {count} keywords
               </span>
             </label>
@@ -384,7 +384,7 @@ export default function KeywordScraper() {
           <button
             onClick={handleDownload}
             disabled={count === 0}
-            className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08] disabled:cursor-not-allowed disabled:opacity-40"
+            className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Download CSV
           </button>

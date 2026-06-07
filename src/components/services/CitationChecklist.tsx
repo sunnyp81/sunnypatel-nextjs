@@ -10,7 +10,7 @@ const PLATFORMS = [
 
 export function CitationChecklist() {
   return (
-    <div className="rounded-2xl border border-[#5B8AEF]/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]">
+    <div className="rounded-2xl border border-brand/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]">
       <h3
         className="mb-6 text-xl font-bold text-foreground"
         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
@@ -22,10 +22,10 @@ export function CitationChecklist() {
         {PLATFORMS.map((p) => (
           <div
             key={p.name}
-            className="flex items-start gap-3 rounded-xl border border-[#5B8AEF]/10 bg-[#5B8AEF]/[0.04] p-4"
+            className="flex items-start gap-3 rounded-xl border border-brand/10 bg-brand/[0.04] p-4"
           >
             <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border border-white/[0.12] bg-white/[0.04]">
-              <span className="text-xs text-muted-foreground/40">?</span>
+              <span className="text-xs text-muted-foreground/70">?</span>
             </div>
             <div>
               <p className="text-sm font-semibold text-foreground">{p.name}</p>
@@ -41,7 +41,7 @@ export function CitationChecklist() {
 
       <Link
         href="/contact/"
-        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#5B8AEF] to-[#7BA5F5] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.40)] transition-all duration-200 hover:shadow-[0_0_28px_rgba(91,138,239,0.60)] hover:scale-[1.02] active:scale-[0.98]"
+        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand to-[#7BA5F5] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.40)] transition-all duration-200 hover:shadow-[0_0_28px_rgba(91,138,239,0.60)] hover:scale-[1.02] active:scale-[0.98]"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         Book Free AI Citation Audit

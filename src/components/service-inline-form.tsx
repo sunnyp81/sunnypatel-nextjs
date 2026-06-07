@@ -109,8 +109,8 @@ export function ServiceInlineForm({
 
         {status === "success" ? (
           <div className="flex min-h-[320px] flex-col items-center justify-center gap-4 text-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#5a922c]/30 bg-[#5a922c]/10">
-              <CheckCircle2 className="h-8 w-8 text-[#5a922c]" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-success/30 bg-success/10">
+              <CheckCircle2 className="h-8 w-8 text-success" />
             </div>
             <h3
               className="text-xl font-bold text-foreground"
@@ -123,7 +123,7 @@ export function ServiceInlineForm({
             </p>
             <button
               onClick={() => setStatus("idle")}
-              className="mt-2 text-sm text-[#5B8AEF] transition-colors hover:text-[#5B8AEF]/80"
+              className="mt-2 text-sm text-brand transition-colors hover:text-brand/80"
             >
               Send another message
             </button>
@@ -144,7 +144,7 @@ export function ServiceInlineForm({
                   htmlFor="name"
                   className="mb-2 block text-sm font-medium text-muted-foreground"
                 >
-                  Name <span className="text-[#5B8AEF]">*</span>
+                  Name <span className="text-brand">*</span>
                 </label>
                 <input
                   type="text"
@@ -154,7 +154,7 @@ export function ServiceInlineForm({
                   placeholder="Your name"
                   required
                   disabled={status === "loading"}
-                  className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
+                  className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
                 />
               </div>
               <div>
@@ -162,7 +162,7 @@ export function ServiceInlineForm({
                   htmlFor="email"
                   className="mb-2 block text-sm font-medium text-muted-foreground"
                 >
-                  Email <span className="text-[#5B8AEF]">*</span>
+                  Email <span className="text-brand">*</span>
                 </label>
                 <input
                   type="email"
@@ -172,7 +172,7 @@ export function ServiceInlineForm({
                   placeholder="you@company.com"
                   required
                   disabled={status === "loading"}
-                  className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
+                  className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
                 />
               </div>
             </div>
@@ -184,7 +184,7 @@ export function ServiceInlineForm({
                   htmlFor="phone"
                   className="mb-2 block text-sm font-medium text-muted-foreground"
                 >
-                  Phone <span className="text-muted-foreground/40">(optional)</span>
+                  Phone <span className="text-muted-foreground/70">(optional)</span>
                 </label>
                 <input
                   type="tel"
@@ -193,7 +193,7 @@ export function ServiceInlineForm({
                   onChange={handleChange}
                   placeholder="07xxx xxx xxx"
                   disabled={status === "loading"}
-                  className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
+                  className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
                 />
               </div>
             )}
@@ -204,7 +204,7 @@ export function ServiceInlineForm({
                 htmlFor="message"
                 className="mb-2 block text-sm font-medium text-muted-foreground"
               >
-                How can I help? <span className="text-muted-foreground/40">(optional)</span>
+                How can I help? <span className="text-muted-foreground/70">(optional)</span>
               </label>
               <textarea
                 id="message"
@@ -213,7 +213,7 @@ export function ServiceInlineForm({
                 onChange={handleChange}
                 placeholder="Your website URL and what you're trying to achieve — or just say hi, I'll ask the right questions."
                 disabled={status === "loading"}
-                className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
+                className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
               />
             </div>
 
@@ -248,21 +248,21 @@ export function ServiceInlineForm({
               )}
             </button>
 
-            <p className="text-center text-xs text-muted-foreground/40">
+            <p className="text-center text-xs text-muted-foreground/70">
               No obligation · Free 30 minutes · Usually responds same day
             </p>
-            <p className="text-center text-xs text-muted-foreground/30">
+            <p className="text-center text-xs text-muted-foreground/70">
               Prefer to talk?{" "}
               <a
                 href="tel:07305523333"
-                className="text-[#5B8AEF]/60 hover:text-[#5B8AEF] transition-colors"
+                className="text-brand/60 hover:text-brand transition-colors"
               >
                 07305 523333
               </a>
               {" · "}
               <a
                 href="mailto:hello@sunnypatel.co.uk"
-                className="text-[#5B8AEF]/60 hover:text-[#5B8AEF] transition-colors"
+                className="text-brand/60 hover:text-brand transition-colors"
               >
                 hello@sunnypatel.co.uk
               </a>
@@ -282,7 +282,7 @@ export function ServiceInlineForm({
   return (
     <div className="relative overflow-hidden" style={{ background: "#0a0a10" }}>
       {/* Strong top separator */}
-      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#5B8AEF]/40 to-transparent" />
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
       {/* Ambient glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 rounded-full opacity-[0.10] blur-[100px]"
@@ -306,7 +306,7 @@ export function ServiceInlineForm({
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* ── Left: copy & trust ───────────────────────── */}
           <div className="flex flex-col justify-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
               Get Started
             </p>
             <h2
@@ -325,7 +325,7 @@ export function ServiceInlineForm({
                   className="flex items-start gap-2.5 text-sm text-muted-foreground"
                 >
                   <Star
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#5B8AEF]"
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand"
                     fill="currentColor"
                   />
                   {point}
@@ -338,7 +338,7 @@ export function ServiceInlineForm({
               {BADGES.map(({ icon: Icon, label }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/[0.07] px-3 py-1.5 text-xs font-medium text-[#5B8AEF]"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
                 >
                   <Icon className="h-3 w-3 shrink-0" />
                   {label}
@@ -348,7 +348,7 @@ export function ServiceInlineForm({
 
             {/* Availability + response time */}
             <div className="mt-5 space-y-2">
-              <p className="flex items-center gap-1.5 text-xs text-muted-foreground/50">
+              <p className="flex items-center gap-1.5 text-xs text-muted-foreground/65">
                 <Clock className="h-3 w-3" />
                 Usually responds within a few hours
               </p>

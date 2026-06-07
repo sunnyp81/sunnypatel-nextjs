@@ -17,7 +17,7 @@ export default function NotFound() {
         />
 
         <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand">
             404
           </p>
           <h1

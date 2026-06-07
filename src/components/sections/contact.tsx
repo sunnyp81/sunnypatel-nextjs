@@ -8,19 +8,19 @@ type Status = "idle" | "loading" | "success" | "error";
 
 const contactItems = [
   {
-    icon: <Mail className="h-5 w-5 text-[#5B8AEF]" />,
+    icon: <Mail className="h-5 w-5 text-brand" />,
     label: "Email",
     value: "Hello@SunnyPatel.co.uk",
     href: "mailto:Hello@SunnyPatel.co.uk",
   },
   {
-    icon: <Phone className="h-5 w-5 text-[#5B8AEF]" />,
+    icon: <Phone className="h-5 w-5 text-brand" />,
     label: "Phone",
     value: "07305 523333",
     href: "tel:07305523333",
   },
   {
-    icon: <MapPin className="h-5 w-5 text-[#5B8AEF]" />,
+    icon: <MapPin className="h-5 w-5 text-brand" />,
     label: "Location",
     value: "Berkshire, UK (Remote & In-Person)",
     href: null,
@@ -96,7 +96,7 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left — info */}
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#4c7894]">
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal">
               Get in Touch
             </p>
             <h2
@@ -114,7 +114,7 @@ export function Contact() {
               {contactItems.map((item, i) => {
                 const inner = (
                   <div
-                    className={`flex items-center gap-4 px-5 py-4 transition-all duration-200 ${item.href ? "hover:bg-[#5B8AEF]/5" : ""}`}
+                    className={`flex items-center gap-4 px-5 py-4 transition-all duration-200 ${item.href ? "hover:bg-brand/5" : ""}`}
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04]">
                       {item.icon}
@@ -156,8 +156,8 @@ export function Contact() {
             <div className="relative rounded-xl border-[0.75px] bg-background p-8 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
               {status === "success" ? (
                 <div className="flex min-h-[320px] flex-col items-center justify-center gap-4 text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#5a922c]/30 bg-[#5a922c]/10">
-                    <CheckCircle2 className="h-8 w-8 text-[#5a922c]" />
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-success/30 bg-success/10">
+                    <CheckCircle2 className="h-8 w-8 text-success" />
                   </div>
                   <h3
                     className="text-xl font-bold text-foreground"
@@ -171,7 +171,7 @@ export function Contact() {
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
-                    className="mt-2 text-sm text-[#5B8AEF] transition-colors hover:text-[#5B8AEF]/80"
+                    className="mt-2 text-sm text-brand transition-colors hover:text-brand/80"
                   >
                     Send another message
                   </button>
@@ -208,7 +208,7 @@ export function Contact() {
                       >
                         {field.label}
                         {field.required && (
-                          <span className="ml-1 text-[#5B8AEF]">*</span>
+                          <span className="ml-1 text-brand">*</span>
                         )}
                       </label>
                       <input
@@ -219,7 +219,7 @@ export function Contact() {
                         placeholder={field.placeholder}
                         required={field.required}
                         disabled={status === "loading"}
-                        className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
+                        className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
                       />
                     </div>
                   ))}
@@ -230,7 +230,7 @@ export function Contact() {
                       className="mb-2 block text-sm font-medium text-muted-foreground"
                     >
                       How can I help?
-                      <span className="ml-1 text-[#5B8AEF]">*</span>
+                      <span className="ml-1 text-brand">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -240,7 +240,7 @@ export function Contact() {
                       placeholder="Tell me about your project and goals..."
                       required
                       disabled={status === "loading"}
-                      className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
+                      className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
                     />
                   </div>
 

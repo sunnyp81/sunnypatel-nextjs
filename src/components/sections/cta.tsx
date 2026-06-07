@@ -29,8 +29,8 @@ export function Cta() {
         <rect width="100%" height="100%" filter="url(#grain-cta)" />
       </svg>
 
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5B8AEF]/15 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5B8AEF]/15 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/15 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/15 to-transparent" />
 
       <motion.div
         className="relative z-10 mx-auto max-w-3xl px-6 text-center"
@@ -55,8 +55,8 @@ export function Cta() {
 
         {/* Pulsing ring wrapper */}
         <div className="relative inline-flex">
-          <div className="absolute -inset-3 animate-ping rounded-full bg-[#5B8AEF]/10 duration-[2000ms]" />
-          <div className="absolute -inset-1.5 rounded-full bg-[#5B8AEF]/5" />
+          <div className="absolute -inset-3 animate-ping rounded-full bg-brand/10 duration-[2000ms]" />
+          <div className="absolute -inset-1.5 rounded-full bg-brand/5" />
           <GradientButton asChild>
             <a href="/contact/" className="relative gap-2">
               Book Free Consultation
@@ -79,7 +79,7 @@ export function Cta() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-xs text-muted-foreground/60 transition-all duration-200 hover:border-[#5B8AEF]/20 hover:text-[#5B8AEF]"
+              className="rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-xs text-muted-foreground/60 transition-all duration-200 hover:border-brand/20 hover:text-brand"
             >
               {link.label}
             </a>

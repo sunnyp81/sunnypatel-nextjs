@@ -54,7 +54,7 @@ export default async function BlogIndex() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
             Blog
           </p>
           <h1
@@ -80,7 +80,7 @@ export default async function BlogIndex() {
             {/* Featured post */}
             {featured && (
               <Link href={`/blog/${featured.slug}`} className="group mb-6 block">
-                <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-[#5B8AEF]/20 hover:bg-white/[0.04]">
+                <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-brand/20 hover:bg-white/[0.04]">
                   {/* Hover glow */}
                   <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(91,138,239,0.04), transparent 60%)" }} />
@@ -100,7 +100,7 @@ export default async function BlogIndex() {
                     )}
                     <div className="flex flex-1 flex-col justify-center p-8 md:p-10">
                       <div className="mb-3 flex items-center gap-3">
-                        <span className="rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-2.5 py-0.5 text-xs font-medium text-[#5B8AEF]">
+                        <span className="rounded-full border border-brand/20 bg-brand/10 px-2.5 py-0.5 text-xs font-medium text-brand">
                           Latest
                         </span>
                         {featured.entry.date && (
@@ -114,7 +114,7 @@ export default async function BlogIndex() {
                         )}
                       </div>
                       <h2
-                        className="mb-3 text-2xl font-bold text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF] md:text-3xl"
+                        className="mb-3 text-2xl font-bold text-foreground transition-colors duration-200 group-hover:text-brand md:text-3xl"
                         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
                       >
                         {featured.entry.title}
@@ -130,14 +130,14 @@ export default async function BlogIndex() {
                             <TagLink
                               key={tag}
                               href={`/blog/tag/${slugifyTag(tag)}`}
-                              className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:bg-[#5B8AEF]/10 hover:text-[#5B8AEF]"
+                              className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand"
                             >
                               {tag}
                             </TagLink>
                           ))}
                         </div>
                       )}
-                      <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-muted-foreground/50 transition-all duration-200 group-hover:gap-2.5 group-hover:text-[#5B8AEF]">
+                      <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-muted-foreground/65 transition-all duration-200 group-hover:gap-2.5 group-hover:text-brand">
                         Read article
                         <ArrowRight className="h-4 w-4" />
                       </div>
@@ -178,7 +178,7 @@ export default async function BlogIndex() {
                         </div>
                       )}
                       <h2
-                        className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF]"
+                        className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand"
                         style={{ fontFamily: "var(--font-heading)" }}
                       >
                         {post.entry.title}
@@ -194,14 +194,14 @@ export default async function BlogIndex() {
                             <TagLink
                               key={tag}
                               href={`/blog/tag/${slugifyTag(tag)}`}
-                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground transition-colors duration-200 hover:bg-[#5B8AEF]/10 hover:text-[#5B8AEF]"
+                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand"
                             >
                               {tag}
                             </TagLink>
                           ))}
                         </div>
                       )}
-                      <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                      <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                         Read more <ArrowRight className="h-3 w-3" />
                       </div>
                     </div>

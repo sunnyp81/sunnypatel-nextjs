@@ -139,7 +139,7 @@ export function ChartHero({
             >
               {metrics[0].value}
             </div>
-            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">
+            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/70">
               {metrics[0].label}
             </div>
           </motion.div>
@@ -163,7 +163,7 @@ export function ChartHero({
             >
               {metrics[1].value}
             </div>
-            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">
+            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/70">
               {metrics[1].label}
             </div>
           </motion.div>

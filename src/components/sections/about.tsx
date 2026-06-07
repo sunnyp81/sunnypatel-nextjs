@@ -64,7 +64,7 @@ export function About() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#5a922c]">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-success">
             Why Work With Sunny
           </p>
           <h2

@@ -42,8 +42,8 @@ export function PortfolioDetail({
 
   const psr = [
     { label: "The Problem", text: project.problem, color: "#ef4444", accent: "border-red-500/20 bg-red-500/5" },
-    { label: "The Solution", text: project.solution, color: "#5B8AEF", accent: "border-[#5B8AEF]/20 bg-[#5B8AEF]/5" },
-    { label: "The Result", text: project.result, color: "#5a922c", accent: "border-[#5a922c]/20 bg-[#5a922c]/5" },
+    { label: "The Solution", text: project.solution, color: "#5B8AEF", accent: "border-brand/20 bg-brand/5" },
+    { label: "The Result", text: project.result, color: "#5a922c", accent: "border-success/20 bg-success/5" },
   ].filter((s) => s.text);
 
   return (
@@ -79,7 +79,7 @@ export function PortfolioDetail({
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-[#d79f1e]/20 bg-[#d79f1e]/10 px-3 py-1 text-xs font-medium text-[#d79f1e]"
+                    className="rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-medium text-gold"
                   >
                     {tag}
                   </span>
@@ -156,7 +156,7 @@ export function PortfolioDetail({
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                 >
                   <div
-                    className="text-3xl font-bold text-[#d79f1e] md:text-4xl"
+                    className="text-3xl font-bold text-gold md:text-4xl"
                     style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
                   >
                     {m.value}
@@ -209,7 +209,7 @@ export function PortfolioDetail({
               viewport={{ once: true, amount: 0.01 }}
               transition={{ duration: 0.6 }}
             >
-              <Quote className="mb-6 h-8 w-8 text-[#d79f1e]/40" />
+              <Quote className="mb-6 h-8 w-8 text-gold/40" />
               <p
                 className="text-lg leading-relaxed text-foreground md:text-xl"
                 style={{ fontFamily: "var(--font-heading)" }}
@@ -239,7 +239,7 @@ export function PortfolioDetail({
       {/* Extra prose content (if any) */}
       {renderedContent && (
         <div className="mx-auto max-w-3xl px-6 pb-16">
-          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-hr:border-white/[0.08]">
+          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-hr:border-white/[0.08]">
             {renderedContent}
           </div>
         </div>

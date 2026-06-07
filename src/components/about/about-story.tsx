@@ -16,7 +16,7 @@ export function AboutStory() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
               My Approach
             </p>
             <h2
@@ -55,18 +55,18 @@ export function AboutStory() {
               <div className="p-6">
                 <div className="mb-6 flex h-3 overflow-hidden rounded-full">
                   <div
-                    className="h-full bg-gradient-to-r from-[#5B8AEF] to-[#4c7894] transition-all duration-1000"
+                    className="h-full bg-gradient-to-r from-brand to-teal transition-all duration-1000"
                     style={{ width: "60%" }}
                   />
                   <div
-                    className="h-full bg-gradient-to-r from-[#5a922c] to-[#d79f1e]"
+                    className="h-full bg-gradient-to-r from-success to-gold"
                     style={{ width: "40%" }}
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/5 p-4">
+                  <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
                     <div
-                      className="mb-1 text-2xl font-bold text-[#5B8AEF]"
+                      className="mb-1 text-2xl font-bold text-brand"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       60%
@@ -78,9 +78,9 @@ export function AboutStory() {
                       Entity relationships, topical architecture, algorithmic signals
                     </div>
                   </div>
-                  <div className="rounded-xl border border-[#5a922c]/20 bg-[#5a922c]/5 p-4">
+                  <div className="rounded-xl border border-success/20 bg-success/5 p-4">
                     <div
-                      className="mb-1 text-2xl font-bold text-[#5a922c]"
+                      className="mb-1 text-2xl font-bold text-success"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       40%

@@ -58,11 +58,11 @@ const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 // ── Style constants ────────────────────────────────────────────────────────────
 
 const inputClass =
-  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30';
+  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 const labelClass = 'block text-sm font-medium text-foreground mb-1.5';
 const cardClass = 'rounded-xl border border-white/[0.06] bg-white/[0.02] p-6';
 const btnPrimary =
-  'rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4a7be0] transition-colors';
+  'rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4a7be0] transition-colors';
 const btnSecondary =
   'rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-white/[0.08] transition-colors';
 const dangerText = 'text-red-400 hover:text-red-300 transition-colors';
@@ -726,7 +726,7 @@ export default function SchemaGenerator() {
             onClick={() => setActiveType(type)}
             className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
               activeType === type
-                ? 'bg-[#5B8AEF]/15 text-[#5B8AEF] border-[#5B8AEF]/30'
+                ? 'bg-brand/15 text-brand border-brand/30'
                 : 'border-white/[0.08] text-muted-foreground hover:text-foreground'
             }`}
           >

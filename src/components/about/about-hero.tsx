@@ -39,7 +39,7 @@ export function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand">
             SEO & AI Consultant
           </span>
 
@@ -49,7 +49,7 @@ export function AboutHero() {
           >
             Sunny Patel
             <br />
-            <span className="bg-gradient-to-r from-[#5B8AEF] via-[#4c7894] to-[#5a922c] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand via-teal to-success bg-clip-text text-transparent">
               SEO Consultant & AI Strategist
             </span>
           </h1>

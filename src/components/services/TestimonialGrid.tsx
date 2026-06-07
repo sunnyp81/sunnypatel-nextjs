@@ -23,7 +23,7 @@ export function TestimonialGrid({
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="rounded-2xl border border-[#5B8AEF]/20 bg-white/[0.02] p-5 shadow-[0_0_20px_rgba(91,138,239,0.08)] transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(91,138,239,0.16)]"
+            className="rounded-2xl border border-brand/20 bg-white/[0.02] p-5 shadow-[0_0_20px_rgba(91,138,239,0.08)] transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(91,138,239,0.16)]"
           >
             <div className="mb-3 flex gap-0.5">
               {Array.from({ length: 5 }).map((_, s) => (

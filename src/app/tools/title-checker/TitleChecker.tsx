@@ -151,13 +151,13 @@ export default function TitleChecker() {
           onChange={(e) => setInput(e.target.value)}
           rows={8}
           placeholder={"Best Running Shoes for Flat Feet 2026 | Expert Reviews\nHow to Train for a Marathon: Complete Beginner's Guide\n10 Budget-Friendly Home Office Desks Under £200"}
-          className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 font-mono resize-y"
+          className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono resize-y"
         />
         <div className="flex flex-wrap items-center gap-3 mt-4">
           <button
             onClick={exportCSV}
             disabled={results.length === 0}
-            className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
+            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
           >
             Export CSV
           </button>
@@ -176,7 +176,7 @@ export default function TitleChecker() {
                 onClick={() => setSortMode(mode)}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                   sortMode === mode
-                    ? 'bg-[#5B8AEF]/20 text-[#5B8AEF] border border-[#5B8AEF]/30'
+                    ? 'bg-brand/20 text-brand border border-brand/30'
                     : 'border border-white/[0.08] bg-white/[0.03] text-muted-foreground hover:text-foreground'
                 }`}
               >

@@ -233,8 +233,8 @@ export default function ImageCompressor() {
         onDragLeave={handleDragLeave}
         className={`cursor-pointer rounded-xl border-2 border-dashed p-12 text-center transition-colors ${
           isDragging
-            ? "border-[#5B8AEF] bg-[#5B8AEF]/[0.06]"
-            : "border-white/[0.12] bg-white/[0.02] hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.03]"
+            ? "border-brand bg-brand/[0.06]"
+            : "border-white/[0.12] bg-white/[0.02] hover:border-brand/40 hover:bg-brand/[0.03]"
         }`}
       >
         <input
@@ -296,7 +296,7 @@ export default function ImageCompressor() {
                 max={100}
                 value={quality}
                 onChange={(e) => setQuality(Number(e.target.value))}
-                className="w-full accent-[#5B8AEF]"
+                className="w-full accent-brand"
               />
               <div className="flex justify-between text-xs text-muted-foreground mt-1">
                 <span>10%</span>
@@ -312,7 +312,7 @@ export default function ImageCompressor() {
               <select
                 value={outputFormat}
                 onChange={(e) => setOutputFormat(e.target.value as "auto" | "jpeg" | "webp" | "png")}
-                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground focus:border-[#5B8AEF] focus:outline-none"
+                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground focus:border-brand focus:outline-none"
               >
                 <option value="auto">Auto (same as input)</option>
                 <option value="jpeg">JPEG</option>
@@ -331,7 +331,7 @@ export default function ImageCompressor() {
                 placeholder="e.g. 1920"
                 value={maxDim}
                 onChange={(e) => setMaxDim(e.target.value)}
-                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-[#5B8AEF] focus:outline-none"
+                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/65 focus:border-brand focus:outline-none"
               />
               <p className="text-xs text-muted-foreground mt-1">Leave empty for original size</p>
             </div>
@@ -341,7 +341,7 @@ export default function ImageCompressor() {
               <button
                 onClick={compressAll}
                 disabled={isCompressing}
-                className="w-full rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50"
+                className="w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50"
               >
                 {isCompressing ? "Compressing..." : `Compress All (${files.length})`}
               </button>
@@ -375,7 +375,7 @@ export default function ImageCompressor() {
             </div>
             <button
               onClick={downloadAll}
-              className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
+              className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
             >
               Download All
             </button>
@@ -406,7 +406,7 @@ export default function ImageCompressor() {
                       />
                       <span className="text-[10px] text-muted-foreground mt-1 block">Before</span>
                     </div>
-                    <div className="flex items-center text-muted-foreground/40">
+                    <div className="flex items-center text-muted-foreground/70">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
@@ -463,8 +463,8 @@ export default function ImageCompressor() {
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="flex gap-3">
-            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-[#5B8AEF]/15 flex items-center justify-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#5B8AEF]" />
+            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-brand/15 flex items-center justify-center">
+              <div className="h-1.5 w-1.5 rounded-full bg-brand" />
             </div>
             <p className="text-sm text-muted-foreground">
               Images are typically <span className="text-foreground font-medium">50-75%</span> of a
@@ -472,8 +472,8 @@ export default function ImageCompressor() {
             </p>
           </div>
           <div className="flex gap-3">
-            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-[#5B8AEF]/15 flex items-center justify-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#5B8AEF]" />
+            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-brand/15 flex items-center justify-center">
+              <div className="h-1.5 w-1.5 rounded-full bg-brand" />
             </div>
             <p className="text-sm text-muted-foreground">
               Google&apos;s <span className="text-foreground font-medium">Largest Contentful Paint (LCP)</span> metric
@@ -481,8 +481,8 @@ export default function ImageCompressor() {
             </p>
           </div>
           <div className="flex gap-3">
-            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-[#5B8AEF]/15 flex items-center justify-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#5B8AEF]" />
+            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-brand/15 flex items-center justify-center">
+              <div className="h-1.5 w-1.5 rounded-full bg-brand" />
             </div>
             <p className="text-sm text-muted-foreground">
               <span className="text-foreground font-medium">WebP format</span> is 25-35% smaller
@@ -490,8 +490,8 @@ export default function ImageCompressor() {
             </p>
           </div>
           <div className="flex gap-3">
-            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-[#5B8AEF]/15 flex items-center justify-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#5B8AEF]" />
+            <div className="shrink-0 mt-1 h-5 w-5 rounded-full bg-brand/15 flex items-center justify-center">
+              <div className="h-1.5 w-1.5 rounded-full bg-brand" />
             </div>
             <p className="text-sm text-muted-foreground">
               All compression happens <span className="text-foreground font-medium">in your browser</span> —

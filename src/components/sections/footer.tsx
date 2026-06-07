@@ -38,7 +38,7 @@ export function Footer() {
               className="text-xl font-bold tracking-tight text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Sunny<span className="text-[#5B8AEF]">Patel</span>
+              Sunny<span className="text-brand">Patel</span>
             </a>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground" style={{ lineHeight: 1.7 }}>
               SEO consultant and AI strategist helping UK businesses grow
@@ -47,14 +47,14 @@ export function Footer() {
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href="tel:07305523333"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
               >
                 <Phone className="h-4 w-4" />
                 07305 523333
               </a>
               <a
                 href="mailto:Hello@SunnyPatel.co.uk"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
               >
                 <Mail className="h-4 w-4" />
                 Hello@SunnyPatel.co.uk
@@ -63,7 +63,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/sunny-patel-co-uk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
               >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn

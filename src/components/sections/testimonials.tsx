@@ -37,7 +37,7 @@ export function Testimonials() {
       />
 
       <div className="relative mx-auto max-w-6xl px-6 py-20">
-        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-brand">
           Client Results
         </p>
         <h2
@@ -53,7 +53,7 @@ export function Testimonials() {
               key={t.name}
               className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
             >
-              <Quote className="mb-4 h-5 w-5 text-[#5B8AEF]/30" />
+              <Quote className="mb-4 h-5 w-5 text-brand/30" />
               <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
                 &ldquo;{t.text}&rdquo;
               </p>

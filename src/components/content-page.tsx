@@ -36,7 +36,7 @@ function AuthorByline() {
 }
 
 const PROSE_CLASS =
-  "prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[#5B8AEF] prose-blockquote:border-l-[#5B8AEF]/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]";
+  "prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-brand prose-blockquote:border-l-brand/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]";
 
 const TRUST_BADGES = [
   { icon: CalendarDays, label: "15+ years experience" },
@@ -122,7 +122,7 @@ export function ContentPage({
           )}
 
           {badge && (
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
               {badge}
             </p>
           )}
@@ -147,7 +147,7 @@ export function ContentPage({
                 {TRUST_BADGES.map(({ icon: Icon, label }) => (
                   <span
                     key={label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/[0.07] px-3 py-1.5 text-xs font-medium text-[#5B8AEF]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
                   >
                     <Icon className="h-3 w-3 shrink-0" />
                     {label}
@@ -175,13 +175,13 @@ export function ContentPage({
                 <span className="text-sm text-muted-foreground/70">{dateLine}</span>
               )}
               {dateLine && tags && tags.length > 0 && (
-                <span className="text-muted-foreground/30">|</span>
+                <span className="text-muted-foreground/70">|</span>
               )}
               {tags?.map((tag) => (
                 <Link
                   key={tag}
                   href={`/blog/tag/${slugifyTag(tag)}`}
-                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-[#5B8AEF]/20 hover:text-[#5B8AEF]"
+                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-brand/20 hover:text-brand"
                 >
                   {tag}
                 </Link>
@@ -295,7 +295,7 @@ export function ContentPage({
             />
 
             <div className="relative mx-auto max-w-3xl px-6 py-20 text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
                 Get Started
               </p>
               <h2
@@ -323,14 +323,14 @@ export function ContentPage({
                 {TRUST_BADGES.map(({ icon: Icon, label }) => (
                   <span
                     key={label}
-                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/50"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/65"
                   >
-                    <Icon className="h-3 w-3 text-[#5B8AEF]/50" />
+                    <Icon className="h-3 w-3 text-brand/50" />
                     {label}
                   </span>
                 ))}
               </div>
-              <p className="mt-3 text-xs text-muted-foreground/30">
+              <p className="mt-3 text-xs text-muted-foreground/70">
                 Usually responds within a few hours
               </p>
             </div>

@@ -169,10 +169,10 @@ function isValidUrl(url: string): boolean {
 const chevronSvg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E")`;
 
 const selectClass =
-  'w-full appearance-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 pr-8 text-sm text-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30';
+  'w-full appearance-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 pr-8 text-sm text-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 
 const inputClass =
-  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30';
+  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
@@ -324,7 +324,7 @@ export default function HreflangGenerator() {
           <button
             key={preset.label}
             onClick={() => applyPreset(preset)}
-            className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08]"
+            className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
           >
             {preset.label}
           </button>
@@ -333,7 +333,7 @@ export default function HreflangGenerator() {
           onClick={() =>
             setRows([{ id: makeId(), url: '', language: 'en', region: '' }])
           }
-          className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08]"
+          className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
         >
           Custom (reset)
         </button>
@@ -350,7 +350,7 @@ export default function HreflangGenerator() {
           </h2>
           <button
             onClick={addRow}
-            className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)]"
+            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)]"
           >
             + Add Language Version
           </button>
@@ -476,7 +476,7 @@ export default function HreflangGenerator() {
               type="checkbox"
               checked={includeXDefault}
               onChange={(e) => setIncludeXDefault(e.target.checked)}
-              className="h-4 w-4 rounded border-white/20 accent-[#5B8AEF]"
+              className="h-4 w-4 rounded border-white/20 accent-brand"
             />
             <span className="text-sm font-medium text-foreground">
               Include x-default (fallback URL)
@@ -507,8 +507,8 @@ export default function HreflangGenerator() {
               onClick={() => setOutputFormat('html')}
               className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${
                 outputFormat === 'html'
-                  ? 'bg-[#5B8AEF] text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
-                  : 'border border-white/[0.12] bg-white/[0.04] text-foreground hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08]'
+                  ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
+                  : 'border border-white/[0.12] bg-white/[0.04] text-foreground hover:border-brand/40 hover:bg-brand/[0.08]'
               }`}
             >
               HTML &lt;link&gt; Tags
@@ -517,8 +517,8 @@ export default function HreflangGenerator() {
               onClick={() => setOutputFormat('xml')}
               className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${
                 outputFormat === 'xml'
-                  ? 'bg-[#5B8AEF] text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
-                  : 'border border-white/[0.12] bg-white/[0.04] text-foreground hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08]'
+                  ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
+                  : 'border border-white/[0.12] bg-white/[0.04] text-foreground hover:border-brand/40 hover:bg-brand/[0.08]'
               }`}
             >
               XML Sitemap
@@ -548,7 +548,7 @@ export default function HreflangGenerator() {
           <button
             onClick={copyToClipboard}
             disabled={!output}
-            className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {copied ? 'Copied!' : 'Copy to Clipboard'}
           </button>

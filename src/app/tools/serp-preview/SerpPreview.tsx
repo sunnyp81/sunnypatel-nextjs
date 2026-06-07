@@ -141,7 +141,7 @@ function GooglePreviewCard({
   return (
     <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
       <div className="mb-3 flex items-center gap-2">
-        <div className="h-2 w-2 rounded-full bg-[#5B8AEF]" />
+        <div className="h-2 w-2 rounded-full bg-brand" />
         <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Google Preview
         </span>
@@ -286,7 +286,7 @@ export default function SerpPreview() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="Your Page Title | Brand Name"
             />
             <PixelBar used={titlePx} max={maxTitlePx} />
@@ -307,7 +307,7 @@ export default function SerpPreview() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="Write a compelling meta description for your page..."
             />
           </div>
@@ -325,7 +325,7 @@ export default function SerpPreview() {
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="https://example.com/your-page/"
             />
           </div>
@@ -338,7 +338,7 @@ export default function SerpPreview() {
                 onClick={() => setViewport('desktop')}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   viewport === 'desktop'
-                    ? 'bg-[#5B8AEF] text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
+                    ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
                     : 'bg-white/[0.03] text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -348,7 +348,7 @@ export default function SerpPreview() {
                 onClick={() => setViewport('mobile')}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   viewport === 'mobile'
-                    ? 'bg-[#5B8AEF] text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
+                    ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
                     : 'bg-white/[0.03] text-muted-foreground hover:text-foreground'
                 }`}
               >

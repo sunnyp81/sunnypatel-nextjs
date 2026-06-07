@@ -303,7 +303,7 @@ export default function ReadabilityScore() {
         <div className="flex items-center justify-between">
           <label className="text-sm font-medium text-foreground">Your Content</label>
           {result && (
-            <span className="rounded-full bg-[#5B8AEF]/15 px-2 py-0.5 text-xs font-mono text-[#5B8AEF]">
+            <span className="rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand">
               {result.words} words
             </span>
           )}
@@ -312,7 +312,7 @@ export default function ReadabilityScore() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={8}
-          className="w-full resize-y rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+          className="w-full resize-y rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           placeholder="Paste your article, blog post, or any text content here to analyse its readability..."
         />
         <div className="flex items-center gap-3">
@@ -328,7 +328,7 @@ export default function ReadabilityScore() {
                 'The quick brown fox jumps over the lazy dog. This is a simple sentence that most people can read easily. Readability matters because clear writing helps your audience understand your message. Short sentences and common words make content accessible to everyone. When you write for the web, aim for a reading level that matches your target audience.'
               )
             }
-            className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]"
+            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]"
           >
             Try Sample Text
           </button>
@@ -393,7 +393,7 @@ export default function ReadabilityScore() {
           </div>
 
           {/* Recommendation */}
-          <div className="mb-6 rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/5 p-5">
+          <div className="mb-6 rounded-xl border border-brand/20 bg-brand/5 p-5">
             <div className="mb-2 flex items-center gap-2">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
@@ -472,7 +472,7 @@ export default function ReadabilityScore() {
             <h3 className="font-medium text-foreground">Flesch Reading Ease (FRE)</h3>
             <p className="mt-1">
               Developed by Rudolf Flesch in 1948, this formula scores text on a 0&ndash;100 scale. Higher scores mean easier reading. The formula is:{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-[#5B8AEF]">
+              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-brand">
                 206.835 &minus; 1.015 &times; (words &divide; sentences) &minus; 84.6 &times; (syllables &divide; words)
               </code>
               . A score of 60&ndash;70 is considered standard &mdash; easily understood by 13&ndash;15 year old students. Most web content should aim for 60 or above.
@@ -482,7 +482,7 @@ export default function ReadabilityScore() {
             <h3 className="font-medium text-foreground">Flesch-Kincaid Grade Level</h3>
             <p className="mt-1">
               Created by J. Peter Kincaid for the US Navy, this formula converts readability into a US grade level. The formula is:{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-[#5B8AEF]">
+              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-brand">
                 0.39 &times; (words &divide; sentences) + 11.8 &times; (syllables &divide; words) &minus; 15.59
               </code>
               . A result of 8.0 means the text is suitable for an eighth-grader (13&ndash;14 years old). For general web content, aim for grade 7&ndash;9.
@@ -492,7 +492,7 @@ export default function ReadabilityScore() {
             <h3 className="font-medium text-foreground">Gunning Fog Index</h3>
             <p className="mt-1">
               Developed by Robert Gunning in 1952, this index estimates the years of formal education needed to understand a text on first reading. The formula is:{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-[#5B8AEF]">
+              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-brand">
                 0.4 &times; ((words &divide; sentences) + 100 &times; (complex words &divide; words))
               </code>
               . &ldquo;Complex words&rdquo; are those with three or more syllables, excluding common suffixes like -es, -ed, and -ing. A Fog Index of 12 requires roughly a high-school senior reading level. For most audiences, aim for 8&ndash;12.

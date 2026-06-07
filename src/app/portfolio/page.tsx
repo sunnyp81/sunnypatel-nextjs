@@ -49,7 +49,7 @@ export default async function PortfolioIndex() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#d79f1e]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">
             Portfolio
           </p>
           <h1
@@ -102,7 +102,7 @@ export default async function PortfolioIndex() {
                       <div className="mb-3 flex items-start justify-between gap-3">
                         <div className="flex flex-wrap gap-1.5">
                           {project.entry.featured && (
-                            <span className="rounded-full border border-[#d79f1e]/20 bg-[#d79f1e]/10 px-2.5 py-0.5 text-xs font-medium text-[#d79f1e]">
+                            <span className="rounded-full border border-gold/20 bg-gold/10 px-2.5 py-0.5 text-xs font-medium text-gold">
                               Featured
                             </span>
                           )}
@@ -115,7 +115,7 @@ export default async function PortfolioIndex() {
                             </span>
                           ))}
                         </div>
-                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/40 transition-all duration-200 group-hover:border-[#d79f1e]/20 group-hover:bg-[#d79f1e]/10 group-hover:text-[#d79f1e]">
+                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/70 transition-all duration-200 group-hover:border-gold/20 group-hover:bg-gold/10 group-hover:text-gold">
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                         </div>
                       </div>

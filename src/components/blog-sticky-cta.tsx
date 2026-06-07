@@ -63,14 +63,14 @@ export function BlogStickyCta() {
           >
             {/* Left: icon + text */}
             <div className="relative flex items-center gap-3">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#5B8AEF]/20 bg-[#5B8AEF]/10 text-[#5B8AEF] transition-colors duration-300 group-hover:border-[#5B8AEF]/40 group-hover:bg-[#5B8AEF]/20">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand transition-colors duration-300 group-hover:border-brand/40 group-hover:bg-brand/20">
                 <Sparkles className="h-3.5 w-3.5" />
               </div>
               <div>
                 <p className="text-sm font-medium text-foreground sm:text-[15px]">
                   Free 30-min consultation
                 </p>
-                <p className="text-xs text-muted-foreground/50">Currently accepting new clients</p>
+                <p className="text-xs text-muted-foreground/65">Currently accepting new clients</p>
               </div>
             </div>
 

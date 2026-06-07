@@ -217,7 +217,7 @@ export default function WordCounter() {
         </button>
         <button
           onClick={handleCopy}
-          className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4A79DE] transition-colors"
+          className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4A79DE] transition-colors"
         >
           Copy Text
         </button>
@@ -229,7 +229,7 @@ export default function WordCounter() {
         onChange={handleChange}
         rows={12}
         placeholder="Paste or type your text here..."
-        className="mt-4 w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 resize-none"
+        className="mt-4 w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 resize-none"
       />
 
       {/* Bottom row: SEO Guide + Top Keywords */}
@@ -312,7 +312,7 @@ export default function WordCounter() {
                     </div>
                     <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-[#5B8AEF] transition-all duration-300"
+                        className="h-full rounded-full bg-brand transition-all duration-300"
                         style={{ width: `${barPct}%` }}
                       />
                     </div>

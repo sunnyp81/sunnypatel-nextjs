@@ -30,7 +30,7 @@ export function HowIWorkSteps() {
       <div className="space-y-8">
         {steps.map((step, index) => (
           <div key={step.title} className="flex items-start gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5B8AEF]/10 text-[#5B8AEF]">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
               <CheckCircle className="h-5 w-5" />
             </div>
             <div>

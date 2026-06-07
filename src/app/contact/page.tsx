@@ -36,7 +36,7 @@ export default function ContactPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#4c7894]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-teal">
             Contact
           </p>
           <h1

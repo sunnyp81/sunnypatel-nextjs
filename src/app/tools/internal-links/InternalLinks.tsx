@@ -118,7 +118,7 @@ function ConfidenceBadge({ score }: { score: number }) {
     classes = 'bg-amber-500/15 text-amber-400 border-amber-500/30';
   } else {
     label = 'Low';
-    classes = 'bg-white/10 text-white/50 border-white/20';
+    classes = 'bg-white/10 text-white/65 border-white/20';
   }
 
   return (
@@ -139,7 +139,7 @@ function OpportunityCard({ opp }: { opp: LinkOpportunity }) {
   return (
     <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
       <div className="flex items-center justify-between gap-3 mb-2">
-        <code className="text-sm font-semibold text-[#5B8AEF]">&quot;{opp.phrase}&quot;</code>
+        <code className="text-sm font-semibold text-brand">&quot;{opp.phrase}&quot;</code>
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-xs text-muted-foreground">{opp.frequency}x in target</span>
           <ConfidenceBadge score={opp.score} />
@@ -147,7 +147,7 @@ function OpportunityCard({ opp }: { opp: LinkOpportunity }) {
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">
         {before}
-        <span className="bg-[#5B8AEF]/20 text-[#5B8AEF] px-1 rounded">{match}</span>
+        <span className="bg-brand/20 text-brand px-1 rounded">{match}</span>
         {after}
       </p>
     </div>
@@ -174,13 +174,13 @@ function DirectionSection({
     <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
       <div className="flex items-center gap-2 mb-1">
         <h3 className="text-lg font-semibold text-foreground">
-          Link from {fromLabel} <span className="text-[#5B8AEF]">&rarr;</span> {toLabel}
+          Link from {fromLabel} <span className="text-brand">&rarr;</span> {toLabel}
         </h3>
       </div>
       {fromUrl && toUrl && (
         <p className="text-xs text-muted-foreground mb-4 break-all">
           Add links in <span className="text-foreground">{fromUrl}</span> pointing to{' '}
-          <span className="text-[#5B8AEF]">{toUrl}</span>
+          <span className="text-brand">{toUrl}</span>
         </p>
       )}
       {opportunities.length === 0 ? (
@@ -220,7 +220,7 @@ export default function InternalLinks() {
   const totalOpps = aToBOpps.length + bToAOpps.length;
 
   const inputClasses =
-    'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30';
+    'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -300,7 +300,7 @@ export default function InternalLinks() {
         <button
           onClick={() => setHasRun(true)}
           disabled={!contentA.trim() || !contentB.trim()}
-          className="rounded-lg bg-[#5B8AEF] px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="rounded-lg bg-brand px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed"
         >
           Find Opportunities
         </button>
@@ -314,19 +314,19 @@ export default function InternalLinks() {
             <h2 className="text-lg font-semibold text-foreground mb-3">Summary</h2>
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="text-center">
-                <p className="text-3xl font-bold text-[#5B8AEF]">{totalOpps}</p>
+                <p className="text-3xl font-bold text-brand">{totalOpps}</p>
                 <p className="text-sm text-muted-foreground mt-1">Total opportunities</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-foreground">{aToBOpps.length}</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Page A <span className="text-[#5B8AEF]">&rarr;</span> Page B
+                  Page A <span className="text-brand">&rarr;</span> Page B
                 </p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-foreground">{bToAOpps.length}</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Page B <span className="text-[#5B8AEF]">&rarr;</span> Page A
+                  Page B <span className="text-brand">&rarr;</span> Page A
                 </p>
               </div>
             </div>

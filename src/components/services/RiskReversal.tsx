@@ -11,7 +11,7 @@ export function RiskReversal({
 }) {
   return (
     <div
-      className="rounded-2xl border border-[#5B8AEF]/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]"
+      className="rounded-2xl border border-brand/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]"
       style={{ borderLeftWidth: 3, borderLeftColor: accentColor }}
     >
       <div className="mb-4 flex items-center gap-3">

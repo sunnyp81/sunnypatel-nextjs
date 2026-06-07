@@ -54,7 +54,7 @@ export function ExitIntent() {
 
       {/* Modal */}
       <div className="relative w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
-        <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0a10] shadow-2xl shadow-[#5B8AEF]/10">
+        <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0a10] shadow-2xl shadow-brand/10">
           {/* Top glow */}
           <div
             className="pointer-events-none absolute left-1/2 top-0 h-32 w-64 -translate-x-1/2 rounded-full opacity-20 blur-[60px]"
@@ -71,8 +71,8 @@ export function ExitIntent() {
           </button>
 
           <div className="relative px-8 pb-8 pt-10 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/10">
-              <Sparkles className="h-5 w-5 text-[#5B8AEF]" />
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-brand/20 bg-brand/10">
+              <Sparkles className="h-5 w-5 text-brand" />
             </div>
 
             <h2
@@ -94,7 +94,7 @@ export function ExitIntent() {
                 "Get a prioritised 90-day action plan",
               ].map((point) => (
                 <div key={point} className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#5a922c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <svg className="mt-0.5 h-4 w-4 shrink-0 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                   {point}

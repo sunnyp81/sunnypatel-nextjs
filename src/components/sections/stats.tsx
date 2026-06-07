@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 280, suffix: "%", label: "Peak Traffic Growth", color: "from-[#5B8AEF] to-[#d79f1e]" },
-  { value: 100, suffix: "+", label: "Clients Served", color: "from-[#d79f1e] to-[#5a922c]" },
-  { value: 40, suffix: "+", label: "Sites Managed", color: "from-[#5a922c] to-[#4c7894]" },
-  { value: 15, suffix: "+", label: "Years Experience", color: "from-[#4c7894] to-[#5B8AEF]" },
+  { value: 280, suffix: "%", label: "Peak Traffic Growth", color: "from-brand to-gold" },
+  { value: 100, suffix: "+", label: "Clients Served", color: "from-gold to-success" },
+  { value: 40, suffix: "+", label: "Sites Managed", color: "from-success to-teal" },
+  { value: 15, suffix: "+", label: "Years Experience", color: "from-teal to-brand" },
 ];
 
 function useCountUp(target: number, duration = 1800, started: boolean) {
@@ -71,8 +71,8 @@ export function Stats() {
 
   return (
     <section className="relative overflow-hidden py-20" ref={ref}>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5B8AEF]/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5B8AEF]/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{ background: "radial-gradient(ellipse at center, #5B8AEF, transparent 60%)" }}

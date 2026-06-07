@@ -418,12 +418,12 @@ export default function OgPreview() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+            className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           />
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {loading ? (
               <>
@@ -458,8 +458,8 @@ export default function OgPreview() {
           <TagAudit data={data} />
 
           {/* SEO tip */}
-          <div className="rounded-xl border border-[#5B8AEF]/20 bg-[#5B8AEF]/5 p-6">
-            <h3 className="text-sm font-semibold text-[#5B8AEF]" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="rounded-xl border border-brand/20 bg-brand/5 p-6">
+            <h3 className="text-sm font-semibold text-brand" style={{ fontFamily: 'var(--font-heading)' }}>
               Why Open Graph tags matter for SEO
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -467,9 +467,9 @@ export default function OgPreview() {
               Google ranking factor, well-optimised social previews increase click-through rates from platforms like
               Facebook, Twitter/X, and LinkedIn. Higher engagement drives more referral traffic, brand signals,
               and natural backlinks &mdash; all of which have an indirect but meaningful impact on search rankings.
-              At minimum, every page should have <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-[#5B8AEF]">og:title</code>,{' '}
-              <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-[#5B8AEF]">og:description</code>, and{' '}
-              <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-[#5B8AEF]">og:image</code> set.
+              At minimum, every page should have <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand">og:title</code>,{' '}
+              <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand">og:description</code>, and{' '}
+              <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand">og:image</code> set.
             </p>
           </div>
         </div>

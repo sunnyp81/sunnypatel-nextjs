@@ -9,7 +9,7 @@ export function ServiceMiniCta({
   text?: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[#5B8AEF]/15 bg-[#0c0c14]">
+    <div className="relative overflow-hidden rounded-2xl border border-brand/15 bg-[#0c0c14]">
       {/* Animated glow ring */}
       <div
         className="pointer-events-none absolute -inset-px rounded-2xl opacity-30"
@@ -53,12 +53,12 @@ export function ServiceMiniCta({
         </Link>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/50">
-            <CalendarDays className="h-3 w-3 text-[#5B8AEF]/50" />
+          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/65">
+            <CalendarDays className="h-3 w-3 text-brand/50" />
             Free 30 minutes
           </span>
-          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/50">
-            <Shield className="h-3 w-3 text-[#5B8AEF]/50" />
+          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/65">
+            <Shield className="h-3 w-3 text-brand/50" />
             No obligation
           </span>
         </div>

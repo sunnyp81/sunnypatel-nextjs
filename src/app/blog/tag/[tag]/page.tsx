@@ -73,7 +73,7 @@ export default async function TagPage({
             <ArrowLeft className="h-3.5 w-3.5" />
             All Posts
           </Link>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
             Tag
           </p>
           <h1
@@ -122,7 +122,7 @@ export default async function TagPage({
                     </div>
                   )}
                   <h2
-                    className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-[#5B8AEF]"
+                    className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {post.entry.title}
@@ -132,7 +132,7 @@ export default async function TagPage({
                       {post.entry.description}
                     </p>
                   )}
-                  <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                  <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                     Read more <ArrowRight className="h-3 w-3" />
                   </div>
                 </div>

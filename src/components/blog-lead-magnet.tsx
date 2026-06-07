@@ -48,9 +48,9 @@ export function BlogLeadMagnet() {
 
   if (status === "success") {
     return (
-      <div className="my-12 rounded-2xl border border-[#5a922c]/20 bg-[#5a922c]/5 p-6 text-center md:p-8">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[#5a922c]/30 bg-[#5a922c]/10">
-          <CheckCircle2 className="h-6 w-6 text-[#5a922c]" />
+      <div className="my-12 rounded-2xl border border-success/20 bg-success/5 p-6 text-center md:p-8">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-success/30 bg-success/10">
+          <CheckCircle2 className="h-6 w-6 text-success" />
         </div>
         <h3
           className="mb-2 text-lg font-bold text-foreground"
@@ -60,7 +60,7 @@ export function BlogLeadMagnet() {
         </h3>
         <p className="text-sm text-muted-foreground">
           I&apos;ll send the checklist to your email shortly. In the meantime, feel free to{" "}
-          <a href="/contact/" className="text-[#5B8AEF] hover:underline">
+          <a href="/contact/" className="text-brand hover:underline">
             book a free consultation
           </a>{" "}
           if you want hands-on help.
@@ -70,16 +70,16 @@ export function BlogLeadMagnet() {
   }
 
   return (
-    <div className="my-12 overflow-hidden rounded-2xl border border-[#5B8AEF]/20 bg-gradient-to-br from-[#5B8AEF]/[0.06] to-[#3d6fe8]/[0.04]">
+    <div className="my-12 overflow-hidden rounded-2xl border border-brand/20 bg-gradient-to-br from-brand/[0.06] to-brand-deep/[0.04]">
       <div className="p-6 md:p-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-8">
           {/* Left — copy */}
           <div className="flex-1">
             <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#5B8AEF]/20 bg-[#5B8AEF]/10">
-                <Download className="h-4 w-4 text-[#5B8AEF]" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-brand/20 bg-brand/10">
+                <Download className="h-4 w-4 text-brand" />
               </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+              <span className="text-xs font-semibold uppercase tracking-widest text-brand">
                 Free Resource
               </span>
             </div>
@@ -103,7 +103,7 @@ export function BlogLeadMagnet() {
                 onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
                 placeholder="Your name"
                 required
-                className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:outline-none"
+                className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:outline-none"
               />
               <input
                 type="email"
@@ -111,7 +111,7 @@ export function BlogLeadMagnet() {
                 onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
                 placeholder="you@company.com"
                 required
-                className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-[#5B8AEF]/40 focus:outline-none"
+                className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:outline-none"
               />
               {status === "error" && (
                 <div className="flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-3 py-2 text-xs text-red-400">
@@ -141,7 +141,7 @@ export function BlogLeadMagnet() {
                   </>
                 )}
               </button>
-              <p className="text-center text-[10px] text-muted-foreground/30">
+              <p className="text-center text-[10px] text-muted-foreground/70">
                 No spam. Unsubscribe anytime.
               </p>
             </form>

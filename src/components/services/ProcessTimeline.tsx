@@ -6,7 +6,7 @@ export function ProcessTimeline({
   accentColor: string;
 }) {
   return (
-    <div className="rounded-2xl border border-[#5B8AEF]/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]">
+    <div className="rounded-2xl border border-brand/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]">
       <h2
         className="mb-8 text-xl font-bold text-foreground"
         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}

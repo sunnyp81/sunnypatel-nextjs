@@ -242,7 +242,7 @@ export default function RobotsGenerator() {
     return output.split('\n').map((line, i) => {
       if (line.startsWith('#')) {
         return (
-          <span key={i} className="text-white/30">
+          <span key={i} className="text-white/70">
             {line}
             {'\n'}
           </span>
@@ -255,7 +255,7 @@ export default function RobotsGenerator() {
         const value = line.slice(colonIdx + 1);
         return (
           <span key={i}>
-            <span className="text-[#5B8AEF]">{directive}</span>
+            <span className="text-brand">{directive}</span>
             <span className="text-foreground">{value}</span>
             {'\n'}
           </span>
@@ -297,7 +297,7 @@ export default function RobotsGenerator() {
           <button
             key={p.key}
             onClick={() => handlePreset(p.key)}
-            className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08]"
+            className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
           >
             {p.label}
           </button>
@@ -338,7 +338,7 @@ export default function RobotsGenerator() {
                     type="text"
                     value={rule.userAgent}
                     onChange={(e) => updateRule(rule.id, { userAgent: e.target.value })}
-                    className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+                    className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
                     placeholder="*"
                   />
                   <select
@@ -346,7 +346,7 @@ export default function RobotsGenerator() {
                     onChange={(e) => {
                       if (e.target.value) updateRule(rule.id, { userAgent: e.target.value });
                     }}
-                    className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-2 py-2.5 text-sm text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+                    className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-2 py-2.5 text-sm text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
                   >
                     <option value="">Presets</option>
                     {USER_AGENT_PRESETS.map((ua) => (
@@ -364,7 +364,7 @@ export default function RobotsGenerator() {
                   <label className="text-sm font-medium text-foreground">Disallow paths</label>
                   <button
                     onClick={() => addPath(rule.id, 'disallowPaths')}
-                    className="text-xs text-[#5B8AEF] hover:text-[#7BA3F7] transition-colors"
+                    className="text-xs text-brand hover:text-[#7BA3F7] transition-colors"
                   >
                     + Add path
                   </button>
@@ -378,7 +378,7 @@ export default function RobotsGenerator() {
                         onChange={(e) =>
                           updatePath(rule.id, 'disallowPaths', pi, e.target.value)
                         }
-                        className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 font-mono"
+                        className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
                         placeholder="/admin/"
                       />
                       {rule.disallowPaths.length > 1 && (
@@ -409,7 +409,7 @@ export default function RobotsGenerator() {
                   <label className="text-sm font-medium text-foreground">Allow paths</label>
                   <button
                     onClick={() => addPath(rule.id, 'allowPaths')}
-                    className="text-xs text-[#5B8AEF] hover:text-[#7BA3F7] transition-colors"
+                    className="text-xs text-brand hover:text-[#7BA3F7] transition-colors"
                   >
                     + Add path
                   </button>
@@ -423,7 +423,7 @@ export default function RobotsGenerator() {
                         onChange={(e) =>
                           updatePath(rule.id, 'allowPaths', pi, e.target.value)
                         }
-                        className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 font-mono"
+                        className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
                         placeholder="/public/"
                       />
                       {rule.allowPaths.length > 1 && (
@@ -460,7 +460,7 @@ export default function RobotsGenerator() {
                   step={1}
                   value={rule.crawlDelay}
                   onChange={(e) => updateRule(rule.id, { crawlDelay: e.target.value })}
-                  className="mt-1.5 w-32 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+                  className="mt-1.5 w-32 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
                   placeholder="10"
                 />
               </div>
@@ -470,7 +470,7 @@ export default function RobotsGenerator() {
           {/* Add rule block button */}
           <button
             onClick={addRule}
-            className="rounded-lg border border-dashed border-white/[0.12] bg-white/[0.02] px-4 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-[#5B8AEF]/40 hover:text-foreground"
+            className="rounded-lg border border-dashed border-white/[0.12] bg-white/[0.02] px-4 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-brand/40 hover:text-foreground"
           >
             + Add Rule Block
           </button>
@@ -486,7 +486,7 @@ export default function RobotsGenerator() {
               </h3>
               <button
                 onClick={addSitemap}
-                className="text-xs text-[#5B8AEF] hover:text-[#7BA3F7] transition-colors"
+                className="text-xs text-brand hover:text-[#7BA3F7] transition-colors"
               >
                 + Add sitemap
               </button>
@@ -498,7 +498,7 @@ export default function RobotsGenerator() {
                     type="text"
                     value={sm}
                     onChange={(e) => updateSitemap(si, e.target.value)}
-                    className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 font-mono"
+                    className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
                     placeholder="https://example.com/sitemap.xml"
                   />
                   {sitemaps.length > 1 && (
@@ -537,13 +537,13 @@ export default function RobotsGenerator() {
               <div className="flex gap-2">
                 <button
                   onClick={handleCopy}
-                  className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08]"
+                  className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
                 >
                   {copied ? 'Copied!' : 'Copy to Clipboard'}
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)]"
+                  className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)]"
                 >
                   Download robots.txt
                 </button>

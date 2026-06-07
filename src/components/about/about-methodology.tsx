@@ -14,8 +14,8 @@ const frameworks = [
       "Establishing your brand as a recognised entity in Google\u2019s Knowledge Graph, so search engines understand who you are and what you represent.",
     href: "/blog/what-is-entity-seo/",
     color: "#5B8AEF",
-    border: "border-[#5B8AEF]/20",
-    bg: "bg-[#5B8AEF]/10",
+    border: "border-brand/20",
+    bg: "bg-brand/10",
   },
   {
     icon: <Network className="h-5 w-5" />,
@@ -24,8 +24,8 @@ const frameworks = [
       "Building comprehensive topic coverage through entity relationships, ensuring search engines see the full context of your expertise.",
     href: "/services/semantic-seo/",
     color: "#4c7894",
-    border: "border-[#4c7894]/20",
-    bg: "bg-[#4c7894]/10",
+    border: "border-teal/20",
+    bg: "bg-teal/10",
   },
   {
     icon: <BookOpen className="h-5 w-5" />,
@@ -34,8 +34,8 @@ const frameworks = [
       "Achieving authoritative status through systematic content architecture that covers every facet of your niche.",
     href: "/services/topical-authority/",
     color: "#5a922c",
-    border: "border-[#5a922c]/20",
-    bg: "bg-[#5a922c]/10",
+    border: "border-success/20",
+    bg: "bg-success/10",
   },
 ];
 
@@ -52,7 +52,7 @@ export function AboutMethodology() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
             The Semantic Triangle
           </p>
           <h2

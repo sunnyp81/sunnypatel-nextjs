@@ -107,7 +107,7 @@ function ArrowConnector() {
     <div className="flex items-center justify-center py-1">
       <div className="flex flex-col items-center">
         <div className="h-6 w-px border-l border-dashed border-white/[0.15]" />
-        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" className="text-white/30">
+        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" className="text-white/70">
           <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
@@ -190,7 +190,7 @@ function ChainSummary({ result }: { result: CheckResult }) {
 /* ------------------------------------------------------------------ */
 function Spinner() {
   return (
-    <svg className="h-5 w-5 animate-spin text-[#5B8AEF]" viewBox="0 0 24 24" fill="none">
+    <svg className="h-5 w-5 animate-spin text-brand" viewBox="0 0 24 24" fill="none">
       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
       <path
         className="opacity-75"
@@ -317,7 +317,7 @@ export default function RedirectChecker() {
             onClick={() => { setBulkMode(false); setError(''); setSingleResult(null); }}
             className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
               !bulkMode
-                ? 'bg-[#5B8AEF]/20 text-[#5B8AEF] border border-[#5B8AEF]/30'
+                ? 'bg-brand/20 text-brand border border-brand/30'
                 : 'text-muted-foreground hover:text-foreground border border-white/[0.08]'
             }`}
           >
@@ -328,7 +328,7 @@ export default function RedirectChecker() {
             onClick={() => { setBulkMode(true); setError(''); setBulkResults([]); }}
             className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
               bulkMode
-                ? 'bg-[#5B8AEF]/20 text-[#5B8AEF] border border-[#5B8AEF]/30'
+                ? 'bg-brand/20 text-brand border border-brand/30'
                 : 'text-muted-foreground hover:text-foreground border border-white/[0.08]'
             }`}
           >
@@ -343,12 +343,12 @@ export default function RedirectChecker() {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://example.com/old-page"
-              className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+              className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
             />
             <button
               type="submit"
               disabled={loading || !url.trim()}
-              className="rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
@@ -370,12 +370,12 @@ export default function RedirectChecker() {
               onChange={(e) => setBulkUrls(e.target.value)}
               placeholder={"https://example.com/page-1\nhttps://example.com/page-2\nhttps://example.com/page-3"}
               rows={6}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 font-mono"
+              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
             />
             <button
               type="submit"
               disabled={loading || !bulkUrls.trim()}
-              className="mt-3 rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-3 rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="flex items-center gap-2">

@@ -160,18 +160,18 @@ export default function KeywordDensity() {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={12}
-              className="w-full resize-y rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30 font-mono"
+              className="w-full resize-y rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
               placeholder="Paste your article, page copy, or any text here..."
             />
             <div className="flex gap-4 text-xs text-muted-foreground">
               <span>
-                <span className="rounded-full bg-[#5B8AEF]/15 px-2 py-0.5 font-mono text-[#5B8AEF]">
+                <span className="rounded-full bg-brand/15 px-2 py-0.5 font-mono text-brand">
                   {totalWords}
                 </span>{' '}
                 words
               </span>
               <span>
-                <span className="rounded-full bg-[#5B8AEF]/15 px-2 py-0.5 font-mono text-[#5B8AEF]">
+                <span className="rounded-full bg-brand/15 px-2 py-0.5 font-mono text-brand">
                   {charCount.toLocaleString()}
                 </span>{' '}
                 characters
@@ -188,7 +188,7 @@ export default function KeywordDensity() {
               type="text"
               value={targetKeyword}
               onChange={(e) => setTargetKeyword(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30"
+              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="e.g. seo consultant"
             />
           </div>
@@ -198,7 +198,7 @@ export default function KeywordDensity() {
         <div className="lg:col-span-4 flex flex-col gap-4">
           {/* Target keyword highlight */}
           {targetStats && (
-            <div className="rounded-xl border border-[#5B8AEF]/30 bg-[#5B8AEF]/[0.06] p-5">
+            <div className="rounded-xl border border-brand/30 bg-brand/[0.06] p-5">
               <p className="mb-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                 Target Keyword
               </p>
@@ -206,18 +206,18 @@ export default function KeywordDensity() {
               <div className="mt-3 grid grid-cols-2 gap-3">
                 <div>
                   <p className="text-xs text-muted-foreground">Count</p>
-                  <p className="text-2xl font-bold text-[#5B8AEF]">{targetStats.count}</p>
+                  <p className="text-2xl font-bold text-brand">{targetStats.count}</p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Density</p>
-                  <p className="text-2xl font-bold text-[#5B8AEF]">{targetStats.density.toFixed(2)}%</p>
+                  <p className="text-2xl font-bold text-brand">{targetStats.density.toFixed(2)}%</p>
                 </div>
               </div>
               {targetStats.density > 0 && (
                 <div className="mt-3">
                   <div className="h-1.5 w-full rounded-full bg-white/[0.06]">
                     <div
-                      className="h-1.5 rounded-full bg-[#5B8AEF]"
+                      className="h-1.5 rounded-full bg-brand"
                       style={{ width: `${Math.min(targetStats.density * 10, 100)}%` }}
                     />
                   </div>
@@ -262,7 +262,7 @@ export default function KeywordDensity() {
           <button
             onClick={handleExport}
             disabled={totalWords === 0}
-            className="w-full rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Export Results CSV
           </button>
@@ -280,7 +280,7 @@ export default function KeywordDensity() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
                   activeTab === tab.id
-                    ? 'bg-[#5B8AEF]/15 text-[#5B8AEF] border-[#5B8AEF]/30'
+                    ? 'bg-brand/15 text-brand border-brand/30'
                     : 'border-white/[0.08] text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -294,7 +294,7 @@ export default function KeywordDensity() {
                   type="checkbox"
                   checked={stopFilter}
                   onChange={() => setStopFilter((v) => !v)}
-                  className="h-3.5 w-3.5 rounded border-white/20 accent-[#5B8AEF]"
+                  className="h-3.5 w-3.5 rounded border-white/20 accent-brand"
                 />
                 Exclude stop words
               </label>
@@ -332,14 +332,14 @@ export default function KeywordDensity() {
                     {row.count}
                   </div>
                   <div className="col-span-2 text-right">
-                    <span className="rounded-full bg-[#5B8AEF]/15 px-2 py-0.5 text-xs font-mono text-[#5B8AEF]">
+                    <span className="rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand">
                       {row.density.toFixed(2)}%
                     </span>
                   </div>
                   <div className="col-span-3 flex items-center">
                     <div className="h-1.5 w-full rounded-full bg-white/[0.06]">
                       <div
-                        className="h-1.5 rounded-full bg-[#5B8AEF]"
+                        className="h-1.5 rounded-full bg-brand"
                         style={{ width: `${(row.count / maxCount) * 100}%` }}
                       />
                     </div>

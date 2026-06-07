@@ -85,7 +85,7 @@ export function Services() {
           viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#5B8AEF]">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand">
             Specialist Services
           </p>
           <h2
@@ -156,7 +156,7 @@ export function Services() {
         <div className="mt-10 flex justify-center">
           <a
             href="/services/"
-            className="rounded-full border border-[#5B8AEF]/20 bg-[#5B8AEF]/5 px-6 py-2 text-sm font-medium text-[#5B8AEF] transition-colors hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/10"
+            className="rounded-full border border-brand/20 bg-brand/5 px-6 py-2 text-sm font-medium text-brand transition-colors hover:border-brand/40 hover:bg-brand/10"
           >
             View All Services
           </a>
@@ -168,7 +168,7 @@ export function Services() {
             <a
               key={s.href}
               href={s.href}
-              className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-sm text-white/50 transition-colors hover:border-white/[0.16] hover:text-white/80"
+              className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-sm text-white/65 transition-colors hover:border-white/[0.16] hover:text-white/80"
             >
               {s.label}
             </a>

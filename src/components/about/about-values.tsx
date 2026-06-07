@@ -11,8 +11,8 @@ const values = [
     description:
       "I build topical authority through comprehensive content architecture, not keyword stuffing. The Human-First approach creates sustainable rankings by covering every relevant query in your industry systematically.",
     color: "#5B8AEF",
-    border: "border-[#5B8AEF]/20",
-    bg: "bg-[#5B8AEF]/10",
+    border: "border-brand/20",
+    bg: "bg-brand/10",
   },
   {
     icon: <BarChart3 className="h-5 w-5" />,
@@ -20,8 +20,8 @@ const values = [
     description:
       "Every recommendation comes from Search Console data, competitor analysis, and search intent research. No guesswork. No vanity metrics. Clear monthly reporting shows exactly how SEO impacts your revenue.",
     color: "#4c7894",
-    border: "border-[#4c7894]/20",
-    bg: "bg-[#4c7894]/10",
+    border: "border-teal/20",
+    bg: "bg-teal/10",
   },
   {
     icon: <FileCheck className="h-5 w-5" />,
@@ -29,8 +29,8 @@ const values = [
     description:
       "You receive full documentation of every strategy, topical map, and content brief. No black-box tactics. You own all deliverables and understand exactly what's being done and why.",
     color: "#5a922c",
-    border: "border-[#5a922c]/20",
-    bg: "bg-[#5a922c]/10",
+    border: "border-success/20",
+    bg: "bg-success/10",
   },
 ];
 
@@ -48,7 +48,7 @@ export function AboutValues() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#5a922c]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-success">
             Core Values
           </p>
           <h2

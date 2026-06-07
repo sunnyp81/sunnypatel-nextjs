@@ -111,7 +111,7 @@ export default function UtmBuilder() {
 
   /* Shared input classes */
   const inputClass =
-    'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#5B8AEF]/50 focus:outline-none focus:ring-1 focus:ring-[#5B8AEF]/30';
+    'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
   const inputErrorClass =
     'w-full rounded-lg border border-red-500/50 bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-red-500/50 focus:outline-none focus:ring-1 focus:ring-red-500/30';
 
@@ -169,7 +169,7 @@ export default function UtmBuilder() {
                   key={s}
                   type="button"
                   onClick={() => { setSource(s); setTouched(true); }}
-                  className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-[#5B8AEF]/40 hover:text-foreground cursor-pointer transition-colors"
+                  className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-brand/40 hover:text-foreground cursor-pointer transition-colors"
                 >
                   {s}
                 </button>
@@ -195,7 +195,7 @@ export default function UtmBuilder() {
                   key={m}
                   type="button"
                   onClick={() => { setMedium(m); setTouched(true); }}
-                  className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-[#5B8AEF]/40 hover:text-foreground cursor-pointer transition-colors"
+                  className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-brand/40 hover:text-foreground cursor-pointer transition-colors"
                 >
                   {m}
                 </button>
@@ -268,7 +268,7 @@ export default function UtmBuilder() {
           <button
             onClick={handleCopy}
             disabled={!canGenerate}
-            className="shrink-0 rounded-lg bg-[#5B8AEF] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="shrink-0 rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {copied ? 'Copied!' : 'Copy to clipboard'}
           </button>
@@ -304,7 +304,7 @@ export default function UtmBuilder() {
                 </div>
                 <button
                   onClick={() => handleCopyHistory(idx)}
-                  className="shrink-0 rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-[#5B8AEF]/40 hover:bg-[#5B8AEF]/[0.08]"
+                  className="shrink-0 rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
                 >
                   {copiedHistoryIdx === idx ? 'Copied!' : 'Copy'}
                 </button>

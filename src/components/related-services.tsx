@@ -136,7 +136,7 @@ export function RelatedServices({
                     <Icon className="h-4 w-4" style={{ color }} />
                   </div>
                   <h3
-                    className="mb-2 text-base font-semibold text-foreground transition-colors group-hover:text-[#5B8AEF]"
+                    className="mb-2 text-base font-semibold text-foreground transition-colors group-hover:text-brand"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {service.title}
@@ -144,7 +144,7 @@ export function RelatedServices({
                   <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
                     {service.description}
                   </p>
-                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                     Learn more <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
@@ -164,7 +164,7 @@ export function RelatedServices({
 
   return (
     <div className="my-12 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 md:p-8">
-      <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-[#5B8AEF]">
+      <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-brand">
         Related Services
       </p>
       <h3
@@ -192,7 +192,7 @@ export function RelatedServices({
                 <Icon className="h-4 w-4" style={{ color: service.color }} />
               </div>
               <h4
-                className="mb-1 text-sm font-semibold text-foreground transition-colors group-hover:text-[#5B8AEF]"
+                className="mb-1 text-sm font-semibold text-foreground transition-colors group-hover:text-brand"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {service.title}
@@ -200,14 +200,14 @@ export function RelatedServices({
               <p className="mb-3 flex-1 text-xs leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
-              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/40 transition-all duration-200 group-hover:gap-2 group-hover:text-[#5B8AEF]">
+              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                 Learn more <ArrowRight className="h-3 w-3" />
               </span>
             </Link>
           );
         })}
       </div>
-      <div className="mt-4 rounded-xl border border-[#5B8AEF]/15 bg-[#5B8AEF]/[0.03] p-4">
+      <div className="mt-4 rounded-xl border border-brand/15 bg-brand/[0.03] p-4">
         <Link
           href="/tools/"
           className="group flex items-center justify-between"
@@ -216,7 +216,7 @@ export function RelatedServices({
             <p className="text-sm font-medium text-foreground">Try our free SEO tools</p>
             <p className="text-xs text-muted-foreground">Website grader, speed checker, keyword scraper, and 17 more — no sign-up required.</p>
           </div>
-          <ArrowRight className="h-4 w-4 flex-shrink-0 text-[#5B8AEF] transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-4 w-4 flex-shrink-0 text-brand transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
     </div>

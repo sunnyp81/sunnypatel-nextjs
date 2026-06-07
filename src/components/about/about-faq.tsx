@@ -18,7 +18,7 @@ export function AboutFaq() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#4c7894]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-teal">
             FAQ
           </p>
           <h2
@@ -56,7 +56,7 @@ export function AboutFaq() {
                     aria-hidden="true"
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/[0.1] transition-all duration-300 ${
                       open === i
-                        ? "rotate-45 border-[#5B8AEF]/30 bg-[#5B8AEF]/10 text-[#5B8AEF]"
+                        ? "rotate-45 border-brand/30 bg-brand/10 text-brand"
                         : "text-muted-foreground"
                     }`}
                   >

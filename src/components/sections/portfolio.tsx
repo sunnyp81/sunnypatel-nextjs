@@ -28,7 +28,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
           viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#d79f1e]">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-gold">
             Portfolio
           </p>
           <h2
@@ -87,7 +87,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
                             </span>
                           ))}
                         </div>
-                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/40 transition-all duration-200 group-hover:border-[#d79f1e]/20 group-hover:bg-[#d79f1e]/10 group-hover:text-[#d79f1e]">
+                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/70 transition-all duration-200 group-hover:border-gold/20 group-hover:bg-gold/10 group-hover:text-gold">
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                         </div>
                       </div>
@@ -105,7 +105,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
                           {project.metrics.slice(0, 2).map((metric) => (
                             <div key={metric.label}>
                               <div
-                                className="text-lg font-bold text-[#d79f1e]"
+                                className="text-lg font-bold text-gold"
                                 style={{ fontFamily: "var(--font-heading)" }}
                               >
                                 {metric.value}

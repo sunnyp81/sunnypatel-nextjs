@@ -2,8 +2,20 @@ import { config, fields, collection, singleton } from "@keystatic/core";
 
 const isLocal = process.env.NODE_ENV === "development";
 
+// Use GitHub storage only when the required Keystatic credentials are present.
+// Without them, the GitHub-mode API route throws during `next build` ("Missing
+// required config… clientId/clientSecret/secret"), which fails the whole deploy
+// and leaves the previous build live. Falling back to local storage keeps the
+// build green; the public site reads content from the filesystem either way, so
+// it is unaffected. Set KEYSTATIC_GITHUB_CLIENT_ID / KEYSTATIC_GITHUB_CLIENT_SECRET
+// / KEYSTATIC_SECRET in the deploy env to re-enable the GitHub-backed CMS UI.
+const hasGithubCreds =
+  !!process.env.KEYSTATIC_GITHUB_CLIENT_ID &&
+  !!process.env.KEYSTATIC_GITHUB_CLIENT_SECRET &&
+  !!process.env.KEYSTATIC_SECRET;
+
 export default config({
-  storage: isLocal
+  storage: isLocal || !hasGithubCreds
     ? { kind: "local" }
     : {
         kind: "github",

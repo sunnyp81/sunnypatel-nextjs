@@ -37,19 +37,3 @@ faqs:
   - question: What role does E-E-A-T play in UK SEO?
     answer: >-
       E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is vital for UK SEO, especially for YMYL (Your Money Your Life) topics. Google prioritizes content from credible sources, making it essential to demonstrate clear expertise and build trust with your audience.
-comparisonTable: |-
-  | Metric                     | 2023 Performance | 2024 Performance | Trend      |
-  | :------------------------- | :--------------- | :--------------- | :--------- |
-  | Mobile Search Share        | 55%              | 62%              | ↑ Increase |
-  | Local Pack Clicks          | 15%              | 18%              | ↑ Increase |
-  | Voice Search Adoption      | 28%              | 35%              | ↑ Increase |
-  | Organic CTR (Avg.)         | 3.5%             | 3.8%             | ↑ Increase |
-  | E-commerce Organic Revenue | £X               | £Y               | ↑ Increase |
-stepByStepGuide: |-
-  ### How to Improve Your Mobile SEO in the UK
-
-  1.  **Audit Mobile-Friendliness:** Use Google's Mobile-Friendly Test to identify rendering and usability issues.
-  2.  **Optimize Page Speed:** Compress images, leverage browser caching, and minify CSS/JS for faster loading on mobile networks.
-  3.  **Implement Responsive Design:** Ensure your website design adapts seamlessly to various mobile screen sizes and orientations.
-  4.  **Prioritize User Experience (UX):** Simplify navigation, optimize touch targets, and ensure calls-to-action are easily accessible for mobile users.
-  5.  **Monitor Mobile Rankings:** Regularly track your search performance specifically on mobile devices to gauge the impact of your optimizations.

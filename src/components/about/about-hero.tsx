@@ -6,9 +6,9 @@ import { ArrowRight } from "lucide-react";
 
 const stats = [
   { value: "15+", label: "Years experience" },
-  { value: "40+", label: "Clients served" },
+  { value: "100+", label: "Clients served" },
   { value: "12+", label: "Industries" },
-  { value: "244%", label: "Avg traffic growth" },
+  { value: "150–280%", label: "Avg traffic growth" },
 ];
 
 export function AboutHero() {

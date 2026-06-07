@@ -104,7 +104,7 @@ export function ServiceInlineForm({
         />
         <div
           className="pointer-events-none absolute bottom-0 right-0 h-24 w-24 rounded-br-xl opacity-[0.06]"
-          style={{ background: "radial-gradient(circle at 100% 100%, #7B5AEF, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle at 100% 100%, #3d6fe8, transparent 70%)" }}
         />
 
         {status === "success" ? (
@@ -230,7 +230,7 @@ export function ServiceInlineForm({
               className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
               style={{
                 fontFamily: "var(--font-heading)",
-                background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+                background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
                 boxShadow:
                   "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
               }}

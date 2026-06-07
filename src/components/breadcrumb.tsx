@@ -23,7 +23,7 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
               {item.label}
             </Link>
           ) : (
-            <span className="text-muted-foreground/40">{item.label}</span>
+            <span className="text-muted-foreground/70" aria-current="page">{item.label}</span>
           )}
         </span>
       ))}

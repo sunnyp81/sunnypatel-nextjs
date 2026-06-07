@@ -146,9 +146,9 @@
     conic-gradient(
       from var(--cta-angle) at 50% 50%,
       #5B8AEF   0deg,
-      #9B7AFF  80deg,
+      #7ba3f5  80deg,
       #3d6fe8 180deg,
-      #9B7AFF 280deg,
+      #7ba3f5 280deg,
       #5B8AEF 360deg
     ) border-box;
   animation: cta-border-spin 3.5s linear infinite;
@@ -337,5 +337,55 @@
   .gradient-button-variant:hover,
   .gradient-button:active {
     transform: none;
+  }
+}
+
+/* ── Accessibility ─────────────────────────────────────────── */
+
+/* Visible keyboard focus for every interactive element. Defined unlayered
+   so it overrides Tailwind `focus:outline-none` utilities on form fields
+   (which otherwise also suppress the focus-visible indicator). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #5B8AEF;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Skip-to-content link: off-screen until focused by keyboard. */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 200;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  background: #5B8AEF;
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Honour the OS "reduce motion" setting site-wide: neutralise CSS
+   animations (auroras, spinning CTA border, ping ring) and transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

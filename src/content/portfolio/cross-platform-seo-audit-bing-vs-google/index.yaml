@@ -1,13 +1,11 @@
 title: Cross-Platform SEO Audit — Bing vs Google Performance Analysis
 metaTitle: 'Cross-Platform SEO Audit: Bing vs Google — Sunny Patel'
 description: >-
-  A deep-dive cross-platform audit comparing Bing and Google performance across
-  11 sites, uncovering a 107x traffic gap, dangerous platform dependency, and
-  over £810 per year in missed Google revenue.
+  A deep-dive cross-platform audit comparing Bing and Google performance across 11 sites, uncovering a 107x traffic gap, dangerous platform dependency.
 ogImage: ''
 tags:
-  - SEO
-  - Analytics
+- SEO
+- Analytics
 featured: true
 client: In-House Portfolio
 industry: Search Analytics & Strategy
@@ -30,14 +28,14 @@ result: >-
   The audit also revealed 120,000+ AI Copilot citations — an entirely new
   traffic channel.
 metrics:
-  - value: '107×'
-    label: Performance gap discovered
-  - value: '11'
-    label: Sites audited
-  - value: £810/yr
-    label: Google revenue opportunity
-  - value: '120K+'
-    label: AI citations uncovered
+- value: '107×'
+  label: Performance gap discovered
+- value: '11'
+  label: Sites audited
+- value: £810/yr
+  label: Google revenue opportunity
+- value: '120K+'
+  label: AI citations uncovered
 testimonialText: ''
 testimonialAuthor: ''
 testimonialRole: ''

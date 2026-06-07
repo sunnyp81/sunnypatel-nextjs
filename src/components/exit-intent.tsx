@@ -58,13 +58,13 @@ export function ExitIntent() {
           {/* Top glow */}
           <div
             className="pointer-events-none absolute left-1/2 top-0 h-32 w-64 -translate-x-1/2 rounded-full opacity-20 blur-[60px]"
-            style={{ background: "linear-gradient(135deg, #5B8AEF, #7B5AEF)" }}
+            style={{ background: "linear-gradient(135deg, #5B8AEF, #3d6fe8)" }}
           />
 
           {/* Close */}
           <button
             onClick={dismiss}
-            className="absolute right-3 top-3 z-10 rounded-full p-1.5 text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+            className="absolute right-2 top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground/70 transition-colors hover:text-muted-foreground"
             aria-label="Close"
           >
             <X className="h-4 w-4" />
@@ -115,7 +115,7 @@ export function ExitIntent() {
               className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98]"
               style={{
                 fontFamily: "var(--font-heading)",
-                background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+                background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
                 boxShadow: "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
               }}
             >
@@ -123,7 +123,7 @@ export function ExitIntent() {
               <ArrowRight className="h-4 w-4" />
             </a>
 
-            <p className="mt-3 text-xs text-muted-foreground/30">
+            <p className="mt-3 text-xs text-muted-foreground/70">
               No obligation · Usually responds same day
             </p>
           </div>

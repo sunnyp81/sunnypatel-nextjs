@@ -27,7 +27,7 @@ const values = [
     icon: <FileCheck className="h-5 w-5" />,
     title: "Transparent Process",
     description:
-      "You receive full documentation of every strategy, topical map, and content brief. No black-box tactics. You own all deliverables and understand exactly what&apos;s being done and why.",
+      "You receive full documentation of every strategy, topical map, and content brief. No black-box tactics. You own all deliverables and understand exactly what's being done and why.",
     color: "#5a922c",
     border: "border-[#5a922c]/20",
     bg: "bg-[#5a922c]/10",

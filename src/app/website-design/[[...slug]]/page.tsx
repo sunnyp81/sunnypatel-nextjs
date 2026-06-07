@@ -140,7 +140,7 @@ export default async function WebsiteDesignPage({
         showCta={true}
         isService={true}
         ctaTitle="Want a price for your project?"
-        ctaSubtitle="Message me at Hello@SunnyPatel.co.uk or call 073055 23333. Same working day response with a fixed quote and a timeline."
+        ctaSubtitle="Message me at Hello@SunnyPatel.co.uk or call 07305 523333. Same working day response with a fixed quote and a timeline."
       >
         {visuals?.intro}
         <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-[#5B8AEF] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:my-6 prose-th:text-foreground prose-td:text-muted-foreground">

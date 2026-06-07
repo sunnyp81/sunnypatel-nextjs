@@ -1,13 +1,11 @@
 title: SEO Methodology at Scale — 45-Site Testing Portfolio
 metaTitle: 'SEO Methodology Proven at Scale: 45 Sites — Sunny Patel'
 description: >-
-  How running a 45-site SEO portfolio across 12 verticals provides a live
-  testing environment for the semantic SEO methodology applied to client work —
-  with real data, real rankings, and real revenue consequences.
+  How running a 45-site SEO portfolio across 12 verticals provides a live testing environment for the semantic SEO methodology applied to client work.
 ogImage: ''
 tags:
-  - SEO
-  - Content
+- SEO
+- Content
 featured: true
 client: In-House Portfolio
 industry: Multi-Vertical SEO
@@ -38,14 +36,14 @@ result: >-
   applied to client accounts has produced results including 244% average organic
   traffic growth and 3x enquiry rate improvements.
 metrics:
-  - value: '45'
-    label: Live SEO experiments
-  - value: '12'
-    label: Verticals tested
-  - value: '244%'
-    label: Avg client traffic growth
-  - value: '120K+'
-    label: AI search citations
+- value: '45'
+  label: Live SEO experiments
+- value: '12'
+  label: Verticals tested
+- value: '244%'
+  label: Avg client traffic growth
+- value: '120K+'
+  label: AI search citations
 testimonialText: ''
 testimonialAuthor: ''
 testimonialRole: ''

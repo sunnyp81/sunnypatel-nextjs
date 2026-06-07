@@ -55,14 +55,15 @@ export default async function PortfolioPage({
               slug,
             }),
             breadcrumbSchema([
-              { name: "Home", url: "https://sunnypatel.co.uk" },
-              { name: "Portfolio", url: "https://sunnypatel.co.uk/portfolio" },
-              { name: title, url: `https://sunnypatel.co.uk/portfolio/${slug}` },
+              { name: "Home", url: "https://sunnypatel.co.uk/" },
+              { name: "Portfolio", url: "https://sunnypatel.co.uk/portfolio/" },
+              { name: title, url: `https://sunnypatel.co.uk/portfolio/${slug}/` },
             ])
           ),
         }}
       />
       <Navbar />
+      <div id="main-content" tabIndex={-1} />
       <PortfolioDetail
         project={{ title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole }}
         renderedContent={rendered}

@@ -70,7 +70,7 @@ export function BlogLeadMagnet() {
   }
 
   return (
-    <div className="my-12 overflow-hidden rounded-2xl border border-[#5B8AEF]/20 bg-gradient-to-br from-[#5B8AEF]/[0.06] to-[#7B5AEF]/[0.04]">
+    <div className="my-12 overflow-hidden rounded-2xl border border-[#5B8AEF]/20 bg-gradient-to-br from-[#5B8AEF]/[0.06] to-[#3d6fe8]/[0.04]">
       <div className="p-6 md:p-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-8">
           {/* Left — copy */}
@@ -125,7 +125,7 @@ export function BlogLeadMagnet() {
                 className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70"
                 style={{
                   fontFamily: "var(--font-heading)",
-                  background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+                  background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
                   boxShadow: "0 0 20px rgba(91,138,239,0.25)",
                 }}
               >

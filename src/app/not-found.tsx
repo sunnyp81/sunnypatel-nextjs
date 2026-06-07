@@ -7,6 +7,7 @@ export default function NotFound() {
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
+      <div id="main-content" tabIndex={-1} />
 
       <div className="relative overflow-hidden pb-12 pt-40">
         {/* Blue glow */}

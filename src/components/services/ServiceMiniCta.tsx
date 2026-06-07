@@ -15,7 +15,7 @@ export function ServiceMiniCta({
         className="pointer-events-none absolute -inset-px rounded-2xl opacity-30"
         style={{
           background:
-            "conic-gradient(from var(--cta-angle) at 50% 50%, transparent 0deg, #5B8AEF 60deg, transparent 120deg, #7B5AEF 240deg, transparent 360deg)",
+            "conic-gradient(from var(--cta-angle) at 50% 50%, transparent 0deg, #5B8AEF 60deg, transparent 120deg, #3d6fe8 240deg, transparent 360deg)",
           animation: "cta-border-spin 6s linear infinite",
           mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
           maskComposite: "exclude",
@@ -44,7 +44,7 @@ export function ServiceMiniCta({
           className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98]"
           style={{
             fontFamily: "var(--font-heading)",
-            background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+            background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
             boxShadow: "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
           }}
         >

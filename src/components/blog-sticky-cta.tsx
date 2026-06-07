@@ -46,14 +46,14 @@ export function BlogStickyCta() {
             className="pointer-events-none absolute inset-0 opacity-[0.08]"
             style={{
               background:
-                "radial-gradient(ellipse at 20% 50%, #5B8AEF, transparent 60%), radial-gradient(ellipse at 80% 50%, #7B5AEF, transparent 60%)",
+                "radial-gradient(ellipse at 20% 50%, #5B8AEF, transparent 60%), radial-gradient(ellipse at 80% 50%, #3d6fe8, transparent 60%)",
             }}
           />
           <div
             className="pointer-events-none absolute bottom-0 left-0 right-0 h-px opacity-30"
             style={{
               background:
-                "linear-gradient(90deg, transparent, #5B8AEF, #7B5AEF, transparent)",
+                "linear-gradient(90deg, transparent, #5B8AEF, #3d6fe8, transparent)",
             }}
           />
 
@@ -79,13 +79,13 @@ export function BlogStickyCta() {
               className="relative inline-flex shrink-0 items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2.5 text-xs font-semibold text-white shadow-[0_0_24px_rgba(91,138,239,0.35)] transition-all duration-300 group-hover:shadow-[0_0_36px_rgba(91,138,239,0.55)] sm:px-5"
               style={{
                 fontFamily: "var(--font-heading)",
-                background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+                background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
               }}
             >
               <span
                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 style={{
-                  background: "linear-gradient(135deg, #6B9AFF 0%, #8B6AFF 100%)",
+                  background: "linear-gradient(135deg, #7ba3f5 0%, #5f8df0 100%)",
                 }}
               />
               <span className="relative">Book Now</span>
@@ -96,7 +96,7 @@ export function BlogStickyCta() {
           {/* Dismiss */}
           <button
             onClick={() => setDismissed(true)}
-            className="absolute right-2 top-2 z-10 rounded-full p-1 text-muted-foreground/30 transition-colors hover:text-muted-foreground/70"
+            className="absolute right-1 top-1 z-10 flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground/60 transition-colors hover:text-muted-foreground"
             aria-label="Dismiss"
           >
             <X className="h-3 w-3" />

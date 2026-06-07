@@ -1,14 +1,12 @@
 title: Technical Content Authority at Scale
-metaTitle: Technical Content Authority - 67K AI Citations from How-To Content - Sunny Patel
+metaTitle: Technical Content Authority - 67K AI Citations from How-To
 description: >-
-  How a single technical how-to guide generated over 31,000 AI search citations,
-  and how a content-first strategy built a technology troubleshooting authority
-  with 67,000+ total AI citations.
+  How a single technical how-to guide generated over 31,000 AI search citations, and how a content-first strategy built a technology troubleshooting authority.
 ogImage: ''
 tags:
-  - SEO
-  - Content
-  - Tech
+- SEO
+- Content
+- Tech
 featured: true
 client: In-House Portfolio
 industry: Technology & Consumer Electronics
@@ -39,14 +37,14 @@ result: >-
   Advertising RPMs reached nearly £10 per thousand pageviews on top-performing
   pages.
 metrics:
-  - value: '67,305'
-    label: AI search citations
-  - value: '31,377'
-    label: Citations from single guide
-  - value: '74:1'
-    label: AI citation-to-click ratio
-  - value: '906'
-    label: Monthly organic clicks
+- value: '67,305'
+  label: AI search citations
+- value: '31,377'
+  label: Citations from single guide
+- value: '74:1'
+  label: AI citation-to-click ratio
+- value: '906'
+  label: Monthly organic clicks
 testimonialText: ''
 testimonialAuthor: ''
 testimonialRole: ''

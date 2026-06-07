@@ -11,7 +11,7 @@ export function Hero() {
       title1="SEO Consulting That"
       title2="Generates Clients, Not Reports"
     >
-      <p className="text-base sm:text-lg md:text-xl text-white/40 mb-10 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+      <p className="text-base sm:text-lg md:text-xl text-white/70 mb-10 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
         Independent <a href="/services/seo-consultant-reading/" className="text-white/60 hover:text-white/80 underline underline-offset-2 transition-colors">SEO consultant</a>
         {" "}— 15+ years helping UK businesses in professional services, medical
         aesthetics, and local markets achieve measurable organic growth.
@@ -39,15 +39,15 @@ export function Hero() {
           ))}
         </div>
         <span className="text-sm font-medium text-white/50">
-          Rated 5/5 by 40+ UK businesses
+          Rated 5/5 by 100+ UK businesses
         </span>
       </div>
 
       <div className="mt-8 mx-auto grid max-w-lg grid-cols-3 gap-4">
         {[
-          { value: "40+", label: "Clients Served", color: "#d79f1e" },
+          { value: "100+", label: "Clients Served", color: "#d79f1e" },
           { value: "15+", label: "Years Experience", color: "#5B8AEF" },
-          { value: "244%", label: "Avg Traffic Growth", color: "#5a922c" },
+          { value: "150–280%", label: "Avg Traffic Growth", color: "#5a922c" },
         ].map((stat) => (
           <div
             key={stat.label}
@@ -64,7 +64,7 @@ export function Hero() {
             >
               {stat.value}
             </div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-white/40 transition-colors duration-300 group-hover:text-white/60">
+            <div className="mt-1 text-xs uppercase tracking-wider text-white/60 transition-colors duration-300 group-hover:text-white/80">
               {stat.label}
             </div>
           </div>

@@ -13,7 +13,7 @@ const highlights: {
 }[] = [
   {
     icon: <Sparkles className="h-5 w-5" />,
-    title: "15 Years Hands-On SEO",
+    title: "15+ Years Hands-On SEO",
     description:
       "Entity-based content networks built from real data, tested across 40+ sites in competitive niches.",
   },

@@ -905,11 +905,11 @@ export default async function ServicePage({
               slug,
             }),
             breadcrumbSchema([
-              { name: "Home", url: "https://sunnypatel.co.uk" },
-              { name: "Services", url: "https://sunnypatel.co.uk/services" },
+              { name: "Home", url: "https://sunnypatel.co.uk/" },
+              { name: "Services", url: "https://sunnypatel.co.uk/services/" },
               {
                 name: service.title,
-                url: `https://sunnypatel.co.uk/services/${slug}`,
+                url: `https://sunnypatel.co.uk/services/${slug}/`,
               },
             ]),
             ...(SERVICE_FAQS[slug] ? [faqSchema(SERVICE_FAQS[slug])] : [])

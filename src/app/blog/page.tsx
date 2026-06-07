@@ -33,6 +33,7 @@ export default async function BlogIndex() {
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
+      <div id="main-content" tabIndex={-1} />
 
       {/* Page header */}
       <div className="relative overflow-hidden pb-12 pt-32">

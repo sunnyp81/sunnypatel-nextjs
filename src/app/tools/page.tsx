@@ -139,6 +139,7 @@ export default function ToolsPage() {
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
+      <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
           <h1

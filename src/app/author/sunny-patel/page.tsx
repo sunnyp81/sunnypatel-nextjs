@@ -36,6 +36,7 @@ export default async function AuthorPage() {
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
+      <div id="main-content" tabIndex={-1} />
 
       <script
         type="application/ld+json"
@@ -73,8 +74,8 @@ export default async function AuthorPage() {
           <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
             {[
               { label: "15+ Years SEO", color: "#5B8AEF" },
-              { label: "40+ Clients", color: "#d79f1e" },
-              { label: "244% Avg Growth", color: "#5a922c" },
+              { label: "100+ Clients", color: "#d79f1e" },
+              { label: "150–280% Avg Growth", color: "#5a922c" },
               { label: "44 Managed Sites", color: "#4c7894" },
             ].map((badge) => (
               <span
@@ -123,7 +124,7 @@ export default async function AuthorPage() {
               className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
               style={{
                 fontFamily: "var(--font-heading)",
-                background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+                background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
               }}
             >
               Work with Sunny <ArrowRight className="h-3.5 w-3.5" />

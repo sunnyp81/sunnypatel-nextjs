@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 280, suffix: "%", label: "Avg Traffic Increase", color: "from-[#5B8AEF] to-[#d79f1e]" },
+  { value: 280, suffix: "%", label: "Peak Traffic Growth", color: "from-[#5B8AEF] to-[#d79f1e]" },
   { value: 100, suffix: "+", label: "Clients Served", color: "from-[#d79f1e] to-[#5a922c]" },
   { value: 40, suffix: "+", label: "Sites Managed", color: "from-[#5a922c] to-[#4c7894]" },
   { value: 15, suffix: "+", label: "Years Experience", color: "from-[#4c7894] to-[#5B8AEF]" },

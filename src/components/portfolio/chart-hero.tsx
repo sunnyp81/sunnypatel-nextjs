@@ -7,7 +7,7 @@ const tagColorMap: Array<{ test: RegExp; color: string; secondary: string }> = [
   { test: /design|brand|creative/i,       color: "#d79f1e", secondary: "#5B8AEF" },
   { test: /dev|code|tech|software/i,      color: "#4c7894", secondary: "#5a922c" },
   { test: /seo|content|search|organic/i,  color: "#5a922c", secondary: "#4c7894" },
-  { test: /legal|law|finance/i,           color: "#8b5cf6", secondary: "#5B8AEF" },
+  { test: /legal|law|finance/i,           color: "#4c7894", secondary: "#5B8AEF" },
 ];
 
 function getColors(tags: readonly string[], industry?: string | null) {

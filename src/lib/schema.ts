@@ -878,7 +878,7 @@ export function portfolioSchema({
     "@type": "CreativeWork",
     headline: title,
     description,
-    url: `${SITE_URL}/portfolio/${slug}`,
+    url: `${SITE_URL}/portfolio/${slug}/`,
     author: { "@id": `${SITE_URL}/#person` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
   };

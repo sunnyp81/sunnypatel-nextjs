@@ -53,11 +53,11 @@ export function Footer() {
                 07305 523333
               </a>
               <a
-                href="mailto:hello@sunnypatel.co.uk"
+                href="mailto:Hello@SunnyPatel.co.uk"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-[#5B8AEF]"
               >
                 <Mail className="h-4 w-4" />
-                hello@sunnypatel.co.uk
+                Hello@SunnyPatel.co.uk
               </a>
               <a
                 href="https://www.linkedin.com/in/sunny-patel-co-uk/"
@@ -151,13 +151,13 @@ export function Footer() {
             <p className="text-xs text-muted-foreground/80">
               &copy; 2026 Sunny Patel. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground/40">
+            <p className="text-xs text-muted-foreground/70">
               Part of <span className="text-muted-foreground/60">ND Media Ltd</span> &mdash; Company No. 10784524
             </p>
           </div>
           <div className="flex gap-4">
-            <a href="/privacy-policy/" className="text-xs text-muted-foreground/30 transition-colors hover:text-muted-foreground/60">Privacy Policy</a>
-            <a href="/terms-of-use/" className="text-xs text-muted-foreground/30 transition-colors hover:text-muted-foreground/60">Terms of Use</a>
+            <a href="/privacy-policy/" className="text-xs text-muted-foreground/70 transition-colors hover:text-muted-foreground/60">Privacy Policy</a>
+            <a href="/terms-of-use/" className="text-xs text-muted-foreground/70 transition-colors hover:text-muted-foreground/60">Terms of Use</a>
           </div>
         </div>
       </div>

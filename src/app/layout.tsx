@@ -8,10 +8,8 @@ import {
   localBusinessSchema,
   webSiteSchema,
   topicEntitySchemas,
-  reviewSchema,
   schemaGraph,
 } from "@/lib/schema";
-import { TESTIMONIALS } from "@/lib/testimonial-data";
 import { AnalyticsEvents } from "@/components/analytics-events";
 import { ExitIntent } from "@/components/exit-intent";
 
@@ -50,13 +48,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en-GB" className="dark scroll-smooth">
       <head>
         <style dangerouslySetInnerHTML={{ __html: `html{color-scheme:dark}.dark{--background:#050507;--foreground:oklch(0.95 0 0)}body{background-color:#050507;color:oklch(0.95 0 0);-webkit-font-smoothing:antialiased}` }} />
       </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -65,8 +64,7 @@ export default function RootLayout({
               organizationSchema(),
               localBusinessSchema(),
               webSiteSchema(),
-              ...topicEntitySchemas(),
-              ...(TESTIMONIALS.length > 0 ? [reviewSchema(TESTIMONIALS)] : [])
+              ...topicEntitySchemas()
             ),
           }}
         />

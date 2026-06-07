@@ -75,9 +75,9 @@ export default async function BlogPost({
             }),
             personSchema(),
             breadcrumbSchema([
-              { name: "Home", url: "https://sunnypatel.co.uk" },
-              { name: "Blog", url: "https://sunnypatel.co.uk/blog" },
-              { name: post.title, url: `https://sunnypatel.co.uk/blog/${slug}` },
+              { name: "Home", url: "https://sunnypatel.co.uk/" },
+              { name: "Blog", url: "https://sunnypatel.co.uk/blog/" },
+              { name: post.title, url: `https://sunnypatel.co.uk/blog/${slug}/` },
             ]),
             ...(post.faqs && post.faqs.length > 0
               ? [faqSchema(post.faqs.map((f) => ({ q: f.question, a: f.answer })))]

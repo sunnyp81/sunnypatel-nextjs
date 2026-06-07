@@ -16,7 +16,7 @@ const contactItems = [
   {
     icon: <Phone className="h-5 w-5 text-[#5B8AEF]" />,
     label: "Phone",
-    value: "073055 23333",
+    value: "07305 523333",
     href: "tel:07305523333",
   },
   {

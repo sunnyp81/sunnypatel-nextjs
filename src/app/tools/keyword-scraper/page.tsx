@@ -15,6 +15,7 @@ export default function KeywordScraperPage() {
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
+      <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <KeywordScraper />
       </div>

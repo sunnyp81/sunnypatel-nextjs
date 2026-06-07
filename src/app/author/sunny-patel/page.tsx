@@ -36,6 +36,7 @@ export default async function AuthorPage() {
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
+      <div id="main-content" tabIndex={-1} />
 
       <script
         type="application/ld+json"
@@ -123,7 +124,7 @@ export default async function AuthorPage() {
               className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
               style={{
                 fontFamily: "var(--font-heading)",
-                background: "linear-gradient(135deg, #5B8AEF 0%, #7B5AEF 100%)",
+                background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
               }}
             >
               Work with Sunny <ArrowRight className="h-3.5 w-3.5" />

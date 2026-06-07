@@ -38,11 +38,14 @@ export function AboutFaq() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
             >
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="group w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-6 py-5 text-left transition-all duration-200 hover:border-white/[0.1] hover:bg-white/[0.04]"
-              >
-                <div className="flex items-center justify-between gap-4">
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] transition-all duration-200 hover:border-white/[0.1] hover:bg-white/[0.04]">
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  aria-expanded={open === i}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-trigger-${i}`}
+                  className="group flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                >
                   <span
                     className="text-sm font-medium text-foreground md:text-base"
                     style={{ fontFamily: "var(--font-heading)" }}
@@ -50,6 +53,7 @@ export function AboutFaq() {
                     {faq.q}
                   </span>
                   <span
+                    aria-hidden="true"
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/[0.1] transition-all duration-300 ${
                       open === i
                         ? "rotate-45 border-[#5B8AEF]/30 bg-[#5B8AEF]/10 text-[#5B8AEF]"
@@ -58,24 +62,27 @@ export function AboutFaq() {
                   >
                     <Plus className="h-3.5 w-3.5" />
                   </span>
-                </div>
+                </button>
 
                 <AnimatePresence initial={false}>
                   {open === i && (
                     <motion.div
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-trigger-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                      <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">
                         {faq.a}
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </button>
+              </div>
             </motion.div>
           ))}
         </div>

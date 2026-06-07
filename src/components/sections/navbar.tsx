@@ -68,15 +68,17 @@ export function Navbar() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="p-2 text-muted-foreground hover:text-foreground md:hidden"
+          className="flex h-11 w-11 items-center justify-center p-2 text-muted-foreground hover:text-foreground md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-white/[0.06] bg-background/95 backdrop-blur-xl px-6 py-5 md:hidden">
+        <div id="mobile-menu" className="border-t border-white/[0.06] bg-background/95 backdrop-blur-xl px-6 py-5 md:hidden">
           <div className="flex flex-col gap-1 mb-5">
             {links.map((link) => (
               <a

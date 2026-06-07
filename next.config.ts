@@ -58,8 +58,9 @@ const nextConfig: NextConfig = {
       // Old category/tag/author pages from previous WordPress site
       { source: "/category/:slug", destination: "/blog/", permanent: true },
       { source: "/category/:slug/", destination: "/blog/", permanent: true },
-      { source: "/author/:slug", destination: "/about/", permanent: true },
-      { source: "/author/:slug/", destination: "/about/", permanent: true },
+      // Redirect old WordPress author pages, but NOT the real /author/sunny-patel/ profile page
+      { source: "/author/:slug((?!sunny-patel$).*)", destination: "/about/", permanent: true },
+      { source: "/author/:slug((?!sunny-patel$).*)/", destination: "/about/", permanent: true },
       // Old root-level service pages still showing in GSC
       { source: "/b2b-content-marketing-services", destination: "/services/b2b-seo/", permanent: true },
       { source: "/b2b-content-marketing-services/", destination: "/services/b2b-seo/", permanent: true },

@@ -56,7 +56,7 @@ const STATIC_SERVICES = [
     title: "Website Design",
     description: "SEO-optimised websites built for performance, conversions, and search visibility.",
     href: "/website-design/",
-    color: "#7c3aed",
+    color: "#5B8AEF",
     keywords: ["website", "design", "redesign", "build", "web design", "development"],
   },
 ];

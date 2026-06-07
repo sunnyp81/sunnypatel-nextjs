@@ -5,7 +5,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export async function generateStaticParams() {
-  const slugs = await reader.collections.services.list();
+  const slugs = await reader.collections.portfolio.list();
   return slugs.map((slug) => ({ slug }));
 }
 
@@ -15,8 +15,12 @@ export default async function OGImage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const service = await reader.collections.services.read(slug);
-  const title = service?.title || slug.replace(/-/g, " ");
+  const project = await reader.collections.portfolio.read(slug);
+  const title = project?.title || slug.replace(/-/g, " ");
+  const accents = ["#5B8AEF", "#5a922c", "#d79f1e"];
+  const metrics = (project?.metrics ?? [])
+    .slice(0, 3)
+    .map((m, i) => ({ value: m.value, label: m.label, color: accents[i % accents.length] }));
 
   return new ImageResponse(
     (
@@ -32,7 +36,6 @@ export default async function OGImage({
           fontFamily: "sans-serif",
         }}
       >
-        {/* Top accent line */}
         <div
           style={{
             position: "absolute",
@@ -44,15 +47,7 @@ export default async function OGImage({
           }}
         />
 
-        {/* Badge */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            marginBottom: "24px",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
           <div
             style={{
               padding: "6px 16px",
@@ -66,11 +61,10 @@ export default async function OGImage({
               textTransform: "uppercase" as const,
             }}
           >
-            SEO Service
+            Case Study
           </div>
         </div>
 
-        {/* Title */}
         <div
           style={{
             fontSize: title.length > 40 ? "48px" : "56px",
@@ -85,51 +79,28 @@ export default async function OGImage({
           {title}
         </div>
 
-        {/* Stats */}
-        <div
-          style={{
-            display: "flex",
-            gap: "32px",
-            marginTop: "auto",
-          }}
-        >
-          {[
-            { value: "15+", label: "Years Experience", color: "#5B8AEF" },
-            { value: "244%", label: "Avg Traffic Growth", color: "#5a922c" },
-            { value: "40+", label: "Clients Served", color: "#d79f1e" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "4px",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "32px",
-                  fontWeight: 700,
-                  color: stat.color,
-                }}
-              >
-                {stat.value}
-              </span>
-              <span
-                style={{
-                  fontSize: "14px",
-                  color: "rgba(255,255,255,0.4)",
-                  textTransform: "uppercase" as const,
-                  letterSpacing: "0.05em",
-                }}
-              >
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
+        {metrics.length > 0 && (
+          <div style={{ display: "flex", gap: "32px", marginTop: "auto" }}>
+            {metrics.map((stat) => (
+              <div key={stat.label} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <span style={{ fontSize: "32px", fontWeight: 700, color: stat.color }}>
+                  {stat.value}
+                </span>
+                <span
+                  style={{
+                    fontSize: "14px",
+                    color: "rgba(255,255,255,0.4)",
+                    textTransform: "uppercase" as const,
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
 
-        {/* Author */}
         <div
           style={{
             position: "absolute",
@@ -140,16 +111,8 @@ export default async function OGImage({
             gap: "12px",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-            }}
-          >
-            <span style={{ color: "white", fontSize: "18px", fontWeight: 600 }}>
-              Sunny Patel
-            </span>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+            <span style={{ color: "white", fontSize: "18px", fontWeight: 600 }}>Sunny Patel</span>
             <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "14px" }}>
               sunnypatel.co.uk
             </span>

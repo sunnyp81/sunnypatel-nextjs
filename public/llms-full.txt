@@ -1,38 +1,165 @@
-# Sunny Patel - SEO & AI Consultant
-# Full Site Context for LLMs
+# Sunny Patel — Independent SEO Consultant (Full Reference)
 
-## Who
-Sunny Patel is an SEO consultant and AI strategist based in Reading, Berkshire, UK.
-He helps businesses achieve measurable organic traffic growth through entity-based
-content networks and semantic SEO methodology.
+> Comprehensive index of sunnypatel.co.uk. Sunny Patel is an independent SEO consultant based in Reading, Berkshire, UK, specialising in semantic SEO, topical authority, entity SEO, technical SEO, and AI search optimisation (GEO) for UK businesses. 15+ years experience. Free 30-minute consultation. Contact: Hello@SunnyPatel.co.uk · 07305 523333.
 
-## Services
-- Semantic SEO Strategy — Building topical authority through entity-optimised content
-- Topical Authority Building — Comprehensive content networks that establish domain expertise
-- Content Strategy — Data-driven editorial planning aligned with search intent
-- Technical SEO Audits — Site health diagnostics covering Core Web Vitals, crawlability, indexing
-- AI Search Optimisation — Preparing content for AI-powered search (GEO, AI Overviews, Copilot)
-- Entity SEO — Establishing and strengthening entity signals for Knowledge Panel presence
+## Key Pages
 
-## Methodology
-- Koray Tugberk Gubur semantic SEO methodology (topical maps, contextual bridges, micro-semantics)
-- Jason Barnard entity optimisation (Knowledge Panel, brand SERP management)
-- Entity-based content networks over traditional keyword targeting
+- [Home](https://sunnypatel.co.uk/)
+- [About](https://sunnypatel.co.uk/about/)
+- [Services](https://sunnypatel.co.uk/services/)
+- [Portfolio / Case Studies](https://sunnypatel.co.uk/portfolio/)
+- [Blog](https://sunnypatel.co.uk/blog/)
+- [Free SEO Tools](https://sunnypatel.co.uk/tools/)
+- [Contact](https://sunnypatel.co.uk/contact/)
 
-## Blog Topics
-- Topical authority and how to build it
-- AI search optimisation and GEO (Generative Engine Optimisation)
-- Entity SEO and Knowledge Panel strategies
-- Semantic SEO methodology and implementation
-- Content brief creation and editorial workflows
-- Technical SEO best practices
+## Services (71)
 
-## Portfolio
-Case studies across healthcare, EdTech, affiliate marketing, AI search, and local SEO
-demonstrating 150-280% organic traffic growth through semantic SEO strategies.
+- [AI Search Optimisation](https://sunnypatel.co.uk/services/ai-search-optimisation/): AI search optimisation services to ensure your brand appears in ChatGPT, Google AI Overviews, Bing Copilot, and Perplexity results. Future-proof your visibility as search shifts to AI.
+- [Affordable SEO Consultant](https://sunnypatel.co.uk/services/affordable-seo-consultant/): Affordable SEO consultant delivering senior-level strategy without agency pricing. Technical audits, content strategy, and organic growth scaled to your budget. Free consultation.
+- [Amazon SEO Consultant](https://sunnypatel.co.uk/services/amazon-seo-consultant/): Amazon SEO consultant helping sellers optimise listings, improve search rankings, and increase organic sales on Amazon UK and Amazon.com. Free consultation.
+- [B2B Content Marketing: Strategy Guide](https://sunnypatel.co.uk/services/b2b-content-marketing-services/): B2B content marketing strategy that works. Education-first content for complex sales cycles. Learn what actually works.
+- [B2B SEO](https://sunnypatel.co.uk/services/b2b-seo/): B2B SEO services that drive qualified leads through organic search. Specialist SEO strategies for SaaS, professional services, manufacturing, and B2B companies.
+- [Content Briefs](https://sunnypatel.co.uk/services/content-briefs/): What is an SEO Content Brief? An SEO content brief is a detailed specification document that guides writers to produce semantically optimised content.
+- [Dental SEO](https://sunnypatel.co.uk/services/dental-seo/): Specialist dental SEO services to help dentists and dental practices attract new patients through local search, Google Maps, and organic visibility.
+- [Digital Marketing Reading](https://sunnypatel.co.uk/services/digital-marketing-reading/): Digital marketing in Reading, Berkshire. Content marketing, paid media, and data-driven growth for Thames Valley businesses. Free consultation.
+- [Ecommerce SEO Consultant](https://sunnypatel.co.uk/services/ecommerce-seo-consultant/): Ecommerce SEO consultant specialising in Shopify, WooCommerce, and Magento stores. Technical SEO, product schema, category architecture, and content strategy for online retailers.
+- [Enterprise SEO Consultant](https://sunnypatel.co.uk/services/enterprise-seo-consultant/): Enterprise SEO consultant for organisations with complex, large-scale sites. Scalable technical SEO, cross-team coordination, and content architecture that aligns stakeholders. 15+ yrs experience. Free strategy call.
+- [Freelance SEO Consultant](https://sunnypatel.co.uk/services/freelance-seo-consultant/): Freelance SEO consultant offering direct, senior-level SEO strategy without agency overhead. Semantic SEO, technical audits, and topical authority building. Free 30-minute consultation.
+- [Google Algorithm Update Recovery](https://sunnypatel.co.uk/services/google-algorithm-update-recovery/): Google penalty recovery and algorithm update recovery services. Diagnose manual actions, algorithmic penalties, and ranking drops — then build a recovery strategy that restores your organic traffic.
+- [Hire an SEO Consultant](https://sunnypatel.co.uk/services/hire-seo-consultant/): Hire an experienced SEO consultant for your business. Senior-level SEO strategy, technical audits, and topical authority building with no agency overhead. Free consultation available.
+- [How Much Does SEO Cost](https://sunnypatel.co.uk/services/how-much-does-seo-cost/): UK SEO costs in 2026: audits from £500, retainers from £1,500/mo, content briefs from £150. Real pricing from an independent consultant — no hidden fees, no contracts.
+- [Internal Linking](https://sunnypatel.co.uk/services/internal-linking/): What is Internal Linking Strategy? Internal linking strategy creates hub-and-spoke architectures that distribute ranking signals effectively.
+- [International SEO Consultant](https://sunnypatel.co.uk/services/international-seo-consultant/): International SEO consultant helping UK businesses expand globally. Hreflang implementation, multi-market keyword strategy, and technical SEO for international domains. Free consultation.
+- [Keyword Research](https://sunnypatel.co.uk/services/keyword-research/): What is Keyword Research? Keyword research identifies search demand, clusters queries by intent, and prioritises opportunities based on competition and business value.
+- [Legal SEO Magic Circle Firms](https://sunnypatel.co.uk/services/legal-seo-magic-circle-firms-2/): When your clients are Fortune 500 CEOs, sovereign wealth funds, and governments, your digital presence must reflect uncompromising excellence whilst navigating complex ethical constraints of legal marketing.
+- [Local SEO](https://sunnypatel.co.uk/services/local-seo/): Local SEO services to dominate Google Maps and local pack results. Google Business Profile optimisation, citation building, and location page strategy.
+- [Local SEO Agency](https://sunnypatel.co.uk/services/local-seo-agency/): Local SEO agency services to dominate Google Maps and local search results. Drive foot traffic and local leads with proven local SEO strategies.
+- [Local SEO Reading](https://sunnypatel.co.uk/services/local-seo-reading/): Local SEO for Reading businesses. Google Business Profile, local pack rankings, and near-me visibility across Berkshire. Free 30-min audit.
+- [Magento SEO Consultant](https://sunnypatel.co.uk/services/magento-seo-consultant/): Magento SEO consultant specialising in Adobe Commerce technical optimisation. Layered navigation fixes, crawl budget management, and product schema for large catalogues. Free consultation.
+- [On-Page SEO](https://sunnypatel.co.uk/services/on-page-seo/): What is On-Page SEO? On-page SEO refines existing content for improved relevance and featured snippet eligibility. The service optimises title tags, meta descriptions, heading hierarchy, and content structure.
+- [Professional SEO Services](https://sunnypatel.co.uk/services/professional-seo-services/): Professional SEO services from a specialist consultant. Transparent, results-driven search engine optimisation for businesses that want measurable organic growth.
+- [Real Estate SEO Consultant](https://sunnypatel.co.uk/services/real-estate-seo-consultant/): Real estate SEO consultant for estate agents, property developers, and lettings agencies. Local SEO, area page strategy, and technical optimisation for property websites. Free consultation.
+- [SEO](https://sunnypatel.co.uk/services/seo/): What is SEO? SEO (Search Engine Optimisation) is the practice of optimising websites to rank higher in search engine results pages for relevant queries.
+- [SEO Agency Reading](https://sunnypatel.co.uk/services/seo-agency-reading/): SEO company in Reading without the agency overhead. Direct expert access, no account managers, 150%+ avg traffic growth. Free consultation.
+- [SEO Berkshire](https://sunnypatel.co.uk/services/seo-berkshire/): SEO services for Reading, Bracknell, Wokingham, Slough, Windsor. 150-280% organic growth. Free 30-min audit.
+- [SEO Bracknell](https://sunnypatel.co.uk/services/seo-bracknell/): SEO consultant for Bracknell Forest businesses. Local SEO, technical audits, and topical authority strategies for Bracknell's technology, professional services, and retail sectors. Free consultation available.
+- [SEO Consultant Birmingham](https://sunnypatel.co.uk/services/seo-consultant-birmingham/): Independent SEO consultant working with Birmingham businesses. Semantic SEO, topical authority, and technical audits for Birmingham and the West Midlands. Free 30-minute consultation.
+- [SEO Consultant Bradford](https://sunnypatel.co.uk/services/seo-consultant-bradford/): Independent SEO consultant working with Bradford businesses. Semantic SEO, topical authority and technical audits for Bradford and West Yorkshire. Free 30-minute consultation.
+- [SEO Consultant Brighton](https://sunnypatel.co.uk/services/seo-consultant-brighton/): Independent SEO consultant working with Brighton businesses. Semantic SEO, topical authority, and technical audits for Brighton and Sussex. Free 30-minute consultation.
+- [SEO Consultant Cardiff](https://sunnypatel.co.uk/services/seo-consultant-cardiff/): Independent SEO consultant working with Cardiff and Welsh businesses. Semantic SEO, topical authority, and technical audits for Cardiff and South Wales. Free 30-minute consultation.
+- [SEO Consultant Devon](https://sunnypatel.co.uk/services/seo-consultant-devon/): Independent SEO consultant for Devon businesses. Technical SEO, local search optimisation, and content strategy for businesses across Devon. Free consultation.
+- [SEO Consultant Edinburgh](https://sunnypatel.co.uk/services/seo-consultant-edinburgh/): Independent SEO consultant for Edinburgh businesses. Semantic SEO, technical audits, and topical authority for Edinburgh and Scotland. Free consultation.
+- [SEO Consultant Essex](https://sunnypatel.co.uk/services/seo-consultant-essex/): Independent SEO consultant for Essex businesses. Semantic SEO, technical audits, and topical authority for businesses across Essex. Free consultation.
+- [SEO Consultant Glasgow](https://sunnypatel.co.uk/services/seo-consultant-glasgow/): Independent SEO consultant for Glasgow businesses. Semantic SEO, technical audits, and content strategy for Glasgow and central Scotland. Free consultation.
+- [SEO Consultant Harrogate](https://sunnypatel.co.uk/services/seo-consultant-harrogate/): Independent SEO consultant working with Harrogate businesses. Semantic SEO, topical authority and technical audits for Harrogate and North Yorkshire. Free 30-minute consultation.
+- [SEO Consultant Kent](https://sunnypatel.co.uk/services/seo-consultant-kent/): Kent SEO consultant — Canterbury, Maidstone, Tunbridge Wells, Folkestone & beyond. 15+ years, 40+ clients, 244% avg traffic growth. Direct senior expert, no agency overhead. Free 30-min audit.
+- [SEO Consultant Leeds](https://sunnypatel.co.uk/services/seo-consultant-leeds/): Independent SEO consultant working with Leeds businesses. Semantic SEO, topical authority, and technical audits for Leeds and West Yorkshire. Free 30-minute consultation.
+- [SEO Consultant London](https://sunnypatel.co.uk/services/seo-consultant-london/): Independent SEO consultant working with London businesses. Semantic SEO, topical authority and technical audits for London's competitive market. Free 30-minute consultation.
+- [SEO Consultant Manchester](https://sunnypatel.co.uk/services/seo-consultant-manchester/): Independent SEO consultant working with Manchester businesses. Semantic SEO, topical authority, and technical audits for Manchester's competitive digital market. Free 30-minute consultation.
+- [SEO Consultant Nottingham](https://sunnypatel.co.uk/services/seo-consultant-nottingham/): Independent SEO consultant for Nottingham businesses. Semantic SEO, technical audits, and content strategy for Nottingham and the East Midlands. Free consultation.
+- [SEO Consultant Oxford](https://sunnypatel.co.uk/services/seo-consultant-oxford/): Independent SEO consultant working with Oxford businesses. Semantic SEO, topical authority and technical audits for Oxford and Oxfordshire. Free 30-minute consultation.
+- [SEO Consultant Preston](https://sunnypatel.co.uk/services/seo-consultant-preston/): Independent SEO consultant for Preston and Lancashire businesses. Technical SEO, content strategy, and organic growth. Free 30-minute consultation.
+- [SEO Consultant Reading — 3x Growth](https://sunnypatel.co.uk/services/seo-consultant-reading/): SEO expert in Reading. 180→620 visits in 9 months. Direct consultant, no juniors. Free audit.
+- [SEO Consultant Sheffield](https://sunnypatel.co.uk/services/seo-consultant-sheffield/): Independent SEO consultant working with Sheffield businesses. Semantic SEO, topical authority, and technical audits for Sheffield and South Yorkshire. Free 30-minute consultation.
+- [SEO Consultant Southampton](https://sunnypatel.co.uk/services/seo-consultant-southampton/): Independent SEO consultant working with Southampton businesses. Semantic SEO, topical authority and technical audits for Southampton and Hampshire. Free 30-minute consultation.
+- [SEO Consultant Surrey](https://sunnypatel.co.uk/services/seo-consultant-surrey/): Independent SEO consultant working with Surrey businesses. Semantic SEO, topical authority and technical audits for Surrey's competitive market. Free 30-minute consultation.
+- [SEO Consultant York](https://sunnypatel.co.uk/services/seo-consultant-york/): Independent SEO consultant working with York and Yorkshire businesses. Semantic SEO, topical authority, and technical audits. Free 30-minute consultation.
+- [SEO Consulting](https://sunnypatel.co.uk/services/seo-consulting/): What is SEO Strategy Consulting? SEO strategy consulting provides expert guidance for businesses wanting direction without full-service implementation.
+- [SEO Maidenhead](https://sunnypatel.co.uk/services/seo-maidenhead/): SEO consultant for Maidenhead and the Royal Borough. Local SEO for hospitality, retail, and professional services capturing both resident and Windsor visitor searches. Free consultation available.
+- [SEO Retainer](https://sunnypatel.co.uk/services/seo-retainer/): Monthly SEO retainer for businesses serious about organic growth. Exactly what you get each month, what the first 90 days look like, and who it is right for. From £1,500/month, no lock-in.
+- [SEO Slough](https://sunnypatel.co.uk/services/seo-slough/): SEO consultant for Slough businesses including Trading Estate, manufacturing, logistics, and professional services. B2B and local SEO strategies tailored to Slough's diverse economy. Free consultation.
+- [SEO Strategy Consulting Expert Guidance for In-House Teams](https://sunnypatel.co.uk/services/seo-strategy-consulting-expert-guidance-for-in-house-teams/): SEO strategy consulting for in-house teams. Expert direction without full-service implementation — session-based guidance, topical roadmaps, and strategic oversight from a Reading-based SEO consultant. Free initial session available.
+- [SEO Strategy Reading](https://sunnypatel.co.uk/services/seo-strategy-reading/): Custom SEO strategy for Reading businesses. Topical authority, technical roadmaps, and content architecture for Thames Valley. Free consultation.
+- [SEO Windsor](https://sunnypatel.co.uk/services/seo-windsor/): SEO consultant for Windsor businesses. Tourism SEO, local search, and professional services visibility for the Royal Borough. Capture both international visitor searches and local resident queries. Free consultation.
+- [SEO Wokingham](https://sunnypatel.co.uk/services/seo-wokingham/): SEO consultant for Wokingham Borough businesses. Advanced semantic SEO and local search strategies for Wokingham's professional services, education, and home services sectors. Free consultation.
+- [SEO for Professional Services](https://sunnypatel.co.uk/services/professional-services-seo/): SEO for solicitors, accountants, financial advisers, and management consultancies. E-E-A-T strategy, topical authority, and local visibility for regulated professional services firms. Free consultation.
+- [SaaS SEO](https://sunnypatel.co.uk/services/saas-seo/): SaaS SEO services designed for software companies. Drive trial signups and demo requests through product-led content, comparison pages, and technical SEO optimisation.
+- [Semantic SEO](https://sunnypatel.co.uk/services/semantic-seo/): What is Semantic SEO? Semantic SEO is an optimisation methodology that builds topical authority through entity relationships, comprehensive topic coverage, and contextual relevance.
+- [Shopify SEO Consultant](https://sunnypatel.co.uk/services/shopify-seo-consultant/): Shopify SEO consultant helping online stores rank higher. Technical Shopify optimisation, product schema, collection page strategy, and content-led growth. Free consultation.
+- [Small Business SEO Consultant](https://sunnypatel.co.uk/services/small-business-seo-consultant/): Small business SEO consultant offering affordable, results-driven SEO strategy. Technical audits, local SEO, and content strategy scaled for small business budgets. Free consultation.
+- [Technical SEO Audit](https://sunnypatel.co.uk/services/technical-seo-audit/): Professional SEO audit services that diagnose technical issues, content gaps, and ranking barriers. Comprehensive site health analysis covering 50+ factors from £500.
+- [Technical SEO Consultant](https://sunnypatel.co.uk/services/technical-seo-consultant/): Technical SEO consultant diagnosing and fixing the infrastructure issues that prevent pages from ranking. Crawlability, indexation, Core Web Vitals, schema, and site architecture. Free 30-minute consultation.
+- [Technical SEO Services](https://sunnypatel.co.uk/services/technical-seo-services/): Technical SEO services covering site speed, crawlability, indexation, Core Web Vitals, and structured data. Fix the technical foundations that hold your rankings back.
+- [Topical Authority](https://sunnypatel.co.uk/services/topical-authority/): What is Topical Authority? Topical authority is a ranking state where search engines recognise a website as an authoritative source for a specific topic or subject area.
+- [Topical Maps](https://sunnypatel.co.uk/services/topical-maps/): A topical map is a strategic content architecture that organises topics around a central entity to build topical authority.
+- [WooCommerce SEO Consultant](https://sunnypatel.co.uk/services/woocommerce-seo-consultant/): WooCommerce SEO consultant helping WordPress stores rank higher. Plugin configuration, product schema, category optimisation, and content strategy for WooCommerce sites. Free consultation.
+- [WordPress SEO Consultant](https://sunnypatel.co.uk/services/wordpress-seo-consultant/): WordPress SEO consultant specialising in technical optimisation, plugin configuration, speed improvements, and content strategy for WordPress sites. Free 30-minute consultation.
+- [iGaming SEO Consultant](https://sunnypatel.co.uk/services/igaming-seo-consultant/): iGaming SEO consultant for sportsbooks, casinos, and betting operators. Technical SEO, content strategy, and topical authority in one of the most competitive verticals online.
 
-## Contact
-- Email: hello@sunnypatel.co.uk
-- Website: https://sunnypatel.co.uk
-- LinkedIn: https://www.linkedin.com/in/sunny-patel-co-uk/
-- Location: Reading, Berkshire, United Kingdom
+## Website Design (14)
+
+- [Industry Web Design](https://sunnypatel.co.uk/website-design/industries/): Different industries need different conversion logic. Here's how I design websites for UK service businesses, B2B, healthcare, legal, contractors and trades.
+- [Platforms and Build Types](https://sunnypatel.co.uk/website-design/platforms/): Choosing the right platform decides what your site can do for the next five years. Here's how I match WordPress, Shopify, custom builds and the rest to UK business needs.
+- [Pricing and Packages](https://sunnypatel.co.uk/website-design/pricing/): What a UK business website actually costs in 2026, what changes the price, and the three packages I quote against. From £1,500.
+- [Proof, Portfolio and Case Studies](https://sunnypatel.co.uk/website-design/proof/): The websites I've built, the redesigns I've shipped, and the measured results. Proof first, sales second.
+- [Redesign, UX and Conversion](https://sunnypatel.co.uk/website-design/redesign-ux/): When a website looks fine but the leads aren't coming, redesign isn't always the right answer. Here's how I diagnose and fix underperforming UK business sites.
+- [SEO Web Design](https://sunnypatel.co.uk/website-design/seo/): Web design with on-page SEO, schema, page speed and indexation built in — not bolted on. From £1,800. Fifteen years of SEO experience in the build.
+- [SEO and Performance Web Design](https://sunnypatel.co.uk/website-design/seo-performance/): Most "SEO-friendly" web design isn't. Here's the technical brief I build to: Core Web Vitals, schema, accessibility, indexation, internal linking. Quoted from £1,800.
+- [Small Business Website Design](https://sunnypatel.co.uk/website-design/small-business/): Websites for UK small businesses that need enquiries from day one. Fixed quotes from £1,500. No retainer lock-ins, no agency overhead, no surprise invoices.
+- [Web Design Case Studies](https://sunnypatel.co.uk/website-design/case-studies/): Detailed case studies of UK websites I've designed, redesigned and shipped. Numbers, methodology, what worked, what didn't.
+- [Web Design Packages](https://sunnypatel.co.uk/website-design/packages/): Three fixed-price web design packages for UK businesses. Clear scope, no agency markups, no surprise invoices. See what's included before you enquire.
+- [Web Design Portfolio](https://sunnypatel.co.uk/website-design/portfolio/): A curated selection of UK business websites I've designed and built. Real work, real outcomes, no stock screenshots.
+- [Website Design](https://sunnypatel.co.uk/website-design/website-design/): I design and build UK business websites that convert enquiries and support long-term SEO. From £1,500. Real proof, fixed quotes, British-built. Message me or call.
+- [Website Redesign](https://sunnypatel.co.uk/website-design/redesign/): I redesign UK business websites that look dated or aren't generating enquiries. Diagnosis first, redesign second. From £2,000 with audit, content migration and redirects included.
+- [WordPress Web Design](https://sunnypatel.co.uk/website-design/wordpress/): Custom WordPress websites built for UK service businesses. Fast, SEO-ready, no page-builder bloat. From £1,500. Real portfolio, fixed quotes.
+
+## Case Studies (12)
+
+- [Aatma Aesthetics Website Design Development and SEO](https://sunnypatel.co.uk/portfolio/aatma-aesthetics-website-design-development-seo/): How Sunny Patel helped Aatma Aesthetics grow organic visibility and attract high-quality enquiries through a full website redesign and semantic SEO strategy.
+- [Cross-Platform SEO Audit — Bing vs Google Performance Analysis](https://sunnypatel.co.uk/portfolio/cross-platform-seo-audit-bing-vs-google/): A deep-dive cross-platform audit comparing Bing and Google performance across 11 sites, uncovering a 107x traffic gap, dangerous platform dependency, and over £810 per year in missed Google revenue.
+- [Professional Services Firm — Reading — 3× Enquiry Growth](https://sunnypatel.co.uk/portfolio/professional-services-reading-seo-growth/): How a Reading professional services firm went from 180 organic visits per month to 620 in 9 months — with monthly enquiries from organic search tripling. Topical authority strategy in a competitive local market.
+- [SEO Methodology at Scale — 45-Site Testing Portfolio](https://sunnypatel.co.uk/portfolio/niche-affiliate-seo-portfolio-45-sites/): How running a 45-site SEO portfolio across 12 verticals provides a live testing environment for the semantic SEO methodology applied to client work — with real data, real rankings, and real revenue consequences.
+- [Technical Content Authority at Scale](https://sunnypatel.co.uk/portfolio/technical-content-authority-at-scale/): How a single technical how-to guide generated over 31,000 AI search citations, and how a content-first strategy built a technology troubleshooting authority with 67,000+ total AI citations.
+- [AI Search Optimisation — 120K Copilot Citations](https://sunnypatel.co.uk/portfolio/ai-search-optimisation-copilot-citations/): How structured, research-backed content across a niche site portfolio generated over 120,000 Bing AI Copilot citations — with a single page earning 31,377 citations alone — revealing the content patterns that AI search engines prefer to reference.
+- [Affiliate Conversion Optimisation — UGC Content Strategy](https://sunnypatel.co.uk/portfolio/affiliate-conversion-optimisation-ugc-strategy/): How a UGC-driven content strategy and semantic SEO audit lifted affiliate conversion rates to 6.51 percent and achieved 25.72 percent CTR — turning underperforming review content into high-converting affiliate pages.
+- [Automotive Tech Review Authority](https://sunnypatel.co.uk/portfolio/automotive-tech-review-authority/): How a focused content strategy built an automotive technology review authority with a 10.16% organic CTR and nearly 9,000 AI search citations — proving that niche expertise beats broad coverage.
+- [Health and Wellness Product SEO Authority](https://sunnypatel.co.uk/portfolio/health-wellness-product-seo-authority/): How semantic SEO and research-backed content transformed a health and wellness product review site into a category authority — achieving a 25.72% click-through rate and over 24,000 AI search citations.
+- [Micro-Niche Conversion Optimisation](https://sunnypatel.co.uk/portfolio/micro-niche-conversion-optimisation/): How a small pet products review site achieved a 6.51% affiliate conversion rate — 5x the portfolio average — and a £3.79 earnings-per-click through precision content targeting and high-intent semantic SEO.
+- [Outdoor and Garden Product Review SEO](https://sunnypatel.co.uk/portfolio/outdoor-garden-product-review-seo/): How a focused semantic SEO strategy turned an outdoor and garden equipment review site into the top-earning affiliate property in a 45-site portfolio, generating consistent monthly revenue through high-intent product content.
+- [TheTutorLink — EdTech Platform Growth](https://sunnypatel.co.uk/portfolio/thetutor-link-edtech-platform-growth/): How TheTutorLink, an online tutoring marketplace, achieved 600 percent organic traffic growth through technical SEO, platform optimisation, and a dual-domain strategy targeting both the marketing site and web application.
+
+## Blog Articles (43)
+
+- [46 AI Search Statistics 2026](https://sunnypatel.co.uk/blog/ai-search-statistics/): 46 AI search statistics 2026: ChatGPT usage, AI Overviews impact, citation data. Get competitive edge in AI referral traffic now.
+- [Best SEO Companies UK 2026](https://sunnypatel.co.uk/blog/best-seo-companies-uk/): Independent review of top UK SEO agencies & consultants. Compare pricing, specialisms, AI SEO & AEO services for your business.
+- [Brand Not Appearing in ChatGPT: 7 Fixes](https://sunnypatel.co.uk/blog/brand-not-appearing-in-chatgpt/): Why your brand missing ChatGPT and 7 proven fixes to get cited in AI responses. Start capturing AI referral traffic today.
+- [ChatGPT Ads: What We Know and How to Prepare](https://sunnypatel.co.uk/blog/chatgpt-ads/): ChatGPT ads launched February 2026. Learn how they work, who can advertise, what the $60 CPM format looks like, and how to prepare your brand now.
+- [38 Content Marketing Statistics 2026](https://sunnypatel.co.uk/blog/content-marketing-statistics/): 38 content marketing statistics 2026: blog traffic ROI, post length performance, benchmarks. Use data to dominate your niche.
+- [E-E-A-T Checker & Audit Guide](https://sunnypatel.co.uk/blog/eeat-checker-audit-guide/): Step-by-step E-E-A-T audit framework you can run today. Score your site across Experience, Expertise, Authoritativeness, and Trustworthiness — with a checklist for each signal.
+- [Freelance SEO Consultant UK](https://sunnypatel.co.uk/blog/freelance-seo-consultant-uk/): How to find and hire the right freelance SEO consultant in the UK. What to look for, red flags to avoid, pricing expectations, and how freelancers compare to agencies.
+- [Google Penalty Recovery](https://sunnypatel.co.uk/blog/google-penalty-recovery/): Manual action or algorithm hit? Here's how to diagnose a Google penalty, what recovery actually takes, and what to do if you've acquired a penalised site.
+- [How Long Does SEO Take](https://sunnypatel.co.uk/blog/how-long-does-seo-take/): Ahrefs data: 3–6 months is the typical SEO timeline. UK breakdown — technical fixes in 4–8 weeks, local SEO in 3–6 months, competitive authority building in 6–12 months. Real examples included.
+- [How Many Keywords](https://sunnypatel.co.uk/blog/how-many-keywords/): How many keywords should my website target? is the wrong question. Here's why, and what to ask instead.
+- [How Much Does an SEO Consultant Charge UK](https://sunnypatel.co.uk/blog/how-much-does-an-seo-consultant-charge-uk/): Honest UK SEO consultant pricing for 2026. Day rates, monthly retainers, project fees, and what separates good value from overpriced or dangerously cheap. Includes real benchmarks.
+- [How to Be an SEO - Find Out Here!](https://sunnypatel.co.uk/blog/how-to-be-an-seo/): SEO consultancy offers flexibility, good income, and intellectually engaging work. Here's how to build the skills and business required.
+- [How to Build Topical Authority](https://sunnypatel.co.uk/blog/how-to-build-topical-authority/): A practical, step-by-step guide to building topical authority. Learn the methodology I use to deliver 150-280% traffic growth for clients.
+- [How to Choose an SEO Consultant](https://sunnypatel.co.uk/blog/how-to-choose-seo-consultant/): Choosing the wrong SEO consultant costs time, money, and rankings. Here are the 7 questions every business owner should ask before signing an SEO contract.
+- [Increase Organic Traffic](https://sunnypatel.co.uk/blog/increase-organic-traffic/): Most advice on increasing organic traffic focuses on tactics lacking strategic context. Here's the systematic approach that actually works.
+- [In-House SEO vs Agency vs Consultant](https://sunnypatel.co.uk/blog/inhouse-seo-vs-agency-vs-consultant/): In-house (£44K-£71K) vs agency (£18K-£60K) vs consultant (£12K-£48K). Which SEO model beats the others? UK cost breakdown, ROI analysis, and the hybrid model high-growth companies use.
+- [Intent Competition Data](https://sunnypatel.co.uk/blog/intent-competition-data/): Unlocking Keyword Success: Going Beyond Search Volume. When it comes to keyword research for SEO, relying solely on search volume may not provide the complete picture.
+- [Local SEO Berkshire Guide](https://sunnypatel.co.uk/blog/local-seo-berkshire-guide/): Local SEO guide for Berkshire businesses. Rank in Google Maps across Reading, Wokingham, Slough and Bracknell. GBP setup, reviews and citations explained.
+- [46 Local SEO Statistics 2026](https://sunnypatel.co.uk/blog/local-seo-statistics/): 46 local SEO statistics: near-me searches, map pack rankings, customer visits. Get proven benchmarks for local search dominance today.
+- [Managing 44 Websites SEO Data](https://sunnypatel.co.uk/blog/managing-44-websites-seo-data/): Real Google Search Console data from managing a portfolio of 44 websites. Canonical splitting, title truncation at scale, page pruning results, and what most agencies won't tell you about multi-site SEO.
+- [Optimise Content for AI Search](https://sunnypatel.co.uk/blog/optimise-content-for-ai-search/): Practical guide to optimising content for Bing Copilot, ChatGPT Search, and Google AI Overviews. Learn the 7 content patterns that earn AI citations.
+- [Optimise Multiple Keywords](https://sunnypatel.co.uk/blog/optimise-multiple-keywords/): Are you looking to boost your website's visibility and attract more readers? One effective strategy is to integrate long-tail keywords into your blog posts.
+- [What Happens to SEO After You Acquire a Business](https://sunnypatel.co.uk/blog/seo-after-acquisition/): Organic traffic drops 10-30% after most acquisitions. I've managed 44 sites through ownership changes — here's the 90-day plan to protect your rankings.
+- [How to Tell If Your SEO Agency Is Lying to You](https://sunnypatel.co.uk/blog/seo-agency-lying/): I've audited sites managed by agencies for years with zero growth. Here are the red flags in their reports and 5 questions to ask right now.
+- [SEO Consultant vs Agency — Which Is Right for Your Business?](https://sunnypatel.co.uk/blog/seo-consultant-vs-agency/): Independent SEO consultants consistently outperform agencies for SMEs — lower cost, direct expert access, and no account manager layer. Sunny Patel explains the difference with data.
+- [SEO Consultant vs SEO Agency](https://sunnypatel.co.uk/blog/seo-consultant-vs-seo-agency/): SEO consultant vs SEO agency — an honest comparison. Who does the work, what you pay for, which model delivers better ROI, and how to decide based on your budget and goals.
+- [SEO Due Diligence Investors](https://sunnypatel.co.uk/blog/seo-due-diligence-investors/): I manage 44 websites. Here's what sellers hide about organic traffic — and the 5 Google Search Console checks every investor should run before signing.
+- [SEO for Multiple Websites](https://sunnypatel.co.uk/blog/seo-for-multiple-websites/): I manage 44 websites across 15+ niches. Here's the multi-site SEO system I use to stop them cannibalising each other, fix shared technical debt, and prioritise which sites get attention first.
+- [SEO Metrics Your Board Should Actually See](https://sunnypatel.co.uk/blog/seo-metrics-for-boards/): Most SEO reports sent to boards are useless. Here are the 5 metrics that actually predict whether SEO is working — from someone who reports on 44 sites.
+- [SEO Mistakes](https://sunnypatel.co.uk/blog/seo-mistakes/): Most websites lose rankings through preventable mistakes. Here are 9 issues I find during audits, with fixes you can implement today.
+- [SEO Semantic Markup Guide](https://sunnypatel.co.uk/blog/seo-semantic-markup-guide/): Complete guide to semantic markup for SEO. Learn how structured data, schema markup, and semantic HTML improve search visibility and enable rich results.
+- [SEO Statistics UK](https://sunnypatel.co.uk/blog/seo-statistics-uk/): SEO statistics UK 2026: Position 1 gets 27.6% CTR, 825% average ROI. 85+ verified data insights. Build your SEO business case with data today.
+- [SEO vs Paid Ads Where to Spend First](https://sunnypatel.co.uk/blog/seo-vs-paid-ads/): Data-backed framework for choosing SEO vs PPC based on your stage, budget, and timeline. Includes a 12-month CAC comparison from 44 real sites.
+- [Technical SEO vs On-Page SEO](https://sunnypatel.co.uk/blog/technical-seo-vs-on-page-seo/): Technical SEO and on-page SEO are often confused. Learn exactly what each covers, which one your site needs most, and how they work together to improve rankings.
+- [Topical Authority vs Domain Authority](https://sunnypatel.co.uk/blog/topical-authority-vs-domain-authority/): Domain Authority is a third-party metric. Topical authority is what Google actually measures. Learn the difference and why most SEO campaigns focus on the wrong one.
+- [How to Value a Website by Its Organic Traffic](https://sunnypatel.co.uk/blog/value-website-organic-traffic/): Monthly organic revenue × multiplier isn't enough. Here's how to calculate real organic traffic value using GSC data, not broker vanity metrics.
+- [Website Redesign SEO Checklist](https://sunnypatel.co.uk/blog/website-redesign-seo-checklist/): The exact checklist I use across 44 websites to protect organic traffic during redesigns. Before, during, and after steps to avoid ranking drops.
+- [What is a Content Brief](https://sunnypatel.co.uk/blog/what-is-a-content-brief/): A content brief is the document that separates content that ranks from content that doesn't. Includes a free content brief template, real examples, and a breakdown of every field your briefs need to produce ranking content.
+- [What is E-E-A-T in SEO](https://sunnypatel.co.uk/blog/what-is-eeat-seo/): E-E-A-T stands for Experience, Expertise, Authoritativeness, and Trustworthiness. Learn what each component means and how to demonstrate it to improve your rankings.
+- [What is Entity SEO](https://sunnypatel.co.uk/blog/what-is-entity-seo/): Entity SEO is the practice of helping search engines understand who you are, not just what you publish. Learn how to build entity authority that improves rankings and AI citations.
+- [What is LLM Optimisation](https://sunnypatel.co.uk/blog/what-is-llm-optimisation/): LLM optimisation is the practice of making your content visible in AI-generated answers from ChatGPT, Bing Copilot, and Perplexity. Learn what it involves and why it matters.
+- [Why Your Competitor Ranks Higher Than You](https://sunnypatel.co.uk/blog/why-competitor-ranks-higher/): I manage 44 sites. Here are the 6 real reasons a competitor outranks you — and a diagnostic framework to find which one applies to yours.
+- [WordPress vs Webflow](https://sunnypatel.co.uk/blog/wordpress-vs-webflow/): Choosing between WordPress and Webflow affects your SEO capabilities, development costs, and long-term flexibility. Here's what matters for business websites.

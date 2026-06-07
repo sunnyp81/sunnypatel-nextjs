@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/normalize-content.mjs && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "normalize:content": "node scripts/normalize-content.mjs",
+    "validate:content": "node scripts/normalize-content.mjs --check"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.48",

@@ -1,0 +1,58 @@
+name: Content Guard
+
+# The external "CTR: rewrite titles" automation commits straight to master and
+# has broken production builds with unquoted-colon YAML and schema-violating
+# frontmatter keys. This workflow auto-heals master after those commits and
+# blocks invalid content from PRs.
+
+on:
+  push:
+    branches: [master]
+    paths: ["src/content/**"]
+  pull_request:
+    paths:
+      - "src/content/**"
+      - "scripts/normalize-content.mjs"
+
+permissions:
+  contents: write
+
+# Don't pile up; let a newer cron commit supersede an in-flight run on master.
+concurrency:
+  group: content-guard-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # PRs: fail if content isn't already normalised, so we never merge
+      # frontmatter that would break the build.
+      - name: Validate content (pull requests)
+        if: github.event_name == 'pull_request'
+        run: node scripts/normalize-content.mjs --check
+
+      # master: auto-fix whatever the cron may have broken...
+      - name: Normalise content (master)
+        if: github.event_name == 'push'
+        run: node scripts/normalize-content.mjs
+
+      # ...and commit the fix back. Pushes made with GITHUB_TOKEN do not
+      # retrigger workflows, so this cannot loop.
+      - name: Commit fixes (master)
+        if: github.event_name == 'push'
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "content-guard[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: auto-normalise content frontmatter [skip ci]"
+            git push
+          else
+            echo "Content already valid — nothing to fix."
+          fi

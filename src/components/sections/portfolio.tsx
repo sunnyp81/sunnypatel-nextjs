@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { GlowCard } from "@/components/ui/glow-card";
 import { ProjectCover } from "@/components/portfolio/project-cover";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { motion } from "motion/react";
@@ -59,15 +59,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
               transition={{ duration: 0.5, delay: i * 0.07 }}
             >
               <Link href={`/portfolio/${project.slug}`} className="group block h-full">
-                <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 transition-transform duration-200 group-hover:scale-[1.01]">
-                  <GlowingEffect
-                    spread={60}
-                    glow={true}
-                    disabled={false}
-                    proximity={80}
-                    inactiveZone={0.01}
-                    borderWidth={3}
-                  />
+                <GlowCard className="h-full transition-transform duration-200 group-hover:scale-[1.01]" spread={60} proximity={80}>
                   <div className="flex h-full flex-col overflow-hidden rounded-xl border-[0.75px] bg-background shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
                     <ProjectCover
                       title={project.title}
@@ -119,7 +111,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
                       )}
                     </div>
                   </div>
-                </div>
+                </GlowCard>
               </Link>
             </motion.div>
           ))}

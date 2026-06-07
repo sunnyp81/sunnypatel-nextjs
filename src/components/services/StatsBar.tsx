@@ -3,7 +3,7 @@ import { TrendingUp, Users, Clock, Award } from "lucide-react";
 const STATS = [
   { icon: Clock, value: "15+", label: "Years Experience", color: "#5B8AEF" },
   { icon: TrendingUp, value: "150–280%", label: "Avg Traffic Growth", color: "#3d6fe8" },
-  { icon: Users, value: "50+", label: "UK Businesses", color: "#5B8AEF" },
+  { icon: Users, value: "100+", label: "UK Businesses", color: "#5B8AEF" },
   { icon: Award, value: "Free", label: "Initial Consultation", color: "#3d6fe8" },
 ] as const;
 

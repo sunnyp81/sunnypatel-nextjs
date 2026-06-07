@@ -6,12 +6,12 @@ import React from "react";
 // skill. All visuals use viewBox + width:100% so they scale to mobile.
 
 const C = {
-  primary: "#2563EB",
-  secondary: "#059669",
-  accent: "#D97706",
-  neutral: "#6B7280",
-  text: "#1F2937",
-  bg: "#F8FAFC",
+  primary: "#5B8AEF",
+  secondary: "#5a922c",
+  accent: "#d79f1e",
+  neutral: "#9aa0aa",
+  text: "#e5e7eb",
+  bg: "#0a0a0f",
   white: "#FFFFFF",
 };
 
@@ -28,7 +28,7 @@ function Figure({
 }) {
   return (
     <figure className="content-visual my-10">
-      <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-white">
+      <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#0a0a0f]">
         {children}
       </div>
       <figcaption className="mt-3 text-center text-sm text-muted-foreground">
@@ -94,7 +94,7 @@ function BarChart({
             >
               {b.label}
             </text>
-            <rect x={barX} y={y} width={barMaxW} height={32} fill="#E5E7EB" />
+            <rect x={barX} y={y} width={barMaxW} height={32} fill="rgba(255,255,255,0.08)" />
             <rect x={barX} y={y} width={barW} height={32} fill={b.colour} />
             <text
               x={barX + barW + 8}
@@ -286,7 +286,7 @@ function ComparisonMatrix({
             y={headerH + i * rowH}
             width={w - 20}
             height={rowH}
-            fill={i % 2 === 0 ? C.white : "#F1F5F9"}
+            fill={i % 2 === 0 ? "#0d0d14" : "#121219"}
           />
           <text
             x={20}

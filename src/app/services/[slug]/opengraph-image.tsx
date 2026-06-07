@@ -95,8 +95,8 @@ export default async function OGImage({
         >
           {[
             { value: "15+", label: "Years Experience", color: "#5B8AEF" },
-            { value: "244%", label: "Avg Traffic Growth", color: "#5a922c" },
-            { value: "40+", label: "Clients Served", color: "#d79f1e" },
+            { value: "150–280%", label: "Avg Traffic Growth", color: "#5a922c" },
+            { value: "100+", label: "Clients Served", color: "#d79f1e" },
           ].map((stat) => (
             <div
               key={stat.label}

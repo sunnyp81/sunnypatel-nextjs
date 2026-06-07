@@ -39,15 +39,15 @@ export function Hero() {
           ))}
         </div>
         <span className="text-sm font-medium text-white/50">
-          Rated 5/5 by 40+ UK businesses
+          Rated 5/5 by 100+ UK businesses
         </span>
       </div>
 
       <div className="mt-8 mx-auto grid max-w-lg grid-cols-3 gap-4">
         {[
-          { value: "40+", label: "Clients Served", color: "#d79f1e" },
+          { value: "100+", label: "Clients Served", color: "#d79f1e" },
           { value: "15+", label: "Years Experience", color: "#5B8AEF" },
-          { value: "244%", label: "Avg Traffic Growth", color: "#5a922c" },
+          { value: "150–280%", label: "Avg Traffic Growth", color: "#5a922c" },
         ].map((stat) => (
           <div
             key={stat.label}

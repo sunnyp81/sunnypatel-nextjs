@@ -74,8 +74,8 @@ export default async function AuthorPage() {
           <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
             {[
               { label: "15+ Years SEO", color: "#5B8AEF" },
-              { label: "40+ Clients", color: "#d79f1e" },
-              { label: "244% Avg Growth", color: "#5a922c" },
+              { label: "100+ Clients", color: "#d79f1e" },
+              { label: "150–280% Avg Growth", color: "#5a922c" },
               { label: "44 Managed Sites", color: "#4c7894" },
             ].map((badge) => (
               <span

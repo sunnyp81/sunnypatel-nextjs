@@ -8,7 +8,7 @@ import {
   FileText,
   TrendingUp,
 } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { GlowCard } from "@/components/ui/glow-card";
 import { motion } from "motion/react";
 
 const services = [
@@ -110,15 +110,7 @@ export function Services() {
                 transition={{ duration: 0.5, delay: i * 0.07 }}
               >
                 <a href={service.href} className="block h-full">
-                <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2">
-                  <GlowingEffect
-                    spread={40}
-                    glow={true}
-                    disabled={false}
-                    proximity={64}
-                    inactiveZone={0.01}
-                    borderWidth={3}
-                  />
+                <GlowCard className="h-full" spread={40} proximity={64}>
                   <div className="relative overflow-hidden rounded-xl border-[0.75px] bg-background p-5 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
                     {/* Accent corner glow */}
                     <div
@@ -146,7 +138,7 @@ export function Services() {
                       {service.description}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
                 </a>
               </motion.div>
             );

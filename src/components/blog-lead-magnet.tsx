@@ -1,54 +1,27 @@
 "use client";
 
-import { useState } from "react";
-import { Download, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
-
-type Status = "idle" | "loading" | "success" | "error";
+import { Download, Loader2, CheckCircle2 } from "lucide-react";
+import { useLeadForm } from "@/lib/use-lead-form";
+import { FormField, FormError } from "@/components/ui/form-field";
 
 export function BlogLeadMagnet() {
-  const [status, setStatus] = useState<Status>("idle");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [formData, setFormData] = useState({ name: "", email: "" });
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    setErrorMsg("");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          message: "[Lead Magnet] Free SEO Checklist download request",
-        }),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setErrorMsg(data.error || "Something went wrong.");
-        setStatus("error");
-      } else {
-        setStatus("success");
-        setFormData({ name: "", email: "" });
-        // GA4 conversion tracking
-        if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "generate_lead", {
-            event_category: "lead_magnet",
-            event_label: "seo_checklist",
-          });
-        }
-      }
-    } catch {
-      setErrorMsg("Network error. Please try again.");
-      setStatus("error");
-    }
-  }
+  const { status, errorMsg, formData, handleChange, handleSubmit } = useLeadForm({
+    initial: { name: "", email: "" },
+    eventCategory: "lead_magnet",
+    eventLabel: "seo_checklist",
+    transform: (d) => ({
+      ...d,
+      message: "[Lead Magnet] Free SEO Checklist download request",
+    }),
+  });
 
   if (status === "success") {
     return (
-      <div className="my-12 rounded-2xl border border-success/20 bg-success/5 p-6 text-center md:p-8">
+      <div
+        role="status"
+        aria-live="polite"
+        className="my-12 rounded-2xl border border-success/20 bg-success/5 p-6 text-center md:p-8"
+      >
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-success/30 bg-success/10">
           <CheckCircle2 className="h-6 w-6 text-success" />
         </div>
@@ -97,32 +70,33 @@ export function BlogLeadMagnet() {
           {/* Right — form */}
           <div className="w-full md:w-80">
             <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="text"
-                value={formData.name}
-                onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+              <FormField
+                id="name"
+                label="Your name"
                 placeholder="Your name"
                 required
-                className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:outline-none"
+                srOnlyLabel
+                value={formData.name}
+                onChange={handleChange}
+                disabled={status === "loading"}
               />
-              <input
+              <FormField
+                id="email"
+                label="Email address"
                 type="email"
-                value={formData.email}
-                onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
                 placeholder="you@company.com"
                 required
-                className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:outline-none"
+                srOnlyLabel
+                value={formData.email}
+                onChange={handleChange}
+                disabled={status === "loading"}
               />
-              {status === "error" && (
-                <div className="flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-3 py-2 text-xs text-red-400">
-                  <AlertCircle className="h-3 w-3 shrink-0" />
-                  {errorMsg}
-                </div>
-              )}
+              <FormError message={errorMsg} compact />
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70"
+                aria-busy={status === "loading"}
+                className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
                 style={{
                   fontFamily: "var(--font-heading)",
                   background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",

@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Mail, Phone, MapPin, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-
-type Status = "idle" | "loading" | "success" | "error";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { GlowCard } from "@/components/ui/glow-card";
+import { FormField, FormError, FormSuccess } from "@/components/ui/form-field";
+import { useLeadForm } from "@/lib/use-lead-form";
 
 const contactItems = [
   {
@@ -28,53 +27,12 @@ const contactItems = [
 ];
 
 export function Contact() {
-  const [status, setStatus] = useState<Status>("idle");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    setErrorMsg("");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setErrorMsg(data.error || "Something went wrong.");
-        setStatus("error");
-      } else {
-        setStatus("success");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-        // GA4 conversion tracking
-        if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "generate_lead", {
-            event_category: "contact",
-            event_label: "contact_form",
-          });
-        }
-      }
-    } catch {
-      setErrorMsg("Network error. Please try again.");
-      setStatus("error");
-    }
-  }
+  const { status, setStatus, errorMsg, formData, handleChange, handleSubmit } =
+    useLeadForm({
+      initial: { name: "", email: "", phone: "", message: "" },
+      eventCategory: "contact",
+      eventLabel: "contact_form",
+    });
 
   return (
     <section id="contact" className="relative overflow-hidden py-24 md:py-32">
@@ -132,128 +90,69 @@ export function Contact() {
                 return (
                   <div key={item.label}>
                     {i > 0 && <div className="border-t border-white/[0.06]" />}
-                    {item.href ? (
-                      <a href={item.href}>{inner}</a>
-                    ) : (
-                      inner
-                    )}
+                    {item.href ? <a href={item.href}>{inner}</a> : inner}
                   </div>
                 );
               })}
             </div>
           </div>
 
-          {/* Right — form with GlowingEffect */}
-          <div className="relative rounded-[1.25rem] border-[0.75px] border-border p-2">
-            <GlowingEffect
-              spread={50}
-              glow={true}
-              disabled={false}
-              proximity={80}
-              inactiveZone={0.01}
-              borderWidth={3}
-            />
+          {/* Right — form */}
+          <GlowCard spread={50} proximity={80}>
             <div className="relative rounded-xl border-[0.75px] bg-background p-8 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
               {status === "success" ? (
-                <div className="flex min-h-[320px] flex-col items-center justify-center gap-4 text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-success/30 bg-success/10">
-                    <CheckCircle2 className="h-8 w-8 text-success" />
-                  </div>
-                  <h3
-                    className="text-xl font-bold text-foreground"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    Message sent!
-                  </h3>
-                  <p className="max-w-xs text-sm text-muted-foreground">
-                    Thanks for reaching out. I&apos;ll get back to you within 24
-                    hours.
-                  </p>
-                  <button
-                    onClick={() => setStatus("idle")}
-                    className="mt-2 text-sm text-brand transition-colors hover:text-brand/80"
-                  >
-                    Send another message
-                  </button>
-                </div>
+                <FormSuccess
+                  message="Thanks for reaching out. I'll get back to you within 24 hours."
+                  onReset={() => setStatus("idle")}
+                />
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  {[
-                    {
-                      id: "name",
-                      label: "Name",
-                      type: "text",
-                      placeholder: "Your full name",
-                      required: true,
-                    },
-                    {
-                      id: "email",
-                      label: "Email",
-                      type: "email",
-                      placeholder: "you@company.com",
-                      required: true,
-                    },
-                    {
-                      id: "phone",
-                      label: "Phone",
-                      type: "tel",
-                      placeholder: "07xxx xxx xxx",
-                      required: false,
-                    },
-                  ].map((field) => (
-                    <div key={field.id}>
-                      <label
-                        htmlFor={field.id}
-                        className="mb-2 block text-sm font-medium text-muted-foreground"
-                      >
-                        {field.label}
-                        {field.required && (
-                          <span className="ml-1 text-brand">*</span>
-                        )}
-                      </label>
-                      <input
-                        type={field.type}
-                        id={field.id}
-                        value={formData[field.id as keyof typeof formData]}
-                        onChange={handleChange}
-                        placeholder={field.placeholder}
-                        required={field.required}
-                        disabled={status === "loading"}
-                        className="w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
-                      />
-                    </div>
-                  ))}
+                  <FormField
+                    id="name"
+                    label="Name"
+                    placeholder="Your full name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    disabled={status === "loading"}
+                  />
+                  <FormField
+                    id="email"
+                    label="Email"
+                    type="email"
+                    placeholder="you@company.com"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    disabled={status === "loading"}
+                  />
+                  <FormField
+                    id="phone"
+                    label="Phone"
+                    type="tel"
+                    placeholder="07xxx xxx xxx"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    disabled={status === "loading"}
+                  />
+                  <FormField
+                    id="message"
+                    label="How can I help?"
+                    placeholder="Tell me about your project and goals..."
+                    required
+                    multiline
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={status === "loading"}
+                  />
 
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="mb-2 block text-sm font-medium text-muted-foreground"
-                    >
-                      How can I help?
-                      <span className="ml-1 text-brand">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me about your project and goals..."
-                      required
-                      disabled={status === "loading"}
-                      className="w-full resize-none rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50"
-                    />
-                  </div>
-
-                  {status === "error" && (
-                    <div className="flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400">
-                      <AlertCircle className="h-4 w-4 shrink-0" />
-                      {errorMsg}
-                    </div>
-                  )}
+                  <FormError message={errorMsg} />
 
                   <button
                     type="submit"
                     disabled={status === "loading"}
+                    aria-busy={status === "loading"}
                     className="flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-4 text-sm font-semibold text-background transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
@@ -269,7 +168,7 @@ export function Contact() {
                 </form>
               )}
             </div>
-          </div>
+          </GlowCard>
         </div>
       </div>
     </section>

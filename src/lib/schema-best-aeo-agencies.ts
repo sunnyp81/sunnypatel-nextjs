@@ -4,6 +4,14 @@ const SITE_URL = "https://sunnypatel.co.uk";
 export function bestAeoAgenciesSchemas(): Record<string, unknown>[] {
   return [
     {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/best-aeo-agencies/#webpage`,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2"],
+      },
+    },
+    {
       "@type": "ItemList",
       "name": "Best AEO Agencies UK 2026",
       "description":

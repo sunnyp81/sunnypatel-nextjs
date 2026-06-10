@@ -60,3 +60,6 @@ wordpress-config.md
 master-builds.md
 node_modules/
 dist/
+
+# scratch
+tmp/

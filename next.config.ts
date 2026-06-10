@@ -91,6 +91,9 @@ const nextConfig: NextConfig = {
       { source: "/how-many-keywords/", destination: "/blog/how-many-keywords/", permanent: true },
       { source: "/how-long-does-seo-take", destination: "/blog/how-long-does-seo-take/", permanent: true },
       { source: "/how-long-does-seo-take/", destination: "/blog/how-long-does-seo-take/", permanent: true },
+      // Slug cleanup: drop duplicate "uk" (already in TLD) and the year so the post is evergreen
+      { source: "/blog/best-aeo-agencies-uk-2026", destination: "/blog/best-aeo-agencies/", permanent: true },
+      { source: "/blog/best-aeo-agencies-uk-2026/", destination: "/blog/best-aeo-agencies/", permanent: true },
     ];
   },
   experimental: {

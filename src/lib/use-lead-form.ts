@@ -13,6 +13,8 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
   initial: T;
   eventCategory: string;
   eventLabel: string;
+  /** Estimated GBP value of a lead from this form (defaults to 50). */
+  leadValue?: number;
   /** Optionally reshape the payload before sending (e.g. inject a message). */
   transform?: (data: T) => Record<string, unknown>;
 }) {
@@ -50,6 +52,9 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
           window.gtag("event", "generate_lead", {
             event_category: opts.eventCategory,
             event_label: opts.eventLabel,
+            value: opts.leadValue ?? 50,
+            currency: "GBP",
+            transport_type: "beacon",
           });
         }
       }

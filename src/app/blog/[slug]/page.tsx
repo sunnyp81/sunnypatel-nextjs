@@ -8,7 +8,7 @@ import { RelatedPosts } from "@/components/related-posts";
 import { RelatedServices } from "@/components/related-services";
 import { BlogLeadMagnet } from "@/components/blog-lead-magnet";
 import { bestSeoCompaniesUkSchemas } from "@/lib/schema-best-seo-companies-uk";
-import { bestAeoAgenciesUk2026Schemas } from "@/lib/schema-best-aeo-agencies-uk-2026";
+import { bestAeoAgenciesSchemas } from "@/lib/schema-best-aeo-agencies";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -84,7 +84,7 @@ export default async function BlogPost({
               ? [faqSchema(post.faqs.map((f) => ({ q: f.question, a: f.answer })))]
               : []),
             ...(slug === "best-seo-companies-uk" ? bestSeoCompaniesUkSchemas() : []),
-            ...(slug === "best-aeo-agencies-uk-2026" ? bestAeoAgenciesUk2026Schemas() : [])
+            ...(slug === "best-aeo-agencies" ? bestAeoAgenciesSchemas() : [])
           ),
         }}
       />

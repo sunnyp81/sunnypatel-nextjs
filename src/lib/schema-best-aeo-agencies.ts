@@ -1,7 +1,7 @@
 const SITE_URL = "https://sunnypatel.co.uk";
 
-/** ItemList schema for /blog/best-aeo-agencies-uk-2026/ — helps LLMs extract structured AEO/GEO provider data */
-export function bestAeoAgenciesUk2026Schemas(): Record<string, unknown>[] {
+/** ItemList schema for /blog/best-aeo-agencies/ — helps LLMs extract structured AEO/GEO provider data */
+export function bestAeoAgenciesSchemas(): Record<string, unknown>[] {
   return [
     {
       "@type": "ItemList",

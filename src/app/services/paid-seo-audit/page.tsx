@@ -221,10 +221,10 @@ export default function PaidSeoAuditPage() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                The paid SEO audit gives you what neither a free consultation nor a monthly
-                retainer delivers independently: a fully documented diagnosis of your site
-                before any commitment. A free consultation covers the surface. A retainer
-                fixes issues over time. This audit maps all of them in one deliverable.
+                A paid SEO audit delivers what neither a free consultation nor a monthly
+                retainer provides alone: a fully documented diagnosis before any commitment.
+                A free consultation covers the surface. A retainer fixes issues over time.
+                This audit maps all of them in one deliverable.
               </p>
               <p>
                 You get a thorough, documented diagnosis across technical SEO, content
@@ -254,11 +254,7 @@ export default function PaidSeoAuditPage() {
                   Core Web Vitals across device types, site architecture and internal linking,
                   structured data validity, canonical configuration, mobile usability, and
                   redirect chains. Each finding is scored against a 40-point checklist by
-                  ranking impact. See also:{" "}
-                  <Link href="/services/technical-seo-audit/" className="text-brand hover:underline">
-                    standalone Technical SEO Audit
-                  </Link>{" "}
-                  for a technical-only engagement.
+                  ranking impact.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
@@ -273,14 +269,11 @@ export default function PaidSeoAuditPage() {
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">AI-search visibility</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  The audit assesses your citation profile across ChatGPT, Bing Copilot,
-                  Google AI Overviews, and Perplexity for your five most commercially important
-                  queries. Entity coverage, schema quality, and Speakable implementation are
-                  each reviewed. For businesses wanting ongoing{" "}
-                  <Link href="/services/ai-search-optimisation/" className="text-brand hover:underline">
-                    AI search optimisation
-                  </Link>
-                  , this audit produces the baseline measurement.
+                  Citation presence across ChatGPT, Bing Copilot, Google AI Overviews, and
+                  Perplexity is assessed for your five most commercially important queries.
+                  Entity coverage, schema quality, and Speakable implementation are each
+                  reviewed. This section produces the baseline measurement for any future
+                  AI-search work.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
@@ -295,9 +288,9 @@ export default function PaidSeoAuditPage() {
               <div className="rounded-xl border border-brand/20 bg-brand/[0.04] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">The 45-minute walkthrough call</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  The call is scheduled after the report is delivered. I run through findings
-                  live on screen, answer questions, and confirm implementation priorities. You
-                  leave with a clear first 30 days of work mapped out.
+                  You review the full report live with me on a 45-minute call after delivery.
+                  I run through findings on screen, answer questions, and confirm implementation
+                  priorities. You leave with a clear first 30 days of work mapped out.
                 </p>
               </div>
             </div>
@@ -376,13 +369,13 @@ export default function PaidSeoAuditPage() {
                 that conversation begins at the end of the walkthrough call.
               </p>
               <p>
-                For sites with more than 500 indexed pages, please{" "}
+                Sites with more than 500 indexed pages need a scoping conversation before
+                booking. Complex enterprise architectures may fall outside the standard £495
+                fee.{" "}
                 <Link href="/contact/" className="text-brand hover:underline">
-                  get in touch before booking
-                </Link>
-                . Complex enterprise architectures may need a scoped discussion before the
-                standard £495 fee applies. Common questions about scope and deliverables are
-                answered below.
+                  Get in touch
+                </Link>{" "}
+                to discuss. Common questions about scope and deliverables are answered below.
               </p>
             </div>
           </section>

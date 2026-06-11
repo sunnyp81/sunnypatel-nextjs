@@ -28,23 +28,23 @@ export function generateMetadata() {
 const FAQS = [
   {
     q: "What exactly do I receive?",
-    a: "A written audit report (typically 15-25 pages covering technical SEO, content, and AI-search visibility), a prioritised recommendations spreadsheet with effort and impact scores, and a 45-minute walkthrough call. All documents are yours to keep and share with your team.",
+    a: "A written report (15-25 pages covering technical SEO, content, and AI-search visibility), a prioritised recommendations spreadsheet with effort and impact scores, and the 45-minute walkthrough call. All documents are yours to keep and share.",
   },
   {
     q: "How does the credit work if we go on to work together?",
-    a: "If you start a retainer within 60 days of audit delivery, the £495 fee is deducted from your first month's invoice. There is no obligation to proceed and no minimum contract on any retainer.",
+    a: "Start a retainer within 60 days of delivery and the £495 is credited against your first month. No minimum contract applies.",
   },
   {
     q: "How is this different from the free consultation?",
-    a: "The free consultation is a 30-minute call covering a quick assessment of your most visible issues. The paid audit is a documented investigation of your site that typically uncovers 15-30 specific issues the free call would not surface. It produces written deliverables you can act on independently.",
+    a: "The free consultation is a 30-minute call. The paid SEO audit is a documented investigation that typically uncovers 15-30 specific issues and produces written deliverables you act on independently.",
   },
   {
     q: "Can I share the report with my development team?",
-    a: "Yes. The recommendations spreadsheet is specifically formatted for developer handoff: each technical item includes the affected URLs, the issue description, the recommended fix, and an effort estimate.",
+    a: "Yes. The spreadsheet is formatted for developer handoff: each item includes the affected URLs, issue description, recommended fix, and effort estimate.",
   },
   {
     q: "What if the audit reveals problems I cannot afford to fix right now?",
-    a: "The prioritisation matrix is designed for this situation. You will know exactly which two or three items have the highest revenue impact for the lowest implementation effort. You do not need to fix everything at once.",
+    a: "Revenue impact determines every priority. You will know exactly which two or three items deliver the highest return for the lowest effort and can act on those first.",
   },
 ];
 
@@ -122,8 +122,8 @@ const YES_FOR = [
 
 const NO_FOR = [
   "Brand new sites with fewer than 10 pages",
-  "Businesses needing content writing or link building (this is a diagnostic)",
-  "Sites with more than 500 indexed pages without a scoped conversation first",
+  "Businesses needing content writing, link building, or implementation",
+  "Sites with more than 500 indexed pages (contact for scoping first)",
 ];
 
 export default function PaidSeoAuditPage() {
@@ -221,15 +221,15 @@ export default function PaidSeoAuditPage() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                A free consultation tells you where the problems are. A retainer fixes them
-                over time. But many businesses want to see the full picture before committing
-                to ongoing work. That is exactly what this audit delivers.
+                The paid SEO audit gives you what neither a free consultation nor a monthly
+                retainer delivers independently: a fully documented diagnosis of your site
+                before any commitment. A free consultation covers the surface. A retainer
+                fixes issues over time. This audit maps all of them in one deliverable.
               </p>
               <p>
-                You get a thorough, documented diagnosis of your site across technical SEO,
-                content quality, and AI search visibility. Everything is prioritised by
-                revenue impact, not technical complexity. You leave with a clear plan and the
-                confidence to act on it.
+                You get a thorough, documented diagnosis across technical SEO, content
+                quality, and AI search visibility. Revenue impact determines every priority.
+                You leave with a clear plan your team can act on independently.
               </p>
               <p className="font-medium text-foreground">
                 Fixed fee: £495. Delivered in 5 working days. If you go on to work together,
@@ -250,10 +250,15 @@ export default function PaidSeoAuditPage() {
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">Technical SEO</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Crawlability and indexation errors, Core Web Vitals across device types, site
-                  architecture and internal linking, structured data validity, canonical
-                  configuration, mobile usability, and redirect chains. Identified against a
-                  40-point checklist, scored by ranking impact.
+                  Technical SEO covers seven ranked areas: crawlability and indexation errors,
+                  Core Web Vitals across device types, site architecture and internal linking,
+                  structured data validity, canonical configuration, mobile usability, and
+                  redirect chains. Each finding is scored against a 40-point checklist by
+                  ranking impact. See also:{" "}
+                  <Link href="/services/technical-seo-audit/" className="text-brand hover:underline">
+                    standalone Technical SEO Audit
+                  </Link>{" "}
+                  for a technical-only engagement.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
@@ -268,11 +273,14 @@ export default function PaidSeoAuditPage() {
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">AI-search visibility</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Assessment of your current citation profile across ChatGPT, Bing Copilot,
+                  The audit assesses your citation profile across ChatGPT, Bing Copilot,
                   Google AI Overviews, and Perplexity for your five most commercially important
-                  queries. Entity coverage, schema quality, and Speakable implementation
-                  reviewed. Clients have found us through AI search, so this section reflects
-                  real-world methodology.
+                  queries. Entity coverage, schema quality, and Speakable implementation are
+                  each reviewed. For businesses wanting ongoing{" "}
+                  <Link href="/services/ai-search-optimisation/" className="text-brand hover:underline">
+                    AI search optimisation
+                  </Link>
+                  , this audit produces the baseline measurement.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
@@ -287,9 +295,9 @@ export default function PaidSeoAuditPage() {
               <div className="rounded-xl border border-brand/20 bg-brand/[0.04] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">The 45-minute walkthrough call</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Scheduled after delivery. I run through findings live on screen, answer
-                  questions, and confirm implementation priorities. You leave with a clear first
-                  30 days of work.
+                  The call is scheduled after the report is delivered. I run through findings
+                  live on screen, answer questions, and confirm implementation priorities. You
+                  leave with a clear first 30 days of work mapped out.
                 </p>
               </div>
             </div>
@@ -303,6 +311,10 @@ export default function PaidSeoAuditPage() {
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Your site needs at least 10 pages of existing content for this scope to be
+              meaningful. The section below clarifies who this audit is built for.
+            </p>
           </section>
 
           {/* Who it is for */}
@@ -353,10 +365,10 @@ export default function PaidSeoAuditPage() {
             </h2>
             <div className="space-y-3 text-base leading-relaxed text-muted-foreground">
               <p>
-                The audit is a diagnostic, not an implementation. It identifies and prioritises
-                the issues. Fixing them is separate work. The walkthrough call will clarify
-                what requires a developer, what you can handle yourself, and what an ongoing
-                retainer would cover.
+                The paid SEO audit is a diagnostic, not an implementation. It identifies and
+                prioritises the issues. Fixing them is separate work. The walkthrough call
+                clarifies what requires a developer, what you can handle yourself, and what an
+                ongoing retainer would cover.
               </p>
               <p>
                 The audit does not include content writing, link building, or ongoing
@@ -369,7 +381,8 @@ export default function PaidSeoAuditPage() {
                   get in touch before booking
                 </Link>
                 . Complex enterprise architectures may need a scoped discussion before the
-                standard £495 fee applies.
+                standard £495 fee applies. Common questions about scope and deliverables are
+                answered below.
               </p>
             </div>
           </section>

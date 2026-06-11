@@ -60,6 +60,14 @@ const services = [
     color: "#5a922c",
     href: "/services/google-algorithm-update-recovery/",
   },
+  {
+    icon: FileText,
+    title: "Paid SEO Audit",
+    description:
+      "Full technical, content, and AI-visibility audit with a prioritised action plan. Fixed fee £495, delivered in 5 working days. Fee credited to first retainer month.",
+    color: "#d79f1e",
+    href: "/services/paid-seo-audit/",
+  },
 ];
 
 const localServices = [

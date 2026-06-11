@@ -107,6 +107,10 @@ interface TopicMapping {
 }
 
 export const SERVICE_TOPICS: Record<string, TopicMapping> = {
+  "paid-seo-audit": {
+    about: ["technical-seo", "semantic-seo"],
+    mentions: ["content-strategy", "ai-search-optimisation", "on-page-seo"],
+  },
   "semantic-seo": {
     about: ["semantic-seo"],
     mentions: ["entity-seo", "topical-authority"],

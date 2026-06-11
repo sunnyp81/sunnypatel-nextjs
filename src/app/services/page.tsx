@@ -65,6 +65,7 @@ const iconMap: Record<string, ReactNode> = {
   "igaming-seo-consultant": <Dices className="h-5 w-5" />,
   "woocommerce-seo-consultant": <ShoppingCart className="h-5 w-5" />,
   "real-estate-seo-consultant": <Home className="h-5 w-5" />,
+  "paid-seo-audit": <Search className="h-5 w-5" />,
 };
 
 const locationSlugs = [

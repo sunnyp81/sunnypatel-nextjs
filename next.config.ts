@@ -96,6 +96,12 @@ const nextConfig: NextConfig = {
       { source: "/blog/best-aeo-agencies-uk-2026/", destination: "/blog/best-aeo-agencies/", permanent: true },
     ];
   },
+  async rewrites() {
+    return [
+      { source: "/cv", destination: "/cv.pdf" },
+      { source: "/cv/", destination: "/cv.pdf" },
+    ];
+  },
   experimental: {
     optimizeCss: true,
   },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import {
@@ -13,13 +13,13 @@ import {
 import { AnalyticsEvents } from "@/components/analytics-events";
 import { ExitIntent } from "@/components/exit-intent";
 
-const spaceGrotesk = Space_Grotesk({
+const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const inter = Inter({
+const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -53,7 +53,7 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: `html{color-scheme:dark}.dark{--background:#050507;--foreground:oklch(0.95 0 0)}body{background-color:#050507;color:oklch(0.95 0 0);-webkit-font-smoothing:antialiased}` }} />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
+        className={`${bricolageGrotesque.variable} ${hankenGrotesk.variable} antialiased`}
       >
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <script

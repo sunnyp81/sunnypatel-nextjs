@@ -1,5 +1,7 @@
-import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+
+const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@mail.sunnypatel.co.uk>";
+const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
 
 export async function POST(request: Request) {
   try {
@@ -13,30 +15,37 @@ export async function POST(request: Request) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT ?? 465),
-      secure: true,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+    const res = await fetch("https://api.emailit.com/v2/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.EMAILIT_API_KEY}`,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        from: MAIL_FROM,
+        to: MAIL_TO,
+        reply_to: email,
+        subject: `New enquiry from ${name}`,
+        text: [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Phone: ${phone || "Not provided"}`,
+          ``,
+          `Message:`,
+          message,
+        ].join("\n"),
+        tags: ["contact", "sunnypatel"],
+      }),
     });
 
-    await transporter.sendMail({
-      from: `"SunnyPatel.co.uk" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER,
-      replyTo: email,
-      subject: `New enquiry from ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone || "Not provided"}`,
-        ``,
-        `Message:`,
-        message,
-      ].join("\n"),
-    });
+    if (!res.ok) {
+      const err = await res.text().catch(() => "");
+      console.error("EmailIt send failed:", res.status, err);
+      return NextResponse.json(
+        { error: "Failed to send message. Please try again." },
+        { status: 502 }
+      );
+    }
 
     if (process.env.AAA_INTAKE_SECRET) {
       fetch("https://aaa-intake.sunnypat81.workers.dev", {

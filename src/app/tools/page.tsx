@@ -57,6 +57,12 @@ const tools = [
     category: "Analytics",
   },
   {
+    name: "SEO Prompt Library",
+    description: "22 copy-paste ChatGPT, Claude, and Gemini prompts for demand mapping, topical maps, briefs, schema, and AI search.",
+    href: "/tools/seo-prompts/",
+    category: "AI & Prompts",
+  },
+  {
     name: "Keyword Density Checker",
     description: "Analyse word frequency, 2-word and 3-word phrase density in your content.",
     href: "/tools/keyword-density/",
@@ -136,7 +142,7 @@ export function generateMetadata() {
   return {
     title: "Free SEO Tools | Keyword Research, Technical SEO & Content Analysis | Sunny Patel",
     description:
-      "21 free SEO tools: website grader, speed checker, keyword scraper, schema generator, SEO ROI calculator, image compressor, and more. No sign-up required.",
+      "22 free SEO tools: website grader, speed checker, keyword scraper, schema generator, SEO ROI calculator, SEO prompt library, and more. No sign-up required.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/" },
   };
 }

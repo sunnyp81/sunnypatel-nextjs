@@ -27,6 +27,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/tools/redirect-checker/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/utm-builder/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/seo-roi-calculator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/tools/seo-prompts/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/keyword-density/`,  lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/readability-score/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/internal-links/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },

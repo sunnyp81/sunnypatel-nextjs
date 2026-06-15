@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@mail.sunnypatel.co.uk>";
+const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
 
 export async function POST(request: Request) {
@@ -35,6 +35,7 @@ export async function POST(request: Request) {
           message,
         ].join("\n"),
         tags: ["contact", "sunnypatel"],
+        scheduled_at: null,
       }),
     });
 

@@ -1,0 +1,64 @@
+On 12 June 2026, Google Cloud published the Open Knowledge Format, or OKF, a new way to feed your content directly to AI agents. People are already calling it the next schema. In plain terms it is a folder of text files: each file describes one thing, you add a few lines of basic information at the top, and you link the files together. That is the whole format. No software to install, no account to create. You could build one in Notepad. This guide explains what OKF actually is, what Google really built it for, and why its most useful feature right now has nothing to do with AI agents at all.
+
+## What Is the Open Knowledge Format?
+
+**What is the Open Knowledge Format?** The Open Knowledge Format (OKF) is an open, vendor-neutral specification, released as v0.1 by Google Cloud, that represents curated knowledge as a directory of markdown files with YAML frontmatter, linked together so an AI agent can read it directly. It was authored by Sam McVeety and Amir Hormati of Google Cloud's Data Cloud team and published to the public GitHub repository `GoogleCloudPlatform/knowledge-catalog`.
+
+The point is that an AI agent can read the files directly. It does not have to crawl your site and fight past your navigation, your cookie banner, and your popups. It gets clean, labelled content that is already linked together in a way it can follow. Google describes the contribution as the format itself, not a platform: there is no SDK to adopt and no proprietary account required.
+
+## How OKF Actually Works
+
+Each piece of knowledge is a single markdown file. At the top sits a small block of YAML frontmatter, and only one field is mandatory:
+
+- **type** (required): what the file describes, for example "BigQuery Table", "Metric", or "API".
+- **title**, **description**, **resource**, **tags**, **timestamp** (all optional): standardised but not enforced.
+
+Below the frontmatter is ordinary markdown: headings, lists, and tables of detail. The clever part is the linking. A standard markdown link from one file to another, such as a link from an "orders" file to a "customers" file, becomes an edge in a graph. Stack enough of those links together and the folder stops being a pile of documents and becomes a connected map of how everything relates.
+
+Because it is just files, an OKF bundle ships in a git repository, renders on GitHub, and can be zipped and handed to anyone. Because it is just markdown, a human can read it and an agent can parse it without translation. That portability is the entire pitch.
+
+## What Google Actually Built It For
+
+Here is the first thing to understand before you get excited. Google built OKF for data teams sharing spreadsheets, tables, and metrics, not for websites. The reference tools make that obvious: an enrichment agent that walks BigQuery datasets and drafts a file for every table, a static HTML visualiser that turns a bundle into an interactive graph, and sample bundles built from datasets like GA4 e-commerce and Stack Overflow.
+
+The problem it solves inside a company is fragmentation. Internal knowledge usually lives scattered across catalogues, wikis, code comments, and shared drives, and every team rebuilds the same context from scratch. OKF gives them one portable format to exchange it in. You can point it at a website and it works, but that is a repurposing. A good one, but a repurposing. Keep that in mind when you read breathless takes claiming it replaces traditional SEO.
+
+## The Catch: Structure Without Substance
+
+The second thing to sit with is more important. The format requires exactly one piece of information per file, the type, and nobody has agreed yet on what the types should be. There is no shared taxonomy. My "Article" might be your "BlogPost" might be someone else's "Page". Until conventions settle, two OKF bundles from two producers will not necessarily speak the same language, even though both are technically valid.
+
+So OKF gives you the structure. It does not give you the substance. What your content actually says, and how the pieces genuinely connect, is still down to you. The format turns your content into a connected map, but a map is only as useful as the connections you put into it. OKF will not build [topical authority](/services/topical-authority/) on your behalf. It will only reveal whether you have built any.
+
+## OKF as an Instant Internal Linking Audit
+
+This is the part worth your attention right now. If your [internal linking](/services/internal-linking/) is a mess, OKF shows that mess clearly. Run your site through an OKF-style export and the visualiser draws every page as a dot and every internal link as a line. Orphan pages float alone with nothing pointing at them. Thin clusters reveal themselves. Pages you assumed were connected turn out not to be.
+
+That is a free [structural audit](/services/technical-seo-audit/) of your content before any AI agent ever looks at it. It is the same diagnostic that strong [semantic SEO](/services/semantic-seo/) has always depended on: a clear map of entities and the relationships between them. You do not strictly need Google's tooling to get the insight either. My free [internal link checker](/tools/internal-links/) surfaces the same orphans and gaps, and the principles behind a healthy link graph are covered in [how to build topical authority](/blog/how-to-build-topical-authority/).
+
+The reason this matters for AI search is direct. Models that read your content, whether through retrieval today or an OKF bundle tomorrow, reward sources where the relationships are explicit and the coverage is comprehensive. That is the same lesson behind [optimising content for AI search](/blog/optimise-content-for-ai-search/) and the wider discipline of [LLM optimisation](/blog/what-is-llm-optimisation/): connected, well-labelled content gets understood, and understood content gets cited.
+
+## OKF vs Schema Markup: Why It Will Not Move Rankings This Week
+
+My honest take is to treat OKF like schema markup back in 2011. When schema first arrived, it changed nobody's rankings overnight, because the engines were not yet using it at scale. The people who quietly added it early were the ones positioned to benefit once it mattered.
+
+OKF is at that same starting line. Nothing crawls the open web for these bundles yet, the specification is only weeks old, and there is no agreed taxonomy. Publishing one today will not lift your rankings this week. But it is quick to set up, and the benefit builds over time. It also sits one level above [schema markup](/blog/seo-semantic-markup-guide/) rather than replacing it: schema labels what is on a single page, OKF describes how your pages relate as a whole. They are complementary.
+
+## Should You Set Up OKF for Your Site?
+
+A measured recommendation: do not drop everything for it, and do not ignore it either.
+
+- **Skip the full bundle if it is expensive to maintain.** Nothing breaks today if you wait.
+- **Do run the audit now.** The graph view, or any internal-link map, tells you in minutes whether your content is genuinely connected or just a collection of pages.
+- **Fix the structure first.** A clean internal link graph and clear [entity](/blog/what-is-entity-seo/) relationships help your traditional SEO, your AI search visibility, and any future OKF export, all at once.
+- **Put a basic bundle in place if it is cheap.** When agents do start consuming OKF, you will be glad you did.
+
+The structure was always going to be the easy part. Knowing what connects to what is the real work, and that work pays off long before any AI agent reads a single file.
+
+## Related Articles
+
+- [How to Optimise Content for AI Search](/blog/optimise-content-for-ai-search/): the content patterns that earn AI citations today.
+- [What Is LLM Optimisation?](/blog/what-is-llm-optimisation/): the framework behind making content visible to AI systems.
+- [How to Build Topical Authority](/blog/how-to-build-topical-authority/): why connected, comprehensive coverage beats scattered pages.
+- [Semantic Markup Guide for SEO](/blog/seo-semantic-markup-guide/): how structured data labels your content for machines.
+
+I map internal link graphs, entity relationships, and content structure as part of a full [site audit](/services/technical-seo-audit/), the same groundwork that makes any format like OKF worth adopting. [Get in touch for a free consultation](/contact/) if you want to know whether your content is genuinely connected or only looks that way.

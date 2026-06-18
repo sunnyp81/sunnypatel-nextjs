@@ -1,0 +1,46 @@
+title: 'Google''s Open Knowledge Format (OKF): What It Means for SEO'
+metaTitle: 'Google Open Knowledge Format (OKF): What It Means for SEO'
+description: >-
+  Google launched the Open Knowledge Format (OKF) on 12 June 2026: a folder of
+  markdown files that feeds your content straight to AI agents. Here is what OKF
+  actually is, what it was really built for, and why its most useful feature
+  right now is an instant audit of how well your site is structured.
+ogImage: ''
+date: '2026-06-17'
+tags:
+  - AI Search
+  - AI SEO
+  - Semantic SEO
+  - Topical Authority
+  - Internal Linking
+  - GEO
+faqs:
+  - question: What is Google's Open Knowledge Format?
+    answer: >-
+      The Open Knowledge Format (OKF) is an open specification Google Cloud
+      published on 12 June 2026. It represents knowledge as a directory of
+      markdown files with a few lines of YAML at the top of each file, linked
+      together with ordinary markdown links. The goal is to give AI agents
+      clean, labelled, pre-connected context instead of forcing them to crawl
+      and parse a live website. Only one field is required per file: a "type".
+  - question: Does OKF affect SEO rankings?
+    answer: >-
+      Not today. No search engine or AI system crawls the open web for OKF
+      bundles yet, so publishing one will not change your rankings this week. Its
+      value is forward-looking: it is quick to set up, and the benefit compounds
+      if and when agents begin consuming it. Treat it like schema markup in 2011:
+      low effort now, useful later.
+  - question: Is OKF the same as schema markup?
+    answer: >-
+      No. Schema.org markup labels individual elements inside a single page
+      (a price, an author, a review). OKF works one level up: it describes whole
+      documents and the relationships between them as a connected graph. They are
+      complementary, not competing. Schema explains what is on a page; OKF
+      explains how your pages relate to each other.
+  - question: Should I add OKF to my website now?
+    answer: >-
+      Only if it is cheap to maintain. Nothing breaks if you skip it. The strong
+      reason to run your site through an OKF-style export now is the audit it
+      produces: it exposes orphan pages, weak clusters, and messy internal
+      linking before any AI agent ever looks. Fix the structure first; the format
+      is the easy part.

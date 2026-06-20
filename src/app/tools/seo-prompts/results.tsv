@@ -1,0 +1,3 @@
+iteration	file	fluff	dashes	start_with_answer	hierarchy	entity	http	score	status
+baseline	tools/seo-prompts (prose: subtitle + how-to + FAQ)	0	0	pass	pass	pass	200	90	pass
+note	-	-	-	-	-	-	-	-	"unlock"/"delve"/"when it comes to" appear only inside the answer-first prompt as words to AVOID (tool instruction, not page prose)

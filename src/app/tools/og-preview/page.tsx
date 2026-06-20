@@ -4,7 +4,7 @@ import OgPreview from "./OgPreview";
 
 export function generateMetadata() {
   return {
-    title: "Open Graph Preview Tool | See How Links Look on Social Media | Sunny Patel",
+    title: "Open Graph Preview Tool | See How Links Look on Social Media",
     description: "Preview how your URL appears when shared on Facebook, Twitter/X, and LinkedIn. Check Open Graph tags, Twitter Cards, and fix social sharing issues.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/og-preview/" },
   };

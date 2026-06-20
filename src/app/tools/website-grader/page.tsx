@@ -4,7 +4,7 @@ import WebsiteGrader from "./WebsiteGrader";
 
 export function generateMetadata() {
   return {
-    title: "Free Website Grader | SEO, Speed & Security Score | Sunny Patel",
+    title: "Free Website Grader | SEO, Speed & Security Score",
     description: "Get an instant A-F grade for your website covering SEO, page speed, mobile-friendliness, and security. Free website audit with actionable recommendations.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/website-grader/" },
   };

@@ -4,7 +4,7 @@ import SeoPrompts from "./SeoPrompts";
 
 export function generateMetadata() {
   return {
-    title: "SEO Prompt Library | 22 Free ChatGPT & AI Prompts for SEO | Sunny Patel",
+    title: "SEO Prompt Library | 22 Free ChatGPT & AI Prompts for SEO",
     description:
       "Free copy-paste SEO prompts for ChatGPT, Claude, and Gemini. Demand mapping, topical maps, content briefs, schema, internal linking, and AI search optimisation, built on semantic SEO method.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/seo-prompts/" },

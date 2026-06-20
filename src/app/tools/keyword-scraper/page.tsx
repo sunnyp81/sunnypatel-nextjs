@@ -4,9 +4,9 @@ import KeywordScraper from "./KeywordScraper";
 
 export function generateMetadata() {
   return {
-    title: "Free Keyword Suggestions Tool | Google Autocomplete Scraper | Sunny Patel",
+    title: "Free Keyword Suggestions Tool | Google Autocomplete Scraper",
     description:
-      "Scrape thousands of Google Autocomplete keyword suggestions across UK, US, and 6 other locales. Free SEO keyword research tool — no sign-up required.",
+      "Scrape thousands of Google Autocomplete keyword suggestions across UK, US, and 6 other locales. Free SEO keyword research tool â€” no sign-up required.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/keyword-scraper/" },
   };
 }

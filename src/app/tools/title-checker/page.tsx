@@ -4,7 +4,7 @@ import TitleChecker from "./TitleChecker";
 
 export function generateMetadata() {
   return {
-    title: "Bulk Title Tag Checker | SEO Title Length Analyser | Sunny Patel",
+    title: "Bulk Title Tag Checker | SEO Title Length Analyser",
     description: "Check multiple title tags at once. See character counts, pixel widths, and Google truncation warnings. Paste your titles and get instant SEO feedback.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/title-checker/" },
   };

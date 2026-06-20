@@ -4,7 +4,7 @@ import SpeedChecker from "./SpeedChecker";
 
 export function generateMetadata() {
   return {
-    title: "Website Speed Checker | Core Web Vitals Test | Sunny Patel",
+    title: "Website Speed Checker | Core Web Vitals Test",
     description: "Test your website speed and Core Web Vitals scores. Check LCP, FID, CLS, and get actionable recommendations to improve page performance and SEO rankings.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/speed-checker/" },
   };

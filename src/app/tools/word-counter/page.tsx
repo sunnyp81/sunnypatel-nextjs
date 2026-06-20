@@ -4,7 +4,7 @@ import WordCounter from "./WordCounter";
 
 export function generateMetadata() {
   return {
-    title: "Free Word Counter | Character, Sentence & Reading Time | Sunny Patel",
+    title: "Free Word Counter | Character, Sentence & Reading Time",
     description: "Count words, characters, sentences, and paragraphs instantly. See reading time, speaking time, and content length recommendations for SEO. Free online tool.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/word-counter/" },
   };

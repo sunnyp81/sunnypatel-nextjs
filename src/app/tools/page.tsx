@@ -94,13 +94,13 @@ const tools = [
   },
   {
     name: "Website Grader",
-    description: "Get an instant A–F grade covering SEO, page speed, security, and content quality.",
+    description: "Get an instant Aâ€“F grade covering SEO, page speed, security, and content quality.",
     href: "/tools/website-grader/",
     category: "Website Audit",
   },
   {
     name: "Website Speed Checker",
-    description: "Test Core Web Vitals — LCP, CLS, and more — with actionable speed recommendations.",
+    description: "Test Core Web Vitals â€” LCP, CLS, and more â€” with actionable speed recommendations.",
     href: "/tools/speed-checker/",
     category: "Website Audit",
   },
@@ -130,7 +130,7 @@ const tools = [
   },
   {
     name: "Image Compressor",
-    description: "Compress images in-browser to improve page speed. No upload — 100% private.",
+    description: "Compress images in-browser to improve page speed. No upload â€” 100% private.",
     href: "/tools/image-compressor/",
     category: "Page Speed",
   },
@@ -140,7 +140,7 @@ const categories = [...new Set(tools.map((t) => t.category))];
 
 export function generateMetadata() {
   return {
-    title: "Free SEO Tools | Keyword Research, Technical SEO & Content Analysis | Sunny Patel",
+    title: "Free SEO Tools | Keyword Research, Technical SEO & Content Analysis",
     description:
       "22 free SEO tools: website grader, speed checker, keyword scraper, schema generator, SEO ROI calculator, SEO prompt library, and more. No sign-up required.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/" },
@@ -161,7 +161,7 @@ export default function ToolsPage() {
             Free SEO Tools
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Practical tools for keyword research, technical SEO, content analysis, and campaign tracking. Everything runs in your browser — no sign-up, no data stored.
+            Practical tools for keyword research, technical SEO, content analysis, and campaign tracking. Everything runs in your browser â€” no sign-up, no data stored.
           </p>
 
           {categories.map((category) => (

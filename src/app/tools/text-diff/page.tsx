@@ -4,7 +4,7 @@ import TextDiff from "./TextDiff";
 
 export function generateMetadata() {
   return {
-    title: "Text Diff Checker | Compare Two Texts Side by Side | Sunny Patel",
+    title: "Text Diff Checker | Compare Two Texts Side by Side",
     description: "Compare two pieces of text and see exactly what changed. Highlight additions, deletions, and modifications. Perfect for reviewing content updates and SEO changes.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/text-diff/" },
   };

@@ -18,7 +18,7 @@ import {
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "Paid SEO Audit | £495 Fixed Fee | Sunny Patel SEO Consultant",
+    title: "Paid SEO Audit | £495 Fixed Fee",
     description:
       "Full technical, content, and AI-visibility audit with a prioritised revenue-first action plan and 45-minute walkthrough call. Fixed fee £495, delivered in 5 working days.",
     path: "/services/paid-seo-audit",

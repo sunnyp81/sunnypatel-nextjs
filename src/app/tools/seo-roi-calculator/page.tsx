@@ -4,7 +4,7 @@ import SeoRoiCalculator from "./SeoRoiCalculator";
 
 export function generateMetadata() {
   return {
-    title: "Free SEO ROI Calculator | Forecast Traffic, Leads & Revenue | Sunny Patel",
+    title: "Free SEO ROI Calculator | Forecast Traffic, Leads & Revenue",
     description:
       "Estimate the ROI of an SEO campaign from one keyword. Enter search volume, current and target ranking, conversion rate, and deal value to project clicks, leads, revenue, payback, and first-year return.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/seo-roi-calculator/" },

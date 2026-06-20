@@ -4,7 +4,7 @@ import InternalLinks from "./InternalLinks";
 
 export function generateMetadata() {
   return {
-    title: "Internal Link Opportunity Finder | SEO Linking Tool | Sunny Patel",
+    title: "Internal Link Opportunity Finder | SEO Linking Tool",
     description: "Find internal linking opportunities between your pages. Paste two pieces of content and discover natural anchor text matches. Free SEO link building tool.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/internal-links/" },
   };

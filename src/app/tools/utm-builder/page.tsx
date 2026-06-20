@@ -4,7 +4,7 @@ import UtmBuilder from "./UtmBuilder";
 
 export function generateMetadata() {
   return {
-    title: "Free UTM Link Builder | Campaign URL Generator | Sunny Patel",
+    title: "Free UTM Link Builder | Campaign URL Generator",
     description: "Build UTM-tagged campaign URLs in seconds. Add source, medium, campaign, term, and content parameters. Copy or shorten your tracking links instantly.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/utm-builder/" },
   };

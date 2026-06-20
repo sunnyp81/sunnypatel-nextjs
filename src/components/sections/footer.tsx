@@ -14,6 +14,8 @@ const links = [
 ];
 
 const serviceLinks = [
+  { href: "/services/ai-search-optimisation/", label: "AI Search Optimisation" },
+  { href: "/services/paid-seo-audit/", label: "Paid SEO Audit" },
   { href: "/services/topical-authority/", label: "Topical Authority" },
   { href: "/services/technical-seo-audit/", label: "Technical SEO Audit" },
   { href: "/services/seo-consulting/", label: "SEO Consulting" },
@@ -130,6 +132,7 @@ export function Footer() {
                 { href: "/tools/keyword-scraper/", label: "Keyword Scraper" },
                 { href: "/tools/schema-generator/", label: "Schema Generator" },
                 { href: "/tools/broken-links/", label: "Broken Link Checker" },
+                { href: "/tools/seo-prompts/", label: "SEO Prompt Library" },
                 { href: "/tools/", label: "View All 20 Tools" },
               ].map((link) => (
                 <li key={link.href}>

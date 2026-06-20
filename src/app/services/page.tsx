@@ -98,7 +98,7 @@ const locationSlugs = [
 export async function generateMetadata() {
   const page = await reader.singletons.servicesIndex.read();
   return buildMetadata({
-    title: page?.title || "SEO Services | Sunny Patel",
+    title: page?.title || "SEO Services",
     description:
       page?.description ||
       "Comprehensive SEO services including topical authority, technical audits, and content strategy.",

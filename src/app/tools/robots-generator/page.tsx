@@ -4,7 +4,7 @@ import RobotsGenerator from "./RobotsGenerator";
 
 export function generateMetadata() {
   return {
-    title: "Free Robots.txt Generator | Create Robot Exclusion Rules | Sunny Patel",
+    title: "Free Robots.txt Generator | Create Robot Exclusion Rules",
     description: "Generate a valid robots.txt file with an easy visual builder. Add user-agent rules, allow/disallow paths, crawl-delay, and sitemap references.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/robots-generator/" },
   };

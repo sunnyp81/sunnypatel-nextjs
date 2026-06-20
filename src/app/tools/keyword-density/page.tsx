@@ -4,7 +4,7 @@ import KeywordDensity from "./KeywordDensity";
 
 export function generateMetadata() {
   return {
-    title: "Free Keyword Density Checker | Content SEO Analyser | Sunny Patel",
+    title: "Free Keyword Density Checker | Content SEO Analyser",
     description: "Analyse keyword density and frequency in your content. See word counts, 1-word, 2-word, and 3-word phrase frequency. Free on-page SEO tool.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/keyword-density/" },
   };

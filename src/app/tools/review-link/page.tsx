@@ -4,7 +4,7 @@ import ReviewLink from "./ReviewLink";
 
 export function generateMetadata() {
   return {
-    title: "Google Review Link Generator | Get More Customer Reviews | Sunny Patel",
+    title: "Google Review Link Generator | Get More Customer Reviews",
     description: "Generate a direct link that takes customers straight to your Google review form. Boost your local SEO with more Google Business Profile reviews.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/review-link/" },
   };

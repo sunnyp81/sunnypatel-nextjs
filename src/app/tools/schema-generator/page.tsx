@@ -4,7 +4,7 @@ import SchemaGenerator from "./SchemaGenerator";
 
 export function generateMetadata() {
   return {
-    title: "Free Schema Markup Generator | JSON-LD Structured Data | Sunny Patel",
+    title: "Free Schema Markup Generator | JSON-LD Structured Data",
     description: "Generate valid JSON-LD schema markup for FAQ, Article, LocalBusiness, Product, and more. Copy-paste ready structured data for Google rich results.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/schema-generator/" },
   };

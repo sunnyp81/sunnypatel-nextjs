@@ -4,7 +4,7 @@ import BrokenLinks from "./BrokenLinks";
 
 export function generateMetadata() {
   return {
-    title: "Broken Link Checker | Find 404 Errors on Your Website | Sunny Patel",
+    title: "Broken Link Checker | Find 404 Errors on Your Website",
     description: "Scan any webpage for broken links and 404 errors. Fix dead links to improve user experience and preserve your SEO link equity. Free technical SEO tool.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/broken-links/" },
   };

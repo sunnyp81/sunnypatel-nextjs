@@ -4,7 +4,7 @@ import HreflangGenerator from "./HreflangGenerator";
 
 export function generateMetadata() {
   return {
-    title: "Free Hreflang Tag Generator | International SEO Tool | Sunny Patel",
+    title: "Free Hreflang Tag Generator | International SEO Tool",
     description: "Generate correct hreflang tags for multilingual and multi-regional websites. Supports HTML link tags and XML sitemap format. Free international SEO tool.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/hreflang-generator/" },
   };

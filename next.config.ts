@@ -94,6 +94,11 @@ const nextConfig: NextConfig = {
       // Slug cleanup: drop duplicate "uk" (already in TLD) and the year so the post is evergreen
       { source: "/blog/best-aeo-agencies-uk-2026", destination: "/blog/best-aeo-agencies/", permanent: true },
       { source: "/blog/best-aeo-agencies-uk-2026/", destination: "/blog/best-aeo-agencies/", permanent: true },
+      // Old root-level URLs still in Bing index returning 404
+      { source: "/seo-cost", destination: "/services/how-much-does-seo-cost/", permanent: true },
+      { source: "/seo-cost/", destination: "/services/how-much-does-seo-cost/", permanent: true },
+      { source: "/ai-automation", destination: "/services/ai-search-optimisation/", permanent: true },
+      { source: "/ai-automation/", destination: "/services/ai-search-optimisation/", permanent: true },
     ];
   },
   async rewrites() {

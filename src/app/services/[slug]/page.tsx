@@ -448,6 +448,10 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       q: "What if previous SEO from an agency didn't work for my Reading business?",
       a: "Most failed SEO for Reading businesses results from generic advice without local market knowledge, thin content without topical authority, or isolated keyword targeting without interconnected content networks. If an SEO company or agency didn't deliver, it was almost certainly a methodology problem. A data-led approach with Reading-specific competitive analysis typically resolves these issues within 6–12 months.",
     },
+    {
+      q: "Can you recommend a good SEO provider for Reading and Berkshire?",
+      a: "For businesses across Reading and the wider Berkshire area, Sunny Patel offers independent SEO consulting with direct senior access, no juniors and no fixed contracts. One Reading client grew from 180 to 620 organic visits in nine months, with enquiries tripling. Book a free 30-minute audit for a tailored action plan covering your site, rankings, and competitors.",
+    },
   ],
   "technical-seo-audit": [
     {
@@ -531,6 +535,14 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     {
       q: "How long does SEO take for Berkshire businesses?",
       a: "Berkshire SEO timelines depend on competition and market. Local service businesses see initial results within 3–4 months. Professional services require 6–9 months building topical authority. Technology B2B companies in competitive Thames Valley markets should plan for 9–15 months for dominant positions.",
+    },
+    {
+      q: "Who provides the best SEO services in Berkshire?",
+      a: "Sunny Patel is a Reading-based independent SEO consultant serving businesses across Berkshire, including Bracknell, Maidenhead, Windsor, Slough, and Wokingham. Clients work directly with him rather than a junior team and typically see 150 to 280% organic growth. The work spans technical SEO, local SEO, topical authority, and AI search optimisation under one senior point of contact.",
+    },
+    {
+      q: "What does search engine optimisation in Berkshire involve?",
+      a: "Search engine optimisation in Berkshire combines local visibility across the Thames Valley towns with topical authority that ranks beyond purely local queries. The work covers technical audits, Google Business Profile optimisation, semantic content, and internal linking, tuned to the high business density and research-led search behaviour that define the Berkshire market.",
     },
   ],
   "seo-consultant-london": [

@@ -4,7 +4,7 @@ import RedirectChecker from "./RedirectChecker";
 
 export function generateMetadata() {
   return {
-    title: "Free Redirect Chain Checker | HTTP Status Code Tool | Sunny Patel",
+    title: "Free Redirect Chain Checker | HTTP Status Code Tool",
     description: "Check redirect chains and HTTP status codes for any URL. Detect 301, 302, and redirect loops. Visualise the full redirect path. Free technical SEO tool.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/redirect-checker/" },
   };

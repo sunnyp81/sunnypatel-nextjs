@@ -27,12 +27,15 @@ const hankenGrotesk = Hanken_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sunnypatel.co.uk"),
-  title: "SEO Consultant Reading | 150%+ Growth",
+  title: {
+    default: "Sunny Patel | SEO Consultant UK",
+    template: "%s | Sunny Patel",
+  },
   description:
-    "Independent SEO consultant in Reading. 15+ years, 150%+ organic growth for UK businesses. Free 30-min consultation, no contracts.",
+    "Independent SEO consultant. 15+ years helping UK businesses grow organic traffic with semantic SEO, topical authority, and AI search. Free initial consultation, no contracts.",
   openGraph: {
     type: "website",
-    siteName: "Sunny Patel — SEO Consultant",
+    siteName: "Sunny Patel, SEO Consultant",
     locale: "en_GB",
     url: "https://sunnypatel.co.uk",
   },

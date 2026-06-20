@@ -8,7 +8,7 @@ import { AboutTimeline } from "@/components/about/about-timeline";
 import { AboutValues } from "@/components/about/about-values";
 import { AboutFaq } from "@/components/about/about-faq";
 import { Cta } from "@/components/sections/cta";
-import { faqSchema, profileImageSchema, reviewSchema, schemaGraph } from "@/lib/schema";
+import { faqSchema, personSchema, profileImageSchema, reviewSchema, schemaGraph } from "@/lib/schema";
 import { faqs } from "@/lib/faq-data";
 import { TESTIMONIALS } from "@/lib/testimonial-data";
 
@@ -28,6 +28,11 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: schemaGraph(
+            {
+              ...personSchema(),
+              mainEntityOfPage: "https://sunnypatel.co.uk/about/",
+              image: { "@id": "https://sunnypatel.co.uk/#photo" },
+            },
             faqSchema(faqs),
             profileImageSchema(),
             ...(TESTIMONIALS.length > 0 ? [reviewSchema(TESTIMONIALS)] : [])

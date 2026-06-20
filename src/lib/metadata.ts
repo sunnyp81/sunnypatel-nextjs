@@ -8,6 +8,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/images/sunny-patel-seo-consultant.png`;
 
 export function buildMetadata({
   title,
+  titleAbsolute,
   description,
   ogImage,
   path = "",
@@ -15,6 +16,7 @@ export function buildMetadata({
   articleMeta,
 }: {
   title?: string;
+  titleAbsolute?: boolean;
   description?: string;
   ogImage?: string;
   path?: string;
@@ -28,7 +30,7 @@ export function buildMetadata({
   const url = `${SITE_URL}${normalised}`;
 
   return {
-    title: metaTitle,
+    title: titleAbsolute ? { absolute: metaTitle } : metaTitle,
     description: metaDesc,
     alternates: { canonical: url },
     openGraph: {

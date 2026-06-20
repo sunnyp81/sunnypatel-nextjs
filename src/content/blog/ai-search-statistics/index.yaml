@@ -5,8 +5,25 @@ description: >-
   Overviews, market share & zero-click rates. Benchmark your strategy.
 ogImage: /images/stats/ai-overviews-ctr-impact.svg
 date: '2026-02-15'
+lastUpdated: '2026-06-20'
 tags:
   - AI Search
   - Statistics
   - AI Overviews
   - ChatGPT
+faqs:
+  - question: How many people use AI search in 2026?
+    answer: >-
+      ChatGPT reached 900 million weekly active users in February 2026 and crossed 1 billion monthly active users in June 2026 (OpenAI, Sensor Tower). It processes around 2 billion queries per day. Perplexity handles an estimated 1.2 to 1.5 billion queries per month. Despite this, AI platforms still account for only around 1% of total web traffic, against organic search at 53.3%. (Sources: OpenAI, DemandSage, BrightEdge, 2026)
+  - question: How often do Google AI Overviews appear in 2026?
+    answer: >-
+      AI Overviews now appear in roughly 25% of Google searches according to Conductor's 2026 analysis of 21.9 million queries, with some studies (BrightEdge) reporting up to 48%. This is a sharp rise from around 13% in early 2025. Informational and long-tail queries trigger them most often, while transactional and navigational queries trigger them least. (Sources: Conductor, BrightEdge, 2026)
+  - question: Do AI Overviews reduce organic clicks?
+    answer: >-
+      Yes. When an AI Overview appears, organic click-through rate drops by 61% and paid CTR by 68% (Seer Interactive). However, brands cited inside the AI Overview earn 35% more organic clicks and 91% more paid clicks. Being cited in the answer is now more valuable than ranking in position 1 beneath it. (Source: Seer Interactive, 2026)
+  - question: What percentage of Google searches end without a click?
+    answer: >-
+      In the first four months of 2026, 68.01% of Google searches ended with zero clicks, up from 60.45% in 2024 and the steepest two-year rise SparkToro has recorded. Searches that trigger an AI Overview show an average zero-click rate of 83%. This makes being the cited source, not just the ranking page, the priority. (Source: SparkToro, 2026)
+  - question: Do AI search engines cite the same pages that rank on Google?
+    answer: >-
+      Largely no. Only 12% of URLs cited by ChatGPT, Perplexity, and Copilot rank in Google's top 10, and 80% do not rank in Google's top 100 at all. AI systems weight directness, factual precision, structured data, and content freshness over backlink-based ranking signals, so a page buried on Google can still be the primary AI citation. (Source: The Digital Bloom)

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
+import { Sora, Hanken_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import {
@@ -13,7 +13,7 @@ import {
 import { AnalyticsEvents } from "@/components/analytics-events";
 import { ExitIntent } from "@/components/exit-intent";
 
-const bricolageGrotesque = Bricolage_Grotesque({
+const sora = Sora({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -56,7 +56,7 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: `html{color-scheme:dark}.dark{--background:#050507;--foreground:oklch(0.95 0 0)}body{background-color:#050507;color:oklch(0.95 0 0);-webkit-font-smoothing:antialiased}` }} />
       </head>
       <body
-        className={`${bricolageGrotesque.variable} ${hankenGrotesk.variable} antialiased`}
+        className={`${sora.variable} ${hankenGrotesk.variable} antialiased`}
       >
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <script

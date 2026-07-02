@@ -87,6 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "seo-strategy-reading",
     "digital-marketing-reading",
     "seo-agency-reading",
+    "local-seo-agency",
   ]);
 
   const serviceSlugs = await reader.collections.services.list();

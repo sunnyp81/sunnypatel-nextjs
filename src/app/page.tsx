@@ -14,13 +14,7 @@ import { reviewSchema, schemaGraph } from "@/lib/schema";
 import { TESTIMONIALS } from "@/lib/testimonial-data";
 
 export function generateMetadata() {
-  return buildMetadata({
-    title: "SEO Consultant UK & Reading | Sunny Patel",
-    titleAbsolute: true,
-    description:
-      "Independent SEO consultant in Reading, working UK-wide. 15+ years, semantic SEO and AI search, measurable organic growth. Free initial consultation, no contracts.",
-    path: "/",
-  });
+  return buildMetadata({ path: "/" });
 }
 
 export default async function Home() {

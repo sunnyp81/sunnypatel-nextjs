@@ -10,7 +10,7 @@ import {
   ArrowRight,
   CheckCircle2,
   XCircle,
-  CalendarDays,
+  BarChart3,
   Shield,
   Sparkles,
   Clock,
@@ -18,33 +18,37 @@ import {
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "Paid SEO Audit | £495 Fixed Fee",
+    title: "AI Visibility Audit | £495 Fixed Fee",
     description:
-      "Full technical, content, and AI-visibility audit with a prioritised revenue-first action plan and 45-minute walkthrough call. Fixed fee £495, delivered in 5 working days.",
-    path: "/services/paid-seo-audit",
+      "Find out whether ChatGPT, Perplexity, Copilot, and Google AI Overviews recommend your business, who they recommend instead, and exactly what to change. Fixed fee £495, delivered in 5 working days.",
+    path: "/services/ai-visibility-audit",
   });
 }
 
 const FAQS = [
   {
     q: "What exactly do I receive?",
-    a: "A written report (15-25 pages covering technical SEO, content, and AI-search visibility), a prioritised recommendations spreadsheet with effort and impact scores, and the 45-minute walkthrough call. All documents are yours to keep and share.",
+    a: "A written report covering your citation baseline across ChatGPT, Perplexity, Copilot, Gemini, and Google AI Overviews for 20 commercially important queries, a competitor citation analysis, an entity and consistency audit, a technical extractability review, and a prioritised 90-day action plan. It comes with a 45-minute walkthrough call and GA4 tracking setup so you can measure AI referrals yourself from day one.",
+  },
+  {
+    q: "How is this different from a normal SEO audit?",
+    a: "A traditional SEO audit measures how Google ranks your pages. This audit measures whether AI assistants mention and recommend your business when buyers ask them for advice, which depends on different signals: entity clarity, consistency of facts about you across the web, content extractability, and third-party corroboration. My paid SEO audit includes a short AI-visibility section; this is the full investigation.",
+  },
+  {
+    q: "Why should I trust your read on AI search?",
+    a: "I track AI assistant referrals across a portfolio of more than 60 sites in Google Analytics. The best performer earns over 1,200 visits per quarter from AI assistants, more than 90% of them from ChatGPT. The audit methodology is the same one I use to win that traffic.",
   },
   {
     q: "How does the credit work if we go on to work together?",
     a: "Start a retainer within 60 days of delivery and the £495 is credited against your first month. No minimum contract applies.",
   },
   {
-    q: "How is this different from the free consultation?",
-    a: "The free consultation is a 30-minute call. The paid SEO audit is a documented investigation that typically uncovers 15-30 specific issues and produces written deliverables you act on independently.",
+    q: "Do you fix the issues you find?",
+    a: "The audit is a diagnostic with a prioritised plan your team can act on independently. If you want the issues fixed for you, that conversation starts at the end of the walkthrough call, and the audit fee is credited if you do.",
   },
   {
-    q: "Can I share the report with my development team?",
-    a: "Yes. The spreadsheet is formatted for developer handoff: each item includes the affected URLs, issue description, recommended fix, and effort estimate.",
-  },
-  {
-    q: "What if the audit reveals problems I cannot afford to fix right now?",
-    a: "Revenue impact determines every priority. You will know exactly which two or three items deliver the highest return for the lowest effort and can act on those first.",
+    q: "My site is large or has multiple locations. Is it still £495?",
+    a: "£495 covers a single brand with up to 500 indexed pages and 20 tracked queries. Multi-location businesses, marketplaces, and enterprise sites need a scoping conversation first; those engagements are quoted individually, typically between £750 and £1,500.",
   },
 ];
 
@@ -53,11 +57,11 @@ const SERVICE_SCHEMA = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://sunnypatel.co.uk/services/paid-seo-audit/#service",
-      name: "Paid SEO Audit",
+      "@id": "https://sunnypatel.co.uk/services/ai-visibility-audit/#service",
+      name: "AI Visibility Audit",
       description:
-        "A full technical, content, and AI-visibility audit with a prioritised revenue-first action plan and 45-minute walkthrough call. Fixed fee £495, delivered in 5 working days.",
-      url: "https://sunnypatel.co.uk/services/paid-seo-audit/",
+        "A fixed-fee audit of how ChatGPT, Perplexity, Copilot, Gemini, and Google AI Overviews describe and recommend your business, with a competitor citation analysis and a prioritised 90-day action plan. Fixed fee £495, delivered in 5 working days.",
+      url: "https://sunnypatel.co.uk/services/ai-visibility-audit/",
       provider: { "@id": "https://sunnypatel.co.uk/#person" },
       areaServed: { "@type": "Country", name: "United Kingdom" },
       offers: {
@@ -65,20 +69,22 @@ const SERVICE_SCHEMA = {
         price: "495",
         priceCurrency: "GBP",
         availability: "https://schema.org/InStock",
-        url: "https://sunnypatel.co.uk/services/paid-seo-audit/",
+        url: "https://sunnypatel.co.uk/services/ai-visibility-audit/",
         description:
-          "Fixed-fee SEO audit covering technical SEO, content quality, and AI-search visibility. Delivered in 5 working days with a 45-minute walkthrough call.",
+          "Fixed-fee AI visibility audit covering citation baseline, competitor analysis, entity consistency, and content extractability. Delivered in 5 working days with a 45-minute walkthrough call.",
         seller: { "@id": "https://sunnypatel.co.uk/#person" },
       },
-      serviceType: "SEO Audit",
+      serviceType: "AI Search Visibility Audit",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "SEO Audit Deliverables",
+        name: "AI Visibility Audit Deliverables",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Technical SEO Audit Report" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Content and Topical Authority Analysis" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI-Search Visibility Assessment" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Prioritised Recommendations Spreadsheet" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Citation Baseline Report (ChatGPT, Perplexity, Copilot, Gemini, AI Overviews)" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Competitor Citation Analysis" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entity and Consistency Audit" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Content Extractability and Schema Review" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Prioritised 90-Day AI Visibility Plan" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "GA4 AI Referral Tracking Setup" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "45-Minute Walkthrough Call" } },
         ],
       },
@@ -89,7 +95,7 @@ const SERVICE_SCHEMA = {
         breadcrumbSchema([
           { name: "Home", url: "https://sunnypatel.co.uk/" },
           { name: "Services", url: "https://sunnypatel.co.uk/services/" },
-          { name: "Paid SEO Audit", url: "https://sunnypatel.co.uk/services/paid-seo-audit/" },
+          { name: "AI Visibility Audit", url: "https://sunnypatel.co.uk/services/ai-visibility-audit/" },
         ])
       )
     )["@graph"],
@@ -97,36 +103,37 @@ const SERVICE_SCHEMA = {
 };
 
 const TRUST_BADGES = [
-  { icon: CalendarDays, label: "15+ years experience" },
+  { icon: BarChart3, label: "60+ sites of AI referral data" },
   { icon: Sparkles, label: "£495 fixed fee" },
   { icon: Shield, label: "Fee credited to retainer" },
   { icon: Clock, label: "5 working days" },
 ] as const;
 
 const WHAT_YOU_GET = [
-  "Technical SEO audit across 40+ ranking factors",
-  "Content and topical authority gap analysis",
-  "AI-search visibility assessment (ChatGPT, Copilot, AI Overviews, Perplexity)",
-  "Prioritised action plan scored by revenue impact vs. effort",
+  "AI citation baseline for 20 commercially important queries across ChatGPT, Perplexity, Copilot, Gemini, and Google AI Overviews",
+  "Competitor citation analysis: who the assistants recommend instead, and why",
+  "Entity and consistency audit of the facts published about your business across the web",
+  "Content extractability review: structure, schema, and llms.txt readiness",
+  "Prioritised 90-day action plan scored by revenue impact vs. effort",
+  "GA4 tracking setup so AI referrals show up in your own analytics",
   "45-minute walkthrough call with screen-share review",
-  "Developer-ready recommendations spreadsheet",
 ];
 
 const YES_FOR = [
-  "Existing sites with at least 10 pages of content",
-  "Businesses generating some organic traffic but not enough",
-  "Sites with previous SEO work that did not deliver results",
-  "In-house teams who need a documented starting point",
-  "Businesses evaluating whether an ongoing retainer is the right next step",
+  "Businesses whose buyers research on ChatGPT, Perplexity, or Copilot before purchasing",
+  "Brands that rank on Google but are invisible in AI answers",
+  "Businesses being described inaccurately or confused with competitors by AI assistants",
+  "Marketing teams asked to report on AI search and unsure where to start",
+  "Agencies who need a white-label AI visibility assessment for a client",
 ];
 
 const NO_FOR = [
-  "Brand new sites with fewer than 10 pages",
-  "Businesses needing content writing, link building, or implementation",
-  "Sites with more than 500 indexed pages (contact for scoping first)",
+  "Brand new sites with little existing content or third-party presence",
+  "Businesses needing content writing, digital PR, or implementation (that comes after)",
+  "Multi-location or enterprise brands (contact for scoping first, typically £750 to £1,500)",
 ];
 
-export default function PaidSeoAuditPage() {
+export default function AiVisibilityAuditPage() {
   return (
     <>
       <script
@@ -160,7 +167,7 @@ export default function PaidSeoAuditPage() {
               items={[
                 { label: "Home", href: "/" },
                 { label: "Services", href: "/services" },
-                { label: "Paid SEO Audit" },
+                { label: "AI Visibility Audit" },
               ]}
             />
 
@@ -171,12 +178,13 @@ export default function PaidSeoAuditPage() {
               className="text-3xl font-bold text-foreground md:text-5xl"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
             >
-              Paid SEO Audit: Full Diagnosis, Prioritised Action Plan
+              AI Visibility Audit: Is ChatGPT Recommending You, or Your Competitor?
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Technical, content, and AI-search visibility covered in one fixed-fee audit.
-              Delivered in 5 working days. The fee is credited against your first month if
-              you go on to work together.
+              A fixed-fee audit of how ChatGPT, Perplexity, Copilot, and Google AI
+              Overviews describe and recommend your business, who they send buyers to
+              instead, and the exact changes that earn you the citation. Delivered in 5
+              working days.
             </p>
 
             {/* Trust badges */}
@@ -196,7 +204,7 @@ export default function PaidSeoAuditPage() {
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <GradientButton asChild>
                 <Link href="/contact/" className="gap-2">
-                  Book the Audit — £495
+                  Book the Audit: £495
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </GradientButton>
@@ -211,29 +219,32 @@ export default function PaidSeoAuditPage() {
         {/* Main content */}
         <div className="mx-auto max-w-3xl px-6 py-12">
 
-          {/* The gap section */}
+          {/* Why this matters section */}
           <section className="mb-16">
             <h2
               className="mb-4 text-2xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
             >
-              The gap between a free consultation and a retainer
+              Your buyers already ask AI for recommendations
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                A paid SEO audit delivers what neither a free consultation nor a monthly
-                retainer provides alone: a fully documented diagnosis before any commitment.
-                A free consultation covers the surface. A retainer fixes issues over time.
-                This audit maps all of them in one deliverable.
+                Ask ChatGPT for the best provider in your market and the answer names two
+                or three businesses. Either you are one of them or a competitor is. There
+                is no page two in an AI answer: businesses the assistant does not cite do
+                not exist in that conversation.
               </p>
               <p>
-                You get a thorough, documented diagnosis across technical SEO, content
-                quality, and AI search visibility. Revenue impact determines every priority.
-                You leave with a clear plan your team can act on independently.
+                I measure this daily. Across the 60+ sites I track in Google Analytics,
+                AI assistants now send four-figure quarterly traffic to the best
+                performer, with more than 90% of it coming from ChatGPT. The sites that
+                win those citations share specific, fixable traits: clear entity signals,
+                consistent facts about the business everywhere they appear, and content
+                structured so an AI can lift the answer cleanly.
               </p>
               <p className="font-medium text-foreground">
-                Fixed fee: £495. Delivered in 5 working days. If you go on to work together,
-                the audit fee is credited against your first month.
+                Fixed fee: £495. Delivered in 5 working days. If you go on to work
+                together, the audit fee is credited against your first month.
               </p>
             </div>
           </section>
@@ -248,49 +259,51 @@ export default function PaidSeoAuditPage() {
             </h2>
             <div className="space-y-6">
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
-                <h3 className="mb-2 text-base font-semibold text-foreground">Technical SEO</h3>
+                <h3 className="mb-2 text-base font-semibold text-foreground">Citation baseline</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Technical SEO covers seven ranked areas: crawlability and indexation errors,
-                  Core Web Vitals across device types, site architecture and internal linking,
-                  structured data validity, canonical configuration, mobile usability, and
-                  redirect chains. Each finding is scored against a 40-point checklist by
-                  ranking impact.
+                  Your 20 most commercially important queries are run across ChatGPT,
+                  Perplexity, Bing Copilot, Gemini, and Google AI Overviews. Each response
+                  is recorded: whether you are cited, how you are described, which sources
+                  the assistant relied on, and which competitors appear instead. This
+                  becomes the benchmark every future improvement is measured against.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
-                <h3 className="mb-2 text-base font-semibold text-foreground">Content and topical authority</h3>
+                <h3 className="mb-2 text-base font-semibold text-foreground">Competitor citation analysis</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Content gap analysis against your top three organic competitors. Which pages
-                  have the content depth to rank, which are thin, and which are cannibalising
-                  each other. Topical coverage map showing where your site has authority and
-                  where it is absent.
+                  The audit traces why competitors win each query: the third-party pages
+                  the assistant sourced, the review and directory presence backing them
+                  up, and the content structures being quoted. You see the exact citation
+                  gap you need to close, not a generic best-practice list.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
-                <h3 className="mb-2 text-base font-semibold text-foreground">AI-search visibility</h3>
+                <h3 className="mb-2 text-base font-semibold text-foreground">Entity and consistency audit</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Citation presence across ChatGPT, Bing Copilot, Google AI Overviews, and
-                  Perplexity is assessed for your five most commercially important queries.
-                  Entity coverage, schema quality, and Speakable implementation are each
-                  reviewed. This section produces the baseline measurement for any future
-                  AI-search work.
+                  AI assistants cross-check facts about your business across the open web
+                  before repeating them. Conflicting names, phone numbers, addresses,
+                  service descriptions, or founding details make assistants hesitate or
+                  blend you with a competitor. The audit maps every inconsistency
+                  and ranks the corrections by impact.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
-                <h3 className="mb-2 text-base font-semibold text-foreground">Prioritised action plan</h3>
+                <h3 className="mb-2 text-base font-semibold text-foreground">Content extractability and technical review</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Every finding is scored on a two-axis matrix: effort to implement versus
-                  expected revenue impact. The output is a ranked action list you can hand
-                  directly to a developer or work through yourself. The walkthrough call covers
-                  the top ten items in detail.
+                  The review checks whether your pages let an assistant lift a clean
+                  quotable answer: heading hierarchy, direct answer placement, schema
+                  markup quality, llms.txt, and crawler access for AI user agents. Each
+                  issue comes with the specific fix.
                 </p>
               </div>
               <div className="rounded-xl border border-brand/20 bg-brand/[0.04] p-6">
-                <h3 className="mb-2 text-base font-semibold text-foreground">The 45-minute walkthrough call</h3>
+                <h3 className="mb-2 text-base font-semibold text-foreground">90-day plan, tracking, and walkthrough call</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  You review the full report live with me on a 45-minute call after delivery.
-                  I run through findings on screen, answer questions, and confirm implementation
-                  priorities. You leave with a clear first 30 days of work mapped out.
+                  Every finding lands in a prioritised 90-day plan scored by revenue
+                  impact against effort. I also set up the GA4 configuration that
+                  separates AI assistant referrals from the rest of your traffic, so the
+                  results are visible in your own analytics. We close with a 45-minute
+                  walkthrough call to agree your first 30 days of work.
                 </p>
               </div>
             </div>
@@ -305,8 +318,8 @@ export default function PaidSeoAuditPage() {
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
-              Your site needs at least 10 pages of existing content for this scope to be
-              meaningful. The section below clarifies who this audit is built for.
+              The audit works best for businesses with an established site and some
+              third-party presence. The section below clarifies fit.
             </p>
           </section>
 
@@ -358,24 +371,26 @@ export default function PaidSeoAuditPage() {
             </h2>
             <div className="space-y-3 text-base leading-relaxed text-muted-foreground">
               <p>
-                The paid SEO audit is a diagnostic, not an implementation. It identifies and
-                prioritises the issues. Fixing them is separate work. The walkthrough call
-                clarifies what requires a developer, what you can handle yourself, and what an
-                ongoing retainer would cover.
+                The AI visibility audit is a diagnostic, not an implementation. It tells
+                you exactly where you stand, why competitors are cited over you, and what
+                to change, in priority order. Executing the plan is separate work: some of
+                it your team can do the same week, some needs a developer, and earning
+                third-party corroboration takes sustained effort over months.
               </p>
               <p>
-                The audit does not include content writing, link building, or ongoing
-                monitoring. If the action plan reveals issues that need sustained attention,
-                that conversation begins at the end of the walkthrough call.
+                AI assistant behaviour also shifts as models update. The audit gives you a
+                dated baseline and a measurement setup, so change is visible either way.
+                It does not promise a specific citation outcome; nobody controls what an
+                assistant says, and anyone claiming otherwise is guessing.
               </p>
               <p>
-                Sites with more than 500 indexed pages need a scoping conversation before
-                booking. Complex enterprise architectures may fall outside the standard £495
-                fee.{" "}
+                Single brand, up to 500 indexed pages, 20 tracked queries: £495.
+                Multi-location, marketplace, and enterprise sites are quoted after a
+                scoping conversation, typically £750 to £1,500.{" "}
                 <Link href="/contact/" className="text-brand hover:underline">
                   Get in touch
                 </Link>{" "}
-                to discuss. Common questions about scope and deliverables are answered below.
+                to discuss. Common questions are answered below.
               </p>
             </div>
           </section>
@@ -408,10 +423,9 @@ export default function PaidSeoAuditPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "AI Visibility Audit", href: "/services/ai-visibility-audit/" },
-                { label: "SEO Consulting", href: "/services/seo-consulting/" },
-                { label: "Technical SEO Audit", href: "/services/technical-seo-audit/" },
+                { label: "Paid SEO Audit", href: "/services/paid-seo-audit/" },
                 { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },
+                { label: "SEO Consulting", href: "/services/seo-consulting/" },
                 { label: "All Services", href: "/services/" },
               ].map((link) => (
                 <Link
@@ -429,8 +443,8 @@ export default function PaidSeoAuditPage() {
 
         {/* CTA form */}
         <ServiceInlineForm
-          ctaTitle="Book Your Paid SEO Audit"
-          ctaSubtitle="Tell me your site URL and your biggest organic traffic concern. I will come prepared with an initial view before we start."
+          ctaTitle="Book Your AI Visibility Audit"
+          ctaSubtitle="Tell me your site URL and the query you most want to be recommended for. I will check it before we speak."
         />
 
         <Footer />

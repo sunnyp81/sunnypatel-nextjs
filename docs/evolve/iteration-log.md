@@ -15,7 +15,7 @@ affected_urls:
   - /services/seo-consulting/          (pos 27.3, 1,165 impr)
   - /blog/ai-search-statistics/        (pos 8.8, 2,715 impr, 0.33% CTR; number-led title)
 change: metaTitle + description rewrites in Keystatic index.yaml frontmatter. Specific proof point (180 to 620 visits) on Reading; fixed-fee anchors on audit; UK+independent positioning on consulting.
-commit: (filled at commit time)
+commit: b55cf1c
 predicted_outcome: Reading page CTR on "seo consultant reading" from 0.35% to >=5% within 14 days (~14 clicks/28d vs 1); ai-search-statistics CTR from 0.33% to >=1.5%.
 measured: pending
 verdict: pending

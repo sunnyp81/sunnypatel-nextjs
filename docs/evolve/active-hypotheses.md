@@ -11,7 +11,7 @@ Ordered by expected value. One per iteration.
 
 ## Sunny manual queue (not loop-executable)
 
-- Mark GA4 generate_lead as key event (Admin UI).
+- ~~Mark GA4 generate_lead as key event~~ verified already marked (2026-07-07). Note: GA4 keyEvents attribute to session LANDING page, so /contact/ conversions show under "/".
 - GBP / Bark / Yell profiles + uncomment sameAs lines in src/lib/schema.ts.
 - Clutch reviews (0 live).
-- Decide fate of uncommitted WIP: hero copy rewrite, Geist font swap, ai-visibility-audit page removal.
+- ~~Decide fate of uncommitted WIP~~ shipped 2026-07-07 (981b004) with 301 ai-visibility-audit -> paid-seo-audit.

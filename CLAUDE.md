@@ -80,6 +80,7 @@ Sunny Patel's personal SEO + AI-search (GEO) consultant site, **sunnypatel.co.uk
 
 ## History
 
+- **Jul 7** — evolve-site loop started: CTR title/meta rewrites on 5 striking-distance pages (`b55cf1c`), loop state in `docs/evolve/`. Shipped the pending homepage refresh WIP (`981b004`): new hero copy, Geist heading font, smaller H1; consolidated /services/ai-visibility-audit/ into /services/paid-seo-audit/ with 301. Verdict pass due Jul 14-21.
 - **Jun 11** — `/cv` now serves `public/cv.pdf` via `next.config.ts` rewrite (`/cv`+`/cv/` -> `/cv.pdf`, 308 via trailingSlash). Commit `6ef0f53`.
 - **Jun 8-10** — 2 Trafft "Free SEO Audit" leads (details in Trafft dashboard only). Built/GEO-optimised `/blog/best-aeo-agencies/` (renamed from `-uk-2026`, 301'd): 2.7k words, ItemList (8 orgs) + FAQPage + SpeakableSpecification, semantic audit 92/100, 4 inbound links, live + Bing-submitted, commit `b88ee02`. Hardened GA4 `generate_lead` in `src/lib/use-lead-form.ts`.
 - **Jun 15** — Claude Design conversion-redesign prompt drafted (light mode, Bricolage/Hanken, blue, SP monogram; home as primary conversion page, 3 offers, £495 audit product page, sticky CTA, named-testimonial proof, WCAG 2.1 AA). Not yet built.

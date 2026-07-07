@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/services/ai-visibility-audit", destination: "/services/paid-seo-audit/", permanent: true },
+      { source: "/services/ai-visibility-audit/", destination: "/services/paid-seo-audit/", permanent: true },
       {
         source: "/services/generative-engine-optimisation",
         destination: "/services/ai-search-optimisation/",

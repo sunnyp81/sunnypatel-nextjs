@@ -16,7 +16,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/blog/`,              lastModified: LAST_DEPLOY, changeFrequency: "daily",   priority: 0.9 },
   { url: `${SITE_URL}/contact/`,           lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.7 },
   { url: `${SITE_URL}/services/paid-seo-audit/`, lastModified: new Date("2026-06-11"), changeFrequency: "monthly", priority: 0.9 },
-  { url: `${SITE_URL}/services/ai-visibility-audit/`, lastModified: new Date("2026-07-05"), changeFrequency: "monthly", priority: 0.9 },
   // Tools hub + individual tools
   { url: `${SITE_URL}/tools/`,                lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.9 },
   { url: `${SITE_URL}/tools/keyword-scraper/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
@@ -88,15 +87,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "seo-strategy-reading",
     "digital-marketing-reading",
     "seo-agency-reading",
-    "local-seo-agency",
   ]);
-
-  // Slugs with a hardcoded app route already listed in staticRoutes above
-  const STATIC_SERVICE_SLUGS = new Set(["paid-seo-audit", "ai-visibility-audit"]);
 
   const serviceSlugs = await reader.collections.services.list();
   const serviceEntries = serviceSlugs
-    .filter((slug) => !NOINDEX_SERVICE_SLUGS.has(slug) && !CANONICAL_OVERRIDE_SLUGS.has(slug) && !STATIC_SERVICE_SLUGS.has(slug))
+    .filter((slug) => !NOINDEX_SERVICE_SLUGS.has(slug) && !CANONICAL_OVERRIDE_SLUGS.has(slug))
     .map((slug) => ({
       url: `${SITE_URL}/services/${slug}/`,
       lastModified: LAST_DEPLOY,

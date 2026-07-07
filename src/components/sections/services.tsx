@@ -105,13 +105,13 @@ export function Services() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-4">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={service.title}
-                className="h-full"
+                className="h-auto w-full sm:w-[calc(50%_-_0.5rem)] lg:w-[calc(33.333%_-_0.667rem)]"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.01 }}

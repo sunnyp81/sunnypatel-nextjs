@@ -408,7 +408,6 @@ export default function PaidSeoAuditPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "AI Visibility Audit", href: "/services/ai-visibility-audit/" },
                 { label: "SEO Consulting", href: "/services/seo-consulting/" },
                 { label: "Technical SEO Audit", href: "/services/technical-seo-audit/" },
                 { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },

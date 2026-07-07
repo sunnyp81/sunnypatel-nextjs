@@ -14,7 +14,6 @@ const links = [
 ];
 
 const serviceLinks = [
-  { href: "/services/ai-visibility-audit/", label: "AI Visibility Audit" },
   { href: "/services/ai-search-optimisation/", label: "AI Search Optimisation" },
   { href: "/services/paid-seo-audit/", label: "Paid SEO Audit" },
   { href: "/services/topical-authority/", label: "Topical Authority" },

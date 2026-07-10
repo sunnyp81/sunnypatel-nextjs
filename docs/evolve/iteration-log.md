@@ -31,7 +31,7 @@ affected_urls:
   - /blog/chatgpt-prompts-for-seo/  (new post, targets "chatgpt prompts for seo")
   - /tools/seo-prompts/             (fixed stale "22 prompts" claim to accurate 20; added reciprocal link to new post)
 change: New Keystatic blog post (src/content/blog/chatgpt-prompts-for-seo/, 1,350 words, FAQPage + BlogPosting schema, 6 internal links out to services/tools/posts) walking through the tool's 8 prompt categories and chaining method. Added BLOG_TOPICS entry in schema.ts. Corrected /tools/seo-prompts/ metadata title/description (was overstating 22 prompts, actual count is 20) and added a contextual link back to the new post from the tool's "how to use" section.
-commit: pending
+commit: d663b08
 predicted_outcome: seo-prompts climbs from thin/orphaned toward page-2 territory (pos <30) within 3-4 weeks as the new post gets indexed and passes topical + link support; new post itself earns incremental impressions on "chatgpt prompts for seo" / "ai prompts for seo" long-tail.
 measured: pending
 verdict: pending

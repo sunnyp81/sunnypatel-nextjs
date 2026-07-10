@@ -43,7 +43,9 @@ export function AnalyticsEvents() {
         text.includes("Book Free Consultation") ||
         text.includes("Book Now") ||
         text.includes("Get a Quote") ||
-        text.includes("Get Free Checklist")
+        text.includes("Get Free Checklist") ||
+        text.includes("Get the £495 Audit") ||
+        text.includes("Run Free Website Grader")
       ) {
         window.gtag("event", "cta_click", {
           event_category: "engagement",

@@ -2,10 +2,10 @@
 
 Ordered by expected value. One per iteration.
 
-1. **Homepage services section links money pages directly** — services.tsx links only /services/ hub; direct links from the highest-authority page should lift striking-distance service pages. (Blocked: services.tsx has uncommitted WIP from another session.)
+1. ~~Homepage services section links money pages directly~~ verified already shipped in 981b004 (services.tsx links 7 money pages + 4 local pills as of 2026-07-10).
 2. **best-seo-companies-uk rescue or retire** — 12.5k impr at pos 68 (grew from 9,209 baseline). Still open: refresh content + entity coverage (content-decay skill) or accept it as unrankable listicle territory.
 3. **/services/seo-consultant-london/ content upgrade** — 1,605 impr pos 48. London is high-volume; page likely thin vs competition.
-4. **Blog-to-lead contextual offers** — blog CTAs are generic "free consultation"; test a specific £495 paid audit / Website Grader offer block on the 2 top posts.
+4. ~~Blog-to-lead contextual offers~~ shipped iteration 3 (see iteration-log.md, 2026-07-10).
 5. **Local pack / GBP presence** — "seo consultant reading" CTR at pos 2 is 0.35%, suggesting local pack + competitors absorb clicks. GBP profile + reviews (Sunny manual) likely worth more than any on-page change.
 6. **technical-seo-audit content vs SERP intent** — pos 34 despite 4k impressions; run serp-analyze to see whether ranking pages are tools/templates rather than service pages.
 7. ~~Supporting post for seo-prompts tool (de-orphan + de-thin)~~ shipped iteration 2 (see iteration-log.md). Two more queued: ROI explainer -> seo-roi-calculator, how-to-add-schema -> schema-generator.
@@ -13,6 +13,7 @@ Ordered by expected value. One per iteration.
 ## Sunny manual queue (not loop-executable)
 
 - ~~Mark GA4 generate_lead as key event~~ verified already marked (2026-07-07). Note: GA4 keyEvents attribute to session LANDING page, so /contact/ conversions show under "/".
-- GBP / Bark / Yell profiles + uncomment sameAs lines in src/lib/schema.ts.
+- GBP / Bark / Yell profiles + uncomment sameAs lines in src/lib/schema.ts. Step-by-step: docs/gbp-setup-checklist.md (written 2026-07-10, ~45 min).
+- Loom teardown cold-outreach campaign: outreach/loom-teardown-campaign.md (script + sequence ready, needs Sunny to source prospects + record).
 - Clutch reviews (0 live).
 - ~~Decide fate of uncommitted WIP~~ shipped 2026-07-07 (981b004) with 301 ai-visibility-audit -> paid-seo-audit.

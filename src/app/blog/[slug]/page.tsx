@@ -7,6 +7,7 @@ import { articleSchema, faqSchema, breadcrumbSchema, personSchema, schemaGraph }
 import { RelatedPosts } from "@/components/related-posts";
 import { RelatedServices } from "@/components/related-services";
 import { BlogLeadMagnet } from "@/components/blog-lead-magnet";
+import { BlogContextualOffer, offerVariantForSlug } from "@/components/blog-contextual-offer";
 import { bestSeoCompaniesUkSchemas } from "@/lib/schema-best-seo-companies-uk";
 import { bestAeoAgenciesSchemas } from "@/lib/schema-best-aeo-agencies";
 import { bestLocalSeoAgenciesSchemas } from "@/lib/schema-best-local-seo-agencies";
@@ -52,6 +53,7 @@ export default async function BlogPost({
     reader.collections.blog.all(),
   ]);
   const rendered = renderMarkdoc(content);
+  const offerVariant = offerVariantForSlug(slug);
 
   const postSummaries = allPosts.map((p) => ({
     slug: p.slug,
@@ -127,7 +129,7 @@ export default async function BlogPost({
       >
         {rendered}
         <RelatedServices currentTags={post.tags ?? []} postTitle={post.title} />
-        <BlogLeadMagnet />
+        {offerVariant ? <BlogContextualOffer variant={offerVariant} /> : <BlogLeadMagnet />}
       </ContentPage>
     </>
   );

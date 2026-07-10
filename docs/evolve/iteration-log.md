@@ -39,6 +39,22 @@ learning: pending
 
 ---
 
+iteration: 3
+date: 2026-07-10
+hypothesis: The generic "SEO checklist" lead magnet on every blog post mismatches the intent of the 2 top-traffic posts (google-open-knowledge-format 16 clicks/28d, ai-search-statistics 9 clicks/28d), whose readers are AI-search-curious. An intent-matched offer block (£495 AI-visibility audit + free Website Grader fallback) converts that traffic better than the checklist. This is active-hypotheses #4.
+playbook_tactic: contextual-blog-offer
+affected_urls:
+  - /blog/google-open-knowledge-format/  (checklist magnet replaced by contextual offer)
+  - /blog/ai-search-statistics/          (same)
+change: New src/components/blog-contextual-offer.tsx (server component, two-card offer: /services/paid-seo-audit/ primary, /tools/website-grader/ free fallback), slug-mapped in blog/[slug]/page.tsx, all other posts keep BlogLeadMagnet. Added both CTA texts to the cta_click matcher in analytics-events.tsx.
+commit: pending
+predicted_outcome: cta_click events on the 2 posts (currently ~0 from lead magnet on these slugs) plus first paid-audit page referrals from blog within 28 days; watch GA4 cta_click event_label "Get the £495 Audit" / "Run Free Website Grader".
+measured: pending
+verdict: pending
+learning: pending
+
+---
+
 ## Queued but not done this iteration
 - ROI explainer post -> /tools/seo-roi-calculator/ (already has 3 inbound links from Jun15 push, lower priority than seo-prompts)
 - how-to-add-schema post -> /tools/schema-generator/ (risk: may cannibalise existing /blog/seo-semantic-markup-guide/, needs a genuinely distinct angle before writing)

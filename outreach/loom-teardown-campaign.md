@@ -23,6 +23,9 @@ Goal: meetings. Personalised 3-minute video audits sent cold to local businesses
 3. 1:30-2:20: Show the competitor above them and the one thing that competitor does that they don't.
 4. 2:20-3:00: "There are maybe 5 or 6 more things like this. If you want the full list, I do a fixed-fee £495 audit, delivered in 5 days with a 45-minute call. Or just reply and I'll answer questions for free. Either way, the two fixes in this video are yours."
 
+## Personalised landing page (new, use it)
+Each prospect gets a private page at sunnypatel.co.uk/for/[slug]/ — add an entry to src/data/prospects.json (copy the "demo" entry), commit, deploy. The page carries their name, position, grader score, the Loom embed, both fixes in writing, and the £495 CTA. Link THIS page in the emails instead of the raw Loom link: it converts better and the video, fixes and booking live in one place. Pages are noindexed, robots-blocked, out of the sitemap, and 404 after the expires date.
+
 ## Email sequence
 ### Email 1 (with video)
 Subject: `[Company] is on page 2 for "[money term]", here's why (3-min video)`

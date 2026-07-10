@@ -7,6 +7,7 @@ const links = [
   { href: "/services/seo-berkshire/", label: "SEO Berkshire" },
   { href: "/tools/", label: "Free SEO Tools" },
   { href: "/about/", label: "About" },
+  { href: "/proof/", label: "Live Proof" },
   { href: "/portfolio/", label: "Portfolio" },
   { href: "/blog/", label: "Blog" },
   { href: "/contact/", label: "Contact" },

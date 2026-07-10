@@ -1,0 +1,25 @@
+{
+  "_readme": "Personalised outreach pages at /for/[slug]/. Noindexed + robots-blocked, never in sitemap. Add one entry per Loom teardown prospect (see outreach/loom-teardown-campaign.md). Pages 404 after expires date. loomUrl and graderScore are optional. Keep the demo entry: it is the template and doubles as a preview at /for/demo/.",
+  "prospects": [
+    {
+      "slug": "demo",
+      "company": "Demo Dental Practice",
+      "contactName": "Alex",
+      "moneyTerm": "dentist reading",
+      "position": 8,
+      "graderScore": 61,
+      "loomUrl": "",
+      "fixes": [
+        {
+          "title": "Your homepage title tag wastes the local query",
+          "detail": "It reads 'Home | Demo Dental Practice'. Searchers and Google both need 'Dentist in Reading' in there. This is a 10-minute change that directly targets the query you are position 8 for."
+        },
+        {
+          "title": "No LocalBusiness schema, so the local pack ignores you",
+          "detail": "Competitors above you all mark up name, address, opening hours and reviews. Without it you are invisible to the map results that take most of the clicks for 'dentist reading'."
+        }
+      ],
+      "expires": "2030-01-01"
+    }
+  ]
+}

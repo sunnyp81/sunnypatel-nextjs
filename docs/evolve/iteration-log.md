@@ -55,6 +55,25 @@ learning: pending
 
 ---
 
+iteration: 4
+date: 2026-07-10
+hypothesis: (Sunny-directed conversion sprint, 3 changes at once — page-level attribution only, not clean A/B.) A homepage that DOES something (domain-input grader hero) converts the 1,882 impr/mo homepage better than static CTAs; personalised /for/ pages lift Loom-outreach reply rates; a radical-transparency /proof/ page (live GSC data + public experiment log) converts trust-cold visitors.
+playbook_tactic: conversion-sprint (hero-tool + outreach-landers + proof-page)
+affected_urls:
+  - /                       (hero: domain input -> /tools/website-grader/?url=X autorun; "Hero Grade My Site" cta_click event)
+  - /tools/website-grader/  (accepts ?url= autorun param)
+  - /for/[slug]/            (noindexed personalised outreach pages, src/data/prospects.json, robots-blocked, expire by date; /for/demo/ is the template)
+  - /proof/                 (live GSC stats + rankings table + public iteration log; footer link + sitemap; refresh via scripts/update-proof-data.mjs)
+change: hero.tsx form, WebsiteGrader runGrade refactor + ?url= autorun, new /for/[slug] route + prospects.json, new /proof/ page + proof.json + proof-iterations.json + update-proof-data.mjs (JWT via node:crypto, no deps, tested live against GSC API).
+commit: pending
+predicted_outcome: "Hero Grade My Site" cta_click > "Book Free Consultation" clicks within 28 days; grader completions up 3x; /proof/ appears in session paths of contact submissions. /for/ measured per-campaign in outreach tracker, not GSC.
+measured: pending
+verdict: pending
+learning: pending
+note: update-proof-data.mjs should run before each deploy so /proof/ stays fresh; wire into seo-monitor-loop or pre-deploy step.
+
+---
+
 ## Queued but not done this iteration
 - ROI explainer post -> /tools/seo-roi-calculator/ (already has 3 inbound links from Jun15 push, lower priority than seo-prompts)
 - how-to-add-schema post -> /tools/schema-generator/ (risk: may cannibalise existing /blog/seo-semantic-markup-guide/, needs a genuinely distinct angle before writing)

@@ -1,10 +1,29 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 
 export function Hero() {
+  const router = useRouter();
+  const [domain, setDomain] = useState("");
+
+  const submitGrade = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = domain.trim();
+    if (!trimmed) return;
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "cta_click", {
+        event_category: "engagement",
+        event_label: "Hero Grade My Site",
+        transport_type: "beacon",
+      });
+    }
+    router.push(`/tools/website-grader/?url=${encodeURIComponent(trimmed)}`);
+  };
+
   return (
     <HeroGeometric
       badge="SEO Consultant, Reading & UK-Wide"
@@ -16,17 +35,36 @@ export function Hero() {
         {" "}with 15+ years getting UK businesses ranked on Google and cited in AI search.
       </p>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <form
+        onSubmit={submitGrade}
+        className="mx-auto flex w-full max-w-xl flex-col gap-3 px-4 sm:flex-row sm:gap-2"
+      >
+        <div className="relative flex-1">
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
+          <input
+            type="text"
+            inputMode="url"
+            autoComplete="url"
+            value={domain}
+            onChange={(e) => setDomain(e.target.value)}
+            placeholder="yourwebsite.co.uk"
+            aria-label="Your website address"
+            className="w-full rounded-xl border border-white/15 bg-white/[0.05] py-3.5 pl-11 pr-4 text-base text-white placeholder:text-white/35 backdrop-blur-sm transition-colors focus:border-brand/60 focus:outline-none focus:ring-2 focus:ring-brand/30"
+          />
+        </div>
         <GradientButton asChild>
-          <a href="#contact" className="gap-2">
-            Book Free Consultation
+          <button type="submit" className="gap-2 whitespace-nowrap">
+            Grade My Site Free
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </button>
         </GradientButton>
-        <GradientButton variant="variant" asChild>
-          <a href="#portfolio">View Case Studies</a>
-        </GradientButton>
-      </div>
+      </form>
+      <p className="mt-4 text-sm text-white/50">
+        Instant A-F score: SEO, speed, security, content. No sign-up.{" "}
+        <a href="#contact" className="text-white/70 underline underline-offset-2 transition-colors hover:text-white">
+          Or book a free consultation
+        </a>
+      </p>
 
       {/* Social proof — star rating */}
       <div className="mt-10 flex items-center justify-center gap-2">

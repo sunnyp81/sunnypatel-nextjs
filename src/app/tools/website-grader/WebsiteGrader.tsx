@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 
 /* ------------------------------------------------------------------ */
@@ -319,10 +319,8 @@ export default function WebsiteGrader() {
   const [result, setResult] = useState<FullResult | null>(null);
   const [error, setError] = useState('');
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const trimmed = url.trim();
+  const runGrade = useCallback(async (rawUrl: string) => {
+    const trimmed = rawUrl.trim();
     if (!trimmed) return;
 
     const targetUrl = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
@@ -393,7 +391,23 @@ export default function WebsiteGrader() {
       setLoading(false);
       setLoadingPhase('');
     }
-  }, [url]);
+  }, []);
+
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      runGrade(url);
+    },
+    [url, runGrade]
+  );
+
+  useEffect(() => {
+    const param = new URLSearchParams(window.location.search).get('url');
+    if (param) {
+      setUrl(param);
+      runGrade(param);
+    }
+  }, [runGrade]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">

@@ -15,6 +15,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/portfolio/`,         lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE_URL}/blog/`,              lastModified: LAST_DEPLOY, changeFrequency: "daily",   priority: 0.9 },
   { url: `${SITE_URL}/contact/`,           lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.7 },
+  { url: `${SITE_URL}/proof/`,             lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.7 },
   { url: `${SITE_URL}/services/paid-seo-audit/`, lastModified: new Date("2026-06-11"), changeFrequency: "monthly", priority: 0.9 },
   // Tools hub + individual tools
   { url: `${SITE_URL}/tools/`,                lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.9 },

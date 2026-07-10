@@ -1,0 +1,76 @@
+{
+  "updatedAt": "2026-07-10",
+  "source": "Google Search Console API, sc-domain:sunnypatel.co.uk",
+  "summary28d": {
+    "clicks": 43,
+    "impressions": 39427,
+    "avgPosition": 33.9
+  },
+  "rankings": [
+    {
+      "query": "seo consultant reading",
+      "position": 1.8
+    },
+    {
+      "query": "best ai consultants reading united kingdom",
+      "position": 2.1
+    },
+    {
+      "query": "algorithm update recovery services",
+      "position": 7.4
+    },
+    {
+      "query": "ai seo consultant",
+      "position": 10.1
+    },
+    {
+      "query": "ai consultancy marketing",
+      "position": 11.2
+    },
+    {
+      "query": "okf google",
+      "position": 11.9
+    }
+  ],
+  "weeklyClicks": [
+    {
+      "weekStart": "2026-05-13",
+      "clicks": 5
+    },
+    {
+      "weekStart": "2026-05-20",
+      "clicks": 5
+    },
+    {
+      "weekStart": "2026-05-27",
+      "clicks": 8
+    },
+    {
+      "weekStart": "2026-06-03",
+      "clicks": 8
+    },
+    {
+      "weekStart": "2026-06-10",
+      "clicks": 9
+    },
+    {
+      "weekStart": "2026-06-17",
+      "clicks": 10
+    },
+    {
+      "weekStart": "2026-06-24",
+      "clicks": 12
+    },
+    {
+      "weekStart": "2026-07-01",
+      "clicks": 12
+    }
+  ],
+  "caseStudy": {
+    "label": "Client: SaaS, Thames Valley",
+    "beforeVisitsPerMonth": 180,
+    "afterVisitsPerMonth": 620,
+    "months": 9,
+    "enquiryMultiple": 3
+  }
+}

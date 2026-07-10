@@ -420,8 +420,8 @@ export function personSchema() {
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       SITE_URL,
       "https://clutch.co/profile/sunny-patel",
+      "https://maps.google.com/?cid=2292818604572155987",
       // Add these when live:
-      // "https://g.page/r/[CID]/review",        ← GBP: get from dashboard → Share profile
       // "https://www.bark.com/en/gb/...",        ← create at bark.com
       // "https://www.yell.com/biz/...",          ← create at yell.com/add-your-business
       // "https://www.designrush.com/agency/...", ← check submission status
@@ -567,6 +567,7 @@ export function organizationSchema() {
     founder: { "@id": `${SITE_URL}/#person` },
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
+      "https://maps.google.com/?cid=2292818604572155987",
       `${SITE_URL}/#localbusiness`,
     ],
     knowsAbout: Object.entries(TOPICS).map(([key, t]) => ({
@@ -628,6 +629,7 @@ export function localBusinessSchema() {
     telephone: "+447305523333",
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
+      "https://maps.google.com/?cid=2292818604572155987",
       `${SITE_URL}/#organization`,
     ],
     areaServed: [

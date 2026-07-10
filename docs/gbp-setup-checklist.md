@@ -1,26 +1,28 @@
-# Google Business Profile setup — sunnypatel.co.uk (Sunny manual, ~45 min)
+# Google Business Profile — sunnypatel.co.uk (profile LIVE, now optimise)
 
-Why first: "seo consultant reading" is position 1.8 organically with 0.35% CTR because the local pack sits above you and you are not in it. The Reading/Berkshire query cluster has ~4,500 impressions/month with zero clicks. GBP is the single highest-leverage visibility fix available and no code change can substitute for it.
+Profile exists: "Sunny Patel SEO & AI Consultant", maps.google.com/?cid=2292818604572155987 (confirmed 2026-07-10). Schema sameAs wired to it in src/lib/schema.ts. Remaining work is ranking the profile in the pack for "seo consultant reading" and the Berkshire cluster (~4,500 impr/mo, currently zero clicks).
 
-## Setup (one-off)
-1. business.google.com, create profile: "Sunny Patel SEO" (matches sitewide LocalBusiness schema name, keep identical).
-2. Type: Service Area Business (no storefront address shown). Service areas: Reading, Wokingham, Bracknell, Maidenhead, Windsor, Slough, Berkshire.
-3. Category primary: "Marketing consultant". Secondary: "Internet marketing service", "Website designer" (covers the /website-design/ cluster).
-4. Phone + website: use the same NAP as the site footer and schema.ts.
-5. Verification: usually video verification for SABs, have a screen recording of GSC/GA4 ownership + client work ready.
+## NAP consistency flag (decide once)
+GBP name is "Sunny Patel SEO & AI Consultant"; sitewide schema/footer say "Sunny Patel SEO". Google reconciles entities better when these match exactly. Either rename the GBP to "Sunny Patel SEO" or tell Claude to update schema.ts + footer to the longer name. Pick one, do not leave split.
 
-## Immediately after verification
-6. Services: add each money service with the fixed fee where one exists: Paid SEO Audit £495, Technical SEO Audit, Local SEO, AI Search Optimisation, Website Design (from £1,500).
-7. Description: 750 chars, lead with "SEO consultant in Reading, Berkshire" + AI-visibility angle + fixed-fee audit offer.
-8. Photos: headshot, laptop/work shots, one results graph (the 180-to-620 visits chart).
-9. Booking link: Trafft "Free SEO Audit" URL as the appointment link.
-10. Uncomment the GBP sameAs line in src/lib/schema.ts, push, redeploy (tell Claude, this part is loop-executable).
+## Reviews (this is 80% of pack ranking, do first)
+1. GBP dashboard > Share profile > get the g.page review short link. Or generate via /tools/review-link/ using the Place ID.
+2. Ask the 5 site-testimonial clients directly: Dr Shaan Patel (Aatma Aesthetics), James W., Sarah M., Tom B., Claire H. One personal message each, include the direct link. Target: 5 reviews in 2 weeks.
+3. Ask Mike/Hummingbird if scope allows.
+4. Reply to every review within 48h (keyword-natural, mention the service + location once).
 
-## Reviews engine (ongoing, this is what ranks the profile)
-11. First 5 reviews: Dr Shaan Patel (Aatma Aesthetics), James W., Sarah M., Tom B., Claire H. — the testimonials already on the site. Use /tools/review-link/ to generate the direct review URL.
-12. Ask Mike/Hummingbird for one if scope allows.
-13. Weekly GBP post cadence: repurpose each new blog post as a GBP update (loop-executable once profile exists, gbp-optimizer skill).
+## Profile completeness (30 min in dashboard)
+5. Primary category "Marketing consultant"; add "Internet marketing service" + "Website designer" (covers /website-design/ cluster).
+6. Services: Paid SEO Audit £495, Technical SEO Audit, Local SEO Reading, AI Search Optimisation, Website Design from £1,500. Each with a 2-3 sentence description.
+7. Service areas: Reading, Wokingham, Bracknell, Maidenhead, Windsor, Slough, Berkshire.
+8. Booking link: Trafft "Free SEO Audit" URL.
+9. Description (750 chars): lead "SEO consultant in Reading, Berkshire", AI-visibility angle, fixed-fee audit offer.
+10. Photos: headshot, work shots, the 180-to-620 visits results graph.
 
-## Also while you're at it (same session, 20 min)
-- Bark.com + Yell free listings (same NAP), then uncomment their sameAs lines too.
+## Ongoing (loop-executable once dashboard access confirmed)
+11. Weekly GBP post: repurpose each new blog post as an update (gbp-optimizer skill).
+12. Q&A: seed 3-5 questions from the about-page FAQ and answer them.
+
+## Same session, 20 min
+- Bark.com + Yell free listings (same NAP), then uncomment their sameAs lines in schema.ts.
 - These + GBP were flagged in the Apr 14 GEO audit as worth more than the 53 bulk citations.

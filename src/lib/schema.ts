@@ -561,7 +561,7 @@ export function organizationSchema() {
   return {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
-    name: "Sunny Patel SEO",
+    name: "Sunny Patel SEO & AI Consultant",
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo.png`,
     founder: { "@id": `${SITE_URL}/#person` },
@@ -623,7 +623,7 @@ export function localBusinessSchema() {
   return {
     "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${SITE_URL}/#localbusiness`,
-    name: "Sunny Patel SEO",
+    name: "Sunny Patel SEO & AI Consultant",
     url: SITE_URL,
     email: "hello@sunnypatel.co.uk",
     telephone: "+447305523333",
@@ -665,7 +665,7 @@ export function webSiteSchema() {
   return {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
-    name: "Sunny Patel SEO",
+    name: "Sunny Patel SEO & AI Consultant",
     url: SITE_URL,
     publisher: { "@id": `${SITE_URL}/#organization` },
     author: { "@id": `${SITE_URL}/#person` },

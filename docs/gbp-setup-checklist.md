@@ -2,8 +2,8 @@
 
 Profile exists: "Sunny Patel SEO & AI Consultant", maps.google.com/?cid=2292818604572155987 (confirmed 2026-07-10). Schema sameAs wired to it in src/lib/schema.ts. Remaining work is ranking the profile in the pack for "seo consultant reading" and the Berkshire cluster (~4,500 impr/mo, currently zero clicks).
 
-## NAP consistency flag (decide once)
-GBP name is "Sunny Patel SEO & AI Consultant"; sitewide schema/footer say "Sunny Patel SEO". Google reconciles entities better when these match exactly. Either rename the GBP to "Sunny Patel SEO" or tell Claude to update schema.ts + footer to the longer name. Pick one, do not leave split.
+## NAP consistency: RESOLVED 2026-07-10
+Sunny chose the GBP name. Site schema (Organization, LocalBusiness, WebSite + 4 listicle self-mentions) renamed to "Sunny Patel SEO & AI Consultant" to match exactly.
 
 ## Reviews (this is 80% of pack ranking, do first)
 1. GBP dashboard > Share profile > get the g.page review short link. Or generate via /tools/review-link/ using the Place ID.

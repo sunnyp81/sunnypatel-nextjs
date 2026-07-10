@@ -24,7 +24,7 @@ export function bestAeoAgenciesSchemas(): Record<string, unknown>[] {
           "item": {
             "@type": "Organization",
             "@id": `${SITE_URL}/#organization`,
-            "name": "Sunny Patel SEO",
+            "name": "Sunny Patel SEO & AI Consultant",
             "url": SITE_URL,
             "description":
               "Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO) specialist. Only UK consultant with a documented AI-search lead conversion (Express Medicals, via Bing Copilot citation).",

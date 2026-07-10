@@ -17,7 +17,7 @@ export function bestSeoCompaniesUkSchemas(): Record<string, unknown>[] {
           "item": {
             "@type": "Organization",
             "@id": `${SITE_URL}/#organization`,
-            "name": "Sunny Patel SEO",
+            "name": "Sunny Patel SEO & AI Consultant",
             "url": SITE_URL,
             "description": "Semantic SEO, AI search optimisation (AEO/GEO), and topical authority specialist. Only UK consultant with documented AI-search lead conversion.",
             "address": [

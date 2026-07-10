@@ -24,7 +24,7 @@ export function bestLocalSeoAgenciesSchemas(): Record<string, unknown>[] {
           "item": {
             "@type": "Organization",
             "@id": `${SITE_URL}/#organization`,
-            "name": "Sunny Patel SEO",
+            "name": "Sunny Patel SEO & AI Consultant",
             "url": SITE_URL,
             "description":
               "Independent local SEO consultant offering direct senior access with no agency markup. Documented AI-search lead conversion (Express Medicals, via Bing Copilot citation). Semantic and local SEO methodology.",

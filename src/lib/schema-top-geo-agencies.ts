@@ -24,7 +24,7 @@ export function topGeoAgenciesSchemas(): Record<string, unknown>[] {
           "item": {
             "@type": "Organization",
             "@id": `${SITE_URL}/#organization`,
-            "name": "Sunny Patel SEO",
+            "name": "Sunny Patel SEO & AI Consultant",
             "url": SITE_URL,
             "description":
               "Generative Engine Optimisation (GEO) and Answer Engine Optimisation (AEO) specialist. Only UK consultant with a documented AI-search lead conversion (Express Medicals, via Bing Copilot citation). Semantic SEO and entity authority methodology.",

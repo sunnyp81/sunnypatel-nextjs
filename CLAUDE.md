@@ -74,7 +74,7 @@ Sunny Patel's personal SEO + AI-search (GEO) consultant site, **sunnypatel.co.uk
 - Organic ceiling reality: "seo consultant reading" ~200 searches/mo, so even at #1 the lead ceiling is ~1.8/mo. Service-business growth needs cold outreach + directories + reviews, not just organic.
 - AEO ceiling is now **off-page** (~85% of AI brand mentions are third-party) — needs brand-consensus / entity-authority outreach (Sunny has parked outreach).
 - Lead source: **2 "Free SEO Audit" bookings via the Trafft widget (Jun 8)**. Trafft admin email strips customer name/email — **lead details only in the Trafft dashboard**.
-- Manual items Sunny owes: Trafft notification template fields; mark GA4 `generate_lead` as a key event; paste GA4 id into Trafft Integrations; GBP/Bark/Yell sameAs (uncomment lines in `src/lib/schema.ts` then redeploy); Wikidata entry; Clutch reviews (0 live). Lemlist/cold-outreach creds are pointers only (e.g. reference_lemlist_api_credentials in the vault) — no secrets stored here.
+- Manual items Sunny owes: Trafft notification template fields; mark GA4 `generate_lead` as a key event; paste GA4 id into Trafft Integrations; Bark/Yell sameAs (GBP live + wired into schema 2026-07-10, cid 2292818604572155987; see docs/gbp-setup-checklist.md for the reviews push + NAP name decision); Wikidata entry; Clutch reviews (0 live). Lemlist/cold-outreach creds are pointers only (e.g. reference_lemlist_api_credentials in the vault) — no secrets stored here.
 - CV update: overwrite `public/cv.pdf`, push `master`, `npx vercel --prod`. Editable master is the gdoc in `G:\My Drive\Sunny Patel CV\`.
 - Content briefs live external: `G:\My Drive\SunnyPatel.co.uk\content-briefs\`.
 

@@ -314,7 +314,10 @@ export default function SeoPrompts() {
           <p>
             Chain the prompts in order. Start with intent and demand mapping, move to a topical map,
             then a content brief, then writing and schema. Each output feeds the next, which is how
-            you build topical authority rather than disconnected posts.
+            you build topical authority rather than disconnected posts. Read the full walkthrough in{' '}
+            <a href="/blog/chatgpt-prompts-for-seo/" className="text-brand underline underline-offset-2 hover:opacity-80">
+              ChatGPT prompts for SEO
+            </a>.
           </p>
         </div>
       </div>

@@ -378,6 +378,10 @@ const BLOG_TOPICS: Record<string, TopicMapping> = {
     about: ["semantic-seo"],
     mentions: ["local-seo", "eeat", "content-strategy"],
   },
+  "chatgpt-prompts-for-seo": {
+    about: ["ai-search-optimisation"],
+    mentions: ["llm-optimisation", "semantic-seo", "content-strategy"],
+  },
 };
 
 // =============================================================================

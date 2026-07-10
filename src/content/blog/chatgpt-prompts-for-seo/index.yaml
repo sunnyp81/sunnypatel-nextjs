@@ -1,0 +1,47 @@
+title: ChatGPT Prompts for SEO
+metaTitle: 'ChatGPT Prompts for SEO: 20 Free Templates by Task'
+description: >-
+  20 free ChatGPT and AI prompts for SEO, organised by task: demand mapping,
+  topical maps, content briefs, schema, internal linking, and AEO. Copy, paste,
+  and chain them into a working method.
+ogImage: ''
+date: '2026-07-10'
+lastUpdated: '2026-07-10'
+tags:
+  - AI Search
+  - ChatGPT
+  - SEO Prompts
+  - AEO
+  - Semantic SEO
+faqs:
+  - question: Are ChatGPT prompts actually useful for SEO?
+    answer: >-
+      Only if the prompt encodes a method, not just a topic. A prompt that says
+      "write an SEO-friendly blog post about X" produces generic output because
+      it gives the model no framework to follow. A prompt that specifies intent
+      classification, entity coverage, heading structure, and answer-first
+      formatting produces output that matches how search engines and AI systems
+      actually evaluate content. The prompt quality matters more than which
+      model runs it.
+  - question: Can I use these prompts with Claude or Gemini instead of ChatGPT?
+    answer: >-
+      Yes. None of these prompts depend on ChatGPT specifically, they are
+      written as instructions any capable model can follow. Claude and ChatGPT
+      both handle long content briefs and rewrites well. Gemini is convenient
+      when you want output tied to Google's own data. Pick whichever model you
+      already have access to.
+  - question: Is AI-generated SEO content ready to publish as-is?
+    answer: >-
+      No. Treat every output as a first draft. AI speeds up research, briefs,
+      and structure, but rankings come from real expertise, accurate data, and
+      editing. Verify every factual claim before publishing, particularly in
+      Your Money or Your Life topics such as health, finance, or legal content,
+      where an unverified claim carries real risk.
+  - question: What order should I run these prompts in?
+    answer: >-
+      Start with intent and demand mapping to understand what searchers actually
+      want. Move to a topical map so individual pages don't compete with each
+      other. Then build a content brief for the specific page, write the draft,
+      and finish with schema and internal linking. Each output feeds the next
+      step, which is how you build topical authority instead of a pile of
+      disconnected posts.

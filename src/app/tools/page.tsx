@@ -93,6 +93,12 @@ const tools = [
     category: "Content",
   },
   {
+    name: "AI Visibility Checker",
+    description: "Can ChatGPT, Perplexity and AI Overviews cite your site? Scored report across crawl access, schema, entities, and answerability.",
+    href: "/tools/ai-visibility-checker/",
+    category: "Website Audit",
+  },
+  {
     name: "Website Grader",
     description: "Get an instant Aâ€“F grade covering SEO, page speed, security, and content quality.",
     href: "/tools/website-grader/",

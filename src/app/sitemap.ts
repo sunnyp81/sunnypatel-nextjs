@@ -35,6 +35,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/tools/word-counter/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/text-diff/`,        lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/website-grader/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${SITE_URL}/tools/ai-visibility-checker/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE_URL}/tools/speed-checker/`,    lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/broken-links/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/ssl-checker/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },

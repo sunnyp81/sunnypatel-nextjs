@@ -1,0 +1,55 @@
+This website's SEO now runs as an autonomous loop: an AI agent reads my Google Search Console data via the API, forms one hypothesis, edits the site, logs a prediction, and comes back 7 to 14 days later to score itself. I am Sunny Patel, an SEO and AI consultant in Reading, and this is a case study of that loop running on my own site, with the real numbers, the real changes, and the parts that are still unproven. The full experiment log is public at [/proof/](/proof/), so you can check every claim in this post against live data.
+
+## What does an autonomous SEO agent actually do?
+
+An autonomous SEO agent is a repeating loop, not a tool: pull ground-truth data, form one testable hypothesis, make one change, predict the outcome, measure, and update the playbook. Mine runs as Claude on a VPS with API access to Search Console. Each iteration follows the same sequence.
+
+First, it queries Search Console for the site's clicks, impressions, and positions over a rolling 28-day window. Second, it picks the single highest-expected-value hypothesis from a ranked queue, for example: "rewriting titles on five high-impression pages lifts CTR at current positions". Third, it edits the site directly, since content lives in flat files the agent can change like any developer would. Fourth, it appends the hypothesis, the change, the commit reference, and a specific numeric prediction to an iteration log. Then a separate verdict pass runs 7 to 14 days later, fills in what actually happened, and records a learning. Tactics that prove out get promoted in the playbook; tactics that fail get demoted.
+
+The important word is "one". One hypothesis per iteration is what makes the results attributable. Ten simultaneous changes produce movement you cannot explain; one change with a written prediction produces evidence.
+
+## Where did the site start?
+
+The baseline, recorded on 7 July 2026, was roughly 44 clicks from about 40,000 impressions over 28 days: a sitewide CTR of about 0.11 percent. That number is the whole reason the loop exists. The site ranks; it does not convert attention into clicks.
+
+The baseline snapshot surfaced specific, uncomfortable facts. My Reading service page sat at position 1.98 for its money query with 283 impressions and exactly 1 click, a 0.35 percent CTR at position 2, which points to the local pack and competitors absorbing the clicks. A listicle post had 9,209 impressions at position 68.9, which is a lot of demand and almost no visibility. The technical audit service page had 4,057 impressions at position 34.4 and zero clicks. The success metric for the whole experiment is clicks per day on a 28-day rolling average, with GA4 lead events as the secondary check. Everything the agent does is judged against that.
+
+## What has the agent changed in four iterations?
+
+Four iterations have shipped since 7 July 2026, each one hypothesis, each logged before the result was known. Here is what they were.
+
+**Iteration 1, 7 July: title and meta rewrites on five striking-distance pages.** The hypothesis: better query match lifts CTR at current positions. The Reading page got a specific proof point in its meta, the technical audit page got a fixed-fee £500 anchor, and [my AI search statistics post](/blog/ai-search-statistics/), sitting at position 8.8 with 2,715 impressions and a 0.33 percent CTR, got a number-led title. The logged prediction: Reading page CTR from 0.35 percent to at least 5 percent within 14 days.
+
+**Iteration 2, 10 July: a supporting post for an orphaned tool page.** Three free tool pages ranked between positions 24 and 75 despite an earlier internal-link push, so the hypothesis was that they are thin and topically unsupported, not short of link equity. The agent wrote a 1,350-word post supporting the weakest-linked tool, added a reciprocal link back from the tool page, and, notably, caught and corrected a stale claim on the tool page itself, which advertised 22 prompts when the actual count is 20.
+
+**Iteration 3, 10 July: intent-matched conversion blocks on the two top-traffic posts.** Those posts earned 16 and 9 clicks in 28 days from AI-search-curious readers, yet showed a generic SEO checklist download. The agent replaced it with a two-card offer: the [£495 fixed-fee audit](/services/paid-seo-audit/) as the primary action and the free [Website Grader](/tools/website-grader/) as the low-commitment fallback, with event tracking on both.
+
+**Iteration 4, 10 July: a conversion sprint I directed myself.** A homepage hero that does something (enter your domain, the grader runs), personalised outreach landing pages, and the public [/proof/](/proof/) page showing live Search Console data and the full iteration log. The log honestly flags this one as three changes at once, so attribution will be page-level only, not a clean test.
+
+## How does the agent decide what to work on next?
+
+Priority comes from a ranked hypothesis queue, ordered by expected value, and the data writes the queue. The current open items are all traceable to baseline numbers: rescue or retire the listicle that has grown to 12,500 impressions while stuck at position 68; upgrade a thin London service page with 1,605 impressions at position 48; run SERP analysis on the technical audit page to check whether the ranking pages for that query are actually tools rather than service pages, which would explain position 34 despite 4,000 impressions.
+
+The queue also does something most SEO tools never do: it crosses items off as disproven or already done. One queued hypothesis, "link money pages from the homepage services section", was closed when the agent checked the codebase and found it already shipped. Another two are marked shipped with pointers to their iteration entries. The queue is a living document, not a to-do list that only grows.
+
+## How do I know whether a change worked?
+
+Every iteration carries a numeric prediction written down before the change goes live, and a verdict pass fills in the measured result 7 to 14 days later. That is the honest answer, and it comes with an honest caveat: as I write this, all four verdicts are pending. Iteration 1 shipped on 7 July, so its measurement window opens mid-July; iterations 2 to 4 shipped on 10 July. I will not claim wins I have not measured, and the [/proof/](/proof/) page will show the verdicts as they land, good or bad.
+
+This is the discipline most SEO automation skips. Plenty of tools will bulk-edit your titles. Almost none will write "predicted: CTR from 0.35 percent to 5 percent" next to the change and then publicly grade themselves against it. The prediction-first structure means a failed hypothesis is still valuable, because the learning gets written into the playbook and the tactic gets demoted for every future iteration.
+
+## Is it safe to let an AI agent edit a live website?
+
+Safe with guardrails, reckless without them, and the single most important guardrail is that the agent does not deploy. Every change lands in a git repository as a reviewable diff, and nothing reaches production until I push it live myself. The human deploy gate is deliberate: I review what shipped, and I can stop anything before it is public.
+
+The other guardrails are structural. One hypothesis per iteration limits blast radius. The append-only log means every change has a commit reference and can be reverted. Content lives in flat files, so there is no CMS API the agent could misuse at scale. And the agent inherits the site's editorial rules, including UK English and my ban on em dashes, so its output is stylistically indistinguishable from mine. On the Google question: the changes are the same ones a competent consultant would make by hand, grounded in the site's own query data, made one at a time and measured. That is the opposite of the spam pattern Google's policies actually target, which is unreviewed low-quality content at scale.
+
+## What can the agent not do?
+
+The agent cannot do strategy, relationships, or anything that lives outside the repository, and pretending otherwise would be selling you something false. The baseline itself flags the ceiling: "seo consultant reading" gets around 200 searches a month, so even position 1 caps organic leads. Growth past that ceiling needs a Google Business Profile with reviews, directory presence, cold outreach, and third-party mentions, since most AI-search brand visibility comes from what other sites say about you. Those items sit in a separate manual queue in the log, explicitly marked as not loop-executable, and they are mine to do.
+
+The agent also cannot decide what the business should be. Iteration 4 happened because I judged that conversion mattered more than another ranking tweak, and I directed the sprint. The loop optimises toward the metric it is given; choosing the metric, the offers, and the positioning is still a human job. If you want the deeper picture of how AI systems weigh visibility, my [AI search optimisation service page](/services/ai-search-optimisation/) covers the off-page side the agent cannot touch.
+
+## What would this look like on your site?
+
+The same loop transfers to any site with Search Console history and version-controlled content, and the entry point I offer is the [£495 fixed-fee audit](/services/paid-seo-audit/). The audit is effectively iteration zero: I pull your Search Console data, build the baseline, and hand you a ranked hypothesis queue for your own site, so you can see precisely what an agent loop would work on first and what it would predict. From there, you can run the changes manually, or we set up the full loop with the same guardrails described here: one hypothesis at a time, predictions logged before changes, and you holding the deploy key. If you want a free first signal before committing, run your domain through the [Website Grader](/tools/website-grader/) and see what it flags. Everything the loop does to this site stays public at [/proof/](/proof/), so the results, pending verdicts included, are there to check before you spend a pound.

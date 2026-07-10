@@ -138,7 +138,11 @@ export default function ProofPage() {
         The experiment log
       </h2>
       <p className="mb-5 text-sm text-muted-foreground">
-        This site is improved in measured iterations: hypothesis, change, verdict from Search Console data 1-2 weeks later. This is the exact process clients get.
+        This site is improved in measured iterations: hypothesis, change, verdict from Search Console data 1-2 weeks later. An autonomous agent runs the loop,{" "}
+        <Link href="/blog/autonomous-seo-agent/" className="text-brand hover:underline">
+          here is how it works
+        </Link>
+        . This is the exact process clients get.
       </p>
       <div className="mb-12 space-y-4">
         {iterations.map((it) => (

@@ -70,7 +70,7 @@ export function BlogContextualOffer({ variant }: { variant: OfferVariant }) {
 
           {/* Free grader */}
           <Link
-            href="/tools/website-grader/"
+            href="/tools/ai-visibility-checker/"
             className="group flex flex-col rounded-xl border border-border bg-background/40 p-5 transition-colors hover:border-brand/40"
           >
             <div className="mb-3 flex items-center gap-2">
@@ -82,13 +82,13 @@ export function BlogContextualOffer({ variant }: { variant: OfferVariant }) {
               </span>
             </div>
             <p className="mb-4 flex-1 text-xs leading-relaxed text-muted-foreground">
-              Run your site through the free Website Grader for an instant SEO score: speed, meta, schema and content checks in about 30 seconds, no sign-up.
+              Run the free AI Visibility Checker: can ChatGPT and Perplexity crawl, verify and cite your site? Scored report in about 20 seconds, no sign-up.
             </p>
             <span
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Run Free Website Grader
+              Run Free AI Visibility Check
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
             </span>
           </Link>

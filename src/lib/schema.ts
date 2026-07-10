@@ -382,6 +382,14 @@ const BLOG_TOPICS: Record<string, TopicMapping> = {
     about: ["ai-search-optimisation"],
     mentions: ["llm-optimisation", "semantic-seo", "content-strategy"],
   },
+  "google-ctr-study": {
+    about: ["keyword-research", "on-page-seo"],
+    mentions: ["semantic-seo", "ai-search-optimisation", "content-strategy"],
+  },
+  "autonomous-seo-agent": {
+    about: ["ai-search-optimisation", "technical-seo"],
+    mentions: ["llm-optimisation", "semantic-seo", "content-strategy"],
+  },
 };
 
 // =============================================================================

@@ -1,0 +1,50 @@
+title: 'Google CTR by Position in 2026: Real Data From 53 UK Sites'
+metaTitle: '5.96% CTR at Position 1: Google CTR Study 2026 (53 Sites)'
+description: >-
+  Real Google CTR by position in 2026 from 53 UK sites and 2,615 queries:
+  position 1 earned 5.96%, not 30%, and position 4 beat it at 8.61%. Full data
+  table.
+ogImage: ''
+date: '2026-07-10'
+lastUpdated: '2026-07-10'
+tags:
+  - CTR Study
+  - Original Research
+  - Google Search Console
+  - SEO Data
+  - SERP Features
+faqs:
+  - question: What is a good CTR for position 1 on Google?
+    answer: >-
+      For a small site targeting non-brand, long-tail queries, anything above 5%
+      at position 1 is realistic and anything above 10% is strong. In this
+      study, position 1 earned 5.96% across 53 UK sites. The 25-30% figures
+      quoted by large industry studies are inflated by brand queries, where the
+      searcher already intends to click the top result. Judge your CTR against
+      the intent mix of your own queries, not against a global average.
+  - question: Why is my CTR so low at position 1?
+    answer: >-
+      Because position 1 in the organic results is rarely the first thing a
+      searcher sees. AI Overviews, featured snippets, local packs, shopping
+      units, and People Also Ask boxes sit above the first blue link and absorb
+      clicks before your listing gets a chance. Informational queries also
+      increasingly resolve on the results page itself, so a high position earns
+      an impression but no click. Check what the SERP for your query actually
+      looks like before blaming your title tag.
+  - question: Is average position a useful metric?
+    answer: >-
+      Mostly no, and it can actively mislead. In this dataset, 74% of all
+      impressions sat at position 11 or worse and earned under 0.1% CTR, so a
+      handful of high-impression page 3 queries can drag your average position
+      down while your traffic comes entirely from a few page 1 rankings. Track
+      clicks and impressions for individual query and page pairs instead, and
+      treat average position as a rough directional signal at best.
+  - question: How do I improve CTR from Google search results?
+    answer: >-
+      First, move rankings from positions 6-10 into the top 4: in this study
+      that jump multiplied CTR by up to 30 times, which no title rewrite can
+      match. Second, rewrite titles and meta descriptions on pages already in
+      striking distance so they front-load the query and a specific benefit.
+      Third, add structured data where it earns a richer result. Prioritise the
+      queries where you already have impressions, because that is demand you
+      are currently wasting.

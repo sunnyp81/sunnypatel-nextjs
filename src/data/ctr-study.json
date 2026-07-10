@@ -1,0 +1,96 @@
+{
+  "updatedAt": "2026-07-10",
+  "period": {
+    "start": "2026-04-09",
+    "end": "2026-07-07"
+  },
+  "method": "Query-level GSC rows with >=50 impressions, bucketed by rounded average position. Domains anonymised.",
+  "sites": 53,
+  "queryRows": 2615,
+  "table": [
+    {
+      "position": "1",
+      "ctr": 5.96,
+      "clicks": 43,
+      "impressions": 721,
+      "queries": 5
+    },
+    {
+      "position": "2",
+      "ctr": 0.22,
+      "clicks": 7,
+      "impressions": 3199,
+      "queries": 6
+    },
+    {
+      "position": "3",
+      "ctr": 1.58,
+      "clicks": 44,
+      "impressions": 2784,
+      "queries": 14
+    },
+    {
+      "position": "4",
+      "ctr": 8.61,
+      "clicks": 377,
+      "impressions": 4381,
+      "queries": 24
+    },
+    {
+      "position": "5",
+      "ctr": 2.96,
+      "clicks": 150,
+      "impressions": 5069,
+      "queries": 37
+    },
+    {
+      "position": "6",
+      "ctr": 1.59,
+      "clicks": 407,
+      "impressions": 25649,
+      "queries": 71
+    },
+    {
+      "position": "7",
+      "ctr": 1.02,
+      "clicks": 262,
+      "impressions": 25582,
+      "queries": 81
+    },
+    {
+      "position": "8",
+      "ctr": 0.27,
+      "clicks": 40,
+      "impressions": 14787,
+      "queries": 60
+    },
+    {
+      "position": "9",
+      "ctr": 0.75,
+      "clicks": 73,
+      "impressions": 9783,
+      "queries": 76
+    },
+    {
+      "position": "10",
+      "ctr": 0.53,
+      "clicks": 45,
+      "impressions": 8514,
+      "queries": 67
+    },
+    {
+      "position": "11-20",
+      "ctr": 0.25,
+      "clicks": 119,
+      "impressions": 48279,
+      "queries": 324
+    },
+    {
+      "position": "21+",
+      "ctr": 0.04,
+      "clicks": 100,
+      "impressions": 234193,
+      "queries": 1850
+    }
+  ]
+}

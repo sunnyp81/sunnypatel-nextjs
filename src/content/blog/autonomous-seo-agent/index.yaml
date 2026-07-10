@@ -1,0 +1,51 @@
+title: 'My SEO Runs Itself: The Autonomous AI Agent Improving This Site'
+metaTitle: 'I Built an Autonomous SEO Agent: 4 Iterations, Real Data'
+description: >-
+  How I built an autonomous AI SEO agent that reads Search Console, forms one
+  hypothesis per iteration, edits my site, and measures the result. Real data
+  inside.
+ogImage: ''
+date: '2026-07-10'
+lastUpdated: '2026-07-10'
+tags:
+  - Autonomous SEO
+  - AI SEO Agent
+  - SEO Automation
+  - AI Search
+  - Case Study
+faqs:
+  - question: Is it safe to let an AI agent edit a live website?
+    answer: >-
+      With guardrails, yes. My agent works on flat files in a git repository,
+      so every change is a reviewable diff, and nothing reaches the live site
+      until I run the deploy myself. It changes one hypothesis per iteration,
+      logs a prediction before it edits anything, and the append-only log means
+      any change can be traced and reverted. An agent with direct publish
+      access to a CMS and no review step would be a different risk entirely,
+      and I would not run one.
+  - question: Will Google penalise AI-made edits to my site?
+    answer: >-
+      Google's guidance targets low-quality content at scale, not who or what
+      typed the edit. The changes my agent makes are the same ones a competent
+      consultant would make by hand: title rewrites matched to real queries,
+      supporting posts for thin pages, better-matched calls to action. Each is
+      grounded in the site's own Search Console data and measured afterwards.
+      The risk sits in publishing unreviewed bulk content, which is exactly
+      what the one-hypothesis-per-iteration rule and the human deploy gate
+      prevent.
+  - question: What stack does the autonomous SEO agent run on?
+    answer: >-
+      Claude running on a Linux VPS, the Google Search Console API for
+      ground-truth data, and a Next.js site with flat-file content in a git
+      repository. State lives in three plain markdown files: a baseline, an
+      append-only iteration log, and a ranked hypothesis queue. There is no
+      SaaS product involved; the loop is a set of instructions, an API
+      connection, and a repository the agent can edit.
+  - question: Can you build an autonomous SEO loop for my website?
+    answer: >-
+      Yes, and the entry point is my £495 fixed-fee audit. The audit maps your
+      Search Console data, finds the highest-value hypotheses for your site,
+      and shows you exactly what a loop like this would work on first. From
+      there we can set up the full agent loop on your site, or you can take
+      the findings and act on them manually. Either way you start from
+      evidence, not guesswork.

@@ -74,6 +74,24 @@ note: update-proof-data.mjs should run before each deploy so /proof/ stays fresh
 
 ---
 
+iteration: 5
+date: 2026-07-10
+hypothesis: (Sunny-directed.) Original data + unique story earn links/citations the portfolio site cannot get from service pages; an AI-visibility self-serve tool converts the AI-curious audience better than generic tools.
+playbook_tactic: original-data-study + story-post + flagship-tool
+affected_urls:
+  - /blog/google-ctr-study/          (original research: 53 sites, 2,615 queries, 383k impressions; contrarian CTR-by-position findings; data in src/data/ctr-study.json, regenerate via scripts/portfolio-ctr-study.mjs)
+  - /blog/autonomous-seo-agent/      (first-person story of the evolve loop, links /proof/)
+  - /tools/ai-visibility-checker/    (heuristic scanner: robots.txt AI bots, llms.txt, JSON-LD identity, Wikipedia/Wikidata entity, answerability; /api/ai-visibility; GA4 event ai_visibility_check)
+change: 2 agent-written self-audited posts (88/100 and verified-against-dataset), new tool + API route, blog contextual offer free-option swapped from website-grader to the new checker (better intent match, swapped pre-deploy so iteration 3 measurement is unaffected), BLOG_TOPICS entries, /proof/ links the story post.
+commit: pending
+predicted_outcome: ctr-study earns first external links/AI citations within 60 days (watch referring domains + Copilot citations); ai_visibility_check events > 20/month; story post ranks for "autonomous seo agent" long-tail within 4 weeks.
+measured: pending
+verdict: pending
+learning: pending
+note: weekly monitor installed: /root/.hermes/scripts/sunnypatel-monitor.sh (cron Mon 08:12), refreshes proof.json, fills verdicts 7+ days old, writes docs/evolve/weekly-digest.md, telegram digest.
+
+---
+
 ## Queued but not done this iteration
 - ROI explainer post -> /tools/seo-roi-calculator/ (already has 3 inbound links from Jun15 push, lower priority than seo-prompts)
 - how-to-add-schema post -> /tools/schema-generator/ (risk: may cannibalise existing /blog/seo-semantic-markup-guide/, needs a genuinely distinct angle before writing)

@@ -210,7 +210,7 @@ export default function AiVisibilityPage() {
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <GradientButton asChild>
                 <Link href="#book" className="gap-2">
-                  Book the Audit — £1,500
+                  Book the Audit: £1,500
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </GradientButton>

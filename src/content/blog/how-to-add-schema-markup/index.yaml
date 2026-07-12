@@ -1,0 +1,46 @@
+title: 'How to Add Schema Markup to Your Website: 4 Steps, Any Platform'
+metaTitle: 'How to Add Schema Markup (WordPress, Shopify, Any CMS)'
+description: >-
+  Add schema markup in 4 steps: pick the type, generate the JSON-LD, paste it
+  into WordPress, Shopify, Wix, or custom code, then validate. Free generator
+  included.
+ogImage: ''
+date: '2026-07-11'
+lastUpdated: '2026-07-11'
+tags:
+  - Schema Markup
+  - Technical SEO
+  - Structured Data
+  - JSON-LD
+faqs:
+  - question: Where exactly do I paste schema markup on a page?
+    answer: >-
+      Inside a script tag with type application/ld+json, anywhere in the page's
+      HTML. Google reads it from the head or the body, so put it wherever your
+      platform makes easiest: a Custom HTML block in WordPress, code injection
+      in Wix or Squarespace, or the theme template on Shopify. What matters is
+      that it appears in the rendered HTML of the specific page it describes.
+  - question: Do I need a plugin to add schema markup to WordPress?
+    answer: >-
+      No. A Custom HTML block in the post editor, or a per-page snippet via a
+      lightweight code plugin, does the same job with more control. SEO plugins
+      like Yoast and Rank Math add basic Article and Organization schema
+      automatically. That baseline is fine. Page-specific types such as FAQ,
+      Product, or LocalBusiness usually need manual addition or the plugin's
+      paid tier. If a plugin already outputs a schema type, do not add a second
+      competing block for the same type.
+  - question: Does schema markup improve Google rankings?
+    answer: >-
+      Not directly. Google has repeatedly said structured data is not a ranking
+      factor. Schema makes pages eligible for rich results such as FAQ
+      dropdowns, star ratings, and breadcrumb trails. Rich results raise
+      click-through rate. Schema also gives search engines and AI systems an
+      unambiguous statement of what the page and the entity behind it are.
+      Those second-order effects are why it is still worth the half hour.
+  - question: How long until rich results appear after adding schema?
+    answer: >-
+      Google has to recrawl the page first, which takes anywhere from days to a
+      few weeks depending on how often your site is crawled. You can speed it
+      up by requesting indexing in Search Console. Valid schema makes a page
+      eligible for rich results but does not guarantee them: Google decides per
+      query whether to show the enhanced snippet.

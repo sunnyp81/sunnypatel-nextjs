@@ -333,7 +333,11 @@ export default function SeoRoiCalculator() {
           <p>
             Treat the output as a directional estimate, not a guarantee. Real CTR varies by SERP
             features, brand, and intent, and rankings are never linear. Use it to sanity-check
-            whether a keyword is worth the investment.
+            whether a keyword is worth the investment. For the full methodology behind each input,
+            including a worked example in pounds, read{' '}
+            <a href="/blog/how-to-calculate-seo-roi/" className="text-brand underline underline-offset-2 hover:opacity-80">
+              how to calculate SEO ROI
+            </a>.
           </p>
         </div>
       </div>

@@ -1,0 +1,83 @@
+Adding schema markup takes four steps on any platform: pick the schema type that matches what the page actually is, generate the JSON-LD code, paste it into the page's HTML inside a script tag, and validate it with Google's Rich Results Test. The whole process takes under half an hour for a typical page. None of it requires a developer or a paid plugin.
+
+This guide covers each step, with the exact route for WordPress, Shopify, Wix, Squarespace, and custom-coded sites, using the [free schema markup generator](/tools/schema-generator/) to produce the code. The [semantic markup guide](/blog/seo-semantic-markup-guide/) covers what structured data is and which types exist; this post covers implementation only.
+
+## Step 1: Pick the Schema Type That Matches the Page
+
+Schema describes what a page is. The type follows from the page's job, not from which type looks most impressive. The mapping is mostly one-to-one:
+
+| Page | Schema type |
+|---|---|
+| Blog post or news article | Article |
+| Question-and-answer section | FAQPage |
+| Business location or contact page | LocalBusiness |
+| Product or ecommerce listing | Product |
+| Step-by-step instructions | HowTo |
+| Any page in a site hierarchy | BreadcrumbList |
+
+Two rules keep you out of trouble. First, only mark up content that is visible on the page: an FAQPage block describing questions the page never shows violates Google's guidelines and risks a manual action. Second, one page can carry several types when they genuinely apply. A blog post can hold an Article plus an FAQPage plus a BreadcrumbList as long as each block describes real page content.
+
+## Step 2: Generate the JSON-LD
+
+JSON-LD is the format to use. Google recommends it over the older microdata and RDFa approaches. JSON-LD sits in one self-contained script tag instead of being woven through your HTML attributes. That makes it easier to add, audit, and remove without touching the page's markup.
+
+The [schema markup generator](/tools/schema-generator/) builds copy-paste-ready JSON-LD for the six types in the table above. Fill in the fields and it outputs the complete script tag with the wrapper included. Nothing needs hand-editing. It runs entirely in your browser and is free with no sign-up.
+
+Fill in every field you can rather than the minimum. A LocalBusiness block with opening hours, geo coordinates, and a phone number tells search engines far more than one with just a name. Completeness is what makes the difference for entity SEO: search engines and AI systems use those fields to reconcile your business across the web.
+
+## Step 3: Add the Code to Your Site
+
+The generated block goes into the HTML of the specific page it describes. Google reads JSON-LD from the head or the body, so use whichever your platform makes easy.
+
+**WordPress.** Three routes, in order of simplicity. In the block editor, add a Custom HTML block anywhere in the post and paste the script tag: it will not render anything visible. For markup you want outside the content area, a lightweight snippet plugin such as WPCode can inject code into the head of a specific page. Check what your SEO plugin already outputs first. Yoast and Rank Math add Article and Organization schema automatically. Add only the page-specific types they do not cover and never add a second block of a type that already exists.
+
+**Shopify.** For a one-off page, edit the template under Online Store, then Edit code, and paste the script into the relevant .liquid template. Most Shopify themes already emit Product schema. Validate an existing product page before adding your own block or you will ship duplicates with conflicting prices.
+
+**Wix and Squarespace.** Both offer per-page code injection. In Wix, each page's SEO settings include an Advanced SEO section with a structured data field made for exactly this. In Squarespace, use the per-page header code injection (Pages, then the gear icon, then Advanced). Avoid the site-wide injection area for page-specific types.
+
+**Custom-coded and framework sites.** Inline the script tag in the page template. The one rule that matters: schema belongs per-page, not injected globally. A LocalBusiness block on every page of a 200-page site is noise; on the contact page it is signal. This site, for instance, emits Article schema only on blog posts and service schema only on service pages, each generated in the page's own template.
+
+## Step 4: Validate, Then Monitor
+
+Before publishing, paste the page URL or the raw code into Google's Rich Results Test. It confirms both that the JSON parses and that the block qualifies for Google's rich result types, and it flags missing required fields with the exact property name. The Schema.org validator does a stricter structural check if you want a second opinion.
+
+After publishing, two things. Request indexing for the page in Search Console so Google recrawls it sooner. Then watch the enhancement reports. Search Console shows a report per rich result type such as FAQ or Product. Each report tracks how many pages carry valid markup and surfaces errors that appear later, such as a theme update silently breaking a template. Rich results typically appear days to weeks after recrawl, when Google chooses to show them at all.
+
+## The Mistakes That Undo the Work
+
+**Marking up content that is not on the page.** The most common and the most dangerous. Every question in your FAQPage block must be visible to a user on that page.
+
+**Duplicate blocks for the same type.** An SEO plugin emitting Article schema plus your hand-added Article block gives Google two conflicting statements. Audit what already exists (view source and search for ld+json) before adding anything.
+
+**Global injection of page-specific schema.** Site-wide Organization schema is correct; site-wide FAQPage or LocalBusiness on every URL is not.
+
+**Leaving placeholder values.** A generated block with an empty author or a wrong date is worse than none, because it asserts something false about the page. This matters doubly now that AI systems read structured data when deciding which sources to trust and cite; consistent, accurate entity data is part of [how content earns AI citations](/blog/optimise-content-for-ai-search/).
+
+**Set-and-forget.** Schema describes the page as it was when you wrote it. When the content changes materially, update the block, including dateModified on Article types.
+
+## Frequently Asked Questions
+
+**Where exactly do I paste schema markup on a page?**
+
+Inside a script tag with type application/ld+json, anywhere in the page's HTML. Google reads it from the head or the body, so put it wherever your platform makes easiest: a Custom HTML block in WordPress, code injection in Wix or Squarespace, or the theme template on Shopify. What matters is that it appears in the rendered HTML of the specific page it describes.
+
+**Do I need a plugin to add schema markup to WordPress?**
+
+No. A Custom HTML block in the post editor, or a per-page snippet via a lightweight code plugin, does the same job with more control. SEO plugins like Yoast and Rank Math add basic Article and Organization schema automatically. That baseline is fine. Page-specific types such as FAQ, Product, or LocalBusiness usually need manual addition or the plugin's paid tier. If a plugin already outputs a schema type, do not add a second competing block for the same type.
+
+**Does schema markup improve Google rankings?**
+
+Not directly. Google has repeatedly said structured data is not a ranking factor. Schema makes pages eligible for rich results such as FAQ dropdowns, star ratings, and breadcrumb trails. Rich results raise click-through rate. Schema also gives search engines and AI systems an unambiguous statement of what the page and the entity behind it are. Those second-order effects are why it is still worth the half hour.
+
+**How long until rich results appear after adding schema?**
+
+Google has to recrawl the page first, which takes anywhere from days to a few weeks depending on how often your site is crawled. You can speed it up by requesting indexing in Search Console. Valid schema makes a page eligible for rich results but does not guarantee them: Google decides per query whether to show the enhanced snippet.
+
+## Related Articles
+
+- [Free Schema Markup Generator](/tools/schema-generator/): copy-paste JSON-LD for all six types covered here
+- [SEO Semantic Markup Guide](/blog/seo-semantic-markup-guide/): the full reference on structured data types and why they matter
+- [What is Entity SEO?](/blog/what-is-entity-seo/): how schema feeds the entity graph search engines build around your business
+- [Optimise Content for AI Search](/blog/optimise-content-for-ai-search/): where structured data fits in earning AI citations
+
+Want your whole site's structured data audited and fixed rather than doing it page by page? [Get in touch](/contact/) for a free initial conversation.

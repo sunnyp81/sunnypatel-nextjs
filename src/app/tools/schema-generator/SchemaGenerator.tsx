@@ -713,7 +713,11 @@ export default function SchemaGenerator() {
           Schema Markup Generator
         </h1>
         <p className="mt-3 max-w-2xl text-base text-muted-foreground">
-          Generate valid JSON-LD structured data for Google rich results. Select a schema type, fill in the fields, and copy the markup to your site.
+          Generate valid JSON-LD structured data for Google rich results. Select a schema type, fill in the fields, and copy the markup to your site. Not sure where the code goes once you have it? Read{' '}
+          <a href="/blog/how-to-add-schema-markup/" className="text-brand underline underline-offset-2 hover:opacity-80">
+            how to add schema markup to your website
+          </a>{' '}
+          for the exact steps on WordPress, Shopify, Wix, and custom sites.
         </p>
       </div>
 

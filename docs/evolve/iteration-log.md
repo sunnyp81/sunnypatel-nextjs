@@ -96,3 +96,18 @@ note: weekly monitor installed: /root/.hermes/scripts/sunnypatel-monitor.sh (cro
 - ROI explainer post -> /tools/seo-roi-calculator/ (already has 3 inbound links from Jun15 push, lower priority than seo-prompts)
 - how-to-add-schema post -> /tools/schema-generator/ (risk: may cannibalise existing /blog/seo-semantic-markup-guide/, needs a genuinely distinct angle before writing)
 - best-seo-companies-uk refresh (12.5k impr, pos 68) — separate hypothesis #2 in active-hypotheses.md, not started
+
+---
+
+iteration: 7
+date: 2026-07-13
+hypothesis: best-seo-companies-uk (9,870 impr/28d, pos 66.7, 2 clicks) is dragged down by unwinnable head terms (seo agency pos 80, seo company pos 73) but its list-intent queries cluster at pos 32-45 (best seo companies list 32.4, seo company list 33.5, reputable seo companies 33.6, seo agency list 34.0) and independent uk seo agency sits at pos 12.6. Realigning the page to explicit list intent (numbered 1-15 entries, list-framed title/meta), expanding entity coverage from 11 to 15 verified agencies, and adding a section + FAQ for the striking-distance independent query moves the list-intent cluster toward page 2/1 without chasing head terms. This is active-hypotheses #2 (rescue, not retire).
+playbook_tactic: listicle-intent-realignment + entity-expansion
+affected_urls:
+  - /blog/best-seo-companies-uk/
+change: Title/meta rewritten to list intent (Best SEO Companies UK, List of 15 Top Agencies); fixed false "13+" meta claim (was 11 actual); all 15 entries numbered; 4 new verified agencies added (Screaming Frog, SALT.agency, NOVOS, Candour, each checked live 2026-07-13, no invented pricing, all "on application"); new "Independent SEO Agencies UK" section + FAQ targeting independent uk seo agency (pos 12.6, 18 impr); NOVOS added to London section; ItemList schema numberOfItems 11 to 15; lastUpdated 2026-07-13; all em dashes stripped per site rule. Semantic audit 92/100.
+commit: pending
+predicted_outcome: list-intent query cluster (best seo companies list, seo company list, seo agency list, reputable seo companies, ~230 impr/28d combined at pos 32-45) moves to pos <=25 within 4 weeks of recrawl; independent uk seo agency from 12.6 into top 10; page CTR rises from 0.02% as list queries replace head-term impressions. Head terms (seo agency, seo company) expected to stay pos 60+, not the target.
+measured: pending
+verdict: pending
+learning: pending

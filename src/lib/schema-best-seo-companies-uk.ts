@@ -7,7 +7,7 @@ export function bestSeoCompaniesUkSchemas(): Record<string, unknown>[] {
       "@type": "ItemList",
       "name": "Best SEO Companies UK 2026",
       "description": "Independently reviewed UK SEO agencies and consultants ranked by specialism, with pricing and location data.",
-      "numberOfItems": 11,
+      "numberOfItems": 15,
       "itemListElement": [
         agencyItem(1, "Rise at Seven", "https://riseatse7en.com", "Creative link earning through digital PR, data journalism, and national press campaigns", "Sheffield", ["https://www.linkedin.com/company/rise-at-seven/"]),
         agencyItem(2, "Aira", "https://aira.net", "Data-driven digital PR and research-backed link acquisition with transparent methodology", "Northampton", ["https://www.linkedin.com/company/aaborneaira/"]),
@@ -39,6 +39,10 @@ export function bestSeoCompaniesUkSchemas(): Record<string, unknown>[] {
         agencyItem(9, "The SEO Works", "https://www.theseoworks.com", "UK Search Awards winner delivering integrated SEO, PPC, and web for SMEs", "Sheffield", ["https://www.linkedin.com/company/the-seo-works/"]),
         agencyItem(10, "Builtvisible", "https://builtvisible.com", "Content-led SEO with data journalism and editorial standards for large brands", "London", ["https://www.linkedin.com/company/builtvisible/"]),
         agencyItem(11, "Distinctly", "https://www.distinctly.co.uk", "B2B SEO specialism for technology, SaaS, and professional services companies", "Hertfordshire", ["https://www.linkedin.com/company/distinctly/"]),
+        agencyItem(12, "Screaming Frog", "https://www.screamingfrog.co.uk", "Search marketing agency and maker of the industry-standard SEO Spider crawling tool", "Henley-on-Thames", ["https://www.linkedin.com/company/screaming-frog/"]),
+        agencyItem(13, "SALT.agency", "https://salt.agency", "Technical-first SEO and AI search visibility for large and multi-market websites", "Leeds", ["https://www.linkedin.com/company/salt-agency/"]),
+        agencyItem(14, "NOVOS", "https://thisisnovos.com", "E-commerce SEO and AI-era growth agency working with over 250 DTC brands", "London", ["https://www.linkedin.com/company/thisisnovos/"]),
+        agencyItem(15, "Candour", "https://withcandour.co.uk", "Norwich digital agency behind the Search with Candour SEO podcast", "Norwich", ["https://www.linkedin.com/company/candour-agency/"]),
       ],
     },
   ];

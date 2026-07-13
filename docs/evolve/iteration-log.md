@@ -106,7 +106,7 @@ playbook_tactic: listicle-intent-realignment + entity-expansion
 affected_urls:
   - /blog/best-seo-companies-uk/
 change: Title/meta rewritten to list intent (Best SEO Companies UK, List of 15 Top Agencies); fixed false "13+" meta claim (was 11 actual); all 15 entries numbered; 4 new verified agencies added (Screaming Frog, SALT.agency, NOVOS, Candour, each checked live 2026-07-13, no invented pricing, all "on application"); new "Independent SEO Agencies UK" section + FAQ targeting independent uk seo agency (pos 12.6, 18 impr); NOVOS added to London section; ItemList schema numberOfItems 11 to 15; lastUpdated 2026-07-13; all em dashes stripped per site rule. Semantic audit 92/100.
-commit: pending
+commit: 70c7998
 predicted_outcome: list-intent query cluster (best seo companies list, seo company list, seo agency list, reputable seo companies, ~230 impr/28d combined at pos 32-45) moves to pos <=25 within 4 weeks of recrawl; independent uk seo agency from 12.6 into top 10; page CTR rises from 0.02% as list queries replace head-term impressions. Head terms (seo agency, seo company) expected to stay pos 60+, not the target.
 measured: pending
 verdict: pending

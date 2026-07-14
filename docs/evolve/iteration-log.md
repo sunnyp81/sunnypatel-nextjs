@@ -121,7 +121,7 @@ playbook_tactic: tool-page-content-depth
 affected_urls:
   - /tools/schema-generator/
 change: page.tsx rebuilt on the seo-roi-calculator pattern: SoftwareApplication + FAQPage JSON-LD; new sections "What is a JSON-LD schema generator?" (JSON-LD cluster), "Schema types this generator supports" (6 h3 cards matching faq/article/local business/product/breadcrumb/howto generator queries, honest about Google's 2023 FAQ rich result restriction and HowTo retirement), "How to use the generated code" (3 steps, links how-to-add-schema-markup post), FAQ (6 Q&As mirroring query language, boolean answers first). Meta description rewritten to name all 6 types. 1 internal link per section max (semantic-markup-guide, how-to-add-schema-markup, paid-seo-audit CTA). Fixed false "28 options" claim to actual 29 business types. Micro-semantic audit 93/100. Bonus hygiene: em dash removed from seo-consultant-london subtitle.
-commit: pending
+commit: 6fab853
 predicted_outcome: core cluster (schema markup generator + free schema generator, ~275 impr/28d at pos 18-22) reaches pos <=12 within 4 weeks of recrawl; JSON-LD cluster consolidates pos <=12; page earns first sustained clicks (>=5/28d vs current 2). Type-specific long-tail (product/article/faq schema generator) improves as h3 sections index.
 measured: pending
 verdict: pending

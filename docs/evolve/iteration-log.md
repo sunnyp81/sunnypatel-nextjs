@@ -111,3 +111,19 @@ predicted_outcome: list-intent query cluster (best seo companies list, seo compa
 measured: pending
 verdict: pending
 learning: pending
+
+---
+
+iteration: 8
+date: 2026-07-14
+hypothesis: /tools/schema-generator/ earns 1,392 impr/28d at pos 21.2 with zero content depth (H1 + one intro paragraph + the form). Its query clusters are core (schema markup generator 243 impr pos 18.2, free schema generator 32 pos 21.6), JSON-LD (json-ld/json ld/json schema generator variants ~180 impr pos 12-19), and type-specific (faq/article/product/job schema generator, pos 21-46). Server-rendered on-page depth keyed to those exact clusters plus SoftwareApplication + FAQPage JSON-LD (the roi-calculator pattern from iteration 6) moves the core cluster from page 2 to page 1. This is the "on-page depth on impression-earning queries" step of the tools plan; London upgrade (active-hypotheses #3) was checked and skipped: live GSC shows only 58 impr/28d, the 1,605 figure was stale.
+playbook_tactic: tool-page-content-depth
+affected_urls:
+  - /tools/schema-generator/
+change: page.tsx rebuilt on the seo-roi-calculator pattern: SoftwareApplication + FAQPage JSON-LD; new sections "What is a JSON-LD schema generator?" (JSON-LD cluster), "Schema types this generator supports" (6 h3 cards matching faq/article/local business/product/breadcrumb/howto generator queries, honest about Google's 2023 FAQ rich result restriction and HowTo retirement), "How to use the generated code" (3 steps, links how-to-add-schema-markup post), FAQ (6 Q&As mirroring query language, boolean answers first). Meta description rewritten to name all 6 types. 1 internal link per section max (semantic-markup-guide, how-to-add-schema-markup, paid-seo-audit CTA). Fixed false "28 options" claim to actual 29 business types. Micro-semantic audit 93/100. Bonus hygiene: em dash removed from seo-consultant-london subtitle.
+commit: pending
+predicted_outcome: core cluster (schema markup generator + free schema generator, ~275 impr/28d at pos 18-22) reaches pos <=12 within 4 weeks of recrawl; JSON-LD cluster consolidates pos <=12; page earns first sustained clicks (>=5/28d vs current 2). Type-specific long-tail (product/article/faq schema generator) improves as h3 sections index.
+measured: pending
+verdict: pending
+learning: pending
+note: active-hypotheses #3 (London upgrade) demoted, page has 58 impr/28d live vs 1,605 stale. Deploy needs Sunny's npx vercel --prod.

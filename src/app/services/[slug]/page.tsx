@@ -455,12 +455,16 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
   ],
   "technical-seo-audit": [
     {
+      q: "What are SEO audit services?",
+      a: "SEO audit services are professional analyses that identify why a website underperforms in search results. They cover four audit types: technical audits (crawlability, indexation, Core Web Vitals), content audits (quality, topical coverage, cannibalisation), backlink audits (link profile health), and competitive audits (benchmarking against 3-5 competitors).",
+    },
+    {
       q: "What is a technical SEO audit?",
-      a: "A technical SEO audit is a comprehensive analysis of your website's infrastructure — covering crawlability, indexation, Core Web Vitals, mobile usability, structured data, and site architecture — that identifies the issues preventing search engines from effectively ranking your pages.",
+      a: "A technical SEO audit is a comprehensive analysis of your website's infrastructure, covering crawlability, indexation, Core Web Vitals, mobile usability, structured data, and site architecture, that identifies the issues preventing search engines from effectively ranking your pages.",
     },
     {
       q: "How much does a technical SEO audit cost?",
-      a: "Technical SEO audit costs range from £500 for small sites under 100 pages, £800 for medium sites with 100–500 pages, and £1,200+ for large sites over 500 pages. All audits include a 60-minute consultation call to review findings and discuss implementation priorities.",
+      a: "Technical SEO audit costs range from £500 for small sites under 100 pages, £800 for medium sites with 100-500 pages, and £1,200+ for large sites over 500 pages. All audits include a 60-minute consultation call to review findings and discuss implementation priorities.",
     },
     {
       q: "What does a technical SEO audit include?",
@@ -468,7 +472,11 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How long does a technical SEO audit take?",
-      a: "A technical SEO audit typically takes 5–10 working days depending on site size. Small sites under 100 pages are delivered within 5 days; large sites over 500 pages may require up to 2 weeks for comprehensive analysis.",
+      a: "A technical SEO audit typically takes 5-10 working days depending on site size. Small sites under 100 pages are delivered within 5 days; large sites over 500 pages may require up to 2 weeks for comprehensive analysis.",
+    },
+    {
+      q: "How do I choose an SEO audit service in the UK?",
+      a: "Ask four questions before committing to any UK SEO audit service: who performs the audit (senior consultant or junior staff), is every finding manually verified rather than a raw tool export, does the report prioritise fixes by effort and impact, and is a walkthrough call included to explain the findings.",
     },
     {
       q: "What happens after a technical SEO audit?",

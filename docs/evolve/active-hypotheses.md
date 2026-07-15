@@ -7,7 +7,7 @@ Ordered by expected value. One per iteration.
 3. **/services/seo-consultant-london/ content upgrade** — DEMOTED 2026-07-14: live GSC shows only 58 impr/28d pos 32 (1,605 figure was stale). Not worth an iteration until impressions return.
 4. ~~Blog-to-lead contextual offers~~ shipped iteration 3 (see iteration-log.md, 2026-07-10).
 5. **Local pack / GBP presence** — "seo consultant reading" CTR at pos 2 is 0.35%, suggesting local pack + competitors absorb clicks. GBP profile + reviews (Sunny manual) likely worth more than any on-page change.
-6. **technical-seo-audit content vs SERP intent** — pos 34 despite 4k impressions; run serp-analyze to see whether ranking pages are tools/templates rather than service pages.
+6. ~~technical-seo-audit content vs SERP intent~~ shipped iteration 9 (2026-07-15): query-language realignment to the "seo audit services uk" cluster, see iteration-log.md. (serp-analyze blocked by bot challenges from this VPS; GSC query language used instead.)
 7. ~~Supporting post for seo-prompts tool (de-orphan + de-thin)~~ shipped iteration 2 (see iteration-log.md). Two more queued: ROI explainer -> seo-roi-calculator, how-to-add-schema -> schema-generator.
 
 ## Sunny manual queue (not loop-executable)

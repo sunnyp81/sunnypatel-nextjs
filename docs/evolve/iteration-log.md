@@ -127,3 +127,19 @@ measured: pending
 verdict: pending
 learning: pending
 note: active-hypotheses #3 (London upgrade) demoted, page has 58 impr/28d live vs 1,605 stale. Deploy needs Sunny's npx vercel --prod.
+
+---
+
+iteration: 9
+date: 2026-07-15
+hypothesis: /services/technical-seo-audit/ (3,873 impr/28d, 0 clicks, pos 34.1) earns nearly all visible impressions on "seo audit services" language (seo audit services uk 128 impr pos 45.4, seo audit services technical seo 52 pos 29.5, seo audit service uk 33 pos 48.9, seo audit services 10 pos 45.3, seo audit price uk 5 pos 24.2) while its title/H1 target "technical seo audit", a head term it barely surfaces for. Realigning title/H1/meta and section order to the services cluster (the query language Google already matches the page to) lifts the cluster from pos 29-49 toward page 2/1. This is active-hypotheses #6; the serp-analyze step was blocked (DDG + Bing both serve bot challenges from this VPS), so diagnosis used GSC query language directly. Live GSC also killed the alternative targets: /tools/seo-prompts/ has only ~50 impr/28d and /tools/seo-roi-calculator/ returned zero rows, so tool on-page depth beyond iteration 8 is not worth an iteration.
+playbook_tactic: query-language-realignment (title/H1/meta + section reorder to match earned impression cluster)
+affected_urls:
+  - /services/technical-seo-audit/
+change: metaTitle to "SEO Audit Services UK | Fixed-Fee Technical SEO Audit £500", H1 to "SEO Audit Services UK: Technical SEO Audit From £500", new subtitle (independent consultant, 50+ verified checks, one-off fee). content.mdoc reordered: "What Are SEO Audit Services?" moved from bottom to section 2, "How Much Does an SEO Audit Cost?" retitled "How Much Do SEO Audit Services Cost in the UK?" (seo audit price uk pos 24.2), new "How to Choose an SEO Audit Service in the UK" section (4 buyer questions) with funnel cross-link to the fixed-fee GBP495 /services/paid-seo-audit/ (fee-credit framing). SERVICE_FAQS["technical-seo-audit"] gained "What are SEO audit services?" + "How do I choose an SEO audit service in the UK?" Q&As. All em/en dashes stripped from page content and its FAQ block per site rule; internal links trimmed to 1 per main section. Semantic audit 92/100. Build passes.
+commit: pending
+predicted_outcome: services cluster (seo audit services uk + variants, ~230 impr/28d visible at pos 29-49) moves to pos <=25 within 4 weeks of recrawl; seo audit price uk from 24.2 into top 20; page earns first clicks (>=3/28d vs current 0). Head terms (technical seo audit) not the target. Funnel effect: first referred sessions from this page to /services/paid-seo-audit/.
+measured: pending
+verdict: pending
+learning: pending
+note: iteration 1 (Jul 7) rewrote this page's title/meta for CTR, but at pos 34 CTR was never the constraint; this supersedes it for this URL, note when filling iteration 1 verdict. Deploy needs Sunny's npx vercel --prod.

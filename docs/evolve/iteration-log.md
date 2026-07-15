@@ -137,7 +137,7 @@ playbook_tactic: query-language-realignment (title/H1/meta + section reorder to 
 affected_urls:
   - /services/technical-seo-audit/
 change: metaTitle to "SEO Audit Services UK | Fixed-Fee Technical SEO Audit £500", H1 to "SEO Audit Services UK: Technical SEO Audit From £500", new subtitle (independent consultant, 50+ verified checks, one-off fee). content.mdoc reordered: "What Are SEO Audit Services?" moved from bottom to section 2, "How Much Does an SEO Audit Cost?" retitled "How Much Do SEO Audit Services Cost in the UK?" (seo audit price uk pos 24.2), new "How to Choose an SEO Audit Service in the UK" section (4 buyer questions) with funnel cross-link to the fixed-fee GBP495 /services/paid-seo-audit/ (fee-credit framing). SERVICE_FAQS["technical-seo-audit"] gained "What are SEO audit services?" + "How do I choose an SEO audit service in the UK?" Q&As. All em/en dashes stripped from page content and its FAQ block per site rule; internal links trimmed to 1 per main section. Semantic audit 92/100. Build passes.
-commit: pending
+commit: 77bc757
 predicted_outcome: services cluster (seo audit services uk + variants, ~230 impr/28d visible at pos 29-49) moves to pos <=25 within 4 weeks of recrawl; seo audit price uk from 24.2 into top 20; page earns first clicks (>=3/28d vs current 0). Head terms (technical seo audit) not the target. Funnel effect: first referred sessions from this page to /services/paid-seo-audit/.
 measured: pending
 verdict: pending

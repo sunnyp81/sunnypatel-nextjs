@@ -143,3 +143,21 @@ measured: pending
 verdict: pending
 learning: pending
 note: iteration 1 (Jul 7) rewrote this page's title/meta for CTR, but at pos 34 CTR was never the constraint; this supersedes it for this URL, note when filling iteration 1 verdict. Deploy needs Sunny's npx vercel --prod.
+
+---
+
+iteration: 10
+date: 2026-07-16
+hypothesis: Of the 7 Jun14-15 gap pages, the 3 tools were de-orphaned in iterations 2/6/8 and best-seo-companies-uk was refreshed in iteration 7, but seo-for-plumbers, seo-for-roofers, and white-label-seo (3 service pages from the same batch) were never touched and have zero real contextual inbound links (only the generic /services/ index card). Live GSC confirms this is the worst-performing surface left: seo-for-plumbers and white-label-seo have 0 impressions/28d, seo-for-roofers has 2, versus top-geo-agencies (37 impr, several queries at pos 5-13) and best-local-seo-agencies (37 impr, pos 20-60) which are weak but not dead. Contextual internal links from topically relevant, already-indexed pages (the tactic that worked for the tools in iteration 2) is the cheapest fix.
+playbook_tactic: contextual-link-injection
+affected_urls:
+  - /services/seo-for-plumbers/   (0 impr/28d, was zero contextual inbound links)
+  - /services/seo-for-roofers/    (2 impr/28d, was zero contextual inbound links)
+  - /services/white-label-seo/    (0 impr/28d, was zero contextual inbound links)
+change: Added contextual links (no new pages) from 5 already-indexed pages. /services/local-seo/ and /services/local-seo-agency/ each gained a new paragraph linking seo-for-plumbers and seo-for-roofers as trade-specific examples of local content strategy. /services/amazon-seo-consultant/ and /services/seo-consultant-brighton/ each had an existing unlinked "white-label" mention turned into a link to /services/white-label-seo/. /blog/best-local-seo-agencies/ (agency-owner audience) gained a White Label SEO entry in its Related Articles list as a resell cross-sell. Build verified clean.
+commit: pending
+predicted_outcome: seo-for-plumbers, seo-for-roofers, and white-label-seo move from 0-2 impr/28d toward first sustained visibility (5+ impr/28d) within 3-4 weeks as link equity and topical relevance signals reach them from local-seo/local-seo-agency (established, indexed pages) and the agency-audience listicle.
+measured: pending
+verdict: pending
+learning: pending
+note: top-geo-agencies and best-local-seo-agencies (the 2 listicles from the same Jun14-15 batch) were checked live and are weak but not dead (37 impr/28d each, some queries at pos 5-13 for top-geo-agencies); not urgent enough to be this iteration's target. Deploy needs Sunny's manual npx vercel --prod.

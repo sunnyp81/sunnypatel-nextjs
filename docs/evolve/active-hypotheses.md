@@ -10,7 +10,9 @@ Ordered by expected value. One per iteration.
 6. ~~technical-seo-audit content vs SERP intent~~ shipped iteration 9 (2026-07-15): query-language realignment to the "seo audit services uk" cluster, see iteration-log.md. (serp-analyze blocked by bot challenges from this VPS; GSC query language used instead.)
 7. ~~Supporting post for seo-prompts tool (de-orphan + de-thin)~~ shipped iteration 2 (see iteration-log.md). ~~ROI explainer -> seo-roi-calculator, how-to-add-schema -> schema-generator~~ both shipped iteration 6 (a07800a); this list was stale, both posts are live and linked.
 8. ~~De-orphan seo-for-plumbers, seo-for-roofers, white-label-seo (0-2 impr/28d, zero contextual inbound links)~~ shipped iteration 10 (2026-07-16): contextual links added from local-seo, local-seo-agency, amazon-seo-consultant, seo-consultant-brighton, best-local-seo-agencies. See iteration-log.md.
-9. **top-geo-agencies and best-local-seo-agencies on-page/link support** — both still weak (37 impr/28d each) but not dead; top-geo-agencies has several queries at pos 5-13. Lower priority than item 8 was; worth an iteration once item 10's verdict lands.
+9. ~~top-geo-agencies and best-local-seo-agencies on-page/link support~~ DEMOTED 2026-07-18: fresh GSC pull shows both already climbing on their own (top-geo-agencies 735 impr/28d pos 19.3, best-local-seo-agencies 514 impr/28d pos 42.8, up from 37 impr each at iteration 10) — no intervention needed yet, re-check at the next site-level GSC pull.
+10. ~~/tools/seo-roi-calculator/ never indexed~~ shipped iteration 11 (2026-07-18): coverageState was "URL is unknown to Google" despite 34 days live, 7 inbound links, clean sitemap/canonical/robots. Submitted via Google Indexing API + IndexNow. See iteration-log.md. Verdict check at day 14: did coverageState change?
+11. **best-seo-companies-uk still stuck at 2 clicks despite iteration 7's list-intent realignment** — 9,672 impr/28d pos 63.7 (improved from pos 68 but clicks unchanged). Worth investigating once iteration 7's 4-week verdict window closes (due ~2026-08-10).
 
 ## Sunny manual queue (not loop-executable)
 

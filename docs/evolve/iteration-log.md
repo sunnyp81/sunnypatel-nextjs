@@ -155,9 +155,25 @@ affected_urls:
   - /services/seo-for-roofers/    (2 impr/28d, was zero contextual inbound links)
   - /services/white-label-seo/    (0 impr/28d, was zero contextual inbound links)
 change: Added contextual links (no new pages) from 5 already-indexed pages. /services/local-seo/ and /services/local-seo-agency/ each gained a new paragraph linking seo-for-plumbers and seo-for-roofers as trade-specific examples of local content strategy. /services/amazon-seo-consultant/ and /services/seo-consultant-brighton/ each had an existing unlinked "white-label" mention turned into a link to /services/white-label-seo/. /blog/best-local-seo-agencies/ (agency-owner audience) gained a White Label SEO entry in its Related Articles list as a resell cross-sell. Build verified clean.
-commit: pending
+commit: c535c16
 predicted_outcome: seo-for-plumbers, seo-for-roofers, and white-label-seo move from 0-2 impr/28d toward first sustained visibility (5+ impr/28d) within 3-4 weeks as link equity and topical relevance signals reach them from local-seo/local-seo-agency (established, indexed pages) and the agency-audience listicle.
-measured: pending
+measured: pending (too early — only 2 days elapsed as of iteration 11)
 verdict: pending
 learning: pending
 note: top-geo-agencies and best-local-seo-agencies (the 2 listicles from the same Jun14-15 batch) were checked live and are weak but not dead (37 impr/28d each, some queries at pos 5-13 for top-geo-agencies); not urgent enough to be this iteration's target. Deploy needs Sunny's manual npx vercel --prod.
+
+---
+
+iteration: 11
+date: 2026-07-18
+hypothesis: Live GSC signal (fresh 28-day pull, Jun18-Jul15) shows the other 6 of the 7 Jun14-15 gap pages all have real impressions and are climbing (schema-generator 1,305 impr pos 20.8; top-geo-agencies 735 impr pos 19.3; best-local-seo-agencies 514 impr pos 42.8; seo-prompts 176 impr pos 27.6; seo-for-roofers 10 impr; white-label-seo 7 impr, both just starting to move post-iteration-10) — but /tools/seo-roi-calculator/ returned zero rows over any window up to 90 days. URL Inspection API confirms why: coverageState "URL is unknown to Google" — never crawled, despite being live since 2026-06-14 (34 days), present in every sitemap fetch since (sitemap last downloaded 2026-07-17, 0 errors), 7 correctly-formatted contextual inbound links from indexed posts (value-website-organic-traffic, how-to-calculate-seo-roi x3, seo-statistics-uk, how-much-does-an-seo-consultant-charge-uk, local-seo-statistics), correct canonical, no noindex, robots.txt allows /tools/. This is a genuinely broken funnel stage: a page cannot rank, get impressions, or convert traffic if Google has never indexed it, no matter how strong the on-page content or internal links are. Control check on a peer page (schema-generator, 1,305 impr) confirmed the Inspection API itself works correctly and distinguishes indexed from non-indexed pages. This is a crawl-priority/discovery gap, not a content or link problem, so the fix is a direct indexing request, not a content edit.
+playbook_tactic: experimental: direct-indexing-request-for-never-crawled-page
+affected_urls:
+  - /tools/seo-roi-calculator/  (0 impressions ever; coverageState "URL is unknown to Google")
+change: No code/content change. Submitted /tools/seo-roi-calculator/ directly to Google via the Indexing API (urlNotifications:publish, type URL_UPDATED, 200 OK) using the existing gsc-service-account.json credentials, and to IndexNow (Bing/Yandex, using the site's existing IndexNow key file, 200 OK). Also corrected iteration 10's commit hash in this log (was "pending", actual c535c16) while in the file.
+commit: n/a (no repo change beyond this log entry; indexing submission is an out-of-band API call, not a deploy)
+predicted_outcome: /tools/seo-roi-calculator/ moves from coverageState "URL is unknown to Google" to "Crawled" or "Submitted and indexed" within 1-2 weeks; first non-zero GSC impressions on ROI/calculator-intent queries within 2-4 weeks once indexed and the existing 7 inbound links + supporting post (how-to-calculate-seo-roi, iteration 6) pass topical signal.
+measured: pending
+verdict: pending
+learning: pending
+note: the Indexing API is officially documented as supported only for JobPosting/BroadcastEvent pages; Google may ignore the submission for a generic tool page. If the verdict pass at 14 days still shows "unknown to Google", the next escalation is not resubmission (already tried) but investigating why Google's organic crawler is skipping a sitemap-listed, internally-linked, 34-day-live URL entirely, e.g. checking server logs for actual Googlebot hits, or whether crawl budget is being spent elsewhere on the 164-URL sitemap. Deploy: none needed, this iteration made no file changes to ship.

@@ -552,6 +552,10 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       q: "What does search engine optimisation in Berkshire involve?",
       a: "Search engine optimisation in Berkshire combines local visibility across the Thames Valley towns with topical authority that ranks beyond purely local queries. The work covers technical audits, Google Business Profile optimisation, semantic content, and internal linking, tuned to the high business density and research-led search behaviour that define the Berkshire market.",
     },
+    {
+      q: "Is Sunny Patel an SEO agency in Berkshire or an independent consultant?",
+      a: "Independent consultant, not an agency. Berkshire businesses searching for an 'SEO agency' or 'SEO company' typically want agency-level deliverables: technical audits, local SEO, topical authority content, and clear reporting. Working directly with a senior consultant gets you the same scope without an account manager between you and the strategist, and without the office overhead a traditional Berkshire SEO agency carries. The one honest trade-off is capacity for very high-volume, multi-team production, where an agency's staffing is the better fit.",
+    },
   ],
   "seo-consultant-london": [
     {

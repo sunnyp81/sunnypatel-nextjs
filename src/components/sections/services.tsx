@@ -103,6 +103,17 @@ export function Services() {
             Everything you need to
             <br className="hidden md:block" /> dominate organic search
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+            Starting point for most clients: a fixed-fee{" "}
+            <a href="/services/technical-seo-audit/" className="text-brand underline-offset-4 hover:underline">
+              technical SEO audit service
+            </a>{" "}
+            to find what&apos;s holding your rankings back, backed by ongoing{" "}
+            <a href="/services/technical-seo-services/" className="text-brand underline-offset-4 hover:underline">
+              technical SEO services
+            </a>{" "}
+            for sites that need continuous monitoring.
+          </p>
         </motion.div>
 
         <div className="flex flex-wrap justify-center gap-4">

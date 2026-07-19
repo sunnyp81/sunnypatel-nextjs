@@ -14,7 +14,13 @@ import { reviewSchema, schemaGraph } from "@/lib/schema";
 import { TESTIMONIALS } from "@/lib/testimonial-data";
 
 export function generateMetadata() {
-  return buildMetadata({ path: "/" });
+  return buildMetadata({
+    path: "/",
+    titleAbsolute: true,
+    title: "SEO Consultant Reading | Direct Expert, No Juniors",
+    description:
+      "Independent SEO consultant in Reading, Berkshire. Direct senior work, no juniors, no contracts. Free 30-minute consultation or a fixed-fee £495 audit.",
+  });
 }
 
 export default async function Home() {

@@ -3,7 +3,7 @@ import { Linkedin, Mail, Phone } from "lucide-react";
 const links = [
   { href: "/services/", label: "Services" },
   { href: "/website-design/", label: "Website Design" },
-  { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
+  { href: "/", label: "SEO Reading" },
   { href: "/services/seo-berkshire/", label: "SEO Berkshire" },
   { href: "/tools/", label: "Free SEO Tools" },
   { href: "/about/", label: "About" },

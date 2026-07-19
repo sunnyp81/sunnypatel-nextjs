@@ -22,7 +22,7 @@ const highlights: {
     title: "Local Berkshire Expertise",
     description:
       "Based in Reading with deep knowledge of the local business landscape. Face-to-face meetings available.",
-    href: "/services/seo-consultant-reading/",
+    href: "/services/seo-berkshire/",
   },
   {
     icon: <BarChart3 className="h-5 w-5" />,

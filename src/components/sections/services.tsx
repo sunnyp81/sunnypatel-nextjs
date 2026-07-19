@@ -71,8 +71,8 @@ const services = [
 ];
 
 const localServices = [
-  { label: "SEO Consultant Reading", href: "/services/seo-consultant-reading/" },
   { label: "SEO Berkshire", href: "/services/seo-berkshire/" },
+  { label: "SEO Wokingham", href: "/services/seo-wokingham/" },
   { label: "SEO Bracknell", href: "/services/seo-bracknell/" },
   { label: "SEO Maidenhead", href: "/services/seo-maidenhead/" },
 ];

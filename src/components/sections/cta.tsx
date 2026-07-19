@@ -68,7 +68,7 @@ export function Cta() {
         {/* Internal links to key service pages */}
         <div className="mt-12 flex flex-wrap justify-center gap-3">
           {[
-            { label: "SEO Reading", href: "/services/seo-consultant-reading/" },
+            { label: "SEO Reading", href: "/" },
             { label: "SEO Berkshire", href: "/services/seo-berkshire/" },
             { label: "Technical Audits", href: "/services/technical-seo-audit/" },
             { label: "Topical Authority", href: "/services/topical-authority/" },

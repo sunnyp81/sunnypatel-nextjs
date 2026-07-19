@@ -27,11 +27,11 @@ export function Hero() {
   return (
     <HeroGeometric
       badge="SEO Consultant, Reading & UK-Wide"
-      title1="SEO Run By the Person"
-      title2="Doing the Actual Work"
+      title1="SEO Consultant in Reading"
+      title2="Run By the Person Doing the Work"
     >
       <p className="text-base sm:text-lg md:text-xl text-white/70 mb-10 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-        No account managers, no juniors. An independent <a href="/services/seo-consultant-reading/" className="text-white/60 hover:text-white/80 underline underline-offset-2 transition-colors">SEO consultant</a>
+        No account managers, no juniors. An independent <a href="/services/seo-berkshire/" className="text-white/60 hover:text-white/80 underline underline-offset-2 transition-colors">SEO consultant in Reading, Berkshire</a>
         {" "}with 15+ years getting UK businesses ranked on Google and cited in AI search.
       </p>
 

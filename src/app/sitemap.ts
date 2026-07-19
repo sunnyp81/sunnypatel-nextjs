@@ -86,8 +86,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Pages with canonicalOverride pointing to another page — exclude from sitemap
   // to avoid diluting the canonical target's authority
   const CANONICAL_OVERRIDE_SLUGS = new Set([
-    "seo-strategy-reading",
-    "digital-marketing-reading",
     "seo-agency-reading",
   ]);
 

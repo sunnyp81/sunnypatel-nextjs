@@ -460,7 +460,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does a technical SEO audit cost?",
-      a: "Technical SEO audit costs range from £500 for small sites under 100 pages, £800 for medium sites with 100–500 pages, and £1,200+ for large sites over 500 pages. All audits include a 60-minute consultation call to review findings and discuss implementation priorities.",
+      a: "The technical SEO audit is a fixed £495 for standard sites of up to around 500 pages, delivered in 5 working days and including a 60-minute consultation call to review findings. Sites over 500 pages or complex enterprise setups are scoped separately.",
     },
     {
       q: "What does a technical SEO audit include?",

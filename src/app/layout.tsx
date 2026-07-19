@@ -74,16 +74,20 @@ export default function RootLayout({
         {children}
         <ExitIntent />
         <AnalyticsEvents />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SJRTDNRZG6"
-          strategy="afterInteractive"
-        />
-        <Script id="ga4-config" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-SJRTDNRZG6');
-        `}</Script>
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-SJRTDNRZG6"
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-config" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-SJRTDNRZG6');
+            `}</Script>
+          </>
+        )}
       </body>
     </html>
   );

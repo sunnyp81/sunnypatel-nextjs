@@ -35,10 +35,6 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
-      // Local cluster consolidation: /services/seo-consultant-reading/ merged into
-      // the homepage, which now targets "SEO Consultant Reading" as its money term.
-      { source: "/services/seo-consultant-reading", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-reading/", destination: "/", permanent: true },
       // National location pages pruned (doorway/thin-page risk, outside the Berkshire
       // beachhead). 301 to the homepage to consolidate brand equity.
       { source: "/services/seo-consultant-london", destination: "/", permanent: true },
@@ -90,8 +86,8 @@ const nextConfig: NextConfig = {
       { source: "/seo-wokingham/", destination: "/services/seo-wokingham/", permanent: true },
       { source: "/seo-windsor", destination: "/services/seo-windsor/", permanent: true },
       { source: "/seo-windsor/", destination: "/services/seo-windsor/", permanent: true },
-      { source: "/seo-consultant-reading", destination: "/", permanent: true },
-      { source: "/seo-consultant-reading/", destination: "/", permanent: true },
+      { source: "/seo-consultant-reading", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/seo-consultant-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
       { source: "/technical-seo-audit", destination: "/services/technical-seo-audit/", permanent: true },
       { source: "/technical-seo-audit/", destination: "/services/technical-seo-audit/", permanent: true },
       // Old root-level service pages still indexed by Google
@@ -107,11 +103,11 @@ const nextConfig: NextConfig = {
       { source: "/b2b-content-marketing-services", destination: "/services/b2b-seo/", permanent: true },
       { source: "/b2b-content-marketing-services/", destination: "/services/b2b-seo/", permanent: true },
       // Consolidate agency page into consultant page — agency page has zero GSC data
-      { source: "/services/seo-agency-reading", destination: "/", permanent: true },
-      { source: "/services/seo-agency-reading/", destination: "/", permanent: true },
+      { source: "/services/seo-agency-reading", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/services/seo-agency-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
       // Blog posts cannibalizing service pages — consolidate signals
-      { source: "/blog/seo-reading-guide", destination: "/", permanent: true },
-      { source: "/blog/seo-reading-guide/", destination: "/", permanent: true },
+      { source: "/blog/seo-reading-guide", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/blog/seo-reading-guide/", destination: "/services/seo-consultant-reading/", permanent: true },
       // Old service pages from previous site — redirect to nearest equivalent
       { source: "/seo-consulting-london", destination: "/services/seo-consulting/", permanent: true },
       { source: "/seo-consulting-london/", destination: "/services/seo-consulting/", permanent: true },
@@ -148,8 +144,8 @@ const nextConfig: NextConfig = {
       { source: "/seo/", destination: "/services/seo/", permanent: true },
       { source: "/seo-services", destination: "/services/", permanent: true },
       { source: "/seo-services/", destination: "/services/", permanent: true },
-      { source: "/seo-reading", destination: "/", permanent: true },
-      { source: "/seo-reading/", destination: "/", permanent: true },
+      { source: "/seo-reading", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/seo-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
       { source: "/seo-consultant", destination: "/", permanent: true },
       { source: "/seo-consultant/", destination: "/", permanent: true },
       { source: "/seo-audit", destination: "/services/technical-seo-audit/", permanent: true },

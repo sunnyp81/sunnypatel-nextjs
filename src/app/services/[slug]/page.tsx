@@ -430,7 +430,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "What SEO services are available for Reading businesses?",
-      a: "Reading SEO services include technical SEO audits from £500, local SEO for Google Business Profile and local pack visibility, topical map creation for long-term content architecture from £800, semantic content strategy, AI search optimisation for ChatGPT and Google AI Overviews, and ongoing retainers from £1,500/month covering strategy, implementation oversight, and reporting.",
+      a: "Reading SEO services include technical SEO audits from £495, local SEO for Google Business Profile and local pack visibility, topical map creation for long-term content architecture from £800, semantic content strategy, AI search optimisation for ChatGPT and Google AI Overviews, and ongoing retainers from £1,500/month covering strategy, implementation oversight, and reporting.",
     },
     {
       q: "Which areas of Reading and Berkshire do you cover?",
@@ -442,7 +442,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does an SEO consultant in Reading cost compared to an agency?",
-      a: "A Reading SEO consultant charges £500–£1,200 for technical audits, £800–£2,500 for topical maps, and £1,500–£5,000/month for retainers. Reading SEO agencies typically charge £2,000–£5,000/month for mid-tier, £3,000–£10,000+ for larger firms. The consultant model puts more budget into strategy rather than overhead. Free initial audits include a live site review and actionable recommendations.",
+      a: "A Reading SEO consultant charges from £495 for technical audits, £800–£2,500 for topical maps, and £1,500–£5,000/month for retainers. Reading SEO agencies typically charge £2,000–£5,000/month for mid-tier, £3,000–£10,000+ for larger firms. The consultant model puts more budget into strategy rather than overhead. Free initial audits include a live site review and actionable recommendations.",
     },
     {
       q: "What if previous SEO from an agency didn't work for my Reading business?",
@@ -508,7 +508,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
   "how-much-does-seo-cost": [
     {
       q: "How much does SEO cost in the UK?",
-      a: "UK SEO costs range from £500 for a standalone technical audit to £5,000+ monthly for a comprehensive retainer. Typical ranges: technical audits £500–£1,200, topical maps £800–£2,500, local SEO from £600 monthly, SEO consulting from £200 per session, and full-service retainers £1,500–£5,000+ monthly.",
+      a: "UK SEO costs range from £495 for a standalone technical audit to £5,000+ monthly for a comprehensive retainer. Typical ranges: technical audits from £495, topical maps £800–£2,500, local SEO from £600 monthly, SEO consulting from £200 per session, and full-service retainers £1,500–£5,000+ monthly.",
     },
     {
       q: "Why is cheap SEO risky?",
@@ -538,7 +538,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does Berkshire SEO cost?",
-      a: "Berkshire SEO pricing: technical audits from £500, topical maps £800–£2,500+, local SEO from £600 monthly, and full retainers £1,500–£5,000+ monthly. Initial investment depends on competition level and existing site authority. Free consultations available to assess your specific requirements.",
+      a: "Berkshire SEO pricing: technical audits from £495, topical maps £800–£2,500+, local SEO from £600 monthly, and full retainers £1,500–£5,000+ monthly. Initial investment depends on competition level and existing site authority. Free consultations available to assess your specific requirements.",
     },
     {
       q: "How long does SEO take for Berkshire businesses?",
@@ -560,7 +560,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does an SEO consultant in London cost?",
-      a: "London SEO consultant pricing: technical audits from £500–£1,200, topical maps from £800–£2,500, and monthly retainers from £1,500–£5,000+ depending on scope and competition. Compared to London agency rates of £3,000–£10,000 monthly, independent consultant pricing delivers senior-level strategy at 40–60% lower cost. Initial consultations are free.",
+      a: "London SEO consultant pricing: technical audits from £495, topical maps from £800–£2,500, and monthly retainers from £1,500–£5,000+ depending on scope and competition. Compared to London agency rates of £3,000–£10,000 monthly, independent consultant pricing delivers senior-level strategy at 40–60% lower cost. Initial consultations are free.",
     },
     {
       q: "Do you work with London clients remotely?",
@@ -608,7 +608,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO cost for a Slough business?",
-      a: "Slough SEO costs range from £500 for a standalone technical audit to £1,500–£5,000+ monthly for comprehensive retainers. B2B content strategy typically requires £3,000–£8,000 initial investment. Free consultations provide specific pricing based on your industry, competition, and growth objectives.",
+      a: "Slough SEO costs range from £495 for a standalone technical audit to £1,500–£5,000+ monthly for comprehensive retainers. B2B content strategy typically requires £3,000–£8,000 initial investment. Free consultations provide specific pricing based on your industry, competition, and growth objectives.",
     },
     {
       q: "How long does SEO take for Slough businesses?",
@@ -658,7 +658,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO cost for a Windsor business?",
-      a: "Windsor SEO costs range from £600+ monthly for local SEO to £1,500–£3,500+ monthly for comprehensive strategies covering both tourist and residential audiences. Initial audits start from £500. Free consultations assess your specific market position and growth objectives.",
+      a: "Windsor SEO costs range from £600+ monthly for local SEO to £1,500–£3,500+ monthly for comprehensive strategies covering both tourist and residential audiences. Initial audits start from £495. Free consultations assess your specific market position and growth objectives.",
     },
     {
       q: "How long does SEO take for Windsor businesses?",
@@ -702,7 +702,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does an SEO company in Reading cost?",
-      a: "Reading SEO company pricing typically runs £1,500–£5,000+ monthly for mid-tier providers, rising to £3,000–£10,000+ for larger agencies. Independent consultant pricing for equivalent strategic scope runs £1,500–£5,000+ monthly — with more of that investment going directly into strategy rather than company overhead. Technical audits start from £500; topical maps from £800.",
+      a: "Reading SEO company pricing typically runs £1,500–£5,000+ monthly for mid-tier providers, rising to £3,000–£10,000+ for larger agencies. Independent consultant pricing for equivalent strategic scope runs £1,500–£5,000+ monthly — with more of that investment going directly into strategy rather than company overhead. Technical audits start from £495; topical maps from £800.",
     },
     {
       q: "Which areas of Reading does your SEO service cover?",
@@ -716,7 +716,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
   "seo-consultant-kent": [
     {
       q: "How much does an SEO consultant in Kent cost?",
-      a: "Kent SEO consultant pricing: technical audits from £500, topical maps from £800–£2,500, and monthly retainers from £1,000–£4,000+ depending on competition level. Canterbury, Maidstone, and Tunbridge Wells are the most competitive Kent markets. Free 30-minute consultations available.",
+      a: "Kent SEO consultant pricing: technical audits from £495, topical maps from £800–£2,500, and monthly retainers from £1,000–£4,000+ depending on competition level. Canterbury, Maidstone, and Tunbridge Wells are the most competitive Kent markets. Free 30-minute consultations available.",
     },
     {
       q: "Which areas of Kent do you cover?",

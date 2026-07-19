@@ -161,3 +161,17 @@ measured: pending
 verdict: pending
 learning: pending
 note: top-geo-agencies and best-local-seo-agencies (the 2 listicles from the same Jun14-15 batch) were checked live and are weak but not dead (37 impr/28d each, some queries at pos 5-13 for top-geo-agencies); not urgent enough to be this iteration's target. Deploy needs Sunny's manual npx vercel --prod.
+
+---
+
+iteration: OUT-OF-BAND (manual, not a loop iteration)
+date: 2026-07-19
+source: Sunny + Claude session (Fable strategy call), "Ship all"
+hypothesis: Site had 103k impr / 35 clicks / 0.03% CTR over 90d, stranded pos ~30 for commercial local terms because authority was diluted across 200+ pages with 3+ URLs cannibalising every Reading/Berkshire query. Consolidation + local focus > incremental per-page iteration.
+change: (1) Homepage retargeted to "SEO Consultant Reading". (2) 301 /services/seo-consultant-reading/ -> / (deleted). (3) 17 national location pages pruned: 301 -> / + content deleted. (4) /services/seo-berkshire/ reworked as single Berkshire+Wokingham hub. (5) technical-seo-audit productised at fixed £495 (kept iteration-9 "SEO Audit Services UK" cluster targeting). (6) CTR titles on surviving local pages. (7) Site-wide pricing reconciled: 25 technical-audit £500 refs -> £495 (other products left). (8) Hardened /api/contact (honeypot, email regex, rate limit, optional Turnstile) + gated GA to NODE_ENV=production. See binding constraints in active-hypotheses.md.
+commits: 3545b82 (merge/consolidation, includes evolve iterations 7-10 which were committed but never deployed), 67b97f5 (endpoint + GA), plus this session's pricing/coordination commit.
+predicted_outcome: local cluster (seo berkshire pos 14, seo company/services reading pos 17) moves toward top 5 as cannibalisation clears and equity pools on homepage + seo-berkshire. Real lead lift depends on off-site (GBP + reviews + barnacle listicles) per Fable — that is the lead channel at these positions, not organic blue links.
+measured: pending (check GSC ~2026-08-16, 4wk post-recrawl)
+verdict: pending
+learning: pending
+note: DEPLOYED to prod (verified live: homepage title, 308 redirects, £495, kept pages 200). Unlike normal iterations this one was deployed immediately, not left for manual npx vercel --prod.

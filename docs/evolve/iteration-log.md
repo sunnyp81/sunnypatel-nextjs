@@ -96,3 +96,68 @@ note: weekly monitor installed: /root/.hermes/scripts/sunnypatel-monitor.sh (cro
 - ROI explainer post -> /tools/seo-roi-calculator/ (already has 3 inbound links from Jun15 push, lower priority than seo-prompts)
 - how-to-add-schema post -> /tools/schema-generator/ (risk: may cannibalise existing /blog/seo-semantic-markup-guide/, needs a genuinely distinct angle before writing)
 - best-seo-companies-uk refresh (12.5k impr, pos 68) — separate hypothesis #2 in active-hypotheses.md, not started
+
+---
+
+iteration: 7
+date: 2026-07-13
+hypothesis: best-seo-companies-uk (9,870 impr/28d, pos 66.7, 2 clicks) is dragged down by unwinnable head terms (seo agency pos 80, seo company pos 73) but its list-intent queries cluster at pos 32-45 (best seo companies list 32.4, seo company list 33.5, reputable seo companies 33.6, seo agency list 34.0) and independent uk seo agency sits at pos 12.6. Realigning the page to explicit list intent (numbered 1-15 entries, list-framed title/meta), expanding entity coverage from 11 to 15 verified agencies, and adding a section + FAQ for the striking-distance independent query moves the list-intent cluster toward page 2/1 without chasing head terms. This is active-hypotheses #2 (rescue, not retire).
+playbook_tactic: listicle-intent-realignment + entity-expansion
+affected_urls:
+  - /blog/best-seo-companies-uk/
+change: Title/meta rewritten to list intent (Best SEO Companies UK, List of 15 Top Agencies); fixed false "13+" meta claim (was 11 actual); all 15 entries numbered; 4 new verified agencies added (Screaming Frog, SALT.agency, NOVOS, Candour, each checked live 2026-07-13, no invented pricing, all "on application"); new "Independent SEO Agencies UK" section + FAQ targeting independent uk seo agency (pos 12.6, 18 impr); NOVOS added to London section; ItemList schema numberOfItems 11 to 15; lastUpdated 2026-07-13; all em dashes stripped per site rule. Semantic audit 92/100.
+commit: 70c7998
+predicted_outcome: list-intent query cluster (best seo companies list, seo company list, seo agency list, reputable seo companies, ~230 impr/28d combined at pos 32-45) moves to pos <=25 within 4 weeks of recrawl; independent uk seo agency from 12.6 into top 10; page CTR rises from 0.02% as list queries replace head-term impressions. Head terms (seo agency, seo company) expected to stay pos 60+, not the target.
+measured: pending
+verdict: pending
+learning: pending
+
+---
+
+iteration: 8
+date: 2026-07-14
+hypothesis: /tools/schema-generator/ earns 1,392 impr/28d at pos 21.2 with zero content depth (H1 + one intro paragraph + the form). Its query clusters are core (schema markup generator 243 impr pos 18.2, free schema generator 32 pos 21.6), JSON-LD (json-ld/json ld/json schema generator variants ~180 impr pos 12-19), and type-specific (faq/article/product/job schema generator, pos 21-46). Server-rendered on-page depth keyed to those exact clusters plus SoftwareApplication + FAQPage JSON-LD (the roi-calculator pattern from iteration 6) moves the core cluster from page 2 to page 1. This is the "on-page depth on impression-earning queries" step of the tools plan; London upgrade (active-hypotheses #3) was checked and skipped: live GSC shows only 58 impr/28d, the 1,605 figure was stale.
+playbook_tactic: tool-page-content-depth
+affected_urls:
+  - /tools/schema-generator/
+change: page.tsx rebuilt on the seo-roi-calculator pattern: SoftwareApplication + FAQPage JSON-LD; new sections "What is a JSON-LD schema generator?" (JSON-LD cluster), "Schema types this generator supports" (6 h3 cards matching faq/article/local business/product/breadcrumb/howto generator queries, honest about Google's 2023 FAQ rich result restriction and HowTo retirement), "How to use the generated code" (3 steps, links how-to-add-schema-markup post), FAQ (6 Q&As mirroring query language, boolean answers first). Meta description rewritten to name all 6 types. 1 internal link per section max (semantic-markup-guide, how-to-add-schema-markup, paid-seo-audit CTA). Fixed false "28 options" claim to actual 29 business types. Micro-semantic audit 93/100. Bonus hygiene: em dash removed from seo-consultant-london subtitle.
+commit: 6fab853
+predicted_outcome: core cluster (schema markup generator + free schema generator, ~275 impr/28d at pos 18-22) reaches pos <=12 within 4 weeks of recrawl; JSON-LD cluster consolidates pos <=12; page earns first sustained clicks (>=5/28d vs current 2). Type-specific long-tail (product/article/faq schema generator) improves as h3 sections index.
+measured: pending
+verdict: pending
+learning: pending
+note: active-hypotheses #3 (London upgrade) demoted, page has 58 impr/28d live vs 1,605 stale. Deploy needs Sunny's npx vercel --prod.
+
+---
+
+iteration: 9
+date: 2026-07-15
+hypothesis: /services/technical-seo-audit/ (3,873 impr/28d, 0 clicks, pos 34.1) earns nearly all visible impressions on "seo audit services" language (seo audit services uk 128 impr pos 45.4, seo audit services technical seo 52 pos 29.5, seo audit service uk 33 pos 48.9, seo audit services 10 pos 45.3, seo audit price uk 5 pos 24.2) while its title/H1 target "technical seo audit", a head term it barely surfaces for. Realigning title/H1/meta and section order to the services cluster (the query language Google already matches the page to) lifts the cluster from pos 29-49 toward page 2/1. This is active-hypotheses #6; the serp-analyze step was blocked (DDG + Bing both serve bot challenges from this VPS), so diagnosis used GSC query language directly. Live GSC also killed the alternative targets: /tools/seo-prompts/ has only ~50 impr/28d and /tools/seo-roi-calculator/ returned zero rows, so tool on-page depth beyond iteration 8 is not worth an iteration.
+playbook_tactic: query-language-realignment (title/H1/meta + section reorder to match earned impression cluster)
+affected_urls:
+  - /services/technical-seo-audit/
+change: metaTitle to "SEO Audit Services UK | Fixed-Fee Technical SEO Audit £500", H1 to "SEO Audit Services UK: Technical SEO Audit From £500", new subtitle (independent consultant, 50+ verified checks, one-off fee). content.mdoc reordered: "What Are SEO Audit Services?" moved from bottom to section 2, "How Much Does an SEO Audit Cost?" retitled "How Much Do SEO Audit Services Cost in the UK?" (seo audit price uk pos 24.2), new "How to Choose an SEO Audit Service in the UK" section (4 buyer questions) with funnel cross-link to the fixed-fee GBP495 /services/paid-seo-audit/ (fee-credit framing). SERVICE_FAQS["technical-seo-audit"] gained "What are SEO audit services?" + "How do I choose an SEO audit service in the UK?" Q&As. All em/en dashes stripped from page content and its FAQ block per site rule; internal links trimmed to 1 per main section. Semantic audit 92/100. Build passes.
+commit: 77bc757
+predicted_outcome: services cluster (seo audit services uk + variants, ~230 impr/28d visible at pos 29-49) moves to pos <=25 within 4 weeks of recrawl; seo audit price uk from 24.2 into top 20; page earns first clicks (>=3/28d vs current 0). Head terms (technical seo audit) not the target. Funnel effect: first referred sessions from this page to /services/paid-seo-audit/.
+measured: pending
+verdict: pending
+learning: pending
+note: iteration 1 (Jul 7) rewrote this page's title/meta for CTR, but at pos 34 CTR was never the constraint; this supersedes it for this URL, note when filling iteration 1 verdict. Deploy needs Sunny's npx vercel --prod.
+
+---
+
+iteration: 10
+date: 2026-07-16
+hypothesis: Of the 7 Jun14-15 gap pages, the 3 tools were de-orphaned in iterations 2/6/8 and best-seo-companies-uk was refreshed in iteration 7, but seo-for-plumbers, seo-for-roofers, and white-label-seo (3 service pages from the same batch) were never touched and have zero real contextual inbound links (only the generic /services/ index card). Live GSC confirms this is the worst-performing surface left: seo-for-plumbers and white-label-seo have 0 impressions/28d, seo-for-roofers has 2, versus top-geo-agencies (37 impr, several queries at pos 5-13) and best-local-seo-agencies (37 impr, pos 20-60) which are weak but not dead. Contextual internal links from topically relevant, already-indexed pages (the tactic that worked for the tools in iteration 2) is the cheapest fix.
+playbook_tactic: contextual-link-injection
+affected_urls:
+  - /services/seo-for-plumbers/   (0 impr/28d, was zero contextual inbound links)
+  - /services/seo-for-roofers/    (2 impr/28d, was zero contextual inbound links)
+  - /services/white-label-seo/    (0 impr/28d, was zero contextual inbound links)
+change: Added contextual links (no new pages) from 5 already-indexed pages. /services/local-seo/ and /services/local-seo-agency/ each gained a new paragraph linking seo-for-plumbers and seo-for-roofers as trade-specific examples of local content strategy. /services/amazon-seo-consultant/ and /services/seo-consultant-brighton/ each had an existing unlinked "white-label" mention turned into a link to /services/white-label-seo/. /blog/best-local-seo-agencies/ (agency-owner audience) gained a White Label SEO entry in its Related Articles list as a resell cross-sell. Build verified clean.
+commit: pending
+predicted_outcome: seo-for-plumbers, seo-for-roofers, and white-label-seo move from 0-2 impr/28d toward first sustained visibility (5+ impr/28d) within 3-4 weeks as link equity and topical relevance signals reach them from local-seo/local-seo-agency (established, indexed pages) and the agency-audience listicle.
+measured: pending
+verdict: pending
+learning: pending
+note: top-geo-agencies and best-local-seo-agencies (the 2 listicles from the same Jun14-15 batch) were checked live and are weak but not dead (37 impr/28d each, some queries at pos 5-13 for top-geo-agencies); not urgent enough to be this iteration's target. Deploy needs Sunny's manual npx vercel --prod.

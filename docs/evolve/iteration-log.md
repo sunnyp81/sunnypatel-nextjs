@@ -164,6 +164,23 @@ note: top-geo-agencies and best-local-seo-agencies (the 2 listicles from the sam
 
 ---
 
+iteration: 11
+date: 2026-07-21
+hypothesis: top-geo-agencies and best-local-seo-agencies (37 impr/28d each, top-geo-agencies with several queries at pos 5-13) are the last two of the 7 Jun14-15 gap pages with zero contextual inbound links (only the generic tag-based RelatedPosts component). The same contextual-link-injection tactic that worked for the 3 tools (iteration 2) and the 3 service pages (iteration 10) is the cheapest fix here too: pull link equity and topical relevance from already-indexed, topically adjacent pages rather than writing new content.
+playbook_tactic: contextual-link-injection
+affected_urls:
+  - /blog/top-geo-agencies/          (0 contextual inbound links before this change)
+  - /blog/best-local-seo-agencies/   (0 contextual inbound links before this change)
+change: Added contextual links (no new pages) from 4 already-indexed pages. /blog/best-aeo-agencies/ Related Articles gained a reciprocal link to top-geo-agencies (top-geo-agencies already linked best-aeo-agencies one-way). /blog/best-seo-companies-uk/ Related Articles (the general hub, already linking best-aeo-agencies) gained links to both top-geo-agencies and best-local-seo-agencies. /services/local-seo-agency/ and /services/local-seo/ Related Guides each gained a link to best-local-seo-agencies. All new list entries use commas/colons/hyphens per site rule, not em dashes, even where surrounding legacy entries in the same file already violate it (best-aeo-agencies has 44 pre-existing em dashes, local-seo has 4; left untouched, out of scope for this iteration). Build verified clean, no errors or warnings.
+commit: pending
+predicted_outcome: top-geo-agencies and best-local-seo-agencies move from 37 impr/28d each toward first sustained link-equity gains (higher impressions on their existing pos 5-13 / pos 20-60 queries) within 3-4 weeks as the new inbound links get crawled. Not a content-depth change, so no shift expected in query coverage, only position/impression lift on already-earned queries.
+measured: pending
+verdict: pending
+learning: pending
+note: Deploy needs Sunny's manual npx vercel --prod. This closes out the 7 Jun14-15 gap pages: all now have contextual internal link support (tools: iteration 2/6/8, service pages: iteration 10, listicles: iteration 11).
+
+---
+
 iteration: OUT-OF-BAND (manual, not a loop iteration)
 date: 2026-07-19
 source: Sunny + Claude session (Fable strategy call), "Ship all"

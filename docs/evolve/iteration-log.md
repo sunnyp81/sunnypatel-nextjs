@@ -192,3 +192,17 @@ measured: pending (check GSC ~2026-08-16, 4wk post-recrawl)
 verdict: pending
 learning: pending
 note: DEPLOYED to prod (verified live: homepage title, 308 redirects, £495, kept pages 200). Unlike normal iterations this one was deployed immediately, not left for manual npx vercel --prod.
+
+---
+
+iteration: OUT-OF-BAND (manual, not a loop iteration)
+date: 2026-08-02
+source: Sunny + Claude session (demand-map widen-the-net, "do all of it")
+hypothesis: GSC demand tripled Apr-Jul (39k -> 142k impr/quarter) but CTR stayed ~0.03%. Demand-map clustering showed the constraint is (a) unshipped GEO/AEO surface for a 6.1k-impr emerging cluster, (b) title/query misalignment on pages OUTSIDE the Jul-19 consolidation window, (c) zero lead capture on tool pages earning the site's only clicks.
+change: (1) SHIPPED the 3 WIP AI-visibility pages (/geo-agency/, /ai-visibility-consultant/, /is-your-brand-visible-in-ai-search/) + sitemap entries (also added missing /ai-visibility/ sitemap entry) + contextual inbound links from what-is-llm-optimisation, ai-search-optimisation, brand-not-appearing-in-chatgpt, best-aeo-agencies; added AEO-vs-GEO FAQ to geo-agency. (2) CTR/query realignment on 9 NON-window pages: seo-consulting (retarget "seo strategy consultant", 3.3k impr cluster), how-much-does-an-seo-consultant-charge-uk (broken truncated metaTitle fixed), woocommerce-seo-consultant (expert-first), best-aeo-agencies (+"aeo agency uk"; +thought-leaders section + FAQ for 664-impr "aeo thought leaders/experts" queries), what-is-llm-optimisation, freelance-seo-consultant-uk, website-grader (+"seo page grader"), website-design/packages + keyword-scraper (em-dash/mojibake fixes only). (3) ServiceInlineForm lead capture added to keyword-scraper + schema-generator. (4) NEW /blog/ai-referral-traffic-study/: original 90d GA4 dataset (5,240 AI sessions, 12 sites, pulled 2 Aug), semantic audit 88/100. (5) Stale "Q2 2026 client slots" scarcity claim removed from ai-search-optimisation.
+constraints_respected: homepage, seo-consultant-reading, seo-berkshire ring, technical-seo-audit titles UNTOUCHED (Jul-19 consolidation measurement window, verdict due ~Aug 16). Pruned national pages not recreated. £495 audit price unchanged. it7/it11 measured targets (best-seo-companies-uk, top-geo-agencies, best-local-seo-agencies) untouched except a planned inbound link from best-aeo-agencies content per it11's own pattern.
+predicted_outcome: geo-aeo-ai cluster (6.1k impr/quarter, pos 14-53) gains a commercial landing surface and moves toward page 1-2 within 4-6 weeks; "seo strategy consulting/consultant" cluster (3.3k impr, pos 21-31) lifts on realigned title; first tool-page leads from the 2 new inline forms; data-study post earns AI citations (its own thesis).
+measured: pending (check GSC ~2026-09-01)
+verdict: pending
+learning: pending
+note: DEPLOYED to prod this session via npx vercel --prod.

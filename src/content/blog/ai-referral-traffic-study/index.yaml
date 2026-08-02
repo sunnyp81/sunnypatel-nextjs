@@ -1,0 +1,36 @@
+title: AI Referral Traffic Study
+metaTitle: 'AI Referral Traffic Study: 5,240 Sessions, 12 Sites, 90 Days'
+description: >-
+  Real GA4 data on AI referral traffic: 5,240 sessions from ChatGPT, Copilot,
+  Perplexity, Claude and Gemini across the 12 most-cited sites in my portfolio,
+  measured over 90 days. Which assistants send traffic, which niches win, and
+  what it means for your AI visibility.
+ogImage: ''
+date: '2026-08-02'
+tags:
+  - AI Search
+  - AEO
+  - GEO
+  - SEO Data
+  - LLM
+faqs:
+  - question: Which AI assistant sends the most referral traffic?
+    answer: >-
+      In this dataset, ChatGPT sent 91% of all AI referral sessions (4,780 of
+      5,240 across 12 sites in 90 days to 1 August 2026). Microsoft Copilot was
+      a distant second at 4%, then Perplexity at 3% and Claude at 2%. Gemini
+      sent almost nothing: 3 sessions across the entire dataset.
+  - question: What kind of websites get the most AI referral traffic?
+    answer: >-
+      Condition-led informational sites with structured, factual data
+      dominated. A health and wellness site (1,604 sessions) and an education
+      data site (1,233 sessions) led the table. Sites answering specific
+      questions with checkable data earned far more AI citations than
+      commercial or review-led sites in the same portfolio.
+  - question: Does AI referral traffic show the full impact of AI search?
+    answer: >-
+      No. Referral sessions only count users who click through from an AI
+      answer. Many AI answers resolve the query without a click, and Bing
+      Copilot citations in particular convert to brand impressions rather than
+      visits. Treat referral data as the floor of AI visibility, not the
+      ceiling.

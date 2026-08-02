@@ -1,0 +1,70 @@
+Most AI search advice is written by people who have never measured AI traffic on a site they own. This post is the opposite: raw GA4 referral data from the 12 sites in my own portfolio that receive the most AI traffic, pulled on 2 August 2026, covering the 90 days from 4 May to 1 August 2026.
+
+The headline: **5,240 sessions arrived from AI assistants across these 12 sites in 90 days, and 91% of them came from ChatGPT.**
+
+## Method, before anything else
+
+Numbers without a method are marketing. Here is mine:
+
+- **Source:** Google Analytics 4, one property per site, queried via the GA4 Data API on 2 August 2026.
+- **Window:** 4 May to 1 August 2026 (90 days).
+- **Definition:** a session whose `sessionSource` matches chatgpt, perplexity, claude, gemini, copilot or openai. This captures click-throughs from AI assistants, not impressions inside AI answers. The small `openai` source (26 sessions) is counted in the ChatGPT column, since it is the same ecosystem.
+- **Selection:** these are the 12 sites with the highest AI referral traffic from my wider portfolio of 70+ live sites, identified in a portfolio-wide sweep in June and re-pulled fresh for this post. They are the winners, not a random sample, and the conclusions below are about what winning looks like.
+- Sites are labelled by sector rather than domain, because several earn affiliate revenue and I would rather publish the data than invite cloners.
+
+I audited the popular third-party statistics in this space separately in my [AI search statistics fact-check](/blog/ai-search-statistics/). Most failed a primary-source check. Everything below is my own data.
+
+## The results
+
+| Site (by sector) | AI sessions (90d) | ChatGPT | Copilot | Perplexity | Claude | Gemini |
+|---|---|---|---|---|---|---|
+| Health and wellness | 1,604 | 1,414 | 58 | 61 | 71 | 0 |
+| Education data | 1,233 | 1,165 | 35 | 30 | 3 | 0 |
+| EV charging | 518 | 456 | 51 | 7 | 2 | 2 |
+| Document templates | 502 | 499 | 3 | 0 | 0 | 0 |
+| Property data | 311 | 280 | 11 | 16 | 4 | 0 |
+| Remote work and travel | 280 | 260 | 6 | 14 | 0 | 0 |
+| Water quality | 231 | 190 | 31 | 8 | 2 | 0 |
+| Mobile coverage | 215 | 187 | 24 | 4 | 0 | 0 |
+| Garden equipment reviews | 213 | 205 | 8 | 0 | 0 | 0 |
+| QR tools | 92 | 88 | 4 | 0 | 0 | 0 |
+| This site (SEO consulting) | 28 | 24 | 0 | 1 | 2 | 1 |
+| Fitness | 13 | 12 | 1 | 0 | 0 | 0 |
+
+Totals: 5,240 sessions. ChatGPT 4,780 (91.2%), Copilot 232 (4.4%), Perplexity 141 (2.7%), Claude 84 (1.6%), Gemini 3 (under 0.1%).
+
+## Finding 1: ChatGPT is not just winning, it is the whole market
+
+Every site in the table has the same shape: ChatGPT first by a wide margin, everything else sharing scraps. If your AI visibility strategy is spread evenly across five assistants, you are misallocating 90% of the effort. Optimising for how ChatGPT selects and cites sources is, today, most of the job.
+
+## Finding 2: Gemini referral traffic barely exists
+
+Three sessions. Across twelve sites. In ninety days. Google's assistant either answers without citing, cites without generating clicks, or both. Do not let anyone sell you a "Gemini optimisation" line item on the strength of referral traffic, because there is none to optimise for yet. Google's AI Overviews affect your Google organic clicks instead, which is a different problem with different measurement.
+
+## Finding 3: condition-led data sites win, commercial sites lose
+
+The top of the table is entirely sites that answer specific factual questions: health conditions, school catchment data, charger locations, water hardness by area. The review site in the table earns a fraction of what the data sites earn, and the fitness site barely registers. AI assistants cite sources that resolve questions with checkable facts. If your site's core content is "buy this", you will need a data layer to earn citations.
+
+## Finding 4: Copilot behaves differently, and referral counts undersell it
+
+Copilot sends modest referral traffic here, but it concentrates on utility sites (EV charging, water quality, mobile coverage: the three highest Copilot counts outside health). Copilot also surfaces brands inside answers where no click ever happens. One documented case from this portfolio: a healthcare company found and hired this practice through a Bing Copilot citation, a lead that referral analytics attributed to nothing. Referral data is the floor of AI visibility, not the ceiling.
+
+## Finding 5: the consultant's site is nearly bottom of the table, and that is the honest data point
+
+This site earned 28 AI referral sessions in 90 days while sites I run in other niches earned fifty times that. The difference is structural: my niche sites hold unique, factual, area-level data that AI systems need, and this site until recently held opinions about SEO, which AI systems have in oversupply. This post is the fix applied to my own site: publish primary data nobody else has. If your brand is invisible to AI assistants, the diagnosis is usually the same, and it is fixable.
+
+## What this means if you want AI traffic
+
+1. **Weight your effort toward ChatGPT citation patterns** and treat the rest as secondary until the data changes.
+2. **Publish checkable primary data in your niche.** It is the single strongest citation magnet in this dataset.
+3. **Measure the floor and the ceiling separately.** GA4 referral data for clicks, plus brand-presence checks inside AI answers for the invisible layer. My [free AI visibility check](/is-your-brand-visible-in-ai-search/) covers the second part.
+4. **Ignore vendors quoting industry statistics they cannot source.** Ask for their own data. If they have none, you have learned what you needed to know.
+
+If you want this measurement done properly for your business, with a competitor benchmark and a prioritised plan, that is exactly what the [AI Visibility Audit](/ai-visibility/) is. If you are still working out what this discipline involves, start with [what a GEO agency actually does](/geo-agency/).
+
+## Related Articles
+
+- [AI Search Statistics: Fact-Checked](/blog/ai-search-statistics/) - the popular numbers traced to their primary sources
+- [What Is LLM Optimisation?](/blog/what-is-llm-optimisation/) - the practice behind these referral numbers
+- [Optimise Content for AI Search](/blog/optimise-content-for-ai-search/) - content patterns that earn citations
+- [Why Your Brand Is Not Appearing in ChatGPT](/blog/brand-not-appearing-in-chatgpt/) - diagnosis for invisible brands

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ServiceInlineForm } from "@/components/service-inline-form";
 import SchemaGenerator from "./SchemaGenerator";
 
 export function generateMetadata() {
@@ -213,6 +214,10 @@ export default function SchemaGeneratorPage() {
           </section>
         </div>
       </div>
+      <ServiceInlineForm
+        ctaTitle="Want Your Schema Implemented and Validated for You?"
+        ctaSubtitle="Tell me your site and CMS. I will review your existing structured data, implement what is missing, and validate everything in Google's Rich Results Test as part of the fixed-fee audit."
+      />
       <Footer />
     </main>
   );

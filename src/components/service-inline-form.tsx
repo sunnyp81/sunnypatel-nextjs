@@ -36,7 +36,7 @@ export function ServiceInlineForm({
   ctaSubtitle?: string;
   compact?: boolean;
 }) {
-  const { status, setStatus, errorMsg, formData, handleChange, handleSubmit } =
+  const { status, setStatus, errorMsg, formData, bookingUrl, handleChange, handleSubmit } =
     useLeadForm({
       initial: { name: "", email: "", phone: "", message: "" },
       eventCategory: "contact",
@@ -60,6 +60,7 @@ export function ServiceInlineForm({
           <FormSuccess
             message="Thanks for reaching out. I'll get back to you within 24 hours to arrange your consultation."
             onReset={() => setStatus("idle")}
+            bookingUrl={bookingUrl}
           />
         ) : (
           <form onSubmit={handleSubmit} className="relative space-y-5">

@@ -7,6 +7,7 @@ import { AboutMethodology } from "@/components/about/about-methodology";
 import { AboutTimeline } from "@/components/about/about-timeline";
 import { AboutValues } from "@/components/about/about-values";
 import { AboutFaq } from "@/components/about/about-faq";
+import { AboutBookingCta } from "@/components/about/about-booking-cta";
 import { Cta } from "@/components/sections/cta";
 import { faqSchema, personSchema, profileImageSchema, reviewSchema, schemaGraph } from "@/lib/schema";
 import { faqs } from "@/lib/faq-data";
@@ -47,6 +48,7 @@ export default function AboutPage() {
       <AboutTimeline />
       <AboutValues />
       <AboutFaq />
+      <AboutBookingCta />
       <Cta />
       <Footer />
     </main>

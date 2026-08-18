@@ -98,9 +98,12 @@ export function FormError({
 export function FormSuccess({
   message,
   onReset,
+  bookingUrl,
 }: {
   message: string;
   onReset: () => void;
+  /** Trafft booking link returned by the contact API. Omit or null hides the CTA. */
+  bookingUrl?: string | null;
 }) {
   return (
     <div
@@ -118,6 +121,17 @@ export function FormSuccess({
         Message sent!
       </h3>
       <p className="max-w-xs text-sm text-muted-foreground">{message}</p>
+      {bookingUrl && (
+        <a
+          href={bookingUrl}
+          target="_blank"
+          rel="noopener"
+          className="flex items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Pick a time for your free audit call
+        </a>
+      )}
       <button
         onClick={onReset}
         className="mt-2 text-sm text-brand transition-colors hover:text-brand/80"

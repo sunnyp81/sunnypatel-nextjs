@@ -21,6 +21,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [formData, setFormData] = useState<T>(opts.initial);
+  const [bookingUrl, setBookingUrl] = useState<string | null>(null);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,6 +48,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
         setStatus("error");
       } else {
         setStatus("success");
+        setBookingUrl(typeof data.bookingUrl === "string" ? data.bookingUrl : null);
         setFormData(opts.initial);
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
           window.gtag("event", "generate_lead", {
@@ -70,6 +72,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
     errorMsg,
     formData,
     setFormData,
+    bookingUrl,
     handleChange,
     handleSubmit,
   };

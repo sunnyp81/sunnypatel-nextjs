@@ -3,6 +3,10 @@ import { NextResponse } from "next/server";
 const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
 
+// Deep links straight to Choose Date and Time with Service = Free SEO Audit preselected.
+// Fallback used whenever the intake worker is unset, slow, down, or its response has no booking_url.
+const TRAFFT_BOOKING_URL = "https://sunnypatel.trafft.com/booking?service=6";
+
 // Basic email shape check. Not RFC-perfect, but rejects the obvious junk.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -120,15 +124,33 @@ export async function POST(request: Request) {
       );
     }
 
+    // Default to the hardcoded Trafft link. Only overridden if the intake worker
+    // is configured, responds in time, and hands back its own booking_url.
+    let bookingUrl: string = TRAFFT_BOOKING_URL;
+
     if (process.env.AAA_INTAKE_SECRET) {
-      fetch("https://aaa-intake.sunnypat81.workers.dev", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "x-intake-secret": process.env.AAA_INTAKE_SECRET },
-        body: JSON.stringify({ brand: "SP", name, email, phone: phone || null, message }),
-      }).catch(() => {});
+      try {
+        const workerRes = await fetch("https://aaa-intake.sunnypat81.workers.dev", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-intake-secret": process.env.AAA_INTAKE_SECRET },
+          body: JSON.stringify({ brand: "SP", name, email, phone: phone || null, message }),
+          signal: AbortSignal.timeout(4000),
+        });
+        if (workerRes.ok) {
+          const workerData = (await workerRes.json().catch(() => null)) as
+            | { booking_url?: string }
+            | null;
+          if (workerData?.booking_url) {
+            bookingUrl = workerData.booking_url;
+          }
+        }
+      } catch {
+        // Worker unreachable, slow, or returned bad JSON: keep the fallback URL.
+        // Never let this block or fail the user's form submission.
+      }
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, bookingUrl });
   } catch (err) {
     console.error("Contact API error:", err);
     return NextResponse.json(

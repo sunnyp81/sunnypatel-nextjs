@@ -27,7 +27,7 @@ export function topGeoAgenciesSchemas(): Record<string, unknown>[] {
             "name": "Sunny Patel SEO & AI Consultant",
             "url": SITE_URL,
             "description":
-              "Generative Engine Optimisation (GEO) and Answer Engine Optimisation (AEO) specialist. Only UK consultant with a documented AI-search lead conversion (Express Medicals, via Bing Copilot citation). Semantic SEO and entity authority methodology.",
+              "Generative Engine Optimisation (GEO) and Answer Engine Optimisation (AEO) specialist. The only consultant on this list with a documented AI-search lead conversion (Express Medicals, via Bing Copilot citation). Semantic SEO and entity authority methodology.",
             "address": [
               { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
               { "@type": "PostalAddress", "addressLocality": "Reading", "addressRegion": "Berkshire", "addressCountry": "GB" },

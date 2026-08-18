@@ -19,7 +19,7 @@ export function bestSeoCompaniesUkSchemas(): Record<string, unknown>[] {
             "@id": `${SITE_URL}/#organization`,
             "name": "Sunny Patel SEO & AI Consultant",
             "url": SITE_URL,
-            "description": "Semantic SEO, AI search optimisation (AEO/GEO), and topical authority specialist. Only UK consultant with documented AI-search lead conversion.",
+            "description": "Semantic SEO, AI search optimisation (AEO/GEO), and topical authority specialist, with a documented AI-search lead conversion (Express Medicals, via Bing Copilot citation).",
             "address": [
               { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
               { "@type": "PostalAddress", "addressLocality": "Reading", "addressRegion": "Berkshire", "addressCountry": "GB" },

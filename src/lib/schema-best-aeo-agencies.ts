@@ -27,7 +27,7 @@ export function bestAeoAgenciesSchemas(): Record<string, unknown>[] {
             "name": "Sunny Patel SEO & AI Consultant",
             "url": SITE_URL,
             "description":
-              "Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO) specialist. Only UK consultant with a documented AI-search lead conversion (Express Medicals, via Bing Copilot citation).",
+              "Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO) specialist. The only consultant on this list with a documented AI-search lead conversion (Express Medicals, via Bing Copilot citation).",
             "address": [
               { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
               { "@type": "PostalAddress", "addressLocality": "Reading", "addressRegion": "Berkshire", "addressCountry": "GB" },

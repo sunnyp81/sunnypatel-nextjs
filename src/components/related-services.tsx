@@ -214,7 +214,7 @@ export function RelatedServices({
         >
           <div>
             <p className="text-sm font-medium text-foreground">Try our free SEO tools</p>
-            <p className="text-xs text-muted-foreground">Website grader, speed checker, keyword scraper, and 17 more — no sign-up required.</p>
+            <p className="text-xs text-muted-foreground">Website grader, speed checker, keyword scraper, and 17 more, no sign-up required.</p>
           </div>
           <ArrowRight className="h-4 w-4 flex-shrink-0 text-brand transition-transform group-hover:translate-x-1" />
         </Link>

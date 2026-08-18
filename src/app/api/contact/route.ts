@@ -124,30 +124,19 @@ export async function POST(request: Request) {
       );
     }
 
-    // Default to the hardcoded Trafft link. Only overridden if the intake worker
-    // is configured, responds in time, and hands back its own booking_url.
-    let bookingUrl: string = TRAFFT_BOOKING_URL;
+    // The booking URL is always served from this constant, never from the worker
+    // response. It must stay in sync with the worker's own TRAFFT_BOOKING_URL.
+    const bookingUrl: string = TRAFFT_BOOKING_URL;
 
+    // Fire and forget: the intake worker records the lead and posts the Hermes
+    // webhook that sends the actual notification. It is never awaited so a slow
+    // Trafft call, or a client disconnect, can never delay or drop lead capture.
     if (process.env.AAA_INTAKE_SECRET) {
-      try {
-        const workerRes = await fetch("https://aaa-intake.sunnypat81.workers.dev", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "x-intake-secret": process.env.AAA_INTAKE_SECRET },
-          body: JSON.stringify({ brand: "SP", name, email, phone: phone || null, message }),
-          signal: AbortSignal.timeout(4000),
-        });
-        if (workerRes.ok) {
-          const workerData = (await workerRes.json().catch(() => null)) as
-            | { booking_url?: string }
-            | null;
-          if (workerData?.booking_url) {
-            bookingUrl = workerData.booking_url;
-          }
-        }
-      } catch {
-        // Worker unreachable, slow, or returned bad JSON: keep the fallback URL.
-        // Never let this block or fail the user's form submission.
-      }
+      fetch("https://aaa-intake.sunnypat81.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-intake-secret": process.env.AAA_INTAKE_SECRET },
+        body: JSON.stringify({ brand: "SP", name, email, phone: phone || null, message }),
+      }).catch(() => {});
     }
 
     return NextResponse.json({ success: true, bookingUrl });

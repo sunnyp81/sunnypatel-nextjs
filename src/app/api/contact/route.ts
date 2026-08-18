@@ -131,7 +131,10 @@ export async function POST(request: Request) {
     // Fire and forget: the intake worker records the lead and posts the Hermes
     // webhook that sends the actual notification. It is never awaited so a slow
     // Trafft call, or a client disconnect, can never delay or drop lead capture.
-    if (process.env.AAA_INTAKE_SECRET) {
+    // Gated off until the worker is redeployed: the version still live auto-books
+    // a Trafft slot on every lead. Set AAA_INTAKE_ENABLED=1 once the fixed worker
+    // is deployed. The enquiry email above does not depend on this call.
+    if (process.env.AAA_INTAKE_SECRET && process.env.AAA_INTAKE_ENABLED === "1") {
       fetch("https://aaa-intake.sunnypat81.workers.dev", {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-intake-secret": process.env.AAA_INTAKE_SECRET },

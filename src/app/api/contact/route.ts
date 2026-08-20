@@ -3,10 +3,6 @@ import { NextResponse } from "next/server";
 const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
 
-// Deep links straight to Choose Date and Time with Service = Free SEO Audit preselected.
-// Fallback used whenever the intake worker is unset, slow, down, or its response has no booking_url.
-const TRAFFT_BOOKING_URL = "https://sunnypatel.trafft.com/booking?service=6";
-
 // Basic email shape check. Not RFC-perfect, but rejects the obvious junk.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -124,16 +120,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // The booking URL is always served from this constant, never from the worker
-    // response. It must stay in sync with the worker's own TRAFFT_BOOKING_URL.
-    const bookingUrl: string = TRAFFT_BOOKING_URL;
-
-    // Fire and forget: the intake worker records the lead and posts the Hermes
-    // webhook that sends the actual notification. It is never awaited so a slow
-    // Trafft call, or a client disconnect, can never delay or drop lead capture.
-    // Gated off until the worker is redeployed: the version still live auto-books
-    // a Trafft slot on every lead. Set AAA_INTAKE_ENABLED=1 once the fixed worker
-    // is deployed. The enquiry email above does not depend on this call.
+    // Fire and forget: the intake worker records the lead in Trafft CRM and posts
+    // the Hermes webhook that sends the actual notification. It is never awaited
+    // so a slow Trafft call, or a client disconnect, can never delay or drop lead
+    // capture. The enquiry email above does not depend on this call.
     if (process.env.AAA_INTAKE_SECRET && process.env.AAA_INTAKE_ENABLED === "1") {
       fetch("https://aaa-intake.sunnypat81.workers.dev", {
         method: "POST",
@@ -142,7 +132,7 @@ export async function POST(request: Request) {
       }).catch(() => {});
     }
 
-    return NextResponse.json({ success: true, bookingUrl });
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Contact API error:", err);
     return NextResponse.json(

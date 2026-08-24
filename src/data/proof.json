@@ -1,54 +1,38 @@
 {
-  "updatedAt": "2026-07-20",
+  "updatedAt": "2026-08-17",
   "source": "Google Search Console API, sc-domain:sunnypatel.co.uk",
   "summary28d": {
-    "clicks": 58,
-    "impressions": 40634,
-    "avgPosition": 32.9
+    "clicks": 62,
+    "impressions": 44526,
+    "avgPosition": 30
   },
   "rankings": [
     {
-      "query": "best ai consultants reading united kingdom",
-      "position": 2.2
+      "query": "best local seo in uk",
+      "position": 2.8
     },
     {
-      "query": "seo consultant reading",
-      "position": 2.3
-    },
-    {
-      "query": "ai seo consultant",
-      "position": 10
+      "query": "berskshire seo services",
+      "position": 4.1
     },
     {
       "query": "berkshire seo",
-      "position": 10.9
+      "position": 8.1
     },
     {
-      "query": "ai consultancy marketing",
-      "position": 11.1
+      "query": "best geo agencies uk",
+      "position": 9.4
     },
     {
-      "query": "okf google",
+      "query": "schema generator",
+      "position": 11.6
+    },
+    {
+      "query": "schema markup generator",
       "position": 11.9
     }
   ],
   "weeklyClicks": [
-    {
-      "weekStart": "2026-05-23",
-      "clicks": 7
-    },
-    {
-      "weekStart": "2026-05-30",
-      "clicks": 7
-    },
-    {
-      "weekStart": "2026-06-06",
-      "clicks": 10
-    },
-    {
-      "weekStart": "2026-06-13",
-      "clicks": 4
-    },
     {
       "weekStart": "2026-06-20",
       "clicks": 10
@@ -64,6 +48,22 @@
     {
       "weekStart": "2026-07-11",
       "clicks": 20
+    },
+    {
+      "weekStart": "2026-07-18",
+      "clicks": 17
+    },
+    {
+      "weekStart": "2026-07-25",
+      "clicks": 11
+    },
+    {
+      "weekStart": "2026-08-01",
+      "clicks": 17
+    },
+    {
+      "weekStart": "2026-08-08",
+      "clicks": 17
     }
   ],
   "caseStudy": {

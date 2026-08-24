@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-08-17",
+  "updatedAt": "2026-08-24",
   "source": "Google Search Console API, sc-domain:sunnypatel.co.uk",
   "summary28d": {
-    "clicks": 62,
-    "impressions": 44526,
-    "avgPosition": 30
+    "clicks": 64,
+    "impressions": 47419,
+    "avgPosition": 29.2
   },
   "rankings": [
     {
@@ -13,30 +13,26 @@
     },
     {
       "query": "berskshire seo services",
-      "position": 4.1
+      "position": 2.9
     },
     {
       "query": "berkshire seo",
-      "position": 8.1
+      "position": 8
+    },
+    {
+      "query": "ai and geo consultancy services uk",
+      "position": 9.7
     },
     {
       "query": "best geo agencies uk",
-      "position": 9.4
+      "position": 9.9
     },
     {
-      "query": "schema generator",
-      "position": 11.6
-    },
-    {
-      "query": "schema markup generator",
-      "position": 11.9
+      "query": "best geo agencies in london",
+      "position": 10
     }
   ],
   "weeklyClicks": [
-    {
-      "weekStart": "2026-06-20",
-      "clicks": 10
-    },
     {
       "weekStart": "2026-06-27",
       "clicks": 17
@@ -63,7 +59,11 @@
     },
     {
       "weekStart": "2026-08-08",
-      "clicks": 17
+      "clicks": 18
+    },
+    {
+      "weekStart": "2026-08-15",
+      "clicks": 18
     }
   ],
   "caseStudy": {

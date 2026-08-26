@@ -34,7 +34,7 @@ const PROOF_POINTS = [
     stat: "259",
     unit: "AI sessions / 90 days",
     detail:
-      "Google ranks this one on page 2 to 3 for its core terms. ChatGPT cites it anyway, AI selection and SERP position are not the same signal.",
+      "Google ranks this one on page 2 to 3 for its core terms. ChatGPT cites it anyway. AI selection and SERP position are not the same signal.",
   },
   {
     sector: "Utility checker tool",
@@ -59,7 +59,7 @@ export function AiVisibilityProof() {
         most are not client work. Figures are ChatGPT, Claude, Perplexity, Copilot and
         OpenAI referral sessions from a live GA4 pull, 90 days to 26 August 2026, cross
         checked against Search Console over the same window. Results vary by niche and
-        starting point, this is what mine happen to show.
+        starting point. This is what mine happen to show.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {PROOF_POINTS.map(({ sector, stat, unit, detail }) => (

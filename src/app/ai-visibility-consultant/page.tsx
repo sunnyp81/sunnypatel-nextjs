@@ -385,7 +385,7 @@ export default function AiVisibilityConsultantPage() {
         {/* CTA form */}
         <div id="book">
           <ServiceInlineForm
-            ctaTitle="Book Your AI Visibility Consultation"
+            ctaTitle="Request Your AI Visibility Consultation"
             ctaSubtitle="Tell me your company website and the market you compete in. I will come prepared with an initial view of how you currently appear to AI assistants."
           />
         </div>

@@ -28,7 +28,7 @@ const BADGES = [
 ] as const;
 
 export function ServiceInlineForm({
-  ctaTitle = "Book Your Free 30-Minute Consultation",
+  ctaTitle = "Request Your Free 30-Minute Consultation",
   ctaSubtitle = "Tell me about your business and I'll come prepared with specific recommendations for your site.",
   compact = false,
 }: {
@@ -139,7 +139,7 @@ export function ServiceInlineForm({
                 </>
               ) : (
                 <>
-                  Book Free Consultation
+                  Request Free Consultation
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}

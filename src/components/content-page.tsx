@@ -158,7 +158,7 @@ export function ContentPage({
               <div className="mt-7 flex flex-wrap items-center gap-4">
                 <GradientButton asChild>
                   <Link href="/contact/" className="gap-2">
-                    Book Free Consultation
+                    Request Free Consultation
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </GradientButton>
@@ -314,7 +314,7 @@ export function ContentPage({
                 className="inline-flex items-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Book Free Consultation
+                Request Free Consultation
                 <ArrowRight className="h-4 w-4" />
               </Link>
 

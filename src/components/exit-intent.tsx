@@ -119,7 +119,7 @@ export function ExitIntent() {
                 boxShadow: "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
               }}
             >
-              Book Free SEO Audit
+              Request Free SEO Audit
               <ArrowRight className="h-4 w-4" />
             </a>
 

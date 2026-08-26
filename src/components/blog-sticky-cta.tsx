@@ -88,7 +88,7 @@ export function BlogStickyCta() {
                   background: "linear-gradient(135deg, #7ba3f5 0%, #5f8df0 100%)",
                 }}
               />
-              <span className="relative">Book Now</span>
+              <span className="relative">Get in Touch</span>
               <ArrowRight className="relative h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
             </span>
           </Link>

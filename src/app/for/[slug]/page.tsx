@@ -154,7 +154,7 @@ export default async function ProspectPage({ params }: { params: Promise<{ slug:
             style={{ fontFamily: "var(--font-heading)" }}
           >
             <Search className="h-4 w-4" />
-            Book a free 30-minute call
+            Request a free 30-minute call
           </Link>
         </div>
       </div>

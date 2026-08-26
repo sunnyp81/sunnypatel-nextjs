@@ -3,7 +3,7 @@ import { ArrowRight, CalendarDays, Shield } from "lucide-react";
 
 export function ServiceMiniCta({
   heading = "Ready to Improve Your Rankings?",
-  text = "Book a free 30-minute consultation — honest advice on where you stand and what to do next.",
+  text = "Request a free 30-minute consultation: honest advice on where you stand and what to do next.",
 }: {
   heading?: string;
   text?: string;
@@ -48,7 +48,7 @@ export function ServiceMiniCta({
             boxShadow: "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
           }}
         >
-          Book Free Consultation
+          Request Free Consultation
           <ArrowRight className="h-4 w-4" />
         </Link>
 

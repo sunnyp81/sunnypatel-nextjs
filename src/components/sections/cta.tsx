@@ -50,7 +50,7 @@ export function Cta() {
           Get More Clients From Organic Search
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-          Free 30-minute consultation — I'll review your rankings live on the call and tell you exactly what's holding you back. No sales pitch. No obligation. Call <a href="tel:07305523333" className="text-foreground hover:text-white transition-colors">07305 523333</a> or book below.
+          Free 30-minute consultation: I'll review your rankings live on the call and tell you exactly what's holding you back. No sales pitch. No obligation. Call <a href="tel:07305523333" className="text-foreground hover:text-white transition-colors">07305 523333</a> or request one below.
         </p>
 
         {/* Pulsing ring wrapper */}
@@ -59,7 +59,7 @@ export function Cta() {
           <div className="absolute -inset-1.5 rounded-full bg-brand/5" />
           <GradientButton asChild>
             <a href="/contact/" className="relative gap-2">
-              Book Free Consultation
+              Request Free Consultation
               <ArrowRight className="h-5 w-5" />
             </a>
           </GradientButton>

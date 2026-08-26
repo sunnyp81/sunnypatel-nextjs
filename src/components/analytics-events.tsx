@@ -40,8 +40,8 @@ export function AnalyticsEvents() {
 
       // Track CTA buttons
       if (
-        text.includes("Book Free Consultation") ||
-        text.includes("Book Now") ||
+        text.includes("Request Free Consultation") ||
+        text.includes("Get in Touch") ||
         text.includes("Get a Quote") ||
         text.includes("Get Free Checklist") ||
         text.includes("Get the £495 Audit") ||

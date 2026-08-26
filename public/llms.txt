@@ -6,6 +6,7 @@
 
 - [Free AI Visibility Checker](https://sunnypatel.co.uk/tools/ai-visibility-checker/): Free tool. Enter a URL and get a scored report in 20 seconds on whether AI search engines can crawl, verify and cite the site. No sign-up.
 - [AI Visibility Audit](https://sunnypatel.co.uk/ai-visibility/): Board-ready fixed-fee audit (£1,500, 2 weeks) measuring how a brand appears across ChatGPT, Claude, Perplexity, Copilot and Google AI Overviews, with a competitor benchmark and a prioritised 90-day plan. Measured across repeated runs with variance reported, because single-run AI visibility scores are noise.
+- [AI Visibility Results](https://sunnypatel.co.uk/ai-visibility-results/): Real, sector-labelled AI-assistant referral session data (ChatGPT, Claude, Perplexity, Copilot) from Sunny's own portfolio, live GA4 pull cross checked against Search Console, 90 days to 26 August 2026. Own sites, not client claims.
 - [AI Search Optimisation](https://sunnypatel.co.uk/services/ai-search-optimisation/): Ongoing work to get cited by ChatGPT, Google AI Overviews, Perplexity and Bing Copilot.
 - [AI Search Statistics 2026](https://sunnypatel.co.uk/blog/ai-search-statistics/): Data on ChatGPT, AI Overviews, zero-click rates and citation patterns, each figure checked against its primary source.
 

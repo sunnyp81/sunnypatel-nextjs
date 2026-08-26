@@ -377,6 +377,7 @@ export default function AiVisibilityPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
+                { label: "AI Visibility Results", href: "/ai-visibility-results/" },
                 { label: "Free AI Visibility Checker", href: "/tools/ai-visibility-checker/" },
                 { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },
                 { label: "Paid SEO Audit (£495)", href: "/services/paid-seo-audit/" },

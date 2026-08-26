@@ -4,6 +4,7 @@ import { Footer } from "@/components/sections/footer";
 import { AboutHero } from "@/components/about/about-hero";
 import { AboutStory } from "@/components/about/about-story";
 import { AboutMethodology } from "@/components/about/about-methodology";
+import { AboutAiProof } from "@/components/about/about-ai-proof";
 import { AboutTimeline } from "@/components/about/about-timeline";
 import { AboutValues } from "@/components/about/about-values";
 import { AboutFaq } from "@/components/about/about-faq";
@@ -44,6 +45,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutStory />
       <AboutMethodology />
+      <AboutAiProof />
       <AboutTimeline />
       <AboutValues />
       <AboutFaq />

@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
+import { AiStatBar } from "@/components/sections/ai-stat-bar";
 import { About } from "@/components/sections/about";
 import { Portfolio, type FeaturedProject } from "@/components/sections/portfolio";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -44,6 +45,7 @@ export default async function Home() {
       <Hero />
       <Services />
       <Stats />
+      <AiStatBar />
       <About />
       <Portfolio featuredItems={featuredItems} />
       <Testimonials />

@@ -10,6 +10,7 @@
 - [Portfolio / Case Studies](https://sunnypatel.co.uk/portfolio/)
 - [Blog](https://sunnypatel.co.uk/blog/)
 - [Free SEO Tools](https://sunnypatel.co.uk/tools/)
+- [AI Visibility Results](https://sunnypatel.co.uk/ai-visibility-results/): Real, sector-labelled AI-assistant referral session data (ChatGPT, Claude, Perplexity, Copilot) from Sunny's own portfolio, live GA4 pull cross checked against Search Console.
 - [Contact](https://sunnypatel.co.uk/contact/)
 
 ## Services (71)

@@ -387,6 +387,7 @@ export default function GeoAgencyPage() {
               {[
                 { label: "AI Visibility Consultant", href: "/ai-visibility-consultant/" },
                 { label: "AI Visibility Audit (£1,500)", href: "/ai-visibility/" },
+                { label: "AI Visibility Results", href: "/ai-visibility-results/" },
                 { label: "Free AI Visibility Check", href: "/is-your-brand-visible-in-ai-search/" },
                 { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },
               ].map((link) => (

@@ -22,6 +22,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/ai-visibility-consultant/`,  lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE_URL}/geo-agency/`,                lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE_URL}/is-your-brand-visible-in-ai-search/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/ai-visibility-results/`,     lastModified: new Date("2026-08-26"), changeFrequency: "monthly", priority: 0.8 },
   // Tools hub + individual tools
   { url: `${SITE_URL}/tools/`,                lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.9 },
   { url: `${SITE_URL}/tools/keyword-scraper/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },

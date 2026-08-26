@@ -12,7 +12,7 @@ Most guides on this topic split "penalty" into manual actions versus algorithmic
 
 **An algorithmic demotion** is an automated system reassessing your site's signals and ranking it lower. There's no notification. You find it by correlating your traffic drop date against Google's confirmed update history.
 
-**Not indexed at all** is different from both. The page exists, Google has crawled it, and Google has decided it isn't worth adding to the index. In GSC's Page Indexing report this shows as "Crawled - currently not indexed" or "Discovered - currently not indexed." No penalty has been applied. The page was never in the race to begin with.
+**Not indexed at all** is different from both. GSC's Page Indexing report splits this into two distinct statuses that get lumped together constantly. "Crawled - currently not indexed" means Google fetched the page and decided it isn't worth adding to the index. "Discovered - currently not indexed" is earlier in the pipeline: Google knows the URL exists but hasn't crawled it yet, usually a crawl-budget or internal-linking problem rather than a quality judgement. No penalty has been applied in either case. The page was never in the race to begin with.
 
 These require different fixes. Treating a quiet indexing decision like a link penalty, or a content quality problem like a technical bug, wastes months.
 
@@ -28,7 +28,7 @@ This step gets skipped constantly, and it shouldn't. Open **Pages** under the In
 
 If a meaningful share sits under "Crawled - currently not indexed," that's not a ranking problem you can fix with better titles or more backlinks. Google read the page and chose not to index it. Ahrefs' breakdown of this status groups the causes into three buckets: content quality (thin or near-duplicate pages that add nothing over what's already indexed), technical issues (a stray noindex tag, a robots.txt block, a canonical pointing elsewhere, or server errors), and crawl or authority constraints (a large site burning through crawl budget, or a newer domain with limited trust). Since the March 2024 core update folded the old helpful content classifier into core ranking, the content quality bucket accounts for the majority of cases I see.
 
-The fix is not a resubmit-and-wait. Improve the page so it says something the existing top results don't, confirm there's no accidental noindex or canonical mismatch, tighten internal links pointing to it, then use URL Inspection to test the live page and request indexing. Requesting indexing on a page you haven't actually changed wastes the request and teaches Google to trust your requests less.
+The fix is not a resubmit-and-wait. Improve the page so it says something the existing top results don't, confirm there's no accidental noindex or canonical mismatch, tighten internal links pointing to it, then use URL Inspection to test the live page and request indexing. Requesting indexing on a page you haven't actually changed just burns one of your daily quota slots for nothing, since Google's re-evaluation will reach the same conclusion.
 
 ## Step Three: Match the Drop Date to a Confirmed Update
 
@@ -61,11 +61,11 @@ That pattern matches what I see across my own portfolio. Sites built on structur
 If the manual action is link-related, or your backlink profile looks unnatural even without a formal notice, the process is the same either way.
 
 1. Audit the full backlink profile. Ahrefs' anchor text distribution report will show an unnatural concentration of exact-match anchors quickly.
-2. Disavow every low-quality, paid, or spammy link. Partial disavow files for a manual action are routinely rejected, so don't hold links back you're unsure about.
+2. Disavow the links that are genuinely unnatural: paid links, clear link schemes, obvious spam. Don't disavow a link just because it's low-authority or looks untidy, most of those carry no penalty risk and disavowing them for no reason throws away real signal. Partial disavow files for a manual action are routinely rejected because the reviewer can still see the pattern you left out, so don't hold back links you're genuinely unsure are part of the violation.
 3. If there's a manual action, submit a reconsideration request through GSC that documents exactly what was wrong and what you changed. Vague requests get rejected.
 4. Wait. Reconsideration reviews typically run 2-4 weeks per cycle, sometimes stretching to 6 if the reviewer has questions or finds something else in the follow-up check. Submitting before the fix is genuinely complete costs you a full cycle when it's rejected.
 
-Without a manual action, disavowing bad links and cleaning up anchor text still helps, because Google's automated spam systems (SpamBrain is the current one doing most of that work) reassess link signals continuously rather than waiting for a periodic update.
+Without a manual action, Google's own guidance is that most sites don't need the disavow tool at all. Its automated spam systems (SpamBrain is the current one doing most of that work) are built to discount unnatural links algorithmically without you having to flag them. Reach for disavow here only if you can point to a specific, deliberate link-building campaign you ran or paid for and want removed from the picture, not as a routine cleanup step.
 
 ## The Acquisition Scenario: You Bought a Penalised Site
 

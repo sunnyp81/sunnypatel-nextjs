@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
+const LEAD_MAGNET_FROM = "Sunny Patel <hello@sunnypatel.co.uk>";
 
 const LEAD_MAGNETS: Record<string, { subject: string; url: string; description: string }> = {
   "seo-audit-checklist": {
@@ -141,7 +142,7 @@ export async function POST(request: Request) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: MAIL_FROM,
+            from: LEAD_MAGNET_FROM,
             to: email,
             subject: magnet.subject,
             text: [

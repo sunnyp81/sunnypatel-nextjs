@@ -3,6 +3,14 @@ import { NextResponse } from "next/server";
 const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
 
+const LEAD_MAGNETS: Record<string, { subject: string; url: string; description: string }> = {
+  "seo-audit-checklist": {
+    subject: "Your SEO audit checklist",
+    url: "https://sunnypatel.co.uk/downloads/seo-audit-checklist.pdf",
+    description: "the 47-point checklist I run against every site I audit, including the 44 in my own portfolio",
+  },
+};
+
 // Basic email shape check. Not RFC-perfect, but rejects the obvious junk.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -45,7 +53,7 @@ export async function POST(request: Request) {
       "unknown";
 
     const body = await request.json();
-    const { name, email, phone, message, company, turnstileToken } = body;
+    const { name, email, phone, message, company, turnstileToken, leadMagnet } = body;
 
     // Honeypot: real users never see or fill `company`. Bots fill every field.
     if (typeof company === "string" && company.trim() !== "") {
@@ -118,6 +126,50 @@ export async function POST(request: Request) {
         { error: "Failed to send message. Please try again." },
         { status: 502 }
       );
+    }
+
+    // Deliver the requested lead magnet straight to the lead, no manual step. Awaited
+    // (not fire-and-forget) so a failure is logged, but it never fails the request:
+    // the enquiry above already captured the lead regardless of this send's outcome.
+    const magnet = typeof leadMagnet === "string" ? LEAD_MAGNETS[leadMagnet] : undefined;
+    if (magnet) {
+      try {
+        const magnetRes = await fetch("https://api.emailit.com/v2/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.EMAILIT_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: MAIL_FROM,
+            to: email,
+            subject: magnet.subject,
+            text: [
+              `Hi ${name},`,
+              ``,
+              `Here's ${magnet.description}:`,
+              ``,
+              magnet.url,
+              ``,
+              `If you want a second pair of eyes on your own site, just reply to this email.`,
+              ``,
+              `Sunny`,
+              `sunnypatel.co.uk`,
+              ``,
+              `--`,
+              `You're receiving this because you requested it from sunnypatel.co.uk. It isn't part of a mailing list and you won't be added to one.`,
+            ].join("\n"),
+            tags: ["lead-magnet", "sunnypatel"],
+            scheduled_at: null,
+          }),
+        });
+        if (!magnetRes.ok) {
+          const err = await magnetRes.text().catch(() => "");
+          console.error("EmailIt lead-magnet send failed:", magnetRes.status, err);
+        }
+      } catch (err) {
+        console.error("Lead-magnet email error:", err);
+      }
     }
 
     // Fire and forget: the intake worker records the lead in Trafft CRM and posts

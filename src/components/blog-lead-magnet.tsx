@@ -12,6 +12,7 @@ export function BlogLeadMagnet() {
     transform: (d) => ({
       ...d,
       message: "[Lead Magnet] Free SEO Checklist download request",
+      leadMagnet: "seo-audit-checklist",
     }),
   });
 
@@ -29,10 +30,10 @@ export function BlogLeadMagnet() {
           className="mb-2 text-lg font-bold text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Check your inbox!
+          Check your inbox
         </h3>
         <p className="text-sm text-muted-foreground">
-          I&apos;ll send the checklist to your email shortly. In the meantime, feel free to{" "}
+          The checklist is on its way to your email. In the meantime, feel free to{" "}
           <a href="/contact/" className="text-brand hover:underline">
             book a free consultation
           </a>{" "}

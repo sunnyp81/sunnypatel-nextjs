@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>The 47-Point SEO Audit Checklist — Sunny Patel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 20mm 16mm 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #ffffff;
+    color: #111827;
+    font-family: 'Hanken Grotesk', Arial, Helvetica, sans-serif;
+    font-size: 11.5px;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  h1, h2 {
+    font-family: 'Geist', Arial, sans-serif;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .cover {
+    padding-bottom: 14px;
+    border-bottom: 2px solid #2F5FD6;
+    margin-bottom: 22px;
+  }
+  .kicker {
+    display: inline-block;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2F5FD6;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 27px;
+    font-weight: 800;
+    color: #0A0A0F;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: 12.5px;
+    color: #4B5563;
+    max-width: 640px;
+    margin-bottom: 14px;
+  }
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10.5px;
+    color: #4B5563;
+  }
+  .byline .mono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    background: #2F5FD6;
+    color: #fff;
+    font-family: 'Geist', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+  }
+  .byline b { color: #0A0A0F; }
+  .intro {
+    font-size: 12.5px;
+    color: #1F2937;
+    max-width: 700px;
+    margin-bottom: 26px;
+  }
+  section.group { break-inside: avoid-page; margin-bottom: 20px; }
+  h2 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #2F5FD6;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  ol.checklist {
+    list-style: none;
+    margin: 0; padding: 0;
+    counter-reset: item;
+  }
+  ol.checklist li {
+    counter-increment: item;
+    position: relative;
+    padding: 5px 0 5px 30px;
+    margin-bottom: 3px;
+    break-inside: avoid;
+    font-size: 11px;
+    color: #1F2937;
+  }
+  ol.checklist li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0; top: 5px;
+    width: 20px; height: 20px;
+    border: 1.5px solid #2F5FD6;
+    border-radius: 5px;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: #2F5FD6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  ol.checklist code {
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 9.8px;
+    background: #F3F4F6;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #2F5FD6;
+  }
+  .close {
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid #E5E7EB;
+    font-size: 11px;
+    color: #4B5563;
+  }
+  .close a { color: #2F5FD6; text-decoration: none; font-weight: 600; }
+  footer {
+    margin-top: 10px;
+    font-size: 9px;
+    color: #9CA3AF;
+  }
+  .grid2 { columns: 2; column-gap: 32px; }
+  .grid2 section.group { break-inside: avoid-column; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="kicker">Free SEO Resource</span>
+  <h1>The 47-Point SEO Audit Checklist</h1>
+  <p class="subtitle">The exact checklist I run against every site I audit, including the 44 in my own portfolio. Technical foundations, indexation, content, Core Web Vitals, links, and AI search readiness.</p>
+  <div class="byline">
+    <span class="mono">SP</span>
+    <span><b>Sunny Patel</b> &middot; SEO Consultant &amp; AI Strategist &middot; sunnypatel.co.uk</span>
+  </div>
+</div>
+
+<p class="intro">I run this list against every site I audit, including the 44 in my own portfolio. It exists because I kept finding the same problems on sites that had already been &ldquo;audited&rdquo;: pages returning 200 for URLs that don&rsquo;t exist, headings styled to look like headings but rendered as divs, canonicals pointing at redirects. Everything here is a concrete check, so two people running it on the same site should find the same faults.</p>
+
+<div class="grid2">
+
+<section class="group">
+  <h2>Technical Foundations</h2>
+  <ol class="checklist">
+    <li>One canonical hostname. Pick https plus www or non-www once, then confirm the other three variants 301 directly to it with <code>curl -I</code> on each.</li>
+    <li>robots.txt returns 200 and doesn&rsquo;t block CSS, JS, or any template folder your pages need to render. Test specific paths in Screaming Frog&rsquo;s robots.txt tester, don&rsquo;t read the file and assume.</li>
+    <li>A made-up URL returns an actual 404 status, not a 200 with a friendly page. Check with <code>curl -I yoursite.com/this-does-not-exist</code>. Static hosts like Cloudflare Pages serve soft 200s by default if you&rsquo;ve no 404.html.</li>
+    <li>XML sitemap contains only 200-status, indexable, self-canonical URLs. Crawl the sitemap in Screaming Frog list mode and confirm zero redirects, 404s, or noindexed pages inside it.</li>
+    <li>Sitemap is referenced in robots.txt and submitted to both Google Search Console and Bing Webmaster Tools. Bing feeds Copilot and ChatGPT search, so it&rsquo;s not optional any more.</li>
+    <li>No staging, dev, or preview subdomains in the index. Search <code>site:staging.domain.com</code> and <code>site:dev.domain.com</code>, and check your host&rsquo;s default preview URLs (*.pages.dev, *.vercel.app) aren&rsquo;t indexed.</li>
+    <li>No redirect chains beyond one hop. Export all redirects from a full crawl and fix anything with two or more hops, especially old migration leftovers.</li>
+    <li>Zero mixed content. Load key templates with DevTools console open and confirm no http:// assets or blocked requests.</li>
+  </ol>
+</section>
+
+<section class="group">
+  <h2>Indexation &amp; Crawlability</h2>
+  <ol class="checklist" start="9" style="counter-reset: item 8;">
+    <li>Indexed page count in GSC roughly matches the sitemap count. A gap over 10% either way needs a named explanation per URL group, not a shrug.</li>
+    <li>Every URL in &ldquo;Crawled, currently not indexed&rdquo; reviewed individually. Thin or duplicate ones get consolidated or noindexed, they don&rsquo;t sit there for six months.</li>
+    <li>No accidental noindex in the rendered HTML. Check the rendered DOM, not view-source, because JS frameworks and SEO plugins can inject robots meta after load.</li>
+    <li>Canonical tags are self-referencing on unique pages and never point at a URL that redirects or 404s. Crawl canonicals as a list and check their status codes.</li>
+    <li>Parameter URLs, faceted filters, and internal search results are canonicalised or blocked. Search <code>site:domain.com inurl:?</code> and see what Google actually holds.</li>
+    <li>Index bloat check: <code>site:domain.com</code> result count against your known page count. Triple the real number means duplicates, parameters, or tag pages leaking in.</li>
+    <li>Paginated archives are crawlable with plain <code>&lt;a href&gt;</code> links, not load-more buttons that only work in JS. Disable JS and confirm you can still reach page 2.</li>
+    <li>Deleted pages return 404 or 410, or 301 to a genuinely equivalent page. No blanket redirects of everything to the homepage, Google treats those as soft 404s.</li>
+  </ol>
+</section>
+
+<section class="group">
+  <h2>On-Page &amp; Content</h2>
+  <ol class="checklist" start="17" style="counter-reset: item 16;">
+    <li>Title tags unique, query first, and checked in a SERP pixel-width preview tool, not by character count. 60 characters of wide letters still truncates.</li>
+    <li>Exactly one H1 per page, and it&rsquo;s a real <code>&lt;h1&gt;</code> element in the rendered DOM. I&rsquo;ve audited pages that passed a grep but rendered zero heading tags.</li>
+    <li>Heading hierarchy is genuine h2/h3 structure, not styled paragraphs. Inspect the rendered output on your top five templates.</li>
+    <li>Meta descriptions rewritten for any page ranking in the top 10 with CTR below the site&rsquo;s average for that position. Pull the list from GSC, don&rsquo;t guess which pages need it.</li>
+    <li>Page format matches what actually ranks. If the top five results for your target query are listicles or comparison tables, a 2,000-word essay won&rsquo;t break in. Check the live SERP before writing.</li>
+    <li>Cannibalisation check: in GSC, filter by your main queries and look for two URLs trading impressions for the same term. Pick one owner per query and consolidate.</li>
+    <li>Content decay: compare each key page&rsquo;s last 3 months of GSC clicks against the same period last year. Anything down 30%+ goes on the refresh list before you write anything new.</li>
+    <li>Pages under roughly 300 words with zero clicks in 12 months get merged, redirected, or noindexed. Every one of them dilutes the crawl and the site&rsquo;s quality signals.</li>
+    <li>Visible dates are real. dateModified in schema matches an actual content change, not the last time the plugin resaved the page.</li>
+  </ol>
+</section>
+
+<section class="group">
+  <h2>Core Web Vitals &amp; Performance</h2>
+  <ol class="checklist" start="26" style="counter-reset: item 25;">
+    <li>LCP under 2.5s on mobile using the field data (CrUX) section of PageSpeed Insights, not the lab score and not desktop.</li>
+    <li>INP under 200ms in field data. Long tasks from third-party scripts, chat widgets, and consent tools are the usual cause, check the Performance panel.</li>
+    <li>CLS under 0.1. Every image has width and height attributes, and ad slots or embeds have reserved space before they load.</li>
+    <li>The LCP image is preloaded and never lazy-loaded. <code>loading="lazy"</code> on the hero image is one of the most common self-inflicted LCP failures I see.</li>
+    <li>Fonts self-hosted with <code>font-display: swap</code>, and no more than two families loading. Check the network tab for fonts pulled from third-party CDNs on every pageview.</li>
+    <li>Images served as WebP or AVIF at the displayed size, lazy-loaded below the fold only. Sort a crawl by image size and fix anything over 200KB.</li>
+  </ol>
+</section>
+
+<section class="group">
+  <h2>Internal Linking &amp; Architecture</h2>
+  <ol class="checklist" start="32" style="counter-reset: item 31;">
+    <li>Every money page sits within three clicks of the homepage. Run a crawl depth report and flag revenue pages at depth four or more.</li>
+    <li>Zero orphan pages. Compare the crawl, the sitemap, and GSC&rsquo;s indexed list, and link anything that exists in only one of the three.</li>
+    <li>Zero broken internal links and zero internal links to redirects. Both come straight out of a crawl, both should be at nil before you call the audit done.</li>
+    <li>No <code>href="#"</code> or empty-href placeholder links in templates. They orphan whole sections when a nav gets rebuilt, grep the rendered HTML for them.</li>
+    <li>Older high-traffic pages link forward to newer money pages with descriptive anchors, not the other way round only. Check the inlinks report for every page you want to rank.</li>
+  </ol>
+</section>
+
+<section class="group">
+  <h2>Authority &amp; Brand</h2>
+  <ol class="checklist" start="37" style="counter-reset: item 36;">
+    <li>Referring domains trend in Ahrefs over 12 months. Flat or declining while competitors grow is the finding, a raw DR number on its own tells you nothing.</li>
+    <li>Sudden link spikes investigated: pull the new referring domains for the spike month and confirm they&rsquo;re real sites, not a scraper network you&rsquo;ll later regret.</li>
+    <li>Link gap: run the top three ranking competitors through Ahrefs&rsquo; link intersect and list the domains that link to two or more of them but not to you. That&rsquo;s the outreach list.</li>
+    <li>You own page one for your brand name: site, key social profiles, and Google Business Profile if local. Anything you don&rsquo;t control on that page gets noted.</li>
+    <li>Unlinked brand mentions found via Google search for the brand name minus your domain, and turned into links where the site is worth it.</li>
+  </ol>
+</section>
+
+<section class="group">
+  <h2>AI Search Readiness</h2>
+  <ol class="checklist" start="42" style="counter-reset: item 41;">
+    <li>robots.txt doesn&rsquo;t block GPTBot, ClaudeBot, PerplexityBot, or Google-Extended unless that&rsquo;s a deliberate decision someone signed off. Check the live file, CDN bot protection can block them silently too.</li>
+    <li>AI referral traffic is measured: a GA4 segment or exploration covering chatgpt.com, perplexity.ai, copilot.microsoft.com, and claude.ai referrers. You can&rsquo;t grow what you&rsquo;re not counting.</li>
+    <li>The first two sentences under each H2 answer that heading&rsquo;s question directly. AI engines lift self-contained chunks, so a heading followed by throat-clearing gets skipped.</li>
+    <li>Organization or Person schema with a sameAs array pointing at the exact, verified profile URLs. Validate in the Rich Results Test, and check the URLs resolve, a guessed LinkedIn slug in schema is worse than none.</li>
+    <li>Author pages exist with real credentials, and the author entity is consistent across the site, schema, and external profiles.</li>
+    <li>Ask ChatGPT, Perplexity, and Copilot your five most valuable queries and record whether you&rsquo;re cited. Repeat monthly, this is the new rank tracking.</li>
+  </ol>
+</section>
+
+</div>
+
+<div class="close">
+  That&rsquo;s the list. It gets longer every year and I&rsquo;d rather it didn&rsquo;t. More at <a href="https://sunnypatel.co.uk">sunnypatel.co.uk</a>.
+</div>
+
+<footer>You&rsquo;re receiving this PDF because you requested it from sunnypatel.co.uk. It isn&rsquo;t part of a mailing list and you won&rsquo;t be added to one.</footer>
+
+</body>
+</html>

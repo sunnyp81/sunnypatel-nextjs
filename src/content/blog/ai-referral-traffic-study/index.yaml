@@ -1,12 +1,14 @@
 title: AI Referral Traffic Study
-metaTitle: 'AI Referral Traffic Study: 5,240 Sessions, 12 Sites, 90 Days'
+metaTitle: 'AI Referral Traffic Study: 4,717 Sessions, 12 Sites, 90 Days'
 description: >-
-  Real GA4 data on AI referral traffic: 5,240 sessions from ChatGPT, Copilot,
+  Real GA4 data on AI referral traffic: 4,717 sessions from ChatGPT, Copilot,
   Perplexity, Claude and Gemini across the 12 most-cited sites in my portfolio,
   measured over 90 days. Which assistants send traffic, which niches win, and
-  what it means for your AI visibility.
+  why AI referral traffic survived a Google core update that crashed organic
+  clicks on 2 of these sites.
 ogImage: ''
 date: '2026-08-02'
+lastUpdated: '2026-08-26'
 tags:
   - AI Search
   - AEO
@@ -16,17 +18,26 @@ tags:
 faqs:
   - question: Which AI assistant sends the most referral traffic?
     answer: >-
-      In this dataset, ChatGPT sent 91% of all AI referral sessions (4,780 of
-      5,240 across 12 sites in 90 days to 1 August 2026). Microsoft Copilot was
-      a distant second at 4%, then Perplexity at 3% and Claude at 2%. Gemini
-      sent almost nothing: 3 sessions across the entire dataset.
+      In this dataset, ChatGPT sent 90% of all AI referral sessions (4,250 of
+      4,717 across 12 sites in 90 days to 26 August 2026). Microsoft Copilot
+      was a distant second at 5%, then Perplexity at 3% and Claude at 2%.
+      Gemini sent almost nothing: 6 sessions across the entire dataset.
   - question: What kind of websites get the most AI referral traffic?
     answer: >-
       Condition-led informational sites with structured, factual data
-      dominated. A health and wellness site (1,604 sessions) and an education
-      data site (1,233 sessions) led the table. Sites answering specific
+      dominated. A health and wellness site (1,357 sessions) and an education
+      data site (993 sessions) led the table. Sites answering specific
       questions with checkable data earned far more AI citations than
       commercial or review-led sites in the same portfolio.
+  - question: Does AI referral traffic survive a Google core update?
+    answer: >-
+      In this dataset, yes. Two sites in the table lost most of their Google
+      organic clicks to a core update during the measurement window. Their AI
+      referral sessions did not fall with them, one held steady, the other
+      only dropped in line with the portfolio-wide average. Google ranking and
+      AI citation are measured differently, and a core update does not
+      automatically remove a site from the source list AI assistants already
+      cite.
   - question: Does AI referral traffic show the full impact of AI search?
     answer: >-
       No. Referral sessions only count users who click through from an AI

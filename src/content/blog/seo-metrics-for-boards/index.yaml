@@ -1,11 +1,12 @@
 title: SEO Metrics Your Board Should Actually See
-metaTitle: 'SEO Metrics Your Board Should Actually See (5 That Matter'
+metaTitle: 'SEO Metrics Your Board Should Actually See: 5 That Matter'
 description: >-
   Most SEO reports sent to boards are useless. Here are the 5 metrics that
-  actually predict whether SEO is working — from someone who reports on 44
+  actually predict whether SEO is working, from someone who reports on 44
   sites.
 ogImage: /images/stats/seo-board-metrics-overview.svg
 date: '2026-04-06'
+lastUpdated: '2026-08-26'
 tags:
 - SEO Metrics
 - SEO Strategy
@@ -16,7 +17,7 @@ faqs:
     Focus on five metrics: non-brand organic traffic trend, revenue per
     organic visit, indexed page quality ratio, query diversity score, and
     click-through rate by position bracket. These connect SEO directly to
-    business outcomes — revenue, competitive position, and asset quality —
+    business outcomes (revenue, competitive position, and asset quality)
     rather than activity metrics like keywords tracked or backlinks built.
 - question: Why is Domain Authority not a useful board metric?
   answer: >-
@@ -37,5 +38,12 @@ faqs:
     Monthly reporting works for operational metrics like CTR and traffic
     trends. Quarterly is better for strategic metrics like query diversity
     and indexed page quality ratio, since these shift slowly. Avoid weekly
-    reporting — SEO data is noisy at short intervals and leads to reactive
+    reporting: SEO data is noisy at short intervals and leads to reactive
     decisions based on normal fluctuations.
+- question: How do I justify SEO budget or headcount to a board that doesn't understand SEO?
+  answer: >-
+    Frame the request in the board's own terms: revenue per organic visit
+    and SEO ROI, not rankings or traffic. For headcount, ask in phases,
+    one hire, a defined period to show impact, then the next hire tied to
+    a milestone, rather than requesting a full team upfront on a single
+    forecast.

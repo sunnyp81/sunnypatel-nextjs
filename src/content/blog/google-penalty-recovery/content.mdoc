@@ -1,111 +1,134 @@
-Traffic drops are rarely what they look like. A site loses 60% of its organic visits overnight, someone calls it a Google penalty, and the instinct is to start fixing everything at once. That's usually the wrong call — because "penalty" covers two very different situations, each requiring a completely different response.
+Traffic drops are rarely what they look like. A site loses 60% of its organic visits overnight, someone calls it a Google penalty, and the instinct is to start fixing everything at once. That's usually the wrong call, because "penalty" gets used for three genuinely different problems, and each one needs a different response.
 
-I manage 44 websites across different niches and tech stacks. When I audited the portfolio earlier this year, 11 of those 44 had indexation or canonicalisation issues significant enough to suppress traffic. None of them had manual actions. The suppression was quiet, algorithmic, and far easier to fix once diagnosed correctly.
+I manage 44 websites across different niches and tech stacks, and indexation or canonicalisation issues are a recurring pattern across the portfolio. None of the cases I've hit had manual actions attached. The suppression was quiet, algorithmic, and easier to fix once diagnosed correctly than most people expect.
 
-Here's how to diagnose what you're actually dealing with — and what recovery looks like for each type.
+Here's how to work out what you're actually dealing with, and what recovery looks like for each type.
 
-## Manual Actions vs Algorithmic Penalties: Not the Same Thing
+## Three Different Problems, Not Two
 
-The distinction matters because the recovery path is completely different.
+Most guides on this topic split "penalty" into manual actions versus algorithmic hits. That misses a third category that's become more common since Google folded its helpful content signals into core ranking: pages that Google crawls but won't index.
 
-A **manual action** is a human reviewer at Google finding that a specific page or your whole site violates their spam policies. You get a notification in Google Search Console (GSC). It's explicit. Common causes: unnatural links, hidden text, cloaking, pure spam, structured data abuse. Fix the issue, submit a reconsideration request, and Google reviews it manually.
+**A manual action** is a human reviewer at Google finding that a page or your whole site violates search spam policies. You get an explicit notification in Google Search Console (GSC). Common causes: unnatural links, hidden text, cloaking, structured data abuse.
 
-An **algorithmic update** — Panda, Penguin, the Helpful Content Update (HCU), or a core update — is an automated system reassessing your site's signals. There's no notification. No reconsideration request. You won't find it in Search Console. You'll find it by correlating your traffic drop date against Google's update history.
+**An algorithmic demotion** is an automated system reassessing your site's signals and ranking it lower. There's no notification. You find it by correlating your traffic drop date against Google's confirmed update history.
 
-These are not interchangeable. Businesses routinely spend months trying to recover from a "penalty" that was never a penalty — it was a core update, or a technical issue, or a content quality signal. Fixing the wrong thing wastes time and sometimes makes things worse.
+**Not indexed at all** is different from both. The page exists, Google has crawled it, and Google has decided it isn't worth adding to the index. In GSC's Page Indexing report this shows as "Crawled - currently not indexed" or "Discovered - currently not indexed." No penalty has been applied. The page was never in the race to begin with.
+
+These require different fixes. Treating a quiet indexing decision like a link penalty, or a content quality problem like a technical bug, wastes months.
 
 ## Step One: Check GSC for Manual Actions
 
-Before doing anything else: **Security & Manual Actions > Manual Actions** in GSC. Takes 30 seconds.
+Before anything else: **Security & Manual Actions > Manual Actions** in GSC. Takes 30 seconds.
 
-If there's an active manual action, it'll be listed there with a description (site-wide or page-level), the date it was applied, and what policy it violates. If that screen is clean, you don't have a manual action. Move on to diagnosing the real cause.
+If there's an active manual action, it's listed with a description (site-wide or page-level), the date applied, and the policy violated. Clean screen means no manual action. Move on.
 
-## Step Two: Match the Drop Date to an Update
+## Step Two: Check Whether Your Pages Are Actually Indexed
 
-If GSC is clean, pull your traffic graph from GSC Performance over the past 12 months and identify the exact date the drop began. Then cross-reference that against [Google's confirmed update history](https://developers.google.com/search/updates/ranking).
+This step gets skipped constantly, and it shouldn't. Open **Pages** under the Indexing section in GSC and look at the breakdown of non-indexed URLs.
 
-If your drop started within 1-3 days of a confirmed core update or the HCU rollout, that's your culprit. If it started on a random Tuesday with no corresponding update, it's more likely technical — a crawl issue, a hosting change, or an indexation problem.
+If a meaningful share sits under "Crawled - currently not indexed," that's not a ranking problem you can fix with better titles or more backlinks. Google read the page and chose not to index it. Ahrefs' breakdown of this status groups the causes into three buckets: content quality (thin or near-duplicate pages that add nothing over what's already indexed), technical issues (a stray noindex tag, a robots.txt block, a canonical pointing elsewhere, or server errors), and crawl or authority constraints (a large site burning through crawl budget, or a newer domain with limited trust). Since the March 2024 core update folded the old helpful content classifier into core ranking, the content quality bucket accounts for the majority of cases I see.
+
+The fix is not a resubmit-and-wait. Improve the page so it says something the existing top results don't, confirm there's no accidental noindex or canonical mismatch, tighten internal links pointing to it, then use URL Inspection to test the live page and request indexing. Requesting indexing on a page you haven't actually changed wastes the request and teaches Google to trust your requests less.
+
+## Step Three: Match the Drop Date to a Confirmed Update
+
+If GSC is clean of manual actions, the next check is about timing, not links or content.
+
+Pull your traffic graph from GSC Performance over the past 12 months and find the exact date the drop began. Cross-reference it against [Google's confirmed update history](https://developers.google.com/search/updates/ranking).
+
+2026 has had a clear rhythm so far: a Discover-only update in February, a spam update in late March, a core update through late March and early April, a broad core update from 21 May to 2 June, and a further spam update that finished in late June. If your drop lines up with one of those windows within a day or two, that's your cause. If it started on a random Tuesday with no update nearby, it's more likely technical: a crawl issue, a hosting change, or an indexation problem.
 
 ![Google Penalty Recovery Timeline](/images/stats/google-penalty-recovery-timeline.svg)
 
-## Diagnosing Algorithmic Hits
+## Helpful Content Isn't a Separate Penalty Any More
 
-Algorithmic penalties aren't announced. You have to reconstruct what happened from the data.
+A lot of the content still ranking for "Google penalty recovery" talks about the Helpful Content Update (HCU) as if it's a standalone system you can be hit by in isolation. It isn't, and hasn't been since the March 2024 core update. Google folded the helpful content classifier into its core ranking systems, so content helpfulness is now assessed continuously by multiple signals working together, not reassessed periodically by one separate model.
 
-**Panda (content quality)** — Affects sites with thin content, duplicate pages, or content that adds little over what's already ranking. Check: how many of your pages have fewer than 300 words? How many are near-duplicates of each other? What's your ratio of content pages to thin pages?
+Practically, that means there's no single "HCU penalty" to recover from any more. There's a continuous quality signal baked into every core update. If your content reads as written for search engines rather than people, generic across templated pages, or thin relative to what already ranks, it gets suppressed the same way link spam or thin content always has, folded into the general core ranking process rather than surfaced as a named side-update.
 
-**Penguin (link spam)** — Targets unnatural backlink profiles. Penguin is now built into Google's core algorithm and runs in near-real time. Check: does your backlink profile have an unusually high proportion of exact-match anchor text links from low-quality sites? Ahrefs' anchor text distribution report shows this clearly.
+Panda's content-quality signals and Penguin's link-spam signals went through the same journey years earlier. Both were folded into Google's core algorithm back in 2016, with Penguin running in near-real time since. If you're diagnosing a hit today, you're not looking for "which named algorithm caught me." You're looking at which specific signal a core update reassessed: content quality, link profile, or E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) gaps.
 
-**Helpful Content Update (HCU)** — Sitewide signal targeting content written for search engines rather than people. Check: how much of your content relies on templates, data pulls, or formulaic structures without original insight? HCU hit a lot of programmatic SEO sites hard in 2023-2024.
+## What Actually Moved in the Most Recent Core Update
 
-**Core updates** — General reassessment of quality signals across E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness). Harder to pin to a single fix. Usually means improving multiple signals simultaneously: author credentials, original research, citation quality, content depth.
+The May 2026 core update is worth looking at directly, because it shows what "quality" means in practice right now rather than in theory. Trackers following roughly 8,887 domains through that rollout recorded around 5,039 winners against 3,845 losers, with close to 80% of top-10 results shifting somewhere. Winners skewed toward large, established, market-specific brands that own their content outright. Losers were concentrated in thin aggregators, job and travel and price-comparison pages built on interchangeable templates, and generic AI-written affiliate reviews.
+
+That pattern matches what I see across my own portfolio. Sites built on structure alone, without anything a competing page couldn't produce with the same template, are the ones losing ground each cycle. It's also consistent with why "Crawled - currently not indexed" has become more common: Google is applying the same bar at the indexing stage as it later applies at the ranking stage.
 
 ![Penalty Diagnosis Checklist](/images/stats/penalty-diagnosis-checklist.svg)
 
+## Link Spam: Disavow and Reconsideration
+
+If the manual action is link-related, or your backlink profile looks unnatural even without a formal notice, the process is the same either way.
+
+1. Audit the full backlink profile. Ahrefs' anchor text distribution report will show an unnatural concentration of exact-match anchors quickly.
+2. Disavow every low-quality, paid, or spammy link. Partial disavow files for a manual action are routinely rejected, so don't hold links back you're unsure about.
+3. If there's a manual action, submit a reconsideration request through GSC that documents exactly what was wrong and what you changed. Vague requests get rejected.
+4. Wait. Reconsideration reviews typically run 2-4 weeks per cycle, sometimes stretching to 6 if the reviewer has questions or finds something else in the follow-up check. Submitting before the fix is genuinely complete costs you a full cycle when it's rejected.
+
+Without a manual action, disavowing bad links and cleaning up anchor text still helps, because Google's automated spam systems (SpamBrain is the current one doing most of that work) reassess link signals continuously rather than waiting for a periodic update.
+
 ## The Acquisition Scenario: You Bought a Penalised Site
 
-This situation is more common than people expect, particularly in acquihires and digital asset acquisitions where SEO traffic is the primary value driver.
+This is more common than people expect, particularly in acquihires and digital asset deals where SEO traffic is the value being paid for.
 
-If you acquired a site and traffic dropped immediately — or you've pulled the GSC data and found a manual action was already in place — here's the order of operations.
+**First, establish what you actually bought.** Request the full GSC history from the previous owner before close. Look at the 12-month trend, not the headline number. Manual actions show in GSC history and don't disappear when ownership transfers.
 
-**First, establish what you actually bought.** Request the full GSC history from the previous owner before close. Look at the 12-month trend, not the headline number. A site showing 50,000 monthly clicks may be in a slow decline that the seller knows about. Manual actions also show in GSC history — they don't disappear when ownership transfers.
+**If there's a manual action,** the previous owner's behaviour is now your problem. Google doesn't care that you're new. Run the disavow and reconsideration process above, documented and specific.
 
-**If there's a manual action:** The previous owner's behaviour is now your problem. Google doesn't care that you're new. You need to:
+**If there's no manual action but traffic dropped after acquisition,** the cause is usually technical, not algorithmic. Someone "tidies up" the site during handover, changes hosting, updates the CMS, cleans up URLs, and breaks the signals Google relied on. I've written about this pattern in more depth in [SEO after an acquisition](/blog/seo-after-acquisition/), but the fast checks are: did the URL structure change, are redirects fully in place, did robots.txt change, is the sitemap current.
 
-1. Audit the backlink profile fully. Disavow every low-quality, paid, or spammy link. This is not optional — partial disavow requests are rejected.
-2. Fix whatever the manual action specifies. If it's link spam, the disavow. If it's thin content, the content. If it's cloaking, the code.
-3. Submit a reconsideration request through GSC that documents exactly what was wrong and what you've done to fix it. Be specific. Vague requests get rejected.
-4. Wait. Manual action review typically takes 2–8 weeks. Some come back faster. Some take longer if the reviewer finds additional issues in your response.
-
-**If there's no manual action but traffic dropped after acquisition:** The most likely causes are technical, not algorithmic. I've seen this pattern repeatedly. Someone "tidies up" the site during handover — changes hosting, updates the CMS, cleans up URLs — and breaks the signals Google relied on. Check:
-
-- Did the URL structure change? Even adding or removing trailing slashes can cause indexation issues across a large site.
-- Are redirects fully in place? Any broken internal redirect is a lost page.
-- Did robots.txt change? A single misplaced `Disallow` rule can block thousands of pages.
-- Is the sitemap current and submitted? An outdated sitemap confuses Google's crawl prioritisation.
-
-I fixed this exact set of issues on a 200-page site earlier this year. Indexed page count had dropped from 186 to 94 during a CMS migration. The cause was a trailing-slash redirect misconfiguration that created duplicate URL paths — Google was seeing both versions and canonicalising to the wrong one. Fixing the redirect rules and resubmitting the sitemap brought indexed pages back to 178 within 6 weeks.
+I've fixed this exact pattern before: a CMS migration that introduced a trailing-slash redirect misconfiguration, creating duplicate URL paths that Google canonicalised the wrong way and quietly dropped a chunk of the site's indexed pages. Fixing the redirect rules and resubmitting the sitemap brought the indexed count back within weeks.
 
 ## Realistic Recovery Timelines
 
-This is where most recoveries go wrong. People fix the issue correctly, then expect traffic to return in two weeks. When it doesn't, they assume the fix didn't work and start changing other things.
-
-| Penalty Type | Fix Timeline | Recovery Timeline |
+| Situation | Fix Timeline | Recovery Timeline |
 |---|---|---|
-| Manual action (link spam) | 2–4 weeks to audit + disavow | 2–8 weeks post-reconsideration |
-| Manual action (content) | Varies by content volume | 2–8 weeks post-reconsideration |
-| Penguin (algorithmic) | 1–2 weeks to disavow | Near-real-time once processed |
-| HCU / content quality | 2–6 months of content work | Next core update (3–6 months) |
-| Core update | Multiple signal improvements | Next core update (3–6 months) |
-| Technical (crawl/index) | 1–2 weeks to fix | 4–12 weeks for re-crawl + re-index |
+| Manual action (link spam) | 2-4 weeks to audit and disavow | 2-6 weeks post-reconsideration |
+| Manual action (content) | Varies by content volume | 2-6 weeks post-reconsideration |
+| Link spam (algorithmic, no manual action) | 1-2 weeks to disavow | Ongoing, reassessed continuously |
+| Content quality / core ranking demotion | 2-6 months of genuine content work | Next core update |
+| Crawled - currently not indexed | 1-4 weeks once the page is genuinely improved | Days to weeks after a successful reindex request |
+| Technical (crawl or index errors) | 1-2 weeks to fix | 4-12 weeks for re-crawl and re-index |
 
-Algorithmic recovery is not in your control once the fix is done. Google's core updates run on Google's schedule. You can do everything right and still wait 4 months to see the results. That's not a failure — it's how the system works.
+As of writing, Google's last confirmed ranking update finished in late June 2026, with nothing new confirmed through the summer. If your drop is tied to content quality or a core update, that gap works against you: there's no scheduled event for the fix to be reassessed against until Google confirms the next one.
+
+## What Recovery Actually Looks Like
+
+Fixing the cause and getting the traffic back are two different events, and the gap between them is where most people lose patience.
+
+The clearest example I've seen of how bad a content-quality hit can get comes from the September 2023 Helpful Content Update, before it was folded into core ranking. Practitioners who worked through that period describe it as the hardest-hitting update of that era, with some sites losing up to 90% of traffic and, for the worst-affected ones, no realistic path back short of rebuilding the content from scratch. That's an extreme case, not the typical one, but it's a useful reminder that "improve the content" sometimes means more than editing existing pages.
+
+On my own portfolio, one site went through a near-complete impression collapse this year that I traced back to a demotion rather than a technical fault, and remediating it meant rebuilding the weakest sections of the site's content rather than patching individual pages. It's still the exception across 44 sites, not the rule, most of what I find is fixable in weeks, not months.
+
+The pattern that repeats: partial recovery, then a plateau. A manual action gets lifted, traffic comes back 50%, then stalls, because the other half of the drop was an algorithmic signal the manual action had been masking. Keep monitoring for 3-6 months after any fix, not only the first two weeks.
 
 ## What Not to Do During Recovery
 
 A few patterns I see repeatedly that extend recovery instead of accelerating it.
 
-**Don't change everything at once.** If you're recovering from an HCU hit and you simultaneously revamp your content, change your URL structure, and redesign the site, you'll never know what worked. Make changes in isolation where possible. Measure each one.
+**Don't change everything at once.** If you're recovering from a content quality demotion and you simultaneously revamp your content, change your URL structure, and redesign the site, you'll never know what worked. Make changes in isolation. Measure each one.
 
-**Don't delete pages in bulk.** Removing content feels like "cleaning up." But if those pages have backlinks or historical authority, you're destroying signals, not improving them. The right call for thin content is usually to improve it or consolidate it via 301 redirects — not to delete it.
+**Don't delete pages in bulk.** Removing content feels like cleaning up. But if those pages carry backlinks or historical authority, you're destroying signals, not improving them. For thin content, improve it or consolidate it via 301 redirects rather than deleting it outright.
 
-**Don't submit a reconsideration request before the fix is complete.** GSC tracks your submissions. If you submit early, Google reviews and rejects, and you wait 30+ days before you can resubmit. Submit once, after the full fix is in place, with full documentation.
+**Don't submit a reconsideration request before the fix is complete.** GSC tracks your submissions. Submit early, get rejected, and you wait a full cycle before resubmitting. Submit once, after the full fix is in place, with full documentation.
 
-**Don't treat a traffic recovery as complete when it's partial.** I've seen sites recover 50% of lost traffic after fixing a manual action, plateau, and never recover the rest — because the second half of the drop was actually an algorithmic signal the manual action masked. Keep monitoring for 3–6 months after the technical fix.
+**Don't treat a partial recovery as complete.** Half your traffic back after a technical fix can mean there's still a quality signal underneath it. Keep watching.
 
 ## The One-Page Diagnosis
 
-If you're a CEO or investor trying to work out where you stand, this is the shortest path to an answer:
+If you're trying to work out where you stand without a full audit, this is the shortest path to an answer:
 
-1. Open GSC > Security & Manual Actions > Manual Actions. Clean? Not a manual action.
-2. Compare traffic drop date to Google update history. Match? Algorithmic. No match? Likely technical.
-3. If technical: run a Screaming Frog crawl, check indexed page count in GSC, review robots.txt, verify redirects.
-4. If algorithmic: audit content quality, backlink profile, and E-E-A-T signals. Make improvements. Wait for the next core update.
+1. Open GSC > Security & Manual Actions. Clean? Not a manual action.
+2. Open GSC > Pages (Indexing). Large share of pages "Crawled - currently not indexed"? Start there, it's a quality or technical issue, not a ranking one.
+3. Compare your traffic drop date to Google's update history. Match within a day or two? Algorithmic. No match? Likely technical.
+4. If technical: run a Screaming Frog crawl, check indexed page count, review robots.txt, verify redirects.
+5. If algorithmic: audit content quality, backlink profile, and E-E-A-T signals against what's currently winning. Fix what you find. Wait for the next confirmed update.
 
-If you're not sure which category you're in, or you've acquired a site with existing issues and want a clean assessment of what you're dealing with, [get in touch](/contact/). I've worked through this diagnosis across dozens of sites — the patterns repeat more than most people expect.
+If you're not sure which category you're in, or you've acquired a site with existing issues and want a clean read on what you're dealing with, [get in touch](/contact/). I work through this diagnosis regularly across my own sites and client sites, and the patterns repeat more than most people expect.
 
 ## Related Reading
 
-- [Algorithm update recovery service](/services/google-algorithm-update-recovery/) — how I approach recovery engagements for clients
-- [Technical SEO audit](/services/technical-seo-audit/) — diagnosing crawl, index and rendering issues that suppress traffic
-- [How to build topical authority](/blog/how-to-build-topical-authority/) — the content strategy that prevents HCU-style demotions
+- [Algorithm update recovery service](/services/google-algorithm-update-recovery/): how I approach recovery engagements for clients
+- [Technical SEO audit](/services/technical-seo-audit/): diagnosing crawl, index and rendering issues that suppress traffic
+- [SEO after an acquisition](/blog/seo-after-acquisition/): protecting traffic through ownership changes and technical migrations
+- [How to build topical authority](/blog/how-to-build-topical-authority/): the content strategy that prevents quality-driven demotions

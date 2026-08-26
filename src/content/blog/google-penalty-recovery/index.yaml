@@ -1,9 +1,10 @@
 title: Google Penalty Recovery
-metaTitle: 'Google Penalty Recovery: What Business Owners Need To Know'
+metaTitle: 'Google Penalty Recovery: Manual Action, Algorithm Hit, or Not Indexed'
 description: >-
-  Manual action or algorithm hit? Here's how to diagnose a Google penalty, what recovery actually takes, and what to do if you've acquired a penalised site.
+  Manual action, algorithmic demotion, or a page Google won't even index? Here's how to tell them apart, what 2026's core updates actually hit, and what recovery really takes.
 ogImage: /images/stats/google-penalty-recovery-timeline.svg
 date: '2026-04-06'
+lastUpdated: '2026-08-26'
 tags:
 - Google Penalties
 - Technical SEO
@@ -11,13 +12,16 @@ tags:
 faqs:
 - question: How do I know if my site has a Google manual action?
   answer: >-
-    Log in to Google Search Console, go to Security & Manual Actions > Manual Actions. If there's an active penalty, it's listed there with a description and the date it was applied. If that page is clean, you don't have a manual action — your traffic drop is algorithmic or technical.
+    Log in to Google Search Console, go to Security & Manual Actions > Manual Actions. If there's an active penalty, it's listed there with a description and the date it was applied. If that page is clean, you don't have a manual action, and your traffic drop is algorithmic or technical instead.
+- question: What does "Crawled - currently not indexed" mean, and is it a penalty?
+  answer: >-
+    No, it's not a penalty. It means Google crawled the page and decided it wasn't worth adding to the index, usually because the content is thin, near-duplicate, or doesn't add anything over pages already indexed, though a stray noindex tag, robots.txt block, or canonical mismatch can cause it too. Check GSC's Pages report under Indexing to see how many URLs carry this status, then fix the actual cause before requesting indexing again.
+- question: Is the Helpful Content Update still a separate penalty in 2026?
+  answer: >-
+    No. Since the March 2024 core update, Google folded the helpful content classifier into its core ranking systems, so content helpfulness is assessed continuously rather than by a standalone model. There's no single "HCU penalty" to recover from any more, only a quality signal that's part of every core update.
 - question: How long does Google penalty recovery take?
   answer: >-
-    Manual action recovery takes 2–8 weeks after submitting a reconsideration request, assuming the underlying issue is fully fixed. Algorithmic recovery is slower — you won't see meaningful movement until the next core update, which typically happens every 3–6 months. There's no way to force the timeline.
+    Manual action recovery typically takes 2-6 weeks after submitting a reconsideration request, assuming the underlying issue is fully fixed first. Algorithmic or content-quality recovery is slower: you won't see meaningful movement until Google's next confirmed core update, and there's no way to force that timeline.
 - question: I acquired a site and traffic dropped immediately after. Is it penalised?
   answer: >-
-    Not necessarily. Most post-acquisition traffic drops are caused by technical changes made during the handover — hosting migrations, URL structure changes, missing redirects, or robots.txt errors — rather than penalties. Check GSC for manual actions first, then audit your crawl errors, indexed page count, and any changes made in the 30 days before the drop.
-- question: Can I recover from a Google HCU (Helpful Content Update) hit?
-  answer: >-
-    Yes, but it's slow. HCU is a sitewide signal, not page-level, so you need to improve the overall quality of the site — not just update a few pages. Focus on removing thin content, adding genuine expertise signals (author credentials, first-hand experience, original data), and fixing any pages that exist primarily for search engines rather than readers. Recovery typically comes at the next major update, 3–6 months out.
+    Not necessarily. Most post-acquisition traffic drops are caused by technical changes made during the handover, hosting migrations, URL structure changes, missing redirects, or robots.txt errors, rather than penalties. Check GSC for manual actions first, then audit your crawl errors, indexed page count, and any changes made in the 30 days before the drop.

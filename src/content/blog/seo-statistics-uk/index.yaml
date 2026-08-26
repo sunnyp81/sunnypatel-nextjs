@@ -1,40 +1,38 @@
 title: SEO Statistics UK
-metaTitle: 'SEO Statistics UK: 825% ROI Data'
+metaTitle: 'SEO Statistics UK 2026: Real CTR + ROI Data'
 description: >-
-  SEO statistics UK 2026: Position 1 gets 27.6% CTR, 825% average ROI. 85+
-  verified data insights. Build your SEO business case with data today.
+  SEO statistics UK 2026, with real CTR data from 53 UK sites (5.96% at
+  position 1, not 27%), UK market size, ROI by industry, and why the
+  published AI Overview stats disagree with each other.
 ogImage: /images/stats/google-ctr-by-position.svg
 date: '2026-03-07'
-lastUpdated: '2026-06-20'
+lastUpdated: '2026-08-26'
 tags:
   - SEO Statistics
   - Industry Data
   - SEO ROI
 faqs:
-  - question: What is the average ROI of SEO in the UK?
-    answer: >-
-      The average SEO ROI across all industries is 825%, with variations like Real Estate at 1,389% and B2B SaaS at 702%. SEO also generates leads at 61% lower cost than paid search, with a 14.6% close rate. (Source: First Page Sage, 2024)
-  - question: What percentage of web traffic comes from organic search?
-    answer: >-
-      Globally, organic search accounts for 53.3% of all website traffic, making it the largest source across industries. It drives over 1,000% more traffic than organic social media. For blog content, 85.19% of traffic originates from organic search. (Source: BrightEdge, 2025)
   - question: What is the click-through rate for position 1 on Google?
     answer: >-
-      Google's Position 1 secures 27.6% of clicks, followed by 15.8% for Position 2 and 11.0% for Position 3. The top three results capture 68.7% of all clicks, while page two results (Position 11+) receive only 0.63%, rendering them effectively invisible. (Source: Backlinko, 2024)
+      It depends entirely on whose data you use. Published meta-analyses (Backlinko, First Page Sage) put position 1 at 27.6% to 39.8%, but that's dominated by brand searches. Across 53 UK sites I manage, ranking mostly for non-brand queries, position 1 earned 5.96% CTR, and position 4 beat it at 8.61%. If your traffic is non-brand, the lower figure will predict your reality better. (Sources: First Page Sage 2026, own data, 90 days to 7 July 2026)
+  - question: What is the average ROI of SEO?
+    answer: >-
+      First Page Sage's 2026 report no longer states one blended average; it gives a per-industry range from 317% (eCommerce) to 1,389% (Real Estate) over 3 years. Separately, First Page Sage's SEO-versus-PPC comparison puts SEO at 748% ROI against PPC's 36% over the same period. SEO leads also close at 14.6% versus 1.7% for outbound, at $31 per lead versus $181 for PPC. (Source: First Page Sage, 2026)
   - question: How is AI search affecting SEO and organic traffic?
     answer: >-
-      Google's AI Overviews now appear in roughly 25% of searches (up from 13% in early 2025) and reduce organic CTR by 61% when present. Yet cited brands gain 35% more clicks. With 68% of Google searches ending in zero clicks in 2026 (up from 58.5% in 2024), earning AI citations through topical authority is crucial for protecting and amplifying organic performance. (Sources: Conductor 2026, Seer Interactive, SparkToro 2026)
+      Google AI Overviews appear on anywhere from 20% to 48% of tracked queries depending on the study's sample, and separate 2026 tracking shows organic CTR on AI Overview queries falling to around 0.64% against 3.82% without one. 68.01% of US Google searches ended without a click in the first four months of 2026, up from 60.45% in 2024. Across 12 of my own sites, AI assistants sent 5,240 referral sessions in 90 days, 91% of it from ChatGPT alone. (Sources: Conductor, BrightEdge, SparkToro, own data, 2026)
   - question: What percentage of UK searches have local intent?
     answer: >-
-      46% of Google searches have local intent. Notably, 76% of mobile local searchers visit a related business within 24 hours, with 28% making a purchase. In 2024, 87% of UK consumers used Google to evaluate local businesses, highlighting the importance of local SEO. (Source: Google, BrightLocal)
+      46% of Google searches have local intent. 76% of mobile local searchers visit a related business within 24 hours, and 28% of those visits convert to a purchase. The Google Local Pack captures 44% of clicks on local results pages, with the top three positions inside it taking 93% of that. (Source: Google, BrightLocal)
   - question: How many websites pass Google's Core Web Vitals?
     answer: >-
-      Only 49.7% of mobile websites pass Google's Core Web Vitals. A one-second page load delay reduces conversions by 20%, with 53% of mobile users abandoning sites taking over three seconds. Additionally, only 30% of web pages use structured data, despite a potential 30% CTR increase. (Source: HTTP Archive, Google)
-  - question: What is the typical organic search market share in the UK?
+      48-49% of mobile websites pass Core Web Vitals as of 2026 (HTTP Archive), up from 32% in 2021 and 36% in 2023, so progress is real but slowing. A one-second page load delay still reduces conversions by roughly 20%. (Source: HTTP Archive, Google)
+  - question: What is the search engine market share in the UK?
     answer: >-
-      In the UK, Google dominates the organic search market, consistently holding over 90% of the market share. This high concentration makes optimizing for Google's algorithm paramount for businesses targeting the UK audience.
-  - question: How does mobile search impact UK SEO strategies?
+      Google holds around 91-92% of UK search overall (Statcounter, April 2026). Bing sits at roughly 5.9-6.2% blended, but climbs to nearly 13% on UK desktop specifically, the widest device split of any major search engine in the UK market.
+  - question: How big is the UK SEO industry?
     answer: >-
-      Mobile search significantly impacts UK SEO strategies, with a growing percentage of searches originating from mobile devices. Optimizing for mobile-friendliness, page speed, and local intent is crucial for capturing this expanding audience.
-  - question: What role does E-E-A-T play in UK SEO?
+      The UK SEO and internet marketing consultancy industry generated £24.6 billion in revenue in 2025-26, growing at a 6.6% compound annual rate over five years, across 35,088 UK businesses. (Source: IBISWorld, via SeoWorks UK SEO Industry Report 2026)
+  - question: Why do published SEO statistics disagree with each other?
     answer: >-
-      E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is vital for UK SEO, especially for YMYL (Your Money Your Life) topics. Google prioritizes content from credible sources, making it essential to demonstrate clear expertise and build trust with your audience.
+      Because "SEO statistics" studies sample different query mixes. CTR studies dominated by brand searches report far higher position 1 CTR than studies of non-brand, long-tail queries. AI Overview appearance rate studies vary by 20-48% because informational and healthcare queries trigger them far more than local or transactional ones. Match the study's sample to your own query mix before trusting a headline number, or check it against your own Search Console data.

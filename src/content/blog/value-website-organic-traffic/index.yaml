@@ -5,6 +5,7 @@ description: >-
   real organic traffic value using GSC data, not broker vanity metrics.
 ogImage: /images/stats/organic-traffic-valuation-formula.svg
 date: '2026-04-06'
+lastUpdated: '2026-08-26'
 tags:
 - SEO Valuation
 - SEO Due Diligence
@@ -12,30 +13,42 @@ tags:
 faqs:
 - question: What multiplier should I use to value a website's organic traffic?
   answer: >-
-    Stable, diversified organic traffic typically commands a 24-36x monthly
-    revenue multiplier. Sites with declining non-brand traffic, high keyword
-    concentration, or thin backlink profiles sit at the lower end. Sites with
-    growing commercial-intent traffic across hundreds of queries push toward
-    36x or higher.
+    Stable, diversified organic traffic typically commands 24x to 36x monthly
+    revenue, broadly consistent with the roughly 3.3x average annual-profit
+    multiple seen across completed website sales in recent market data.
+    Sites with declining non-brand traffic, high keyword concentration, or a
+    thin backlink profile sit at the lower end. Sites with growing
+    commercial-intent traffic across hundreds of queries push toward the top
+    of the range or beyond it.
 - question: Why are broker traffic numbers usually inflated?
   answer: >-
-    Brokers typically use Google Analytics total traffic, which includes bot
-    visits, brand searches, direct traffic, and referral traffic bundled into
-    one number. The real organic value comes from non-brand clicks in Google
-    Search Console multiplied by conversion rate and average order value.
-    That figure is almost always 40-70% lower than the headline number.
+    Brokers typically quote total Google Analytics traffic, which bundles
+    bot visits, brand searches, direct traffic, and referral traffic into
+    one figure. The real organic value comes from non-brand clicks in
+    Search Console, multiplied by conversion rate and average order value.
+    That number is almost always 40 to 70% lower than the headline figure.
 - question: How do I calculate the replacement cost of organic traffic?
   answer: >-
-    Take the top 20 non-brand keywords driving clicks in Google Search
-    Console. Look up each keyword's Google Ads CPC. Multiply CPC by monthly
-    clicks for each keyword, then sum the totals. This gives you the monthly
-    cost to replace that organic traffic with paid ads — a concrete,
-    comparable valuation benchmark.
+    Take the top 20 non-brand keywords driving clicks in Search Console.
+    Look up each keyword's Google Ads CPC in Keyword Planner. Multiply CPC
+    by monthly clicks for each keyword, then sum the totals. That gives the
+    monthly cost to replace the organic traffic with paid ads, a concrete,
+    comparable benchmark. Treat the result as a floor: organic clicks
+    convert at a premium over paid clicks on the same query.
+- question: Should I use the same method to value a site sale and to justify my own SEO budget?
+  answer: >-
+    No. A sale needs a lump-sum figure, built from equivalent paid traffic
+    value and cross-checked against an earnings multiple. Justifying
+    ongoing spend needs a conversion-value ROI calculation instead,
+    comparing monthly incremental revenue against monthly cost, with no
+    multiplier applied. Using the sale formula to justify a retainer
+    overstates the case, and using the ROI formula to price a sale
+    undervalues the asset.
 - question: What are the biggest red flags when valuing a website's organic traffic?
   answer: >-
-    Five red flags that should reduce your valuation: declining non-brand
-    traffic over three or more months, a single page driving 40% or more of
-    total traffic, private blog network backlinks, fewer than 50 unique
-    ranking queries relative to total pages, and no technical SEO
-    fundamentals like proper canonicals, mobile optimisation, or structured
-    data.
+    Declining non-brand traffic over three or more months, a single page
+    driving 40% or more of total traffic, private blog network backlinks,
+    fewer than 50 unique ranking queries relative to total pages, no
+    technical SEO fundamentals like proper canonicals, mobile optimisation,
+    or structured data, and reluctance to share Search Console access
+    rather than an Analytics-only export.

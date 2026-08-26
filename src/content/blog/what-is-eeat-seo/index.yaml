@@ -1,12 +1,56 @@
 title: What is E-E-A-T in SEO
 metaTitle: 'What is E-E-A-T (Google E-A-T)?'
 description: >-
-  E-E-A-T stands for Experience, Expertise, Authoritativeness, and
-  Trustworthiness. Learn what each component means and how to demonstrate it to
-  improve your rankings.
+  What E-E-A-T actually is (not a ranking factor), how Google assesses it
+  without a score, and why it now shapes AI Overviews and ChatGPT citations.
 ogImage: /images/blog/what-is-eeat-seo.png
 date: '2025-10-01'
+lastUpdated: '2026-08-26'
 tags:
 - E-E-A-T
 - Google Quality
 - SEO
+- AI Search
+faqs:
+  - question: Is E-E-A-T a Google ranking factor?
+    answer: >-
+      Not directly. It is a framework in Google's Search Quality Rater
+      Guidelines, used by human raters to score sample pages so Google can
+      check whether its ranking systems are working as intended. Rater scores
+      do not change where a specific page ranks. The signals that demonstrate
+      E-E-A-T, such as citations, accurate structured data, and a satisfying
+      answer, do correlate with rankings, which is why the two get treated as
+      the same thing when they are not.
+  - question: How do you add E-E-A-T to a website?
+    answer: >-
+      You cannot add it directly, because it describes a quality of the
+      content and the entity behind it, not a field you fill in. What you can
+      do is make the reality more visible: a specific About page, real named
+      authors with verifiable bios, first-hand detail in the content itself,
+      accurate schema markup, and external citations earned rather than
+      fabricated. Adding a bio to content nobody actually wrote does not
+      create expertise, it asserts something false.
+  - question: Does E-E-A-T apply to every page, or only YMYL content?
+    answer: >-
+      It applies to everything, but the bar moves. YMYL topics, meaning
+      content about finance, health, legal, or safety matters, are held to a
+      formal-expertise standard because getting them wrong can cause real
+      harm. Everything else gets more latitude for everyday expertise,
+      meaning direct, lived experience without formal credentials.
+  - question: Does a named author actually help E-E-A-T?
+    answer: >-
+      It helps establish the transparency and accuracy the guidelines call
+      for, and Google's own guidance encourages accurate bylines where
+      readers would expect one. What it does not do, according to Google, is
+      give a well-known author's name a measurable ranking boost over an
+      unknown one purely for being recognisable. The value is in the honesty
+      of the attribution, not the fame of the name.
+  - question: Does E-E-A-T affect AI Overviews and ChatGPT citations?
+    answer: >-
+      Yes, indirectly, in the same way it affects traditional rankings. AI
+      systems have to select trustworthy sources before generating an
+      answer, and the signals they lean on, identifiable authorship, direct
+      experience with the topic, accurate entity data, overlap heavily with
+      E-E-A-T. Treat unverified statistics about exact citation percentages
+      with scepticism; track your own AI citation performance through Bing
+      Webmaster Tools instead.

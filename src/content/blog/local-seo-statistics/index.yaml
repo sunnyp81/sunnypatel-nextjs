@@ -5,25 +5,31 @@ description: >-
   reviews, mobile search & conversion data. Benchmark now.
 ogImage: /images/stats/near-me-search-stats.svg
 date: '2026-01-28'
-lastUpdated: '2026-06-20'
+lastUpdated: '2026-08-26'
 tags:
   - Local SEO
   - Statistics
   - Google Maps
   - Local Search
 faqs:
+  - question: What is the click-through rate for each position in the Google Local Pack?
+    answer: >-
+      Position 1 in the Local Pack gets a 17.8% click-through rate, position 2 gets 13.6%, and position 3 gets 10.4%, together accounting for roughly 42% of all clicks on a local results page. Ranking fourth or lower delivers almost no traffic, so securing one of the three visible positions is the core goal of local SEO. (Source: BrightLocal, Backlinko, 2026)
+  - question: How many views, clicks, and direction requests does an average Google Business Profile get?
+    answer: >-
+      An average Google Business Profile gets around 1,260 views, 428 website clicks, and 340 direction requests a month, and a complete profile earns 7 times more clicks than an incomplete one. Despite that, only 44% of Google Business Profiles are fully optimised, so most businesses are leaving visibility on the table. (Sources: BrightLocal, SOCi, Google, 2026)
+  - question: Do more Google reviews always mean a higher local pack ranking?
+    answer: >-
+      Not directly. Businesses with 50 or more reviews are 266% more likely to appear in the Local Pack, but review recency now carries more ranking weight than raw count, and a business with a steady trickle of recent reviews can outrank one sitting on a large but ageing pile. Top-three businesses average 561 reviews, though crossing a review-count threshold matters more than chasing hundreds more. (Sources: BrightLocal, Shopify, Whitespark, 2026)
+  - question: Does replying to Google reviews improve local search rankings?
+    answer: >-
+      No direct evidence supports that reply activity itself moves rankings, according to the consensus among experienced local SEOs discussing it on Local Search Forum. It is a trust and conversion factor instead: 88% of consumers say they would use a business that replies to all its reviews, against 47% for one that never responds, a 41-point gap. (Sources: BrightLocal, Local Search Forum, 2026)
+  - question: Why does my business look worse in Google Maps when I search it myself than what a rank tracker shows?
+    answer: >-
+      Two things usually explain the gap. Repeated searches of your own business without clicking through can train Google to treat competitors as more relevant to you personally, and a phone's location (blending GPS, wifi, cell-tower triangulation, and IP address) is far less precise than the fixed coordinates a grid-based rank tracker uses. Check rankings with a grid tool or a clean logged-out browser, not your own phone. (Source: Local Search Forum, 2026)
+  - question: Are AI Overviews reducing clicks from local searches?
+    answer: >-
+      Yes. AI Overviews now appear on roughly 40% of local business searches, and Ahrefs' ongoing study found click-through to the top organic result fell 34.5% in an initial 300,000-keyword sample, widening to 58% by December 2025 data. A Local Pack listing sits outside the AI Overview snippet, which is one reason Google Business Profile visibility matters more now, not less. (Sources: Shopify, Ahrefs, 2026)
   - question: What percentage of "near me" searches lead to a store visit?
     answer: >-
-      76% of people who search for something "near me" on a mobile phone visit a related business within 24 hours, and 28% of those searches result in a purchase. Around 1.5 billion "near me" searches happen globally every month, roughly 50 million per day. (Sources: Backlinko, BrightLocal, 2026)
-  - question: How important is the Google Local Pack for clicks?
-    answer: >-
-      The Google Local Pack (Map Pack) captures 44% of all clicks on local search results pages, and the top three results within it receive 93% of local pack clicks. Ranking fourth in the Local Pack delivers almost no traffic, so securing one of the three visible positions is the core goal of local SEO. (Source: BrightLocal, 2026)
-  - question: Does a complete Google Business Profile actually drive more business?
-    answer: >-
-      Yes. Businesses with complete Google Business Profiles receive 7 times more clicks than those with incomplete profiles and are 2.7 times more likely to be seen as reputable. With 98% of consumers searching online for local businesses, the profile is the single highest-return asset in local SEO. (Source: Google, BrightLocal, 2026)
-  - question: How much of local search is on mobile?
-    answer: >-
-      84% of local searches are conducted on mobile devices, and 30% of all mobile searches are location-related. Because 53% of mobile users abandon a site that takes longer than three seconds to load, mobile page speed directly affects whether local search visibility converts to enquiries. (Sources: BrightLocal, Google, 2026)
-  - question: Do online reviews affect local rankings and conversions?
-    answer: >-
-      Reviews are both a ranking and a conversion factor. 88% of consumers would use a business that responds to all its reviews, but only 47% would consider one that does not respond at all, a 41-point trust gap. 71% of consumers will not use a business rated below 3 stars, so maintaining a 4-plus star average with steady recent reviews is essential. (Source: BrightLocal, 2026)
+      76% of people who search for something "near me" on a mobile phone visit a related business within 24 hours, and 78% of local mobile searches convert to an offline purchase. Published estimates for total monthly "near me" search volume vary widely by source and methodology, so the growth trend matters more than any single volume figure. (Sources: Backlinko, Shopify, Searchlab, 2026)

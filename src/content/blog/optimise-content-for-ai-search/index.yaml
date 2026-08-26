@@ -1,11 +1,44 @@
 title: Optimise Content for AI Search
 metaTitle: 'How to Optimise Content for AI Search'
 description: >-
-  Practical guide to optimising content for Bing Copilot, ChatGPT Search, and
-  Google AI Overviews. Learn the 7 content patterns that earn AI citations.
+  How Google AI Overviews, ChatGPT, and Perplexity actually select and cite
+  sources in 2026, and the content structure, schema, and measurement changes
+  that follow from it.
 ogImage: /images/blog/optimise-content-for-ai-search.png
 date: '2026-02-12'
+lastUpdated: '2026-08-26'
 tags:
 - AI Search
 - Content Optimisation
 - GEO
+- AEO
+faqs:
+  - question: What is the difference between GEO, AEO, and SEO?
+    answer: >-
+      SEO earns ranking positions in traditional search results. AEO (Answer
+      Engine Optimisation) gets a specific passage extracted as a direct
+      answer, such as an AI Overview. GEO (Generative Engine Optimisation)
+      gets your brand or content cited inside AI-generated answers from
+      ChatGPT, Perplexity, and Gemini. They overlap but a page can succeed at
+      one and fail at the other two.
+  - question: Does llms.txt actually help you get cited by AI search?
+    answer: >-
+      Not for citations. A 300,000-domain study found no correlation between
+      having an llms.txt file and AI citation frequency, and Google's John
+      Mueller has said no AI provider has confirmed using it for retrieval.
+      It does help AI coding tools such as Cursor navigate your
+      documentation, so add it for developers, not for search visibility.
+  - question: Does Google Search Console show AI Overview data now?
+    answer: >-
+      Partially. Google began rolling out a Generative AI performance report
+      under Performance in Search Console in June 2026, reaching UK site
+      owners first. It shows impressions for AI Overviews and AI Mode
+      separately from web results, but does not yet include click data.
+  - question: How do I measure whether my content gets cited by AI search?
+    answer: >-
+      Use three sources together. Bing Webmaster Tools reports AI Copilot
+      citation counts per page. Search Console's Generative AI report shows
+      AI Overview impressions. GA4 referral sessions from sources like
+      chatgpt.com and perplexity.ai measure actual click-throughs, though
+      35 to 70% of genuine AI referral sessions arrive with no referrer and
+      get counted as Direct traffic instead.

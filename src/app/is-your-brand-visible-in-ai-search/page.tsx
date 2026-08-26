@@ -39,7 +39,7 @@ const FAQS = [
   },
   {
     q: "What happens after I run the check?",
-    a: "You get an instant scored report broken down by the four checks above, with specific recommendations for anything that failed. If you want the deeper version, book a free consultation and the paid audit or ongoing engagement will be discussed only if it fits.",
+    a: "You get an instant scored report broken down by the four checks above, with specific recommendations for anything that failed. If you want the deeper version, get in touch and the paid audit or ongoing engagement will be discussed only if it fits.",
   },
 ];
 

@@ -195,7 +195,7 @@ export default function ProofPage() {
             className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-brand/40"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Book a free call
+            Get in touch
           </Link>
         </div>
       </div>

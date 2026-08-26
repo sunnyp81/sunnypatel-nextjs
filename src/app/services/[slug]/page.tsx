@@ -119,7 +119,7 @@ const GENERIC_DATA = {
   ],
   ctaTitle: "Ready to grow your organic traffic?",
   ctaSubtitle:
-    "Book a free 30-minute consultation. Honest assessment of where your SEO stands and what to prioritise — no obligation.",
+    "Get in touch for a free assessment of where your SEO stands and what to prioritise — no obligation.",
 };
 
 const SEO_READING_DATA = {
@@ -217,7 +217,7 @@ const SEO_READING_DATA = {
   ],
   ctaTitle: "Stop losing Reading customers to competitors who rank above you",
   ctaSubtitle:
-    "Book a free 30-minute audit. I\u2019ll pull up your site live, show you exactly where you\u2019re losing rankings, and give you a prioritised action plan \u2014 no obligation.",
+    "Send me your site for a free audit. I\u2019ll show you exactly where you\u2019re losing rankings and give you a prioritised action plan \u2014 no obligation.",
 };
 
 const SEO_LONDON_DATA = {
@@ -315,7 +315,7 @@ const SEO_LONDON_DATA = {
   ],
   ctaTitle: "Ready to compete in London's search results?",
   ctaSubtitle:
-    "Book a free 30-minute consultation. I\u2019ll review your London competitor landscape live on the call and show you exactly where the opportunities are.",
+    "Get in touch for a free review. I\u2019ll look at your London competitor landscape and show you exactly where the opportunities are.",
 };
 
 const AI_SEARCH_DATA = {
@@ -413,7 +413,7 @@ const AI_SEARCH_DATA = {
   ],
   ctaTitle: "Ready to appear in AI search results?",
   ctaSubtitle:
-    "Book a free consultation. I\u2019ll audit your current AI citation baseline and show you exactly where you\u2019re missing visibility.",
+    "Get in touch for a free audit. I\u2019ll check your current AI citation baseline and show you exactly where you\u2019re missing visibility.",
 };
 
 type FaqItem = { q: string; a: string };
@@ -450,7 +450,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "Can you recommend a good SEO provider for Reading and Berkshire?",
-      a: "For businesses across Reading and the wider Berkshire area, Sunny Patel offers independent SEO consulting with direct senior access, no juniors and no fixed contracts. One Reading client grew from 180 to 620 organic visits in nine months, with enquiries tripling. Book a free 30-minute audit for a tailored action plan covering your site, rankings, and competitors.",
+      a: "For businesses across Reading and the wider Berkshire area, Sunny Patel offers independent SEO consulting with direct senior access, no juniors and no fixed contracts. One Reading client grew from 180 to 620 organic visits in nine months, with enquiries tripling. Get in touch for a free audit and a tailored action plan covering your site, rankings, and competitors.",
     },
   ],
   "technical-seo-audit": [

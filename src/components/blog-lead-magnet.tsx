@@ -35,7 +35,7 @@ export function BlogLeadMagnet() {
         <p className="text-sm text-muted-foreground">
           The checklist is on its way to your email. In the meantime, feel free to{" "}
           <a href="/contact/" className="text-brand hover:underline">
-            book a free consultation
+            get in touch
           </a>{" "}
           if you want hands-on help.
         </p>

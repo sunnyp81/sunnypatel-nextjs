@@ -185,7 +185,7 @@ export default function AiVisibilityConsultantPage() {
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <GradientButton asChild>
                 <Link href="#book" className="gap-2">
-                  Book a Consultation
+                  Make an Enquiry
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </GradientButton>

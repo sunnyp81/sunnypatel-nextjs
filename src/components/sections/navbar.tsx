@@ -45,7 +45,9 @@ export function Navbar() {
               fill="url(#ng)"
             >SP</text>
           </svg>
-          Sunny<span className="text-brand">Patel</span>
+          <span>
+            Sunny<span className="text-brand">Patel</span>
+          </span>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">

@@ -62,7 +62,7 @@ export function Hero() {
       <p className="mt-4 text-sm text-white/50">
         Instant A-F score: SEO, speed, security, content. No sign-up.{" "}
         <a href="#contact" className="text-white/70 underline underline-offset-2 transition-colors hover:text-white">
-          Or book a free consultation
+          Or get in touch
         </a>
       </p>
 

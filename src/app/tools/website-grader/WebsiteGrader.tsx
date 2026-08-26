@@ -549,13 +549,13 @@ export default function WebsiteGrader() {
                 Want to improve your score?
               </h2>
               <p className="max-w-lg text-sm text-muted-foreground">
-                I help businesses in Reading and across the UK improve their search rankings, site speed, and technical SEO. Book a free 30-minute consultation to discuss how to fix these issues and grow your organic traffic.
+                I help businesses in Reading and across the UK improve their search rankings, site speed, and technical SEO. Get in touch to discuss how to fix these issues and grow your organic traffic.
               </p>
               <Link
                 href="/contact/"
                 className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
               >
-                Book a Free Consultation
+                Make an Enquiry
               </Link>
             </div>
           </div>

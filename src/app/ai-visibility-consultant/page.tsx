@@ -3,6 +3,7 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { ServiceInlineForm } from "@/components/service-inline-form";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { AiVisibilityProof } from "@/components/ai-visibility-proof";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { faqSchema, schemaGraph, breadcrumbSchema } from "@/lib/schema";
 import Link from "next/link";
@@ -299,6 +300,8 @@ export default function AiVisibilityConsultantPage() {
               </p>
             </div>
           </section>
+
+          <AiVisibilityProof />
 
           {/* Path / offer */}
           <section className="mb-16">

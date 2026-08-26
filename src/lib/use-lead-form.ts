@@ -23,7 +23,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
   const [formData, setFormData] = useState<T>(opts.initial);
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   }
@@ -55,6 +55,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
             value: opts.leadValue ?? 50,
             currency: "GBP",
             transport_type: "beacon",
+            ...("howHeard" in formData ? { how_heard: formData.howHeard } : {}),
           });
         }
       }

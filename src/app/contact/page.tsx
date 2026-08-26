@@ -46,7 +46,7 @@ export default function ContactPage() {
             Let&apos;s Work Together
           </h1>
           <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-            Book a free 30-minute consultation. No obligation — just honest advice on where your SEO stands.
+            Get in touch for a free consultation. No obligation, honest advice on where your SEO stands.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />

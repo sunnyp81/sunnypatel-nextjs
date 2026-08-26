@@ -4,6 +4,16 @@ const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.c
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
 const LEAD_MAGNET_FROM = "Sunny Patel <hello@sunnypatel.co.uk>";
 
+const HOW_HEARD_LABELS: Record<string, string> = {
+  google: "Google search",
+  ai_assistant: "ChatGPT, Perplexity, or another AI assistant",
+  linkedin: "LinkedIn",
+  referral: "Referral or word of mouth",
+  directory: "A directory listing (Clutch, The Manifest, etc.)",
+  existing_client: "Existing client",
+  other: "Other",
+};
+
 const LEAD_MAGNETS: Record<string, { subject: string; url: string; description: string }> = {
   "seo-audit-checklist": {
     subject: "Your SEO audit checklist",
@@ -54,7 +64,7 @@ export async function POST(request: Request) {
       "unknown";
 
     const body = await request.json();
-    const { name, email, phone, message, company, turnstileToken, leadMagnet } = body;
+    const { name, email, phone, message, company, turnstileToken, leadMagnet, howHeard } = body;
 
     // Honeypot: real users never see or fill `company`. Bots fill every field.
     if (typeof company === "string" && company.trim() !== "") {
@@ -111,6 +121,11 @@ export async function POST(request: Request) {
           `Name: ${name}`,
           `Email: ${email}`,
           `Phone: ${phone || "Not provided"}`,
+          `How they heard about me: ${
+            typeof howHeard === "string" && HOW_HEARD_LABELS[howHeard]
+              ? HOW_HEARD_LABELS[howHeard]
+              : "Not provided"
+          }`,
           ``,
           `Message:`,
           message,

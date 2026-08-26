@@ -70,6 +70,54 @@ export function FormField({
   );
 }
 
+export function FormSelect({
+  id,
+  label,
+  options,
+  required = false,
+  value,
+  onChange,
+  disabled,
+}: {
+  id: string;
+  label: string;
+  options: { value: string; label: string }[];
+  required?: boolean;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  disabled?: boolean;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="mb-2 block text-sm font-medium text-muted-foreground"
+      >
+        {label}
+        {required && <span className="ml-1 text-brand">*</span>}
+      </label>
+      <select
+        id={id}
+        value={value}
+        onChange={onChange}
+        required={required}
+        disabled={disabled}
+        aria-required={required || undefined}
+        className={`${FIELD_CLASS} appearance-none`}
+      >
+        <option value="" disabled>
+          Select one
+        </option>
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 /** Error banner — announced to assistive tech via role="alert". */
 export function FormError({
   message,
@@ -115,7 +163,7 @@ export function FormSuccess({
         className="text-xl font-bold text-foreground"
         style={{ fontFamily: "var(--font-heading)" }}
       >
-        Message sent!
+        Message sent
       </h3>
       <p className="max-w-xs text-sm text-muted-foreground">{message}</p>
       <button

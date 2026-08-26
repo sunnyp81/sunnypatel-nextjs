@@ -2,8 +2,18 @@
 
 import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { GlowCard } from "@/components/ui/glow-card";
-import { FormField, FormError, FormSuccess } from "@/components/ui/form-field";
+import { FormField, FormSelect, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
+
+const HOW_HEARD_OPTIONS = [
+  { value: "google", label: "Google search" },
+  { value: "ai_assistant", label: "ChatGPT, Perplexity, or another AI assistant" },
+  { value: "linkedin", label: "LinkedIn" },
+  { value: "referral", label: "Referral or word of mouth" },
+  { value: "directory", label: "A directory listing (Clutch, The Manifest, etc.)" },
+  { value: "existing_client", label: "I'm an existing client" },
+  { value: "other", label: "Other" },
+];
 
 const contactItems = [
   {
@@ -29,7 +39,7 @@ const contactItems = [
 export function Contact() {
   const { status, setStatus, errorMsg, formData, handleChange, handleSubmit } =
     useLeadForm({
-      initial: { name: "", email: "", phone: "", message: "" },
+      initial: { name: "", email: "", phone: "", message: "", howHeard: "" },
       eventCategory: "contact",
       eventLabel: "contact_form",
     });
@@ -132,6 +142,15 @@ export function Contact() {
                     type="tel"
                     placeholder="07xxx xxx xxx"
                     value={formData.phone}
+                    onChange={handleChange}
+                    disabled={status === "loading"}
+                  />
+                  <FormSelect
+                    id="howHeard"
+                    label="How did you hear about me?"
+                    options={HOW_HEARD_OPTIONS}
+                    required
+                    value={formData.howHeard}
                     onChange={handleChange}
                     disabled={status === "loading"}
                   />

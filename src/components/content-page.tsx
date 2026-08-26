@@ -306,7 +306,7 @@ export function ContentPage({
               </h2>
               <p className="mx-auto mb-8 max-w-md text-muted-foreground">
                 {ctaSubtitle ??
-                  "Book a free 30-minute consultation. No obligation — just honest advice on where your SEO stands and what to do next."}
+                  "Get in touch for a free consultation. No obligation, honest advice on where your SEO stands and what to do next."}
               </p>
 
               <Link

@@ -43,6 +43,32 @@ export function AboutStory() {
               </p>
             </div>
 
+            <div className="mb-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                See the real data
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="/portfolio/"
+                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand"
+                >
+                  Case studies
+                </a>
+                <a
+                  href="/portfolio/ai-search-optimisation-copilot-citations/"
+                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand"
+                >
+                  120K Bing Copilot citations study
+                </a>
+                <a
+                  href="/blog/ai-referral-traffic-study/"
+                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand"
+                >
+                  AI referral traffic study
+                </a>
+              </div>
+            </div>
+
             <HowIWorkSteps />
 
             {/* 60/40 framework card */}

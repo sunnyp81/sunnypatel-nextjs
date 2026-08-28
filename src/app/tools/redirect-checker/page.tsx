@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import RedirectChecker from "./RedirectChecker";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function RedirectCheckerPage() {
       <div className="pt-24 pb-16">
         <RedirectChecker />
       </div>
+      <RelatedTools currentHref="/tools/redirect-checker/" />
       <Footer />
     </main>
   );

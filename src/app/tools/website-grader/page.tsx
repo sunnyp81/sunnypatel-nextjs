@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import WebsiteGrader from "./WebsiteGrader";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function WebsiteGraderPage() {
       <div className="pt-24 pb-16">
         <WebsiteGrader />
       </div>
+      <RelatedTools currentHref="/tools/website-grader/" />
       <Footer />
     </main>
   );

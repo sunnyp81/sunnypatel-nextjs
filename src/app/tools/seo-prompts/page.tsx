@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import SeoPrompts from "./SeoPrompts";
 
 export function generateMetadata() {
@@ -87,6 +88,7 @@ export default function SeoPromptsPage() {
           </div>
         </div>
       </div>
+      <RelatedTools currentHref="/tools/seo-prompts/" />
       <Footer />
     </main>
   );

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import WordCounter from "./WordCounter";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function WordCounterPage() {
       <div className="pt-24 pb-16">
         <WordCounter />
       </div>
+      <RelatedTools currentHref="/tools/word-counter/" />
       <Footer />
     </main>
   );

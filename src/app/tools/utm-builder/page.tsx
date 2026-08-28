@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import UtmBuilder from "./UtmBuilder";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function UtmBuilderPage() {
       <div className="pt-24 pb-16">
         <UtmBuilder />
       </div>
+      <RelatedTools currentHref="/tools/utm-builder/" />
       <Footer />
     </main>
   );

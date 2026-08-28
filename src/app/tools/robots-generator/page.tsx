@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import RobotsGenerator from "./RobotsGenerator";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function RobotsGeneratorPage() {
       <div className="pt-24 pb-16">
         <RobotsGenerator />
       </div>
+      <RelatedTools currentHref="/tools/robots-generator/" />
       <Footer />
     </main>
   );

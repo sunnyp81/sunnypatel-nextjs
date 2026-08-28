@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import { ServiceInlineForm } from "@/components/service-inline-form";
 import SchemaGenerator from "./SchemaGenerator";
 
@@ -218,6 +219,7 @@ export default function SchemaGeneratorPage() {
         ctaTitle="Want Your Schema Implemented and Validated for You?"
         ctaSubtitle="Tell me your site and CMS. I will review your existing structured data, implement what is missing, and validate everything in Google's Rich Results Test as part of the fixed-fee audit."
       />
+      <RelatedTools currentHref="/tools/schema-generator/" />
       <Footer />
     </main>
   );

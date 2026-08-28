@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import SpeedChecker from "./SpeedChecker";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function SpeedCheckerPage() {
       <div className="pt-24 pb-16">
         <SpeedChecker />
       </div>
+      <RelatedTools currentHref="/tools/speed-checker/" />
       <Footer />
     </main>
   );

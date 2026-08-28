@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import ReviewLink from "./ReviewLink";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function ReviewLinkPage() {
       <div className="pt-24 pb-16">
         <ReviewLink />
       </div>
+      <RelatedTools currentHref="/tools/review-link/" />
       <Footer />
     </main>
   );

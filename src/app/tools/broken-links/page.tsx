@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import BrokenLinks from "./BrokenLinks";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function BrokenLinksPage() {
       <div className="pt-24 pb-16">
         <BrokenLinks />
       </div>
+      <RelatedTools currentHref="/tools/broken-links/" />
       <Footer />
     </main>
   );

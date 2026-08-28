@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import OgPreview from "./OgPreview";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function OgPreviewPage() {
       <div className="pt-24 pb-16">
         <OgPreview />
       </div>
+      <RelatedTools currentHref="/tools/og-preview/" />
       <Footer />
     </main>
   );

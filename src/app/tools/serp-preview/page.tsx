@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import SerpPreview from "./SerpPreview";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function SerpPreviewPage() {
       <div className="pt-24 pb-16">
         <SerpPreview />
       </div>
+      <RelatedTools currentHref="/tools/serp-preview/" />
       <Footer />
     </main>
   );

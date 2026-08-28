@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import ReadabilityScore from "./ReadabilityScore";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function ReadabilityScorePage() {
       <div className="pt-24 pb-16">
         <ReadabilityScore />
       </div>
+      <RelatedTools currentHref="/tools/readability-score/" />
       <Footer />
     </main>
   );

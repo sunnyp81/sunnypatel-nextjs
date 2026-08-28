@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import KeywordDensity from "./KeywordDensity";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function KeywordDensityPage() {
       <div className="pt-24 pb-16">
         <KeywordDensity />
       </div>
+      <RelatedTools currentHref="/tools/keyword-density/" />
       <Footer />
     </main>
   );

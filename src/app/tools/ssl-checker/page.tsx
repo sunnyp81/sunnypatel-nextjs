@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import SslChecker from "./SslChecker";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function SslCheckerPage() {
       <div className="pt-24 pb-16">
         <SslChecker />
       </div>
+      <RelatedTools currentHref="/tools/ssl-checker/" />
       <Footer />
     </main>
   );

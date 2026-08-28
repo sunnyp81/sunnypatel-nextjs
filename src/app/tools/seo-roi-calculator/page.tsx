@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import SeoRoiCalculator from "./SeoRoiCalculator";
 
 export function generateMetadata() {
@@ -87,6 +88,7 @@ export default function SeoRoiCalculatorPage() {
           </div>
         </div>
       </div>
+      <RelatedTools currentHref="/tools/seo-roi-calculator/" />
       <Footer />
     </main>
   );

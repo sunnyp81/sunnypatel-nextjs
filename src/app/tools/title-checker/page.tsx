@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import TitleChecker from "./TitleChecker";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function TitleCheckerPage() {
       <div className="pt-24 pb-16">
         <TitleChecker />
       </div>
+      <RelatedTools currentHref="/tools/title-checker/" />
       <Footer />
     </main>
   );

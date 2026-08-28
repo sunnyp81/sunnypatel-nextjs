@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import TextDiff from "./TextDiff";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function TextDiffPage() {
       <div className="pt-24 pb-16">
         <TextDiff />
       </div>
+      <RelatedTools currentHref="/tools/text-diff/" />
       <Footer />
     </main>
   );

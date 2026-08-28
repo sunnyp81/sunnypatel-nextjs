@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import InternalLinks from "./InternalLinks";
 
 export function generateMetadata() {
@@ -18,6 +19,7 @@ export default function InternalLinksPage() {
       <div className="pt-24 pb-16">
         <InternalLinks />
       </div>
+      <RelatedTools currentHref="/tools/internal-links/" />
       <Footer />
     </main>
   );

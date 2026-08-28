@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { RelatedTools } from "@/components/related-tools";
 import AiVisibilityChecker from "./AiVisibilityChecker";
 
 export function generateMetadata() {
@@ -19,6 +20,7 @@ export default function AiVisibilityCheckerPage() {
       <div className="pt-24 pb-16">
         <AiVisibilityChecker />
       </div>
+      <RelatedTools currentHref="/tools/ai-visibility-checker/" />
       <Footer />
     </main>
   );

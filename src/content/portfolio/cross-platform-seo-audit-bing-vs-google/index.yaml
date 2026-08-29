@@ -1,5 +1,5 @@
-title: Cross-Platform SEO Audit — Bing vs Google Performance Analysis
-metaTitle: 'Cross-Platform SEO Audit: Bing vs Google — Sunny Patel'
+title: 'Cross-Platform SEO Audit: Bing vs Google Performance Analysis'
+metaTitle: 'Cross-Platform SEO Audit: Bing vs Google, Sunny Patel'
 description: >-
   A deep-dive cross-platform audit comparing Bing and Google performance across 11 sites, uncovering a 107x traffic gap, dangerous platform dependency.
 ogImage: ''
@@ -15,7 +15,7 @@ problem: >-
   Most site owners only check Google Search Console. By ignoring Bing Webmaster
   Tools entirely, they miss half the picture. Across my 45-site portfolio, I had
   no visibility into Bing performance, AI citation volume, or cross-platform
-  ranking discrepancies — meaning revenue was leaking silently.
+  ranking discrepancies, meaning revenue was leaking silently.
 solution: >-
   Conducted a full cross-platform audit across 11 sites using Bing Webmaster
   Tools data alongside 16 months of Google Search Console exports. Compared
@@ -25,7 +25,7 @@ result: >-
   Discovered a 107x performance gap on one site (906 Bing clicks vs 14 Google
   clicks over comparable periods), identified dangerous 90%+ Bing dependency on
   three key sites, and mapped £810 per year in immediate Google revenue recovery.
-  The audit also revealed 120,000+ AI Copilot citations — an entirely new
+  The audit also revealed 120,000+ AI Copilot citations, an entirely new
   traffic channel.
 metrics:
 - value: '107×'

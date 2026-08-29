@@ -44,3 +44,18 @@ faqs:
       produces: it exposes orphan pages, weak clusters, and messy internal
       linking before any AI agent ever looks. Fix the structure first; the format
       is the easy part.
+  - question: What does OKF stand for?
+    answer: >-
+      OKF stands for Open Knowledge Format, the specification Google Cloud
+      published on 12 June 2026. It is sometimes misremembered as "Open
+      Knowledge Framework", but Google's own naming is Format, not Framework:
+      OKF is a file structure and a convention for linking files, not a piece
+      of software you install or run.
+  - question: Where is OKF's GitHub repository and specification?
+    answer: >-
+      OKF is published to the public GitHub repository
+      `GoogleCloudPlatform/knowledge-catalog`, currently at specification
+      version v0.1. The repository holds the specification itself plus
+      reference tooling: a BigQuery enrichment agent, a static HTML
+      visualiser, and sample bundles built from GA4 e-commerce and Stack
+      Overflow datasets.

@@ -30,6 +30,11 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      // seo-agency-reading never indexed (Google: "Crawled - currently not indexed"),
+      // near-duplicate of seo-consultant-reading which already absorbs its query traffic
+      // at a weak position. Consolidating authority onto the page Google already prefers.
+      { source: "/services/seo-agency-reading", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/services/seo-agency-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
       {
         source: "/services/mayfair-luxury-brand-seo/",
         destination: "/",

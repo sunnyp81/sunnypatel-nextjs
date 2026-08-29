@@ -91,9 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Pages with canonicalOverride pointing to another page — exclude from sitemap
   // to avoid diluting the canonical target's authority
-  const CANONICAL_OVERRIDE_SLUGS = new Set([
-    "seo-agency-reading",
-  ]);
+  const CANONICAL_OVERRIDE_SLUGS = new Set<string>([]);
 
   const serviceSlugs = await reader.collections.services.list();
   const serviceEntries = serviceSlugs

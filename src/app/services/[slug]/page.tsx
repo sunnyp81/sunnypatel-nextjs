@@ -693,32 +693,6 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       a: "An SEO strategy is a finite deliverable — a documented roadmap built over 2–3 weeks. Ongoing SEO consulting applies and evolves that strategy over time through monthly sessions, implementation oversight, and performance analysis. Many Reading businesses start with a strategy engagement before committing to consulting.",
     },
   ],
-  "seo-agency-reading": [
-    {
-      q: "What is an SEO company in Reading?",
-      a: "An SEO company in Reading provides organic search strategy and implementation for local businesses. The term is interchangeable with 'SEO agency' and 'SEO consultant' — all describe providers delivering the same outcome: sustainable rankings, organic traffic, and qualified leads. The meaningful difference is structure: traditional SEO companies employ multiple staff with account management layers, while independent consultants provide direct senior expert access without the overhead.",
-    },
-    {
-      q: "Is there a difference between an SEO company and SEO agency in Reading?",
-      a: "No meaningful difference. Businesses searching 'SEO company Reading' and 'SEO agency Reading' are looking for the same thing: a provider who can improve their organic search visibility. The distinction that actually matters is whether you get direct access to the strategist making decisions, or whether your budget funds account managers and junior staff between you and the expertise.",
-    },
-    {
-      q: "Should I use an SEO company, agency, or consultant in Reading?",
-      a: "For most Reading businesses, an independent SEO consultant delivers equivalent results at lower cost than a traditional SEO company or agency, because you access the strategist directly rather than through account management layers. SEO companies and agencies suit businesses needing high-volume simultaneous content production with large teams. Consultants suit businesses wanting strategic expertise and direct accountability for a similar or lower investment.",
-    },
-    {
-      q: "How much does an SEO company in Reading cost?",
-      a: "Reading SEO company pricing typically runs £1,500–£5,000+ monthly for mid-tier providers, rising to £3,000–£10,000+ for larger agencies. Independent consultant pricing for equivalent strategic scope runs £1,500–£5,000+ monthly — with more of that investment going directly into strategy rather than company overhead. Technical audits start from £495; topical maps from £800.",
-    },
-    {
-      q: "Which areas of Reading does your SEO service cover?",
-      a: "SEO services cover Reading town centre, Green Park, Thames Valley Park, Caversham, Earley, Woodley, Winnersh, Tilehurst, and Calcot. Services extend across all Berkshire — Bracknell, Slough, Wokingham, Maidenhead, and Windsor — with remote consultancy available UK-wide.",
-    },
-    {
-      q: "How long does SEO take with a Reading SEO company?",
-      a: "SEO timelines are consistent whether using an SEO company, agency, or consultant. Local SEO improvements typically show within 3–6 months. Topical authority building in competitive Reading markets requires 6–12 months. The pace is determined by Google's crawl and re-evaluation cycles, not headcount or company size.",
-    },
-  ],
   "seo-consultant-kent": [
     {
       q: "How much does an SEO consultant in Kent cost?",

@@ -10,15 +10,15 @@ Every site I rebuild for an existing business has the same five problems. They'r
 
 Each one of these is a few hundred pounds of fix, individually. Together, on a site that wasn't built with SEO in mind, you're looking at £1,500-£3,000 of retrofit. That's the same as building it right the first time.
 
-## Core Web Vitals — the three numbers I won't ship a site without hitting
+## Core Web Vitals: the three numbers I won't ship a site without hitting
 
-LCP under 2.0 seconds, CLS under 0.05, INP under 150ms. On mobile, in field data — not just lab data.
+LCP under 2.0 seconds, CLS under 0.05, INP under 150ms. On mobile, in field data, not just lab data.
 
 How they get hit:
 
 - Image optimisation on upload (WebP/AVIF, responsive `srcset`, lazy-loading below the fold, eager-loading the LCP image)
 - WP Rocket caching with critical CSS and async JavaScript
-- Font loading optimised — `font-display: swap`, preload the woff2, no FOIT
+- Font loading optimised: `font-display: swap`, preload the woff2, no FOIT
 - No Elementor or page-builder bloat above the fold
 - Hosting on actual SSDs with HTTP/2 or HTTP/3
 - Database queries trimmed (object cache, autoload optimisation)
@@ -27,7 +27,7 @@ Tested on launch in Lighthouse mobile, WebPageTest, and the Search Console Core 
 
 ## On-page SEO baked into the build
 
-[Detailed on-page approach is on the dedicated SEO web design page](/website-design/seo/) — but in summary, every page template emits:
+[Detailed on-page approach is on the dedicated SEO web design page](/website-design/seo/). In summary, every page template emits:
 
 - One H1 matching search intent
 - H2-H4 hierarchy that reflects content structure
@@ -55,9 +55,9 @@ The boring layer that quietly tanks sites:
 
 Set up at launch as a checklist with sign-off, not as a "we'll get to it" promise.
 
-## Responsive and mobile-first — not a checkbox, an architecture
+## Responsive and mobile-first: not a checkbox, an architecture
 
-Sixty to seventy per cent of UK service business traffic is mobile. The site is designed mobile-first — meaning the mobile view is the canonical view and the desktop is the larger version, not the other way round.
+Sixty to seventy per cent of UK service business traffic is mobile. The site is designed mobile-first, meaning the mobile view is the canonical view and the desktop is the larger version, not the other way round.
 
 What this changes in practice:
 
@@ -68,9 +68,9 @@ What this changes in practice:
 - Images are responsive `srcset`, not loaded large-and-shrunk
 - Navigation is hamburger-default for under 1024px
 
-Tested on real devices — iPhone 12-15, Pixel, mid-range Android — not just Chrome DevTools.
+Tested on real devices: iPhone 12-15, Pixel, mid-range Android. Not just Chrome DevTools.
 
-## Accessibility (WCAG 2.2 AA) — and why it matters for SEO too
+## Accessibility (WCAG 2.2 AA), and why it matters for SEO too
 
 Targets met as standard:
 
@@ -97,7 +97,7 @@ What I recommend:
 
 Avoid GoDaddy, BlueHost, and the supermarket-brand shared hosts. Their TTFB regularly exceeds 1.5 seconds, which alone fails the LCP target.
 
-## The Aatma redesign — what changed when I rebuilt with SEO in mind
+## The Aatma redesign: what changed when I rebuilt with SEO in mind
 
 The published case study covers the full methodology. In short: the existing site had Core Web Vitals red, no schema, no service area pages, and indexation issues. After the redesign with SEO baked in, the site:
 
@@ -120,10 +120,10 @@ VAT additional. Fixed quote.
 
 ## Related services on the wider site
 
-- [Technical SEO audit](/services/technical-seo-audit/) — for sites that don't need a redesign but need SEO retrofit
-- [Website speed optimisation](/services/technical-seo-audit/) — Core Web Vitals one-off project
-- [Website migration](/services/website-migration/) — preserving SEO equity through platform changes
-- [Internal linking](/services/internal-linking/) — the architectural part, applied to existing sites
+- [Technical SEO audit](/services/technical-seo-audit/): for sites that don't need a redesign but need SEO retrofit
+- [Website speed optimisation](/services/technical-seo-audit/): Core Web Vitals one-off project
+- [Website migration](/services/website-migration/): preserving SEO equity through platform changes
+- [Internal linking](/services/internal-linking/): the architectural part, applied to existing sites
 
 ## Get a quote
 

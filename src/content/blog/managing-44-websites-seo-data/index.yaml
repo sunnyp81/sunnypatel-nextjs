@@ -1,5 +1,5 @@
 title: Managing 44 Websites SEO Data
-metaTitle: 'I Manage 44 Websites — Here''s What the SEO Data Actually'
+metaTitle: 'I Manage 44 Websites: Here''s What the SEO Data Actually'
 description: >-
   Real Google Search Console data from managing a portfolio of 44 websites. Canonical splitting, title truncation at scale, page pruning results.
 ogImage: /images/stats/portfolio-overview-44-sites.svg
@@ -13,14 +13,14 @@ faqs:
 - question: How many websites can one person realistically manage for SEO?
   answer: >-
     With the right systems and automation, a single consultant can manage
-    40-50 websites. The key is building repeatable processes — templated
+    40-50 websites. The key is building repeatable processes: templated
     audits, automated crawl monitoring, and systematic title/meta
     frameworks. Manual content creation remains the bottleneck, not
     technical management.
 - question: What is canonical URL splitting and why does it hurt rankings?
   answer: >-
     Canonical splitting happens when Google indexes two versions of the
-    same page — typically with and without a trailing slash
+    same page, typically with and without a trailing slash
     (example.com/page vs example.com/page/). Each version accumulates
     separate ranking signals, effectively halving your page's authority.
     The fix is ensuring all internal links use one consistent URL format
@@ -37,5 +37,5 @@ faqs:
     Portfolio SEO requires centralised monitoring (Google Search Console
     API for all properties), templated technical audits, and systematic
     prioritisation based on revenue potential. The biggest wins come from
-    fixing issues that affect multiple sites simultaneously — like trailing
+    fixing issues that affect multiple sites simultaneously, like trailing
     slash configuration or title tag truncation patterns.

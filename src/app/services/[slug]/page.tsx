@@ -13,6 +13,8 @@ import { WhoForGrid } from "@/components/services/WhoForGrid";
 import { CitationChecklist } from "@/components/services/CitationChecklist";
 import { CaseStudyCard } from "@/components/services/CaseStudyCard";
 import { StatsBar } from "@/components/services/StatsBar";
+import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
+import { markdocConfig } from "@/lib/render-markdoc";
 
 
 /* ── Conversion data ──────────────────────────────────────── */
@@ -759,7 +761,7 @@ function buildSections(
   // then split the resulting plain RenderableTree objects at h2 headings.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const node = (rawContent as any)?.node ?? rawContent;
-  const transformed = Markdoc.transform(node);
+  const transformed = Markdoc.transform(node, markdocConfig);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const allBlocks: RenderableTreeNode[] = (transformed as any)?.children ?? [];
@@ -791,7 +793,8 @@ function buildSections(
   const rendered = groups.map((g) =>
     Markdoc.renderers.react(
       { ...(wrapper as object), children: g } as RenderableTreeNode,
-      React
+      React,
+      { components: { ServiceMiniCta } }
     )
   );
 

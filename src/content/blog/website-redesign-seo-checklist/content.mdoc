@@ -16,7 +16,7 @@ Here's what actually breaks:
 - **Page speed regresses.** The new design loads a 3MB hero image, two custom fonts, and a JavaScript animation library. Core Web Vitals go from green to red.
 - **Internal linking architecture changes.** Navigation restructuring breaks the link equity flow that told Google which pages matter most.
 
-I've seen all five happen in a single redesign. The site lost 62% of its organic traffic in 3 weeks. It took 5 months to recover to 80% of the original level. For more on timelines, see [how long SEO takes](/blog/how-long-does-seo-take/) under normal conditions — post-redesign recovery adds 2-4 months on top.
+I've seen all five happen in a single redesign. The site lost 62% of its organic traffic in 3 weeks. It took 5 months to recover to 80% of the original level. For more on timelines, see [how long SEO takes](/blog/how-long-does-seo-take/) under normal conditions; post-redesign recovery adds 2-4 months on top.
 
 ![What breaks during a redesign](/images/stats/redesign-breakage-points.svg)
 
@@ -57,7 +57,7 @@ Missing even one high-traffic URL can cost thousands in lost organic visits. A p
 
 ### Watch for Trailing Slash Issues
 
-Across my [44-site portfolio](/blog/managing-44-websites-seo-data/), one missing `trailingSlash` config option caused Google to index duplicate URLs across 23 sites. `/about` and `/about/` became two separate pages in Google's index, splitting authority between them. That single config line — `trailingSlash: 'always'` in Astro, `trailingSlash: true` in Next.js — fixed it across every site. Check this before launch, not after.
+Across my [44-site portfolio](/blog/managing-44-websites-seo-data/), one missing `trailingSlash` config option caused Google to index duplicate URLs across 23 sites. `/about` and `/about/` became two separate pages in Google's index, splitting authority between them. That single config line, `trailingSlash: 'always'` in Astro, `trailingSlash: true` in Next.js, fixed it across every site. Check this before launch, not after.
 
 ### Preserve Existing Redirects
 
@@ -77,18 +77,18 @@ I audit sites where the redesign removed 60% of the page content to fit a "moder
 
 ### Migrate Meta Data
 
-Meta titles, meta descriptions, and image alt text must transfer to the new site. These aren't design elements — they're ranking signals. If your CMS migration doesn't carry them over automatically, export them and reimport them manually.
+Meta titles, meta descriptions, and image alt text must transfer to the new site. These are ranking signals, not design elements. If your CMS migration doesn't carry them over automatically, export them and reimport them manually.
 
 ![Redesign SEO phases](/images/stats/redesign-seo-checklist-phases.svg)
 
 ## Phase 4: Technical Checklist During Build
 
-Run through this list before the site goes live. Every item is a binary check — it works or it doesn't.
+Run through this list before the site goes live. Every item is a binary check: it works or it doesn't.
 
 - **Canonical tags** on every page, pointing to the correct URL (watch for trailing slash mismatches)
 - **XML sitemap** generating correctly with all new URLs, no old URLs, no 404s
 - **robots.txt** not blocking anything that wasn't blocked before (staging robots.txt rules are the number one cause of post-launch indexing failures)
-- **Structured data** carried over — check with Google's Rich Results Test
+- **Structured data** carried over: check with Google's Rich Results Test
 - **Meta titles and descriptions** preserved from the old site
 - **Internal links** updated to new URLs (not relying on redirects for internal navigation)
 - **Image alt text** preserved across the migration
@@ -106,8 +106,8 @@ Launch day isn't a celebration. It's the start of a monitoring sprint.
 
 1. Submit the new XML sitemap to Google Search Console
 2. Check robots.txt isn't blocking the site (open `yourdomain.com/robots.txt` in a browser)
-3. Test 20 random old URLs — confirm redirects return 301, not 302 or 404
-4. Run a PageSpeed Insights test on 5 key pages — Core Web Vitals should match or beat the baseline
+3. Test 20 random old URLs: confirm redirects return 301, not 302 or 404
+4. Run a PageSpeed Insights test on 5 key pages: Core Web Vitals should match or beat the baseline
 5. Check mobile rendering on 3 different screen sizes
 
 ### First 24 Hours
@@ -132,9 +132,9 @@ Monitor these in Google Search Console every day:
 
 ### Week 2-4: Ranking Recovery
 
-- Track positions for your top 20 queries. Minor fluctuations (1-3 positions) are normal. Drops of 10+ positions indicate a page-level problem — check the specific URL for content changes, missing schema, or redirect issues.
+- Track positions for your top 20 queries. Minor fluctuations (1-3 positions) are normal. Drops of 10+ positions indicate a page-level problem: check the specific URL for content changes, missing schema, or redirect issues.
 - Compare click-through rates against your baseline. If impressions recovered but clicks didn't, your new meta titles or page titles may be underperforming.
-- Check for new crawl anomalies in GSC's Pages report. Watch for "Crawled — currently not indexed" increases.
+- Check for new crawl anomalies in GSC's Pages report. Watch for "Crawled, currently not indexed" increases.
 
 ### When to Escalate vs When to Wait
 
@@ -144,7 +144,7 @@ Monitor these in Google Search Console every day:
 
 ## The Real Cost of Getting This Wrong
 
-A B2B SaaS company I audited redesigned their marketing site without URL mapping. They changed 180 URLs. Only 40 got redirects. The other 140 — including 12 pages that drove 65% of their organic demo requests — returned 404s for 6 weeks before anyone noticed.
+A B2B SaaS company I audited redesigned their marketing site without URL mapping. They changed 180 URLs. Only 40 got redirects. The other 140, including 12 pages that drove 65% of their organic demo requests, returned 404s for 6 weeks before anyone noticed.
 
 Organic demo requests dropped 73%. Recovery took 4 months after implementing redirects. The redesign that was supposed to "modernise the brand" cost them an estimated £180,000 in pipeline.
 

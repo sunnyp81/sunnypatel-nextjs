@@ -30,7 +30,12 @@ export function buildMetadata({
   const url = `${SITE_URL}${normalised}`;
 
   return {
-    title: titleAbsolute ? { absolute: metaTitle } : metaTitle,
+    // Titles that already name the brand are complete strings. Marking them as
+    // absolute prevents the root "%s | Sunny Patel" template duplicating it.
+    title:
+      (titleAbsolute ?? /\bSunny Patel\b/i.test(metaTitle))
+        ? { absolute: metaTitle }
+        : metaTitle,
     description: metaDesc,
     alternates: { canonical: url },
     openGraph: {

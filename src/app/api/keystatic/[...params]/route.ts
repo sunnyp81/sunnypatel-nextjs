@@ -4,7 +4,7 @@ import path from "path";
 
 export const dynamic = "force-dynamic";
 
-const localBaseDirectory = path.resolve(process.cwd());
+const localBaseDirectory = path.resolve(/* turbopackIgnore: true */ process.cwd());
 
 const handler = makeGenericAPIRouteHandler(
   { config: keystaticConfig },

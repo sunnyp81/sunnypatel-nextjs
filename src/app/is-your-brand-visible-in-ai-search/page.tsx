@@ -136,7 +136,7 @@ export default function IsYourBrandVisiblePage() {
         {/* Free checker — primary CTA */}
         <div className="mx-auto max-w-3xl px-6">
           <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-2 sm:p-4">
-            <AiVisibilityChecker />
+            <AiVisibilityChecker showHeading={false} />
           </div>
         </div>
 

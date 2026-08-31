@@ -40,42 +40,39 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
-      // National location pages pruned (doorway/thin-page risk, outside the Berkshire
-      // beachhead). 301 to the homepage to consolidate brand equity.
-      { source: "/services/seo-consultant-london", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-london/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-manchester", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-manchester/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-kent", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-kent/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-oxford", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-oxford/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-surrey", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-surrey/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-southampton", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-southampton/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-nottingham", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-nottingham/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-preston", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-preston/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-sheffield", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-sheffield/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-bradford", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-bradford/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-york", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-york/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-birmingham", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-birmingham/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-cardiff", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-cardiff/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-glasgow", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-glasgow/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-brighton", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-brighton/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-harrogate", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-harrogate/", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-essex", destination: "/", permanent: true },
-      { source: "/services/seo-consultant-essex/", destination: "/", permanent: true },
+      // National location pages were pruned as thin/doorway pages. Redirect them
+      // to the closest surviving consultant-intent page, not the homepage.
+      ...[
+        "london", "manchester", "kent", "oxford", "surrey", "southampton",
+        "leeds", "edinburgh", "devon",
+        "nottingham", "preston", "sheffield", "bradford", "york", "birmingham",
+        "cardiff", "glasgow", "brighton", "harrogate", "essex",
+      ].flatMap((location) => [
+        {
+          source: `/services/seo-consultant-${location}`,
+          destination: "/services/freelance-seo-consultant/",
+          permanent: true,
+        },
+        {
+          source: `/services/seo-consultant-${location}/`,
+          destination: "/services/freelance-seo-consultant/",
+          permanent: true,
+        },
+      ]),
+      // Consolidate duplicate service pages with real redirects. Canonical tags
+      // alone were being ignored by Google and both URLs remained crawlable.
+      { source: "/services/local-seo-agency", destination: "/services/local-seo/", permanent: true },
+      { source: "/services/local-seo-agency/", destination: "/services/local-seo/", permanent: true },
+      {
+        source: "/services/seo-strategy-consulting-expert-guidance-for-in-house-teams",
+        destination: "/services/seo-consulting/",
+        permanent: true,
+      },
+      {
+        source: "/services/seo-strategy-consulting-expert-guidance-for-in-house-teams/",
+        destination: "/services/seo-consulting/",
+        permanent: true,
+      },
       // Old root-level location pages migrated to /services/
       { source: "/seo-berkshire", destination: "/services/seo-berkshire/", permanent: true },
       { source: "/seo-berkshire/", destination: "/services/seo-berkshire/", permanent: true },
@@ -116,8 +113,8 @@ const nextConfig: NextConfig = {
       // Old service pages from previous site — redirect to nearest equivalent
       { source: "/seo-consulting-london", destination: "/services/seo-consulting/", permanent: true },
       { source: "/seo-consulting-london/", destination: "/services/seo-consulting/", permanent: true },
-      { source: "/board-level-seo-reporting", destination: "/services/seo-strategy-consulting-expert-guidance-for-in-house-teams/", permanent: true },
-      { source: "/board-level-seo-reporting/", destination: "/services/seo-strategy-consulting-expert-guidance-for-in-house-teams/", permanent: true },
+      { source: "/board-level-seo-reporting", destination: "/services/seo-consulting/", permanent: true },
+      { source: "/board-level-seo-reporting/", destination: "/services/seo-consulting/", permanent: true },
       { source: "/pre-acquisition-seo-due-diligence", destination: "/services/technical-seo-audit/", permanent: true },
       { source: "/pre-acquisition-seo-due-diligence/", destination: "/services/technical-seo-audit/", permanent: true },
       // Dev/staging pages that leaked into Bing index

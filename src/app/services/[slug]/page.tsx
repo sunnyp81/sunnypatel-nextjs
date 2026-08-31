@@ -849,6 +849,14 @@ const NOINDEX_SLUGS = new Set([
   "seo-consultant-york",
 ]);
 
+const REDIRECTED_SLUGS = new Set([
+  "local-seo-agency",
+  "seo-strategy-consulting-expert-guidance-for-in-house-teams",
+  "seo-consultant-london",
+  "seo-consultant-kent",
+  ...NOINDEX_SLUGS,
+]);
+
 export async function generateMetadata({
   params,
 }: {
@@ -883,12 +891,14 @@ export default async function ServicePage({
     reader.collections.services.all(),
   ]);
 
-  const serviceSummaries = allServices.map((s) => ({
-    slug: s.slug,
-    title: s.entry.title,
-    subtitle: s.entry.subtitle,
-    description: s.entry.description,
-  }));
+  const serviceSummaries = allServices
+    .filter((s) => !REDIRECTED_SLUGS.has(s.slug))
+    .map((s) => ({
+      slug: s.slug,
+      title: s.entry.title,
+      subtitle: s.entry.subtitle,
+      description: s.entry.description,
+    }));
 
   const convData = SPECIFIC_DATA[slug] ?? GENERIC_DATA;
   const sections = buildSections(rawContent, convData, slug);

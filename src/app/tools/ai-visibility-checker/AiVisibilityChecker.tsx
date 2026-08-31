@@ -32,7 +32,7 @@ function scoreColor(pct: number): string {
   return '#e5484d';
 }
 
-export default function AiVisibilityChecker() {
+export default function AiVisibilityChecker({ showHeading = true }: { showHeading?: boolean }) {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
@@ -85,17 +85,19 @@ export default function AiVisibilityChecker() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-      <div className="mb-8">
-        <h1
-          className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          AI Visibility Checker
-        </h1>
-        <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-          Can ChatGPT, Perplexity and Google AI Overviews actually find, verify and cite your website? Enter your domain for a free scored report across the four things AI systems check.
-        </p>
-      </div>
+      {showHeading && (
+        <div className="mb-8">
+          <h1
+            className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            AI Visibility Checker
+          </h1>
+          <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+            Can ChatGPT, Perplexity and Google AI Overviews actually find, verify and cite your website? Enter your domain for a free scored report across the four things AI systems check.
+          </p>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="mb-10">
         <div className="flex flex-col gap-3 sm:flex-row">

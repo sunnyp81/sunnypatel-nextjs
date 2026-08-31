@@ -95,6 +95,28 @@ const locationSlugs = [
   "legal-seo-magic-circle-firms-2",
 ];
 
+const redirectedServiceSlugs = new Set([
+  "local-seo-agency",
+  "seo-strategy-consulting-expert-guidance-for-in-house-teams",
+  "seo-consultant-london",
+  "seo-consultant-manchester",
+  "seo-consultant-kent",
+  "seo-consultant-oxford",
+  "seo-consultant-surrey",
+  "seo-consultant-southampton",
+  "seo-consultant-nottingham",
+  "seo-consultant-preston",
+  "seo-consultant-sheffield",
+  "seo-consultant-bradford",
+  "seo-consultant-york",
+  "seo-consultant-birmingham",
+  "seo-consultant-cardiff",
+  "seo-consultant-glasgow",
+  "seo-consultant-brighton",
+  "seo-consultant-harrogate",
+  "seo-consultant-essex",
+]);
+
 export async function generateMetadata() {
   const page = await reader.singletons.servicesIndex.read();
   return buildMetadata({
@@ -110,7 +132,7 @@ export default async function ServicesIndex() {
   const page = await reader.singletons.servicesIndex.read();
   const services = await reader.collections.services.all();
 
-  const sorted = services.sort(
+  const sorted = services.filter((service) => !redirectedServiceSlugs.has(service.slug)).sort(
     (a, b) => (a.entry.sortOrder ?? 0) - (b.entry.sortOrder ?? 0)
   );
 

@@ -16,7 +16,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/blog/`,              lastModified: LAST_DEPLOY, changeFrequency: "daily",   priority: 0.9 },
   { url: `${SITE_URL}/contact/`,           lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.7 },
   { url: `${SITE_URL}/proof/`,             lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.7 },
-  { url: `${SITE_URL}/services/paid-seo-audit/`, lastModified: new Date("2026-06-11"), changeFrequency: "monthly", priority: 0.9 },
   // AI visibility cluster
   { url: `${SITE_URL}/ai-visibility/`,             lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.9 },
   { url: `${SITE_URL}/ai-visibility-consultant/`,  lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
@@ -91,7 +90,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Pages with canonicalOverride pointing to another page — exclude from sitemap
   // to avoid diluting the canonical target's authority
-  const CANONICAL_OVERRIDE_SLUGS = new Set<string>([]);
+  const CANONICAL_OVERRIDE_SLUGS = new Set([
+    "local-seo-agency",
+    "seo-strategy-consulting-expert-guidance-for-in-house-teams",
+  ]);
 
   const serviceSlugs = await reader.collections.services.list();
   const serviceEntries = serviceSlugs

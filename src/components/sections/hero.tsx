@@ -11,7 +11,7 @@ import Link from "next/link";
 export function Hero() {
   const { status, setStatus, errorMsg, formData, setFormData, handleSubmit } =
     useLeadForm({
-      initial: { name: "", email: "", message: "" },
+      initial: { name: "", email: "", phone: "", message: "" },
       eventCategory: "contact",
       eventLabel: "homepage_hero_quick_enquiry",
     });
@@ -80,7 +80,7 @@ export function Hero() {
                 <p className="text-xs text-white/45">Reply within one working day</p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-3 sm:grid-cols-3">
                 <FormField
                   id="hero-name"
                   label="Name"
@@ -101,6 +101,17 @@ export function Hero() {
                   required
                   value={formData.email}
                   onChange={updateField("email")}
+                  disabled={status === "loading"}
+                  srOnlyLabel
+                />
+                <FormField
+                  id="hero-phone"
+                  label="Phone number (optional)"
+                  type="tel"
+                  placeholder="Phone (optional)"
+                  autoComplete="tel"
+                  value={formData.phone}
+                  onChange={updateField("phone")}
                   disabled={status === "loading"}
                   srOnlyLabel
                 />

@@ -1,58 +1,25 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function ElegantShape({
     className,
-    delay = 0,
     width = 400,
     height = 100,
     rotate = 0,
     gradient = "from-white/[0.08]",
 }: {
     className?: string;
-    delay?: number;
     width?: number;
     height?: number;
     rotate?: number;
     gradient?: string;
 }) {
-    const prefersReducedMotion = useReducedMotion();
     return (
-        <motion.div
-            initial={prefersReducedMotion ? {
-                opacity: 1,
-                y: 0,
-                rotate,
-            } : {
-                opacity: 0,
-                y: -150,
-                rotate: rotate - 15,
-            }}
-            animate={{
-                opacity: 1,
-                y: 0,
-                rotate: rotate,
-            }}
-            transition={{
-                duration: prefersReducedMotion ? 0 : 2.4,
-                delay: prefersReducedMotion ? 0 : delay,
-                ease: [0.23, 0.86, 0.39, 0.96] as [number, number, number, number],
-                opacity: { duration: 1.2 },
-            }}
+        <div
+            style={{ transform: `rotate(${rotate}deg)` }}
             className={cn("absolute", className)}
         >
-            <motion.div
-                animate={prefersReducedMotion ? undefined : {
-                    y: [0, 15, 0],
-                }}
-                transition={{
-                    duration: 12,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                }}
+            <div
                 style={{
                     width,
                     height,
@@ -70,8 +37,8 @@ function ElegantShape({
                         "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
                     )}
                 />
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     );
 }
 
@@ -92,7 +59,6 @@ function HeroGeometric({
 
             <div className="absolute inset-0 overflow-hidden">
                 <ElegantShape
-                    delay={0.3}
                     width={600}
                     height={140}
                     rotate={12}
@@ -101,7 +67,6 @@ function HeroGeometric({
                 />
 
                 <ElegantShape
-                    delay={0.5}
                     width={500}
                     height={120}
                     rotate={-15}
@@ -110,7 +75,6 @@ function HeroGeometric({
                 />
 
                 <ElegantShape
-                    delay={0.4}
                     width={300}
                     height={80}
                     rotate={-8}
@@ -119,7 +83,6 @@ function HeroGeometric({
                 />
 
                 <ElegantShape
-                    delay={0.6}
                     width={200}
                     height={60}
                     rotate={20}
@@ -128,7 +91,6 @@ function HeroGeometric({
                 />
 
                 <ElegantShape
-                    delay={0.7}
                     width={150}
                     height={40}
                     rotate={-25}

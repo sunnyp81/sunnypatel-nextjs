@@ -55,7 +55,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg border border-white/[0.06] px-3 py-1.5 text-sm text-muted-foreground shadow-[0_0_8px_rgba(91,138,239,0.07)] transition-all duration-300 hover:border-brand/30 hover:bg-brand/[0.06] hover:text-foreground hover:shadow-[0_0_20px_rgba(91,138,239,0.28)] hover:scale-[1.04]"
+              className="rounded-lg border border-white/[0.06] px-3 py-1.5 text-sm text-muted-foreground shadow-[0_0_8px_rgba(91,138,239,0.07)] transition-[border-color,background-color,color,box-shadow,transform] duration-300 hover:scale-[1.04] hover:border-brand/30 hover:bg-brand/[0.06] hover:text-foreground hover:shadow-[0_0_20px_rgba(91,138,239,0.28)]"
             >
               {link.label}
             </a>
@@ -64,7 +64,7 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <GradientButton asChild className="min-w-0 px-5 py-2.5 text-sm leading-none">
-            <a href="/contact/">Get a Quote</a>
+            <a href="/contact/" data-cta-location="desktop_nav" data-cta-offer="free_20_minute_seo_diagnosis">Free SEO Diagnosis</a>
           </GradientButton>
         </div>
 
@@ -87,7 +87,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg border border-white/[0.04] px-3 py-2.5 text-sm text-muted-foreground transition-all duration-200 hover:border-brand/25 hover:bg-brand/[0.05] hover:text-foreground hover:shadow-[0_0_16px_rgba(91,138,239,0.2)]"
+                className="rounded-lg border border-white/[0.04] px-3 py-2.5 text-sm text-muted-foreground transition-[border-color,background-color,color,box-shadow] duration-200 hover:border-brand/25 hover:bg-brand/[0.05] hover:text-foreground hover:shadow-[0_0_16px_rgba(91,138,239,0.2)]"
               >
                 {link.label}
               </a>
@@ -95,8 +95,8 @@ export function Navbar() {
           </div>
           <div className="mb-5 h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
           <GradientButton asChild className="min-w-0 w-full text-sm leading-none">
-            <a href="/contact/" onClick={() => setOpen(false)}>
-              Get a Quote
+            <a href="/contact/" data-cta-location="mobile_nav" data-cta-offer="free_20_minute_seo_diagnosis" onClick={() => setOpen(false)}>
+              Free SEO Diagnosis
             </a>
           </GradientButton>
         </div>

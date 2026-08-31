@@ -2,9 +2,9 @@ import { TrendingUp, Users, Clock, Award } from "lucide-react";
 
 const STATS = [
   { icon: Clock, value: "15+", label: "Years Experience", color: "#5B8AEF" },
-  { icon: TrendingUp, value: "150–280%", label: "Avg Traffic Growth", color: "#3d6fe8" },
-  { icon: Users, value: "100+", label: "UK Businesses", color: "#5B8AEF" },
-  { icon: Award, value: "Free", label: "Initial Consultation", color: "#3d6fe8" },
+  { icon: TrendingUp, value: "+340%", label: "Published Organic Growth", color: "#3d6fe8" },
+  { icon: Users, value: "45", label: "SEO Test Sites", color: "#5B8AEF" },
+  { icon: Award, value: "Free", label: "20-Minute Diagnosis", color: "#3d6fe8" },
 ] as const;
 
 export function StatsBar() {

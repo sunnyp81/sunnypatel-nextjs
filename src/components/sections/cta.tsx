@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export function Cta() {
   return (
@@ -47,10 +48,10 @@ export function Cta() {
             textShadow: "0 0 60px rgba(91,138,239,0.15)",
           }}
         >
-          Get More Clients From Organic Search
+          Find What&apos;s Blocking Your Organic Growth
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-          Free 30-minute consultation: I'll review your rankings live on the call and tell you exactly what's holding you back. No sales pitch. No obligation. Call <a href="tel:07305523333" className="text-foreground hover:text-white transition-colors">07305 523333</a> or request one below.
+          In a free 20-minute SEO diagnosis, we&apos;ll focus on your biggest search problem and the best next move. Need a documented full-site review? The <Link href="/services/paid-seo-audit/" className="text-foreground underline decoration-white/30 underline-offset-4 transition-colors hover:text-brand">£495 audit</Link> is the deeper option.
         </p>
 
         {/* Pulsing ring wrapper */}
@@ -58,12 +59,15 @@ export function Cta() {
           <div className="absolute -inset-3 animate-ping rounded-full bg-brand/10 duration-[2000ms]" />
           <div className="absolute -inset-1.5 rounded-full bg-brand/5" />
           <GradientButton asChild>
-            <a href="/contact/" className="relative gap-2">
-              Request Free Consultation
+            <a href="/contact/" className="relative gap-2" data-cta-location="homepage_midpage" data-cta-offer="free_20_minute_seo_diagnosis">
+              Request Free Diagnosis
               <ArrowRight className="h-5 w-5" />
             </a>
           </GradientButton>
         </div>
+        <p className="mt-5 text-sm text-muted-foreground">
+          Prefer to talk? <a href="tel:07305523333" className="font-medium text-foreground underline decoration-white/30 underline-offset-4 transition-colors hover:text-brand">Call Sunny on 07305 523333</a>
+        </p>
 
         {/* Internal links to key service pages */}
         <div className="mt-12 flex flex-wrap justify-center gap-3">

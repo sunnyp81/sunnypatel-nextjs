@@ -3,7 +3,7 @@ import { ArrowRight, CalendarDays, Shield } from "lucide-react";
 
 export function ServiceMiniCta({
   heading = "Ready to Improve Your Rankings?",
-  text = "Request a free 30-minute consultation: honest advice on where you stand and what to do next.",
+  text = "Request a free 20-minute SEO diagnosis: focus on the biggest issue and the most useful next step.",
 }: {
   heading?: string;
   text?: string;
@@ -41,21 +41,23 @@ export function ServiceMiniCta({
 
         <Link
           href="/contact/"
-          className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98]"
+          data-cta-location="service_mini_cta"
+          data-cta-offer="free_20_minute_seo_diagnosis"
+          className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white transition-[transform,box-shadow] duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98]"
           style={{
             fontFamily: "var(--font-heading)",
             background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
             boxShadow: "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
           }}
         >
-          Request Free Consultation
+          Request Free Diagnosis
           <ArrowRight className="h-4 w-4" />
         </Link>
 
         <div className="flex flex-wrap justify-center gap-4">
           <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/65">
             <CalendarDays className="h-3 w-3 text-brand/50" />
-            Free 30 minutes
+            Free 20 minutes
           </span>
           <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/65">
             <Shield className="h-3 w-3 text-brand/50" />

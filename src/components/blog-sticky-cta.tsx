@@ -59,6 +59,8 @@ export function BlogStickyCta() {
 
           <Link
             href="/contact/"
+            data-cta-location="content_sticky"
+            data-cta-offer="free_20_minute_seo_diagnosis"
             className="group relative flex items-center justify-between gap-3 px-5 py-4 transition-transform duration-200 active:scale-[0.99] sm:gap-5"
           >
             {/* Left: icon + text */}
@@ -68,15 +70,15 @@ export function BlogStickyCta() {
               </div>
               <div>
                 <p className="text-sm font-medium text-foreground sm:text-[15px]">
-                  Free 30-min consultation
+                  Free 20-min SEO diagnosis
                 </p>
-                <p className="text-xs text-muted-foreground/65">Currently accepting new clients</p>
+                <p className="text-xs text-muted-foreground">Direct reply from Sunny</p>
               </div>
             </div>
 
             {/* Right: button */}
             <span
-              className="relative inline-flex shrink-0 items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2.5 text-xs font-semibold text-white shadow-[0_0_24px_rgba(91,138,239,0.35)] transition-all duration-300 group-hover:shadow-[0_0_36px_rgba(91,138,239,0.55)] sm:px-5"
+              className="relative inline-flex shrink-0 items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2.5 text-xs font-semibold text-white shadow-[0_0_24px_rgba(91,138,239,0.35)] transition-shadow duration-300 group-hover:shadow-[0_0_36px_rgba(91,138,239,0.55)] sm:px-5"
               style={{
                 fontFamily: "var(--font-heading)",
                 background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
@@ -88,7 +90,7 @@ export function BlogStickyCta() {
                   background: "linear-gradient(135deg, #7ba3f5 0%, #5f8df0 100%)",
                 }}
               />
-              <span className="relative">Get in Touch</span>
+              <span className="relative">Get Diagnosis</span>
               <ArrowRight className="relative h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
             </span>
           </Link>

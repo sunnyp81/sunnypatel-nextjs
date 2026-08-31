@@ -40,7 +40,7 @@ const PROSE_CLASS =
 
 const TRUST_BADGES = [
   { icon: CalendarDays, label: "15+ years experience" },
-  { icon: Sparkles,     label: "Free consultation"    },
+  { icon: Sparkles,     label: "Free 20-minute diagnosis" },
   { icon: Shield,       label: "No contracts"         },
 ] as const;
 
@@ -157,13 +157,13 @@ export function ContentPage({
 
               <div className="mt-7 flex flex-wrap items-center gap-4">
                 <GradientButton asChild>
-                  <Link href="/contact/" className="gap-2">
-                    Request Free Consultation
+                  <Link href="/contact/" className="gap-2" data-cta-location="service_header" data-cta-offer="free_20_minute_seo_diagnosis">
+                    Request Free Diagnosis
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </GradientButton>
                 <span className="text-sm text-muted-foreground/70">
-                  Free 30-min · No obligation
+                  20 minutes · No obligation
                 </span>
               </div>
             </>
@@ -306,7 +306,7 @@ export function ContentPage({
               </h2>
               <p className="mx-auto mb-8 max-w-md text-muted-foreground">
                 {ctaSubtitle ??
-                  "Get in touch for a free consultation. No obligation, honest advice on where your SEO stands and what to do next."}
+                  "Request a free 20-minute SEO diagnosis: focus on the biggest issue and the most useful next step."}
               </p>
 
               <Link
@@ -314,7 +314,7 @@ export function ContentPage({
                 className="inline-flex items-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Request Free Consultation
+                Request Free Diagnosis
                 <ArrowRight className="h-4 w-4" />
               </Link>
 

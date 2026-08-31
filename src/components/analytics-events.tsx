@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export function AnalyticsEvents() {
   useEffect(() => {
-    if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-
     // ── Scroll depth tracking ──────────────────────────────────
     const thresholds = [25, 50, 75, 90];
     const fired = new Set<number>();
@@ -19,7 +18,7 @@ export function AnalyticsEvents() {
       for (const t of thresholds) {
         if (percent >= t && !fired.has(t)) {
           fired.add(t);
-          window.gtag("event", "scroll_depth", {
+          trackEvent("scroll_depth", {
             event_category: "engagement",
             event_label: `${t}%`,
             value: t,
@@ -37,38 +36,44 @@ export function AnalyticsEvents() {
 
       const text = link.textContent?.trim() || "";
       const href = link.getAttribute("href") || "";
+      const ctaLocation = link.getAttribute("data-cta-location") || undefined;
+      const ctaOffer = link.getAttribute("data-cta-offer") || undefined;
 
       // Track CTA buttons
       if (
-        text.includes("Request Free Consultation") ||
         text.includes("Get in Touch") ||
-        text.includes("Get a Quote") ||
         text.includes("Get Free Checklist") ||
         text.includes("Get the £495 Audit") ||
         text.includes("Run Free Website Grader") ||
         text.includes("Run Free AI Visibility Check") ||
         text.includes("Check AI Visibility") ||
-        text.includes("Send Quick Enquiry")
+        text.includes("Send Quick Enquiry") ||
+        text.includes("Free Diagnosis") ||
+        text.includes("Get My Free Diagnosis") ||
+        Boolean(ctaLocation)
       ) {
-        window.gtag("event", "cta_click", {
+        trackEvent("cta_click", {
           event_category: "engagement",
           event_label: text,
+          cta_location: ctaLocation,
+          cta_offer: ctaOffer,
           transport_type: "beacon",
         });
       }
 
       // Track phone clicks
       if (href.startsWith("tel:")) {
-        window.gtag("event", "phone_click", {
+        trackEvent("phone_click", {
           event_category: "contact",
           event_label: href,
+          cta_location: ctaLocation,
           transport_type: "beacon",
         });
       }
 
       // Track email clicks
       if (href.startsWith("mailto:")) {
-        window.gtag("event", "email_click", {
+        trackEvent("email_click", {
           event_category: "contact",
           event_label: href,
           transport_type: "beacon",

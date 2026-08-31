@@ -175,7 +175,7 @@ export default function ProofPage() {
           Want this level of honesty on your SEO?
         </h2>
         <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-          Every client gets the same treatment: real Search Console data, monthly, tied to enquiries rather than vanity metrics. Start with the fixed-fee £495 audit or a free 30-minute call.
+          Every client gets the same treatment: real Search Console data, tied to enquiries rather than vanity metrics. Start with the fixed-fee £495 audit or a free 20-minute SEO diagnosis.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link

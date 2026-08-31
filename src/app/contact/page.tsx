@@ -5,8 +5,8 @@ import { Footer } from "@/components/sections/footer";
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "Contact Sunny Patel | Request a Free SEO Strategy Call",
-    description: "Request a free 30-minute SEO strategy call with Sunny Patel. Get an honest assessment of your site's organic performance. Response within 24 hours, no obligation.",
+    title: "Contact Sunny Patel | Free 20-Minute SEO Diagnosis",
+    description: "Request a free 20-minute SEO diagnosis with Sunny Patel. Focus on your biggest organic search problem and the most useful next step.",
     path: "/contact",
   });
 }
@@ -43,10 +43,10 @@ export default function ContactPage() {
             className="mb-4 text-3xl font-bold text-foreground md:text-5xl"
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
-            Let&apos;s Work Together
+            Start With a Focused SEO Diagnosis
           </h1>
           <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-            Get in touch for a free consultation. No obligation, honest advice on where your SEO stands.
+            Free for 20 minutes, no obligation, and a direct reply from Sunny within one working day.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />

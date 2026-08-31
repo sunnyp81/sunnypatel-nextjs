@@ -25,7 +25,7 @@ export const faqs = [
   },
   {
     q: "How does your client engagement process work?",
-    a: "My process typically begins with a free consultation to understand your goals. This leads to a tailored audit and proposal, followed by strategy implementation, regular reporting, and iterative optimisation, ensuring transparent communication throughout.",
+    a: "My process begins with a free 20-minute SEO diagnosis focused on your biggest search problem and the most useful next step. A scoped audit or proposal follows when deeper work is appropriate.",
   },
   {
     q: "What makes your AI search optimisation approach unique?",

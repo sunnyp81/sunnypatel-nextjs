@@ -169,6 +169,14 @@ export function FormSuccess({
         Message sent
       </h3>
       <p className="max-w-xs text-sm text-muted-foreground">{message}</p>
+      <a
+        href="tel:07305523333"
+        data-cta-location="form_success"
+        data-cta-offer="direct_call"
+        className="inline-flex min-h-11 items-center rounded-lg bg-success px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-success/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/60"
+      >
+        Want to talk sooner? Call Sunny
+      </a>
       <button
         onClick={onReset}
         className="mt-2 text-sm text-brand transition-colors hover:text-brand/80"

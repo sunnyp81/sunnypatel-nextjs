@@ -15,21 +15,21 @@ import { FormField, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
 
 const TRUST_POINTS = [
-  "Review your current rankings and identify quick wins",
-  "Audit your biggest technical and content gaps",
-  "Outline a clear 90-day action plan",
-  "Answer any SEO questions you have",
+  "Focus on your biggest search problem",
+  "Review the evidence you already have",
+  "Identify the most useful next step",
+  "Answer your priority SEO question",
 ] as const;
 
 const BADGES = [
   { icon: CalendarDays, label: "15+ years experience" },
-  { icon: Sparkles, label: "Free consultation" },
+  { icon: Sparkles, label: "Free 20-minute diagnosis" },
   { icon: Shield, label: "No contracts" },
 ] as const;
 
 export function ServiceInlineForm({
-  ctaTitle = "Request Your Free 30-Minute Consultation",
-  ctaSubtitle = "Tell me about your business and I'll come prepared with specific recommendations for your site.",
+  ctaTitle = "Request Your Free 20-Minute SEO Diagnosis",
+  ctaSubtitle = "Tell me the biggest search problem facing your business and I'll focus the conversation on the most useful next step.",
   compact = false,
 }: {
   ctaTitle?: string;
@@ -58,7 +58,7 @@ export function ServiceInlineForm({
 
         {status === "success" ? (
           <FormSuccess
-            message="Thanks for reaching out. I'll get back to you within 24 hours to arrange your consultation."
+            message="Your diagnosis request is with me. I'll reply personally within one working day."
             onReset={() => setStatus("idle")}
           />
         ) : (
@@ -124,7 +124,9 @@ export function ServiceInlineForm({
               type="submit"
               disabled={status === "loading"}
               aria-busy={status === "loading"}
-              className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
+              data-cta-location="service_inline_form"
+              data-cta-offer="free_20_minute_seo_diagnosis"
+              className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-semibold text-white transition-[transform,box-shadow,opacity] duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
               style={{
                 fontFamily: "var(--font-heading)",
                 background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
@@ -139,14 +141,14 @@ export function ServiceInlineForm({
                 </>
               ) : (
                 <>
-                  Request Free Consultation
+                  Request Free Diagnosis
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}
             </button>
 
             <p className="text-center text-xs text-muted-foreground/70">
-              No obligation · Free 30 minutes · Usually responds same day
+              No obligation · Direct reply from Sunny · Reply within one working day
             </p>
             <p className="text-center text-xs text-muted-foreground/70">
               Prefer to talk?{" "}

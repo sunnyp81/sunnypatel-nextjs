@@ -1,71 +1,30 @@
-import { Quote } from "lucide-react";
-
-const TESTIMONIALS = [
-  {
-    text: "The SEO work delivered real results \u2014 I\u2019m seeing more clicks compared to this time last year in Google Analytics, without having to spend loads on advertising. Super impressed.",
-    name: "Dr Shaan Patel",
-    role: "Founder, Aatma Aesthetics",
-    location: "UK",
-  },
-  {
-    text: "Before working with Sunny, we were getting around 180 organic visits a month. Nine months later we\u2019re at 620 and enquiries from organic have tripled.",
-    name: "James W.",
-    role: "Director",
-    location: "Reading",
-  },
-  {
-    text: "We went from invisible in local pack to ranking in the top 3 for our main service terms within 5 months. The increase in enquiry rate was roughly 3\u00d7.",
-    name: "Sarah M.",
-    role: "Partner, professional services firm",
-    location: "Berkshire",
-  },
-  {
-    text: "Sunny\u2019s topical map approach was unlike any other SEO work we\u2019d had before. Within 6 months we were ranking for terms we\u2019d never appeared for.",
-    name: "Tom B.",
-    role: "MD, SaaS company",
-    location: "Thames Valley",
-  },
-];
+import { TESTIMONIALS } from "@/lib/testimonial-data";
+import { ArrowRight, Quote } from "lucide-react";
+import Link from "next/link";
 
 export function Testimonials() {
   return (
     <section className="relative overflow-hidden border-t border-white/[0.05] bg-[#050507]">
-      {/* Ambient glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-[0.04] blur-[100px]"
-        style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
-      />
-
-      <div className="relative mx-auto max-w-6xl px-6 py-20">
-        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-brand">
-          Client Results
-        </p>
-        <h2
-          className="mb-12 text-center text-2xl font-bold text-foreground md:text-3xl"
-          style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
-        >
-          What clients say
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-brand opacity-[0.04] blur-[100px]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-4xl px-6 py-20">
+        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-brand">Verified Client Result</p>
+        <h2 className="mb-10 text-center text-2xl font-bold text-foreground md:text-3xl" style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}>
+          Real work, in the client&apos;s words
         </h2>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {TESTIMONIALS.map((t) => (
-            <div
-              key={t.name}
-              className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
-            >
-              <Quote className="mb-4 h-5 w-5 text-brand/30" />
-              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-                &ldquo;{t.text}&rdquo;
-              </p>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                <p className="text-xs text-muted-foreground/60">
-                  {t.role} &middot; {t.location}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {TESTIMONIALS.map((testimonial) => (
+          <figure key={testimonial.author} className="relative rounded-2xl border border-white/[0.09] bg-white/[0.03] p-7 md:p-9">
+            <Quote className="mb-5 h-6 w-6 text-brand" aria-hidden="true" />
+            <blockquote className="text-lg leading-relaxed text-foreground md:text-xl">“{testimonial.text}”</blockquote>
+            <figcaption className="mt-6">
+              <p className="font-semibold text-foreground">{testimonial.author}</p>
+              <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+            </figcaption>
+            <Link href="/portfolio/aatma-aesthetics-website-design-development-seo/" className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-lg border border-brand/25 bg-brand/10 px-4 text-sm font-semibold text-brand transition-colors hover:bg-brand/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
+              See the measured case study <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </figure>
+        ))}
       </div>
     </section>
   );

@@ -87,7 +87,7 @@ export default function OGImage() {
             paddingTop: 28,
           }}
         >
-          <div>No contracts · No juniors · Free 30-min audit</div>
+          <div>No contracts · No juniors · Free 20-min diagnosis</div>
           <div style={{ color: "#7ba3f5", fontWeight: 600 }}>07305 523333</div>
         </div>
       </div>

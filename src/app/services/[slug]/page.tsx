@@ -540,7 +540,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does Berkshire SEO cost?",
-      a: "Berkshire SEO pricing: technical audits from £495, topical maps £800–£2,500+, local SEO from £600 monthly, and full retainers £1,500–£5,000+ monthly. Initial investment depends on competition level and existing site authority. Free consultations available to assess your specific requirements.",
+      a: "Berkshire SEO pricing: technical audits from £495, topical maps £800–£2,500+, local SEO from £600 monthly, and full retainers £1,500–£5,000+ monthly. Initial investment depends on competition level and existing site authority. A free 20-minute SEO diagnosis helps establish the most useful next step.",
     },
     {
       q: "How long does SEO take for Berkshire businesses?",
@@ -596,7 +596,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO cost for a Bracknell business?",
-      a: "Bracknell SEO investment ranges from £800–£2,500 initially for strategy and setup, followed by £600–£2,000+ monthly for ongoing implementation depending on service scope and competition. Free initial consultations assess your specific requirements and competitive landscape.",
+      a: "Bracknell SEO investment ranges from £800–£2,500 initially for strategy and setup, followed by £600–£2,000+ monthly for ongoing implementation depending on service scope and competition. A free 20-minute SEO diagnosis helps establish the most useful next step.",
     },
     {
       q: "How long does SEO take in Bracknell markets?",
@@ -614,7 +614,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO cost for a Slough business?",
-      a: "Slough SEO costs range from £495 for a standalone technical audit to £1,500–£5,000+ monthly for comprehensive retainers. B2B content strategy typically requires £3,000–£8,000 initial investment. Free consultations provide specific pricing based on your industry, competition, and growth objectives.",
+      a: "Slough SEO costs range from £495 for a standalone technical audit to £1,500–£5,000+ monthly for comprehensive retainers. B2B content strategy typically requires £3,000–£8,000 initial investment. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
     },
     {
       q: "How long does SEO take for Slough businesses?",
@@ -632,7 +632,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO cost for a Wokingham business?",
-      a: "Wokingham SEO investment ranges from £800–£2,500 initially for strategy and audit, followed by £800–£2,500+ monthly for ongoing implementation. Professional services in competitive niches require higher investment to overcome established competitors. Free consultations provide accurate scoping based on your market.",
+      a: "Wokingham SEO investment ranges from £800–£2,500 initially for strategy and audit, followed by £800–£2,500+ monthly for ongoing implementation. Professional services in competitive niches require higher investment to overcome established competitors. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
     },
     {
       q: "How long does SEO take in Wokingham?",
@@ -650,7 +650,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO cost for a Maidenhead business?",
-      a: "Maidenhead SEO investment ranges from £600–£1,500 monthly for local SEO maintenance to £2,000–£5,000+ monthly for comprehensive strategy covering both tourism and residential markets. Initial strategy and setup typically requires £800–£2,500. Free consultations provide specific pricing for your business type.",
+      a: "Maidenhead SEO investment ranges from £600–£1,500 monthly for local SEO maintenance to £2,000–£5,000+ monthly for comprehensive strategy covering both tourism and residential markets. Initial strategy and setup typically requires £800–£2,500. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
     },
     {
       q: "How long does SEO take for Maidenhead businesses?",
@@ -664,7 +664,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO cost for a Windsor business?",
-      a: "Windsor SEO costs range from £600+ monthly for local SEO to £1,500–£3,500+ monthly for comprehensive strategies covering both tourist and residential audiences. Initial audits start from £495. Free consultations assess your specific market position and growth objectives.",
+      a: "Windsor SEO costs range from £600+ monthly for local SEO to £1,500–£3,500+ monthly for comprehensive strategies covering both tourist and residential audiences. Initial audits start from £495. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
     },
     {
       q: "How long does SEO take for Windsor businesses?",
@@ -696,7 +696,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
   "seo-consultant-kent": [
     {
       q: "How much does an SEO consultant in Kent cost?",
-      a: "Kent SEO consultant pricing: technical audits from £495, topical maps from £800–£2,500, and monthly retainers from £1,000–£4,000+ depending on competition level. Canterbury, Maidstone, and Tunbridge Wells are the most competitive Kent markets. Free 30-minute consultations available.",
+      a: "Kent SEO consultant pricing: technical audits from £495, topical maps from £800–£2,500, and monthly retainers from £1,000–£4,000+ depending on competition level. Canterbury, Maidstone, and Tunbridge Wells are the most competitive Kent markets. A free 20-minute SEO diagnosis is available.",
     },
     {
       q: "Which areas of Kent do you cover?",

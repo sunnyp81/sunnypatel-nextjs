@@ -6,9 +6,9 @@ import { ArrowRight } from "lucide-react";
 
 const stats = [
   { value: "15+", label: "Years experience" },
-  { value: "100+", label: "Clients served" },
-  { value: "12+", label: "Industries" },
-  { value: "150–280%", label: "Avg traffic growth" },
+  { value: "45", label: "SEO test sites" },
+  { value: "12+", label: "Testing verticals" },
+  { value: "+340%", label: "Published organic growth" },
 ];
 
 export function AboutHero() {
@@ -62,7 +62,7 @@ export function AboutHero() {
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <GradientButton asChild>
               <a href="/contact/" className="gap-2">
-                Get a Free SEO Audit
+                Get a Free SEO Diagnosis
                 <ArrowRight className="h-4 w-4" />
               </a>
             </GradientButton>

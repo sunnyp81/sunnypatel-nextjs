@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 280, suffix: "%", label: "Peak Traffic Growth", color: "from-brand to-gold" },
-  { value: 100, suffix: "+", label: "Clients Served", color: "from-gold to-success" },
-  { value: 40, suffix: "+", label: "Sites Managed", color: "from-success to-teal" },
+  { value: 340, suffix: "%", label: "Aatma Organic Growth YoY", color: "from-brand to-gold" },
+  { value: 45, suffix: "", label: "SEO Test Sites", color: "from-gold to-success" },
+  { value: 12, suffix: "+", label: "Testing Verticals", color: "from-success to-teal" },
   { value: 15, suffix: "+", label: "Years Experience", color: "from-teal to-brand" },
 ];
 

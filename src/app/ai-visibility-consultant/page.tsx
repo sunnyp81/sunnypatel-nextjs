@@ -191,7 +191,7 @@ export default function AiVisibilityConsultantPage() {
                 </Link>
               </GradientButton>
               <span className="text-sm text-muted-foreground/70">
-                Free 30 minutes · no obligation
+                Free 20 minutes · no obligation
               </span>
             </div>
           </div>

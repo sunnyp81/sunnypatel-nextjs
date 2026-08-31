@@ -97,7 +97,7 @@ export function BlogLeadMagnet() {
                 type="submit"
                 disabled={status === "loading"}
                 aria-busy={status === "loading"}
-                className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
+                className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-[transform,opacity] duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
                 style={{
                   fontFamily: "var(--font-heading)",
                   background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
@@ -117,7 +117,7 @@ export function BlogLeadMagnet() {
                 )}
               </button>
               <p className="text-center text-[10px] text-muted-foreground/70">
-                No spam. Unsubscribe anytime.
+                One email with the checklist. No mailing list.
               </p>
             </form>
           </div>

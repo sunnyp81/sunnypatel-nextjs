@@ -13,6 +13,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { reader } from "@/lib/content";
 import { reviewSchema, schemaGraph } from "@/lib/schema";
 import { TESTIMONIALS } from "@/lib/testimonial-data";
+import { HomepageMobileCta } from "@/components/homepage-mobile-cta";
 
 export function generateMetadata() {
   return buildMetadata({ path: "/" });
@@ -52,6 +53,7 @@ export default async function Home() {
       <Cta />
       <Contact />
       <Footer />
+      <HomepageMobileCta />
     </main>
   );
 }

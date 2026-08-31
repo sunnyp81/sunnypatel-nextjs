@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -45,23 +46,34 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
       if (!res.ok) {
         setErrorMsg(data.error || "Something went wrong.");
         setStatus("error");
+        trackEvent("form_error", {
+          event_category: opts.eventCategory,
+          event_label: opts.eventLabel,
+          form_location: opts.eventLabel,
+          error_type: "api_response",
+        });
       } else {
         setStatus("success");
         setFormData(opts.initial);
-        if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "generate_lead", {
-            event_category: opts.eventCategory,
-            event_label: opts.eventLabel,
-            value: opts.leadValue ?? 50,
-            currency: "GBP",
-            transport_type: "beacon",
-            ...("howHeard" in formData ? { how_heard: formData.howHeard } : {}),
-          });
-        }
+        trackEvent("generate_lead", {
+          event_category: opts.eventCategory,
+          event_label: opts.eventLabel,
+          form_location: opts.eventLabel,
+          value: opts.leadValue ?? 50,
+          currency: "GBP",
+          transport_type: "beacon",
+          ...("howHeard" in formData ? { how_heard: formData.howHeard } : {}),
+        });
       }
     } catch {
       setErrorMsg("Network error. Please try again.");
       setStatus("error");
+      trackEvent("form_error", {
+        event_category: opts.eventCategory,
+        event_label: opts.eventLabel,
+        form_location: opts.eventLabel,
+        error_type: "network",
+      });
     }
   }
 

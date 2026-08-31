@@ -86,22 +86,8 @@ function HeroGeometric({
     title2?: string;
     children?: React.ReactNode;
 }) {
-    const prefersReducedMotion = useReducedMotion();
-    const fadeUpVariants = {
-        hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 },
-        visible: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: prefersReducedMotion ? 0 : 0.55,
-                delay: prefersReducedMotion ? 0 : 0.12 + i * 0.08,
-                ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
-            },
-        }),
-    };
-
     return (
-        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+        <section id="homepage-hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
             <div className="absolute inset-0 bg-gradient-to-br from-brand/[0.06] via-transparent to-gold/[0.04] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
@@ -153,25 +139,14 @@ function HeroGeometric({
 
             <div className="relative z-10 container mx-auto px-4 pt-24 md:px-6 md:pt-28">
                 <div className="max-w-3xl mx-auto text-center">
-                    <motion.div
-                        custom={0}
-                        variants={fadeUpVariants}
-                        initial={prefersReducedMotion ? false : "hidden"}
-                        animate="visible"
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
-                    >
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12">
                         <Circle className="h-2 w-2 fill-brand/80" />
                         <span className="text-sm text-white/60 tracking-wide">
                             {badge}
                         </span>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        custom={1}
-                        variants={fadeUpVariants}
-                        initial={prefersReducedMotion ? false : "hidden"}
-                        animate="visible"
-                    >
+                    <div>
                         <h1 className="text-2xl sm:text-4xl md:text-[2.5rem] font-bold mb-6 md:mb-8 tracking-tight">
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
                                 {title1}{" "}
@@ -185,23 +160,18 @@ function HeroGeometric({
                                 {title2}
                             </span>
                         </h1>
-                    </motion.div>
+                    </div>
 
                     {children && (
-                        <motion.div
-                            custom={3}
-                            variants={fadeUpVariants}
-                            initial={prefersReducedMotion ? false : "hidden"}
-                            animate="visible"
-                        >
+                        <div>
                             {children}
-                        </motion.div>
+                        </div>
                     )}
                 </div>
             </div>
 
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-[#030303]/80 pointer-events-none" />
-        </div>
+        </section>
     );
 }
 

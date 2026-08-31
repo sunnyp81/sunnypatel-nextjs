@@ -65,24 +65,23 @@ export function Contact() {
           {/* Left — info */}
           <div>
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal">
-              Get in Touch
+              Free SEO Diagnosis
             </p>
             <h2
               className="mb-6 text-3xl font-bold text-foreground md:text-4xl"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
             >
-              Let&apos;s discuss your project
+              Start with the biggest search problem
             </h2>
             <p className="mb-10 leading-relaxed text-muted-foreground">
-              Whether you need a full SEO strategy or a quick audit, I&apos;m
-              happy to chat. Response time is typically within 24 hours.
+              Request a free 20-minute diagnosis and I&apos;ll help identify the most useful next step. For a full documented review, choose the £495 SEO audit.
             </p>
 
             <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.03]">
               {contactItems.map((item, i) => {
                 const inner = (
                   <div
-                    className={`flex items-center gap-4 px-5 py-4 transition-all duration-200 ${item.href ? "hover:bg-brand/5" : ""}`}
+                    className={`flex items-center gap-4 px-5 py-4 transition-colors duration-200 ${item.href ? "hover:bg-brand/5" : ""}`}
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04]">
                       {item.icon}
@@ -112,7 +111,7 @@ export function Contact() {
             <div className="relative rounded-xl border-[0.75px] bg-background p-8 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
               {status === "success" ? (
                 <FormSuccess
-                  message="Thanks for reaching out. I'll get back to you within 24 hours."
+                  message="Your diagnosis request is with me. I'll reply personally within one working day."
                   onReset={() => setStatus("idle")}
                 />
               ) : (
@@ -172,7 +171,9 @@ export function Contact() {
                     type="submit"
                     disabled={status === "loading"}
                     aria-busy={status === "loading"}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-4 text-sm font-semibold text-background transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
+                    data-cta-location="homepage_contact"
+                    data-cta-offer="free_20_minute_seo_diagnosis"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-4 text-sm font-semibold text-background transition-[transform,opacity] duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {status === "loading" ? (
@@ -181,7 +182,7 @@ export function Contact() {
                         Sending…
                       </>
                     ) : (
-                      "Send Message"
+                      "Request My Free Diagnosis"
                     )}
                   </button>
                 </form>

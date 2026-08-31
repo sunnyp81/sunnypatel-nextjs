@@ -35,8 +35,8 @@ const FAQS = [
     a: "Start a retainer within 60 days of delivery and the £495 is credited against your first month. No minimum contract applies.",
   },
   {
-    q: "How is this different from the free consultation?",
-    a: "The free consultation is a 30-minute call. The paid SEO audit is a documented investigation that typically uncovers 15-30 specific issues and produces written deliverables you act on independently.",
+    q: "How is this different from the free SEO diagnosis?",
+    a: "The free diagnosis is a focused 20-minute conversation about one priority problem. The paid SEO audit is a documented investigation that typically uncovers 15-30 specific issues and produces written deliverables you can act on independently.",
   },
   {
     q: "Can I share the report with my development team?",
@@ -217,13 +217,13 @@ export default function PaidSeoAuditPage() {
               className="mb-4 text-2xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
             >
-              The gap between a free consultation and a retainer
+              The gap between a free diagnosis and a retainer
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                A paid SEO audit delivers what neither a free consultation nor a monthly
+                A paid SEO audit delivers what neither a free diagnosis nor a monthly
                 retainer provides alone: a fully documented diagnosis before any commitment.
-                A free consultation covers the surface. A retainer fixes issues over time.
+                A free 20-minute diagnosis focuses on one priority problem. A retainer fixes issues over time.
                 This audit maps all of them in one deliverable.
               </p>
               <p>

@@ -47,7 +47,8 @@ export function AnalyticsEvents() {
         text.includes("Get the £495 Audit") ||
         text.includes("Run Free Website Grader") ||
         text.includes("Run Free AI Visibility Check") ||
-        text.includes("Check AI Visibility")
+        text.includes("Check AI Visibility") ||
+        text.includes("Send Quick Enquiry")
       ) {
         window.gtag("event", "cta_click", {
           event_category: "engagement",

@@ -22,7 +22,11 @@ function ElegantShape({
     const prefersReducedMotion = useReducedMotion();
     return (
         <motion.div
-            initial={{
+            initial={prefersReducedMotion ? {
+                opacity: 1,
+                y: 0,
+                rotate,
+            } : {
                 opacity: 0,
                 y: -150,
                 rotate: rotate - 15,
@@ -33,8 +37,8 @@ function ElegantShape({
                 rotate: rotate,
             }}
             transition={{
-                duration: 2.4,
-                delay,
+                duration: prefersReducedMotion ? 0 : 2.4,
+                delay: prefersReducedMotion ? 0 : delay,
                 ease: [0.23, 0.86, 0.39, 0.96] as [number, number, number, number],
                 opacity: { duration: 1.2 },
             }}
@@ -82,14 +86,15 @@ function HeroGeometric({
     title2?: string;
     children?: React.ReactNode;
 }) {
+    const prefersReducedMotion = useReducedMotion();
     const fadeUpVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 },
         visible: (i: number) => ({
             opacity: 1,
             y: 0,
             transition: {
-                duration: 1,
-                delay: 0.5 + i * 0.2,
+                duration: prefersReducedMotion ? 0 : 0.55,
+                delay: prefersReducedMotion ? 0 : 0.12 + i * 0.08,
                 ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
             },
         }),
@@ -151,7 +156,7 @@ function HeroGeometric({
                     <motion.div
                         custom={0}
                         variants={fadeUpVariants}
-                        initial="hidden"
+                        initial={prefersReducedMotion ? false : "hidden"}
                         animate="visible"
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
                     >
@@ -164,7 +169,7 @@ function HeroGeometric({
                     <motion.div
                         custom={1}
                         variants={fadeUpVariants}
-                        initial={{ opacity: 1, y: 30 }}
+                        initial={prefersReducedMotion ? false : "hidden"}
                         animate="visible"
                     >
                         <h1 className="text-2xl sm:text-4xl md:text-[2.5rem] font-bold mb-6 md:mb-8 tracking-tight">
@@ -186,7 +191,7 @@ function HeroGeometric({
                         <motion.div
                             custom={3}
                             variants={fadeUpVariants}
-                            initial="hidden"
+                            initial={prefersReducedMotion ? false : "hidden"}
                             animate="visible"
                         >
                             {children}

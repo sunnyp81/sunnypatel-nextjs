@@ -2,13 +2,14 @@ import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 // Shared field styling, previously copy-pasted across all three lead forms.
 const FIELD_CLASS =
-  "w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-all duration-300 focus:border-brand/40 focus:shadow-[0_0_20px_rgba(91,138,239,0.1)] focus:outline-none disabled:opacity-50";
+  "w-full min-h-11 rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder-muted-foreground/50 transition-[border-color,box-shadow,opacity] duration-300 focus:border-brand/50 focus:shadow-[0_0_20px_rgba(91,138,239,0.12)] focus:outline-none focus:ring-2 focus:ring-brand/25 disabled:opacity-50";
 
 export function FormField({
   id,
   label,
   type = "text",
   placeholder,
+  autoComplete,
   required = false,
   optional = false,
   value,
@@ -22,6 +23,7 @@ export function FormField({
   label: string;
   type?: string;
   placeholder?: string;
+  autoComplete?: string;
   required?: boolean;
   optional?: boolean;
   value: string;
@@ -53,6 +55,7 @@ export function FormField({
     value,
     onChange,
     placeholder,
+    autoComplete,
     required,
     disabled,
     "aria-required": required || undefined,

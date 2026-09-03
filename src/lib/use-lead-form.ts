@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 
 export type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -35,7 +36,10 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
     setErrorMsg("");
 
     try {
-      const payload = opts.transform ? opts.transform(formData) : formData;
+      const payload = {
+        ...(opts.transform ? opts.transform(formData) : formData),
+        ...getAttribution(),
+      };
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

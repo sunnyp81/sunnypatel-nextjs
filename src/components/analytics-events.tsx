@@ -2,9 +2,12 @@
 
 import { useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { captureAttribution } from "@/lib/attribution";
 
 export function AnalyticsEvents() {
   useEffect(() => {
+    captureAttribution();
+
     // ── Scroll depth tracking ──────────────────────────────────
     const thresholds = [25, 50, 75, 90];
     const fired = new Set<number>();

@@ -25,6 +25,36 @@ const LEAD_MAGNETS: Record<string, { subject: string; url: string; description: 
 // Basic email shape check. Not RFC-perfect, but rejects the obvious junk.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function formatSource(fields: {
+  utm_source?: unknown;
+  utm_medium?: unknown;
+  utm_campaign?: unknown;
+  referrer?: unknown;
+  landing_page?: unknown;
+}): string {
+  const str = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
+  const utmSource = str(fields.utm_source);
+  const utmMedium = str(fields.utm_medium);
+  const utmCampaign = str(fields.utm_campaign);
+  const referrer = str(fields.referrer);
+  const landing = str(fields.landing_page);
+
+  let source: string;
+  if (utmSource) {
+    source = utmMedium ? `${utmSource} / ${utmMedium}` : utmSource;
+    if (utmCampaign) source += ` (campaign: ${utmCampaign})`;
+  } else if (referrer) {
+    try {
+      source = new URL(referrer).hostname;
+    } catch {
+      source = referrer;
+    }
+  } else {
+    source = "Direct / no referrer";
+  }
+  return landing ? `${source} — landed on ${landing}` : source;
+}
+
 // Lightweight per-IP rate limit. Serverless memory is per-instance and resets on
 // cold start, so this is a speed bump against loops, not a hard guarantee.
 const RATE_LIMIT = 5;
@@ -64,7 +94,21 @@ export async function POST(request: Request) {
       "unknown";
 
     const body = await request.json();
-    const { name, email, phone, message, company, turnstileToken, leadMagnet, howHeard } = body;
+    const {
+      name,
+      email,
+      phone,
+      message,
+      company,
+      turnstileToken,
+      leadMagnet,
+      howHeard,
+      utm_source,
+      utm_medium,
+      utm_campaign,
+      referrer,
+      landing_page,
+    } = body;
 
     // Honeypot: real users never see or fill `company`. Bots fill every field.
     if (typeof company === "string" && company.trim() !== "") {
@@ -126,6 +170,13 @@ export async function POST(request: Request) {
               ? HOW_HEARD_LABELS[howHeard]
               : "Not provided"
           }`,
+          `Traffic source: ${formatSource({
+            utm_source,
+            utm_medium,
+            utm_campaign,
+            referrer,
+            landing_page,
+          })}`,
           ``,
           `Message:`,
           message,

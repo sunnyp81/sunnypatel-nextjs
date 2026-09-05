@@ -516,7 +516,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "How much does SEO training cost?",
-      a: "Half-day workshops start from £750 for up to 8 people. The six-week team programme costs £3,500 and includes weekly sessions, set work and follow-up support.",
+      a: "Half-day workshops cost £750, full-day workshops cost £1,250 and the six-week team programme costs £2,500. Each price covers a team of up to 8 people. The programme includes six weekly 90-minute sessions, set work and feedback during the programme.",
     },
   ],
   "squarespace-seo-consultant": [

@@ -421,6 +421,136 @@ const AI_SEARCH_DATA = {
 type FaqItem = { q: string; a: string };
 
 const SERVICE_FAQS: Record<string, FaqItem[]> = {
+  "travel-seo-consultant": [
+    {
+      q: "How far ahead of the season should travel content publish?",
+      a: "Travel content should publish 3 to 4 months before peak booking windows so pages have time to index, earn internal links and gather search signals before demand rises.",
+    },
+    {
+      q: "Can a small operator outrank OTAs?",
+      a: "Not for generic \"holidays\" terms. A small operator can compete for destination, experience and audience long-tail searches where OTA pages are thin and specialist knowledge gives the page a reason to rank.",
+    },
+    {
+      q: "What does travel SEO cost?",
+      a: "A travel SEO audit costs £495 at a fixed fee. Ongoing retainers start from £1,500 per month and are scoped around the number of destinations, templates and markets involved.",
+    },
+  ],
+  "architects-seo-consultant": [
+    {
+      q: "Do project portfolio pages help SEO?",
+      a: "Project portfolio pages help only when they include useful text, project type, location and process. Image galleries alone give search engines too little context and usually rank for nothing beyond a project name.",
+    },
+    {
+      q: "Should an architect target planning-permission keywords?",
+      a: "Yes. Informational planning content is often the highest-volume entry point for prospective clients and can feed enquiries when it connects clearly to the relevant architectural service.",
+    },
+    {
+      q: "How long before an architecture site sees results?",
+      a: "Architecture sites typically need 4 to 6 months to improve for local service terms. Competitive sector terms take longer because the practice needs stronger project evidence, content coverage and authority.",
+    },
+  ],
+  "healthcare-seo-consultant": [
+    {
+      q: "Does Google treat healthcare websites differently?",
+      a: "Yes. YMYL pages need demonstrable expertise, clear author credentials and accurate content that qualified practitioners have authored or reviewed.",
+    },
+    {
+      q: "Who writes the medical content?",
+      a: "Your clinicians author or review the medical content. I provide the search structure, briefs, schema and technical work while the provider retains responsibility for clinical accuracy and approval.",
+    },
+    {
+      q: "How do you measure healthcare SEO?",
+      a: "I measure healthcare SEO through enquiries, calls, bookings and visibility for service and location terms. I never use clinical outcomes as an SEO performance measure.",
+    },
+  ],
+  "hotel-seo-consultant": [
+    {
+      q: "Can a hotel outrank Booking.com?",
+      a: "Yes for its own brand name and for specific local long-tail searches. A hotel will rarely beat Booking.com for broad \"hotels in [city]\" terms, so the strategy targets queries with a clearer reason to book direct.",
+    },
+    {
+      q: "Does the booking engine affect SEO?",
+      a: "Yes. Subdomain and third-party booking engines can split authority, interrupt analytics and weaken the mobile journey. I review the setup and show where the handover causes a search or tracking problem.",
+    },
+    {
+      q: "What does hotel SEO cost?",
+      a: "A hotel SEO audit costs £495 at a fixed fee. Ongoing retainers start from £1,500 per month and depend on the number of properties, offers and booking systems involved.",
+    },
+  ],
+  "wix-seo-consultant": [
+    {
+      q: "Is Wix bad for SEO?",
+      a: "No longer for small and medium sites. Wix becomes limiting when a site grows beyond a few hundred pages or needs complex URL, taxonomy and crawl controls.",
+    },
+    {
+      q: "Can you rank a Wix site on page one?",
+      a: "Yes. A Wix site can rank on page one for local and niche terms when it has clear structure, useful content, appropriate schema and enough authority.",
+    },
+    {
+      q: "Should I move from Wix to WordPress?",
+      a: "Only when a specific Wix limit is blocking growth. I assess the site before recommending a migration so the business doesn't take on cost and ranking risk without a defined benefit.",
+    },
+  ],
+  "automotive-seo-consultant": [
+    {
+      q: "Can a dealer rank against Auto Trader?",
+      a: "Not for most generic used-car terms. A dealer can compete for brand and location searches, local services and finance-adjacent queries where its pages offer more specific value.",
+    },
+    {
+      q: "Should vehicle stock pages be indexed?",
+      a: "Selectively. Index stable model and category pages, then control fast-changing listings so sold stock doesn't create crawl waste, dead ends and soft 404s.",
+    },
+    {
+      q: "Does automotive content get cited in AI search?",
+      a: "Yes. Structured review and comparison content from my own portfolio has earned thousands of AI citations when the pages provide clear specifications, methodology and useful answers.",
+    },
+  ],
+  "seo-training-consultant": [
+    {
+      q: "Is the training generic or specific to our site?",
+      a: "The training is specific to your business. Every exercise uses your site, your Google Search Console data and your competitors so attendees work on decisions they will make after the session.",
+    },
+    {
+      q: "How is training different from SEO consulting?",
+      a: "Training builds your team's skills through a defined curriculum. Consulting answers your current questions session by session and assumes your team already has the capacity to act on the guidance.",
+    },
+    {
+      q: "How much does SEO training cost?",
+      a: "Half-day workshops start from £750 for up to 8 people. The six-week team programme costs £3,500 and includes weekly sessions, set work and follow-up support.",
+    },
+  ],
+  "squarespace-seo-consultant": [
+    {
+      q: "Can Squarespace sites rank well?",
+      a: "Yes. Squarespace sites can rank for local and niche service terms when page structure, content, internal links and images are handled properly.",
+    },
+    {
+      q: "Can I add schema markup to Squarespace?",
+      a: "Yes. Schema markup can be added through code injection at page level or site-wide. I set it up so each block describes the real page and avoids unnecessary duplication.",
+    },
+    {
+      q: "When should I leave Squarespace?",
+      a: "Leave Squarespace when the site needs large-scale content, complex URL structures or custom technical control that the platform cannot provide. A migration needs a specific blocked requirement.",
+    },
+  ],
+  "seo-migration-consultant": [
+    {
+      q: "How long does a website migration affect SEO?",
+      a: "Managed migrations typically cause a 2-4 week dip while search engines recrawl and transfer signals. Unmanaged migrations can suppress rankings for 3-6 months, and removed pages may lose visibility permanently.",
+    },
+    {
+      q: "Do I need an SEO consultant if my developer is handling the migration?",
+      a: "Yes. Developers preserve function, but rankings depend on SEO-specific tasks such as the redirect map, content parity checks, and the Google Search Console handover. An SEO consultant owns those checks and works alongside the development team.",
+    },
+    {
+      q: "Should I change domain and redesign at the same time?",
+      a: "No. Sequence them so each change can be measured and any problem can be isolated. If both changes are unavoidable, complete the migration first and release the redesign after rankings and indexation have stabilised.",
+    },
+    {
+      q: "What does a migration SEO audit cost?",
+      a: "A migration SEO audit costs £495 at a fixed fee. It covers the URL inventory, redirect map, and staging crawl before launch.",
+    },
+  ],
   "seo-consultant-reading": [
     {
       q: "Why hire an SEO consultant in Reading instead of an agency?",

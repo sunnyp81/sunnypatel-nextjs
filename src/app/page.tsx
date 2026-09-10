@@ -3,6 +3,8 @@ import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
 import { AiStatBar } from "@/components/sections/ai-stat-bar";
 import { About } from "@/components/sections/about";
+import { SearchModel } from "@/components/sections/search-model";
+import { LiveProof } from "@/components/sections/live-proof";
 import { Portfolio, type FeaturedProject } from "@/components/sections/portfolio";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Cta } from "@/components/sections/cta";
@@ -14,6 +16,7 @@ import { reader } from "@/lib/content";
 import { reviewSchema, schemaGraph } from "@/lib/schema";
 import { TESTIMONIALS } from "@/lib/testimonial-data";
 import { HomepageMobileCta } from "@/components/homepage-mobile-cta";
+import proof from "@/data/proof.json";
 
 export function generateMetadata() {
   return buildMetadata({ path: "/" });
@@ -48,6 +51,16 @@ export default async function Home() {
       <Stats />
       <AiStatBar />
       <About />
+      <SearchModel />
+      <LiveProof
+        proof={{
+          updatedAt: proof.updatedAt,
+          clicks: proof.summary28d.clicks,
+          impressions: proof.summary28d.impressions,
+          rankings: proof.rankings,
+          weeklyClicks: proof.weeklyClicks,
+        }}
+      />
       <Portfolio featuredItems={featuredItems} />
       <Testimonials />
       <Cta />

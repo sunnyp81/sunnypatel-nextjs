@@ -191,10 +191,6 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["semantic-seo"],
     mentions: ["technical-seo", "content-strategy", "eeat"],
   },
-  "digital-marketing-reading": {
-    about: ["local-seo"],
-    mentions: ["semantic-seo", "content-strategy"],
-  },
   "how-much-does-seo-cost": {
     about: ["semantic-seo"],
     mentions: ["content-strategy", "technical-seo"],
@@ -223,10 +219,6 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["local-seo", "semantic-seo"],
     mentions: ["entity-seo"],
   },
-  "local-seo-reading": {
-    about: ["local-seo"],
-    mentions: ["technical-seo", "content-strategy", "semantic-seo"],
-  },
   "seo-berkshire": {
     about: ["local-seo"],
     mentions: ["semantic-seo"],
@@ -250,10 +242,6 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
   "seo-windsor": {
     about: ["local-seo"],
     mentions: ["semantic-seo"],
-  },
-  "seo-strategy-reading": {
-    about: ["semantic-seo", "content-strategy"],
-    mentions: ["local-seo", "topical-authority", "technical-seo"],
   },
 };
 
@@ -797,19 +785,6 @@ const LOCAL_SERVICE_AREA: Record<string, Record<string, unknown>[]> = {
   "seo-windsor": [
     { "@type": "City", name: "Windsor" },
     { "@type": "AdministrativeArea", name: "Berkshire" },
-  ],
-  "digital-marketing-reading": [
-    { "@type": "City", name: "Reading" },
-    { "@type": "AdministrativeArea", name: "Berkshire" },
-  ],
-  "seo-strategy-reading": [
-    { "@type": "City", name: "Reading" },
-    { "@type": "AdministrativeArea", name: "Berkshire" },
-  ],
-  "local-seo-reading": [
-    { "@type": "City", name: "Reading" },
-    { "@type": "AdministrativeArea", name: "Berkshire" },
-    { "@type": "AdministrativeArea", name: "Thames Valley" },
   ],
 };
 

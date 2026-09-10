@@ -37,6 +37,14 @@ const nextConfig: NextConfig = {
       // at a weak position. Consolidating authority onto the page Google already prefers.
       { source: "/services/seo-agency-reading", destination: "/services/seo-consultant-reading/", permanent: true },
       { source: "/services/seo-agency-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
+      // Thin/dead Reading duplicates (near-zero or zero GSC impressions), folded into
+      // seo-consultant-reading, which owns the query and real ranking history.
+      { source: "/services/local-seo-reading", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/services/local-seo-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/services/digital-marketing-reading", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/services/digital-marketing-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/services/seo-strategy-reading", destination: "/services/seo-consultant-reading/", permanent: true },
+      { source: "/services/seo-strategy-reading/", destination: "/services/seo-consultant-reading/", permanent: true },
       {
         source: "/services/mayfair-luxury-brand-seo/",
         destination: "/",

@@ -9,12 +9,11 @@
     <rect width="720" height="420" fill="#0a0a0f" rx="16" ry="16"/>
 
     <!-- Title -->
-    <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Zero-Click Search Rates</text>
-    <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Percentage of searches ending with no click to external sites</text>
-    <text x="36" y="73" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: SparkToro / Datos, 2024-2025</text>
+    <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Zero-Click Google Searches, January to April 2026</text>
+    <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Percentage of Google searches ending with no click to any website</text>
+    <text x="36" y="73" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: SparkToro, Similarweb clickstream panel, June 2026</text>
 
     <!-- Chart area: baseline y=365, max height (100%) = 270px, top of chart = 95 -->
-    <!-- Horizontal grid lines -->
     <line x1="60" y1="365" x2="660" y2="365" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
     <text x="50" y="369" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4" text-anchor="end">0%</text>
 
@@ -30,30 +29,34 @@
     <line x1="60" y1="95" x2="660" y2="95" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
     <text x="50" y="99" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#e0e0e0" opacity="0.4" text-anchor="end">100%</text>
 
-    <!-- Danger zone above 50% (subtle red tint) -->
+    <!-- Zone above 50% (subtle red tint) -->
     <rect x="60" y="95" width="600" height="135" fill="#ff3333" opacity="0.03"/>
 
     <!-- 50% threshold reference line -->
     <line x1="60" y1="230" x2="660" y2="230" stroke="#ff4444" stroke-width="1" stroke-dasharray="8,5" opacity="0.35"/>
     <text x="665" y="226" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#ff4444" opacity="0.55" text-anchor="start">50% threshold</text>
 
-    <!-- Bars: 3 bars, each 120px wide, with generous spacing -->
-    <!-- Scale: 270px = 100%, so 1% = 2.7px -->
+    <!-- Bars: 4 bars, each 100px wide. Scale: 270px = 100%, so 1% = 2.7px -->
 
-    <!-- Bar 1: Overall 58.5% → h=157.95, y=207.05 -->
-    <rect x="140" y="207" width="120" height="158" rx="4" ry="4" fill="#5B8AEF"/>
-    <text x="200" y="192" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">58.5%</text>
-    <text x="200" y="388" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Overall</text>
+    <!-- Bar 1: UK 69.5% = h 187.65, y 177.35 -->
+    <rect x="100" y="177" width="100" height="188" rx="4" ry="4" fill="#d79f1e"/>
+    <text x="150" y="162" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">69.5%</text>
+    <text x="150" y="388" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">UK</text>
 
-    <!-- Bar 2: Mobile 77.2% → h=208.44, y=156.56 -->
-    <rect x="300" y="157" width="120" height="208" rx="4" ry="4" fill="#d79f1e"/>
-    <text x="360" y="142" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">77.2%</text>
-    <text x="360" y="388" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Mobile</text>
+    <!-- Bar 2: US 68.0% = h 183.6, y 181.4 -->
+    <rect x="240" y="181" width="100" height="184" rx="4" ry="4" fill="#5B8AEF"/>
+    <text x="290" y="166" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">68.0%</text>
+    <text x="290" y="388" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">US</text>
 
-    <!-- Bar 3: Desktop 46.5% → h=125.55, y=239.45 -->
-    <rect x="460" y="239" width="120" height="126" rx="4" ry="4" fill="#5a922c"/>
-    <text x="520" y="231" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">46.5%</text>
-    <text x="520" y="388" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Desktop</text>
+    <!-- Bar 3: Canada 63.8% = h 172.26, y 192.74 -->
+    <rect x="380" y="193" width="100" height="172" rx="4" ry="4" fill="#4c7894"/>
+    <text x="430" y="178" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">63.8%</text>
+    <text x="430" y="388" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Canada</text>
+
+    <!-- Bar 4: Germany 62.1% = h 167.67, y 197.33 -->
+    <rect x="520" y="197" width="100" height="168" rx="4" ry="4" fill="#5a922c"/>
+    <text x="570" y="182" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">62.1%</text>
+    <text x="570" y="388" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Germany</text>
 
     <!-- Branding -->
     <text x="684" y="412" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5B8AEF" opacity="0.35" text-anchor="end">sunnypatel.co.uk</text>

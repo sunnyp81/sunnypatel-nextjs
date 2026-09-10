@@ -26,7 +26,7 @@ export const tools: Tool[] = [
   },
   {
     name: "Schema Markup Generator",
-    description: "Generate valid JSON-LD structured data for FAQ, Article, LocalBusiness, Product, and more.",
+    description: "Generate valid JSON-LD or Microdata structured data across 16 schema types, from FAQ and Product to JobPosting and Event.",
     href: "/tools/schema-generator/",
     category: "Technical SEO",
   },

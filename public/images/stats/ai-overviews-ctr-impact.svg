@@ -17,11 +17,11 @@
 
   <!-- Title -->
   <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">AI Overviews Impact on CTR</text>
-  <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: Seer Interactive, 2025</text>
+  <text x="36" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#e0e0e0" opacity="0.5">Source: Seer Interactive, 3,119 queries, 42 organisations, data to Sept 2025</text>
 
-  <!-- LEFT CARD: Before AI Overviews -->
+  <!-- LEFT CARD: No AI Overview shown -->
   <rect x="46" y="82" width="240" height="200" rx="12" ry="12" fill="#111118" filter="url(#cardShadow)"/>
-  <text x="166" y="112" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0" text-anchor="middle" opacity="0.7">Before AI Overviews</text>
+  <text x="166" y="112" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0" text-anchor="middle" opacity="0.7">June 2024 baseline</text>
 
   <!-- Green circle -->
   <circle cx="166" cy="180" r="52" fill="none" stroke="#5a922c" stroke-width="4" opacity="0.3"/>
@@ -29,18 +29,18 @@
   <text x="166" y="172" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="#5a922c" text-anchor="middle">1.76%</text>
   <text x="166" y="196" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#e0e0e0" text-anchor="middle">Organic CTR</text>
 
-  <text x="166" y="258" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle" opacity="0.6">Paid CTR: 1.31%</text>
+  <text x="166" y="258" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle" opacity="0.6">Paid CTR: 19.70%</text>
 
-  <!-- RIGHT CARD: With AI Overviews -->
+  <!-- RIGHT CARD: AI Overview shown -->
   <rect x="434" y="82" width="240" height="200" rx="12" ry="12" fill="#111118" filter="url(#cardShadow)"/>
-  <text x="554" y="112" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0" text-anchor="middle" opacity="0.7">With AI Overviews</text>
+  <text x="554" y="112" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#e0e0e0" text-anchor="middle" opacity="0.7">September 2025, AI Overviews present</text>
 
   <!-- Red circle -->
   <circle cx="554" cy="180" r="52" fill="none" stroke="#e05252" stroke-width="4" opacity="0.3"/>
   <text x="554" y="172" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="#e05252" text-anchor="middle">0.61%</text>
   <text x="554" y="196" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#e0e0e0" text-anchor="middle">Organic CTR</text>
 
-  <text x="554" y="258" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle" opacity="0.6">Paid CTR: 0.42%</text>
+  <text x="554" y="258" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle" opacity="0.6">Paid CTR: 6.34%</text>
 
   <!-- CENTER: Down arrow with -61% -->
   <g filter="url(#arrowGlow)">

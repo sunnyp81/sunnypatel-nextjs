@@ -16,7 +16,7 @@ export function topGeoAgenciesSchemas(): Record<string, unknown>[] {
       "name": "Top GEO Agencies UK 2026",
       "description":
         "Independently reviewed UK Generative Engine Optimisation (GEO) specialists, ranked by demonstrated ability to earn citations across Google AI Overviews, ChatGPT, Perplexity, and Copilot.",
-      "numberOfItems": 7,
+      "numberOfItems": 12,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -45,6 +45,11 @@ export function topGeoAgenciesSchemas(): Record<string, unknown>[] {
         geoItem(5, "Builtvisible", "https://builtvisible.com", "Data journalism and editorial content engineered for extraction, structured data, and entity coverage", "London", ["https://www.linkedin.com/company/builtvisible/"]),
         geoItem(6, "Distinctly", "https://www.distinctly.co.uk", "B2B and SaaS content with deep topical coverage mapped to the long-tail prompts AI assistants answer", "Hertfordshire", ["https://www.linkedin.com/company/distinctly/"]),
         geoItem(7, "Impression Digital", "https://www.impressiondigital.com", "Integrated SEO, digital PR, and structured content with growing answer-engine readiness for mid-market brands", "Nottingham", ["https://www.linkedin.com/company/impression-digital/"]),
+        geoItem(8, "Semetrical", "https://www.semetrical.com", "Generative Engine Optimisation built on AI visibility auditing, LLM content engineering, and knowledge and entity optimisation", "London", []),
+        geoItem(9, "Screaming Frog", "https://www.screamingfrog.co.uk", "Technical AI search optimisation, including AI bot analysis and prompt tracking, delivered on a day-rate basis", "Henley-on-Thames", []),
+        geoItem(10, "Passion Digital", "https://passion.digital", "Multi-sector GEO and AI Search service with published AI Overview and featured snippet results for named clients", "London", []),
+        geoItem(11, "Add People", "https://www.addpeople.co.uk", "Generative Engine Optimisation for SMEs and e-commerce brands, delivered alongside a wider SEO and PPC programme", "Altrincham, Manchester", []),
+        geoItem(12, "Hallam", "https://hallam.agency", "AI Search service with measured B2B and SaaS lead-generation results", "Nottingham", []),
       ],
     },
   ];

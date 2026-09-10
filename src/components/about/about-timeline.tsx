@@ -21,7 +21,7 @@ const entries = [
     role: "SEO / AI Specialist",
     company: "Independent",
     description:
-      "Built and ranked 40+ profitable content websites from scratch. Full-stack SEO covering keyword research, content strategy, link acquisition, and advanced AI prompt engineering for automation.",
+      "Built and ranked 45 profitable content websites from scratch. Full-stack SEO covering keyword research, content strategy, link acquisition, and advanced AI prompt engineering for automation.",
     color: "#5a922c",
     border: "border-success/20",
     bg: "bg-success/10",

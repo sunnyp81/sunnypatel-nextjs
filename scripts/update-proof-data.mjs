@@ -49,12 +49,14 @@ const iso = (d) => d.toISOString().slice(0, 10);
 const today = new Date();
 const gscLag = new Date(today.getTime() - 3 * 86400e3); // GSC data lags ~2-3 days
 const start28 = new Date(gscLag.getTime() - 27 * 86400e3);
+const start12mo = new Date(gscLag.getTime() - 365 * 86400e3);
 
 const token = await getToken();
 
-const [summaryRows, queryRows, dateRows] = await Promise.all([
+const [summaryRows, summary12moRows, queryRows, dateRows] = await Promise.all([
   query(token, { startDate: iso(start28), endDate: iso(gscLag) }),
-  query(token, { startDate: iso(start28), endDate: iso(gscLag), dimensions: ["query"], rowLimit: 250 }),
+  query(token, { startDate: iso(start12mo), endDate: iso(gscLag) }),
+  query(token, { startDate: iso(start12mo), endDate: iso(gscLag), dimensions: ["query"], rowLimit: 1000 }),
   query(token, {
     startDate: iso(new Date(gscLag.getTime() - 8 * 7 * 86400e3)),
     endDate: iso(gscLag),
@@ -64,9 +66,13 @@ const [summaryRows, queryRows, dateRows] = await Promise.all([
 ]);
 
 const s = summaryRows[0] || { clicks: 0, impressions: 0, position: 0 };
+const s12mo = summary12moRows[0] || { clicks: 0, impressions: 0, position: 0 };
+
+// A real, short, human-typed query: no GSC junk IDs, no AI-prompt-length strings.
+const isRealQuery = (q) => !/^\d+:/.test(q) && q.length <= 45 && q.split(" ").length <= 7;
 
 const rankings = queryRows
-  .filter((r) => r.impressions >= 20 && r.position <= 12 && !/^\d+:/.test(r.keys[0]))
+  .filter((r) => r.clicks >= 1 && r.impressions >= 50 && r.position <= 15 && isRealQuery(r.keys[0]))
   .sort((a, b) => a.position - b.position)
   .slice(0, 6)
   .map((r) => ({ query: r.keys[0], position: Math.round(r.position * 10) / 10 }));
@@ -93,6 +99,11 @@ writeFileSync(
         clicks: s.clicks,
         impressions: s.impressions,
         avgPosition: Math.round(s.position * 10) / 10,
+      },
+      summary12mo: {
+        clicks: s12mo.clicks,
+        impressions: s12mo.impressions,
+        avgPosition: Math.round(s12mo.position * 10) / 10,
       },
       rankings: rankings.length ? rankings : prev.rankings,
       weeklyClicks: weekly,

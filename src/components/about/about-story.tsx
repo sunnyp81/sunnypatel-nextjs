@@ -29,7 +29,7 @@ export function AboutStory() {
             </h2>
             <div className="mb-8 space-y-4 leading-relaxed text-muted-foreground">
               <p>
-                My hands-on experience across 40+ sites informs every consulting
+                My hands-on experience across 45 sites informs every consulting
                 engagement. I&apos;ve tested strategies on real businesses facing
                 competitive markets — not theoretical frameworks.
               </p>

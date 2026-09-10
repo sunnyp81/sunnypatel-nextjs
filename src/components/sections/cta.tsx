@@ -51,7 +51,7 @@ export function Cta() {
           Find What&apos;s Blocking Your Organic Growth
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-          In a free 20-minute SEO diagnosis, we&apos;ll focus on your biggest search problem and the best next move. Need a documented full-site review? The <Link href="/services/paid-seo-audit/" className="text-foreground underline decoration-white/30 underline-offset-4 transition-colors hover:text-brand">£495 audit</Link> is the deeper option.
+          In a free 20-minute SEO diagnosis, we&apos;ll focus on your biggest search problem and the best next move. Need a documented full-site review? The <Link href="/services/technical-seo-audit/" className="text-foreground underline decoration-white/30 underline-offset-4 transition-colors hover:text-brand">£495 audit</Link> is the deeper option.
         </p>
 
         {/* Pulsing ring wrapper */}
@@ -72,7 +72,7 @@ export function Cta() {
         {/* Internal links to key service pages */}
         <div className="mt-12 flex flex-wrap justify-center gap-3">
           {[
-            { label: "SEO Reading", href: "/" },
+            { label: "SEO Reading", href: "/services/seo-consultant-reading/" },
             { label: "SEO Berkshire", href: "/services/seo-berkshire/" },
             { label: "Technical Audits", href: "/services/technical-seo-audit/" },
             { label: "Topical Authority", href: "/services/topical-authority/" },

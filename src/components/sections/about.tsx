@@ -15,7 +15,7 @@ const highlights: {
     icon: <Sparkles className="h-5 w-5" />,
     title: "15+ Years Hands-On SEO",
     description:
-      "Entity-based content networks built from real data, tested across 40+ sites in competitive niches.",
+      "Entity-based content networks built from real data, tested across 45 sites in competitive niches.",
   },
   {
     icon: <MapPin className="h-5 w-5" />,

@@ -106,13 +106,13 @@ export function LiveProof({ proof }: { proof: ProofData }) {
           <div className="mb-6 flex flex-wrap items-baseline gap-x-8 gap-y-2">
             <div>
               <strong className="text-2xl font-bold text-foreground">{proof.clicks}</strong>
-              <span className="ml-2 text-sm text-muted-foreground">clicks · last 28 days</span>
+              <span className="ml-2 text-sm text-muted-foreground">clicks · last 12 months</span>
             </div>
             <div>
               <strong className="text-2xl font-bold text-foreground">
                 {proof.impressions.toLocaleString("en-GB")}
               </strong>
-              <span className="ml-2 text-sm text-muted-foreground">impressions · last 28 days</span>
+              <span className="ml-2 text-sm text-muted-foreground">impressions · last 12 months</span>
             </div>
           </div>
 

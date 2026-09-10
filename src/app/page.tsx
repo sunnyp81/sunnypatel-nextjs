@@ -55,8 +55,8 @@ export default async function Home() {
       <LiveProof
         proof={{
           updatedAt: proof.updatedAt,
-          clicks: proof.summary28d.clicks,
-          impressions: proof.summary28d.impressions,
+          clicks: proof.summary12mo.clicks,
+          impressions: proof.summary12mo.impressions,
           rankings: proof.rankings,
           weeklyClicks: proof.weeklyClicks,
         }}

@@ -1,35 +1,32 @@
 {
-  "updatedAt": "2026-09-07",
+  "updatedAt": "2026-09-10",
   "source": "Google Search Console API, sc-domain:sunnypatel.co.uk",
   "summary28d": {
     "clicks": 68,
     "impressions": 52145,
     "avgPosition": 30
   },
+  "summary12mo": {
+    "clicks": 350,
+    "impressions": 279451,
+    "avgPosition": 32.6
+  },
   "rankings": [
     {
-      "query": "berskshire seo services",
-      "position": 1.7
+      "query": "seo consultant reading",
+      "position": 6.7
     },
     {
-      "query": "berkshire seo",
-      "position": 5.5
+      "query": "technical seo services reading",
+      "position": 10.1
     },
     {
-      "query": "json ld schema generator",
-      "position": 7.8
+      "query": "keyword scraper",
+      "position": 13.6
     },
     {
-      "query": "amazon search optimisation consultancy",
-      "position": 8.8
-    },
-    {
-      "query": "best geo agencies in london",
-      "position": 9.7
-    },
-    {
-      "query": "schema generator",
-      "position": 9.8
+      "query": "best geo agencies",
+      "position": 14.4
     }
   ],
   "weeklyClicks": [

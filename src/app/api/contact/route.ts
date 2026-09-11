@@ -103,6 +103,7 @@ export async function POST(request: Request) {
       turnstileToken,
       leadMagnet,
       howHeard,
+      offer,
       utm_source,
       utm_medium,
       utm_campaign,
@@ -160,8 +161,12 @@ export async function POST(request: Request) {
         from: MAIL_FROM,
         to: MAIL_TO,
         reply_to: email,
-        subject: `New enquiry from ${name}`,
+        subject:
+          typeof offer === "string" && offer.trim()
+            ? `${offer.trim()}: enquiry from ${name}`
+            : `New enquiry from ${name}`,
         text: [
+          `Offer: ${typeof offer === "string" && offer.trim() ? offer.trim() : "General enquiry"}`,
           `Name: ${name}`,
           `Email: ${email}`,
           `Phone: ${phone || "Not provided"}`,

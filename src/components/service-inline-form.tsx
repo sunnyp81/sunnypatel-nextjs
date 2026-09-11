@@ -14,6 +14,16 @@ import { Badge } from "@/components/ui/badge";
 import { FormField, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
 
+/** Icon references can't cross the server/client boundary as props, so badge
+ * callers pass a name key and this component resolves the actual component. */
+const BADGE_ICONS = {
+  calendar: CalendarDays,
+  sparkles: Sparkles,
+  shield: Shield,
+  clock: Clock,
+} as const;
+type BadgeIconName = keyof typeof BADGE_ICONS;
+
 const TRUST_POINTS = [
   "Focus on your biggest search problem",
   "Review the evidence you already have",
@@ -21,26 +31,62 @@ const TRUST_POINTS = [
   "Answer your priority SEO question",
 ] as const;
 
-const BADGES = [
-  { icon: CalendarDays, label: "15+ years experience" },
-  { icon: Sparkles, label: "Free 20-minute diagnosis" },
-  { icon: Shield, label: "No contracts" },
-] as const;
+const BADGES: readonly { icon: BadgeIconName; label: string }[] = [
+  { icon: "calendar", label: "15+ years experience" },
+  { icon: "sparkles", label: "Free 20-minute diagnosis" },
+  { icon: "shield", label: "No contracts" },
+];
+
+const DEFAULT_SUCCESS_MESSAGE =
+  "Your diagnosis request is with me. I'll reply personally within one working day.";
+const DEFAULT_SUBMIT_LABEL = "Request Free Diagnosis";
+const DEFAULT_OFFER_ID = "free_20_minute_seo_diagnosis";
+const DEFAULT_OFFER_LABEL = "Free 20-minute SEO diagnosis";
 
 export function ServiceInlineForm({
   ctaTitle = "Request Your Free 20-Minute SEO Diagnosis",
   ctaSubtitle = "Tell me the biggest search problem facing your business and I'll focus the conversation on the most useful next step.",
   compact = false,
+  trustPoints = TRUST_POINTS,
+  badges = BADGES,
+  submitLabel = DEFAULT_SUBMIT_LABEL,
+  successMessage = DEFAULT_SUCCESS_MESSAGE,
+  offerId = DEFAULT_OFFER_ID,
+  offerLabel = DEFAULT_OFFER_LABEL,
+  eventLabel = "service_inline_form",
+  leadValue,
+  id,
 }: {
   ctaTitle?: string;
   ctaSubtitle?: string;
   compact?: boolean;
+  /** Bullet list of what the enquirer gets. Defaults to the free-diagnosis copy. */
+  trustPoints?: readonly string[];
+  /** Trust badges shown beside the form. Defaults to the free-diagnosis badges. */
+  badges?: readonly { icon: BadgeIconName; label: string }[];
+  /** Submit button text. Defaults to "Request Free Diagnosis". */
+  submitLabel?: string;
+  /** Confirmation message shown after a successful submit. */
+  successMessage?: string;
+  /** Machine-readable offer tag for analytics (data-cta-offer, GA4 event). */
+  offerId?: string;
+  /** Human-readable offer name, sent to Sunny in the enquiry email so paid
+   * and free enquiries never look identical in the inbox. */
+  offerLabel?: string;
+  /** GA4 event_label / form_location. Defaults to "service_inline_form". */
+  eventLabel?: string;
+  /** Estimated GBP value of a lead from this form, passed through to GA4. */
+  leadValue?: number;
+  /** DOM id on the outer section, so a page can deep-link straight to the form. */
+  id?: string;
 }) {
   const { status, setStatus, errorMsg, formData, handleChange, handleSubmit } =
     useLeadForm({
       initial: { name: "", email: "", phone: "", message: "" },
       eventCategory: "contact",
-      eventLabel: "service_inline_form",
+      eventLabel,
+      leadValue,
+      transform: (data) => ({ ...data, offer: offerLabel }),
     });
 
   const formCard = (
@@ -58,7 +104,7 @@ export function ServiceInlineForm({
 
         {status === "success" ? (
           <FormSuccess
-            message="Your diagnosis request is with me. I'll reply personally within one working day."
+            message={successMessage}
             onReset={() => setStatus("idle")}
           />
         ) : (
@@ -124,8 +170,8 @@ export function ServiceInlineForm({
               type="submit"
               disabled={status === "loading"}
               aria-busy={status === "loading"}
-              data-cta-location="service_inline_form"
-              data-cta-offer="free_20_minute_seo_diagnosis"
+              data-cta-location={eventLabel}
+              data-cta-offer={offerId}
               className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-semibold text-white transition-[transform,box-shadow,opacity] duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
               style={{
                 fontFamily: "var(--font-heading)",
@@ -141,7 +187,7 @@ export function ServiceInlineForm({
                 </>
               ) : (
                 <>
-                  Request Free Diagnosis
+                  {submitLabel}
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}
@@ -179,7 +225,7 @@ export function ServiceInlineForm({
 
   /* ── Full: two-column layout with copy + form ───────────── */
   return (
-    <div className="relative overflow-hidden" style={{ background: "#0a0a10" }}>
+    <div id={id} className="relative overflow-hidden" style={{ background: "#0a0a10" }}>
       {/* Strong top separator */}
       <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
       {/* Ambient glow */}
@@ -218,7 +264,7 @@ export function ServiceInlineForm({
 
             {/* What's included */}
             <ul className="mb-8 space-y-3">
-              {TRUST_POINTS.map((point) => (
+              {trustPoints.map((point) => (
                 <li
                   key={point}
                   className="flex items-start gap-2.5 text-sm text-muted-foreground"
@@ -234,12 +280,15 @@ export function ServiceInlineForm({
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-2">
-              {BADGES.map(({ icon: Icon, label }) => (
-                <Badge key={label} variant="brand">
-                  <Icon className="h-3 w-3 shrink-0" />
-                  {label}
-                </Badge>
-              ))}
+              {badges.map(({ icon, label }) => {
+                const Icon = BADGE_ICONS[icon];
+                return (
+                  <Badge key={label} variant="brand">
+                    <Icon className="h-3 w-3 shrink-0" />
+                    {label}
+                  </Badge>
+                );
+              })}
             </div>
 
             {/* Availability + response time */}

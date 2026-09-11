@@ -195,7 +195,7 @@ export default function PaidSeoAuditPage() {
             {/* CTA buttons */}
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <GradientButton asChild>
-                <Link href="/contact/" className="gap-2">
+                <Link href="#book" className="gap-2">
                   Book the Audit — £495
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -428,8 +428,26 @@ export default function PaidSeoAuditPage() {
 
         {/* CTA form */}
         <ServiceInlineForm
+          id="book"
           ctaTitle="Book Your Paid SEO Audit"
           ctaSubtitle="Tell me your site URL and your biggest organic traffic concern. I will come prepared with an initial view before we start."
+          trustPoints={[
+            "Fixed £495, no surprise scope changes",
+            "Delivered in 5 working days",
+            "15-25 page written report plus a prioritised spreadsheet",
+            "45-minute walkthrough call included",
+          ]}
+          badges={[
+            { icon: "calendar", label: "15+ years experience" },
+            { icon: "sparkles", label: "£495 fixed fee" },
+            { icon: "shield", label: "Credited to your first retainer month" },
+          ]}
+          submitLabel="Request the £495 Audit"
+          successMessage="Your audit request is with me. I'll confirm scope and send payment and scheduling details within one working day."
+          offerId="paid_seo_audit_495"
+          offerLabel="Paid SEO Audit (£495)"
+          eventLabel="paid_audit_form"
+          leadValue={495}
         />
 
         <Footer />

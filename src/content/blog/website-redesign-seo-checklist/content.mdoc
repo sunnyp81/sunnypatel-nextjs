@@ -53,15 +53,39 @@ This is where most redesigns fail. Every old URL must map to a new URL with a 30
 
 Create a spreadsheet with two columns: old URL and new URL. Every single page from your crawl needs a row. If the URL structure changes from `/blog/post-name/` to `/articles/post-name/`, every path needs a redirect.
 
-Missing even one high-traffic URL can cost thousands in lost organic visits. A page ranking position 3 for a keyword with 8,000 monthly searches drives roughly 1,200 clicks per month. One missing redirect wipes that out.
+Missing even one high-traffic URL can cost thousands in lost organic visits. 2026 CTR benchmarks put position 3 at roughly 5-10% of searches, so a page ranking position 3 for a keyword with 8,000 monthly searches drives somewhere around 400-800 clicks per month. One missing redirect wipes that out.
 
-### Watch for Trailing Slash Issues
+Here's a worked example from a real URL restructure, a site moving from date-based blog URLs, a flat services folder with legacy file extensions, and an inconsistent category folder to a single, clean URL pattern:
 
-Across my [44-site portfolio](/blog/managing-44-websites-seo-data/), one missing `trailingSlash` config option caused Google to index duplicate URLs across 23 sites. `/about` and `/about/` became two separate pages in Google's index, splitting authority between them. That single config line, `trailingSlash: 'always'` in Astro, `trailingSlash: true` in Next.js, fixed it across every site. Check this before launch, not after.
+| Old URL | New URL | Notes |
+|---|---|---|
+| `/2023/05/best-crm-software/` | `/blog/best-crm-software/` | Date folder dropped, keep the slug |
+| `/services/crm-consulting.html` | `/services/crm-consulting/` | `.html` extension dropped |
+| `/blog/category/reviews/best-crm-software/` | `/blog/best-crm-software/` | Category folder collapsed, watch for a clash with the first row above |
+| `/about-us` | `/about/` | Slug shortened and trailing slash added |
+| `/contact.php` | `/contact/` | Legacy extension dropped |
+
+Two things go wrong most often in this table. First, two old URLs collapsing onto the same new URL, like the first and third rows above; decide which one is canonical and 301 the other into it, don't leave both live. Second, rows left blank because nobody could work out where a page went; a blank row means a 404 on launch day, not a redirect.
+
+### The Trailing Slash Case
+
+Trailing slashes are a small config decision with a large blast radius, because they define whether `/about` and `/about/` are the same URL or two competing ones. This site runs `trailingSlash: true` in `next.config.ts`, which means every internal link and every redirect target has to end in a slash consistently, `/services/content-briefs/` rather than `/services/content-briefs`. Get that wrong during a redesign, and Next.js will serve (or redirect between) both variants while Google indexes them as separate pages, splitting any links or authority pointing at the page between the two versions instead of consolidating on one.
+
+The fix is the same regardless of framework: pick one form, set it once in the framework config, `trailingSlash: 'always'` in Astro or `trailingSlash: true` in Next.js, and make sure the redirect map, the internal links, and the XML sitemap all agree with that setting before launch. Checking this after launch means finding out from a GSC "duplicate, Google chose different canonical" report weeks later, when the damage is already done.
 
 ### Preserve Existing Redirects
 
 Your current site probably has redirects already in place from previous URL changes, old campaigns, or merged pages. These need to carry forward. If your old site redirected `/services/consulting/` to `/services/seo-consulting/`, that redirect must still work after the redesign. Otherwise, any backlinks to the original URL break.
+
+### Pre-Launch Redirect Verification Checklist
+
+Run through this before DNS cuts over to the new site, not after:
+
+1. Crawl the old site's XML sitemap and server logs together. The sitemap shows what you meant to have indexed; the logs show what's actually getting hit, including old URLs that fell out of the sitemap years ago but still carry backlinks.
+2. Map every URL from that combined list, plus your existing redirects, to a destination on the new site. No blank rows. If a page is being retired with nothing to replace it, redirect it to the closest relevant category or parent page, not the homepage.
+3. Test the 301s on staging before DNS cutover. Request each old URL against the staging environment (with a hosts file edit or a staging domain) and confirm a single-hop 301 to the correct final URL, not a 302, not a redirect chain through two or three hops.
+4. Check the trailing slash and protocol on every redirect target. A redirect that lands on the wrong slash or `http` instead of `https` just creates a second redirect hop Google has to follow.
+5. Monitor GSC Coverage and server 404 logs daily for the first two weeks post-launch. Every new 404 that shows up is a row missing from the map, and it's far cheaper to fix in week one than to notice it in month three.
 
 ## Phase 3: Content Preservation
 

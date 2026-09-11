@@ -1,0 +1,70 @@
+title: How Many Websites Are There in 2026? Web and Search Statistics
+metaTitle: 'How Many Websites Are There in 2026? 401.6M Domains'
+description: >-
+  How many websites are there in 2026? 401.6 million registered domains and
+  1.49 billion hostnames, but only around 217 million are genuinely active.
+  WordPress market share, .com vs .co.uk, Google's index size, and UK-specific
+  domain data, every figure checked against its primary source.
+ogImage: ''
+date: '2026-09-11'
+lastUpdated: '2026-09-11'
+tags:
+  - Statistics
+  - Domain Names
+  - Web Statistics
+  - UK SEO
+faqs:
+  - question: How many websites are there in 2026?
+    answer: >-
+      There are 401.6 million registered domain names worldwide (Verisign,
+      Q2 2026). Netcraft's crawlers detected 1,494,915,628 hostnames
+      responding to web requests in July 2026 across 305,348,459 domains, but
+      most of that is not a working website. Netcraft's active-site benchmark
+      puts genuinely active sites at roughly 216.7 million, about 15% of the
+      total. The "billion websites" figures you see quoted elsewhere are
+      almost always the larger hostname count, not the number of real,
+      maintained sites.
+  - question: How many new websites are created every day?
+    answer: >-
+      No domain registry or crawler publishes an authoritative daily creation
+      figure, which is why estimates online range from around 252,000 a day
+      to over a million, none of them traceable to a named primary source.
+      The one verifiable number is net growth: Verisign's Q2 2026 data shows
+      domain registrations grew by 29.9 million over twelve months, which
+      works out to roughly 82,000 net new registrations a day worldwide.
+      That is a net figure, new registrations minus expirations, not a count
+      of sites actually built.
+  - question: What percentage of websites use WordPress?
+    answer: >-
+      WordPress powers 40.3% of all websites W3Techs tracks and 58.8% of
+      sites running a content management system it recognises, as of
+      September 2026. Its nearest named competitors are Shopify at 5.4% of
+      all sites and Wix at 4.2%, giving WordPress roughly 7.5 times Shopify's
+      share and more than 9 times Wix's. Around 31.5% of all websites run on no
+      identifiable CMS at all, usually custom builds or platforms too small
+      to track individually.
+  - question: How many .co.uk domains are there?
+    answer: >-
+      There are 8 million .co.uk domains as of Nominet's May 2026 update,
+      still by far the largest part of the .UK namespace. The full .UK
+      namespace, including .org.uk, .me.uk and standalone .uk registrations,
+      totals around 10.3 million domains, with .co.uk holding the largest
+      single share. Nominet reports roughly 168,000 new .UK registrations a month on
+      average through 2026, alongside 7.7 million renewals in the past year.
+  - question: How many websites has Google indexed?
+    answer: >-
+      Google has never published a current official figure. The most
+      concrete number on record came from a Google Vice President, who
+      testified during the US Department of Justice's antitrust trial that
+      the company's web index held roughly 400 billion documents, though he
+      could not confirm whether that had changed materially since 2020. Treat
+      it as an order-of-magnitude figure rather than a precise current count.
+  - question: Are most websites on the internet active or abandoned?
+    answer: >-
+      Most are dormant. Netcraft's active-site benchmark suggests only around
+      15% of the 1.49 billion hostnames it detects each month are genuinely
+      active sites serving real content. The rest are parked domains,
+      unfinished hosting placeholders, redirect-only names or bulk-registered
+      domains nobody built on. Separate research from CSC's Domain Security
+      Report found roughly a third of third-party-registered domains lead to
+      inactive or broken sites.

@@ -1,4 +1,4 @@
-_Last updated: 26 August 2026. Rewritten after the previous version stopped getting indexed by Google, most likely because it repeated the same aggregated global stats every other "SEO statistics" roundup uses. This version leads with real UK data, my own published research, and an honest explanation of why the industry's most-quoted numbers disagree with each other._
+_Last updated: 11 September 2026. Rewritten on 26 August 2026 after the previous version stopped getting indexed by Google, most likely because it repeated the same aggregated global stats every other "SEO statistics" roundup uses. This version leads with real UK data, my own published research, and an honest explanation of why the industry's most-quoted numbers disagree with each other._
 
 ## Key SEO Statistics for 2026 (Quick Reference)
 
@@ -27,7 +27,7 @@ I ran the numbers myself. Across [53 UK sites and 2,615 query rows over 90 days]
 
 Both curves are real, they measure different things. Backlinko and Semrush's widely cited historical figures aggregate millions of queries across sites of every size, an aggregate dominated by brand searches: someone typing "asos" or "hmrc login" already chose the destination before they searched, so position 1 gets clicked at huge rates. First Page Sage's 2026 meta-analysis puts position 1 at 39.8%, even higher, again built from a mixed sample that includes branded and navigational queries. My dataset is 53 small UK sites ranking almost entirely for non-brand, long-tail queries, comparisons, questions, product research. Nobody typed those queries looking for one of my sites specifically. Strip brand traffic out and the industry-standard curve disappears.
 
-The same pattern shows up with AI Overviews. Ask how often they appear on Google and you'll get answers from **20% to 48%** depending on the study (Conductor's 21.9-million-query analysis says roughly 25%, BrightEdge says 48% as of February 2026, up from 31% a year earlier), because "AI Overviews appear on X% of searches" depends entirely on which queries the researcher sampled. Healthcare and education queries trigger them on 80-88% of searches; local queries trigger them on around 7%. If your niche is closer to local trades than to symptom-checking, the 48% headline overstates your reality by a wide margin, and the 20% headline probably still overstates it. Ask about the CTR impact and you get more disagreement still: First Page Sage's meta-analysis says AI Overviews have "minimal impact" on organic CTR, while separate 2026 tracking from Seer Interactive and others puts position 1 organic CTR at 0.64% on AI-Overview queries against 3.82% without one, a drop of well over half.
+The same pattern shows up with AI Overviews. Ask how often they appear on Google and you'll get answers from **20% to 48%** depending on the study (Conductor's 21.9-million-query analysis says roughly 25%, BrightEdge says 48% as of February 2026, up from around 31% a year earlier), because "AI Overviews appear on X% of searches" depends entirely on which queries the researcher sampled. Healthcare queries trigger them on close to 49% of searches in Conductor's data; real estate queries trigger them on under 5%. If your niche is closer to local trades than to symptom-checking, the 48% headline overstates your reality by a wide margin, and the 20% headline probably still overstates it. Ask about the CTR impact and you get more disagreement still: First Page Sage's meta-analysis says AI Overviews have "minimal impact" on organic CTR, while Seer Interactive's ongoing monthly tracking puts organic CTR, averaged across all ranking positions rather than position 1 alone, at roughly 0.6% on AI-Overview queries against up to 3.8% on queries without one across its 2025-26 snapshots, a drop of well over half in most months it has measured.
 
 None of this means the published stats are wrong. It means a single number can't describe a market this fragmented. When you're building a business case or checking your own performance, the questions worth asking are: what query mix does this stat's sample use, does it match mine, and does the study say so. If it doesn't disclose its sample, treat the number as a rough steer, not a target.
 
@@ -63,22 +63,30 @@ The UK SEO and internet marketing consultancy industry generated **£24.6 billio
 
 Google holds **91-92%** of UK search share overall (Statcounter, April 2026). Bing sits at roughly 5.9-6.2% blended, but that hides a real device split: Bing climbs to nearly 13% on UK desktop against a much smaller mobile share, a gap wider than any other major search engine shows in the UK market. If a meaningful share of your audience searches from a work desktop, Bing Webmaster Tools is worth checking even if your Google Search Console numbers dominate the conversation.
 
-AI adoption in the UK is moving fast from a low base. UK ChatGPT visits reached **252 million** in August 2025 alone, up 156% year on year (Similarweb). AI Overviews appeared on roughly 28% of UK desktop searches and 22% of mobile searches by Q1 2026 in one tracking study, though as covered above, treat any single AI Overview appearance rate as a range rather than a fixed number until you've checked it against your own query set.
+AI adoption in the UK is moving fast from a low base. UK visits to ChatGPT ran at roughly 250 million a month in the second half of 2025, with the UK sitting among ChatGPT's top handful of markets globally at around 3-4% of its total traffic (Similarweb). UK-specific AI Overview appearance-rate tracking is thinner and less consistent than the large US studies quoted above, and the figures that do exist disagree sharply: some trackers put UK mobile appearance well below the roughly 48% global rate BrightEdge measured. That is the same lesson as above in miniature: treat any single AI Overview appearance rate as a range rather than a fixed number until you've checked it against your own query set.
 
 ## Click-Through Rate: My Data vs the Industry Curve
 
 The position-by-position numbers behind the claims above come from 53 UK sites and 2,615 non-brand query rows, set here against the widely quoted industry meta-analysis for a direct comparison. Full methodology is in my [CTR by position study](/blog/google-ctr-study/).
 
-| Position | My data (53 UK sites, non-brand queries) | First Page Sage 2026 meta-analysis |
-|---|---|---|
-| 1 | **5.96%** | 39.8% |
-| 2 | **0.22%** | 18.7% |
-| 3 | **1.58%** | 10.2% |
-| 4 | **8.61%** | 7.2% |
-| 5 | **2.96%** | 5.1% |
-| 10 | **0.53%** | 1.6% |
+| Position | My data (53 UK sites, non-brand queries) | Impressions in my data | First Page Sage 2026 meta-analysis |
+|---|---|---|---|
+| 1 | **5.96%** | 721 | 39.8% |
+| 2 | **0.22%** | 3,199 | 18.7% |
+| 3 | **1.58%** | 2,784 | 10.2% |
+| 4 | **8.61%** | 4,381 | 7.2% |
+| 5 | **2.96%** | 5,069 | 5.1% |
+| 6 | **1.59%** | 25,649 | not published separately |
+| 7 | **1.02%** | 25,582 | not published separately |
+| 8 | **0.27%** | 14,787 | not published separately |
+| 9 | **0.75%** | 9,783 | not published separately |
+| 10 | **0.53%** | 8,514 | 1.6% |
 
 Two findings from my own dataset matter more than the position-by-position table. First, **74% of all impressions** in the study sat at position 11 or worse and returned a combined 0.08% CTR, while page 1 held only 26% of impressions but produced 87% of all clicks. Visibility on Google is a cliff at the bottom of page 1, not a gradient. Second, moving a query from position 8 to position 4 multiplied its CTR by more than 30 times in this data, a bigger swing than any title rewrite or schema addition could produce on its own. If you're deciding where to spend limited SEO hours, queries already sitting at positions 6-10 with real impressions are usually the higher-leverage move over CTR copywriting on page one queries that already convert.
+
+The middle of the table is where most published CTR studies go quiet, because First Page Sage's meta-analysis only reports positions 1, 2, 3, 4, 5 and 10 explicitly. My own dataset has no such gap: positions 6 to 10 carried 84,315 impressions between them, 22% of the study's total volume, at a blended CTR of roughly 1%. That is real, high-volume demand sitting just below the fold, and it is the single most useful segment in the whole dataset for deciding where to spend SEO hours, because a query already ranking at position 6 to 10 needs a ranking push, not a title rewrite, to convert that visibility into clicks. Position 6 alone produced more clicks (407) than positions 1, 2 and 3 combined (94), on the strength of impression volume rather than a high rate. Position 2's 0.22% CTR, not position 8's, is actually the low point of the entire top-10 range, a reminder that a position bucket's rate can be dragged down by one or two high-impression, zero-intent queries rather than reflecting a genuine ceiling on what that position can earn.
+
+Methodology, in brief: every figure above comes from Google Search Console query-level data across the same 53 UK-managed sites, filtered to query rows with at least 50 impressions over 90 days to 7 July 2026, then bucketed by each row's rounded average position for the period (2,615 query rows in total). The sample thins fast above position 5: just 5 query rows sat at position 1 and 6 at position 2, so treat the exact top-of-curve percentages as indicative rather than a universal constant, a caveat I hold to as much for my own data as I ask you to hold published industry curves to. The full bucketed table through positions 21+, the per-bucket query-row counts, and an open licence to reuse the figures with attribution are all in the source study linked above.
 
 If your own CTR doesn't match either table here, that's normal. Filter your Search Console data to non-brand queries only and compare against my numbers instead of the industry average; the intent mix, not the position, is usually what's driving the gap.
 
@@ -96,7 +104,7 @@ These three areas each have a dedicated, fuller breakdown on this site; here's t
 
 **Content.** The average blog post runs **1,333 words** and takes 3 hours 25 minutes to produce (Orbit Media's 2025 survey of 808 content marketers). Only 9% of bloggers consistently publish 2,000+ words, yet 39% of those who do report strong results, against a 21% baseline across all lengths. The gap between what performs and what most people publish is the opportunity. Full breakdown: [content marketing statistics](/blog/content-marketing-statistics/).
 
-**Technical.** **48-49%** of mobile sites pass Google's Core Web Vitals as of 2026 (HTTP Archive), up from 32% in 2021 and 36% in 2023, gradual progress that's slowing as the easy fixes get exhausted. A one-second delay in load time still costs roughly 20% of conversions (Google), and mobile now accounts for around 60-64% of both web traffic and Google searches. A [technical SEO audit](/services/technical-seo-audit/) finds exactly where a given site sits against these numbers.
+**Technical.** **48-49%** of mobile sites pass Google's Core Web Vitals as of 2026 (HTTP Archive), up from 32% in 2021 and 36% in 2023, gradual progress that's slowing as the easy fixes get exhausted. A one-second delay in mobile load time can still cost up to 20% of conversions, with desktop's hit smaller at around 7% (Google), and mobile now drives around 63-65% of Google searches and a majority of overall web traffic. A [technical SEO audit](/services/technical-seo-audit/) finds exactly where a given site sits against these numbers.
 
 **Local.** **46%** of Google searches carry local intent, and 76% of people who search for something nearby on their phone visit a related business within a day, with 28% of those visits converting to a purchase (Google, BrightLocal). The Google Local Pack alone captures 44% of clicks on local search results, and the top three positions inside it take 93% of that. Full breakdown: [local SEO statistics](/blog/local-seo-statistics/).
 
@@ -119,6 +127,7 @@ Strip out the noise and three decisions fall out of this data.
 - [SparkToro / Search Engine Land, Zero-Click Searches 2026](https://searchengineland.com/google-zero-click-searches-2026-study-479717), 68.01% zero-click (Jan-Apr 2026) vs 60.45% (2024)
 - [Conductor, AI Overviews Appearance Data](https://www.conductor.com/academy/), ~25% appearance rate, 21.9M queries analysed
 - [BrightEdge, AI Overviews tracking](https://www.brightedge.com/resources/research-reports), 48% appearance rate, February 2026
+- [Seer Interactive, AIO Impact on Google CTR](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-2026-update), monthly organic CTR tracking on AI-Overview vs non-AI-Overview queries, all positions blended
 - [SeoWorks, UK SEO Industry Market Report 2026](https://www.seoworks.co.uk/downloads/uk-seo-industry-market-report-2026/), UK market size and business count, sourced to IBISWorld, Statcounter, Ofcom
 - [Statcounter, UK Search Engine Market Share](https://gs.statcounter.com/search-engine-market-share/all/united-kingdom), Google/Bing UK share, April 2026
 - [Orbit Media, Annual Blogging Survey](https://www.orbitmedia.com/blog/blogging-statistics/), 2025 survey of 808 content marketers

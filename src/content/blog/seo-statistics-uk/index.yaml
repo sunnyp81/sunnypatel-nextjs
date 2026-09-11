@@ -6,7 +6,7 @@ description: >-
   published AI Overview stats disagree with each other.
 ogImage: /images/stats/google-ctr-by-position.svg
 date: '2026-03-07'
-lastUpdated: '2026-08-26'
+lastUpdated: '2026-09-11'
 tags:
   - SEO Statistics
   - Industry Data
@@ -20,13 +20,13 @@ faqs:
       First Page Sage's 2026 report no longer states one blended average; it gives a per-industry range from 317% (eCommerce) to 1,389% (Real Estate) over 3 years. Separately, First Page Sage's SEO-versus-PPC comparison puts SEO at 748% ROI against PPC's 36% over the same period. SEO leads also close at 14.6% versus 1.7% for outbound, at $31 per lead versus $181 for PPC. (Source: First Page Sage, 2026)
   - question: How is AI search affecting SEO and organic traffic?
     answer: >-
-      Google AI Overviews appear on anywhere from 20% to 48% of tracked queries depending on the study's sample, and separate 2026 tracking shows organic CTR on AI Overview queries falling to around 0.64% against 3.82% without one. 68.01% of US Google searches ended without a click in the first four months of 2026, up from 60.45% in 2024. Across 12 of my own sites, AI assistants sent 5,240 referral sessions in 90 days, 91% of it from ChatGPT alone. (Sources: Conductor, BrightEdge, SparkToro, own data, 2026)
+      Google AI Overviews appear on anywhere from 20% to 48% of tracked queries depending on the study's sample, and Seer Interactive's monthly tracking shows organic CTR (blended across all positions) falling to roughly 0.6% on AI Overview queries against up to 3.8% without one. 68.01% of US Google searches ended without a click in the first four months of 2026, up from 60.45% in 2024. Across 12 of my own sites, AI assistants sent 5,240 referral sessions in 90 days, 91% of it from ChatGPT alone. (Sources: Conductor, BrightEdge, Seer Interactive, SparkToro, own data, 2026)
   - question: What percentage of UK searches have local intent?
     answer: >-
       46% of Google searches have local intent. 76% of mobile local searchers visit a related business within 24 hours, and 28% of those visits convert to a purchase. The Google Local Pack captures 44% of clicks on local results pages, with the top three positions inside it taking 93% of that. (Source: Google, BrightLocal)
   - question: How many websites pass Google's Core Web Vitals?
     answer: >-
-      48-49% of mobile websites pass Core Web Vitals as of 2026 (HTTP Archive), up from 32% in 2021 and 36% in 2023, so progress is real but slowing. A one-second page load delay still reduces conversions by roughly 20%. (Source: HTTP Archive, Google)
+      48-49% of mobile websites pass Core Web Vitals as of 2026 (HTTP Archive), up from 32% in 2021 and 36% in 2023, so progress is real but slowing. A one-second page load delay can still cost up to 20% of conversions on mobile, with a smaller hit of around 7% on desktop. (Source: HTTP Archive, Google)
   - question: What is the search engine market share in the UK?
     answer: >-
       Google holds around 91-92% of UK search overall (Statcounter, April 2026). Bing sits at roughly 5.9-6.2% blended, but climbs to nearly 13% on UK desktop specifically, the widest device split of any major search engine in the UK market.

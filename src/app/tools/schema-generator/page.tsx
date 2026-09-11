@@ -277,8 +277,13 @@ export default function SchemaGeneratorPage() {
         </div>
       </div>
       <ServiceInlineForm
-        ctaTitle="Want Your Schema Implemented and Validated for You?"
-        ctaSubtitle="Tell me your site and CMS. I will review your existing structured data, implement what is missing, and validate everything in Google's Rich Results Test as part of the fixed-fee audit."
+        ctaTitle="Want Your Schema Reviewed by a Human?"
+        ctaSubtitle="Tell me your site and CMS. The £495 audit reviews and validates your existing structured data against Google's Rich Results Test and gives you developer-ready fixes. Implementation is quoted separately or covered in a retainer."
+        eventLabel="schema_generator_form"
+        offerId="schema_review_audit"
+        offerLabel="Schema review (from schema generator)"
+        leadValue={495}
+        submitLabel="Request a schema review"
       />
       <RelatedTools currentHref="/tools/schema-generator/" />
       <Footer />

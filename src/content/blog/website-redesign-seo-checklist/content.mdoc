@@ -43,11 +43,11 @@ This crawl is your insurance policy. Every post-launch issue gets diagnosed by c
 
 ### Screenshot the Current Sitemap
 
-Download your XML sitemap. Count the URLs. This number should stay roughly the same after launch. If your current sitemap has 340 URLs and the new site generates 280, you've lost 60 pages from Google's index.
+Download your XML sitemap. Count the URLs. This number should stay roughly the same after launch. If your current sitemap has 340 URLs and the new site generates 280, that's a flag to check, not proof of anything on its own. A sitemap is a crawl hint, not an indexing record: dropping a URL from it doesn't deindex the page, and a page can lose its index status for reasons that have nothing to do with the sitemap. Confirm what actually happened in Google Search Console's Pages report, with a `site:` search, or with the URL Inspection tool before you treat any URL as gone.
 
 ## Phase 2: URL Mapping (The Most Critical Step)
 
-This is where most redesigns fail. Every old URL must map to a new URL with a 301 redirect. Not a 302. Not a JavaScript redirect. A server-level 301.
+This is where most redesigns fail. Every URL that changes needs a 301 or 308 permanent redirect to its new location. Not a 302. Not a JavaScript redirect. A server-level permanent redirect. (A 308 carries the same SEO weight as a 301, the only difference is that it preserves the HTTP method, Google treats both as permanent.) A URL that isn't changing doesn't need a redirect at all. See Google's [migration guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes) for the full picture.
 
 ### Build the Redirect Map
 
@@ -69,9 +69,11 @@ Two things go wrong most often in this table. First, two old URLs collapsing ont
 
 ### The Trailing Slash Case
 
-Trailing slashes are a small config decision with a large blast radius, because they define whether `/about` and `/about/` are the same URL or two competing ones. This site runs `trailingSlash: true` in `next.config.ts`, which means every internal link and every redirect target has to end in a slash consistently, `/services/content-briefs/` rather than `/services/content-briefs`. Get that wrong during a redesign, and Next.js will serve (or redirect between) both variants while Google indexes them as separate pages, splitting any links or authority pointing at the page between the two versions instead of consolidating on one.
+Trailing slashes are a small config decision with a large blast radius, because they define whether `/about` and `/about/` are the same URL or two competing ones. Left unmanaged, a stack that serves both forms with a 200 status lets Google crawl and index them as separate pages, splitting any links or authority pointing at the page between the two versions instead of consolidating on one.
 
-The fix is the same regardless of framework: pick one form, set it once in the framework config, `trailingSlash: 'always'` in Astro or `trailingSlash: true` in Next.js, and make sure the redirect map, the internal links, and the XML sitemap all agree with that setting before launch. Checking this after launch means finding out from a GSC "duplicate, Google chose different canonical" report weeks later, when the damage is already done.
+This site shows the fix rather than the problem: `trailingSlash: true` in `next.config.ts` doesn't just pick a preferred form, it makes Next.js issue a 308 redirect from the non-slash URL to the slash URL automatically, so `/about` lands on `/about/` server-side instead of both being independently crawlable. That's the correct outcome, one canonical URL, one redirect hop, no duplicate.
+
+The fix is the same in principle regardless of framework: pick one form, set it once in the framework config so it actually redirects the other form rather than just rendering it, `trailingSlash: 'always'` in Astro or `trailingSlash: true` in Next.js, and make sure the redirect map, the internal links, and the XML sitemap all agree with that setting before launch. On a stack with no such config, or where it's set inconsistently, checking this after launch means finding out from a GSC "duplicate, Google chose different canonical" report weeks later, when the damage is already done.
 
 ### Preserve Existing Redirects
 
@@ -82,10 +84,10 @@ Your current site probably has redirects already in place from previous URL chan
 Run through this before DNS cuts over to the new site, not after:
 
 1. Crawl the old site's XML sitemap and server logs together. The sitemap shows what you meant to have indexed; the logs show what's actually getting hit, including old URLs that fell out of the sitemap years ago but still carry backlinks.
-2. Map every URL from that combined list, plus your existing redirects, to a destination on the new site. No blank rows. If a page is being retired with nothing to replace it, redirect it to the closest relevant category or parent page, not the homepage.
-3. Test the 301s on staging before DNS cutover. Request each old URL against the staging environment (with a hosts file edit or a staging domain) and confirm a single-hop 301 to the correct final URL, not a 302, not a redirect chain through two or three hops.
+2. Map every URL from that combined list, plus your existing redirects, to an outcome on the new site. No blank rows. If a genuinely relevant destination exists, redirect to it, not the homepage and not a loosely related category page. If nothing on the new site actually answers that URL any more, a 404 or, better, a 410 is the honest outcome, a forced redirect to an irrelevant page is worse for users and for Google than an accurate error. Google's own [migration guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes) makes the same point: don't funnel many old URLs into one unrelated destination.
+3. Test the redirects on staging before DNS cutover. Request each old URL against the staging environment (with a hosts file edit or a staging domain) and confirm a single-hop 301 or 308 to the correct final URL, not a 302, not a redirect chain through two or three hops.
 4. Check the trailing slash and protocol on every redirect target. A redirect that lands on the wrong slash or `http` instead of `https` just creates a second redirect hop Google has to follow.
-5. Monitor GSC Coverage and server 404 logs daily for the first two weeks post-launch. Every new 404 that shows up is a row missing from the map, and it's far cheaper to fix in week one than to notice it in month three.
+5. Monitor GSC Coverage and server 404 logs daily for the first two weeks post-launch. Check each new 404 against the redirect map: if it's a URL that should have a relevant destination, it's a missing row, fix it. If it's a URL you deliberately retired with nothing to replace it, the 404 (or 410) is doing its job. Either way it's far cheaper to confirm in week one than to notice in month three.
 
 ## Phase 3: Content Preservation
 
@@ -101,7 +103,7 @@ I audit sites where the redesign removed 60% of the page content to fit a "moder
 
 ### Migrate Meta Data
 
-Meta titles, meta descriptions, and image alt text must transfer to the new site. These are ranking signals, not design elements. If your CMS migration doesn't carry them over automatically, export them and reimport them manually.
+Meta titles, meta descriptions, and image alt text must transfer to the new site. Meta titles and alt text carry real ranking weight; meta descriptions don't, Google has said directly that they're not a ranking signal, their job is the snippet Google shows in results, which is what drives click-through once you're already ranking. Losing any of the three during migration costs you something, just not the same thing. If your CMS migration doesn't carry them over automatically, export them and reimport them manually.
 
 ![Redesign SEO phases](/images/stats/redesign-seo-checklist-phases.svg)
 
@@ -124,14 +126,14 @@ If you're switching CMS platforms, this list doubles in importance. A WordPress-
 
 ## Phase 5: Launch Day Protocol
 
-Launch day isn't a celebration. It's the start of a monitoring sprint.
+Launch day starts the monitoring sprint, not the celebration.
 
 ### Immediate Actions (First Hour)
 
 1. Submit the new XML sitemap to Google Search Console
 2. Check robots.txt isn't blocking the site (open `yourdomain.com/robots.txt` in a browser)
-3. Test 20 random old URLs: confirm redirects return 301, not 302 or 404
-4. Run a PageSpeed Insights test on 5 key pages: Core Web Vitals should match or beat the baseline
+3. Test 20 random old URLs against your redirect map: a URL that changed should 301 or 308 to the right destination (not 302), a URL that stayed the same should load directly, and a URL you deliberately retired should return 404 or 410, not a redirect to somewhere irrelevant
+4. Run a PageSpeed Insights test on 5 key pages and check the lab data: that's synthetic and available immediately, so it's the only Core Web Vitals read you can trust in hour one. The field data (Chrome UX Report) tab is a rolling 28-day aggregate, on a URL that just launched it's either blank or still showing the old site's history, and it won't reflect the new pages until roughly 28 days of real traffic has accumulated against them
 5. Check mobile rendering on 3 different screen sizes
 
 ### First 24 Hours
@@ -144,14 +146,14 @@ Launch day isn't a celebration. It's the start of a monitoring sprint.
 
 ## Phase 6: Post-Launch Monitoring
 
-The redesign isn't done when it launches. It's done when your traffic stabilises.
+Post-launch monitoring continues until your traffic stabilises, well past the launch date itself.
 
 ### Week 1-2: Daily Checks
 
 Monitor these in Google Search Console every day:
 
-- **Indexed pages count.** This should stay stable. If it drops by more than 5%, something is blocking crawling or returning errors.
-- **Crawl errors.** Zero new 404s is the target. Every new 404 is a missed redirect.
+- **Indexed pages count.** This should roughly track your redirect map: a drop that matches pages you deliberately retired is expected, not a fault. If it drops by more than 5% beyond what your map accounts for, something is blocking crawling or returning errors.
+- **Crawl errors.** No *unintended* new 404s is the target. A 404 or 410 on a page you deliberately retired with no replacement is fine; a 404 on a URL that should have redirected somewhere relevant is a missed row in the map.
 - **Impressions trend.** A 10-20% dip in the first week is normal as Google recrawls. A 40%+ drop means something structural broke.
 
 ### Week 2-4: Ranking Recovery
@@ -164,7 +166,7 @@ Monitor these in Google Search Console every day:
 
 **Wait if:** traffic dipped 10-20%, impressions are recovering, no new crawl errors, redirects are working. This is normal. Give it 3-4 weeks.
 
-**Escalate if:** traffic dropped 40%+, indexed page count is falling, new 404 errors are appearing daily, or Core Web Vitals scores regressed significantly. These need immediate fixes, not patience.
+**Escalate if:** traffic dropped 40%+, indexed page count is falling beyond what your retired-page count explains, unintended new 404 errors are appearing daily, or Core Web Vitals scores regressed significantly. These need immediate fixes, not patience.
 
 ## The Real Cost of Getting This Wrong
 

@@ -20,9 +20,11 @@ faqs:
 - question: Do I need 301 redirects if I'm keeping the same domain?
   answer: >-
     Yes, if any URL paths change. Moving from /blog/post-name to
-    /articles/post-name creates a completely new URL in Google's index. Without
-    a 301 redirect from the old path to the new one, Google treats it as a new
-    page with zero authority. Every changed path needs a redirect.
+    /articles/post-name creates a completely new URL in Google's index. Redirect
+    equity passes through a permanent redirect, a 301 or a 308, Google has never
+    published an exact transfer figure, but it's understood to be high, not a
+    guaranteed 100%. Without one, the new URL starts from nothing. Every changed
+    path needs one.
 - question: How long does it take to recover rankings after a redesign?
   answer: >-
     With proper redirect mapping and content preservation, most sites recover

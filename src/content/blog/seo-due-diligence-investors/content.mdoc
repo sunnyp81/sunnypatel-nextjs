@@ -8,11 +8,11 @@ This is what I check before anyone should sign.
 
 Sellers present organic traffic as a single number. "40,000 monthly visits from Google." Sounds strong. But that number hides three problems.
 
-**Brand vs non-brand traffic.** If 32,000 of those visits come from people searching the company name, the site's SEO isn't driving discovery; its brand awareness is. Strip out brand queries and you might find only 8,000 visits from actual organic ranking. That's an 80% haircut on the headline number.
+**Brand vs non-brand traffic.** If 32,000 of those visits come from people searching the company name, brand awareness is driving most of that traffic, not the site's non-brand SEO performance. Strip out brand queries and you might find only 8,000 visits from actual organic ranking. That's an 80% haircut on the headline number.
 
 **Seasonal spikes.** A gardening site showing 40,000 visits in June might average 9,000 across winter months. Sellers pick the peak month. You need 12 months minimum: 16 months is better, so you can compare year-on-year.
 
-**One-off viral content.** A single blog post that hit Reddit or Hacker News can inflate a 3-month average by 300%. That traffic doesn't come back. Filter by page in Google Search Console and check whether traffic is distributed or concentrated.
+**One-off viral content.** A single blog post that hit Reddit or Hacker News can inflate a 3-month average by 300%. That traffic doesn't come back. Google Search Console won't show it: it only measures Google organic search clicks and impressions, not referral traffic from other sites. Check the referrer or source/medium breakdown in GA4 (or your analytics tool) for a spike from reddit.com or news.ycombinator.com, then confirm the underlying organic trend once that spike is excluded.
 
 ![Seller-presented vs actual traffic breakdown](/images/stats/seo-due-diligence-traffic-split.svg)
 
@@ -30,9 +30,9 @@ I found this on [31 of my 44 sites](/blog/managing-44-websites-seo-data/). Index
 
 ### 2. Canonical Issues
 
-Under **Pages**, look for "Duplicate, Google chose different canonical" and "Alternate page with proper canonical tag." These mean Google found multiple versions of the same content and had to pick one.
+Under **Pages**, look for "Duplicate, Google chose different canonical than user" and "Alternate page with proper canonical tag." The first is a genuine fault: you specified one canonical URL and Google picked a different one, which is worth investigating. The second usually isn't a problem: it means Google found a duplicate and correctly consolidated it to the canonical you specified. Only treat it as an issue if you have evidence the wrong URL ended up canonical.
 
-On one of my sites, a single trailing slash inconsistency split ranking signals across 23 pages. The fix improved average position by 6 places in 10 days, but an investor looking at top-line traffic would never have spotted the problem. I've written about this pattern [in detail here](/blog/managing-44-websites-seo-data/).
+On one of my sites, a single trailing slash inconsistency split ranking signals across two URL variants of the same page. Fixing the internal links, alongside separate page-pruning work landing on the same site in the same window, improved average position by 6 places in 10 days, but an investor looking at top-line traffic would never have spotted the problem. I found the same trailing-slash pattern on 23 of my 44 sites: I've written about this pattern [in detail here](/blog/managing-44-websites-seo-data/).
 
 ### 3. Manual Actions
 
@@ -48,7 +48,7 @@ In **Performance**, filter by query. Separate branded queries (company name, dom
 
 ### 5. Mobile vs Desktop Split
 
-Check the device filter. If 80%+ of traffic comes from desktop in a B2C niche, something's wrong: either the site has mobile usability issues suppressing rankings, or the traffic is coming from non-consumer sources (scrapers, bots, internal employees).
+Check the device filter. If 80%+ of traffic comes from desktop in a B2C niche, that's worth investigating: it can point to mobile usability issues suppressing rankings on phone SERPs. Search Console's device split only measures Google Search clicks and impressions by device, it can't confirm bot or scraper activity on its own. If you suspect non-human traffic, check server logs or GA4 with bot filtering enabled rather than reading it off the GSC device report.
 
 For most B2C businesses, mobile should represent 60-75% of organic traffic. A desktop-heavy split in a consumer niche is a signal to investigate further.
 

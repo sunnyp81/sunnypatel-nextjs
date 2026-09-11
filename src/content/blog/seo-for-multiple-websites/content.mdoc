@@ -26,13 +26,13 @@ In my own [technical SEO audit](/services/technical-seo-audit/) across the portf
 
 ![Multi-site technical debt: real numbers from a 44-site portfolio](/images/stats/multi-site-technical-debt.svg)
 
-These aren't edge cases. They're the inevitable result of building multiple sites without a centralised quality check. One bad default in a shared Astro config file meant 23 sites launched with trailing slash problems from day one.
+These problems recur when sites are built without a centralised quality check. The 23 sites got there by different routes: missing Astro trailing-slash config on some, Next.js routing inconsistencies on others, WordPress permalink settings clashing with CDN cache rules on the rest. Different stacks, same underlying pattern: internal links not matching the canonical URL format.
 
 The upside? When you fix the root cause, you fix it everywhere. One template change on wagearea.com updated 2,376 pages simultaneously. That's the return portfolio SEO gives you when the fix applies across the template, not to a single page.
 
 ### 3. You Can't Give Every Site Enough Attention
 
-Forty-four sites means roughly 6.8 hours per site per month if I worked full-time on nothing else. That's not enough for content creation, technical maintenance, topical authority work, and performance monitoring combined.
+Forty-four sites means roughly 3.9 hours per site per month if I worked full-time (173 hours a month) on nothing else. That's not enough for content creation, technical maintenance, topical authority work, and performance monitoring combined.
 
 The honest answer: not every site deserves equal attention. Some get 20 hours a month. Some get 20 minutes. The difference is a prioritisation system based on data, not gut feeling, weighted toward the sites where [topical authority](/services/topical-authority/) is still being built.
 
@@ -53,11 +53,11 @@ That's the kind of ROI you chase in a portfolio: outsized return, low effort, im
 
 ## Keyword Cannibalisation Across a Portfolio
 
-Cannibalisation between your own sites is different from cannibalisation within one site. When two pages on the same domain target the same keyword, Google picks the one it thinks is best. When two separate domains you own target the same keyword, you're paying for content, hosting, and maintenance on both, and only one will rank.
+Cannibalisation between your own sites is different from cannibalisation within one site. When two pages on the same domain target the same keyword, Google picks the one it thinks is best. When two separate domains you own target the same keyword with genuinely overlapping intent, you're paying for content, hosting, and maintenance on both while only one captures the ranking value.
 
 ### How to Detect Cross-Site Cannibalisation
 
-Pull your Google Search Console data for all properties. Export the queries each site ranks for. Look for overlaps. If site A and site B both appear in GSC data for the same query, you have cannibalisation.
+Pull your Google Search Console data for all properties. Export the queries each site ranks for. Look for overlaps. If site A and site B both appear in GSC data for the same query, that's a candidate for cannibalisation, not proof of it: two sites can both rank for an overlapping term without meaningfully competing, especially if the intent behind the query differs. Confirm it before acting: check whether combined impressions or clicks for that query are falling, whether one page is suppressing the other in the SERP, or whether the two pages are genuinely chasing the same search intent.
 
 I use a centralised GSC monitoring setup that pulls data from all 44 properties into one view. When the same query appears for multiple sites, I flag it and decide which site should own it based on:
 
@@ -65,7 +65,7 @@ I use a centralised GSC monitoring setup that pulls data from all 44 properties 
 - Which site has more supporting content around that topic
 - Which site has better technical health and faster page speed
 
-The losing site gets a `noindex` on that specific page, or I rewrite the content to target an adjacent keyword instead.
+Once that's confirmed, not before, the losing site gets a `noindex` on that specific page, or I rewrite the content to target an adjacent keyword instead. Overlap on its own isn't enough to justify either move.
 
 This only works at scale because I am not checking 44 GSC properties one at a time. Query-level data from every property lands in a single view every week, so a cross-site match that Google would otherwise arbitrate silently shows up as a flagged row before it costs six months of two of my own sites competing for the same SERP slot. On one site, manual checking is fast enough to do by eye. Across 44, the exact kind of conflict it exists to catch is two sites in adjacent niches, say a salary-data property and a careers property, both drifting onto the same job-title query without me noticing until rankings for both flatten out.
 
@@ -130,7 +130,7 @@ Here's what multi-site SEO actually requires in terms of time:
 - **Maintenance sites** (stable traffic, earning revenue): 2-4 hours/month each
 - **Monitoring-only sites** (coasting, minimal intervention): 30 minutes/month each
 
-The unfair advantage of running 44 sites instead of four is that the fixed cost of a system amortises across every property it touches. Building the centralised GSC dashboard, the technical audit template, and the keyword territory documents was expensive once. Applying each of them to the next site is close to free. A consultant running four sites pays roughly the same build cost for a quarter of the payoff. That asymmetry, not any single tactic, is the real advantage of managing a portfolio this size: the marginal hour spent on site 44 buys more than the marginal hour spent on site 4 ever could, because the systems it draws on are already paid for.
+The unfair advantage of running 44 sites instead of four is that the fixed cost of a system amortises across every property it touches. Building the centralised GSC dashboard, the technical audit template, and the keyword territory documents was expensive once. Applying each of them to the next site is close to free. A consultant running four sites pays roughly the same build cost for about a tenth of the payoff, since four sites is one-eleventh of a forty-four-site portfolio, not a quarter of it. That asymmetry, not any single tactic, is the real advantage of managing a portfolio this size: the marginal hour spent on site 44 buys more than the marginal hour spent on site 4 ever could, because the systems it draws on are already paid for.
 
 Most of my 44 sites fall into the last two categories. That's the goal. Build a site, optimise it, get it earning, then move it to maintenance mode so you can focus energy on the next high-potential property.
 
@@ -144,4 +144,4 @@ When you see the same [SEO mistake](/blog/seo-mistakes/) on 23 of 44 sites, that
 
 Single-site SEO gives you anecdotes. Portfolio SEO gives you data.
 
-The trailing slash fix on sunnypatel.co.uk moved average position from 31.6 to 25.6. I then applied the same fix to 22 other sites. That's the compound return of managing SEO across multiple websites: every lesson learned multiplies across the entire portfolio.
+The trailing slash fix on sunnypatel.co.uk, landing alongside separate page-pruning work in the same window, moved average position from 31.6 to 25.6. I then applied the trailing-slash fix to 22 other sites. That's the compound return of managing SEO across multiple websites: every lesson learned multiplies across the entire portfolio.

@@ -23,9 +23,11 @@ faqs:
       ecommerce market at USD 317.33 billion for 2026, growing at a 9.72%
       compound annual rate, while a comparison across Mordor Intelligence,
       IMARC Group, eMarketer, EcommerceDB and Statista shows a range from
-      roughly USD 152.5 billion to USD 297 billion depending on what each
-      tracker counts as ecommerce. Treat the growth rate as more reliable than
-      any single absolute figure.
+      roughly USD 152.5 billion to USD 297 billion, built on Mordor's earlier
+      USD 265.14 billion 2025 estimate rather than its updated 2026 figure, so
+      the two figures are different forecast vintages rather than a single
+      comparable range. Treat the growth rate as more reliable than any
+      single absolute figure.
   - question: Which ecommerce platform has the largest market share in the UK?
     answer: >-
       Wix Stores leads UK ecommerce software adoption with roughly a quarter
@@ -36,7 +38,8 @@ faqs:
   - question: What is a good ecommerce conversion rate in the UK?
     answer: >-
       The UK and Irish average was 2.26% in July 2026, up 16.17% year on year
-      from 1.94% (IRP Commerce). Conversion rate varies enormously by
+      from 1.94%, IRP Commerce's own stated growth figure based on unrounded
+      underlying data (IRP Commerce). Conversion rate varies enormously by
       category, from around 5% in arts and crafts down to under 1% in
       categories like baby and child products, so compare your store against
       its own category rather than a flat national average.
@@ -51,5 +54,6 @@ faqs:
       Mobile accounted for 62.3% of UK and Irish ecommerce sales by device in
       July 2026, against 36.3% desktop and 1.4% tablet (IRP Commerce). Other
       trackers put mobile's share of transactions slightly lower, around
-      55-57%, depending on whether sales are measured by transaction count or
-      value.
+      55-57%; IRP Commerce doesn't state whether its figure is based on
+      transaction count or revenue value, so the exact reason for the gap
+      between the two isn't confirmed.

@@ -20,10 +20,17 @@ faqs:
       First Page Sage's 2026 report no longer states one blended average; it gives a per-industry range from 317% (eCommerce) to 1,389% (Real Estate) over 3 years. Separately, First Page Sage's SEO-versus-PPC comparison puts SEO at 748% ROI against PPC's 36% over the same period. SEO leads also close at 14.6% versus 1.7% for outbound, at $31 per lead versus $181 for PPC. (Source: First Page Sage, 2026)
   - question: How is AI search affecting SEO and organic traffic?
     answer: >-
-      Google AI Overviews appear on anywhere from 20% to 48% of tracked queries depending on the study's sample, and Seer Interactive's monthly tracking shows organic CTR (blended across all positions) falling to roughly 0.6% on AI Overview queries against up to 3.8% without one. 68.01% of US Google searches ended without a click in the first four months of 2026, up from 60.45% in 2024. Across 12 of my own sites, AI assistants sent 5,240 referral sessions in 90 days, 91% of it from ChatGPT alone. (Sources: Conductor, BrightEdge, Seer Interactive, SparkToro, own data, 2026)
+      Google AI Overviews appear on anywhere from roughly 25% to 48% of tracked queries depending on the study's sample, and Seer Interactive's monthly tracking shows organic CTR (blended across all positions) falling to roughly 0.6% on AI Overview queries against up to 3.8% without one. 68.01% of US Google searches ended without a click in the first four months of 2026, up from 60.45% in 2024. Across 12 of my own sites, AI assistants sent 5,240 referral sessions in 90 days, 91% of it from ChatGPT alone. (Sources: Conductor, BrightEdge, Seer Interactive, SparkToro, own data, 2026)
   - question: What percentage of UK searches have local intent?
     answer: >-
-      46% of Google searches have local intent. 76% of mobile local searchers visit a related business within 24 hours, and 28% of those visits convert to a purchase. The Google Local Pack captures 44% of clicks on local results pages, with the top three positions inside it taking 93% of that. (Source: Google, BrightLocal)
+      46% of Google searches have local intent, a widely cited figure that is
+      not UK-specific. 76% of mobile local searchers visit a related business
+      within 24 hours, and 28% of those searches, not the visits, result in a
+      purchase. The Google Local Pack captures roughly 42% of clicks on local
+      results pages (Backlinko, 2026); separately, position 1 alone achieves a
+      17.8% click-through rate (BrightLocal, 2026), a different measurement
+      from the 42% share rather than part of it. (Source: Think with Google,
+      Backlinko, BrightLocal 2026)
   - question: How many websites pass Google's Core Web Vitals?
     answer: >-
       48-49% of mobile websites pass Core Web Vitals as of 2026 (HTTP Archive), up from 32% in 2021 and 36% in 2023, so progress is real but slowing. A one-second page load delay can still cost up to 20% of conversions on mobile, with a smaller hit of around 7% on desktop. (Source: HTTP Archive, Google)
@@ -35,4 +42,4 @@ faqs:
       The UK SEO and internet marketing consultancy industry generated £24.6 billion in revenue in 2025-26, growing at a 6.6% compound annual rate over five years, across 35,088 UK businesses. (Source: IBISWorld, via SeoWorks UK SEO Industry Report 2026)
   - question: Why do published SEO statistics disagree with each other?
     answer: >-
-      Because "SEO statistics" studies sample different query mixes. CTR studies dominated by brand searches report far higher position 1 CTR than studies of non-brand, long-tail queries. AI Overview appearance rate studies vary by 20-48% because informational and healthcare queries trigger them far more than local or transactional ones. Match the study's sample to your own query mix before trusting a headline number, or check it against your own Search Console data.
+      Because "SEO statistics" studies sample different query mixes. CTR studies dominated by brand searches report far higher position 1 CTR than studies of non-brand, long-tail queries. AI Overview appearance rate studies vary from roughly 25% to 48% because informational and healthcare queries trigger them far more than local or transactional ones. Match the study's sample to your own query mix before trusting a headline number, or check it against your own Search Console data.

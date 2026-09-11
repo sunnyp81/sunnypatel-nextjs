@@ -35,9 +35,9 @@ I found this same issue on 23 of 44 sites. The configuration varied: some had As
 
 The fix was different for each stack, but the pattern was identical: internal links not matching the canonical URL format, causing Google to index duplicate versions.
 
-**If you manage multiple websites**, check this right now. Open Google Search Console, go to Pages, and look for "Duplicate, Google chose different canonical" or "Alternate page with proper canonical tag." If you see those, you likely have the same problem.
+**If you manage multiple websites**, check this right now. Open Google Search Console, go to Pages, and look for "Duplicate, Google chose different canonical than user." That status means Google disagreed with the canonical you set, which is the actual fault worth chasing. ("Alternate page with proper canonical tag" isn't a problem on its own: it usually means Google found the duplicate and correctly consolidated it to the canonical you specified.) If you see the mismatch status, you likely have the same problem.
 
-After fixing all 872 links on the consultancy site and deploying, the average position improved from **31.6 to 25.6** within 10 days. That's a 6-position jump from fixing internal links alone: no new content, no backlinks, no redesign.
+After fixing all 872 links on the consultancy site and deploying, alongside the page-pruning work covered in Finding 3, the average position improved from **31.6 to 25.6** within 10 days. That's a 6-position jump from the two fixes landing together: no new content, no backlinks, no redesign, just internal links pointing at the right URLs and a cleaner index.
 
 ## Finding 2: 1,546 Page-One Rankings With Almost Zero Clicks
 
@@ -53,7 +53,7 @@ The problem was the titles. The site pulled job titles directly from ONS (Office
 - "Advertising accounts managers and creative directors"
 - "Production managers and directors in mining and energy"
 
-Google truncates title tags at roughly 55-60 characters. These ONS titles alone exceeded that before the word "Salary" even appeared. In search results, users saw:
+Google truncates title tags at roughly 55-60 characters. These ONS titles run 50-54 characters on their own; add "Salary" and the site's brand suffix, and the complete generated title ran well past the display limit. In search results, users saw:
 
 > **Programmers and software development professionals Salary G...**
 
@@ -61,7 +61,7 @@ Nobody clicks on a truncated, bureaucratic title. They scroll past it to the res
 
 ### The Template-Level Fix
 
-This wasn't a page-by-page problem. It was a template problem. Every one of the 2,376 pages generated its title from the same template, and every title used the raw ONS classification.
+The shared template caused the problem across all 2,376 pages: every one generated its title from the same template, and every title used the raw ONS classification.
 
 The fix was a single mapping function, `shortOccName()`, that converted 40+ verbose ONS titles to what people actually search:
 
@@ -103,7 +103,7 @@ The fix was surgical:
 - **Noindexed** 18 remote city pages with zero clicks
 - **Removed** ghost URLs from the sitemap and set proper canonicals
 
-Within 10 days, average position across the site improved from **31.6 to 25.6**. The homepage moved from position **5.3 to 3.8**. Impressions per day dropped (expected, since those 80 pages were generating impressions), but the remaining pages started ranking higher.
+Within 10 days, the same window as the internal-link fix in Finding 1, average position across the site improved from **31.6 to 25.6**. The two changes landed together on this site, so that gain reflects both the consolidated canonicals and the cleaner index, not pruning alone. The homepage moved from position **5.3 to 3.8**. Impressions per day dropped (expected, since those 80 pages were generating impressions), but the remaining pages started ranking higher.
 
 ### The Counterintuitive Truth
 
@@ -117,7 +117,7 @@ These three findings, canonical splitting, title truncation, and index bloat, we
 
 The common thread: **they're invisible unless you're looking at the data**. Your site looks fine. It loads fast. The content reads well. But in Google Search Console, impressions are being split, clicks are being lost, and crawl budget is being wasted on pages that don't matter.
 
-**If you manage multiple businesses or a portfolio of websites**, these issues are almost certainly present. They compound across sites. And fixing them at the portfolio level, systematically, across all properties, creates leverage that fixing one site at a time cannot match.
+**If you manage multiple businesses or a portfolio of websites**, these issues are almost certainly present. They compound across sites. And fixing them at the portfolio level, systematically, across all properties, means one verified correction applies everywhere the same template or config is used, instead of re-diagnosing the same problem site by site.
 
 ## The Honest Caveat
 

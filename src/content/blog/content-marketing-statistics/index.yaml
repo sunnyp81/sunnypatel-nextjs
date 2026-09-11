@@ -22,11 +22,13 @@ faqs:
       1.7% for outbound leads.
   - question: Do B2B and B2C companies use content marketing differently?
     answer: >-
-      Adoption is close: 91% of B2B marketers and roughly 70% of B2C marketers
-      use content marketing. The real gap is execution, not adoption. Only 47%
-      of B2B marketers have a documented content strategy (Content Marketing
-      Institute, 2026), so most of that 91% is publishing without a written
-      plan.
+      97% of B2B marketers and roughly 70% of B2C marketers use content
+      marketing, a real but no longer huge adoption gap. On the B2B side,
+      adoption has outpaced confidence: only 59% of B2B marketers rate their
+      own content marketing as effective, and most of that is only "somewhat
+      effective" (47%) against "highly effective" (12%) (Content Marketing
+      Institute, 2026 B2B Benchmark). No comparable B2C effectiveness figure
+      exists to compare against.
   - question: How often should you publish blog content?
     answer: >-
       Consistency matters more than volume. Orbit Media's data shows bloggers
@@ -39,8 +41,9 @@ faqs:
     answer: >-
       Not on its own. Semrush's April 2026 study of 42,000 posts found
       human-written content holds Google's #1 position 80% of the time versus
-      9% for pure AI content, and unedited AI content ranks roughly 23% lower
-      than human-authored pieces on the same keywords. AI content with
+      9% for pure AI content. A separate 16-month Digital Applied study of
+      4,200 articles found unedited AI content ranks roughly 23% lower than
+      human-authored pieces on the same keywords, while AI content with
       substantive human editing, original data and expert attribution performs
       within 4% of fully human-written content.
   - question: How much of my marketing budget should go to content?
@@ -53,7 +56,8 @@ faqs:
   - question: Is blogging still worth it with AI Overviews and zero-click search?
     answer: >-
       Yes, but the target has shifted. 68% of Google searches now end without
-      a click, and AI Overviews cut organic CTR by 61% when they appear. Brands
-      actually cited inside an AI Overview see 35% more clicks than a normal
-      listing at the same position, so the goal is being specific and sourced
-      enough to get cited, not only ranking.
+      a click, and organic CTR on AI Overview queries fell 61% between June
+      2024 and September 2025 (Seer Interactive). Across Seer's Q3 2025
+      sample, brands cited inside an AI Overview had 35% higher organic CTR
+      than uncited brands, so the goal is being specific and sourced enough
+      to get cited, not only ranking.

@@ -22,7 +22,7 @@ faqs:
 - question: How can I tell if a website's organic traffic is real or inflated?
   answer: >-
     Split the traffic into brand vs non-brand queries in Google Search
-    Console. If 80% or more of impressions come from brand terms, the site
+    Console. If 80% or more of clicks come from brand terms, the site
     has almost no organic discovery: people are searching for it by name,
     not finding it through SEO. Also check for seasonal spikes and one-off
     viral content that inflates averages without representing sustainable
@@ -32,8 +32,9 @@ faqs:
     The five deal-killers are: manual penalties in Google Search Console,
     80%+ brand-only traffic, declining non-brand traffic over 6+ months,
     private blog network (PBN) backlinks that could trigger future penalties,
-    and severe index bloat where Google has indexed thousands of thin or
-    duplicate pages that dilute the site's authority.
+    and single-page traffic concentration, where one page drives 60%+ of
+    organic traffic and the business is really just renting one search
+    result.
 - question: Should I hire an SEO consultant for acquisition due diligence?
   answer: >-
     Yes, if organic traffic represents more than 20% of revenue. A technical

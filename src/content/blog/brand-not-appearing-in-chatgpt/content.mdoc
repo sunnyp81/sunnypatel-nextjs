@@ -8,17 +8,17 @@ Here's what's actually happening, why your brand is invisible to AI tools, and t
 
 ## The shift is real, but it needs context
 
-![AI referral traffic growth vs Google: 357% YoY growth from a small base, Google still dominates with 191B referrals](/images/stats/ai-referral-traffic-growth.svg)
+![AI referral traffic growth vs Google: AI referral traffic to the world's top 1,000 websites grew 357% year on year to June 2025, Google still dominates with 191B referrals](/images/stats/ai-referral-traffic-growth.svg)
 
 AI referral traffic grew 357% year on year to June 2025 (Similarweb). That sounds massive. It is massive in percentage terms. But Google still drove 191 billion referrals in the same month, compared to 1.13 billion from all AI platforms combined.
 
 Total volume isn't the number that should worry you. Here's what happens when AI answers do appear:
 
-- Organic CTR drops **61%** when AI Overviews show up on a Google result (Seer Interactive)
-- Paid ad CTR drops **68%** in the same scenario (Seer Interactive)
-- But brands **cited** in AI Overviews earn **35% more** organic clicks than they'd get without the AI Overview existing at all (Seer Interactive)
+- Organic CTR fell **61%** on queries where an AI Overview appears, between June 2024 and September 2025 ([Seer Interactive](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update))
+- Paid CTR fell **68%** over the same period ([Seer Interactive](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update))
+- Across Seer's Q3 2025 sample, **cited** brands had **35% higher** organic CTR and **91% higher** paid CTR than uncited brands ([Seer Interactive](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update))
 
-That last point is critical. AI Overviews don't just take traffic away. They redistribute it. If you're cited, you win. If you're not, you lose harder than before.
+That last point is critical: cited brands had higher average CTR than uncited brands in this sample. If you're cited, you win. If you're not, you lose harder than before.
 
 85% of URLs cited in AI Overviews were published within the last 2 years (Authoritas). Fresh, structured, direct-answer content gets cited. Legacy pages stuffed with marketing copy don't.
 
@@ -54,19 +54,20 @@ Open your robots.txt file right now. Search for these user agents:
 - `GPTBot` (ChatGPT's crawler)
 - `ClaudeBot` (Anthropic's crawler)
 - `PerplexityBot` (Perplexity's crawler)
-- `Google-Extended` (controls AI Overview training data)
+- `Googlebot` (controls whether your content can be crawled for Google Search, including eligibility for AI Overviews)
+- `Google-Extended` (a separate token that only controls whether Google can use your content to train Gemini and other Google AI products; it has no effect on Search crawling or AI Overview eligibility)
 
-If any of these are disallowed, AI tools literally cannot access your content. I've found this on roughly 1 in 4 business sites I audit. Often it's a blanket `Disallow: /` for all unknown bots, added by a security plugin years ago.
+If any of these are disallowed, the relevant tool literally cannot access your content, and if `Googlebot` is blocked, Google can't recrawl those pages for standard Search or AI Overviews either, not just for AI tools. Blocking crawling doesn't guarantee an already-indexed page gets removed from the index straight away, but it stops Google from seeing any updates to it, and new pages behind the block will never get indexed at all. I've found blocked bots on roughly 1 in 4 business sites I audit. Often it's a blanket `Disallow: /` for all unknown bots, added by a security plugin years ago.
 
-The fix takes 30 seconds. Remove the disallow rules for these specific user agents or add explicit allow rules.
+The fix takes 30 seconds. Remove the disallow rules for these specific user agents or add explicit allow rules. If you want to keep your content out of Gemini training without affecting Search or AI Overview visibility, disallow only `Google-Extended` and leave `Googlebot` untouched.
 
 ### 2. No structured data
 
-AI tools are machines. They parse structured data faster and more accurately than freeform text. If your pages lack schema markup, such as Organisation, FAQ, HowTo, or Product, you're making it harder for AI to extract and cite your content.
+AI tools are machines. They parse structured data faster and more accurately than freeform text. If your pages lack schema markup, such as Organization, FAQPage, HowTo, or Product, you're making it harder for AI to extract and cite your content.
 
 At minimum, every business site needs:
-- `Organisation` schema on the homepage
-- `FAQ` schema on service and product pages
+- `Organization` schema on the homepage
+- `FAQPage` schema on service and product pages
 - `Article` schema on blog content
 - `LocalBusiness` schema if you serve a geographic area
 
@@ -96,9 +97,9 @@ Here's the exact process I use across my [AI search optimisation](/services/ai-s
 
 ### Week 1: Technical foundations
 
-- **Check robots.txt**: Allow GPTBot, ClaudeBot, PerplexityBot, Google-Extended
-- **Add an llms.txt file**: Place it at your domain root. List your brand name, what you do, your key topics, and links to your most important pages. This tells AI crawlers what you're about
-- **Implement schema markup**: Organisation, FAQ, Article, LocalBusiness as relevant
+- **Check robots.txt**: Allow GPTBot, ClaudeBot, and PerplexityBot for AI crawling, and make sure Googlebot is allowed for Search and AI Overview eligibility. Only disallow Google-Extended if you want to opt out of Gemini training specifically; it won't affect Search or AI Overviews either way
+- **Add an llms.txt file (optional, experimental)**: Place it at your domain root. List your brand name, what you do, your key topics, and links to your most important pages. It's a community convention, not an official Google or AI-platform standard, and no major platform has confirmed using it as a ranking or citation signal. There's no proven downside to adding one, but don't expect it to move the needle on its own
+- **Implement schema markup**: Organization, FAQPage, Article, LocalBusiness as relevant
 - **Check page rendering**: Load your key pages with JavaScript disabled. If the content disappears, AI crawlers can't see it either
 
 ### Week 2-3: Content restructuring
@@ -120,7 +121,7 @@ Here's the exact process I use across my [AI search optimisation](/services/ai-s
 
 - Ask ChatGPT and Perplexity about your industry weekly. Screenshot the results
 - Track AI referral traffic in Google Analytics (check the referral source report for chatgpt.com, perplexity.ai, and similar domains)
-- Monitor Google AI Overview appearances using Search Console's search appearance filters
+- Keep an eye on overall Search performance in Search Console. Google doesn't provide a dedicated AI Overview filter there, so AI Overview clicks and impressions are folded into your general Web performance totals rather than broken out separately
 
 ## Timeline expectations
 
@@ -130,13 +131,13 @@ Don't expect overnight results. The timelines vary significantly by platform:
 
 **Google AI Overviews:** Weeks to months. Once Google re-crawls and re-indexes your updated content, it can appear in AI Overviews relatively quickly. Structured FAQ content typically gets picked up within 2-4 weeks.
 
-**ChatGPT:** Months. ChatGPT's training data updates periodically, and there's a lag between publishing content and it entering the training set. The search mode is faster (days to weeks), but standard ChatGPT responses take 3-6 months to reflect changes.
+**ChatGPT:** Months, if it reflects the change at all in the near term. ChatGPT's search mode crawls live and can reflect new content within days to weeks, but its base training data updates on OpenAI's own undisclosed schedule. There's no fixed timetable for when new content enters the core knowledge that standard, non-search responses draw on.
 
 The smart approach: optimise for Perplexity first (fastest feedback loop), then Google AI Overviews, then ChatGPT. The content changes that help one platform help all three.
 
 ## This isn't optional anymore
 
-The data is clear. AI referral traffic grew 357% year on year to June 2025. Google AI Overviews cut organic clicks by 61% for uncited brands but boost them by 35% for cited ones. 85% of AI citations go to content published in the last 2 years.
+The data is clear. AI referral traffic to the world's top 1,000 websites grew 357% year on year to June 2025. Organic CTR on AI Overview queries fell 61% between June 2024 and September 2025, but brands cited in an AI Overview still earn 35% more organic clicks than brands left out of it. 85% of AI citations go to content published in the last 2 years.
 
 Your competitors are figuring this out. The businesses that adapt now will own the AI answer space in their industry. The ones that wait will find themselves invisible to a growing share of their potential customers.
 

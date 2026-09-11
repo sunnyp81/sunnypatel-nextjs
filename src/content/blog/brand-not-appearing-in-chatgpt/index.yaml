@@ -12,11 +12,13 @@ tags:
 faqs:
   - question: How long does it take to appear in ChatGPT answers?
     answer: >-
-      It depends on the platform. Perplexity crawls the live web, so changes can
-      surface within days. ChatGPT relies on periodic training data updates,
-      meaning it can take 3-6 months for new content to appear in its responses.
-      Google AI Overviews sit somewhere in between, pulling from indexed pages
-      within weeks of publication.
+      It depends on the platform and mode. Perplexity crawls the live web, so
+      changes can surface within days. ChatGPT's search mode also crawls live
+      and can reflect new content quickly, but its base model's training data
+      updates on OpenAI's own undisclosed schedule, so there's no fixed
+      timetable for when new content enters its core knowledge. Google AI
+      Overviews sit somewhere in between, pulling from indexed pages within
+      weeks of publication.
   - question: Does ranking number 1 on Google mean I'll appear in AI answers?
     answer: >-
       No. Google rankings and AI citations use different signals. AI tools
@@ -25,15 +27,16 @@ faqs:
       within the last 2 years, so freshness matters more than legacy authority.
   - question: What is an llms.txt file and do I need one?
     answer: >-
-      An llms.txt file sits in your site's root directory and tells AI crawlers
-      what your site is about, what topics you cover, and where to find key
-      content. It's similar to robots.txt but designed specifically for large
-      language models. Adding one helps AI systems understand and cite your
-      content more accurately.
+      An llms.txt file sits in your site's root directory and lists what your
+      site is about, what topics you cover, and where to find key content.
+      It's a community convention, not an official standard from Google or any
+      major AI platform, and there's no confirmed evidence it improves
+      citation accuracy or frequency. It's low-effort and low-risk to add, but
+      treat it as experimental rather than a proven fix.
   - question: Will AI search replace Google entirely?
     answer: >-
       Not in 2026. In June 2025, Google sent 191 billion referrals in a
-      month compared to 1.13 billion from all AI platforms combined. But AI
-      referral traffic grew 357% year on year to that point, and the
-      trajectory matters. Smart businesses optimise for both channels now
-      rather than waiting.
+      month to the world's top 1,000 websites, compared to 1.13 billion from
+      all AI platforms combined. But AI referral traffic to those same sites
+      grew 357% year on year to that point, and the trajectory matters.
+      Smart businesses optimise for both channels now rather than waiting.

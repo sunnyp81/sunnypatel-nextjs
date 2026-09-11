@@ -1,5 +1,5 @@
 title: SEO for Multiple Websites
-metaTitle: 'SEO for Multiple Websites: How to Stop Your Brands'
+metaTitle: 'SEO for Multiple Websites: Prevent Cannibalisation'
 description: >-
   I manage 44 websites across 15+ niches. Here's the multi-site SEO system I use to stop them cannibalising each other, fix shared technical debt.
 ogImage: /images/stats/multi-site-technical-debt.svg
@@ -12,12 +12,16 @@ tags:
 faqs:
 - question: Can multiple websites owned by the same person compete against each other in Google?
   answer: >-
-    Yes. If two or more of your sites target the same keywords, Google will
-    rank them independently and they'll split impressions and clicks between
-    them. I found this happening on 23 of my 44 sites: not from keyword
-    overlap between sites, but from canonical URL splitting within each site.
-    The fix is assigning distinct keyword territories to each property and
-    ensuring no two sites chase the same queries.
+    Yes. If two or more of your sites genuinely target the same keyword with
+    similar intent, Google will rank them independently and they can split
+    impressions and clicks between them. The fix is assigning distinct
+    keyword territories to each property so no two sites chase the same
+    query. Separately, I found a more common issue on 23 of my 44 sites:
+    canonical URL splitting, where a single site's own pages get indexed
+    twice, with and without a trailing slash, for example. That's a
+    within-site technical fault, not cross-site competition, and the fix is
+    different: consistent internal linking and a correct canonical tag on
+    each page.
 - question: How many websites can one SEO consultant realistically manage?
   answer: >-
     With centralised monitoring, templated audits, and systematic processes,
@@ -36,7 +40,7 @@ faqs:
 - question: What is the biggest SEO risk of running multiple websites?
   answer: >-
     Technical debt multiplication. One misconfigured template breaks every
-    site using that template, not just the site where the mistake originated. I found trailing
+    site using that template. I found trailing
     slash issues on 23 of 44 sites and index bloat on 31 of 44. When you
     fix the root cause in a shared template, you fix hundreds or thousands
     of pages at once. When you ignore it, the damage compounds across your

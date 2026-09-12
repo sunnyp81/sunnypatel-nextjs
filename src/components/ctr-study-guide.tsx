@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
@@ -22,6 +23,12 @@ export function CtrStudyGuide({title, faqs, children}: {title: string; faqs: rea
       <div className={styles.actions}><a className={styles.primary} href="#ctr-table">Inspect the data <span aria-hidden="true">↓</span></a><a className={styles.textLink} href="/downloads/google-ctr-study-2026-07.csv" download>Download CSV</a></div>
       <div className={styles.byline}><Link href="/author/sunny-patel/">Research by Sunny Patel</Link><span>Measured 9 April–7 July 2026</span><span>Published 10 July 2026</span></div>
       <p className={styles.disclosure}><strong>Scope correction · 12 September 2026.</strong> This collection had no country filter or explicit brand exclusion. Earlier UK-only descriptions and causal ranking claims have been withdrawn. The historical totals are unchanged. <a href="#corrections">Read the correction</a>.</p>
+      <figure className={ctr.featuredChart}>
+        <a href="/images/stats/portfolio-ctr-study-2026.svg" aria-label="Open the CTR study chart at full size">
+          <Image src="/images/stats/portfolio-ctr-study-2026.svg" width={1600} height={900} alt="CTR by rounded average-position bucket, with impressions and query-row counts. All 12 values and sample sizes appear in the table below." />
+        </a>
+        <figcaption>Historical portfolio data · 9 April–7 July 2026. <a href="/images/stats/portfolio-ctr-study-2026.svg">View the full-size chart</a> or <a href="#ctr-table">read the accessible data table</a>.</figcaption>
+      </figure>
     </header>
     <div className={styles.layout}><aside className={styles.contents}><nav aria-label="On this page"><p>On this page</p><ol>{navigation.map(([id,label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ol></nav></aside>
       <div className={styles.body}>

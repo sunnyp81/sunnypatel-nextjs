@@ -1,7 +1,12 @@
 .hero { max-width: 1200px; }
 .hero h1 { max-width: 900px; font-size: clamp(2.3rem, 4.6vw, 4rem); }
 .hero > p { max-width: 780px; }
-.hero > p:last-child { max-width: none; }
+.hero > p:last-of-type { max-width: none; }
+.featuredChart { margin: 32px 0 0; }
+.featuredChart > a { display: block; border: 1px solid #354057; border-radius: 8px; overflow: hidden; }
+.featuredChart img { display: block; width: 100%; height: auto; }
+.featuredChart figcaption { margin-top: 12px; color: #c3cedf; font-size: 0.88rem; line-height: 1.65; }
+.featuredChart a:focus-visible { outline: 3px solid #8aacff; outline-offset: 4px; }
 .tableScroll { overflow-x: auto; border: 1px solid #354057; border-radius: 8px; }
 .tableScroll:focus-visible { outline: 3px solid #8aacff; outline-offset: 4px; }
 .table { width: 100%; min-width: 580px; table-layout: fixed; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.96rem; }

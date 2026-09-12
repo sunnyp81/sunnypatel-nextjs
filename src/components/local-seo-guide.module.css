@@ -1,0 +1,8 @@
+.price { font-size: 14px; line-height: 1.7; color: #b9c3d6; }
+.pathway { border-block: 1px solid #323640; padding: 32px 0; margin: 16px 0 40px; }
+.pathway ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; margin: 24px 0; padding: 0; gap: 24px; }
+.pathway li { border-top: 3px solid #5B8AEF; padding-top: 16px; }
+.pathway strong { display: block; font-size: 16px; line-height: 1.5; margin-bottom: 8px; }
+.pathway span { display: block; color: #acb0bd; font-size: 14px; line-height: 1.6; }
+@media (max-width: 1050px) { .pathway ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .pathway ol { grid-template-columns: 1fr; gap: 20px; } }

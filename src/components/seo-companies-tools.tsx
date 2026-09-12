@@ -1,25 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import { proposalCriteria, seoNeeds, type SeoCompany, type SeoNeed } from "@/data/seo-companies";
+import { proposalCriteria, seoNeeds } from "@/data/seo-companies";
 import styles from "./seo-companies-guide.module.css";
 
-export function SeoCompanyFinder({ companies }: { companies: SeoCompany[] }) {
-  const [need, setNeed] = useState<SeoNeed>("all");
+type FinderCompany = { id: string; name: string; needs: readonly string[]; fit: string; scope: string; owned?: boolean };
+type ProposalCriterion = { name: string; weight: number; prompt: string };
+
+export function SeoCompanyFinder({ companies, needs = seoNeeds, caption = "UK SEO providers: suggested fit and scope to confirm" }: {
+  companies: readonly FinderCompany[]; needs?: readonly { id: string; label: string }[]; caption?: string;
+}) {
+  const [need, setNeed] = useState("all");
   const matches = companies.filter((company) => need === "all" || company.needs.includes(need));
   return (
     <div>
       <div className={styles.filterBar}>
         <label htmlFor="seo-need">What do you need help with?</label>
-        <select id="seo-need" value={need} onChange={(event) => setNeed(event.target.value as SeoNeed)}>
-          {seoNeeds.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+        <select id="seo-need" value={need} onChange={(event) => setNeed(event.target.value)}>
+          {needs.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
         </select>
         <p role="status">Showing {matches.length} of {companies.length} providers</p>
       </div>
       <p id="comparison-scroll-help" className={styles.small}>Choose a name to read its profile. On a small screen, scroll the table sideways.</p>
       <div className={styles.tableFrame} role="region" aria-label="SEO provider comparison" aria-describedby="comparison-scroll-help" tabIndex={0}>
         <table className={styles.comparison}>
-          <caption>UK SEO providers: suggested fit and scope to confirm</caption>
+          <caption>{caption}</caption>
           <thead><tr><th scope="col">Provider</th><th scope="col">Consider for</th><th scope="col">Before you request a quote</th></tr></thead>
           <tbody>{matches.map((company) => <tr key={company.id} className={company.owned ? styles.ownedRow : undefined}>
             <th scope="row"><a href={`#${company.id}`}>{company.name}</a>{company.needs.includes("consultant") && <span className={styles.tableNote}>{company.owned ? "Consultant / guide author" : "Consultant"}</span>}</th>
@@ -32,26 +37,27 @@ export function SeoCompanyFinder({ companies }: { companies: SeoCompany[] }) {
 }
 
 const initialNames = ["Proposal A", "Proposal B", "Proposal C"];
-const emptyScores = () => initialNames.map(() => proposalCriteria.map(() => ""));
-
-export function SeoProposalScorecard() {
+export function SeoProposalScorecard({ criteria = proposalCriteria, pageUrl = "https://sunnypatel.co.uk/blog/best-seo-companies-uk/", title = "Compare three proposals on the same terms", downloadTitle = "SEO PROPOSAL COMPARISON", downloadFilename = "seo-proposal-comparison.txt" }: {
+  criteria?: readonly ProposalCriterion[]; pageUrl?: string; title?: string; downloadTitle?: string; downloadFilename?: string;
+}) {
+  const emptyScores = () => initialNames.map(() => criteria.map(() => ""));
   const [names, setNames] = useState(initialNames);
   const [scores, setScores] = useState<string[][]>(emptyScores);
   const [notice, setNotice] = useState("");
-  const totals = scores.map((row) => Math.round(row.reduce((total, value, index) => total + (Number(value) / 5) * proposalCriteria[index].weight, 0)));
+  const totals = scores.map((row) => Math.round(row.reduce((total, value, index) => total + (Number(value) / 5) * criteria[index].weight, 0)));
   const hasScores = scores.some((row) => row.some((value) => value !== ""));
 
   function saveComparison() {
-    const body = ["SEO PROPOSAL COMPARISON", "Your own ratings, not an independent assessment.",
+    const body = [downloadTitle, "Your own ratings, not an independent assessment.",
       "Scale: 0 = absent; 1 = weak; 2 = partial; 3 = adequate; 4 = strong; 5 = excellent.",
-      "https://sunnypatel.co.uk/blog/best-seo-companies-uk/", "",
+      pageUrl, "",
       ...names.flatMap((name, index) => [name || initialNames[index],
-        ...proposalCriteria.map((criterion, criterionIndex) => `${criterion.name} (${criterion.weight}%): ${scores[index][criterionIndex] === "" ? "Not scored" : `${scores[index][criterionIndex]}/5`}`),
+        ...criteria.map((criterion, criterionIndex) => `${criterion.name} (${criterion.weight}%): ${scores[index][criterionIndex] === "" ? "Not scored" : `${scores[index][criterionIndex]}/5`}`),
         scores[index].every((score) => score !== "") ? `Weighted total: ${totals[index]}/100` : "Total: incomplete", ""]),
     ].join("\n");
     const url = URL.createObjectURL(new Blob([body], { type: "text/plain;charset=utf-8" }));
     const link = document.createElement("a");
-    link.href = url; link.download = "seo-proposal-comparison.txt"; link.click();
+    link.href = url; link.download = downloadFilename; link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     setNotice("Your text copy has been prepared for download.");
   }
@@ -59,7 +65,7 @@ export function SeoProposalScorecard() {
   return (
     <section id="proposal-scorecard" className={styles.section} aria-labelledby="scorecard-title">
       <p className={styles.eyebrow}>Make the decision</p>
-      <h2 id="scorecard-title">Compare three proposals on the same terms</h2>
+      <h2 id="scorecard-title">{title}</h2>
       <p>Rate the evidence in each proposal from 0 to 5. These are suggested buying criteria and your own scores, not ratings of the providers above. A serious concern about methods or ownership should outweigh a high total.</p>
       <p className={styles.small}>0 = absent; 1 = weak; 2 = partial; 3 = adequate; 4 = strong; 5 = excellent. Total = the sum of each rating ÷ 5 × its weight. Complete all five criteria to see a total.</p>
       <div className={styles.scoreGrid}>
@@ -67,7 +73,7 @@ export function SeoProposalScorecard() {
           <legend>{initialNames[index]}</legend>
           <label htmlFor={`proposal-${index}`}>Provider name</label>
           <input id={`proposal-${index}`} maxLength={80} value={name} onChange={(event) => setNames(names.map((value, i) => i === index ? event.target.value : value))} />
-          {proposalCriteria.map((criterion, criterionIndex) => <div className={styles.rating} key={criterion.name}>
+          {criteria.map((criterion, criterionIndex) => <div className={styles.rating} key={criterion.name}>
             <label htmlFor={`rating-${index}-${criterionIndex}`}>{criterion.name} <span>{criterion.weight}%</span></label>
             <p id={`help-${index}-${criterionIndex}`}>{criterion.prompt}</p>
             <select id={`rating-${index}-${criterionIndex}`} aria-describedby={`help-${index}-${criterionIndex}`} value={scores[index][criterionIndex]} onChange={(event) => {

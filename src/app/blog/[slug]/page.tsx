@@ -13,6 +13,7 @@ import { bestAeoAgenciesSchemas } from "@/lib/schema-best-aeo-agencies";
 import { bestLocalSeoAgenciesSchemas } from "@/lib/schema-best-local-seo-agencies";
 import { topGeoAgenciesSchemas } from "@/lib/schema-top-geo-agencies";
 import { SeoCompaniesGuide } from "@/components/seo-companies-guide";
+import { LocalSeoGuide } from "@/components/local-seo-guide";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -99,6 +100,10 @@ export default async function BlogPost({
         <SeoCompaniesGuide title={post.title} image={post.ogImage || ""} faqs={post.faqs ?? []}>
           {rendered}
         </SeoCompaniesGuide>
+      ) : slug === "best-local-seo-agencies" ? (
+        <LocalSeoGuide title={post.title} image={post.ogImage || ""} faqs={post.faqs ?? []}>
+          {rendered}
+        </LocalSeoGuide>
       ) : <ContentPage
         h1={post.title}
         badge="Blog"

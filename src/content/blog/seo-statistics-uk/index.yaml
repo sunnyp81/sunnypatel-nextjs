@@ -1,45 +1,42 @@
-title: SEO Statistics UK
-metaTitle: 'SEO Statistics UK 2026: Real CTR + ROI Data'
+title: 'SEO Statistics UK'
+metaTitle: 'SEO Statistics UK 2026: 18 Sourced Benchmarks'
 description: >-
-  SEO statistics UK 2026, with real CTR data from 53 UK sites (5.96% at
-  position 1, not 27%), UK market size, ROI by industry, and why the
-  published AI Overview stats disagree with each other.
-ogImage: /images/stats/google-ctr-by-position.svg
+  Find 18 sourced SEO statistics with UK search data, clear dates and
+  limitations. Download the CSV, reuse the chart and copy source-linked citations.
+ogImage: /images/stats/uk-zero-click-2026.png
 date: '2026-03-07'
-lastUpdated: '2026-09-11'
+lastUpdated: '2026-09-12'
 tags:
   - SEO Statistics
   - Industry Data
   - SEO ROI
 faqs:
-  - question: What is the click-through rate for position 1 on Google?
+  - question: What is Google's search market share in the UK?
     answer: >-
-      It depends entirely on whose data you use. Published meta-analyses (Backlinko, First Page Sage) put position 1 at 27.6% to 39.8%, but that's dominated by brand searches. Across 53 UK sites I manage, ranking mostly for non-brand queries, position 1 earned 5.96% CTR, and position 4 beat it at 8.61%. If your traffic is non-brand, the lower figure will predict your reality better. (Sources: First Page Sage 2026, own data, 90 days to 7 July 2026)
-  - question: What is the average ROI of SEO?
+      Statcounter recorded Google at 91.75% of UK search-engine referrals in
+      August 2026. This measures clicked referrals to participating sites, not
+      all queries or users. Separately, the CMA found Google handled more than
+      90% of traditional UK search queries through June 2025.
+  - question: What percentage of UK Google searches end without a click?
     answer: >-
-      First Page Sage's 2026 report no longer states one blended average; it gives a per-industry range from 317% (eCommerce) to 1,389% (Real Estate) over 3 years. Separately, First Page Sage's SEO-versus-PPC comparison puts SEO at 748% ROI against PPC's 36% over the same period. SEO leads also close at 14.6% versus 1.7% for outbound, at $31 per lead versus $181 for PPC. (Source: First Page Sage, 2026)
-  - question: How is AI search affecting SEO and organic traffic?
+      SparkToro and Similarweb reported 69.5% in their June 2026 UK analysis.
+      The panel excludes Google mobile-app searches. Its shared methodology
+      states January-April 2026 but labels that line US, so the UK period is
+      not separately confirmed.
+  - question: What is a good organic click-through rate?
     answer: >-
-      Google AI Overviews appear on anywhere from roughly 25% to 48% of tracked queries depending on the study's sample, and Seer Interactive's monthly tracking shows organic CTR (blended across all positions) falling to roughly 0.6% on AI Overview queries against up to 3.8% without one. 68.01% of US Google searches ended without a click in the first four months of 2026, up from 60.45% in 2024. Across 12 of my own sites, AI assistants sent 5,240 referral sessions in 90 days, 91% of it from ChatGPT alone. (Sources: Conductor, BrightEdge, Seer Interactive, SparkToro, own data, 2026)
-  - question: What percentage of UK searches have local intent?
+      A useful CTR benchmark matches the country, device, query intent and
+      ranking definition of your own data. My portfolio's position-one
+      bucket recorded 5.96% from just five query rows. The extraction has no
+      country or explicit brand filter, so this is not a universal UK target.
+  - question: How much is spent on search advertising in the UK?
     answer: >-
-      46% of Google searches have local intent, a widely cited figure that is
-      not UK-specific. 76% of mobile local searchers visit a related business
-      within 24 hours, and 28% of those searches, not the visits, result in a
-      purchase. The Google Local Pack captures roughly 42% of clicks on local
-      results pages (Backlinko, 2026); separately, position 1 alone achieves a
-      17.8% click-through rate (BrightLocal, 2026), a different measurement
-      from the 42% share rather than part of it. (Source: Think with Google,
-      Backlinko, BrightLocal 2026)
-  - question: How many websites pass Google's Core Web Vitals?
+      IAB UK and Oliver Wyman reported £17.9bn in UK search advertising
+      expenditure for 2025, representing 44% of digital ad spend. This
+      measures paid search investment rather than SEO agency revenue.
+  - question: Can I reuse these SEO statistics and charts?
     answer: >-
-      48-49% of mobile websites pass Core Web Vitals as of 2026 (HTTP Archive), up from 32% in 2021 and 36% in 2023, so progress is real but slowing. A one-second page load delay can still cost up to 20% of conversions on mobile, with a smaller hit of around 7% on desktop. (Source: HTTP Archive, Google)
-  - question: What is the search engine market share in the UK?
-    answer: >-
-      Google holds around 91-92% of UK search overall (Statcounter, April 2026). Bing sits at roughly 5.9-6.2% blended, but climbs to nearly 13% on UK desktop specifically, the widest device split of any major search engine in the UK market.
-  - question: How big is the UK SEO industry?
-    answer: >-
-      The UK SEO and internet marketing consultancy industry generated £24.6 billion in revenue in 2025-26, growing at a 6.6% compound annual rate over five years, across 35,088 UK businesses. (Source: IBISWorld, via SeoWorks UK SEO Industry Report 2026)
-  - question: Why do published SEO statistics disagree with each other?
-    answer: >-
-      Because "SEO statistics" studies sample different query mixes. CTR studies dominated by brand searches report far higher position 1 CTR than studies of non-brand, long-tail queries. AI Overview appearance rate studies vary from roughly 25% to 48% because informational and healthcare queries trigger them far more than local or transactional ones. Match the study's sample to your own query mix before trusting a headline number, or check it against your own Search Console data.
+      Cite the original source and retain the geography, measurement date
+      and denominator. The CSV and JSON are ungated. Our chart can be reused
+      with linked credit to Sunny Patel, SparkToro and Similarweb; underlying
+      studies retain their own publisher terms.

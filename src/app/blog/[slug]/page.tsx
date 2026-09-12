@@ -15,6 +15,7 @@ import { topGeoAgenciesSchemas } from "@/lib/schema-top-geo-agencies";
 import { SeoCompaniesGuide } from "@/components/seo-companies-guide";
 import { LocalSeoGuide } from "@/components/local-seo-guide";
 import { AeoGuide } from "@/components/aeo-guide";
+import { SeoStatisticsGuide } from "@/components/seo-statistics-guide";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -109,6 +110,10 @@ export default async function BlogPost({
         <AeoGuide title={post.title} image={post.ogImage || ""} faqs={post.faqs ?? []}>
           {rendered}
         </AeoGuide>
+      ) : slug === "seo-statistics-uk" ? (
+        <SeoStatisticsGuide title={post.title} faqs={post.faqs ?? []}>
+          {rendered}
+        </SeoStatisticsGuide>
       ) : <ContentPage
         h1={post.title}
         badge="Blog"

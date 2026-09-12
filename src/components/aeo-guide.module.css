@@ -1,0 +1,8 @@
+.price { color: #b9c3d6; font-size: 14px; line-height: 1.7; }
+.evidence { margin: 28px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.evidence > div { border-top: 2px solid #5b8aef; padding-top: 18px; }
+.evidence dt { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.evidence dd { margin: 0; font-size: 15px; line-height: 1.7; color: #cdd0d8; }
+.example { padding: 20px; border-left: 3px solid #96b6ff; background: #10131a; }
+.example p:last-child { margin-bottom: 0; }
+@media (max-width: 600px) { .evidence { grid-template-columns: 1fr; gap: 20px; } }

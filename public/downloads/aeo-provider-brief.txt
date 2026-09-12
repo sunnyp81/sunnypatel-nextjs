@@ -1,0 +1,55 @@
+AEO PROVIDER BRIEF - FILL-IN TEMPLATE
+Use the same completed brief for every shortlisted agency or consultant.
+Guide: https://sunnypatel.co.uk/blog/best-aeo-agencies/
+
+BUSINESS AND BUYING JOURNEY
+Company and website:
+Main products or services:
+Countries and languages:
+Typical buyer and purchase cycle:
+Primary business objective:
+Three relevant competitors:
+
+REAL QUESTIONS BUYERS ASK
+Discovery question:
+Comparison question:
+Purchase or implementation question:
+Branded question:
+Where these questions came from (sales, support, research or analytics):
+
+MEASUREMENT SCOPE TO AGREE
+Named engines and surfaces:
+Exact prompt set and approval owner:
+Branded and non-branded questions reported separately:
+Country, language, available model/mode and account context:
+Repeated runs per prompt and collection dates:
+How missing responses and variation will be reported:
+Definitions for mention, linked citation, referral and qualified outcome:
+Baseline and review dates:
+Tool access and export format:
+How sample changes will be separated from performance changes:
+
+IMPLEMENTATION
+Known technical or indexing problems:
+Content and business information that need checking:
+Existing SEO, PR or paid-media activity:
+Available developer, writer and subject-expert capacity:
+Required approvals and likely lead times:
+Who publishes changes:
+
+QUOTE REQUIREMENTS
+Audit fee and output:
+Ongoing fee and minimum term:
+Implementation, content and PR allowance:
+Tool costs, exclusions and VAT:
+Named delivery team and client responsibilities:
+Case evidence relevant to this brief, with sample and period:
+Ownership of prompt sets, content, dashboards and exports:
+Notice period and handover:
+Decision date and criteria for continuing or reallocating the budget:
+
+EVIDENCE CHECK
+Ask for the complete sample and repeated observations, not only screenshots
+that show a good result. Keep mentions, citations, visits and sales separate.
+An example result is not a guarantee of an outcome for this business.
+Do not put passwords or secret API keys in this document.

@@ -79,7 +79,7 @@ date: 2026-07-10
 hypothesis: (Sunny-directed.) Original data + unique story earn links/citations the portfolio site cannot get from service pages; an AI-visibility self-serve tool converts the AI-curious audience better than generic tools.
 playbook_tactic: original-data-study + story-post + flagship-tool
 affected_urls:
-  - /blog/google-ctr-study/          (original research: 53 sites, 2,615 queries, 383k impressions; contrarian CTR-by-position findings; data in src/data/ctr-study.json, regenerate via scripts/portfolio-ctr-study.mjs)
+  - /blog/google-ctr-study/          (historical research: 53 qualifying Search Console properties, 2,615 retained query-property rows, 382,941 impressions; no country filter or brand exclusion. Interpretation corrected 12 September 2026. Frozen data in src/data/ctr-study.json; public exports via scripts/export-ctr-study.mjs. The legacy collector is guarded against overwriting this edition.)
   - /blog/autonomous-seo-agent/      (first-person story of the evolve loop, links /proof/)
   - /tools/ai-visibility-checker/    (heuristic scanner: robots.txt AI bots, llms.txt, JSON-LD identity, Wikipedia/Wikidata entity, answerability; /api/ai-visibility; GA4 event ai_visibility_check)
 change: 2 agent-written self-audited posts (88/100 and verified-against-dataset), new tool + API route, blog contextual offer free-option swapped from website-grader to the new checker (better intent match, swapped pre-deploy so iteration 3 measurement is unaffected), BLOG_TOPICS entries, /proof/ links the story post.

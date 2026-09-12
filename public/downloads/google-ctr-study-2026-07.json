@@ -1,0 +1,138 @@
+{
+  "edition": "2026-07",
+  "period": {
+    "start": "2026-04-09",
+    "end": "2026-07-07"
+  },
+  "extractedAt": "2026-07-10",
+  "qualifyingProperties": 53,
+  "queryRows": 2615,
+  "totals": {
+    "clicks": 1667,
+    "impressions": 382941,
+    "queryRows": 2615
+  },
+  "table": [
+    {
+      "position": "1",
+      "ctr": 5.96,
+      "clicks": 43,
+      "impressions": 721,
+      "queries": 5
+    },
+    {
+      "position": "2",
+      "ctr": 0.22,
+      "clicks": 7,
+      "impressions": 3199,
+      "queries": 6
+    },
+    {
+      "position": "3",
+      "ctr": 1.58,
+      "clicks": 44,
+      "impressions": 2784,
+      "queries": 14
+    },
+    {
+      "position": "4",
+      "ctr": 8.61,
+      "clicks": 377,
+      "impressions": 4381,
+      "queries": 24
+    },
+    {
+      "position": "5",
+      "ctr": 2.96,
+      "clicks": 150,
+      "impressions": 5069,
+      "queries": 37
+    },
+    {
+      "position": "6",
+      "ctr": 1.59,
+      "clicks": 407,
+      "impressions": 25649,
+      "queries": 71
+    },
+    {
+      "position": "7",
+      "ctr": 1.02,
+      "clicks": 262,
+      "impressions": 25582,
+      "queries": 81
+    },
+    {
+      "position": "8",
+      "ctr": 0.27,
+      "clicks": 40,
+      "impressions": 14787,
+      "queries": 60
+    },
+    {
+      "position": "9",
+      "ctr": 0.75,
+      "clicks": 73,
+      "impressions": 9783,
+      "queries": 76
+    },
+    {
+      "position": "10",
+      "ctr": 0.53,
+      "clicks": 45,
+      "impressions": 8514,
+      "queries": 67
+    },
+    {
+      "position": "11-20",
+      "ctr": 0.25,
+      "clicks": 119,
+      "impressions": 48279,
+      "queries": 324
+    },
+    {
+      "position": "21+",
+      "ctr": 0.04,
+      "clicks": 100,
+      "impressions": 234193,
+      "queries": 1850
+    }
+  ],
+  "methodology": {
+    "edition": "2026-07",
+    "reviewedAt": "2026-09-12",
+    "pageUrl": "https://sunnypatel.co.uk/blog/google-ctr-study/",
+    "population": "53 qualifying Google Search Console properties in a managed convenience portfolio; distinct domains and property overlap were not verified in the retained output.",
+    "rowDefinition": "One returned query within one property across the measurement period; query strings may repeat across properties.",
+    "countryFilter": null,
+    "deviceFilter": null,
+    "brandExclusion": false,
+    "minimumImpressions": 50,
+    "minimumAveragePosition": 0.5,
+    "rowLimitPerProperty": 5000,
+    "pagination": false,
+    "searchType": "web (API default)",
+    "aggregationRequested": "auto (API default)",
+    "responseAggregationTypeRetained": false,
+    "aggregationLimit": "The query-only request normally produces property-level aggregates. The response aggregation type was not retained. These are not page-level CTR observations.",
+    "verificationScope": "Correction checked the retained bucket totals and extraction script. Original property-query responses and the property inventory were not retained in the published artefacts; this is not an independent audit of the underlying Search Console accounts.",
+    "dateTimeZone": "America/Los_Angeles (Search Console reporting dates)",
+    "bucketRule": "position < 10.5: Math.round(position); 10.5 <= position <= 20.5: 11-20; position > 20.5: 21+",
+    "ctrFormula": "100 * sum(clicks) / sum(impressions)",
+    "limitations": [
+      "Not a UK-only or non-brand benchmark. No country, device, brand or sector mix was retained.",
+      "Only the top returned rows were available before filtering. Query results are sorted by clicks. API limits and anonymised queries restrict coverage.",
+      "The position-one bucket contains five query rows and 721 impressions. Thin buckets do not establish universal targets.",
+      "Buckets represent period-average positions, not fixed rankings or physical search-result pages.",
+      "Different query groups cannot establish a causal ranking, intent, AI Overview or zero-click effect.",
+      "The retained data contain bucket totals only. Per-property variation, overlapping properties and extraction coverage cannot be reconstructed."
+    ],
+    "correction": "Interpretation corrected on 12 September 2026. The original dates and all 12 bucket totals are preserved. No fresh collection is claimed.",
+    "citation": "Sunny Patel, Google CTR by Position: A Portfolio Study. 2,615 retained query-property rows from 53 qualifying Search Console properties, 9 April-7 July 2026. No country filter or explicit brand exclusion. Interpretation corrected 12 September 2026. https://sunnypatel.co.uk/blog/google-ctr-study/",
+    "reuse": "Reuse the published aggregate data and our chart with a link to the study and its dates, sample and limitations.",
+    "sources": [
+      "https://developers.google.com/webmaster-tools/v1/searchanalytics/query",
+      "https://support.google.com/webmasters/answer/7042828"
+    ]
+  }
+}

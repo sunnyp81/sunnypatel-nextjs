@@ -16,6 +16,7 @@ import { SeoCompaniesGuide } from "@/components/seo-companies-guide";
 import { LocalSeoGuide } from "@/components/local-seo-guide";
 import { AeoGuide } from "@/components/aeo-guide";
 import { SeoStatisticsGuide } from "@/components/seo-statistics-guide";
+import { CtrStudyGuide } from "@/components/ctr-study-guide";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -114,6 +115,10 @@ export default async function BlogPost({
         <SeoStatisticsGuide title={post.title} faqs={post.faqs ?? []}>
           {rendered}
         </SeoStatisticsGuide>
+      ) : slug === "google-ctr-study" ? (
+        <CtrStudyGuide title={post.title} faqs={post.faqs ?? []}>
+          {rendered}
+        </CtrStudyGuide>
       ) : <ContentPage
         h1={post.title}
         badge="Blog"

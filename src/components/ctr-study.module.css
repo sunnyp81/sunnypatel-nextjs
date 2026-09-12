@@ -1,0 +1,19 @@
+.hero { max-width: 1200px; }
+.hero h1 { max-width: 900px; font-size: clamp(2.3rem, 4.6vw, 4rem); }
+.hero > p { max-width: 780px; }
+.hero > p:last-child { max-width: none; }
+.tableScroll { overflow-x: auto; border: 1px solid #354057; border-radius: 8px; }
+.tableScroll:focus-visible { outline: 3px solid #8aacff; outline-offset: 4px; }
+.table { width: 100%; min-width: 580px; table-layout: fixed; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.96rem; }
+.table caption { text-align: left; padding: 16px; color: #c3cedf; font-size: 0.88rem; }
+.table th, .table td { position: relative; text-align: right; padding: 14px 16px; border-top: 1px solid #354057; white-space: nowrap; }
+.table tr > :first-child { text-align: left; }
+.table thead th { color: #e7ecf6; background: #182235; font-weight: 600; }
+.table td { color: #f3f5fa; }
+.table tbody th { font-weight: 500; color: #dbe4f5; }
+.table tfoot { background: #182235; font-weight: 700; }
+.miniBar { position: absolute; left: 0; bottom: 0; height: 3px; background: #8aacff; }
+.scrollHint { color: #c3cedf; font-size: 0.88rem; }
+.citation { margin: 24px 0; padding: 24px; border: 1px solid #354057; background: #182235; color: #e7ecf6; font-size: 1rem; line-height: 1.75; overflow-wrap: anywhere; }
+.downloads { display: grid; gap: 16px; padding-left: 22px; }
+@media (max-width: 600px) { .hero h1 { font-size: 2.25rem; } .citation { padding: 18px; } }

@@ -1,50 +1,41 @@
-title: 'Google CTR by Position in 2026: Real Data From 53 UK Sites'
-metaTitle: '5.96% CTR at Position 1: Google CTR Study 2026 (53 Sites)'
+title: 'Google CTR by Position'
+metaTitle: 'Google CTR Study 2026: Data, Method and Limitations'
 description: >-
-  Real Google CTR by position in 2026 from 53 UK sites and 2,615 queries:
-  position 1 earned 5.96%, not 30%, and position 4 beat it at 8.61%. Full data
-  table.
-ogImage: ''
+  Inspect Google CTR across 2,615 query rows from 53 Search Console properties.
+  Download historical data with sample sizes, collection limits and corrections.
+ogImage: '/images/stats/portfolio-ctr-study-2026.png'
 date: '2026-07-10'
-lastUpdated: '2026-07-10'
+lastUpdated: '2026-09-12'
 tags:
   - CTR Study
   - Original Research
   - Google Search Console
   - SEO Data
-  - SERP Features
 faqs:
-  - question: What is a good CTR for position 1 on Google?
+  - question: What CTR did the position-one bucket record?
     answer: >-
-      For a small site targeting non-brand, long-tail queries, anything above 5%
-      at position 1 is realistic and anything above 10% is strong. In this
-      study, position 1 earned 5.96% across 53 UK sites. The 25-30% figures
-      quoted by large industry studies are inflated by brand queries, where the
-      searcher already intends to click the top result. Judge your CTR against
-      the intent mix of your own queries, not against a global average.
-  - question: Why is my CTR so low at position 1?
+      The rounded position-one bucket recorded 43 clicks from 721 impressions:
+      5.96% CTR across five query rows. It is a small portfolio observation with
+      no country filter or explicit brand exclusion. It is not a universal target.
+  - question: Is this a UK non-brand CTR benchmark?
     answer: >-
-      Because position 1 in the organic results is rarely the first thing a
-      searcher sees. AI Overviews, featured snippets, local packs, shopping
-      units, and People Also Ask boxes sit above the first blue link and absorb
-      clicks before your listing gets a chance. Informational queries also
-      increasingly resolve on the results page itself, so a high position earns
-      an impression but no click. Check what the SERP for your query actually
-      looks like before blaming your title tag.
-  - question: Is average position a useful metric?
+      No. The collection applied neither a UK country filter nor an explicit
+      brand exclusion. The retained aggregate does not establish its country or
+      brand mix. Descriptions of this edition as a UK non-brand benchmark have
+      been corrected.
+  - question: Does position four outperform position one?
     answer: >-
-      Mostly no, and it can actively mislead. In this dataset, 74% of all
-      impressions sat at position 11 or worse and earned under 0.1% CTR, so a
-      handful of high-impression page 3 queries can drag your average position
-      down while your traffic comes entirely from a few page 1 rankings. Track
-      clicks and impressions for individual query and page pairs instead, and
-      treat average position as a rough directional signal at best.
-  - question: How do I improve CTR from Google search results?
+      Position four had higher CTR in this sample. The buckets contain different
+      query groups, so their percentages do not show that a lower ranking causes
+      more clicks. The data cannot predict the effect of moving the same query.
+  - question: Does the table include every portfolio query?
     answer: >-
-      First, move rankings from positions 6-10 into the top 4: in this study
-      that jump multiplied CTR by up to 30 times, which no title rewrite can
-      match. Second, rewrite titles and meta descriptions on pages already in
-      striking distance so they front-load the query and a specific benefit.
-      Third, add structured data where it earns a richer result. Prioritise the
-      queries where you already have impressions, because that is demand you
-      are currently wasting.
+      No. The script requested up to 5,000 rows per property without pagination
+      and retained returned rows with at least 50 impressions. Search Console
+      also limits which queries it returns. The published table contains all
+      retained bucket totals, not all underlying search activity.
+  - question: Can I reuse the table and chart?
+    answer: >-
+      Yes. Reuse the published aggregate table and our chart with a link to this
+      study. Keep the measurement dates, sample sizes and limitations with the
+      figures. CSV, JSON, PNG and SVG downloads are available without registration.

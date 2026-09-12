@@ -1,100 +1,81 @@
-Position 1 on Google earned a 5.96% click-through rate across 53 UK sites in 2026, not the 25-30% that industry studies still quote. Position 4 beat it outright at 8.61%, and 74% of all impressions sat at position 11 or worse, where CTR collapsed to under 0.1%. Those are the headline findings from 2,615 query rows of Google Search Console data covering the 90 days to 7 July 2026, pulled from a portfolio of small UK sites ranking for non-brand, long-tail queries. The textbook CTR curve, a smooth slide from 30% at the top to 2% at the bottom of page 1, simply does not describe what small sites experience. This study shows what does.
+## What does this Google CTR study show? {% #findings %}
 
-I run SEO for a portfolio of UK sites and consult on [AI search and organic strategy](/services/paid-seo-audit/), so this data comes from properties I manage directly, not from a scraped panel. The [Cite this study](#cite-this-study) section below explains how to reuse the numbers.
+The retained query rows recorded 1,667 clicks from 382,941 impressions. Their combined click-through rate was 0.44%. These are observations from a managed portfolio with no country filter or explicit brand exclusion.
 
-## The Full CTR Table: 53 Sites, 2,615 Queries, 90 Days
+The rounded position-one bucket recorded 43 clicks from 721 impressions. Its 5.96% CTR comes from only five query rows. Position four recorded 377 clicks from 4,381 impressions across 24 rows: 8.61% CTR.
 
-The table below is the complete dataset: every query row with at least 50 impressions across 53 sites, bucketed by rounded average position. Total volume was 382,941 impressions and 1,667 clicks, a blended CTR of 0.44%.
+The buckets contain different query groups. Their difference does not establish that position four performs better than position one for the same query. Query intent and search-result features were not recorded in the retained aggregate.
 
-| Position | CTR | Clicks | Impressions | Query rows |
-|----------|------|--------|-------------|------------|
-| 1 | 5.96% | 43 | 721 | 5 |
-| 2 | 0.22% | 7 | 3,199 | 6 |
-| 3 | 1.58% | 44 | 2,784 | 14 |
-| 4 | 8.61% | 377 | 4,381 | 24 |
-| 5 | 2.96% | 150 | 5,069 | 37 |
-| 6 | 1.59% | 407 | 25,649 | 71 |
-| 7 | 1.02% | 262 | 25,582 | 81 |
-| 8 | 0.27% | 40 | 14,787 | 60 |
-| 9 | 0.75% | 73 | 9,783 | 76 |
-| 10 | 0.53% | 45 | 8,514 | 67 |
-| 11-20 | 0.25% | 119 | 48,279 | 324 |
-| 21+ | 0.04% | 100 | 234,193 | 1,850 |
+Rounded position buckets 1–10 contributed 1,448 of the 1,667 clicks: 86.9%. Buckets 11–20 and 21+ contributed 282,472 impressions: 73.8% of the total. Those are shares of the retained sample rather than shares of all portfolio traffic.
 
-The curve is not smooth, not monotonic, and nowhere near where the big published studies put it.
+## How was the CTR sample collected? {% #methodology %}
 
-## Finding 1: Position 1 Earned 5.96%, Not 27%
+The collection requested query-level Google Search Console data for 9 April–7 July 2026 inclusive. It counted 53 accessible properties with at least one qualifying row. The extraction date recorded in the dataset is 10 July 2026.
 
-Position 1 delivered 43 clicks from 721 impressions, a 5.96% CTR, roughly a fifth of the figure most SEO decks still present as normal. Backlinko and Semrush's widely cited historical analysis put position 1 at 27.6%, and Advanced Web Ranking's monthly curves have long shown similar or higher figures for many segments. This dataset says a small site ranking first for non-brand, long-tail queries should expect nothing like that.
+The script requested up to 5,000 rows per property in one request. It retained returned rows with at least 50 impressions and an average position of at least 0.5. It made no further requests to retrieve additional pages of rows.
 
-The gap is not a measurement error, it is the modern SERP. Before a searcher reaches the first organic listing they pass AI Overviews, featured snippets, local packs, shopping units, and People Also Ask boxes, each of which either answers the query outright or diverts the click. The growth of zero-click behaviour is well documented, and the trend lines in my [AI search statistics roundup](/blog/ai-search-statistics/) show the layers above the organic results getting thicker every quarter. Ranking first now means ranking first among the blue links, which is a smaller prize than it was.
+Google sorts query results by clicks in descending order. This cap can favour clicked queries before the impression threshold is applied.
 
-One honesty note: only 5 query rows sat at position 1 in this dataset, on 721 impressions. That is a small sample, and I flag it plainly in the methodology below rather than pretending the top of this curve rests on as much data as the bottom.
+Google also warns that the API returns top rows rather than guaranteeing every data row. See the [Search Analytics query documentation](https://developers.google.com/webmaster-tools/v1/searchanalytics/query).
 
-## Finding 2: Position 4 Beat Position 1
+The collection used the query dimension with the default web search type. It did not filter country or device and did not classify or exclude brand queries. It did not save country shares or query lengths.
 
-Position 4 earned 8.61% CTR against position 1's 5.96%, a 44% advantage for a ranking three spots lower. Position 2, meanwhile, earned just 0.22%, worse than position 10. The tidy descending staircase in the textbook charts is nowhere in this data.
+The request left aggregation at the API's automatic default. Query-only requests normally aggregate by property, but this extraction did not retain the returned aggregation type. These are not page-level CTR observations.
 
-The explanation is that query intent mix dominates position. The 24 query rows at position 4 happened to be queries where searchers actively wanted a website, so 377 clicks came from 4,381 impressions. The 6 query rows at position 2 included high-impression informational queries that resolved on the SERP itself, so 3,199 impressions produced 7 clicks. Same page 1, wildly different outcomes, and position explains almost none of the difference.
+One row represents a query within a property over the measurement period. The same query can appear in more than one property. The 2,615 rows are therefore not necessarily 2,615 distinct search phrases.
 
-The practical lesson: two rankings at the same position are not worth the same. A position 4 ranking on a query with click intent beat every other bucket in this study, while a position 2 ranking on a zero-click query was close to worthless. When you audit a site, segment queries by whether the SERP leaves any clicks to win before you celebrate or panic about a position.
+The script counted qualifying Search Console properties as “sites”. The retained output has no property inventory that establishes 53 distinct domains or rules out overlapping domain and URL-prefix properties. The corrected article uses “properties” to describe that count.
 
-## Finding 3: 74% of Impressions Sat Beyond Page 1 and Earned Almost Nothing
+## How are position buckets and CTR calculated? {% #calculation %}
 
-Positions 11 and worse accounted for 282,472 of the 382,941 total impressions, 74% of everything Google showed these sites, and returned 219 clicks, a combined 0.08% CTR. The position 21+ bucket alone held 234,193 impressions, 61% of the total, at 0.04%. Page 3 and beyond is functionally invisible: 1,850 of the 2,615 query rows, 71% of the dataset, lived there and generated 100 clicks between them.
+Bucket CTR equals total bucket clicks divided by total bucket impressions, multiplied by 100. It is an impression-weighted result. It is neither an average of the row percentages nor an average of the property percentages.
 
-Flip that around and the concentration is stark. Page 1 (positions 1-10) held 26% of impressions but produced 1,448 clicks, 87% of all clicks in the study. Visibility in Google is not a gradient, it is a cliff, and the cliff edge is the bottom of page 1.
+The legacy code rounds average positions below 10.5 to the nearest integer. It assigns positions from 10.5 through 20.5 inclusive to “11–20”.
 
-This is why "average position" is a trap as a KPI. A site with three page 1 rankings and two hundred page 3 rankings will report a terrible average position while earning all of its traffic from those three queries. The average is dominated by impressions you were never going to convert into clicks. Report clicks and impressions at the query level instead, the same way I break down performance in the [UK SEO statistics](/blog/seo-statistics-uk/) data and on my own [results page](/proof/).
+It assigns positions above 20.5 to “21+”. These exact boundaries are preserved in the download.
 
-## Finding 4: Positions 6-10 Are Where the Money Is
+The inclusive 20.5 boundary differs from applying ordinary rounding throughout. The retained aggregates cannot show whether any row sat exactly on that boundary. Changing the historical totals without the original rows would invent a correction.
 
-Positions 6-10 held 84,315 impressions, 22% of the dataset, at a blended CTR of roughly 1%. That is the striking-distance zone: enough existing visibility to prove demand, and a CTR gap wide enough that movement pays off disproportionately. Position 6 alone produced 407 clicks, more than positions 1, 2, and 3 combined (94).
+Search Console position is an average over impressions. A query in bucket four did not necessarily hold position four throughout the period.
 
-The upside of movement inside this dataset is dramatic. A query moving from position 8 (0.27%) to position 4 (8.61%) would multiply its CTR by more than 30 times. From position 10 (0.53%) to position 4, 16 times. No title tag rewrite, schema tweak, or thumbnail test moves CTR by anything close to that, which is why ranking improvement on queries already at 6-10 should sit above CTR optimisation in your priority list.
+Google also counts different result formats in ways that make a position bucket an unreliable label for a physical results page. Read Google's [position and impression definitions](https://support.google.com/webmasters/answer/7042828).
 
-If you want to find your own striking-distance queries, filter Search Console for positions 6-10 with meaningful impressions, or run a page through my free [website grader](/tools/website-grader/) to see where the quick wins sit.
+## What can this dataset not establish? {% #limitations %}
 
-## Why This Data Disagrees With the Big CTR Studies
+This dataset cannot establish a UK-wide CTR curve or a non-brand benchmark. It cannot measure the effect of AI Overviews, explain zero-click behaviour or predict the gain from moving a particular ranking.
 
-Both curves are real, they just measure different internets. The large published studies aggregate millions of queries across sites of every size, and that aggregate is dominated by big brands and brand-name searches. When someone searches "asos" or "hmrc login", position 1 gets clicked at enormous rates because the searcher already chose the destination before typing. Those brand impressions pour into the position 1 bucket and drag the published average up to 27% and beyond.
+The sample is a convenience collection of accessible properties. Country, device, sector and brand composition were not retained. Properties without qualifying rows do not contribute to the reported count.
 
-Strip brand queries out and the picture changes. This dataset is 53 small UK sites ranking almost entirely for non-brand, long-tail, niche queries: comparisons, questions, product research, local intent. Nobody typed these queries looking for one of my sites specifically. Every click had to be won against the SERP furniture and against nine other listings, which is exactly the situation most small-site owners are in.
+The position-one, position-two and position-three buckets contain five, six and 14 rows respectively. Those thin groups should remain visible when quoting their percentages. A large overall impression count does not make each bucket reliable.
 
-So when you benchmark your own Search Console data, choose the right yardstick. If your traffic is mostly non-brand, the 5.96% position 1 and 8.61% position 4 figures here will predict your reality far better than a 27.6% headline from a study whose sample is dominated by brands you are not.
+The source output contains bucket totals only. It cannot support a per-property spread, a brand split or a robust uncertainty interval. Impressions should not be treated as independent survey respondents.
 
-## Methodology
+This correction checks the retained aggregate and extraction script. The original property-query responses and property inventory were not retained in the published artefacts. It is not an independent audit of the underlying Search Console accounts.
 
-**Source.** Google Search Console API, query-level data across 53 UK-managed sites in my portfolio.
+The 5,000-row cap and the 50-impression threshold both restrict coverage. Search Console can withhold anonymised queries even when requests are paginated. No extraction coverage ratio or overlap audit was saved with this edition.
 
-**Period.** 90 days ending 7 July 2026.
+## How should you use these CTR figures? {% #use-the-data %}
 
-**Filtering.** Only query rows with at least 50 impressions were included, leaving 2,615 query rows. This removes one-impression noise but biases the sample toward queries Google already surfaces regularly.
+Use the figures to inspect how a declared sample was aggregated. Use your own comparable country, device, query and page data for forecasts. Keep clicks and impressions beside every percentage.
 
-**Bucketing.** Each query row was assigned to a position bucket by its rounded average position for the period. Positions 11-20 and 21+ were aggregated because per-position samples get thin beyond page 1.
+Compare matching segments over defined periods. Record title changes, ranking changes and other changes that could affect the comparison. An observed improvement alone does not isolate its cause.
 
-**Anonymisation.** Domains and query strings are not published. Aggregates per bucket are published in full in the table above and as JSON in the site repository.
+For a business case, test a range of assumptions against contribution profit and qualified outcomes. The [SEO ROI calculator](/tools/seo-roi-calculator/) supports scenario planning. This study does not supply a universal expected CTR for that calculation.
 
-**Limitations, stated plainly.** The samples above position 5 are small: 5 query rows at position 1, 6 at position 2, 14 at position 3. Treat the exact top-of-curve percentages as indicative, not definitive. The niche mix (affiliate, local service, and informational content) shapes the intent profile, and the data is UK-weighted, so SERP feature density will differ from US-centric studies. Average position is itself a lossy metric, since a query shown at positions 2 and 6 averages to 4. None of these caveats change the direction of the findings, but they should stop anyone quoting "8.61% at position 4" as a universal constant.
+## What would a stronger repeat study require? {% #next-edition %}
 
-## Cite This Study
+A stronger study requires a fixed authorised property panel, an explicit UK country filter and a declared brand-classification rule. Device splits, coverage checks and minimum reporting thresholds should be specified before analysis.
 
-You are welcome to reuse any figure, the full table, or the charts you build from it, commercially or otherwise, with a link to this page as the source: https://sunnypatel.co.uk/blog/google-ctr-study/. Suggested citation: "Google CTR by Position in 2026, Sunny Patel, study of 53 UK sites and 2,615 queries via the Google Search Console API, 90 days ending 7 July 2026." No permission request needed, an attribution link is the only condition. If you spot an error or want the bucketed JSON, get in touch and I will share it.
+Choose one non-overlapping property definition per site. Record inclusion, attrition and failed requests. Retain an anonymised audit trail privately so the published counts can be checked without exposing domains or search queries.
 
-## Frequently Asked Questions
+Retrieve additional API pages where available and compare returned totals with matching property totals. Document anonymised-query limits and truncation. Apply the impression threshold consistently and inspect how different thresholds affect the results.
 
-**What is a good CTR for position 1 on Google?**
+Publish the new edition separately with its own dates and method. A filtered UK panel must not be spliced into this unfiltered historical series. The current repair changes interpretation and access to the data; it is not a new collection.
 
-For a small site targeting non-brand, long-tail queries, anything above 5% at position 1 is realistic and anything above 10% is strong. In this study, position 1 earned 5.96% across 53 UK sites. The 25-30% figures quoted by large industry studies are inflated by brand queries, where the searcher already intends to click the top result. Judge your CTR against the intent mix of your own queries, not against a global average.
+## What was corrected in September 2026? {% #corrections %}
 
-**Why is my CTR so low at position 1?**
+The 12 September 2026 correction removes unsupported UK-only and non-brand descriptions. It replaces causal ranking claims with sample observations. The original measurement dates and all 12 bucket totals remain unchanged.
 
-Because position 1 in the organic results is rarely the first thing a searcher sees. AI Overviews, featured snippets, local packs, shopping units, and People Also Ask boxes sit above the first blue link and absorb clicks before your listing gets a chance. Informational queries also increasingly resolve on the results page itself, so a high position earns an impression but no click. Check what the SERP for your query actually looks like before blaming your title tag.
+The earlier article attributed differences between buckets to query intent and AI features without collecting those variables. It also suggested that moving from one bucket to another would multiply CTR. Those explanations and forecasts have been withdrawn.
 
-**Is average position a useful metric?**
-
-Mostly no, and it can actively mislead. In this dataset, 74% of all impressions sat at position 11 or worse and earned under 0.1% CTR, so a handful of high-impression page 3 queries can drag your average position down while your traffic comes entirely from a few page 1 rankings. Track clicks and impressions for individual query and page pairs instead, and treat average position as a rough directional signal at best.
-
-**How do I improve CTR from Google search results?**
-
-First, move rankings from positions 6-10 into the top 4: in this study that jump multiplied CTR by up to 30 times, which no title rewrite can match. Second, rewrite titles and meta descriptions on pages already in striking distance so they front-load the query and a specific benefit. Third, add structured data where it earns a richer result. Prioritise the queries where you already have impressions, because that is demand you are currently wasting.
+The corrected citation names 53 qualifying properties and 2,615 query rows. The downloads include the extraction limits and precise bucket boundaries. Send a correction with the relevant table row and evidence through the [contact page](/contact/).

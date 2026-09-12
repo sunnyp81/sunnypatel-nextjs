@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 
 export function ExitIntent() {
   const pathname = usePathname();
-  const isBuyerGuide = ["/blog/best-seo-companies-uk", "/blog/best-local-seo-agencies", "/blog/best-aeo-agencies", "/blog/seo-statistics-uk"].includes(pathname?.replace(/\/$/, "") ?? "");
+  const isBuyerGuide = ["/blog/best-seo-companies-uk", "/blog/best-local-seo-agencies", "/blog/best-aeo-agencies", "/blog/seo-statistics-uk", "/blog/google-ctr-study"].includes(pathname?.replace(/\/$/, "") ?? "");
   const [show, setShow] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);

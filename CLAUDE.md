@@ -1,5 +1,12 @@
 # SunnyPatel.co.uk
 
+## CTR research correction, 12 September 2026
+
+The July CTR edition contains 53 qualifying Search Console properties and 2,615 retained query-property rows, with no country filter or explicit brand exclusion. Older historical notes below describing "53 UK sites" or a non-brand CTR benchmark are superseded. Property overlap is unverified. Preserve src/data/ctr-study.json; regenerate public historical downloads with scripts/export-ctr-study.mjs. The legacy collector is disabled by default and restricted to ignored scratch output. Never treat bucket differences as causal ranking gains.
+
+Current deployment evidence from 12 September 2026 shows GitHub pushes automatically trigger Vercel production deployments. Observe the resulting deployment and exact commit before considering any manual deploy; older manual-deployment notes below are stale.
+
+
 ## Stack
 - Next.js 16 (App Router) + TypeScript
 - Tailwind CSS v4 (CSS variables)

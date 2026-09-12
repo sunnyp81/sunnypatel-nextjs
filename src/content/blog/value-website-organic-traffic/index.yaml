@@ -29,12 +29,10 @@ faqs:
     That number is almost always 40 to 70% lower than the headline figure.
 - question: How do I calculate the replacement cost of organic traffic?
   answer: >-
-    Take the top 20 non-brand keywords driving clicks in Search Console.
-    Look up each keyword's Google Ads CPC in Keyword Planner. Multiply CPC
-    by monthly clicks for each keyword, then sum the totals. That gives the
-    monthly cost to replace the organic traffic with paid ads, a concrete,
-    comparable benchmark. Treat the result as a floor: organic clicks
-    convert at a premium over paid clicks on the same query.
+    Multiply an applicable Google Ads CPC by monthly organic clicks for each
+    selected keyword, then sum the estimates. This approximates replacement
+    advertising cost for those keywords. It does not establish a floor or ceiling
+    for business value or a universal organic-conversion premium.
 - question: Should I use the same method to value a site sale and to justify my own SEO budget?
   answer: >-
     No. A sale needs a lump-sum figure, built from equivalent paid traffic

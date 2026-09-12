@@ -1,0 +1,165 @@
+// Public service descriptions checked on this date. Fit labels are editorial judgements.
+export const seoCompaniesReviewed = "2026-09-12";
+export const seoNeeds = [
+  { id: "all", label: "All business needs" },
+  { id: "technical", label: "Technical SEO or a migration" },
+  { id: "ecommerce", label: "Ecommerce growth" },
+  { id: "pr", label: "Digital PR and content" },
+  { id: "integrated", label: "SEO with paid media or web" },
+  { id: "international", label: "Enterprise or international SEO" },
+  { id: "consultant", label: "Direct consultant support" },
+] as const;
+export type SeoNeed = (typeof seoNeeds)[number]["id"];
+export type SeoCompany = {
+  id: string; name: string; url: string; needs: SeoNeed[]; fit: string;
+  summary: string; evidence: string; question: string; scope: string;
+  sources: { label: string; url: string }[]; checked: string; disclosure?: string;
+};
+
+// This alphabetical list is shared by the visible page and its structured data.
+export const seoCompanies: SeoCompany[] = [
+  {
+    id: "aira", name: "Aira", url: "https://aira.net/", needs: ["integrated", "pr"],
+    fit: "SEO connected to a wider lead-generation programme",
+    summary: "Aira combines organic search and digital PR with paid media, CRM and analytics. Its Milton Keynes team is worth considering when the problem spans attracting visitors and turning enquiries into customers.",
+    evidence: "Its public case studies include Apteco, Hoxton Mix and Protectivity. Use those to ask how organic search contributed within a wider marketing programme.",
+    question: "How will you separate SEO's contribution from paid media and CRM improvements?",
+    scope: "Check which channels and implementation time are included in the proposed fee.",
+    sources: [{ label: "Aira services and case studies", url: "https://aira.net/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "blue-array", name: "Blue Array", url: "https://www.bluearray.co.uk/", needs: ["technical", "international"],
+    fit: "Specialist organic strategy alongside an in-house team",
+    summary: "Blue Array offers organic search consultancy, technical support, content, digital PR and GEO. It publishes separate services for growing and established businesses, so ask which engagement matches your resources.",
+    evidence: "Its organic search service describes working with clients' developers, copywriters and PR teams. Its published UK offices are in Reading and London.",
+    question: "Which recommendations will your team implement, and which need our developers or writers?",
+    scope: "A strategy-led engagement needs a named owner and capacity for implementation.",
+    sources: [{ label: "Blue Array organic search services", url: "https://www.bluearray.co.uk/services/organic-search/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "builtvisible", name: "Builtvisible", url: "https://builtvisible.com/", needs: ["pr", "technical", "international"],
+    fit: "Connecting brand content, data and organic performance",
+    summary: "Builtvisible brings SEO, content and data into a combined organic strategy. It's a relevant conversation for a marketing team that needs editorial work and performance measurement to support the same commercial goal.",
+    evidence: "Its site sets out strategy, creative campaigns and data-led organic work. Brave Bison announced its acquisition of Builtvisible in March 2025.",
+    question: "Who will deliver the work, and which services come from the wider group?",
+    scope: "Confirm the contracting entity and day-to-day team when comparing proposals.",
+    sources: [{ label: "Builtvisible services and work", url: "https://builtvisible.com/" }, { label: "Builtvisible acquisition announcement", url: "https://builtvisible.com/brave-bison-acquires-builtvisible/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "candour", name: "Candour", url: "https://withcandour.co.uk/", needs: ["technical", "integrated"],
+    fit: "SEO that needs to work with a website build",
+    summary: "Candour offers SEO, AI search, digital PR, design and development. Its Norwich studio is a useful candidate when search performance and the website itself need attention together.",
+    evidence: "Its public site separates SEO from design and build services and links to its work. The Search with Candour podcast lets buyers inspect how its practitioners explain search topics.",
+    question: "Will the SEO team be involved before the design and development decisions are made?",
+    scope: "Ask for the split between the build budget and ongoing search work.",
+    sources: [{ label: "Candour services, work and podcast", url: "https://withcandour.co.uk/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "distinctly", name: "Distinctly", url: "https://distinctly.co/", needs: ["ecommerce", "pr", "integrated"],
+    fit: "Ecommerce SEO, digital PR and paid media together",
+    summary: "Distinctly's current positioning focuses on ecommerce. It brings organic search, digital PR and paid media into one programme, with direct contact to the specialists doing the work.",
+    evidence: "Its published work includes Shopify migrations and campaigns for Shoezone and Fertility Family. Its current ecommerce emphasis is more specific than the broad B2B label in older agency roundups.",
+    question: "How will you measure organic category revenue separately from paid campaigns?",
+    scope: "Confirm experience with your ecommerce platform and product catalogue.",
+    sources: [{ label: "Distinctly positioning and case studies", url: "https://distinctly.co/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "greenpark", name: "Greenpark", url: "https://greenpark.digital/", needs: ["pr", "international"],
+    fit: "Consumer-brand content across search, social and AI",
+    summary: "Greenpark is a candidate for brands commissioning content programmes across markets and platforms. Its work extends beyond website SEO into social discovery, creators and AI visibility.",
+    evidence: "Its public portfolio includes All Things Hair, Campari's The Mixer and work for Unilever Food Solutions. These show the type of content programme it takes on, rather than a standard small-business SEO package.",
+    question: "What part of the scope improves our website, and what supports other discovery channels?",
+    scope: "Check market coverage, editorial approvals and production costs before comparing fees.",
+    sources: [{ label: "Greenpark services and published work", url: "https://greenpark.digital/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "impression", name: "Impression", url: "https://www.impressiondigital.com/", needs: ["integrated", "ecommerce", "international"],
+    fit: "SEO alongside paid media, analytics and conversion work",
+    summary: "Impression offers performance marketing covering SEO, digital PR, paid media, analytics and conversion rate optimisation. Consider it when several teams need to work from a shared commercial plan.",
+    evidence: "Its public work identifies the channels involved in each case study. Examples include Queensmith, Gazeboshop and Tensar, with different combinations of SEO and other services.",
+    question: "Which result will SEO own, and how will you avoid double-counting cross-channel gains?",
+    scope: "Confirm which specialists and measurement work are included in the retainer.",
+    sources: [{ label: "Impression services and client work", url: "https://www.impressiondigital.com/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "novos", name: "NOVOS", url: "https://thisisnovos.com/", needs: ["ecommerce", "international"],
+    fit: "Ecommerce brands growing categories and product demand",
+    summary: "NOVOS specialises in ecommerce growth, including SEO, digital PR, paid media and AI search. Its retail focus makes it a relevant option for brands with substantial product and category pages.",
+    evidence: "Its public portfolio includes Ruggable, Osprey and Vitabiotics. It also names migrations and Shopify among its capabilities.",
+    question: "How will the plan handle category pages, out-of-stock products and international store variants?",
+    scope: "Confirm platform experience and how revenue reporting handles seasonality and promotions.",
+    sources: [{ label: "NOVOS ecommerce services and case studies", url: "https://thisisnovos.com/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "propellernet", name: "Propellernet", url: "https://www.propellernet.co.uk/", needs: ["pr", "technical", "integrated"],
+    fit: "Search insight, technical SEO and digital PR",
+    summary: "Propellernet combines search strategy with technical SEO, content and PR. Its Brighton team is worth considering when a business needs website improvements and stronger visibility beyond its own site.",
+    evidence: "It publishes work for brands including Autotrader and Holland & Barrett. Its site also describes search-listening research and AI visibility measurement.",
+    question: "Which search insights will change the technical and content priorities for our business?",
+    scope: "Ask for a relevant case study and the implementation resources it required.",
+    sources: [{ label: "Propellernet services and work", url: "https://www.propellernet.co.uk/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "reboot", name: "Reboot Online", url: "https://www.rebootonline.com/", needs: ["pr", "technical"],
+    fit: "Research-led content and digital PR",
+    summary: "Reboot combines technical SEO with research, statistics content and digital PR. Consider it when original data and useful reference content could support your search strategy.",
+    evidence: "Its site describes statistical assets, data hubs and topical guides and links to SEO experiments. Published experiments show an approach; they don't guarantee that the same tactic will work on your site.",
+    question: "How will you choose research that attracts our buyers as well as publishers?",
+    scope: "Separate research production, outreach and technical implementation in the proposal.",
+    sources: [{ label: "Reboot services and research approach", url: "https://www.rebootonline.com/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "rise-at-seven", name: "Rise at Seven", url: "https://riseatseven.com/", needs: ["pr", "international"],
+    fit: "Creative campaigns across search, PR and social",
+    summary: "Rise at Seven combines search strategy with content experience, digital PR and social search. It's a candidate when a brand needs campaign ideas that reach audiences across several discovery channels.",
+    evidence: "Its current service list includes onsite SEO, data and insights, AI visibility and international digital PR. Inspect the relevant work examples to see which capabilities a campaign used.",
+    question: "How will campaign coverage support our commercial search pages and qualified demand?",
+    scope: "Confirm whether routine technical SEO is included or needs a separate workstream.",
+    sources: [{ label: "Rise at Seven services and work", url: "https://riseatseven.com/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "salt", name: "SALT.agency", url: "https://salt.agency/", needs: ["technical", "international"],
+    fit: "Complex technical SEO and international sites",
+    summary: "SALT.agency positions its work around enterprise organic search and AI visibility with technical depth. Its international services make it relevant for complex sites and businesses operating across markets.",
+    evidence: "Its service pages distinguish technical SEO, international SEO and content. Its published sector coverage includes travel, manufacturing, retail and SaaS.",
+    question: "How will you turn technical findings into prioritised developer tickets and release checks?",
+    scope: "Confirm who handles deployment, local-language review and post-release monitoring.",
+    sources: [{ label: "SALT.agency technical and international services", url: "https://salt.agency/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "screaming-frog", name: "Screaming Frog", url: "https://www.screamingfrog.co.uk/", needs: ["technical", "pr"],
+    fit: "Technical diagnosis backed by an SEO agency team",
+    summary: "Screaming Frog is an agency as well as the maker of the SEO Spider crawler. Its services include technical SEO, search campaigns and content work from its Henley-on-Thames base.",
+    evidence: "The agency publishes an SEO service page separately from its software pages. A crawler licence and a managed SEO engagement are different purchases.",
+    question: "Will this engagement include fixing the problems, or an audit and implementation advice?",
+    scope: "Request an agency scope and fee; the software's licence price is not an agency rate.",
+    sources: [{ label: "Screaming Frog SEO agency services", url: "https://www.screamingfrog.co.uk/search-engine-optimisation/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "seo-works", name: "The SEO Works", url: "https://www.seoworks.co.uk/", needs: ["integrated", "ecommerce"],
+    fit: "Businesses needing SEO with PPC or website support",
+    summary: "The SEO Works offers SEO, digital PR, PPC and web design and development. It's a candidate when you want search activity and website work available through the same provider.",
+    evidence: "Its service pages separate SEO from paid media and development. Its public portfolio includes a content-led campaign for Meadow Bay Villages.",
+    question: "Which website changes can your team deliver within the SEO fee?",
+    scope: "Ask for explicit development allowances, reporting and out-of-scope rates.",
+    sources: [{ label: "The SEO Works services and case studies", url: "https://www.seoworks.co.uk/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "tom-riley", name: "Tom Riley", url: "https://tom-riley.co.uk/", needs: ["consultant", "technical", "pr"],
+    fit: "Direct SEO and AI-search consultancy for commercial lead generation",
+    summary: "Tom Riley is an independent consultant offering SEO delivery, AI search optimisation and digital PR. His current site covers insurance, fintech and healthcare as well as trades and local services.",
+    evidence: "His site publishes case studies including Zego and explains work on commercial search journeys, entity signals and content architecture. Client results are self-reported and haven't been independently audited for this guide.",
+    question: "Which comparable project can you show, and how did the work change qualified enquiries?",
+    scope: "Confirm delivery capacity and whether work happens in your CMS or through briefs for your team.",
+    disclosure: "Tom has also included me in his GEO and AI SEO consultant roundups. That relationship is disclosed here so you can weigh this recommendation.",
+    sources: [{ label: "Tom Riley services and case studies", url: "https://tom-riley.co.uk/" }, { label: "Tom's GEO consultant roundup", url: "https://tom-riley.co.uk/best-geo-consultants-uk-2026/" }, { label: "Tom's AI SEO consultant roundup", url: "https://tom-riley.co.uk/best-ai-seo-consultants-uk-2026/" }], checked: seoCompaniesReviewed,
+  },
+];
+
+export const proposalCriteria = [
+  { name: "Relevant evidence", weight: 30, prompt: "Comparable site, clear dates, baseline and business results." },
+  { name: "Delivery plan", weight: 25, prompt: "Priorities, named owners and capacity to implement the work." },
+  { name: "Measurement", weight: 20, prompt: "Qualified leads or revenue, with access to the underlying data." },
+  { name: "Team and communication", weight: 15, prompt: "Meet the delivery team and agree how progress will be reviewed." },
+  { name: "Commercial clarity", weight: 10, prompt: "Full cost, exclusions, notice period and ownership in writing." },
+] as const;

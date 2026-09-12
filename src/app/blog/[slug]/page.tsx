@@ -12,6 +12,7 @@ import { bestSeoCompaniesUkSchemas } from "@/lib/schema-best-seo-companies-uk";
 import { bestAeoAgenciesSchemas } from "@/lib/schema-best-aeo-agencies";
 import { bestLocalSeoAgenciesSchemas } from "@/lib/schema-best-local-seo-agencies";
 import { topGeoAgenciesSchemas } from "@/lib/schema-top-geo-agencies";
+import { SeoCompaniesGuide } from "@/components/seo-companies-guide";
 
 export async function generateStaticParams() {
   const slugs = await reader.collections.blog.list();
@@ -94,7 +95,11 @@ export default async function BlogPost({
           ),
         }}
       />
-      <ContentPage
+      {slug === "best-seo-companies-uk" ? (
+        <SeoCompaniesGuide title={post.title} image={post.ogImage || ""} faqs={post.faqs ?? []}>
+          {rendered}
+        </SeoCompaniesGuide>
+      ) : <ContentPage
         h1={post.title}
         badge="Blog"
         backHref="/blog"
@@ -130,7 +135,7 @@ export default async function BlogPost({
         {rendered}
         <RelatedServices currentTags={post.tags ?? []} postTitle={post.title} />
         {offerVariant ? <BlogContextualOffer variant={offerVariant} /> : <BlogLeadMagnet />}
-      </ContentPage>
+      </ContentPage>}
     </>
   );
 }

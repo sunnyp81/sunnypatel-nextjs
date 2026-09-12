@@ -4,8 +4,11 @@ import { FormError, FormField } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
 import { CheckCircle2, Download, Loader2, Sparkles, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function ExitIntent() {
+  const pathname = usePathname();
+  const isBuyerGuide = pathname?.replace(/\/$/, "") === "/blog/best-seo-companies-uk";
   const [show, setShow] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -38,7 +41,7 @@ export function ExitIntent() {
   }, []);
 
   useEffect(() => {
-    if (sessionStorage.getItem("exit_dismissed")) {
+    if (isBuyerGuide || sessionStorage.getItem("exit_dismissed")) {
       return;
     }
     const timer = window.setTimeout(() => document.addEventListener("mouseleave", handleMouseLeave), 8000);
@@ -46,7 +49,7 @@ export function ExitIntent() {
       window.clearTimeout(timer);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [handleMouseLeave]);
+  }, [handleMouseLeave, isBuyerGuide]);
 
   useEffect(() => {
     if (!show) return;
@@ -76,7 +79,7 @@ export function ExitIntent() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [dismiss, show]);
 
-  if (!show || dismissed) return null;
+  if (isBuyerGuide || !show || dismissed) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">

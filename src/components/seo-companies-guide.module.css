@@ -64,6 +64,7 @@
 .comparison tbody th { width: 22%; font-weight: 600; }
 .comparison td { width: 39%; color: #cdd0d8; }
 .comparison tbody tr:hover { background: var(--guide-surface); }
+.comparison tbody .ownedRow, .comparison tbody .ownedRow:hover { background: var(--guide-owned); }
 .tableNote { display: block; font-size: 12px; color: var(--guide-muted); margin-top: 8px; font-weight: 400; }
 .profile { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; border-top: 1px solid var(--guide-rule); padding: 32px 0; }
 .profile h3 { margin: 0 0 12px; font-size: 24px; }

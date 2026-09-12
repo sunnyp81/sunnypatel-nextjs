@@ -21,8 +21,8 @@ export function SeoCompanyFinder({ companies }: { companies: SeoCompany[] }) {
         <table className={styles.comparison}>
           <caption>UK SEO providers: suggested fit and scope to confirm</caption>
           <thead><tr><th scope="col">Provider</th><th scope="col">Consider for</th><th scope="col">Before you request a quote</th></tr></thead>
-          <tbody>{matches.map((company) => <tr key={company.id}>
-            <th scope="row"><a href={`#${company.id}`}>{company.name}</a>{company.id === "tom-riley" && <span className={styles.tableNote}>Consultant</span>}</th>
+          <tbody>{matches.map((company) => <tr key={company.id} className={company.owned ? styles.ownedRow : undefined}>
+            <th scope="row"><a href={`#${company.id}`}>{company.name}</a>{company.needs.includes("consultant") && <span className={styles.tableNote}>{company.owned ? "Consultant / guide author" : "Consultant"}</span>}</th>
             <td>{company.fit}</td><td>{company.scope}</td>
           </tr>)}</tbody>
         </table>

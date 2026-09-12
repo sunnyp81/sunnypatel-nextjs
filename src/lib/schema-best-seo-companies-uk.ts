@@ -6,13 +6,13 @@ export function bestSeoCompaniesUkSchemas(): Record<string, unknown>[] {
     "@type": "ItemList",
     "@id": "https://sunnypatel.co.uk/blog/best-seo-companies-uk/#agency-list",
     name: "UK SEO agency and consultant shortlist",
-    description: "UK SEO providers compared by business need using public services and work. Listed alphabetically; the author's consultancy is separate.",
+    description: "16 UK SEO providers listed alphabetically, including Sunny Patel, the guide author's own consultancy, and 15 external providers. An editorial shortlist, not an independent ranking.",
     itemListOrder: "https://schema.org/ItemListUnordered",
     numberOfItems: seoCompanies.length,
     itemListElement: seoCompanies.map((agency, index) => ({
       "@type": "ListItem", position: index + 1,
       url: `https://sunnypatel.co.uk/blog/best-seo-companies-uk/#${agency.id}`,
-      item: { "@type": agency.id === "tom-riley" ? "Person" : "Organization", name: agency.name, url: agency.url, description: agency.fit },
+      item: { "@type": agency.needs.includes("consultant") ? "Person" : "Organization", name: agency.name, url: agency.url, description: agency.owned ? `${agency.fit}. The guide author's own consultancy.` : agency.fit },
     })),
   }];
 }

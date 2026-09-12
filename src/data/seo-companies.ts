@@ -13,10 +13,11 @@ export type SeoNeed = (typeof seoNeeds)[number]["id"];
 export type SeoCompany = {
   id: string; name: string; url: string; needs: SeoNeed[]; fit: string;
   summary: string; evidence: string; question: string; scope: string;
-  sources: { label: string; url: string }[]; checked: string; disclosure?: string;
+  sources: { label: string; url: string }[]; checked: string; disclosure?: string; owned?: boolean;
 };
 
-// This alphabetical list is shared by the visible page and its structured data.
+// This alphabetical list includes the author's clearly labelled consultancy.
+// It is shared by the visible page and its structured data.
 export const seoCompanies: SeoCompany[] = [
   {
     id: "aira", name: "Aira", url: "https://aira.net/", needs: ["integrated", "pr"],
@@ -134,6 +135,16 @@ export const seoCompanies: SeoCompany[] = [
     question: "Will this engagement include fixing the problems, or an audit and implementation advice?",
     scope: "Request an agency scope and fee; the software's licence price is not an agency rate.",
     sources: [{ label: "Screaming Frog SEO agency services", url: "https://www.screamingfrog.co.uk/search-engine-optimisation/" }], checked: seoCompaniesReviewed,
+  },
+  {
+    id: "sunny-patel", name: "Sunny Patel", url: "https://sunnypatel.co.uk/", needs: ["consultant", "technical", "pr"], owned: true,
+    fit: "Direct consultant support for technical SEO, content strategy and AI-search visibility",
+    summary: "I'm Sunny Patel, an independent SEO consultant based in Reading. Consider me when you want a named consultant involved in both the strategy and practical SEO work.",
+    evidence: "My published case studies describe technical SEO, content and AI-search projects. My AI-referral evidence page explains the measurement and its limitations. Apply the same checks to my work as to every other provider here.",
+    question: "Which relevant project can you show, what did you implement and how did you measure the outcome?",
+    scope: "Confirm my delivery capacity, implementation responsibilities and whether you need additional writers or developers.",
+    disclosure: "This is my consultancy and I wrote this guide. My inclusion is a commercial interest, not an independent recommendation.",
+    sources: [{ label: "Sunny Patel case studies", url: "https://sunnypatel.co.uk/portfolio/" }, { label: "AI-referral evidence and limitations", url: "https://sunnypatel.co.uk/ai-visibility-results/" }], checked: seoCompaniesReviewed,
   },
   {
     id: "seo-works", name: "The SEO Works", url: "https://www.seoworks.co.uk/", needs: ["integrated", "ecommerce"],

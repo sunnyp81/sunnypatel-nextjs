@@ -31,7 +31,7 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
               <p className={styles.eyebrow}>2026 buyer&apos;s guide</p>
               <h1>{title}</h1>
               <p className={styles.dek}>Choose the right SEO partner for the work you actually need.</p>
-              <p>For ecommerce, start with NOVOS or Distinctly. For complex technical work, compare SALT.agency and Screaming Frog. For integrated marketing, consider Aira or Impression.</p>
+              <p>For direct consultant support, consider <a href="#sunny-patel">Sunny Patel (my own consultancy)</a> or <a href="#tom-riley">Tom Riley</a>. For ecommerce, compare NOVOS and Distinctly. For complex technical work, compare SALT.agency and Screaming Frog.</p>
               <div className={styles.actions}><a className={styles.primary} href="#compare">Find your shortlist <span aria-hidden="true">↓</span></a><a className={styles.textLink} href="/downloads/seo-provider-brief.txt" download>Download the briefing template</a></div>
             </div>
             <figure className={styles.heroFigure}>
@@ -44,7 +44,7 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
             <span>Published <time dateTime="2026-02-05">5 February 2026</time></span>
             <span>Content and sources updated <time dateTime={seoCompaniesReviewed}>12 September 2026</time></span>
           </div>
-          <p className={styles.disclosure}><strong>How to use this guide:</strong> compare 15 external providers, then read <a href="#sunny-patel">my own consultancy separately</a>. This is an editorial shortlist, not a tested ranking. I sell SEO services and disclose relevant connections. <a href="#methodology">Read the research method.</a></p>
+          <p className={styles.disclosure}><strong>How to use this guide:</strong> compare 16 providers, including <a href="#sunny-patel">my own consultancy</a>, clearly labelled in the table and profiles. The other 15 are external providers. This is an editorial shortlist, not a tested ranking. <a href="#methodology">Read the research method and disclosures.</a></p>
         </header>
 
         <div className={styles.layout}>
@@ -65,8 +65,8 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
               <h2 id="profiles-title">The shortlist: strengths and questions to ask</h2>
               <p>Each profile links to the provider&apos;s own evidence. Public case studies are self-reported, not independently audited results. The question in each profile helps you test suitability for your business.</p>
               <div className={styles.profiles}>
-                {seoCompanies.map((company) => <article key={company.id} id={company.id} className={styles.profile}>
-                  <div><h3>{company.name}</h3><p className={styles.fit}>{company.fit}</p><p className={styles.checked}>Sources checked<br /><time dateTime={company.checked}>12 September 2026</time></p></div>
+                {seoCompanies.map((company) => <article key={company.id} id={company.id} className={`${styles.profile}${company.owned ? ` ${styles.owned}` : ""}`}>
+                  <div>{company.owned && <p className={styles.eyebrow}>The author&apos;s own consultancy</p>}<h3>{company.name}</h3><p className={styles.fit}>{company.fit}</p><p className={styles.checked}>Sources checked<br /><time dateTime={company.checked}>12 September 2026</time></p></div>
                   <div>
                     <p>{company.summary}</p>
                     <details><summary>Evidence, scope and what to ask</summary>
@@ -78,20 +78,14 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
                       </div>
                     </details>
                     {company.disclosure && <p className={styles.relationship}><strong>Connection disclosed:</strong> {company.disclosure}</p>}
+                    {company.owned && <>
+                      <p className={styles.mention}>Also featured in Tom Riley&apos;s UK <a href="https://tom-riley.co.uk/best-geo-consultants-uk-2026/">GEO consultant guide</a> and <a href="https://tom-riley.co.uk/best-ai-seo-consultants-uk-2026/">AI SEO consultant guide</a>. These are practitioner roundups, not independent audits of my results.</p>
+                      <Link className={styles.primary} href="/contact/" data-cta-location="seo_companies_guide" data-cta-offer="free_20_minute_seo_diagnosis">Discuss your SEO brief</Link>
+                      <p className={styles.small}>Free 20-minute diagnosis. Send your website and the main problem through the enquiry form.</p>
+                    </>}
                   </div>
                 </article>)}
               </div>
-            </section>
-
-            <section id="sunny-patel" className={`${styles.section} ${styles.owned}`} aria-labelledby="own-title">
-              <p className={styles.eyebrow}>The author&apos;s own consultancy</p>
-              <h2 id="own-title">Prefer to work directly with me?</h2>
-              <p>I&apos;m Sunny Patel, an independent SEO consultant based in Reading. I work on technical SEO, content strategy and AI-search visibility. This is my business, so it sits outside the external provider comparison.</p>
-              <p><strong>Consider me if:</strong> you want a named consultant involved in the strategy and practical work. Confirm my capacity and the implementation scope against your needs, especially if you need a large production team.</p>
-              <p>Start with my <Link href="/portfolio/">published case studies</Link> and <Link href="/ai-visibility-results/">AI-referral evidence and limitations</Link>. Ask me the same questions you would ask anyone above.</p>
-              <p className={styles.mention}>Also featured in Tom Riley&apos;s UK <a href="https://tom-riley.co.uk/best-geo-consultants-uk-2026/">GEO consultant guide</a> and <a href="https://tom-riley.co.uk/best-ai-seo-consultants-uk-2026/">AI SEO consultant guide</a>. These are practitioner roundups, not independent audits of my results.</p>
-              <Link className={styles.primary} href="/contact/" data-cta-location="seo_companies_guide" data-cta-offer="free_20_minute_seo_diagnosis">Discuss your SEO brief</Link>
-              <p className={styles.small}>Free 20-minute diagnosis. Send your website and the main problem through the enquiry form.</p>
             </section>
 
             <div className={styles.article}>{children}</div>

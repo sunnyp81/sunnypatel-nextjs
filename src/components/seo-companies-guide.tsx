@@ -31,7 +31,7 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
               <p className={styles.eyebrow}>2026 buyer&apos;s guide</p>
               <h1>{title}</h1>
               <p className={styles.dek}>Choose the right SEO partner for the work you actually need.</p>
-              <p>For direct consultant support, consider <a href="#sunny-patel">Sunny Patel (my own consultancy)</a> or <a href="#tom-riley">Tom Riley</a>. For ecommerce, compare NOVOS and Distinctly. For complex technical work, compare SALT.agency and Screaming Frog.</p>
+              <p>For direct consultant support, consider <a href="#sunny-patel">Sunny Patel (my own consultancy)</a>. For ecommerce, compare NOVOS and Distinctly. For complex technical work, compare SALT.agency and Screaming Frog.</p>
               <div className={styles.actions}><a className={styles.primary} href="#compare">Find your shortlist <span aria-hidden="true">↓</span></a><a className={styles.textLink} href="/downloads/seo-provider-brief.txt" download>Download the briefing template</a></div>
             </div>
             <figure className={styles.heroFigure}>

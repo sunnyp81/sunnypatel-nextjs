@@ -29,7 +29,7 @@ export function LocalSeoGuide({ title, image, faqs, children }: {
             <p className={styles.eyebrow}>2026 local search buyer&apos;s guide</p>
             <h1>{title}</h1>
             <p className={styles.dek}>Choose local SEO support that fits your business.</p>
-            <p>For direct local SEO support, compare <a href="#sunny-patel">Sunny Patel (my consultancy)</a> and <a href="#tom-riley">Tom Riley</a>. For several locations, consider Hallam or Impression. For a wider marketing programme, look at LOCALiQ.</p>
+            <p>For direct local SEO support, consider <a href="#sunny-patel">Sunny Patel (my consultancy)</a>. For several locations, consider Hallam or Impression. For a wider marketing programme, look at LOCALiQ.</p>
             <div className={styles.actions}><a className={styles.primary} href="#compare">Find your local SEO shortlist <span aria-hidden="true">↓</span></a><a className={styles.textLink} href="/downloads/local-seo-provider-brief.txt" download>Download the local SEO brief</a></div>
           </div>
           <figure className={styles.heroFigure}>

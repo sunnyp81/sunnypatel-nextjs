@@ -116,7 +116,7 @@ const faqs = [
   },
   {
     q: "How do I validate the generated schema?",
-    a: "Use the Test in Google Rich Results button above to open your code in Google's Rich Results Test. Use the Schema Markup Validator button for a stricter syntax check against the full schema.org vocabulary at validator.schema.org.",
+    a: "Copy the generated markup, open Google's Rich Results Test, choose Code, and paste it. Use the Schema Markup Validator for a separate check against the broader schema.org vocabulary. Passing either test does not guarantee a Google rich result.",
   },
   {
     q: "Can I use more than one schema type on the same page?",
@@ -133,7 +133,7 @@ export default function SchemaGeneratorPage() {
     operatingSystem: "Web",
     url: "https://sunnypatel.co.uk/tools/schema-generator/",
     description:
-      "Free JSON-LD and Microdata schema markup generator for 16 schema types, from FAQ and Article to JobPosting and Event, with one-click validation in Google's Rich Results Test.",
+      "Free JSON-LD and Microdata schema markup generator for 16 schema types, from FAQ and Article to JobPosting and Event, with links to Google's and Schema.org's validators.",
     offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
     author: { "@type": "Person", name: "Sunny Patel", url: "https://sunnypatel.co.uk/" },
   };
@@ -183,14 +183,14 @@ export default function SchemaGeneratorPage() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Writing that JSON by hand invites syntax errors. One missing comma invalidates the
                 whole block. This generator builds the code from plain form fields, flags missing
-                required properties as you type, and gives you a copy-paste script tag plus a
-                one-click check in Google&apos;s Rich Results Test. Read the{" "}
-                <a
+                basic template fields as you type, and gives you a copy-paste script tag plus
+                a clear copy, open and paste workflow for Google&apos;s Rich Results Test. Read the{" "}
+                <Link
                   href="/blog/seo-semantic-markup-guide/"
                   className="text-brand underline underline-offset-2 hover:opacity-80"
                 >
                   semantic markup guide
-                </a>{" "}
+                </Link>{" "}
                 for the semantic SEO thinking behind structured data.
               </p>
             </div>
@@ -226,24 +226,24 @@ export default function SchemaGeneratorPage() {
             </h2>
             <ol className="space-y-3 max-w-3xl list-decimal pl-5">
               <li className="text-sm text-muted-foreground leading-relaxed">
-                Pick a schema type above, fill in the fields, and fix any warnings the tool shows.
+                Pick a schema type above, fill in the fields, and fix any template issues the tool shows.
                 Required properties are marked with an asterisk.
               </li>
               <li className="text-sm text-muted-foreground leading-relaxed">
                 Copy the script tag and paste it into the page&apos;s HTML. Head or body both work.
                 Platform-specific steps are in{" "}
-                <a
+                <Link
                   href="/blog/how-to-add-schema-markup/"
                   className="text-brand underline underline-offset-2 hover:opacity-80"
                 >
                   how to add schema markup to your website
-                </a>
+                </Link>
                 .
               </li>
               <li className="text-sm text-muted-foreground leading-relaxed">
-                Validate with the Test in Google Rich Results and Schema Markup Validator buttons,
-                publish, then confirm the page&apos;s rich result eligibility in Search
-                Console&apos;s Enhancements reports after the next crawl.
+                Copy the markup, open the relevant validator, choose its code option where shown,
+                and paste. After publishing, test the live URL and monitor any supported enhancement
+                report available in Search Console.
               </li>
             </ol>
           </section>
@@ -264,13 +264,13 @@ export default function SchemaGeneratorPage() {
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
-              Want structured data implemented, validated, and monitored for you? The{" "}
-              <a
+              Want your structured data reviewed and validated by a human? The{" "}
+              <Link
                 href="/services/technical-seo-audit/"
                 className="text-brand underline underline-offset-2 hover:opacity-80"
               >
                 technical SEO audit
-              </a>{" "}
+              </Link>{" "}
               includes a full schema markup review.
             </p>
           </section>

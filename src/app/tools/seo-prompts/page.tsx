@@ -2,12 +2,13 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { RelatedTools } from "@/components/related-tools";
 import SeoPrompts from "./SeoPrompts";
+import { PROMPTS } from "./prompts-data";
 
 export function generateMetadata() {
   return {
-    title: "SEO Prompt Library | 20 Free ChatGPT & AI Prompts for SEO",
+    title: `SEO Prompt Library | ${PROMPTS.length} Free Customisable AI Prompts`,
     description:
-      "20 free copy-paste SEO prompts for ChatGPT, Claude, and Gemini. Demand mapping, topical maps, content briefs, schema, internal linking, and AI search optimisation, built on semantic SEO method.",
+      "Choose from 20 free SEO prompts, add your inputs and copy a personalised prompt. Includes fictional examples, evidence requirements and output checks. No signup.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/seo-prompts/" },
   };
 }
@@ -15,19 +16,19 @@ export function generateMetadata() {
 const faqs = [
   {
     q: "What are SEO prompts?",
-    a: "SEO prompts are pre-written instructions for AI tools like ChatGPT, Claude, and Gemini that produce SEO outputs: keyword intent classification, topical maps, content briefs, schema markup, meta tags, and internal link plans. Good prompts encode a method, so the output follows a proven SEO framework instead of generic advice.",
+    a: "SEO prompts are instructions for AI tools that help draft keyword classifications, content briefs, outlines, structured data and internal linking suggestions. They need relevant inputs and human review; a prompt is not evidence that a recommendation is correct.",
   },
   {
     q: "How do I use these SEO prompts?",
-    a: "Copy a prompt, replace the bracketed placeholders with your own keyword, URL, topic, or content, then paste it into ChatGPT, Claude, or Gemini. Chain them in order, intent and demand first, then topical map, brief, writing, and schema, so each output feeds the next.",
+    a: "Open Personalise this prompt, fill in the labelled inputs and check the preview. Copy the personalised prompt into your chosen AI tool. You can also copy the template and replace the bracketed fields manually. Example inputs are fictional demonstrations.",
   },
   {
     q: "Are AI-generated SEO outputs good enough to publish?",
-    a: "Treat AI output as a first draft, not a finished page. AI accelerates research, briefs, and structure, but rankings come from your own expertise, real data, and editing. Always verify factual claims before publishing, especially in Your Money or Your Life niches where accuracy is critical.",
+    a: "Review drafts before publishing. Verify facts and sources, check proposed links and add your own experience where relevant. A model can invent details or miss context. A generated checklist also does not prove that the checks were performed.",
   },
   {
-    q: "Which AI model is best for SEO tasks?",
-    a: "Any capable model works for these prompts. Claude and ChatGPT handle long content briefs and rewrites well, and Gemini is convenient when you want results tied to Google data. The prompt quality matters more than the model, which is why each prompt here encodes a specific SEO method.",
+    q: "Does this tool send my inputs to an AI provider?",
+    a: "No. The library prepares prompts in your browser. It does not make AI requests, store your inputs on the server or include them in usage analytics. You choose whether to copy the prompt into another service. Reloading the page clears entered inputs.",
   },
 ];
 

@@ -1,55 +1,25 @@
 'use client';
 
-import { useRef, useState, useCallback } from 'react';
-
-type EngineId = 'googleUK' | 'googleUS' | 'googleFR' | 'googlePT' | 'googleES' | 'googleDE' | 'googleRU' | 'googleNL';
-
-const ENGINES: { id: EngineId; label: string; hl: string; gl: string }[] = [
-  { id: 'googleUK', label: 'Google UK', hl: 'en-GB', gl: 'GB' },
-  { id: 'googleUS', label: 'Google US', hl: 'en', gl: 'US' },
-  { id: 'googleFR', label: 'Google FR', hl: 'fr', gl: 'SC' },
-  { id: 'googlePT', label: 'Google PT', hl: 'pt-PT', gl: 'PT' },
-  { id: 'googleES', label: 'Google ES', hl: 'es', gl: 'ES' },
-  { id: 'googleDE', label: 'Google DE', hl: 'de', gl: 'DE' },
-  { id: 'googleRU', label: 'Google RU', hl: 'ru', gl: 'RU' },
-  { id: 'googleNL', label: 'Google NL', hl: 'nl', gl: 'NL' },
-];
-
-const MAX_QUEUE = 20000;
-const BATCH_SIZE = 6;
-const CHARS = 'abcdefghijklmnopqrstuvwxyz'.split('');
-
-function googleAutocomplete(query: string, hl: string, gl: string): Promise<string[]> {
-  return new Promise((resolve) => {
-    const cbName = '_gac' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
-    let settled = false;
-
-    const cleanup = () => {
-      if (settled) return;
-      settled = true;
-      try { delete (window as any)[cbName]; } catch (_) {}
-      const el = document.getElementById(cbName);
-      if (el?.parentNode) el.parentNode.removeChild(el);
-    };
-
-    const timer = setTimeout(() => { cleanup(); resolve([]); }, 6000);
-
-    (window as any)[cbName] = (data: any) => {
-      clearTimeout(timer);
-      cleanup();
-      resolve(Array.isArray(data?.[1]) ? (data[1] as string[]) : []);
-    };
-
-    const script = document.createElement('script');
-    script.id = cbName;
-    const q = query.replace(/\+/g, ' ');
-    script.src = `https://www.google.com/complete/search?output=search&client=chrome&q=${encodeURIComponent(q)}&hl=${hl}&gl=${gl}&jsonp=${cbName}`;
-    script.onerror = () => { clearTimeout(timer); cleanup(); resolve([]); };
-    document.head.appendChild(script);
-  });
-}
+import Link from 'next/link';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
+import {
+  buildScrapePlan,
+  KEYWORD_ENGINES,
+  keywordRowsToCsv,
+  parseUniqueLines,
+  runKeywordScrape,
+  validateScrapeSetup,
+  type AutocompleteResult,
+  type EngineId,
+  type KeywordEngine,
+  type KeywordRow,
+  type ScrapeProgress,
+  type ScrapeSummary,
+} from '@/lib/keyword-scraper';
 
 type EngineState = Record<EngineId, boolean>;
+type Notice = { tone: 'neutral' | 'success' | 'warning' | 'error'; text: string };
 
 const DEFAULT_ENGINES: EngineState = {
   googleUK: true,
@@ -61,360 +31,406 @@ const DEFAULT_ENGINES: EngineState = {
   googleRU: false,
   googleNL: false,
 };
+const REQUEST_LIMITS = [50, 100, 250] as const;
+const REQUEST_TIMEOUT_MS = 6000;
+
+function googleAutocomplete(
+  query: string,
+  engine: KeywordEngine,
+  signal: AbortSignal,
+): Promise<AutocompleteResult> {
+  return new Promise((resolve) => {
+    const callbackName = `_gac_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+    const script = document.createElement('script');
+    let settled = false;
+
+    const settle = (result: AutocompleteResult) => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timer);
+      signal.removeEventListener('abort', handleAbort);
+      try {
+        delete (window as unknown as Record<string, unknown>)[callbackName];
+      } catch {
+        (window as unknown as Record<string, unknown>)[callbackName] = undefined;
+      }
+      script.remove();
+      resolve(result);
+    };
+    const handleAbort = () => settle({ status: 'cancelled' });
+    const timer = window.setTimeout(
+      () => settle({ status: 'timeout' }),
+      REQUEST_TIMEOUT_MS,
+    );
+
+    if (signal.aborted) {
+      settle({ status: 'cancelled' });
+      return;
+    }
+
+    signal.addEventListener('abort', handleAbort, { once: true });
+    (window as unknown as Record<string, unknown>)[callbackName] = (data: unknown) => {
+      if (!Array.isArray(data)) {
+        settle({ status: 'error' });
+        return;
+      }
+      const suggestions = data[1];
+      if (!Array.isArray(suggestions)) {
+        settle({ status: 'error' });
+        return;
+      }
+      settle({
+        status: 'success',
+        suggestions: suggestions.filter((item): item is string => typeof item === 'string'),
+      });
+    };
+    script.id = callbackName;
+    script.src = `https://www.google.com/complete/search?output=search&client=chrome&q=${encodeURIComponent(query)}&hl=${encodeURIComponent(engine.hl)}&gl=${encodeURIComponent(engine.gl)}&jsonp=${encodeURIComponent(callbackName)}`;
+    script.onerror = () => settle({ status: 'error' });
+    document.head.appendChild(script);
+  });
+}
+
+function completionNotice(summary: ScrapeSummary, capped: boolean): Notice {
+  const failures = summary.timeoutCount + summary.errorCount;
+  const limitText = capped ? ' The selected request limit was reached.' : '';
+
+  if (summary.uniqueKeywords === 0 && failures === 0) {
+    if (summary.excludedSuggestions > 0) {
+      return {
+        tone: 'neutral',
+        text: `Finished ${summary.completedRequests} requests. All ${summary.excludedSuggestions} returned suggestions were removed by your excluded words.${limitText}`,
+      };
+    }
+    return {
+      tone: 'neutral',
+      text: `Finished ${summary.completedRequests} requests. Google returned no suggestions for these query and region combinations.${limitText}`,
+    };
+  }
+  if (summary.uniqueKeywords === 0) {
+    return {
+      tone: 'error',
+      text: `No suggestions were retrieved. ${summary.timeoutCount} requests timed out and ${summary.errorCount} failed. Try again with fewer regions or a smaller request limit.`,
+    };
+  }
+  if (failures > 0) {
+    return {
+      tone: 'warning',
+      text: `Found ${summary.uniqueKeywords} unique suggestions from ${summary.completedRequests} completed requests. ${summary.timeoutCount} timed out and ${summary.errorCount} failed.${limitText}`,
+    };
+  }
+  return {
+    tone: 'success',
+    text: `Found ${summary.uniqueKeywords} unique suggestions across ${summary.keywordRegionPairs} keyword-region matches.${limitText}`,
+  };
+}
+
+const inputClassName =
+  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:border-brand/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-50';
 
 export default function KeywordScraper() {
   const [keywords, setKeywords] = useState('seo consultant');
   const [positives, setPositives] = useState('how\nwhat\nbest\nnear me');
   const [negatives, setNegatives] = useState('');
   const [engines, setEngines] = useState<EngineState>(DEFAULT_ENGINES);
-  const [resultLines, setResultLines] = useState<string[]>([]);
-  const [count, setCount] = useState(0);
+  const [requestLimit, setRequestLimit] = useState<(typeof REQUEST_LIMITS)[number]>(100);
+  const [rows, setRows] = useState<KeywordRow[]>([]);
+  const [progress, setProgress] = useState<ScrapeProgress | null>(null);
+  const [notice, setNotice] = useState<Notice>({
+    tone: 'neutral',
+    text: 'Choose your inputs and start when ready.',
+  });
   const [isRunning, setIsRunning] = useState(false);
 
-  // Mutable refs for the processing loop
-  const runningRef = useRef(false);
-  const queueRef = useRef<string[]>([]);
-  const seenQueriesRef = useRef(new Set<string>());
-  const seenResultsRef = useRef(new Set<string>());
-  const enginesRef = useRef<EngineState>(engines);
-  const negativesRef = useRef(negatives);
+  const mountedRef = useRef(true);
+  const nextRunIdRef = useRef(0);
+  const activeRunIdRef = useRef<number | null>(null);
+  const controllerRef = useRef<AbortController | null>(null);
 
-  // Sync refs when state changes (only matters before start)
-  const syncRefs = () => {
-    enginesRef.current = engines;
-    negativesRef.current = negatives;
-  };
-
-  const applyFilters = useCallback((results: string[]): string[] => {
-    const negLines = negativesRef.current
-      .split('\n')
-      .map((s) => s.trim())
-      .filter(Boolean);
-    if (negLines.length === 0) return results;
-    return results.filter((r) => !negLines.some((neg) => r.includes(neg)));
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      activeRunIdRef.current = null;
+      controllerRef.current?.abort();
+    };
   }, []);
 
-  const expandWithAlphabet = useCallback((result: string) => {
-    const base = result.trim().replace(/\s+/g, '+');
-    for (const c of CHARS) {
-      const q = base + '+' + c;
-      if (queueRef.current.length < MAX_QUEUE && !seenQueriesRef.current.has(q)) {
-        seenQueriesRef.current.add(q);
-        queueRef.current.push(q);
-      }
-    }
-  }, []);
-
-  const handleResults = useCallback(
-    (rawResults: string[], engineLabel: string) => {
-      if (!runningRef.current) return;
-      const filtered = applyFilters(rawResults);
-      const newLines: string[] = [];
-
-      for (const r of filtered) {
-        if (!seenResultsRef.current.has(r)) {
-          seenResultsRef.current.add(r);
-          newLines.push(engineLabel ? `${r}, ${engineLabel}` : r);
-          expandWithAlphabet(r);
-        }
-      }
-
-      if (newLines.length > 0) {
-        setResultLines((prev) => [...prev, ...newLines]);
-        setCount((prev) => prev + newLines.length);
-      }
-    },
-    [applyFilters, expandWithAlphabet]
+  const activeEngines = useMemo(
+    () => KEYWORD_ENGINES.filter((engine) => engines[engine.id]),
+    [engines],
+  );
+  const resultsText = useMemo(
+    () => rows.map((row) => `${row.keyword}\t${row.regions.join(', ')}`).join('\n'),
+    [rows],
+  );
+  const keywordRegionPairs = useMemo(
+    () => rows.reduce((total, row) => total + row.regions.length, 0),
+    [rows],
   );
 
-  const makeInitialQueries = useCallback((): string[] => {
-    const kws = keywords
-      .split('\n')
-      .map((s) => s.trim())
-      .filter(Boolean);
-    const pos = positives
-      .split('\n')
-      .map((s) => s.trim())
-      .filter(Boolean);
-
-    const queries: string[] = [];
-    for (const kw of kws) {
-      const k = kw.replace(/\s+/g, '+');
-      if (pos.length === 0) {
-        queries.push(k);
-      } else {
-        for (const p of pos) {
-          const pf = p.replace(/\s+/g, '+');
-          queries.push(pf + '+' + k);
-        }
-      }
+  const handleStart = useCallback(async () => {
+    const setupError = validateScrapeSetup(keywords, activeEngines.length);
+    if (setupError) {
+      setIsRunning(false);
+      setNotice({ tone: 'error', text: setupError });
+      trackEvent('keyword_error', {
+        event_category: 'tool',
+        tool: 'keyword_scraper',
+        error_type: activeEngines.length === 0 ? 'no_region' : 'no_seed_keyword',
+        region_count: activeEngines.length,
+      });
+      return;
     }
-    return queries;
-  }, [keywords, positives]);
 
-  const runLoop = useCallback(async () => {
-    while (runningRef.current) {
-      if (queueRef.current.length === 0) {
-        runningRef.current = false;
-        setIsRunning(false);
-        break;
-      }
-
-      const batch = queueRef.current.splice(0, BATCH_SIZE);
-      const activeEngines = ENGINES.filter((e) => enginesRef.current[e.id]);
-      if (activeEngines.length === 0) break;
-
-      const promises: Promise<void>[] = [];
-      for (const query of batch) {
-        for (const engine of activeEngines) {
-          promises.push(
-            googleAutocomplete(query, engine.hl, engine.gl).then((results) => {
-              handleResults(results, engine.label);
-            })
-          );
-        }
-      }
-
-      await Promise.all(promises);
-      await new Promise((r) => setTimeout(r, 80));
-    }
-  }, [handleResults]);
-
-  const handleStart = useCallback(() => {
-    syncRefs();
-
-    // Reset state
-    queueRef.current = [];
-    seenQueriesRef.current = new Set();
-    seenResultsRef.current = new Set();
-    setResultLines([]);
-    setCount(0);
-    runningRef.current = true;
+    controllerRef.current?.abort();
+    const controller = new AbortController();
+    const runId = ++nextRunIdRef.current;
+    const plan = buildScrapePlan(keywords, positives, activeEngines.length, requestLimit);
+    controllerRef.current = controller;
+    activeRunIdRef.current = runId;
+    setRows([]);
+    setProgress({
+      completedRequests: 0,
+      totalRequests: plan.totalRequests,
+      uniqueKeywords: 0,
+      keywordRegionPairs: 0,
+      emptyResponses: 0,
+      excludedSuggestions: 0,
+      timeoutCount: 0,
+      errorCount: 0,
+    });
+    setNotice({
+      tone: 'neutral',
+      text: `Checking up to ${plan.totalRequests} query-region requests. You can stop at any time.`,
+    });
     setIsRunning(true);
+    trackEvent('keyword_start', {
+      event_category: 'tool',
+      tool: 'keyword_scraper',
+      seed_count: parseUniqueLines(keywords).length,
+      positive_word_count: parseUniqueLines(positives).length,
+      region_count: activeEngines.length,
+      request_limit: requestLimit,
+      planned_request_count: plan.totalRequests,
+    });
 
-    // Build initial queue
-    const initialQueries = makeInitialQueries();
-    for (const q of initialQueries) {
-      if (!seenQueriesRef.current.has(q)) {
-        seenQueriesRef.current.add(q);
-        queueRef.current.push(q);
-      }
+    const isCurrent = () =>
+      mountedRef.current && activeRunIdRef.current === runId && !controller.signal.aborted;
+    const summary = await runKeywordScrape({
+      plan,
+      engines: activeEngines,
+      negativeText: negatives,
+      signal: controller.signal,
+      request: googleAutocomplete,
+      isCurrent,
+      batchSize: Math.max(1, Math.floor(8 / activeEngines.length)),
+      onRows: (nextRows) => {
+        if (isCurrent()) setRows(nextRows);
+      },
+      onProgress: (nextProgress) => {
+        if (isCurrent()) setProgress(nextProgress);
+      },
+    });
+
+    if (!isCurrent() || summary.status !== 'complete') return;
+    activeRunIdRef.current = null;
+    controllerRef.current = null;
+    setRows(summary.rows);
+    setProgress(summary);
+    setIsRunning(false);
+    setNotice(completionNotice(summary, plan.capped));
+    const terminalCounts = {
+      event_category: 'tool',
+      tool: 'keyword_scraper',
+      unique_keyword_count: summary.uniqueKeywords,
+      keyword_region_pair_count: summary.keywordRegionPairs,
+      completed_request_count: summary.completedRequests,
+      empty_response_count: summary.emptyResponses,
+      excluded_suggestion_count: summary.excludedSuggestions,
+      timeout_count: summary.timeoutCount,
+      error_count: summary.errorCount,
+      region_count: activeEngines.length,
+      request_limit_reached: plan.capped,
+    };
+    const hasRequestFailures = summary.timeoutCount > 0 || summary.errorCount > 0;
+    if (summary.uniqueKeywords === 0 && hasRequestFailures) {
+      trackEvent('keyword_error', {
+        ...terminalCounts,
+        error_type: 'request_failures_no_results',
+      });
+    } else {
+      trackEvent('keyword_complete', {
+        ...terminalCounts,
+        outcome: hasRequestFailures
+          ? 'partial'
+          : summary.uniqueKeywords === 0
+            ? 'empty'
+            : 'success',
+      });
     }
-
-    // Expand initial queries with a-z
-    for (const q of initialQueries) {
-      for (const c of CHARS) {
-        const expanded = q + '+' + c;
-        if (!seenQueriesRef.current.has(expanded)) {
-          seenQueriesRef.current.add(expanded);
-          queueRef.current.push(expanded);
-        }
-      }
-    }
-
-    runLoop();
-  }, [makeInitialQueries, runLoop]);
+  }, [activeEngines, keywords, negatives, positives, requestLimit]);
 
   const handleStop = useCallback(() => {
-    runningRef.current = false;
+    if (!isRunning) return;
+    activeRunIdRef.current = null;
+    controllerRef.current?.abort();
+    controllerRef.current = null;
     setIsRunning(false);
-  }, []);
+    setNotice({
+      tone: 'warning',
+      text: `Stopped after ${progress?.completedRequests ?? 0} requests. Results collected before stopping are still available.`,
+    });
+    trackEvent('keyword_stop', {
+      event_category: 'tool',
+      tool: 'keyword_scraper',
+      outcome: 'stopped',
+      unique_keyword_count: rows.length,
+      keyword_region_pair_count: keywordRegionPairs,
+      completed_request_count: progress?.completedRequests ?? 0,
+      region_count: activeEngines.length,
+    });
+  }, [activeEngines.length, isRunning, keywordRegionPairs, progress?.completedRequests, rows.length]);
 
   const handleDownload = useCallback(() => {
-    const header = 'Keyword,Search Engine\r\n';
-    const rows = resultLines
-      .map((line) => {
-        const parts = line.split(', ');
-        const kw = parts[0] ?? '';
-        const se = parts.slice(1).join(', ') ?? '';
-        return `"${kw.replace(/"/g, '""')}","${se}"`;
-      })
-      .join('\r\n');
-    const content = header + rows;
-    const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+    if (rows.length === 0) return;
+    const blob = new Blob([`\uFEFF${keywordRowsToCsv(rows)}`], {
+      type: 'text/csv;charset=utf-8;',
+    });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'keyword_suggestions.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-  }, [resultLines]);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'keyword_suggestions.csv';
+    anchor.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    trackEvent('keyword_download', {
+      event_category: 'tool',
+      tool: 'keyword_scraper',
+      unique_keyword_count: rows.length,
+      keyword_region_pair_count: keywordRegionPairs,
+      region_count: new Set(rows.flatMap((row) => row.regions)).size,
+    });
+  }, [keywordRegionPairs, rows]);
 
   const toggleEngine = (id: EngineId) => {
-    setEngines((prev) => ({ ...prev, [id]: !prev[id] }));
+    setEngines((previous) => ({ ...previous, [id]: !previous[id] }));
   };
 
-  const resultsText = resultLines.join('\n');
+  const statusColour =
+    notice.tone === 'error'
+      ? 'text-red-300'
+      : notice.tone === 'warning'
+        ? 'text-amber-300'
+        : notice.tone === 'success'
+          ? 'text-emerald-300'
+          : 'text-muted-foreground';
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-      {/* Header */}
-      <div className="mb-8">
-        <h1
-          className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
+      <div className="mb-8 max-w-3xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
           Keyword Suggestions Tool
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Scrape Google Autocomplete suggestions across multiple regions. Enter seed keywords, pick your engines, and hit Start — the tool expands each keyword a–z for deep coverage.
+          Collect Google Autocomplete suggestions from up to eight regions. Results show the regions
+          where each suggestion appeared; they do not include search volume or competition data.
         </p>
       </div>
 
-      {/* Input row */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-        {/* Keywords */}
-        <div className="md:col-span-5 flex flex-col gap-3">
+        <div className="flex flex-col gap-3 md:col-span-5">
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-foreground">
-              Seed Keywords <span className="text-muted-foreground">(one per line)</span>
+            <label htmlFor="keyword-seeds" className="text-sm font-medium text-foreground">
+              Seed keywords <span className="text-muted-foreground">(one per line)</span>
             </label>
-            <textarea
-              value={keywords}
-              onChange={(e) => setKeywords(e.target.value)}
-              disabled={isRunning}
-              rows={10}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 disabled:opacity-50 font-mono"
-              placeholder="seo consultant&#10;keyword research&#10;..."
-            />
+            <textarea id="keyword-seeds" value={keywords} onChange={(event) => setKeywords(event.target.value)} disabled={isRunning} rows={10} className={`${inputClassName} resize-none font-mono`} placeholder={'seo consultant\nkeyword research'} />
           </div>
 
-          {/* Engines */}
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-3">
-            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              Search Engines
-            </p>
-            <div className="grid grid-cols-2 gap-1.5">
-              {ENGINES.map((engine) => (
-                <label
-                  key={engine.id}
-                  className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-foreground hover:bg-white/[0.04] transition-colors"
-                >
-                  <input
-                    type="checkbox"
-                    checked={engines[engine.id]}
-                    onChange={() => toggleEngine(engine.id)}
-                    disabled={isRunning}
-                    className="h-3.5 w-3.5 rounded border-white/20 accent-brand"
-                  />
+          <fieldset className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-3">
+            <legend className="px-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Google regions</legend>
+            <div className="mt-1 grid grid-cols-2 gap-1.5">
+              {KEYWORD_ENGINES.map((engine) => (
+                <label key={engine.id} className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-foreground transition-colors hover:bg-white/[0.04] focus-within:ring-2 focus-within:ring-brand/40">
+                  <input type="checkbox" checked={engines[engine.id]} onChange={() => toggleEngine(engine.id)} disabled={isRunning} className="h-4 w-4 rounded border-white/20 accent-brand focus-visible:outline-none" />
                   {engine.label}
                 </label>
               ))}
             </div>
+          </fieldset>
+        </div>
+
+        <div className="flex flex-col gap-3 md:col-span-5">
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="keyword-positive-words" className="text-sm font-medium text-foreground">
+              Query starters <span className="text-muted-foreground">(placed before each seed)</span>
+            </label>
+            <textarea id="keyword-positive-words" value={positives} onChange={(event) => setPositives(event.target.value)} disabled={isRunning} rows={6} className={`${inputClassName} resize-none font-mono`} placeholder={'how\nbest\nwhat\nnear me'} />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="keyword-negative-words" className="text-sm font-medium text-foreground">
+              Excluded words <span className="text-muted-foreground">(remove matching suggestions)</span>
+            </label>
+            <textarea id="keyword-negative-words" value={negatives} onChange={(event) => setNegatives(event.target.value)} disabled={isRunning} rows={5} className={`${inputClassName} resize-none font-mono`} placeholder={'jobs\nfree'} />
           </div>
         </div>
 
-        {/* Positives + Negatives */}
-        <div className="md:col-span-5 flex flex-col gap-3">
+        <div className="flex flex-col justify-start gap-3 pt-0 md:col-span-2 md:pt-6">
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-foreground">
-              Positive Words{' '}
-              <span className="text-muted-foreground">(prepended to each keyword)</span>
-            </label>
-            <textarea
-              value={positives}
-              onChange={(e) => setPositives(e.target.value)}
-              disabled={isRunning}
-              rows={6}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 disabled:opacity-50 font-mono"
-              placeholder="how&#10;best&#10;what&#10;near me"
-            />
+            <label htmlFor="keyword-request-limit" className="text-sm font-medium text-foreground">Request limit</label>
+            <select id="keyword-request-limit" value={requestLimit} onChange={(event) => setRequestLimit(Number(event.target.value) as (typeof REQUEST_LIMITS)[number])} disabled={isRunning} aria-describedby="keyword-request-limit-help" className={inputClassName}>
+              {REQUEST_LIMITS.map((limit) => <option key={limit} value={limit} className="bg-background">{limit} requests</option>)}
+            </select>
+            <p id="keyword-request-limit-help" className="text-xs leading-relaxed text-muted-foreground">Each query-region check uses one request.</p>
           </div>
-          <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-foreground">
-              Negative Words{' '}
-              <span className="text-muted-foreground">(filter out results containing these)</span>
-            </label>
-            <textarea
-              value={negatives}
-              onChange={(e) => setNegatives(e.target.value)}
-              disabled={isRunning}
-              rows={5}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 disabled:opacity-50 font-mono"
-              placeholder="spam word&#10;irrelevant"
-            />
-          </div>
-        </div>
-
-        {/* Controls */}
-        <div className="md:col-span-2 flex flex-col justify-start gap-3 pt-6">
-          <button
-            onClick={handleStart}
-            disabled={isRunning}
-            className="w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {isRunning ? 'Running…' : 'Start'}
+          <button type="button" onClick={handleStart} disabled={isRunning} className="min-h-11 w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[#070A12] shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-[background-color,box-shadow] hover:bg-[#6f9cf3] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 disabled:cursor-not-allowed disabled:opacity-40">
+            {isRunning ? 'Running...' : 'Start'}
           </button>
-          <button
-            onClick={handleStop}
-            disabled={!isRunning}
-            className="w-full rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-sm font-semibold text-red-400 transition-all hover:bg-red-500/20 disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            Stop
-          </button>
-          {isRunning && (
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 animate-pulse rounded-full bg-brand" />
-              <span className="text-xs text-muted-foreground">Scraping…</span>
-            </div>
-          )}
+          <button type="button" onClick={handleStop} disabled={!isRunning} className="min-h-11 w-full rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-sm font-semibold text-red-300 transition-colors hover:bg-red-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300/70 disabled:cursor-not-allowed disabled:opacity-40">Stop</button>
         </div>
       </div>
 
-      {/* Results */}
+      <div className={`mt-4 min-h-6 text-sm ${statusColour}`} role={notice.tone === 'error' ? 'alert' : 'status'} aria-live="polite">
+        {isRunning && progress ? (
+          <span>Checked {progress.completedRequests} of {progress.totalRequests} requests; {progress.uniqueKeywords} unique suggestions</span>
+        ) : notice.text}
+      </div>
+
       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-12">
-        <div className="md:col-span-10 flex flex-col gap-1.5">
-          <div className="flex items-center justify-between">
-            <label className="text-sm font-medium text-foreground">
-              Results{' '}
-              <span className="ml-2 rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand">
-                {count} keywords
-              </span>
-            </label>
+        <div className="flex flex-col gap-1.5 md:col-span-10">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <label htmlFor="keyword-results" className="text-sm font-medium text-foreground">Results</label>
+            <span className="rounded-md bg-brand/15 px-2 py-1 font-mono text-xs text-brand">{rows.length} unique; {keywordRegionPairs} region matches</span>
           </div>
-          <textarea
-            readOnly
-            value={resultsText}
-            rows={16}
-            className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground font-mono focus:outline-none"
-            placeholder="Results will appear here…"
-          />
+          <textarea id="keyword-results" readOnly value={resultsText} rows={16} aria-busy={isRunning} aria-describedby="keyword-results-help" className={`${inputClassName} resize-none font-mono`} placeholder="Results will appear here..." />
+          <p id="keyword-results-help" className="text-xs text-muted-foreground">Each line contains a suggestion followed by every region where it appeared.</p>
         </div>
-        <div className="md:col-span-2 flex flex-col justify-end">
-          <button
-            onClick={handleDownload}
-            disabled={count === 0}
-            className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            Download CSV
-          </button>
+        <div className="flex flex-col justify-end md:col-span-2">
+          <button type="button" onClick={handleDownload} disabled={rows.length === 0} className="min-h-11 w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-[background-color,border-color] hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 disabled:cursor-not-allowed disabled:opacity-40">Download CSV</button>
         </div>
       </div>
 
-      {/* How it works */}
+      {rows.length > 0 && !isRunning && (
+        <section className="mt-8 border-y border-white/[0.08] py-6" aria-labelledby="keyword-next-step">
+          <h2 id="keyword-next-step" className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>Turn the suggestions into a content decision</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Classify intent and choose the right page format before writing. Autocomplete suggestions
+            are useful inputs, but they are not evidence of search volume or ranking difficulty.
+          </p>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+            <Link href="/tools/seo-prompts/" data-cta-location="keyword_scraper_results" data-cta-offer="seo_prompt_library" className="inline-flex min-h-11 items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#4a79de] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">Classify intent with an SEO prompt</Link>
+            <Link href="/services/content-briefs/" data-cta-location="keyword_scraper_results" data-cta-offer="content_briefs" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-foreground transition-[background-color,border-color] hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">Explore writer-ready content briefs</Link>
+          </div>
+        </section>
+      )}
+
       <div className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <h2
-          className="mb-3 text-lg font-semibold text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          How it works
-        </h2>
+        <h2 className="mb-3 text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>How it works</h2>
         <ul className="space-y-2 text-sm text-muted-foreground">
-          <li>
-            <span className="text-foreground font-medium">Seed keywords</span> — enter one or more base terms (one per line).
-          </li>
-          <li>
-            <span className="text-foreground font-medium">Positive words</span> — prepended to each seed before querying (e.g. &quot;how&quot; → &quot;how seo consultant&quot;). Leave blank to query seeds directly.
-          </li>
-          <li>
-            <span className="text-foreground font-medium">Negative words</span> — any suggestion containing these words is discarded.
-          </li>
-          <li>
-            <span className="text-foreground font-medium">a–z expansion</span> — each returned suggestion is automatically re-queried with every letter of the alphabet appended, uncovering thousands of long-tail variations.
-          </li>
-          <li>
-            <span className="text-foreground font-medium">Multiple regions</span> — tick Google UK for UK-specific suggestions, add other locales for international keyword research.
-          </li>
+          <li><span className="font-medium text-foreground">Seed keywords:</span> enter one or more starting topics, one per line.</li>
+          <li><span className="font-medium text-foreground">Query starters:</span> add words such as “how” or “best” before each seed. Leave this field blank to query the seeds directly.</li>
+          <li><span className="font-medium text-foreground">Alphabet expansion:</span> the tool checks each starting combination, then adds a–z until it reaches your chosen request limit.</li>
+          <li><span className="font-medium text-foreground">Regional matches:</span> a suggestion found in several selected regions appears once with every matching region listed.</li>
+          <li><span className="font-medium text-foreground">Excluded words:</span> matching suggestions are removed without changing the queries sent to Google.</li>
         </ul>
       </div>
     </div>

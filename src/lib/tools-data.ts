@@ -62,7 +62,7 @@ export const tools: Tool[] = [
   },
   {
     name: "SEO Prompt Library",
-    description: "22 copy-paste ChatGPT, Claude, and Gemini prompts for demand mapping, topical maps, briefs, schema, and AI search.",
+    description: "20 customisable ChatGPT, Claude, and Gemini prompts for demand mapping, topical maps, briefs, schema, and AI search.",
     href: "/tools/seo-prompts/",
     category: "AI & Prompts",
   },

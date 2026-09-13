@@ -1,0 +1,59 @@
+SEO CONTENT BRIEF — DEMONSTRATION EXTRACT
+
+Status: Fictional worked example
+Business: Northstar Office Plants
+Client result: No. Northstar Office Plants is not a real client.
+
+PAGE TASK
+Help a UK office manager compare plants that may suit a low-light workspace and identify the room and care checks needed before buying.
+
+TARGET QUERY
+best office plants for low light
+
+INTENT
+Commercial investigation. The reader wants a shortlist with practical comparison criteria before choosing a plant.
+
+PROPOSED H1
+Best Office Plants for Low Light: A Practical Comparison
+
+PROPOSED STRUCTURE
+
+H2: Which office plants tolerate low light?
+Purpose: Give a direct qualified shortlist. Define "low light" before making recommendations.
+Evidence required: Use named reliable horticultural sources for light and care claims.
+
+H2: How should you compare low-light office plants?
+Purpose: Compare light tolerance, mature size, watering needs, temperature limits and maintenance.
+Useful element: A table with no more than five comparison columns.
+
+H2: Which plant suits each office condition?
+Purpose: Match options to desk space, floor space, irregular watering and artificial-light conditions.
+Constraint: State where a recommendation needs supplemental lighting or cannot tolerate the described condition.
+
+H2: Which plants need extra care around pets?
+Purpose: Separate plant suitability from pet safety.
+Evidence required: Check every toxicity statement against a named veterinary or plant-safety source. Do not infer safety from missing data.
+
+H2: What should you check before buying?
+Purpose: Give the reader a final room, care and safety checklist.
+
+REQUIRED ENTITIES AND ATTRIBUTES
+- Plant species and common name
+- Light tolerance
+- Watering interval or condition
+- Mature size
+- Temperature range where a reliable source is available
+- Pet-safety status with a named source
+
+WRITER INSTRUCTIONS
+- Start each section with the answer.
+- Keep low-light tolerance separate from no-light conditions.
+- Cite factual care and safety claims.
+- Mark evidence gaps for review. Do not invent a specification.
+- Avoid a ranking promise or unsupported "best" claim.
+
+FINAL CHECK
+The draft should help the reader make a decision even if the reader does not buy from Northstar Office Plants.
+
+LIMITS
+This extract demonstrates a format. A paid brief would be built for the agreed topic, website, reader and source material.

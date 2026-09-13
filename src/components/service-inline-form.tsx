@@ -54,6 +54,9 @@ export function ServiceInlineForm({
   offerId = DEFAULT_OFFER_ID,
   offerLabel = DEFAULT_OFFER_LABEL,
   eventLabel = "service_inline_form",
+  messagePlaceholder = "Your website URL and what you're trying to achieve — or just say hi, I'll ask the right questions.",
+  formFooterNote = "No obligation · Direct reply from Sunny · Reply within one working day",
+  operationalNotes,
   leadValue,
   id,
 }: {
@@ -75,6 +78,12 @@ export function ServiceInlineForm({
   offerLabel?: string;
   /** GA4 event_label / form_location. Defaults to "service_inline_form". */
   eventLabel?: string;
+  /** Prompt shown in the free-text enquiry field. */
+  messagePlaceholder?: string;
+  /** Operational note below the submit button. */
+  formFooterNote?: string;
+  /** Replaces the default response-time and availability claims when provided. */
+  operationalNotes?: readonly string[];
   /** Estimated GBP value of a lead from this form, passed through to GA4. */
   leadValue?: number;
   /** DOM id on the outer section, so a page can deep-link straight to the form. */
@@ -155,7 +164,7 @@ export function ServiceInlineForm({
             <FormField
               id="message"
               label="How can I help?"
-              placeholder="Your website URL and what you're trying to achieve — or just say hi, I'll ask the right questions."
+              placeholder={messagePlaceholder}
               optional
               multiline
               rows={compact ? 3 : 4}
@@ -175,7 +184,7 @@ export function ServiceInlineForm({
               className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-semibold text-white transition-[transform,box-shadow,opacity] duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
               style={{
                 fontFamily: "var(--font-heading)",
-                background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
+                background: "linear-gradient(135deg, #2854C5 0%, #1F469F 100%)",
                 boxShadow:
                   "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
               }}
@@ -193,21 +202,21 @@ export function ServiceInlineForm({
               )}
             </button>
 
-            <p className="text-center text-xs text-muted-foreground/70">
-              No obligation · Direct reply from Sunny · Reply within one working day
+            <p className="text-center text-xs text-muted-foreground">
+              {formFooterNote}
             </p>
-            <p className="text-center text-xs text-muted-foreground/70">
+            <p className="text-center text-xs text-muted-foreground">
               Prefer to talk?{" "}
               <a
                 href="tel:07305523333"
-                className="text-brand/60 hover:text-brand transition-colors"
+                className="text-brand underline decoration-brand/60 underline-offset-2 transition-colors hover:text-foreground"
               >
                 07305 523333
               </a>
               {" · "}
               <a
                 href="mailto:Hello@SunnyPatel.co.uk"
-                className="text-brand/60 hover:text-brand transition-colors"
+                className="text-brand underline decoration-brand/60 underline-offset-2 transition-colors hover:text-foreground"
               >
                 Hello@SunnyPatel.co.uk
               </a>
@@ -292,16 +301,27 @@ export function ServiceInlineForm({
             </div>
 
             {/* Availability + response time */}
-            <div className="mt-5 space-y-2">
-              <p className="flex items-center gap-1.5 text-xs text-muted-foreground/65">
-                <Clock className="h-3 w-3" />
-                Usually responds within a few hours
-              </p>
-              <p className="flex items-center gap-1.5 text-xs">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-success" />
-                <span className="text-success/90">Currently accepting new clients</span>
-              </p>
-            </div>
+            {operationalNotes ? (
+              <div className="mt-5 space-y-2">
+                {operationalNotes.map((note) => (
+                  <p key={note} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Clock className="h-3 w-3" aria-hidden="true" />
+                    {note}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <div className="mt-5 space-y-2">
+                <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <Clock className="h-3 w-3" />
+                  Usually responds within a few hours
+                </p>
+                <p className="flex items-center gap-1.5 text-xs">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-success" />
+                  <span className="text-success/90">Currently accepting new clients</span>
+                </p>
+              </div>
+            )}
           </div>
 
           {/* ── Right: form ──────────────────────────────── */}

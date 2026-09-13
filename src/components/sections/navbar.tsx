@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button";
 
@@ -16,11 +17,23 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-background/70 backdrop-blur-xl backdrop-saturate-[1.8]">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-background/70 backdrop-blur-xl backdrop-saturate-[1.8]"
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && open) {
+          setOpen(false);
+          menuButton.current?.focus();
+          event.stopPropagation();
+        }
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+      }}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a
+        <Link
           href="/"
           className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -48,7 +61,7 @@ export function Navbar() {
           <span>
             Sunny<span className="text-brand">Patel</span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
@@ -69,6 +82,7 @@ export function Navbar() {
         </div>
 
         <button
+          ref={menuButton}
           onClick={() => setOpen(!open)}
           className="flex h-11 w-11 items-center justify-center p-2 text-muted-foreground hover:text-foreground md:hidden"
           aria-label="Toggle menu"

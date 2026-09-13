@@ -135,12 +135,15 @@ export default async function BlogPost({
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-              })
+              }) + (slug === "how-long-does-seo-take" && post.lastUpdated
+                ? ` · Updated ${new Date(post.lastUpdated).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}`
+                : "")
             : undefined
         }
         tags={post.tags ? [...post.tags] : undefined}
         heroImage={post.ogImage || undefined}
         isBlog={true}
+        showStickyCta={slug !== "how-long-does-seo-take"}
         showCta={true}
         afterContent={
           <>

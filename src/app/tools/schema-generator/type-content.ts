@@ -56,7 +56,7 @@ export const SCHEMA_TYPE_ENTRIES: SchemaTypeEntry[] = [
     label: 'Article',
     title: 'Free Article Schema Generator (JSON-LD and Microdata)',
     metaDescription:
-      'Generate valid Article JSON-LD or Microdata with headline, author, publisher, and dates. Free tool with a one-click check in Google\'s Rich Results Test.',
+      'Generate valid Article JSON-LD or Microdata with headline, author, publisher, and dates. Free tool with a direct link to Google\'s Rich Results Test.',
     h1: 'Article Schema Generator',
     intro: [
       "Article schema describes a blog post or news piece with a headline, author, publisher, and the dates it was published and last updated. Google's own documentation says there are no strictly required properties, but recommends adding as many as apply so it can surface accurate title text, images, and date information for the article in Search, Google News, and the Google Assistant.",

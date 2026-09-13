@@ -92,20 +92,20 @@ export default async function SchemaTypePage({
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
-              Want structured data implemented, validated, and monitored for you? The{" "}
-              <a
+              Want your structured data reviewed and validated by a human? The{" "}
+              <Link
                 href="/services/technical-seo-audit/"
                 className="text-brand underline underline-offset-2 hover:opacity-80"
               >
                 technical SEO audit
-              </a>{" "}
+              </Link>{" "}
               includes a full schema markup review. Not sure where to paste the code above? Read{" "}
-              <a
+              <Link
                 href="/blog/how-to-add-schema-markup/"
                 className="text-brand underline underline-offset-2 hover:opacity-80"
               >
                 how to add schema markup to your website
-              </a>
+              </Link>
               .
             </p>
           </section>

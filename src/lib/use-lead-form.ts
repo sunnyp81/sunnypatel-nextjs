@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { trackEvent } from "@/lib/analytics";
+import { getToolJourney, trackEvent } from "@/lib/analytics";
 import { getAttribution } from "@/lib/attribution";
 
 export type FormStatus = "idle" | "loading" | "success" | "error";
@@ -66,6 +66,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
           value: opts.leadValue ?? 50,
           currency: "GBP",
           transport_type: "beacon",
+          ...getToolJourney(),
           ...("howHeard" in formData ? { how_heard: formData.howHeard } : {}),
         });
       }

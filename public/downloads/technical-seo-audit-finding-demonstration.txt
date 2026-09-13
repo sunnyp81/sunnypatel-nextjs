@@ -1,0 +1,42 @@
+TECHNICAL SEO AUDIT FINDING — DEMONSTRATION
+
+Status: Fictional worked example
+Business: Northstar Garden Supply
+Client result: No. Northstar Garden Supply is not a real client.
+
+FINDING ID
+CRAWL-04
+
+FINDING
+Filtered category URLs are crawlable and internally linked.
+
+FICTIONAL EVIDENCE
+- 184 filtered category URLs were found during the example crawl.
+- 62 of those URLs declared canonical targets that conflicted with their internal links.
+- The main navigation linked to 7 approved category pages. Product filters generated links to the remaining combinations.
+
+WHY THIS MATTERS
+The fictional site sends mixed discovery and canonical signals. Search engines can spend time crawling filter combinations while the site points to different preferred URLs.
+
+RECOMMENDED ACTION
+1. Choose which filter combinations should be indexable landing pages.
+2. Keep stable internal links to those approved URLs.
+3. Prevent unapproved combinations from creating crawlable links.
+4. Align canonical and indexation rules with the chosen URL set.
+5. Preserve filter usability for visitors.
+
+OWNER
+Developer with SEO review.
+
+PRIORITY
+High in this fictional example because the pattern affects a large product directory.
+
+ACCEPTANCE CHECK
+- Re-crawl the affected directory.
+- Confirm that approved category URLs remain linked and indexable.
+- Confirm that unapproved filter combinations are no longer discovered through internal links in the scoped crawl.
+- Inspect a sample of canonical tags and response codes.
+- Check that visitors can still filter products.
+
+LIMITS
+This demonstration does not diagnose a real website. A real audit would use evidence from the agreed site and would account for its platform, templates and commercial goals.

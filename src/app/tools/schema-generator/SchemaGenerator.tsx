@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useCallback, useMemo, useId, isValidElement, cloneElement } from 'react';
+import Link from 'next/link';
+import { trackEvent } from '@/lib/analytics';
+import { countSchemaItems, createJsonLdScript } from '@/lib/schema-generator';
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -10,6 +13,7 @@ type SchemaType =
   | 'VideoObject' | 'Review' | 'ItemList' | 'SoftwareApplication';
 
 type OutputFormat = 'jsonld' | 'microdata';
+type CopyStatus = 'idle' | 'copied' | 'error';
 
 interface FAQPair { question: string; answer: string }
 
@@ -132,6 +136,10 @@ const EVENT_STATUSES = [
   { value: 'EventMovedOnline', label: 'Moved online' },
 ];
 const REVIEW_ITEM_TYPES = ['Product', 'LocalBusiness', 'Organization', 'Book', 'Movie', 'Recipe', 'Restaurant', 'CreativeWork'];
+const GOOGLE_RICH_RESULT_TYPES = new Set<SchemaType>([
+  'Article', 'LocalBusiness', 'Product', 'BreadcrumbList', 'Organization', 'JobPosting', 'Event',
+  'VideoObject', 'Review', 'SoftwareApplication',
+]);
 
 // ── Style constants ────────────────────────────────────────────────────────────
 
@@ -140,7 +148,7 @@ const inputClass =
 const labelClass = 'block text-sm font-medium text-foreground mb-1.5';
 const cardClass = 'rounded-xl border border-white/[0.06] bg-white/[0.02] p-6';
 const btnPrimary =
-  'rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4a7be0] transition-colors';
+  'rounded-lg bg-[#315fbd] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(49,95,189,0.35)] transition-colors hover:bg-[#274f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70';
 const btnSecondary =
   'rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-white/[0.08] transition-colors';
 const dangerText = 'text-red-400 hover:text-red-300 transition-colors';
@@ -236,7 +244,8 @@ function jsonLdToMicrodata(obj: Record<string, unknown>): string {
 export default function SchemaGenerator({ initialType }: { initialType?: SchemaType } = {}) {
   const [activeType, setActiveType] = useState<SchemaType>(initialType ?? 'FAQ');
   const [format, setFormat] = useState<OutputFormat>('jsonld');
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
+  const [actionFeedback, setActionFeedback] = useState('');
 
   // FAQ
   const [faqPairs, setFaqPairs] = useState<FAQPair[]>([{ question: '', answer: '' }]);
@@ -338,6 +347,143 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
     description: '', price: '0', currency: 'GBP', ratingValue: '', ratingCount: '',
   });
 
+  const loadExample = useCallback(() => {
+    switch (activeType) {
+      case 'FAQ':
+        setFaqPairs([
+          { question: 'How long does delivery take?', answer: 'Standard UK delivery takes 3 to 5 working days.' },
+          { question: 'Can I return my order?', answer: 'Yes. Unused items can be returned within 30 days.' },
+        ]);
+        break;
+      case 'Article':
+        setArticle({
+          headline: 'A practical guide to structured data', authorName: 'Alex Morgan',
+          authorUrl: 'https://example.com/authors/alex-morgan', publisherName: 'Example Studio',
+          publisherLogoUrl: 'https://example.com/logo.png', datePublished: '2026-09-01',
+          dateModified: '2026-09-10', imageUrl: 'https://example.com/images/structured-data-guide.jpg',
+          description: 'A step-by-step introduction to adding structured data to a website.',
+        });
+        break;
+      case 'LocalBusiness':
+        setBusiness({
+          name: 'Example Plumbing Ltd', type: 'Plumber', street: '10 Market Street', city: 'Reading',
+          region: 'Berkshire', postalCode: 'RG1 1AA', country: 'GB', phone: '+44 118 000 0000',
+          url: 'https://example.com', hours: [
+            { day: 'Monday', open: '09:00', close: '17:00' },
+            { day: 'Tuesday', open: '09:00', close: '17:00' },
+          ], latitude: '51.4543', longitude: '-0.9781', priceRange: '££',
+        });
+        break;
+      case 'Product':
+        setProduct({
+          name: 'Example Desk Lamp', description: 'An adjustable LED desk lamp.',
+          imageUrl: 'https://example.com/images/desk-lamp.jpg', brand: 'Example Home', sku: 'LAMP-100',
+          price: '39.00', currency: 'GBP', availability: 'InStock', ratingValue: '4.7',
+          reviewCount: '86', url: 'https://example.com/products/desk-lamp',
+        });
+        break;
+      case 'BreadcrumbList':
+        setBreadcrumbs([
+          { name: 'Home', url: 'https://example.com/' },
+          { name: 'Guides', url: 'https://example.com/guides/' },
+          { name: 'Structured data', url: 'https://example.com/guides/structured-data/' },
+        ]);
+        break;
+      case 'HowTo':
+        setHowTo({
+          title: 'How to change a tap washer', description: 'Replace a worn tap washer safely.',
+          totalTime: 'PT30M', estimatedCost: '8', currency: 'GBP', steps: [
+            { name: 'Turn off the water', text: 'Close the isolation valve before opening the tap.', imageUrl: '' },
+            { name: 'Replace the washer', text: 'Remove the old washer and fit a matching replacement.', imageUrl: '' },
+          ],
+        });
+        break;
+      case 'Organization':
+        setOrganization({
+          name: 'Example Studio Ltd', url: 'https://example.com', logoUrl: 'https://example.com/logo.png',
+          description: 'A UK design studio.', street: '10 Market Street', city: 'Reading', region: 'Berkshire',
+          postalCode: 'RG1 1AA', country: 'GB', phone: '+44 118 000 0000', email: 'hello@example.com',
+          sameAs: 'https://www.linkedin.com/company/example\nhttps://www.instagram.com/example',
+        });
+        break;
+      case 'Person':
+        setPerson({
+          name: 'Alex Morgan', jobTitle: 'Technical Director', url: 'https://example.com/alex-morgan',
+          imageUrl: 'https://example.com/images/alex-morgan.jpg', email: 'alex@example.com',
+          worksForName: 'Example Studio Ltd', worksForUrl: 'https://example.com',
+          sameAs: 'https://www.linkedin.com/in/example',
+        });
+        break;
+      case 'Service':
+        setService({
+          name: 'Technical SEO audit', serviceType: 'Technical SEO consulting',
+          description: 'A technical review with prioritised developer-ready fixes.',
+          providerName: 'Example Studio Ltd', providerUrl: 'https://example.com', areaServed: 'United Kingdom',
+          url: 'https://example.com/services/technical-seo-audit',
+        });
+        break;
+      case 'WebSite':
+        setWebsite({
+          name: 'Example Studio', url: 'https://example.com', description: 'Guides and services from Example Studio.',
+          searchUrlTemplate: 'https://example.com/search?q={search_term_string}',
+        });
+        break;
+      case 'JobPosting':
+        setJob({
+          title: 'Technical SEO consultant', description: 'Audit websites and explain practical fixes to clients.',
+          datePosted: '2026-09-01', validThrough: '2026-10-01', employmentType: 'FULL_TIME',
+          hiringOrgName: 'Example Studio Ltd', hiringOrgUrl: 'https://example.com',
+          hiringOrgLogo: 'https://example.com/logo.png', locationType: 'onsite', street: '10 Market Street',
+          city: 'Reading', region: 'Berkshire', postalCode: 'RG1 1AA', country: 'GB', salaryMin: '40000',
+          salaryMax: '50000', salaryCurrency: 'GBP', salaryUnit: 'YEAR',
+        });
+        break;
+      case 'Event':
+        setEvent({
+          name: 'Structured data workshop', description: 'A practical workshop for website owners.',
+          startDate: '2026-10-15T10:00', endDate: '2026-10-15T13:00', attendanceMode: 'Offline',
+          eventStatus: 'EventScheduled', imageUrl: 'https://example.com/images/workshop.jpg', venueName: 'Example Hall',
+          street: '10 Market Street', city: 'Reading', region: 'Berkshire', postalCode: 'RG1 1AA', country: 'GB',
+          onlineUrl: '', organizerName: 'Example Studio Ltd', organizerUrl: 'https://example.com',
+          offerPrice: '25', offerCurrency: 'GBP', offerUrl: 'https://example.com/events/workshop',
+          offerAvailability: 'InStock',
+        });
+        break;
+      case 'VideoObject':
+        setVideo({
+          name: 'How to add JSON-LD', description: 'A short guide to placing JSON-LD on a web page.',
+          thumbnailUrl: 'https://example.com/images/json-ld-video.jpg', uploadDate: '2026-09-01', duration: 'PT4M20S',
+          contentUrl: 'https://example.com/videos/json-ld.mp4', embedUrl: 'https://example.com/embed/json-ld',
+        });
+        break;
+      case 'Review':
+        setReview({
+          itemName: 'Example Desk Lamp', itemType: 'Product', authorName: 'Jordan Lee',
+          reviewBody: 'The lamp is sturdy, bright and easy to adjust.', ratingValue: '4.5', bestRating: '5',
+          datePublished: '2026-09-01',
+        });
+        break;
+      case 'ItemList':
+        setItemList({
+          name: 'Useful structured data resources', description: 'A short ordered reading list.', items: [
+            { name: 'Google Search structured data guide', url: 'https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data', imageUrl: '' },
+            { name: 'Schema.org documentation', url: 'https://schema.org/docs/documents.html', imageUrl: '' },
+          ],
+        });
+        break;
+      case 'SoftwareApplication':
+        setApp({
+          name: 'Example Audit App', applicationCategory: 'DeveloperApplication', operatingSystem: 'Web',
+          url: 'https://example.com/app', description: 'A browser-based website audit tool.', price: '0',
+          currency: 'GBP', ratingValue: '4.8', ratingCount: '42',
+        });
+        break;
+    }
+
+    setCopyStatus('idle');
+    setActionFeedback(`${activeType} example loaded. Only this type's fields were replaced.`);
+  }, [activeType]);
+
   // ── Updaters ─────────────────────────────────────────────────────────────────
 
   const updateFaq = useCallback((i: number, field: keyof FAQPair, value: string) => {
@@ -427,7 +573,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
 
   // ── Validation ───────────────────────────────────────────────────────────────
 
-  const warnings = useMemo<string[]>(() => {
+  const completenessIssues = useMemo<string[]>(() => {
     const w: string[] = [];
     switch (activeType) {
       case 'FAQ':
@@ -500,11 +646,31 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
       case 'SoftwareApplication':
         if (!app.name) w.push('App name is required');
         if (!app.price) w.push('Price is required (use 0 for free)');
-        if (!app.ratingValue && !app.ratingCount) w.push('Add a real rating to be eligible for the software app rich result');
         break;
     }
     return w;
   }, [activeType, faqPairs, article, business, product, breadcrumbs, howTo, organization, person, service, website, job, event, video, review, itemList, app]);
+
+  const googleEligibility = useMemo(() => {
+    if (!GOOGLE_RICH_RESULT_TYPES.has(activeType)) {
+      return {
+        supported: false,
+        message: 'This schema.org type has no dedicated Google rich result in the current Search Gallery. The Schema Markup Validator can still check its vocabulary and syntax.',
+      };
+    }
+
+    if (activeType === 'SoftwareApplication' && (!app.ratingValue || !app.ratingCount)) {
+      return {
+        supported: true,
+        message: 'Google has a related rich result, but this example is missing a genuine rating value and count. Passing this tool’s basic checks does not establish eligibility.',
+      };
+    }
+
+    return {
+      supported: true,
+      message: 'Google has a related rich-result feature for this type. Eligibility also depends on page content, type-specific policies and Google’s test; a rich result is never guaranteed.',
+    };
+  }, [activeType, app.ratingValue, app.ratingCount]);
 
   // ── Schema generation ────────────────────────────────────────────────────────
 
@@ -871,33 +1037,48 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
 
   const schemaJson = useMemo(() => JSON.stringify(schemaObj, null, 2), [schemaObj]);
 
-  const scriptTag = useMemo(() => {
-    return `<script type="application/ld+json">\n${schemaJson}\n</script>`;
-  }, [schemaJson]);
+  const scriptTag = useMemo(() => createJsonLdScript(schemaObj), [schemaObj]);
 
   const microdataHtml = useMemo(() => jsonLdToMicrodata(schemaObj), [schemaObj]);
 
   const outputCode = format === 'jsonld' ? scriptTag : microdataHtml;
+  const schemaItemCount = useMemo(() => countSchemaItems(schemaObj), [schemaObj]);
 
   // ── Actions ──────────────────────────────────────────────────────────────────
 
   const copyToClipboard = useCallback(async () => {
+    let copied = false;
     try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
       await navigator.clipboard.writeText(outputCode);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      copied = true;
     } catch {
-      // Fallback
       const ta = document.createElement('textarea');
       ta.value = outputCode;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
       document.body.appendChild(ta);
       ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      try {
+        copied = document.execCommand('copy');
+      } catch {
+        copied = false;
+      } finally {
+        document.body.removeChild(ta);
+      }
     }
-  }, [outputCode]);
+
+    setCopyStatus(copied ? 'copied' : 'error');
+    setActionFeedback(copied
+      ? 'Markup copied. Open a validator, choose its code option, then paste.'
+      : 'Copy failed. Select the code in the output panel and copy it manually.');
+    trackEvent('schema_copy', {
+      tool: 'schema_generator', schema_type: activeType, format, status: copied ? 'success' : 'error',
+      issue_count: completenessIssues.length, schema_item_count: schemaItemCount,
+    });
+    window.setTimeout(() => setCopyStatus('idle'), 3000);
+  }, [outputCode, activeType, format, completenessIssues.length, schemaItemCount]);
 
   const downloadJson = useCallback(() => {
     const blob = new Blob([schemaJson], { type: 'application/json' });
@@ -909,16 +1090,38 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-  }, [schemaJson, activeType]);
+    setActionFeedback('JSON file downloaded.');
+    trackEvent('schema_download', {
+      tool: 'schema_generator', schema_type: activeType, format, status: 'success',
+      issue_count: completenessIssues.length, schema_item_count: schemaItemCount,
+    });
+  }, [schemaJson, activeType, format, completenessIssues.length, schemaItemCount]);
 
   const openRichResultsTest = useCallback(() => {
-    const url = `https://search.google.com/test/rich-results?code=${encodeURIComponent(scriptTag)}`;
-    window.open(url, '_blank', 'noopener');
-  }, [scriptTag]);
+    const opened = window.open('https://search.google.com/test/rich-results', '_blank');
+    if (opened) opened.opener = null;
+    const status = opened ? 'opened' : 'blocked';
+    setActionFeedback(opened
+      ? 'Google’s test opened. Choose Code, then paste the copied markup.'
+      : 'The browser blocked the new tab. Allow pop-ups, then try again.');
+    trackEvent('schema_test_open', {
+      tool: 'schema_generator', validator: 'google_rich_results', schema_type: activeType, format, status,
+      issue_count: completenessIssues.length, schema_item_count: schemaItemCount,
+    });
+  }, [activeType, format, completenessIssues.length, schemaItemCount]);
 
   const openSchemaValidator = useCallback(() => {
-    window.open('https://validator.schema.org/', '_blank', 'noopener');
-  }, []);
+    const opened = window.open('https://validator.schema.org/', '_blank');
+    if (opened) opened.opener = null;
+    const status = opened ? 'opened' : 'blocked';
+    setActionFeedback(opened
+      ? 'Schema Markup Validator opened. Paste the copied markup into its code field.'
+      : 'The browser blocked the new tab. Allow pop-ups, then try again.');
+    trackEvent('schema_test_open', {
+      tool: 'schema_generator', validator: 'schema_org', schema_type: activeType, format, status,
+      issue_count: completenessIssues.length, schema_item_count: schemaItemCount,
+    });
+  }, [activeType, format, completenessIssues.length, schemaItemCount]);
 
   // ── Render forms ─────────────────────────────────────────────────────────────
 
@@ -1832,9 +2035,9 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
         </h1>
         <p className="mt-3 max-w-2xl text-base text-muted-foreground">
           Generate valid JSON-LD or Microdata structured data for 16 schema types. Select a schema type, fill in the fields, and copy the markup to your site. Not sure where the code goes once you have it? Read{' '}
-          <a href="/blog/how-to-add-schema-markup/" className="text-brand underline underline-offset-2 hover:opacity-80">
+          <Link href="/blog/how-to-add-schema-markup/" className="text-brand underline underline-offset-2 hover:opacity-80">
             how to add schema markup to your website
-          </a>{' '}
+          </Link>{' '}
           for the exact steps on WordPress, Shopify, Wix, and custom sites.
         </p>
       </div>
@@ -1845,7 +2048,12 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
           <button
             key={type}
             type="button"
-            onClick={() => setActiveType(type)}
+            onClick={() => {
+              setActiveType(type);
+              setCopyStatus('idle');
+              setActionFeedback('');
+            }}
+            aria-pressed={activeType === type}
             className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
               activeType === type
                 ? 'bg-brand/15 text-brand border-brand/30'
@@ -1861,7 +2069,17 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
         {/* Form panel */}
         <div>
           <div className={cardClass}>
-            <h2 className="mb-4 text-lg font-semibold text-foreground">{activeType} Fields</h2>
+            <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h2 className="text-lg font-semibold text-foreground">{activeType} Fields</h2>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  Your entries for other schema types stay saved when you switch tabs.
+                </p>
+              </div>
+              <button type="button" className={btnSecondary} onClick={loadExample}>
+                Replace with {activeType} example
+              </button>
+            </div>
             {formRenderers[activeType]()}
           </div>
         </div>
@@ -1883,17 +2101,38 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
               </div>
             </div>
 
-            {/* Warnings */}
-            {warnings.length > 0 && (
-              <div className="mb-4 rounded-lg border border-yellow-500/20 bg-yellow-500/5 px-4 py-3">
-                <p className="mb-1 text-sm font-medium text-yellow-400">Missing required fields:</p>
-                <ul className="space-y-0.5">
-                  {warnings.map((w, i) => (
-                    <li key={i} className="text-sm text-yellow-400/80">- {w}</li>
-                  ))}
-                </ul>
+            <div className="mb-4 space-y-3" aria-label="Markup checks">
+              {completenessIssues.length > 0 ? (
+                <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/5 px-4 py-3">
+                  <p className="mb-1 text-sm font-medium text-yellow-300">
+                    Template incomplete: {completenessIssues.length} {completenessIssues.length === 1 ? 'field needs' : 'fields need'} attention
+                  </p>
+                  <ul className="space-y-0.5">
+                    {completenessIssues.map((issue, i) => (
+                      <li key={i} className="text-sm text-yellow-200/80">- {issue}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-3">
+                  <p className="text-sm font-medium text-emerald-300">Template fields complete</p>
+                  <p className="mt-1 text-xs leading-relaxed text-emerald-100/70">
+                    The generator&apos;s basic field checks pass. This is separate from Google eligibility and page-level validation.
+                  </p>
+                </div>
+              )}
+
+              <div className={`rounded-lg border px-4 py-3 ${
+                googleEligibility.supported
+                  ? 'border-brand/20 bg-brand/5'
+                  : 'border-white/[0.08] bg-white/[0.02]'
+              }`}>
+                <p className="text-sm font-medium text-foreground">
+                  {googleEligibility.supported ? 'Google rich-result check' : 'Schema.org validation check'}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{googleEligibility.message}</p>
               </div>
-            )}
+            </div>
 
             {/* Code block */}
             <div className="rounded-lg bg-[#0d0d14] border border-white/[0.08] p-4 font-mono text-sm overflow-x-auto">
@@ -1902,21 +2141,35 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
               </pre>
             </div>
 
+            <div className="mt-4 rounded-lg border border-white/[0.08] bg-white/[0.02] px-4 py-3">
+              <p className="text-sm font-medium text-foreground">Validate by copy, open and paste</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                Copy the markup, open a validator, choose its code option where shown, then paste. The validators do not support a reliable prefilled-code link.
+              </p>
+            </div>
+
             {/* Actions */}
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap gap-2">
+              <button type="button" className={btnPrimary} onClick={copyToClipboard}>
+                {copyStatus === 'copied' ? 'Markup copied' : copyStatus === 'error' ? 'Copy failed — try again' : 'Copy markup'}
+              </button>
               <button type="button" className={btnSecondary} onClick={openRichResultsTest}>
-                Test in Google Rich Results
+                Open Google Rich Results Test
               </button>
               <button type="button" className={btnSecondary} onClick={openSchemaValidator}>
-                Validate in Schema Markup Validator
+                Open Schema Markup Validator
               </button>
               <button type="button" className={btnSecondary} onClick={downloadJson}>
-                Download .json
-              </button>
-              <button type="button" className={btnPrimary} onClick={copyToClipboard}>
-                {copied ? 'Copied!' : 'Copy to Clipboard'}
+                Download JSON
               </button>
             </div>
+            <p
+              className={`mt-3 min-h-5 text-xs ${copyStatus === 'error' ? 'text-red-300' : 'text-muted-foreground'}`}
+              role="status"
+              aria-live="polite"
+            >
+              {actionFeedback}
+            </p>
           </div>
         </div>
       </div>

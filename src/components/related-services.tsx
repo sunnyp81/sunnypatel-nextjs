@@ -144,7 +144,7 @@ export function RelatedServices({
                   <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
                     {service.description}
                   </p>
-                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                     Learn more <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
@@ -200,7 +200,7 @@ export function RelatedServices({
               <p className="mb-3 flex-1 text-xs leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
-              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                 Learn more <ArrowRight className="h-3 w-3" />
               </span>
             </Link>

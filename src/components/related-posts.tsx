@@ -79,7 +79,7 @@ export function RelatedPosts({
                     {post.description}
                   </p>
                 )}
-                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
                   Read more <ArrowRight className="h-3 w-3" />
                 </div>
               </div>

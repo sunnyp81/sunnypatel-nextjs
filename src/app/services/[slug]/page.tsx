@@ -15,6 +15,8 @@ import { CaseStudyCard } from "@/components/services/CaseStudyCard";
 import { StatsBar } from "@/components/services/StatsBar";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
 import { markdocConfig } from "@/lib/render-markdoc";
+import { ServiceOfferExamples } from "@/components/service-offer-examples";
+import { ServiceInlineForm } from "@/components/service-inline-form";
 
 
 /* ── Conversion data ──────────────────────────────────────── */
@@ -585,36 +587,6 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
       a: "For businesses across Reading and the wider Berkshire area, Sunny Patel offers independent SEO consulting with direct senior access, no juniors and no fixed contracts. One Reading client grew from 180 to 620 organic visits in nine months, with enquiries tripling. Get in touch for a free audit and a tailored action plan covering your site, rankings, and competitors.",
     },
   ],
-  "technical-seo-audit": [
-    {
-      q: "What are SEO audit services?",
-      a: "SEO audit services are professional analyses that identify why a website underperforms in search results. They cover four audit types: technical audits (crawlability, indexation, Core Web Vitals), content audits (quality, topical coverage, cannibalisation), backlink audits (link profile health), and competitive audits (benchmarking against 3-5 competitors).",
-    },
-    {
-      q: "What is a technical SEO audit?",
-      a: "A technical SEO audit is a comprehensive analysis of your website's infrastructure, covering crawlability, indexation, Core Web Vitals, mobile usability, structured data, and site architecture, that identifies the issues preventing search engines from effectively ranking your pages.",
-    },
-    {
-      q: "How much does a technical SEO audit cost?",
-      a: "The technical SEO audit is a fixed £495 for standard sites of up to around 500 pages, delivered in 5 working days and including a 60-minute consultation call to review findings. Sites over 500 pages or complex enterprise setups are scoped separately.",
-    },
-    {
-      q: "What does a technical SEO audit include?",
-      a: "A technical SEO audit covers 7 core areas: crawlability analysis, indexation review, Core Web Vitals performance, mobile usability, site architecture, schema markup validation, and security and accessibility compliance. Deliverables include an executive summary, prioritised recommendations spreadsheet, competitor benchmarking, and developer-ready implementation guidance.",
-    },
-    {
-      q: "How long does a technical SEO audit take?",
-      a: "A technical SEO audit typically takes 5-10 working days depending on site size. Small sites under 100 pages are delivered within 5 days; large sites over 500 pages may require up to 2 weeks for comprehensive analysis.",
-    },
-    {
-      q: "How do I choose an SEO audit service in the UK?",
-      a: "Ask four questions before committing to any UK SEO audit service: who performs the audit (senior consultant or junior staff), is every finding manually verified rather than a raw tool export, does the report prioritise fixes by effort and impact, and is a walkthrough call included to explain the findings.",
-    },
-    {
-      q: "What happens after a technical SEO audit?",
-      a: "After a technical SEO audit you receive a prioritised action plan with effort/impact scoring. Most clients implement recommendations using their existing development team. Following technical fixes, many commission topical map creation to build content authority on the improved technical foundation.",
-    },
-  ],
   "seo-consulting": [
     {
       q: "What is SEO consulting?",
@@ -823,14 +795,94 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
 
 type ConversionData = typeof GENERIC_DATA;
 
-// Pages with fully custom conversion data
-const SPECIFIC_SLUGS = new Set(["seo-consultant-reading", "seo-consultant-london", "ai-search-optimisation"]);
-
 const SPECIFIC_DATA: Record<string, ConversionData> = {
   "seo-consultant-reading": SEO_READING_DATA,
   "seo-consultant-london": SEO_LONDON_DATA,
   "ai-search-optimisation": AI_SEARCH_DATA,
 };
+
+const OFFER_EXAMPLE_KIND = {
+  "technical-seo-audit": "technical-audit",
+  "content-briefs": "content-brief",
+} as const;
+
+const OFFER_FORM_DATA = {
+  "technical-seo-audit": {
+    id: "enquire",
+    ctaTitle: "Request the £495 technical SEO audit",
+    ctaSubtitle:
+      "Share the website and the main technical problem. I’ll confirm whether the standard scope fits before paid work starts.",
+    trustPoints: [
+      "£495 for a standard site of up to around 500 pages",
+      "Delivery within 5 working days after access",
+      "60-minute findings walkthrough included",
+      "Implementation scoped separately if needed",
+    ],
+    badges: [
+      { icon: "clock" as const, label: "5 working days" },
+      { icon: "shield" as const, label: "One-off audit" },
+    ],
+    submitLabel: "Request the £495 audit",
+    successMessage:
+      "Your technical SEO audit enquiry has been received. The next step is to confirm scope and access.",
+    offerId: "technical_seo_audit_495",
+    offerLabel: "£495 technical SEO audit",
+    eventLabel: "technical_seo_audit_form",
+    messagePlaceholder:
+      "Share your website URL, the main technical problem and any recent migration or redesign.",
+    formFooterNote: "No payment is taken through this form · Scope and access are confirmed first",
+    operationalNotes: [
+      "The next step is scope and access confirmation",
+      "Implementation is scoped separately",
+    ],
+  },
+  "content-briefs": {
+    id: "enquire",
+    ctaTitle: "Enquire about one £150 content brief",
+    ctaSubtitle:
+      "Share the topic, current URL if one exists and intended reader. I’ll confirm the inputs and scope before work starts.",
+    trustPoints: [
+      "One brief £150",
+      "10 briefs £1,200 or 25 briefs £2,500",
+      "Delivery in 2–3 working days per brief after inputs",
+      "Feedback and revision handling agreed before work",
+    ],
+    badges: [
+      { icon: "clock" as const, label: "2–3 working days per brief" },
+      { icon: "shield" as const, label: "Scope agreed first" },
+    ],
+    submitLabel: "Enquire about one brief",
+    successMessage:
+      "Your content brief enquiry has been received. The next step is to confirm the target and required inputs.",
+    offerId: "content_brief_150",
+    offerLabel: "£150 SEO content brief",
+    eventLabel: "content_brief_form",
+    messagePlaceholder:
+      "Share the topic, current URL if one exists, intended reader and any required source material.",
+    formFooterNote: "No payment is taken through this form · Feedback and revisions are discussed before work",
+    operationalNotes: [
+      "The next step is target and input confirmation",
+      "Batch timing is agreed before work starts",
+    ],
+  },
+} as const;
+
+const OFFER_HEADER_DATA = {
+  "technical-seo-audit": {
+    badges: ["£495 fixed fee", "5 working days after access", "60-minute walkthrough"],
+    ctaHref: "#enquire",
+    ctaLabel: "Request the £495 audit",
+    ctaMeta: "Standard sites up to around 500 pages",
+    ctaOffer: "technical_seo_audit_495",
+  },
+  "content-briefs": {
+    badges: ["One brief £150", "10 briefs £1,200", "2–3 working days per brief"],
+    ctaHref: "#enquire",
+    ctaLabel: "Enquire about one £150 brief",
+    ctaMeta: "Scope and feedback agreed first",
+    ctaOffer: "content_brief_150",
+  },
+} as const;
 
 /* ── Split rendered Markdoc tree at H2 boundaries ───────── */
 
@@ -879,6 +931,14 @@ function buildSections(
       { components: { ServiceMiniCta } }
     )
   );
+
+  const offerExampleKind = OFFER_EXAMPLE_KIND[slug as keyof typeof OFFER_EXAMPLE_KIND];
+  if (offerExampleKind) {
+    return rendered.map((content, i) => ({
+      content,
+      after: i === 1 ? <ServiceOfferExamples kind={offerExampleKind} /> : undefined,
+    }));
+  }
 
   // Injection positions — spread components across the content
   const pos = {
@@ -1010,7 +1070,9 @@ export default async function ServicePage({
 
   const convData = SPECIFIC_DATA[slug] ?? GENERIC_DATA;
   const sections = buildSections(rawContent, convData, slug);
-  const isSpecific = SPECIFIC_SLUGS.has(slug);
+  const usesServiceSpecificOffer = slug in OFFER_EXAMPLE_KIND;
+  const offerForm = OFFER_FORM_DATA[slug as keyof typeof OFFER_FORM_DATA];
+  const offerHeader = OFFER_HEADER_DATA[slug as keyof typeof OFFER_HEADER_DATA];
 
   return (
     <>
@@ -1046,16 +1108,25 @@ export default async function ServicePage({
           { label: "Services", href: "/services" },
           { label: service.title },
         ]}
-        showCta={true}
+        showCta={!usesServiceSpecificOffer}
+        showStickyCta={!usesServiceSpecificOffer}
         isService={true}
+        serviceHeaderBadges={offerHeader?.badges}
+        serviceHeaderCtaHref={offerHeader?.ctaHref}
+        serviceHeaderCtaLabel={offerHeader?.ctaLabel}
+        serviceHeaderCtaMeta={offerHeader?.ctaMeta}
+        serviceHeaderCtaOffer={offerHeader?.ctaOffer}
         ctaTitle={convData.ctaTitle}
         ctaSubtitle={convData.ctaSubtitle}
         sections={sections}
         afterContent={
-          <RelatedServices
-            currentSlug={slug}
-            allServices={serviceSummaries}
-          />
+          <>
+            {offerForm && <ServiceInlineForm {...offerForm} />}
+            <RelatedServices
+              currentSlug={slug}
+              allServices={serviceSummaries}
+            />
+          </>
         }
       />
     </>

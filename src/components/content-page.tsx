@@ -54,8 +54,14 @@ export function ContentPage({
   tags,
   heroImage,
   showCta = false,
+  showStickyCta = true,
   isService = false,
   isBlog = false,
+  serviceHeaderBadges,
+  serviceHeaderCtaHref = "/contact/",
+  serviceHeaderCtaLabel = "Request Free Diagnosis",
+  serviceHeaderCtaMeta = "20 minutes · No obligation",
+  serviceHeaderCtaOffer = "free_20_minute_seo_diagnosis",
   ctaTitle,
   ctaSubtitle,
   afterContent,
@@ -72,8 +78,14 @@ export function ContentPage({
   tags?: string[];
   heroImage?: string;
   showCta?: boolean;
+  showStickyCta?: boolean;
   isService?: boolean;
   isBlog?: boolean;
+  serviceHeaderBadges?: readonly string[];
+  serviceHeaderCtaHref?: string;
+  serviceHeaderCtaLabel?: string;
+  serviceHeaderCtaMeta?: string;
+  serviceHeaderCtaOffer?: string;
   ctaTitle?: string;
   ctaSubtitle?: string;
   afterContent?: React.ReactNode;
@@ -144,7 +156,13 @@ export function ContentPage({
           {isService && (
             <>
               <div className="mt-6 flex flex-wrap gap-2.5">
-                {TRUST_BADGES.map(({ icon: Icon, label }) => (
+                {(serviceHeaderBadges
+                  ? serviceHeaderBadges.map((label, i) => ({
+                      label,
+                      icon: TRUST_BADGES[i % TRUST_BADGES.length].icon,
+                    }))
+                  : TRUST_BADGES
+                ).map(({ icon: Icon, label }) => (
                   <span
                     key={label}
                     className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
@@ -157,13 +175,13 @@ export function ContentPage({
 
               <div className="mt-7 flex flex-wrap items-center gap-4">
                 <GradientButton asChild>
-                  <Link href="/contact/" className="gap-2" data-cta-location="service_header" data-cta-offer="free_20_minute_seo_diagnosis">
-                    Request Free Diagnosis
+                  <Link href={serviceHeaderCtaHref} className="gap-2" data-cta-location="service_header" data-cta-offer={serviceHeaderCtaOffer}>
+                    {serviceHeaderCtaLabel}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </GradientButton>
-                <span className="text-sm text-muted-foreground/70">
-                  20 minutes · No obligation
+                <span className="text-sm text-muted-foreground">
+                  {serviceHeaderCtaMeta}
                 </span>
               </div>
             </>
@@ -172,10 +190,10 @@ export function ContentPage({
           {(dateLine || (tags && tags.length > 0)) && (
             <div className="mt-4 flex flex-wrap items-center gap-3">
               {dateLine && (
-                <span className="text-sm text-muted-foreground/70">{dateLine}</span>
+                <span className="text-sm text-muted-foreground">{dateLine}</span>
               )}
               {dateLine && tags && tags.length > 0 && (
-                <span className="text-muted-foreground/70">|</span>
+                <span className="text-muted-foreground">|</span>
               )}
               {tags?.map((tag) => (
                 <Link
@@ -277,7 +295,7 @@ export function ContentPage({
       {isBlog && <BlogTOC />}
 
       {/* Sticky CTA — blogs and service pages */}
-      {(isBlog || isService) && <BlogStickyCta />}
+      {showStickyCta && (isBlog || isService) && <BlogStickyCta />}
 
       {/* ── Bottom CTA ────────────────────────────────────────── */}
       {showCta && (
@@ -323,14 +341,14 @@ export function ContentPage({
                 {TRUST_BADGES.map(({ icon: Icon, label }) => (
                   <span
                     key={label}
-                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/65"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground"
                   >
                     <Icon className="h-3 w-3 text-brand/50" />
                     {label}
                   </span>
                 ))}
               </div>
-              <p className="mt-3 text-xs text-muted-foreground/70">
+              <p className="mt-3 text-xs text-muted-foreground">
                 Usually responds within a few hours
               </p>
             </div>

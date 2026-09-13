@@ -18,8 +18,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/Services", destination: "/services/", permanent: true },
-      { source: "/Services/", destination: "/services/", permanent: true },
+      // Legacy /Services casing is handled in proxy.ts. Config redirects are
+      // case-insensitive and would also redirect /services/ back to itself.
       { source: "/services/ai-visibility-audit", destination: "/services/paid-seo-audit/", permanent: true },
       { source: "/services/ai-visibility-audit/", destination: "/services/paid-seo-audit/", permanent: true },
       {

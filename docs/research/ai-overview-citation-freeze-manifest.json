@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "studyId": "london-main-aio-citation-stability-v1",
+  "frozenAt": "2026-09-13T10:52:38.097Z",
+  "registration": {
+    "frozenAt": "2026-09-13T10:52:38.097Z",
+    "protocolSha256": "6604a3d4df0899659041f8059c07c77186e7104f05e2e831b390160d7df58a7d",
+    "configSha256": "ad8d5ff74973dd9c8cfe70a68de534f4ac31705c8d187d104d03d69984b154c7",
+    "collectorSha256": "a8819604b5f9be6b06bb16e3890974e70a0d53e6dbca78e3dead7e511e1f8ecc",
+    "wrapperSha256": "6006fd97eb2ff961e98b14768e06c391c691293121d2842b00c9987d5032a3dd",
+    "comparisonEngineSha256": "3931b91be1aa4b1e6c6a9c82647bc136facfae7203ec33977c0af683bac00ecf",
+    "summaryHelperSha256": "7f0ba22d0dcc1fc113b66df6a5ed5e453d34cbcd436c959613d501c8946b9b05"
+  },
+  "preparedProtocolState": {
+    "schemaVersion": "1.0.0",
+    "studyId": "london-main-aio-citation-stability-v1",
+    "protocolVersion": "1.0.0",
+    "preparedDate": "2026-09-13",
+    "methodologicalAmendmentDate": "2026-09-13",
+    "methodologicalAmendmentScope": "prospective_labelled_main_structured_references_only_preserve_pilot_hold_and_coding",
+    "scope": "external structured-reference URL persistence in confirmed visibly labelled main AI Overviews",
+    "panelPath": "docs/research/ai-overview-pilot-panel.json",
+    "panelSha256": "3b69e7d795167e3e2a8409b9ce84c5753e135ee5a5f24313a4dd0ee4db54cfd9",
+    "protocolPath": "docs/research/ai-overview-citation-protocol.md",
+    "captureCount": 100,
+    "waveIds": ["w1", "w2", "w3", "w4"],
+    "repeatOffsetsDays": [0, 7, 14, 21],
+    "repeatStartToleranceMinutes": 60,
+    "maxProviderCaptureSpanMinutes": 30,
+    "maxProviderCaptureDelayMinutes": 60,
+    "providerTimingPopulation": "all_returned_capture_timestamps_no_subset_selection",
+    "minimumCompleteCapturesPerWave": 95,
+    "minimumIdentityResolvedPairs": 80,
+    "minimumIdentityResolvedPairsPerDevice": 40,
+    "identityResolvedPairRequiresValidExternalCitationSets": true,
+    "minimumRetentionPairs": 20,
+    "reservedMaximumPerWaveUsd": 0.52,
+    "reservedMaximumStudyUsd": 2.08,
+    "primaryFeatureStates": ["confirmed_main_aio", "main_absent"],
+    "excludedFeatureStates": ["ambiguous_main_generated", "missing", "invalid"],
+    "primaryWaveComparisons": [["w1", "w2"], ["w2", "w3"], ["w3", "w4"]],
+    "secondaryWaveComparisons": [["w1", "w3"], ["w1", "w4"]],
+    "unresolvedExternalReferencePolicy": "invalidate_entire_capture_external_citation_set",
+    "nullReferenceSetPolicy": "unknown_unless_completeness_independently_established",
+    "systemicMethodErrorsBlockRelease": true,
+    "urlPolicy": "byte_exact_no_canonicalisation",
+    "hostPolicy": "lowercase_URL_hostname_retain_www_and_subdomains",
+    "publicationRequiresProspectiveWaves": 2
+  },
+  "artifacts": {
+    "protocol": {
+      "role": "protocol",
+      "source": "docs/research/ai-overview-citation-protocol.md",
+      "frozenFile": "ai-overview-citation-protocol.md",
+      "sha256": "6604a3d4df0899659041f8059c07c77186e7104f05e2e831b390160d7df58a7d",
+      "bytes": 13724
+    },
+    "config": {
+      "role": "config",
+      "source": "docs/research/ai-overview-citation-study.json",
+      "frozenFile": "ai-overview-citation-study.json",
+      "sha256": "ad8d5ff74973dd9c8cfe70a68de534f4ac31705c8d187d104d03d69984b154c7",
+      "bytes": 1988
+    },
+    "panel": {
+      "role": "panel",
+      "source": "docs/research/ai-overview-pilot-panel.json",
+      "frozenFile": "ai-overview-pilot-panel.json",
+      "sha256": "3b69e7d795167e3e2a8409b9ce84c5753e135ee5a5f24313a4dd0ee4db54cfd9",
+      "bytes": 13117
+    },
+    "collector": {
+      "role": "collector",
+      "source": "scripts/research/aio-pilot.mjs",
+      "frozenFile": "aio-pilot.mjs",
+      "sha256": "a8819604b5f9be6b06bb16e3890974e70a0d53e6dbca78e3dead7e511e1f8ecc",
+      "bytes": 35075
+    },
+    "wrapper": {
+      "role": "wrapper",
+      "source": "scripts/research/aio-citation-study.mjs",
+      "frozenFile": "aio-citation-study.mjs",
+      "sha256": "6006fd97eb2ff961e98b14768e06c391c691293121d2842b00c9987d5032a3dd",
+      "bytes": 35076
+    },
+    "comparisonEngine": {
+      "role": "comparisonEngine",
+      "source": "scripts/research/aio-citation-compare.mjs",
+      "frozenFile": "aio-citation-compare.mjs",
+      "sha256": "3931b91be1aa4b1e6c6a9c82647bc136facfae7203ec33977c0af683bac00ecf",
+      "bytes": 19404
+    },
+    "summaryHelper": {
+      "role": "summaryHelper",
+      "source": "scripts/research/aio-pilot-summary.mjs",
+      "frozenFile": "aio-pilot-summary.mjs",
+      "sha256": "7f0ba22d0dcc1fc113b66df6a5ed5e453d34cbcd436c959613d501c8946b9b05",
+      "bytes": 13045
+    }
+  }
+}

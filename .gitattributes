@@ -1,0 +1,7 @@
+docs/research/ai-overview-citation-protocol.md text eol=lf
+docs/research/ai-overview-citation-study.json text eol=lf
+docs/research/ai-overview-pilot-panel.json text eol=lf
+scripts/research/aio-pilot.mjs text eol=lf
+scripts/research/aio-citation-study.mjs text eol=lf
+scripts/research/aio-citation-compare.mjs text eol=lf
+scripts/research/aio-pilot-summary.mjs text eol=lf

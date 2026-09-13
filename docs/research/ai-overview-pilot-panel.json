@@ -1,0 +1,393 @@
+{
+  "status": "frozen-pilot-plan",
+  "panelType": "editorial convenience panel",
+  "createdAt": "2026-09-12",
+  "collectionPerformed": false,
+  "purpose": "Proposed fixed panel for a small pilot observing Google AI Overview presence and cited sources on non-sensitive commercial user tasks.",
+  "locale": "en-GB",
+  "market": "GB",
+  "queryCount": 50,
+  "sectorCount": 10,
+  "design": {
+    "queriesPerSector": 5,
+    "intentMix": {
+      "informational": 20,
+      "commercial-investigation": 20,
+      "transactional": 10
+    },
+    "selectionRule": "Ten editorially selected non-sensitive commercial sectors, each with two informational, two commercial-investigation and one transactional query. Query strings are fixed before collection.",
+    "interpretationLimit": "Editorial convenience panel of three software and seven consumer-product sectors. London-localised provider observations cannot estimate UK-wide AI Overview prevalence, industry market share or causal effects. This pilot tests collection and source extraction only."
+  },
+  "sectors": [
+    {
+      "id": "project-management-software",
+      "label": "Project management software",
+      "queries": [
+        {
+          "id": "pms-01",
+          "query": "how does project management software help small teams",
+          "intent": "informational",
+          "userTask": "understand category benefits"
+        },
+        {
+          "id": "pms-02",
+          "query": "what features should a small business look for in project management software",
+          "intent": "informational",
+          "userTask": "identify selection criteria"
+        },
+        {
+          "id": "pms-03",
+          "query": "best project management software for a UK creative agency",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist products for a specific business"
+        },
+        {
+          "id": "pms-04",
+          "query": "project management software with time tracking and client portals",
+          "intent": "commercial-investigation",
+          "userTask": "compare products against required features"
+        },
+        {
+          "id": "pms-05",
+          "query": "project management software free trial for five users",
+          "intent": "transactional",
+          "userTask": "start a product trial"
+        }
+      ]
+    },
+    {
+      "id": "website-builders",
+      "label": "Website builders",
+      "queries": [
+        {
+          "id": "web-01",
+          "query": "how do website builders work for small businesses",
+          "intent": "informational",
+          "userTask": "understand how the product category works"
+        },
+        {
+          "id": "web-02",
+          "query": "what should a small business check before choosing a website builder",
+          "intent": "informational",
+          "userTask": "identify selection criteria"
+        },
+        {
+          "id": "web-03",
+          "query": "best website builder for a UK trades business",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist products for a specific business"
+        },
+        {
+          "id": "web-04",
+          "query": "website builder with online booking and card payments",
+          "intent": "commercial-investigation",
+          "userTask": "compare products against required features"
+        },
+        {
+          "id": "web-05",
+          "query": "cheap website builder with custom domain UK",
+          "intent": "transactional",
+          "userTask": "find a product to purchase"
+        }
+      ]
+    },
+    {
+      "id": "email-marketing-software",
+      "label": "Email marketing software",
+      "queries": [
+        {
+          "id": "ems-01",
+          "query": "how does email marketing automation work for a small shop",
+          "intent": "informational",
+          "userTask": "understand a product capability"
+        },
+        {
+          "id": "ems-02",
+          "query": "what features matter in email marketing software for ecommerce",
+          "intent": "informational",
+          "userTask": "identify selection criteria"
+        },
+        {
+          "id": "ems-03",
+          "query": "best email marketing platform for a small UK online shop",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist products for a specific business"
+        },
+        {
+          "id": "ems-04",
+          "query": "email marketing software with abandoned basket automation",
+          "intent": "commercial-investigation",
+          "userTask": "compare products against a required feature"
+        },
+        {
+          "id": "ems-05",
+          "query": "email marketing software free trial UK",
+          "intent": "transactional",
+          "userTask": "start a product trial"
+        }
+      ]
+    },
+    {
+      "id": "office-furniture",
+      "label": "Office furniture",
+      "queries": [
+        {
+          "id": "off-01",
+          "query": "how to choose a standing desk for a small home office",
+          "intent": "informational",
+          "userTask": "learn how to select a product"
+        },
+        {
+          "id": "off-02",
+          "query": "what desk size fits a box room home office",
+          "intent": "informational",
+          "userTask": "determine suitable product dimensions"
+        },
+        {
+          "id": "off-03",
+          "query": "best office chair for a small home office UK",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist suitable products"
+        },
+        {
+          "id": "off-04",
+          "query": "standing desk versus sit stand desk converter for renters",
+          "intent": "commercial-investigation",
+          "userTask": "compare two product types"
+        },
+        {
+          "id": "off-05",
+          "query": "buy solid wood desk 120cm wide UK",
+          "intent": "transactional",
+          "userTask": "find a product to purchase"
+        }
+      ]
+    },
+    {
+      "id": "garden-tools",
+      "label": "Garden tools",
+      "queries": [
+        {
+          "id": "gdn-01",
+          "query": "how to choose a lawn mower for a small UK garden",
+          "intent": "informational",
+          "userTask": "learn how to select a product"
+        },
+        {
+          "id": "gdn-02",
+          "query": "what battery size is useful for cordless garden tools",
+          "intent": "informational",
+          "userTask": "understand a product specification"
+        },
+        {
+          "id": "gdn-03",
+          "query": "best cordless lawn mower for a small UK garden",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist suitable products"
+        },
+        {
+          "id": "gdn-04",
+          "query": "cordless versus corded hedge trimmer for a small garden",
+          "intent": "commercial-investigation",
+          "userTask": "compare two product types"
+        },
+        {
+          "id": "gdn-05",
+          "query": "buy replacement 18v garden tool battery UK",
+          "intent": "transactional",
+          "userTask": "find a replacement product to purchase"
+        }
+      ]
+    },
+    {
+      "id": "small-kitchen-appliances",
+      "label": "Small kitchen appliances",
+      "queries": [
+        {
+          "id": "kit-01",
+          "query": "how to choose an air fryer size for two people",
+          "intent": "informational",
+          "userTask": "determine suitable product capacity"
+        },
+        {
+          "id": "kit-02",
+          "query": "what features should I look for in a quiet kettle",
+          "intent": "informational",
+          "userTask": "identify selection criteria"
+        },
+        {
+          "id": "kit-03",
+          "query": "best quiet kettle for an open plan kitchen UK",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist suitable products"
+        },
+        {
+          "id": "kit-04",
+          "query": "air fryer versus mini oven for a small kitchen",
+          "intent": "commercial-investigation",
+          "userTask": "compare two product types"
+        },
+        {
+          "id": "kit-05",
+          "query": "buy compact air fryer for two people UK",
+          "intent": "transactional",
+          "userTask": "find a product to purchase"
+        }
+      ]
+    },
+    {
+      "id": "luggage",
+      "label": "Luggage and travel bags",
+      "queries": [
+        {
+          "id": "lug-01",
+          "query": "how to choose suitcase size for a one week holiday",
+          "intent": "informational",
+          "userTask": "determine suitable product size"
+        },
+        {
+          "id": "lug-02",
+          "query": "what makes a cabin bag easy to carry on public transport",
+          "intent": "informational",
+          "userTask": "identify useful product features"
+        },
+        {
+          "id": "lug-03",
+          "query": "best lightweight cabin suitcase for UK travellers",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist suitable products"
+        },
+        {
+          "id": "lug-04",
+          "query": "hard shell versus soft shell suitcase for city breaks",
+          "intent": "commercial-investigation",
+          "userTask": "compare two product types"
+        },
+        {
+          "id": "lug-05",
+          "query": "buy underseat cabin bag 40 x 20 x 25 cm UK",
+          "intent": "transactional",
+          "userTask": "find a product to purchase"
+        }
+      ]
+    },
+    {
+      "id": "pet-accessories",
+      "label": "Pet accessories",
+      "queries": [
+        {
+          "id": "pet-01",
+          "query": "how to measure a dog for a harness",
+          "intent": "informational",
+          "userTask": "determine suitable product size"
+        },
+        {
+          "id": "pet-02",
+          "query": "what type of cat litter tray is easiest to clean",
+          "intent": "informational",
+          "userTask": "understand product-type differences"
+        },
+        {
+          "id": "pet-03",
+          "query": "best washable dog bed for muddy dogs UK",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist suitable products"
+        },
+        {
+          "id": "pet-04",
+          "query": "front clip versus back clip dog harness for everyday walks",
+          "intent": "commercial-investigation",
+          "userTask": "compare two product types"
+        },
+        {
+          "id": "pet-05",
+          "query": "buy large cat scratching post UK",
+          "intent": "transactional",
+          "userTask": "find a product to purchase"
+        }
+      ]
+    },
+    {
+      "id": "home-storage",
+      "label": "Home storage furniture",
+      "queries": [
+        {
+          "id": "sto-01",
+          "query": "how to measure an alcove for shelving",
+          "intent": "informational",
+          "userTask": "measure a space before buying"
+        },
+        {
+          "id": "sto-02",
+          "query": "what type of storage bed works in a small bedroom",
+          "intent": "informational",
+          "userTask": "understand product-type suitability"
+        },
+        {
+          "id": "sto-03",
+          "query": "best shoe storage for a narrow hallway UK",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist suitable products"
+        },
+        {
+          "id": "sto-04",
+          "query": "sliding wardrobe versus hinged wardrobe for a small bedroom",
+          "intent": "commercial-investigation",
+          "userTask": "compare two product types"
+        },
+        {
+          "id": "sto-05",
+          "query": "buy narrow bookcase 30cm deep UK",
+          "intent": "transactional",
+          "userTask": "find a product to purchase"
+        }
+      ]
+    },
+    {
+      "id": "coffee-equipment",
+      "label": "Coffee equipment",
+      "queries": [
+        {
+          "id": "cof-01",
+          "query": "how to choose a coffee grinder for home",
+          "intent": "informational",
+          "userTask": "learn how to select a product"
+        },
+        {
+          "id": "cof-02",
+          "query": "what grind settings are useful in a home coffee grinder",
+          "intent": "informational",
+          "userTask": "understand a product specification"
+        },
+        {
+          "id": "cof-03",
+          "query": "best bean to cup coffee machine for a small kitchen UK",
+          "intent": "commercial-investigation",
+          "userTask": "shortlist suitable products"
+        },
+        {
+          "id": "cof-04",
+          "query": "manual versus electric coffee grinder for home use",
+          "intent": "commercial-investigation",
+          "userTask": "compare two product types"
+        },
+        {
+          "id": "cof-05",
+          "query": "buy compact burr coffee grinder UK",
+          "intent": "transactional",
+          "userTask": "find a product to purchase"
+        }
+      ]
+    }
+  ],
+  "frozenAt": "2026-09-12",
+  "proofQueryIds": [
+    "pms-01",
+    "off-05"
+  ],
+  "locationName": "London,England,United Kingdom",
+  "devices": [
+    "desktop",
+    "mobile"
+  ]
+}

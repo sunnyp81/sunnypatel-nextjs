@@ -65,14 +65,14 @@ export function ServiceOfferExamples({ kind }: { kind: ExampleKind }) {
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
             {example.description}
           </p>
-          <Link
+          <a
             href={example.downloadHref}
             download
             className="mt-6 inline-flex min-h-11 items-center gap-2 border border-brand/35 px-4 py-2.5 text-sm font-semibold text-brand transition-[background-color,border-color,color] duration-200 hover:border-brand/60 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
             {example.downloadLabel}
-          </Link>
+          </a>
         </div>
 
         <div>

@@ -40,6 +40,8 @@ The six former Windows Task Scheduler definitions are disabled. Three local `w2.
 
 Scheduling performs collection only. It does not review evidence, run comparisons, publish results, invoke an LLM, change provider settings or manage account funding.
 
+A separate [Telegram completion observer](ai-overview-citation-telegram.md) checks the saved files after collection and notifies Sunny through the existing Hermes cron bot. It has its own timer and delivery records and cannot start or retry a research collection. A message means capture is complete; citation review and publication remain separate.
+
 ## Deployment and readiness boundary
 
 The isolated VPS bundle contains the seven byte-frozen active sources, all eight `frozen-v1` records, the execution registry, both W1 attempt records needed by the duplicate guard, and the reviewed W1 baseline. The full W1 raw evidence remains on the PC. Do not describe the metadata mirror as an independent raw backup.

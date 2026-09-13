@@ -30,6 +30,8 @@ Supporting records include the [Hermes deployment verification](../../tmp/ctr-ai
 
 The scheduler collects and preserves evidence only. Visual/source review, reviewed-wave export and comparison remain separate manual work. W1 cannot support a temporal finding by itself; the first stability comparison still depends on an eligible, fully reviewed W2. No public temporal finding or study page exists yet.
 
+Sunny has requested [Telegram completion updates](ai-overview-citation-telegram.md) for W2–W4. A separate observer verifies saved capture files before notifying the existing private Hermes Telegram chat; the notification does not approve the study findings for publication.
+
 At migration, validation passed **63 local research tests and 9 remote bundle tests**, with lint clean. UTF-8 and transfer-hash checks also passed. No public page or frozen methodology file changed during migration.
 
 ## Research handoff

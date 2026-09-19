@@ -6,7 +6,7 @@ This is different. This is what the data actually looks like when you're managin
 
 ![44 websites, one dashboard: real portfolio-wide stats](/images/stats/portfolio-overview-44-sites.svg)
 
-## The Same Three Issues Appeared Everywhere
+## The Same Three Issues Appeared Everywhere {% #portfolio-issues %}
 
 After auditing all 44 sites through Google Search Console, the same problems surfaced over and over. Not obscure technical edge cases: basic configuration issues silently bleeding ranking power across every site.
 
@@ -14,7 +14,7 @@ After auditing all 44 sites through Google Search Console, the same problems sur
 
 These aren't the kind of issues a standard SEO audit catches. They only become visible when you're looking at the same patterns across dozens of properties simultaneously.
 
-## Finding 1: A Single Character Was Splitting Rankings in Half
+## Finding 1: A Single Character Was Splitting Rankings in Half {% #canonical-splitting %}
 
 One of my sites, a consultancy, had a page targeting "SEO consultant Reading" with 5,516 total impressions over 28 days. Respectable for a local service keyword. Except those impressions weren't on one page. They were split across two:
 
@@ -39,7 +39,7 @@ The fix was different for each stack, but the pattern was identical: internal li
 
 After fixing all 872 links on the consultancy site and deploying, alongside the page-pruning work covered in Finding 3, the average position improved from **31.6 to 25.6** within 10 days. That's a 6-position jump from the two fixes landing together: no new content, no backlinks, no redesign, just internal links pointing at the right URLs and a cleaner index.
 
-## Finding 2: 1,546 Page-One Rankings With Almost Zero Clicks
+## Finding 2: 1,546 Page-One Rankings With Almost Zero Clicks {% #title-truncation %}
 
 One of the portfolio sites, a UK salary data platform, was generating 7,733 impressions per month across 2,376 indexed pages. Of those, **1,546 pages were ranking on Google's first page**. The click-through rate? **0.21%**.
 
@@ -83,7 +83,7 @@ If any of your portfolio companies use programmatic content, such as product pag
 
 One template fix can affect thousands of pages simultaneously. That's the leverage of portfolio-level [technical SEO](/services/technical-seo-audit/).
 
-## Finding 3: Removing 80+ Pages Improved Everything
+## Finding 3: Removing 80+ Pages Improved Everything {% #page-pruning %}
 
 The consultancy site had 178 pages indexed in Google. For a site with maybe 30 pages of genuine content, that's a problem. Where were the extra 148 pages coming from?
 
@@ -111,7 +111,7 @@ Most site owners think more pages = more chances to rank. The opposite is usuall
 
 This is especially relevant for portfolio owners. If you have 5 sites and each one has 50+ auto-generated pages that add no value, you're diluting authority across 250 pages of dead weight. Prune those, and your strong pages climb.
 
-## What Portfolio Owners Should Take From This
+## What Portfolio Owners Should Take From This {% #portfolio-takeaway %}
 
 These three findings, canonical splitting, title truncation, and index bloat, weren't unique to one site. They appeared across nearly every site in the portfolio, in different forms, on different stacks.
 
@@ -119,13 +119,27 @@ The common thread: **they're invisible unless you're looking at the data**. Your
 
 **If you manage multiple businesses or a portfolio of websites**, these issues are almost certainly present. They compound across sites. And fixing them at the portfolio level, systematically, across all properties, means one verified correction applies everywhere the same template or config is used, instead of re-diagnosing the same problem site by site.
 
-## The Honest Caveat
+## Update: Where the Traffic Actually Concentrates {% #traffic-concentration %}
 
-Some of these fixes are too recent for definitive results. The trailing slash consolidation needs 2-4 more weeks for Google to fully resolve the duplicate canonicals. The wagearea title fix needs recrawling across 2,376 pages. The page pruning data will mature over the next 30 days.
+Four sites generate 79% of organic clicks across the roughly 100 properties I now track (the 44 audited above, plus launches since): **deadhangs.com** (2,587 clicks/28 days), **chargefinder.uk** (2,198), **waterhard.uk** (1,682) and **noisecheck.uk** (1,676). That's 8,143 of the portfolio's 10,300 clicks in the 28 days to 9 September 2026. Fifth place is colourlabelprinter at 282.
 
-I'll update this post with the full before-and-after data when it lands. That's also something you won't get from most SEO case studies: the honest timeline of how long changes actually take to show results. For more context on realistic timelines, see my piece on [how long SEO takes to work](/blog/how-long-does-seo-take/).
+54 properties returned zero clicks in the same window, and roughly 50 more returned under 10.
 
-If you'd like me to run a similar analysis across your portfolio, [get in touch](/contact/). I do this every day, not as a one-off audit, but as ongoing technical management across dozens of sites.
+Only two revenue lines are verified: bestvibrationplates.co.uk at roughly £46/month from 138 clicks, and a Merch by Amazon account at roughly £51/month net. The four sites carrying 79% of the clicks have no verified revenue.
+
+### What's Still Maturing
+
+Some of the fixes above are too recent for definitive results. The trailing slash consolidation needs 2-4 more weeks for Google to fully resolve the duplicate canonicals. The wagearea title fix needs recrawling across 2,376 pages. The page pruning data will mature over the next 30 days.
+
+Figures are 28 days to 9 September 2026. Next pull: December 2026.
+
+If you'd like me to run a similar analysis across your portfolio, [get in touch](/contact/). This is the same pull I run monthly across the portfolio.
+
+## How was this data put together? {% #methodology %}
+
+The three findings above come from a Google Search Console audit across all 44 sites I owned at the time, using the API to pull page-level impressions, clicks and position data per property. The traffic-concentration update pulled 28 days of Search Console clicks (11 August to 9 September 2026) across the roughly 100 properties now under management, plus a separate check of the two revenue lines against their own reporting (Amazon Associates dashboard and Merch by Amazon payment reports).
+
+**Evidence limits:** this is my own portfolio data, not independently audited by a third party. Site names and numbers are reported as they appear in my own Search Console and revenue accounts. No client sites are included in any of the figures above.
 
 ---
 

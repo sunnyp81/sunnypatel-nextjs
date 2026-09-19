@@ -1,0 +1,139 @@
+{
+  "scene": {
+    "description": "A cream cut-paper browser-window card lies flat on a warm grey paper surface. Its raised raised top strip cut from warm grey card, matte paper, never metal or gloss with slotted address bar and three punched dots runs along the top edge. A clean rectangular window has been cut from its recessed content panel. A second sheet of navy paper is slotting into that opening from below, its near corner still lifted a few millimetres clear so the layer separation and paper thickness are visible. Warm light from beneath spills up through the cut opening and catches the lifted corner.",
+    "one_idea": "adding schema markup, shown literally as slotting a structured layer into a page",
+    "note": "this scene reproduces worked example B from brand-system.md section 7.9, the literal topic match"
+  },
+  "objects": [
+    {
+      "id": "host_card",
+      "type": "cut-paper browser-window card",
+      "count": 1,
+      "material": "cream card stock",
+      "color_hex": "#EDE1D7",
+      "state": "lying flat, unmistakably a browser-window card: a raised raised top strip cut from warm grey card, matte paper, never metal or gloss runs along the top edge holding a slotted address bar and three punched dots, and below it the recessed content panel has a clean rectangular window cut from it",
+      "prop_definition": "rounded rectangle of card stock, raised raised top strip cut from warm grey card, matte paper, never metal or gloss with slotted address bar and punched dots, recessed content panel with a cut window",
+      "must_have": [
+        "raised raised top strip cut from warm grey card, matte paper, never metal or gloss along the top edge",
+        "slotted address bar",
+        "three punched dots top-left",
+        "recessed content panel"
+      ]
+    },
+    {
+      "id": "navy_insert",
+      "type": "single sheet of navy paper",
+      "material": "navy paper",
+      "color_hex": "#2E3D60",
+      "state": "slotting into the cut opening from below, near corner lifted a few millimetres clear",
+      "count": 1
+    },
+    {
+      "id": "surface",
+      "type": "warm grey paper surface",
+      "color_hex": "#A59C9A"
+    }
+  ],
+  "materials": {
+    "cream_card_stock": "#EDE1D7",
+    "warm_grey_surface": "#A59C9A",
+    "navy_paper": "#2E3D60",
+    "warm_glow": "#FDE7C8"
+  },
+  "lighting": {
+    "key": "soft warm key light, upper left, 3000K to 3500K, roughly 40 degrees, large diffuser, soft gradual shadow edges",
+    "fill": "weak cool fill from the right, about one quarter key strength",
+    "practical": "warm light from beneath the card spilling up through the cut opening, glowing at #FDE7C8, catching the lifted corner",
+    "prohibited": [
+      "rim light",
+      "hard shadow edges",
+      "lens flare",
+      "coloured gels",
+      "second warm source"
+    ]
+  },
+  "camera": {
+    "setup": "B: straight-on macro, camera about 15 degrees above the card so the raised top strip cut from warm grey card, matte paper, never metal or gloss, address-bar slot and dots are clearly visible, close enough that the paper fibre reads",
+    "orientation": "near-parallel to the card face, slight rotation so the layer separation is visible",
+    "prohibited": [
+      "top-down flat lay",
+      "extreme wide angle",
+      "tilted horizon"
+    ],
+    "framing": "approximately 30 to 40 degree field of view, close, layering and paper fibre legible"
+  },
+  "background": {
+    "type": "dark charcoal seamless",
+    "range": "#1A1A1E to #2D2D31",
+    "falloff": "darker toward the top of the frame",
+    "note": "everything outside the immediate card area reads neutral warm grey per worked example B",
+    "prohibited": [
+      "pure black",
+      "gradient background",
+      "purple or blue gradient"
+    ]
+  },
+  "composition_rules": {
+    "one_idea_per_image": true,
+    "subject_is_literal_topic": true,
+    "one_navy_element_group": "the single navy insert sheet",
+    "upper_third": "quiet, no detail",
+    "focal_position": "off centre, roughly on a third",
+    "physical_plausibility": "every object must be able to stand, lean or lie as shown",
+    "one_focal_group": "exactly one warm-lit focal group with a single light source: the warm light spilling through the cut opening",
+    "navy_group_rule": "the navy element is one object, or repetitions of one identical object in one contiguous composition; never mixed navy objects",
+    "navy_range": "subdued navy paper only, #1A2340 to #3F4A68; no vivid, emitted or periwinkle blue"
+  },
+  "negative": [
+    "text",
+    "lettering",
+    "numerals",
+    "labels",
+    "watermarks",
+    "people",
+    "faces",
+    "hands",
+    "body parts",
+    "silhouettes",
+    "real or invented brand logos",
+    "Google or browser or search-engine marks",
+    "screens showing realistic UI",
+    "handshake",
+    "rocket",
+    "lightbulb",
+    "magnifying glass",
+    "jigsaw piece",
+    "ladder",
+    "chess piece",
+    "dart",
+    "target",
+    "globe",
+    "trophy",
+    "robot",
+    "neon",
+    "glow-edge lighting",
+    "bloom",
+    "lens flare",
+    "glossy or plastic surface",
+    "3D render look",
+    "purple or blue gradient background",
+    "any gradient background",
+    "confetti",
+    "sparkles",
+    "particles",
+    "floating geometric shapes",
+    "more than one warm light source",
+    "more than one navy element group",
+    "brand blue #5B8AEF",
+    "origami",
+    "quilling",
+    "crumpled paper",
+    "torn newsprint collage",
+    "glossy card",
+    "foil",
+    "metallic strip",
+    "chrome",
+    "brushed metal",
+    "reflective metal surface"
+  ]
+}

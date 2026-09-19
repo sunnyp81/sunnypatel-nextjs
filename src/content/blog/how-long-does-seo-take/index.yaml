@@ -3,10 +3,28 @@ metaTitle: 'How Long Does SEO Take to Work? A 3–6 Month Timeline'
 description: >-
   SEO commonly takes 3–6 months to show measurable results. Use dated
   milestones for crawling, indexation, rankings, clicks and enquiries.
-ogImage: /images/blog/how-long-does-seo-take.png
+ogImage: /images/blog/hero-how-long-does-seo-take.webp
 date: '2025-07-08'
 lastUpdated: '2026-09-13'
 tags:
 - SEO Timeline
 - SEO Results
 - SEO
+faqs:
+  - question: How long until a new site gets its first click?
+    answer: >-
+      Across 11 sites I launched on the same day, only 7 got any click within
+      46 days. Among those 7, the median time to first click was 11 days. The
+      other 4 were indexed from day one and had not received a single visitor
+      by day 46.
+  - question: Does fast Google indexing mean fast traffic?
+    answer: >-
+      No. All 11 sites in this sample had Search Console impressions on day
+      one, but that did not translate into clicks. 4 of the 11 stayed at zero
+      clicks despite being indexed from the start. Indexation and clicks are
+      separate stages with separate timelines.
+  - question: How many clicks should a new site expect in its first 46 days?
+    answer: >-
+      In this sample, total clicks after 46 days ranged from 0 to 6 per site,
+      with a median of 1 and 16 clicks across all 11 sites combined. None
+      reached 100 cumulative clicks in that window.

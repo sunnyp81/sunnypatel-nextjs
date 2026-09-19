@@ -1,0 +1,139 @@
+{
+  "scene": {
+    "description": "A single cream cut-paper browser-window card stands alone and glowing at the left of a pale plinth. At the right, a tight cluster of several grey cards stands grouped close together. A thin navy paper divider stands upright between the two groups.",
+    "one_idea": "one operator versus a grouped team"
+  },
+  "objects": [
+    {
+      "id": "solo_card",
+      "type": "cut-paper browser-window card",
+      "count": 1,
+      "material": "cream card stock",
+      "color_hex": "#EDE1D7",
+      "state": "glowing from within, standing alone, left third",
+      "prop_definition": "rounded rectangle of card stock, raised raised top strip cut from warm grey card, matte paper, never metal or gloss with slotted address bar and punched dots, recessed content panel"
+    },
+    {
+      "id": "agency_cluster",
+      "type": "cut-paper browser-window card",
+      "count": 5,
+      "material": "mid grey card stock",
+      "color_hex": "#999596",
+      "state": "unlit, grouped tightly together, right side of frame"
+    },
+    {
+      "id": "navy_divider",
+      "type": "single thin navy paper divider",
+      "material": "navy paper",
+      "color_hex": "#2E3D60",
+      "state": "standing upright between the solo card and the agency cluster",
+      "count": 1
+    },
+    {
+      "id": "plinth",
+      "type": "pale grey paper plinth",
+      "color_hex": "#A59C9A"
+    }
+  ],
+  "materials": {
+    "cream_card_stock": "#EDE1D7",
+    "mid_grey_card": "#999596",
+    "navy_paper": "#2E3D60",
+    "warm_glow": "#FDE7C8"
+  },
+  "lighting": {
+    "key": "soft warm key light, upper left, 3000K to 3500K, roughly 40 degrees, large diffuser, soft gradual shadow edges",
+    "fill": "weak cool fill from the right, about one quarter key strength",
+    "practical": "single internal practical behind the solo card, glowing at #FDE7C8",
+    "prohibited": [
+      "rim light",
+      "hard shadow edges",
+      "lens flare",
+      "coloured gels",
+      "second warm source"
+    ]
+  },
+  "camera": {
+    "setup": "A: three-quarter elevated, 30 to 40 degrees above the plane",
+    "focus": "sharp on the solo card and divider, agency cluster softly rendered",
+    "prohibited": [
+      "top-down flat lay",
+      "extreme wide angle",
+      "tilted horizon"
+    ],
+    "framing": "approximately 45 to 55 degree horizontal field of view, moderate compression, focal group sharp, background softly defocused"
+  },
+  "background": {
+    "type": "dark charcoal seamless",
+    "range": "#1A1A1E to #2D2D31",
+    "falloff": "darker toward the top of the frame",
+    "prohibited": [
+      "pure black",
+      "gradient background",
+      "purple or blue gradient"
+    ]
+  },
+  "composition_rules": {
+    "one_idea_per_image": true,
+    "subject_is_literal_topic": true,
+    "one_navy_element_group": "the single divider",
+    "upper_third": "quiet, no detail",
+    "focal_position": "left third, never dead centre",
+    "physical_plausibility": "every object must be able to stand, lean or lie as shown",
+    "one_focal_group": "exactly one warm-lit focal group with a single light source: the solo card, lit",
+    "navy_group_rule": "the navy element is one object, or repetitions of one identical object in one contiguous composition; never mixed navy objects",
+    "navy_range": "subdued navy paper only, #1A2340 to #3F4A68; no vivid, emitted or periwinkle blue"
+  },
+  "negative": [
+    "text",
+    "lettering",
+    "numerals",
+    "labels",
+    "watermarks",
+    "people",
+    "faces",
+    "hands",
+    "body parts",
+    "silhouettes",
+    "real or invented brand logos",
+    "Google or browser or search-engine marks",
+    "screens showing realistic UI",
+    "handshake",
+    "rocket",
+    "lightbulb",
+    "magnifying glass",
+    "jigsaw piece",
+    "ladder",
+    "chess piece",
+    "dart",
+    "target",
+    "globe",
+    "trophy",
+    "robot",
+    "neon",
+    "glow-edge lighting",
+    "bloom",
+    "lens flare",
+    "glossy or plastic surface",
+    "3D render look",
+    "purple or blue gradient background",
+    "any gradient background",
+    "confetti",
+    "sparkles",
+    "particles",
+    "floating geometric shapes",
+    "more than one warm light source",
+    "more than one navy element group",
+    "brand blue #5B8AEF",
+    "origami",
+    "quilling",
+    "crumpled paper",
+    "torn newsprint collage",
+    "glossy card",
+    "foil",
+    "metallic strip",
+    "chrome",
+    "brushed metal",
+    "reflective metal surface"
+  ]
+}

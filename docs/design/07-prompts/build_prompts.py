@@ -1,0 +1,116 @@
+import json, os
+
+STYLE = "flat vector textbook diagram, editorial infographic, isometric"
+RENDER = "clean flat shapes, two-tone shading, subtle long shadows, dark charcoal ground #141418 to #1E1E24, brand blue #5B8AEF as the highlight colour on exactly one focal object or cluster, one gold #d79f1e accent marker, thin grey leader lines ending in small empty circles"
+CAMERA = "isometric"
+LIGHT = "flat with one directional shadow"
+COMPOSITION = "one idea, one focal element, upper third quiet, focal element off-centre"
+NEGATIVE = [
+    "text", "letters", "words", "handwriting that forms words", "numerals",
+    "labels", "watermark", "logos", "people", "faces", "hands",
+    "rocket", "lightbulb", "magnifying glass", "handshake", "trophy",
+    "robot", "confetti", "particles", "lens flare", "neon",
+    "purple gradient", "blue gradient background", "3D render look",
+    "metal material", "chrome material", "glass material", "gloss"
+]
+
+ROWS = [
+("H01","how-many-websites-are-there",
+ "400 million registered domains, only about 217 million active",
+ "a vast isometric grid of small grey domain tiles receding into the distance, most tiles dim and flat, a smaller cluster of tiles standing raised and brand-blue among them with one gold marker on the raised cluster"),
+("H02","top-geo-agencies",
+ "12 GEO agencies ranked for AI-search visibility",
+ "twelve isometric grey ranking blocks of stepped heights in a row, the tallest block picked out in brand blue with a gold marker pin on its top, thin leader line to an empty circle"),
+("H03","uk-dental-marketing-statistics",
+ "dental register data, NHS versus private split, honest gaps",
+ "two isometric grey stacks of records side by side of uneven height, a gap of missing tiles shown as empty outlined slots between them, one stack topped brand blue with a gold marker on the gap"),
+("H04","uk-ecommerce-seo-statistics",
+ "market size, platform share, organic versus paid traffic",
+ "an isometric pie of flat grey wedge blocks of different sizes arranged like a broken ring, the largest wedge raised and brand blue with a gold marker at its tip"),
+("H05","ai-referral-traffic-study",
+ "4717 sessions from five AI assistants arriving at the most-cited sites",
+ "five isometric grey channel arrows converging from different angles onto one raised brand-blue page tile, a gold marker where the arrows meet"),
+("H06","autonomous-seo-agent",
+ "an agent that reads Search Console, edits the site, measures, then repeats",
+ "an isometric closed loop of four grey geometric nodes connected by thin arrows forming a circuit, one node raised and brand blue with a gold marker, no start or end implied"),
+("H07","how-to-add-schema-markup",
+ "pick a type, generate JSON-LD, paste it, validate it",
+ "four isometric grey step-blocks arranged in an ascending staircase, the top step raised in brand blue holding a small bracket-shaped tile, a gold marker on the final step"),
+("H08","how-to-calculate-seo-roi",
+ "revenue minus cost over cost, ramping up over months",
+ "an isometric bar-chart of grey blocks stepping upward left to right, the tallest block on the right raised and brand blue, a gold marker at its peak"),
+("H09","chatgpt-prompts-for-seo",
+ "twenty prompts organised by task and chained together",
+ "an isometric grid of small grey tile stacks organised into distinct chained rows connected by thin leader lines, one stack raised brand blue with a gold marker"),
+("H10","google-open-knowledge-format",
+ "a folder of linked markdown files, orphan pages versus a linked cluster",
+ "isometric grey flat file tiles scattered loosely on one side with no connecting lines, a tight cluster of tiles linked by thin leader lines on the other side, one linked tile raised brand blue with a gold marker"),
+("H11","seo-consultant-vs-seo-agency",
+ "one consultant against a stacked agency",
+ "one single isometric brand-blue page tile with a gold marker on the left, a tall stack of many identical grey tiles on the right, a thin leader line from each side to an empty circle"),
+("H12","optimise-content-for-ai-search",
+ "how AI answers select and cite sources",
+ "an isometric raised brand-blue page tile at the centre with several thin grey leader lines radiating outward to small empty circles representing citations, a gold marker on the tile"),
+("H13","freelance-seo-consultant-uk",
+ "what to look for, red flags, realistic pricing",
+ "an isometric row of grey checklist tiles of varying height, one tile flagged with a small raised brand-blue marker shape and a gold marker beside it"),
+("H14","wordpress-vs-webflow",
+ "two platforms compared on SEO, cost and flexibility",
+ "two isometric grey platform block towers of different shapes side by side, one topped in brand blue with a gold marker, a thin leader line connecting the two"),
+("H15","how-to-be-an-seo",
+ "building the skills and the business",
+ "an isometric ascending staircase of grey blocks each slightly wider than the last, the top block raised brand blue with a gold marker at its peak"),
+("H16","seo-semantic-markup-guide",
+ "structured data and semantic HTML enabling rich results",
+ "an isometric grey page tile with smaller nested grey blocks layered inside it like structured fields, one nested block raised brand blue with a gold marker, thin leader line to an empty circle"),
+("H17","what-is-eeat-seo",
+ "experience, expertise, authority, trust as signals not a score",
+ "four isometric grey pillar blocks of equal height standing in a row supporting one raised brand-blue platform tile above them, a gold marker on the platform"),
+("H18","optimise-multiple-keywords",
+ "long-tail keywords spread across posts",
+ "an isometric field of many small grey tiles spreading outward from a central point, a handful of tiles raised and brand blue among them, one gold marker on the largest raised tile"),
+("H19","increase-organic-traffic",
+ "a system, not a bag of tactics",
+ "an isometric interlocking set of grey gear-shaped flat blocks meshed together, one block raised brand blue with a gold marker at its centre"),
+("H20","how-many-keywords",
+ "keyword count is the wrong question",
+ "an isometric loose pile of many identical small grey tiles beside one raised brand-blue tile of larger scale standing apart with a gold marker"),
+("H21","technical-seo-vs-on-page-seo",
+ "two layers of the same page working together",
+ "an isometric page tile split into two stacked flat layers, the lower grey layer as foundation and the upper layer raised brand blue with a gold marker, thin leader line between them"),
+("H22","managing-44-websites-seo-data",
+ "a field of 44 tiles, a handful picked out",
+ "a large isometric grid of many identical small grey tiles laid flat, a handful of tiles raised and brand blue scattered among them, one gold marker on the tallest raised tile"),
+("H23","how-long-does-seo-take",
+ "a row of tiles lighting up over a timeline",
+ "an isometric horizontal row of grey tiles along a thin baseline, tiles toward the right raised progressively higher and the tallest turned brand blue, a gold marker at the final tile"),
+("H24","google-update-portfolio-impact",
+ "two tiles of many collapsing on the same day",
+ "an isometric grid of many upright grey tiles with two tiles shown toppled flat and cracked, one toppled tile outlined in brand blue, a gold marker beside the break"),
+("H25","ai-search-traffic-portfolio-data",
+ "AI-assistant traffic arriving at a few tiles",
+ "an isometric grid of many small grey tiles with several thin arrows arriving from one direction onto a handful of raised brand-blue tiles, a gold marker where the arrows converge"),
+("H26","negative-seo-backlink-attack-case-study",
+ "tangled grey lines hitting a tile, blue shield",
+ "an isometric single raised brand-blue tile shielded by a small angled blue shield shape, a tangle of thin grey leader lines converging on it from multiple directions, a gold marker on the shield"),
+("H27","aged-domains-and-domain-collisions",
+ "an old faded tile beside a new one sharing one address",
+ "an isometric worn grey tile with muted flat shading standing beside a crisp raised brand-blue tile of the same footprint, a single thin leader line joining both to one empty circle, a gold marker on the circle"),
+]
+
+OUT = os.path.dirname(os.path.abspath(__file__))
+for id_, slug, subject, scene in ROWS:
+    data = {
+        "subject": subject,
+        "scene": scene,
+        "style": STYLE,
+        "render": RENDER,
+        "camera": CAMERA,
+        "light": LIGHT,
+        "composition": COMPOSITION,
+        "negative": NEGATIVE,
+    }
+    path = os.path.join(OUT, f"{id_}-{slug}.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+    print(path)

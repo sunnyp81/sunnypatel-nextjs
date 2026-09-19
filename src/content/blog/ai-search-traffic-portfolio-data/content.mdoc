@@ -1,0 +1,67 @@
+**AI assistants sent 2.1% of sessions across a 20-site sample over 90 days, 3.4% once one bot-skewed site is excluded; ChatGPT sent more of that traffic than every other assistant combined, and the per-site share ranged from 0% to 10.7%.** Treat the range as the finding.
+
+I run analytics on around 115 GA4 properties. This data comes from a 20-site sample pulled directly from GA4 on 18 September 2026, covering the 90 days before that date. It is not a full-portfolio census, and the sites sampled were not chosen at random.
+
+## What share of traffic comes from AI search? {% #findings %}
+
+AI assistants sent 4,372 of 205,321 sessions across the 20-site sample, a 2.1% share. Exclude one site with an anomalous traffic pattern and the share rises to 3.4%.
+
+That one site, catchment.school, recorded 98,770 sessions in the window, 84,957 of them logged as "(direct)". A single education-niche site generating that much direct traffic without a matching level of referral or search traffic does not match normal visitor behaviour. I flagged it as likely bot or crawler contamination and excluded it from the 3.4% figure. It did send 766 AI-referral sessions itself (716 ChatGPT, 50 Copilot), the third-highest raw count in the sample, which is why excluding the whole site changes the aggregate less than the "(direct)" number alone would suggest.
+
+<table>
+<thead>
+<tr><th>Site</th><th>AI-referral sessions</th><th>Total sessions</th><th>AI share</th></tr>
+</thead>
+<tbody>
+<tr><td>e-bikereview.uk</td><td>746</td><td>6,988</td><td>10.7%</td></tr>
+<tr><td>bestreviews.co.uk</td><td>28</td><td>325</td><td>8.6%</td></tr>
+<tr><td>selflandlord.com</td><td>215</td><td>2,840</td><td>7.6%</td></tr>
+<tr><td>drivingtestpass.org</td><td>59</td><td>820</td><td>7.2%</td></tr>
+<tr><td>luxurytrex.com</td><td>38</td><td>587</td><td>6.5%</td></tr>
+<tr><td>redlighttherapy.expert</td><td>1,041</td><td>17,798</td><td>5.9%</td></tr>
+<tr><td>bestvibrationplates.co.uk</td><td>292</td><td>5,053</td><td>5.8%</td></tr>
+<tr><td>chargefinder.uk</td><td>674</td><td>14,049</td><td>4.8%</td></tr>
+<tr><td>TheBestMowers</td><td>222</td><td>5,385</td><td>4.1%</td></tr>
+<tr><td>drugnote.com</td><td>10</td><td>21,928</td><td>0.05%</td></tr>
+<tr><td>supplementcheck.org</td><td>0</td><td>105</td><td>0%</td></tr>
+</tbody>
+</table>
+
+The table shows 11 of the 20 sampled sites: catchment.school (excluded above) plus 8 more sites each under 300 total sessions in the window, where percentages swing on single-digit AI counts and aren't worth a row. supplementcheck.org and stackswitch.co, both referenced below, are among them. Treat the smaller rows shown (bestreviews.co.uk, luxurytrex.com, drivingtestpass.org) as directional rather than precise.
+
+## Which AI assistant sends the most traffic? {% #by-assistant %}
+
+ChatGPT sent more AI-referral sessions in this sample than Perplexity, Claude, Copilot and Gemini combined. redlighttherapy.expert alone logged 835 ChatGPT sessions against 60 from Perplexity, 44 from Claude and 64 from Copilot in the same window.
+
+Gemini appeared least often. Most sites in the sample logged zero to three Gemini-sourced sessions across the full 90 days, regardless of total traffic volume.
+
+## Which sites get the most AI referral traffic? {% #by-site %}
+
+e-bikereview.uk, redlighttherapy.expert and catchment.school produced the three highest raw AI-session counts in the sample: 746, 1,041 and 766. The comparison sites in the table sit at 4-9% share, so content type alone does not separate them from the informational sites.
+
+redlighttherapy.expert's AI-referral session count held through a period when the same site's Google organic traffic fell sharply, based on prior GSC tracking for this property (not re-verified in this pull). AI referral traffic did not replace the lost Google traffic in volume, but it did not disappear when Google visibility did.
+
+drugnote.com is the counter-example. It runs on the same Astro stack as several of the higher-AI-share sites and still returned a 0.05% AI share with only 10 AI-referral sessions against 21,928 total. Platform and content type do not predict AI referral share on their own.
+
+## Does AI-referral traffic convert? {% #conversion %}
+
+This sample cannot answer that question at portfolio scale. Conversion tracking varies by site and most of the 20 sampled properties do not have comparable goal configurations set up.
+
+One data point exists from a separate pull: sunnypatel.co.uk logged 68 AI-referral sessions out of 1,442 total in the same 90-day period, a 4.7% share, with 3 goal completions attributed to ChatGPT referrals. That is one site, one goal type, and not enough to generalise a conversion rate for AI traffic against Google organic traffic.
+
+## What if your own site shows no AI referral traffic yet? {% #zero-reading %}
+
+A 0% reading is common at low traffic volumes. supplementcheck.org and stackswitch.co both showed 0% or near-0% AI share in this sample, and both had fewer than 1,500 total sessions in 90 days. At that volume, a handful of AI-referred visits would still round to a visible percentage, so their absence points to low overall visibility rather than an AI-specific problem.
+
+Check session source, not channel grouping, before concluding a site gets no AI traffic. GA4's default channel groupings file ChatGPT and Perplexity visits under "Organic Search" or "Referral" alongside search engines and generic links; session source keeps each AI assistant separate and can surface referrals the default reports bury.
+
+## How was this data collected? {% #methodology %}
+
+GA4 property-level reports for 20 owned sites, pulled via the Analytics Data API on 18 September 2026, date range 21 June 2026 to 18 September 2026 (90 days). Dimension: sessionSource. Metric: sessions. AI sources counted: chatgpt.com, openai, claude.ai, perplexity, perplexity.ai, gemini.google.com, copilot.com.
+
+**Evidence limits:** the sample is 20 of roughly 115 GA4 properties I track, not a full-portfolio census, and the sites weren't chosen at random. Re-running this pull across the remaining properties would change the aggregate percentage. The conversion figure comes from one site (sunnypatel.co.uk, a separate GA4 pull, same window, 3 goal completions) and does not establish a conversion rate for AI traffic generally. redlighttherapy.expert's Google-organic-crash comparison relies on prior GSC tracking for that property that was not re-verified in this pull.
+
+## Related
+
+- [How long does SEO take](/blog/how-long-does-seo-take/)
+- [Technical SEO audit service](/services/technical-seo-audit/)

@@ -1,0 +1,35 @@
+title: What an 83% Spam Backlink Blast Has Done to This Site (So Far)
+metaTitle: 'Negative SEO Case Study: 763 Backlinks, 83% Spam, No Visible Damage'
+description: >-
+  An Ahrefs export found 763 referring domains on sunnypatel.co.uk, 83%
+  flagged as spam. The dataset, the three spam patterns behind it, and
+  what Search Console shows so far.
+ogImage: /images/blog/hero-negative-seo-case-study.webp
+date: '2026-09-18'
+lastUpdated: '2026-09-18'
+tags:
+- Negative SEO
+- Backlink Audit
+- Link Spam
+faqs:
+  - question: Should I disavow a spam backlink attack immediately?
+    answer: >-
+      Not automatically. Google's disavow guidance says to file only when
+      spam links have caused, or will likely cause, a manual action. Check
+      Search Console for a visible ranking or traffic drop first; if there
+      is none, monitor before filing.
+  - question: Can a negative SEO backlink attack hurt my rankings?
+    answer: >-
+      It can, but it doesn't always. In this case, an 83% spam-flagged
+      backlink profile of 763 referring domains landed across 2026 while
+      rankings and impressions on the target site improved through the same
+      window, with no visible drop in 13 months of Search Console data.
+      A site with weaker existing authority or an active manual action could
+      see a different outcome from the same kind of attack.
+  - question: How do I tell if a sudden impression spike is spam or a real ranking gain?
+    answer: >-
+      Break the spike down by page and by query. A real gain concentrates on
+      one page ranking for a specific, coherent set of queries with a normal
+      country distribution. A spam or bot artefact tends to spread across
+      many pages or queries with no coherent theme, or shows an unusual
+      country split.

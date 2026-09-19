@@ -1,0 +1,33 @@
+title: 'Two of My 21 Sites Dropped 87% and 91% Within 24 Hours: Search Console Data, No Confirmed Cause'
+metaTitle: 'Google Update Impact 2026: Search Console Data From 21 Owned Sites'
+description: >-
+  Two unrelated sites lost 87% and 91% of daily impressions within 24 hours
+  of each other, 19-20 July. Full site table, four drop dates, no confirmed
+  update.
+ogImage: /images/blog/hero-google-update-impact.webp
+date: '2026-09-18'
+lastUpdated: '2026-09-18'
+tags:
+- Google Updates
+- SEO Data
+- Core Updates
+faqs:
+  - question: Did two sites drop because of the same Google update?
+    answer: >-
+      Unconfirmed. tradecost.uk and redlighttherapy.expert both lost the bulk
+      of their daily impressions within a 24-hour window on 19-20 July 2026,
+      but this has not been matched to a named, publicly confirmed Google
+      update. Two other owned sites dropped on two other unrelated dates in
+      the same 90-day window, with no matching second casualty.
+  - question: How do I check if my own site was hit by the same pattern?
+    answer: >-
+      Pull your own Search Console impressions by day, not just the 28-day
+      summary, and look for a step change rather than a gradual slope. Every
+      casualty in this dataset broke inside a 24-48 hour window; a slow
+      drift is a different problem with a different fix.
+  - question: Does this data prove a portfolio-wide Google update hit these sites?
+    answer: >-
+      No. This is a 21-site sample from one owner's portfolio, not a
+      controlled study. It does not identify which Google system caused the
+      four drop dates in the window, and two of those four dates had no
+      matching second casualty at all.

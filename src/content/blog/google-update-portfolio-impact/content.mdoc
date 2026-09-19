@@ -1,0 +1,87 @@
+**I checked Search Console data across 21 of my own sites, 20 June to 15 September 2026. Two of them, in unrelated niches, dropped 87% and 91% of daily impressions within 24 hours of each other. Neither has recovered.**
+
+This is data from sites I own. No client sites are included.
+
+## Which two sites dropped 24 hours apart? {% #headline-drops %}
+
+**tradecost.uk** (an import-cost checker) and **redlighttherapy.expert** (a health/wellness niche site) share no niche, content structure or backlink profile. Both were performing normally through 18 July.
+
+On 19-20 July, both lost the bulk of their impressions:
+
+- **tradecost.uk:** daily impressions fell from 374 (18 July) to 62 (19 July) to 48 (20 July), an 87% drop. Average position went from 41.7 to 71.2 in the same window and never recovered. It sits at 0 clicks/day as of 15 September.
+- **redlighttherapy.expert:** daily impressions fell from 1,583 (19 July) to 225 (20 July) to 148 (21 July), a 91% drop. Position moved from 15.3 to 17.9 to 23.9. It partially stabilised but never returned to its pre-drop range.
+
+Different niches, different content. Same owner, same stack (Astro on Cloudflare Pages), same build tooling. That shared tooling is itself a candidate cause.
+
+For redlighttherapy.expert specifically, the drop is Google-only. GA4 sessions from Google fell from 344 to 40 over the same 14-day window, while Bing sessions rose 308 to 396 and DuckDuckGo rose 464 to 602. Other search engines did not see the same page get worse. On-site remediation shipped 2-3 August (a fake-expert byline removed, 12 doorway pages redirected) produced no recovery in the six weeks that followed.
+
+## Did a named Google update cause the drops? {% #named-update %}
+
+I have not matched either drop to a named, publicly confirmed Google update. Two drops 24 hours apart out of four drop dates in this sample could still be chance. It's worth reporting because the two sites share no niche or content, and because the remediation that normally fixes a content-quality problem didn't move the needle on one of them.
+
+The same pattern, a fast sustained drop rather than gradual decline, showed up on two other sites, each on a different date:
+
+- **calculator.place**: daily impressions were running 700-1,600 through early August, then fell to 20-250 on 3-4 August, with average position worsening from the mid-20s to the 60s-80s.
+- **template.how**: this one was climbing (position improved from 60 to the high teens through early August) before reversing sharply on 16 August and falling back to the 60s-80s.
+
+Four sites, four confirmed drop dates, no single explanation that covers all of them.
+
+## What was growing at the same time? {% #growers %}
+
+Three sites were growing steadily across the same period:
+
+- **chargefinder.uk** (EV charging): position improved from the low 30s to the low-to-mid teens, clicks grew from ~20-40/day to 60-120/day.
+- **deadhangs.com** (fitness): clicks grew from ~30-50/day in June to 100-134/day by mid-September, with a temporary dip in average position (7 to 11) around 10-21 August that fully recovered.
+- **noisecheck.uk**: a similar shape, a dip to position 17-18 in mid-August, recovered to 6.7-8 by mid-September, clicks roughly tripling over the period.
+
+deadhangs.com and noisecheck.uk both dipped in mid-August, the week template.how reversed, and both recovered within two weeks.
+
+## The full 21-site table {% #full-table %}
+
+| Site | Niche | Clicks (90d) | Impressions (90d) | Avg position | Trend |
+|---|---|---|---|---|---|
+| waterhard.uk | Water hardness | 5,728 | 275,726 | 10.8 | Stable, strong |
+| deadhangs.com | Fitness | 7,052 | 294,363 | 8.0 | Growing (recovered dip) |
+| chargefinder.uk | EV charging | 5,318 | 243,392 | 15.9 | Growing steadily |
+| salarydata.co.uk | Salary data | 574 | 171,299 | 16.9 | Improving |
+| noisecheck.uk | Noise/decibel | 3,882 | 57,129 | 9.7 | Growing (recovered dip) |
+| redlighttherapy.expert | Health/wellness | 728 | 53,648 | 18.9 | **Casualty: dropped 19-20 Jul** |
+| heatpumpchecker.co.uk | Heat pumps | 112 | 55,023 | 37.7 | Stable |
+| rentalyield.uk | Property yield | 315 | 45,955 | 24.3 | Volatile, no trend |
+| solarhq.uk | Solar | 32 | 37,692 | 54.4 | Declining |
+| calculator.place | Calculators | 15 | 38,908 | 47.6 | **Casualty: dropped 3-4 Aug** |
+| tradecost.uk | Import cost | 76 | 32,999 | 50.3 | **Casualty: dropped 19-20 Jul** |
+| e-bikereview.uk | E-bike reviews | 17 | 24,576 | 74.8 | Chronic thin |
+| towrating.org | Tow rating | 75 | 19,468 | 43.8 | Improving (maturing site) |
+| bestreviews.co.uk | Product reviews | 4 | 15,731 | 82.5 | Chronic thin |
+| zoningbase.com | Zoning/planning | 185 | 9,069 | 10.7 | Improving |
+| selflandlord.com | Landlord tools | 55 | 9,403 | 66.0 | Flat, thin |
+| epc.report | EPC checker | 32 | 8,665 | 40.5 | Declining gradually |
+| whitelabelseohub.co.uk | White-label SEO | 1 | 8,058 | 82.4 | Too new (20 days' data) |
+| thebestmowers.co.uk | Lawnmower reviews | 3 | 6,165 | 61.0 | Chronic thin |
+| template.how | Templates | 25 | 5,939 | 32.8 | **Casualty: dropped 16 Aug** |
+| supplementcheck.org | Supplements | 14 | 976 | 11.6 | Improving (low volume) |
+
+Of the 21: 4 dropped sharply and stayed down, 6 grew or improved, 2 declined gradually, 9 were flat, thin or too new to call.
+
+All 21 are `siteOwner`-verified properties in the same Google Search Console account. Figures are 90-day totals, 20 June-15 September 2026.
+
+Six more owned properties were checked and left out because the data is too thin to say anything: **catchment.school**, **drugnote.com**, **radon.tips**, **postcode.page**, **qrcode.ink** and **checkamover.com** each average under 5 impressions a day, which makes daily position swings statistical noise rather than signal. **carehome.page** is excluded from the trend calls above for the same reason: its near-zero visibility is a known, pre-existing indexation issue rather than a new drop.
+
+This sample is 21 of roughly 100 tracked properties. The rest sit in a separate reporting cut (recent launches, client accounts, or too new to trend) covered elsewhere.
+
+## How do I check if my own site was hit? {% #check-your-site %}
+
+Every casualty above broke inside a 24-48 hour window. A slow drift is a different problem with a different fix. Pull your own Search Console impressions by day, not just the 28-day summary, and look for a step change rather than a gradual slope.
+
+## How was this data put together? {% #methodology %}
+
+This dataset comes from 21 `siteOwner`-verified Google Search Console properties I own, pulled 20 June to 15 September 2026 for a 90-day trailing window. No client accounts are included; a client property was checked during research and excluded from the published sample for that reason.
+
+**Evidence limits:** this is a 21-site sample from one owner's portfolio, not a controlled study. It doesn't identify which Google system caused the four drop dates, and a site's niche, age, backlink profile and content depth all differ enough that none of these can be isolated as "the" variable. It does not prove a portfolio-wide cause, and two of the four drop dates had no matching second casualty at all. No client analytics, contracts, or independent audits were used to verify anything beyond what Search Console and GA4 report.
+
+## Related reading
+
+- [Managing 44 websites: what the Search Console data actually shows](/blog/managing-44-websites-seo-data/)
+- [Google penalty recovery: manual action, algorithm hit, or not indexed](/blog/google-penalty-recovery/)
+- [How long does SEO take?](/blog/how-long-does-seo-take/)

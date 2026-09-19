@@ -1,0 +1,31 @@
+{
+  "subject": "choosing a solo SEO consultant versus an agency",
+  "scene": "a desk with two sheets of paper side by side, the left with one drawn box and a single blue arrow, the right with a tall column of many small drawn boxes, a fountain pen resting between them, warm lamp light, mug",
+  "style": "real editorial documentary photograph of a consultant's desk",
+  "render": "photoreal, 50mm f2.8, Kodak Portra colour, dark wooden desk, warm desk lamp key with cool window fill, shallow depth of field; any paper shows only boxes, arrows, bars and lines drawn in blue ink, never a single written word",
+  "camera": "three-quarter elevated",
+  "light": "single warm desk lamp, cool window fill",
+  "site_context": "must sit on a near-black website (#050507) whose accent colours are blue #5B8AEF and gold #d79f1e; mood educational, trusted, technical; solo UK SEO consultant publishing real Search Console data",
+  "composition": "one idea, one focal element, upper third quiet, focal element off-centre",
+  "negative": [
+    "text",
+    "letters",
+    "words",
+    "handwriting that forms words",
+    "numerals",
+    "labels",
+    "watermark",
+    "logos",
+    "people",
+    "faces",
+    "hands",
+    "rocket",
+    "lightbulb",
+    "magnifying glass",
+    "neon",
+    "purple gradient",
+    "confetti",
+    "particles",
+    "lens flare"
+  ]
+}

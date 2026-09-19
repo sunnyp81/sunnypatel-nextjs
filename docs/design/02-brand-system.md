@@ -24,11 +24,11 @@ Sunny publishes his own GSC exports, including the losses. Two sites down 87 per
 
 Drives: numbers are typeset large in the heading face and are always linked to the page that proves them. Drives the ban on any unlinked or round-number statistic. Drives gold as the colour of a measured highlight, never decoration.
 
-### 1.3 The cut-paper browser card
+### 1.3 The browser window motif
 
-The recurring physical object across five of the six approved heroes is a browser window cut from matte card stock: a rounded rectangle, a raised chrome strip with a slotted address bar, a recessed content panel. This is already the ownable asset. It is not a stock papercraft look, it is a specific repeatable prop.
+The recurring object across the approved hero set is a flat browser window: a rounded rectangle, a title bar with grey dots, a slotted address bar, a recessed content panel. Locked after Sunny's review of H08, H11 and H12 (approved frames and prompts in `docs/design/approved-v3/`), this is the ownable asset, not a stock icon.
 
-Drives: the entire image system in section 7. Drives the radius decision in section 4 (corners are knife-cut and punch-rounded, roughly 10 to 12px at card scale, never 4px and never a pill). Drives the "one idea, one object" composition rule.
+Drives: the entire image system in section 7. Drives the radius decision in section 4 (a small consistent corner radius, never 4px and never a pill). Drives the "one idea, one object" composition rule.
 
 ### 1.4 Reading and Berkshire, solo operator
 
@@ -36,11 +36,11 @@ One person, one phone number, one name on the byline. Not a team, not an agency,
 
 Drives: the trust placement rules in section 4.5. Drives the visible phone number in the hero, which already exists at `src/components/sections/hero.tsx:112`. Drives a byline on every long-form template rather than a brand mark.
 
-### 1.5 Warm light on a dark room
+### 1.5 Blue as the subject, gold as the result
 
-The site ships a near-black ground (`#050507`) and the heroes are lit by a single warm practical lamp inside one glowing page. That pairing is already the brand's most distinctive move: a cold dark interface, and inside every image a warm lamp picking out the one page that matters.
+Inside every generated image, colour carries meaning, not decoration: brand blue `#5B8AEF` marks the one thing the page is about, gold `#D79F1E` marks the one thing that changed, and it is the same hex the interface uses for links, focus and proof numbers. A reader who has seen the site once does not have to relearn a second colour system inside the images.
 
-Drives: the accent reconciliation in section 2.3. Drives the lighting rule in section 7.3. Drives the rule that the warm glow is the only colour permitted to carry emotion, while everywhere else colour carries meaning.
+Drives: the palette rule in section 7.2. Drives the rule that gold never appears without a linked, measured result behind it.
 
 ---
 
@@ -70,30 +70,12 @@ Hard rule: at most two raised levels above L0, and L2 only nested inside an L1 c
 | `--color-gold` | `#D79F1E` | Measured highlight | A proof number that is genuinely the headline figure. Guide-page accent rules. | More than one gold element per viewport. Any decorative use. Any number that is not sourced. |
 | `--color-success` | `#5A922C` | Success state | Form success confirmation, a positive delta in a chart. | As a brand accent or a third decorative colour. |
 | `--color-teal` | `#4C7894` | Chart series only | A secondary series in an SVG data visual. | Any text use. It measures 4.29:1 on ground and 4.16:1 on cards, failing AA. |
-| `--color-paper-navy` | `#2E3D60` | **New. The image blue.** | Figure frames, caption rules, any UI that deliberately quotes the image world. | Any text colour, at 1.89:1 it is unreadable. Any interactive element. |
 
 Two colours currently live inline in components and must be promoted to tokens or removed. `#7BA3F5` appears in the hero title gradient, the nav logo gradient and the hero proof tiles. `#96B6FF` is the guide-page link colour in `seo-companies-guide.module.css`. Rule: `#7BA3F5` becomes `--color-brand-light`, used only as the upper stop of a brand gradient and as proof-number ink where it measures 8.15:1. `#96B6FF` is retired and the guide shell adopts `--color-brand` for links, folding the second parallel system back into the first.
 
-### 2.3 The accent reconciliation, decided
+### 2.3 Image blue equals interface blue
 
-The hero images use a dark navy for their blue element. The site uses `#5B8AEF`. These are not the same colour and they should not be forced together.
-
-**The rule: blue means one thing and renders two ways. Emitted blue is `#5B8AEF` and lives only in CSS. Reflected blue is navy paper, nominal `#2E3D60`, and lives only inside images.**
-
-Measured from the six files, the navy paper reads `#3F4A68` on a lit face, `#2E3D60` at nominal exposure, and `#1A2340` in shadow. That spread is what makes it read as card stock rather than a rendered surface.
-
-Why they coexist rather than one being forced to match the other:
-
-1. They are different physical things inside one consistent fiction. The interface is light coming out of a screen. The images are photographs of paper reflecting a warm lamp. A screen blue and a paper blue that matched by hex would be the mistake, not the fix.
-2. Paper cannot be `#5B8AEF`. Under a 3000K to 3500K warm key, a stock that reflected `#5B8AEF` would render chalky and slightly violet, and it would immediately read as a 3D render instead of cut card. The navy is what a real blue paper looks like under that light, which is why the existing six images feel photographed.
-3. The meaning is shared. In both layers, blue marks the thing the machine touches: the address bar, the cursor, the ranking arrow, the verified badge, the link, the focus ring. That shared meaning is the brand consistency. Hex identity is not.
-
-Guard rails so this does not become an excuse for drift:
-
-- `--color-paper-navy: #2E3D60` is added as a token purely so the boundary is enforceable. It may frame an image, it may never be read.
-- No generated image contains `#5B8AEF`. Use only subdued navy paper in the approved range `#1A2340` to `#3F4A68`; reject vivid, emitted or periwinkle blue.
-- No CSS surface uses the navy as a background behind text.
-- If a future image needs a brighter blue for a genuinely emissive element, such as a glowing screen inside the diorama, it is rendered as warm glow, not as brand blue.
+An earlier direction needed a separate image-blue token because its physical medium could not be lit to read as `#5B8AEF`. The approved flat-vector style in section 7 has no physical medium and no warm key, so that problem does not exist: images carry the same `#5B8AEF` on the subject and `#D79F1E` on the result as the interface tokens. That earlier token is retired and there is no reconciliation table. If a future image direction reintroduces a photographed or textured medium, this is where that reconciliation gets written, not invented ad hoc on a single page.
 
 ### 2.4 Contrast results
 
@@ -110,7 +92,6 @@ Computed against the live dark palette. AA requires 4.5:1 for ordinary text, 3:1
 | `--color-success` `#5A922C` | 5.41:1 | AA. |
 | `--color-brand-deep` `#3D6FE8` | 4.499:1 | **Fails AA for body text.** Not for text. |
 | `--color-teal` `#4C7894` | 4.29:1 | **Fails AA for body text.** Chart fills only. |
-| `--color-paper-navy` `#2E3D60` | 1.89:1 | Never text. |
 
 **On `--card` `#0a0a0f`:**
 
@@ -123,7 +104,6 @@ Computed against the live dark palette. AA requires 4.5:1 for ordinary text, 3:1
 | `--color-success` `#5A922C` | 5.25:1 | AA. |
 | `--color-brand-deep` `#3D6FE8` | 4.36:1 | **Fails AA.** |
 | `--color-teal` `#4C7894` | 4.16:1 | **Fails AA.** |
-| `--color-paper-navy` `#2E3D60` | 1.84:1 | Never text. |
 
 Supporting figures used elsewhere in this document: `#7BA3F5` measures 8.15:1 on ground and 7.90:1 on card. `#96B6FF` measures 10.12:1 and 9.81:1. White at 65 percent opacity over ground resolves to `#A8A8A8` at 8.56:1, so the existing `text-white/65` eyebrows pass. White on the primary button fill `#2854C5` measures 6.64:1 and passes.
 
@@ -187,14 +167,14 @@ The eyebrow spec: 12px, uppercase, weight 600, `0.14em` tracking, heading face, 
 
 Surfaces are the three levels in 2.1, two per viewport maximum.
 
-Radius is derived from the anchor in 1.3, a card cut with a knife and rounded with a corner punch. That gives a soft but small radius, not a pill and not a sharp industrial corner. The base token `--radius: 0.625rem` (10px) is correct and stays.
+Radius is derived from the anchor in 1.3, the browser window motif's own small consistent corner radius. That gives a soft but small radius, not a pill and not a sharp industrial corner. The base token `--radius: 0.625rem` (10px) is correct and stays.
 
 | Element | Radius | Note |
 |---|---|---|
 | Card, panel, table container | 12px (`rounded-xl`) | |
 | Button, input, select | 10px (base) | |
 | Stat tile, pill, badge | 8px | |
-| Image frame in a figure | 12px | Matches the card, because the image is a photograph of a card. |
+| Image frame in a figure | 12px | Matches the card, keeping the image frame visually part of the same system as the card it sits beside. |
 | Anything | 4px | **Retired.** The guide shell's 4px corners are the visible seam between the two parallel systems. |
 
 Uniform rounding applied without thought is an AI tell, so the variation above is the decision: containers are softer than controls, controls are softer than tiles, and the reason is the physical prop.
@@ -271,8 +251,8 @@ Honest audit of what is on the site today, not of what this document proposes.
 
 | Generic pattern risk | Present now? | Evidence | Design response | Verdict |
 |---|---|---|---|---|
-| Warm-neutral palette (cream ground, serif display, terracotta accent) | No | No serif face loads anywhere in `src/`. No cream or terracotta in any CSS token. The cream in the brand lives inside photographed paper, not in the interface. | None needed. Keep cream confined to the image layer. | **Pass** |
-| Near-black ground with one lone restrained accent | Partly | `globals.css:87` sets `#050507`; `--color-brand` is the workhorse across nav, CTAs, links, focus and charts. | It is not a lone accent: gold carries measured highlights, green carries success, and both blue and gold derive from the hero paper and lamp rather than being chosen for contrast. Condition: gold must keep a real job. The moment gold becomes decoration this becomes a fail. | **Pass, conditional** |
+| Warm-neutral palette (cream ground, serif display, terracotta accent) | No | No serif face loads anywhere in `src/`. No cream or terracotta in any CSS token or in the approved image style, which uses a dark charcoal ground per section 7. | None needed. | **Pass** |
+| Near-black ground with one lone restrained accent | Partly | `globals.css:87` sets `#050507`; `--color-brand` is the workhorse across nav, CTAs, links, focus and charts. | It is not a lone accent: gold carries measured highlights, green carries success, and both blue and gold derive from the fixed subject/result rule in section 7.2 rather than being chosen for contrast. Condition: gold must keep a real job. The moment gold becomes decoration this becomes a fail. | **Pass, conditional** |
 | Mono eyebrow labels | No | Eyebrows use the heading and body faces (`hero.tsx:119`, `seo-companies-guide.module.css:17`). Monospace appears only in eighteen `/tools` components, where it marks machine output. | Ban written into 3.2 so it cannot drift in. | **Pass** |
 | Hairline cards | Yes | `border-white/[0.06]` to `border-white/[0.09]` with `bg-white/[0.02]` to `bg-white/[0.06]`, repeated across roughly twenty files including `hero.tsx:122` and `globals.css:206`. | Two problems in one line. It is the AI house style, and at 1.16:1 to 1.20:1 it is also a WCAG 1.4.11 failure on form fields. Fix per 2.5: real boundary contrast on controls, and per 4.2, fewer cards overall so the surviving ones are identified by content rather than by a barely-visible edge. | **Fail** |
 | 01/02/03 spec strips | No | Grep across `src/**/*.tsx` returns no decorative numbered-step markup. | None needed. Numbered sequences remain permitted only where the content is genuinely ordered. | **Pass** |
@@ -290,103 +270,45 @@ Summary: four clear failures and two partial failures. In priority order: the gr
 
 ## 7. Image style rules
 
-This section is the specification Phase 4 converts into generation prompts. It is written to be followed literally. Every value was measured from the six approved files, not estimated.
+Locked after Sunny's review of H08, H11 and H12 (2026-09-19): "loving this style". Two earlier directions were rejected the same day and are not permitted to resurface. Approved frames and their exact prompts live in `docs/design/approved-v3/`; the 27 live heroes are `public/images/blog/hero-*.webp`; the full concept list is `docs/design/08-concepts.md`.
 
-### 7.1 Medium
+### 7.1 The rule
 
-Cut and layered paper. Matte, uncoated card stock with visible short fibre and a slight tooth. Pieces are cut cleanly and stacked in two to four physical layers so each layer casts a real shadow onto the one beneath. Corners are punch-rounded, not sharp and not fully pill.
+One familiar object a non-expert already recognises, plus one clear cause and effect, readable in one second. No random tiles, no leader lines, no callout circles, no decoration that carries no meaning. If a concept needs a caption to work, it is wrong.
 
-The recurring object is **the cut-paper browser card**, defined once here so it stays consistent: a portrait or landscape rounded rectangle of cream or grey stock, a raised top strip cut from warm grey card (the browser's title bar, always paper, never metal or gloss) holding a slotted address bar and two or three punched dots, and a recessed content panel inset from the edges. This object appears in five of the six approved images and is the brand's ownable prop. New images use it unless the topic genuinely calls for something else.
+### 7.2 Palette inside images
 
-Not: origami, quilling, crumpled paper, torn newsprint collage, glossy card, foil, or a 3D render imitating paper.
+Ground: dark charcoal `#141418` to `#1E1E24`, sitting on the page's `#050507`. Greys `#8E8E96` to `#B4B4BC` for everything that is not the subject or the result. Brand blue `#5B8AEF` on exactly the subject, the same hex as the interface token, never a separate paper or image blue. Gold `#D79F1E` on exactly the result or the win, one gold element per image. Browser window dots are always grey.
 
-### 7.2 Materials and colours
+### 7.3 Composition
 
-Only these, measured from the approved set.
+Never more than three object groups. At least half the frame empty. Upper third quiet, so the image survives being overlaid or cropped. Isometric or straight-on, whichever reads faster. The focal element sits inside the middle 80 percent of the frame vertically: `ContentPage` crops the 16:9 master to 2:1 for the article template, and a focal element near the top or bottom edge gets cut off.
 
-| Material | Hex | Where it appears |
-|---|---|---|
-| Cream card stock | `#EDE1D7`, range `#E8DCD0` to `#F3E7DD` | The default browser card, the lit page, most foreground objects. |
-| Aged cream | `#D6C3AC` | Only when age is the actual subject, as in `hero-aged-domains.webp`. May carry foxing and light speckling. |
-| Warm grey card | `#A59C9A` | Secondary cards, plinths, the mid-distance population. |
-| Mid grey card | `#999596`, range `#8F8B8C` to `#A0999B` | Recessed content panels, the unlit majority in a population shot. |
-| Navy paper | `#2E3D60` nominal, `#3F4A68` lit, `#1A2340` in shadow | Exactly one element per image: the address bar, the cursor, the arrow, the flag, the badge, the tear underlayer. |
-| Warm glow | `#FDE7C8` core, falling to `#F3DBC7` | The light emitted by the one lit page, and the warm spill it throws on neighbouring surfaces. |
+### 7.4 Object vocabulary
 
-One warm glow per image. One navy element per image, or one navy element repeated as a group, defined as repetitions of one identical semantic object in one contiguous composition, such as a row of arrows; mixed navy objects within the same image are prohibited. No other colours. No brand blue `#5B8AEF`. Use only subdued navy paper in the approved range `#1A2340` to `#3F4A68`; reject vivid, emitted or periwinkle blue.
+Browser window, chat bubble, search bar and answer card, balance scale, podium, calendar page, price tag, folder, pillars, steps, shield, coins, bar chart, line chart. When a real interface exists that people already recognise, draw that, not a symbol standing in for it.
 
-### 7.3 Lighting
+### 7.5 Sizes
 
-Soft studio lighting. A single warm key from upper left, roughly 3000K to 3500K, at about 40 degrees, through a large diffuser so shadow edges are soft and gradual. A weak cool fill from the right at roughly one quarter key strength, just enough to keep shadow detail. No rim light, no hard shadow edges, no lens flare, no coloured gels.
+Master 2400 x 1350, WebP, quality 82, under 250KB. Open Graph uses the same master file; there is no separate OG render.
 
-A practical light sits behind the one focal group, whether a single card or a warm-lit cluster sharing one light source, so it appears to glow from within at `#FDE7C8`, and that glow spills warmly onto the cards immediately beside it. This practical is the emotional element in the whole system, so it is never doubled and never tinted.
+### 7.6 Banned
 
-### 7.4 Camera
+Text, numerals, labels or watermarks; people, hands, faces, logos; neon, glow, gradients; purple; photoreal or 3D-render look; glossy or metal surfaces; leader lines; callout circles; random tile fields; rockets, lightbulbs, handshakes, magnifying glasses.
 
-Two setups only.
+### 7.7 How to make one
 
-**A. Three-quarter elevated.** Camera roughly 30 to 40 degrees above the plane, looking along a receding row or field. Target framing: approximately 45 to 55 degree horizontal field of view, moderate compression, focal group sharp, background softly defocused. This is `hero-managing-44-websites.webp`, `hero-how-long-does-seo-take.webp` and `hero-ai-search-traffic.webp`.
+Write the one-line concept first: what a layperson thinks in one second. Copy `docs/design/approved-v3/H12d-answer-box.json` and change only the scene. Pass two approved frames as references. Review the frame in place on the page before approving, not a contact sheet alone. One regen max; if it still needs a caption, the concept is wrong, not the render.
 
-**B. Straight-on macro.** Camera level or a few degrees above, close to a single object, so the layering and the paper fibre are legible. Near-parallel to the subject face with a slight rotation so the stack depth is readable. Target framing: approximately 30 to 40 degree field of view, close, layering and fibre legible. This is `hero-negative-seo-case-study.webp` and `hero-aged-domains.webp`.
+### 7.8 Three worked examples
 
-No top-down flat lay, no extreme wide angle, no tilted horizon.
+Taken verbatim from `08-concepts.md`.
 
-### 7.5 Background
+**H08, how-to-calculate-seo-roi.** A balance scale: a small grey coin stack on the left pan (cost), a tall gold coin stack on the right pan (return), tipped right; blue beam. Return outweighs cost.
 
-Dark charcoal seamless, in the range `#1A1A1E` to `#2D2D31`, falling darker toward the top of the frame. Measured across all six approved files the dominant background tones are `#151517`, `#1F1F23`, `#262626`, `#2D2D31` and `#202025`, which confirms the range.
+**H11, seo-consultant-vs-seo-agency.** Left: one blue browser window with a single gold coin. Right: a tall grey office block with a big pile of grey coins. One person, less cost.
 
-Never pure black. The reason is structural: `#1A1A1E` measures 1.17:1 against the page ground `#050507`, so the image sits on the page as a very slightly raised plane rather than dissolving into it at the edges or looking like a pasted rectangle. That 1.17:1 relationship is the spec. The subject usually rests on a pale grey or cream paper plinth, which also grounds it.
-
-### 7.6 Composition
-
-- **One idea per image.** If the image needs a caption to explain a second idea, it is two images.
-- **The subject is the literal topic of the page.** Not a metaphor for it. A post about aged domains shows an aged card beside a new card. A post about link spam shows a page buried under paper chain links.
-- **One focal group is lit or navy, everything else is neutral.** The focal group may be a single element or a cluster sharing one light source; everything outside it is neutral. The population and exception structure from anchor 1.1.
-- Leave the upper third relatively quiet so the image survives being overlaid or cropped.
-- The focal element sits off centre, roughly on a third, and is never dead centre in a three-quarter shot.
-- Every object must be physically plausible: it must be able to stand, lean or lie the way it appears to.
-
-### 7.7 Sizes
-
-| Use | Ratio | Master size | Format | Budget |
-|---|---|---|---|---|
-| Blog hero | 16:9 | 2400 x 1350 | webp | 250KB |
-| Open Graph | 1.91:1 | 1200 x 630 | webp or png | 150KB |
-| Inline figure | 4:3 | 1600 x 1200 | webp | 180KB |
-
-The six existing heroes are 2752 x 1536 at 161KB to 323KB. They stay as they are. New heroes are generated at 2400 x 1350 to keep the weight budget.
-
-The OG crop is taken from the 16:9 master with the focal element inside the centre 1200 x 600 safe area, so a social card crop never loses the subject. A hero post must have its hero art wired into both `REPORT_HERO_CONFIG` and the post's `ogImage`. Three posts currently have one without the other.
-
-### 7.8 Banned
-
-- Any text, lettering, numerals, labels or watermarks rendered inside the image.
-- People, faces, hands, body parts, silhouettes.
-- Real or invented brand logos, including Google, browser and search-engine marks.
-- Screens showing real or realistic user interface. The browser card is an abstracted paper prop with no readable content.
-- Stock metaphors: handshakes, rockets, lightbulbs, magnifying glasses, jigsaw pieces, ladders, chess pieces, darts and targets, globes, trophies.
-- Robots, with one exception: the small articulated paper figure already established in `hero-ai-search-traffic.webp` may recur when the topic is genuinely AI crawlers or AI search.
-- Neon, glow-edge lighting, bloom, lens flare.
-- Glossy or plastic surfaces, and the smooth glossy 3D render look generally.
-- Purple or blue gradient backgrounds, or any gradient background.
-- Confetti, sparkles, particles, floating geometric shapes.
-- More than one warm light source or more than one navy element group. A navy group is repetitions of one identical semantic object in one contiguous composition; mixed navy objects within a single image are banned.
-
-### 7.9 Three worked examples
-
-Plain scene descriptions for a prompt writer to convert. Each names the medium, the objects, the one lit element, the one navy element, the camera and the background.
-
-**A. Data or statistics post.** Subject: click-through rate falls sharply with search position, measured across the portfolio.
-
-A run of ten cut-paper browser cards stands upright in a single receding line on a pale grey paper plinth, each card visibly shorter than the one before it so the row steps down from left to right. The first three cards form a single warm-lit cluster, one focal group lit by a single light source behind them so they glow together from within as cream stock, and the remaining seven are flat mid-grey and unlit. Lying flat on the plinth beneath the row, running its whole length, is a single narrow navy paper arrow pointing away down the line. Camera is elevated about 35 degrees, looking along the row from the tall end, with the far cards falling gently out of focus. Soft warm key from upper left, weak cool fill from the right. Dark charcoal seamless behind, darker at the top.
-
-**B. How-to post.** Subject: adding schema markup to a page.
-
-A single cream paper browser card lies flat on a warm grey paper surface, and a clean rectangular window has been cut out of its content panel. A second sheet of navy paper is being slotted into that opening from below, its near corner still lifted a few millimetres clear so the layer separation and the paper thickness are both visible. A warm light from beneath the card spills up through the cut opening and catches the lifted corner. Camera is straight on, a few degrees above the card, close enough that the paper fibre reads. Everything outside the immediate area is neutral warm grey. Dark charcoal seamless behind.
-
-**C. Case study post.** Subject: a site hit by a spam backlink attack, and what recovery looked like.
-
-Two cream paper browser cards stand side by side on a pale grey plinth. The right card is intact, upright, larger in the frame, and glows warmly from within as the single dominant focal element. The left card is torn raggedly across its content panel, with dark navy paper visible through the tear, leans slightly backward, and is smaller in scale and lower in luminance so it reads as clearly subordinate. Behind and between them, a short run of four neutral mid-grey cards recedes and falls out of focus. Camera is elevated about 30 degrees and offset toward the right so the lit card reads first as the dominant element and the torn card reads second. Soft warm key from upper left throwing long soft shadows to the right. Dark charcoal seamless behind.
+**H12, optimise-content-for-ai-search.** A search bar, an AI answer card with three text bars, your blue page pinned under it as the source with a gold star.
 
 ---
 
@@ -394,7 +316,7 @@ Two cream paper browser cards stand side by side on a pale grey plinth. The righ
 
 Recommended, and scoped tightly.
 
-Replace the five animated gradient pills behind the homepage hero with one still papercraft image: the 44-site diorama already generated at `public/images/blog/hero-managing-44-websites.webp`, placed in the right-hand column beside the lead-capture form on viewports 1280px and wider, with a minimum form-column width held in the grid, and single column below 1280px.
+Replace the five animated gradient pills behind the homepage hero with one still hero image: the 44-site scene already generated at `public/images/blog/hero-managing-44-websites.webp`, placed in the right-hand column beside the lead-capture form on viewports 1280px and wider, with a minimum form-column width held in the grid, and single column below 1280px.
 
 Why I am confident. It is the only asset that literally shows the thing the whole pitch rests on, a field of forty-four sites with a handful picked out, so it is subject-derived by definition. It deletes the site's largest AI tell in the place that matters most. It replaces perpetual decorative motion with a still object, which is what a practitioner site should do. It costs nothing to make.
 
@@ -408,7 +330,7 @@ Scored against `build-scorecard.md` from what the Phase 1 discovery and this ses
 
 | Category | Score | Evidence |
 |---|---|---|
-| Brand distinctiveness | 6 | The papercraft hero system is genuinely ownable and the palette is coherent, but three AI tells are live (gradient blobs across roughly twenty files, a six-icon service wall, hairline cards) and two parallel visual systems run side by side, the global tokens and the guide module with its own link blue and 4px radius. Capped at 8 regardless, no rendered inspection. |
+| Brand distinctiveness | 6 | The hero image system is genuinely ownable and the palette is coherent, but three AI tells are live (gradient blobs across roughly twenty files, a six-icon service wall, hairline cards) and two parallel visual systems run side by side, the global tokens and the guide module with its own link blue and 4px radius. Capped at 8 regardless, no rendered inspection. |
 | Visual hierarchy | 6 | No shared type scale exists. Shipped H2s are 18 to 20px against body at 16 to 17px, so section hierarchy reads flat, and the two H1 variants disagree on size, weight and tracking. Capped at 8, no rendered inspection. |
 | UX and conversion | 7 | Strong foundations: a working lead form with a real success state, a visible phone number, analytics attributes on every CTA, and a skip link. Against that, the brief states conversion is near zero, the primary CTA repeats mechanically rather than at decision points, and the in-prose CTA spins forever. Capped at 8, no rendered inspection. |
 | Trust and credibility | 5 | The hero proof tile claims 45 sites while the voice guide, blog titles and portfolio route all say 44. The rubric caps trust at 5 for an ambiguous or unsupported count. Everything else here is sound: real linked numbers, no fabricated logos or testimonials, honest framing. Fix the count and this moves to 8. |

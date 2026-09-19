@@ -44,3 +44,4 @@
 | H24 | 3 | fix6/H24 | hero-google-update-impact.webp | see file | pass | Fable regen, dark ground enforced |
 | H25 | 3 | fix6/H25 | hero-ai-search-traffic.webp | see file | pass | Fable regen, three arrows to one tile |
 | H26 | 3 | fix6/H26 | hero-negative-seo-case-study.webp | see file | pass | Fable regen, slab barrier, no shield |
+| H26 | 4 | fix6/H26a | hero-negative-seo-case-study.webp | see file | pass | Sunny: v3 messy and rushed; replaced tangle with a tidy fan of parallel arrows stopped by the slab |

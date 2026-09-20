@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="SEO resourcing decision matrix — which model fits which business stage">
-  <rect width="800" height="450" fill="#0a0a0f"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="SEO resourcing decision matrix — which model fits which business stage"><defs><linearGradient id="brandFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#5B8AEF"/><stop offset="100%" stop-color="#D79F1E"/></linearGradient><filter id="brandFrameGlow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <rect width="800" height="450" fill="#050507"/>
 
   <!-- Title -->
   <text x="400" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">SEO Resourcing Decision Matrix</text>

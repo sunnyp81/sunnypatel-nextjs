@@ -35,7 +35,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-foreground"
+          className="flex items-center gap-2.5 text-xl font-[450] tracking-tight text-foreground"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           <svg width="38" height="38" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="flex-shrink-0">

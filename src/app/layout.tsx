@@ -16,7 +16,6 @@ import { ExitIntent } from "@/components/exit-intent";
 const geist = Geist({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 const hankenGrotesk = Hanken_Grotesk({

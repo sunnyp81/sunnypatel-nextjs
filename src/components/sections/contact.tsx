@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Star, Loader2 } from "lucide-react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { FormField, FormSelect, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
@@ -33,6 +33,12 @@ const contactItems = [
     label: "Location",
     value: "Berkshire, UK (Remote & In-Person)",
     href: null,
+  },
+  {
+    icon: <Star className="h-5 w-5 text-brand" />,
+    label: "Reviews",
+    value: "Google Business Profile",
+    href: "https://share.google/DzDCSIfR2eTOxHTcm",
   },
 ];
 
@@ -99,7 +105,18 @@ export function Contact() {
                 return (
                   <div key={item.label}>
                     {i > 0 && <div className="border-t border-white/[0.06]" />}
-                    {item.href ? <a href={item.href}>{inner}</a> : inner}
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        {...(item.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      inner
+                    )}
                   </div>
                 );
               })}

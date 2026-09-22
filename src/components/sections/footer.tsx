@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Phone } from "lucide-react";
+import { Linkedin, Mail, Phone, Star } from "lucide-react";
 
 const links = [
   { href: "/services/", label: "Services" },
@@ -70,6 +70,15 @@ export function Footer() {
               >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
+              </a>
+              <a
+                href="https://share.google/DzDCSIfR2eTOxHTcm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
+              >
+                <Star className="h-4 w-4" />
+                Google Reviews
               </a>
             </div>
           </div>

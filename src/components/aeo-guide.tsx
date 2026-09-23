@@ -38,7 +38,7 @@ export function AeoGuide({ title, image, faqs, children }: {
           </figure>
         </div>
         <div className={styles.byline}><Link href="/author/sunny-patel/">By Sunny Patel, SEO consultant</Link><span>Published <time dateTime="2026-06-09">9 June 2026</time></span><span>Content and sources updated <time dateTime={aeoReviewed}>12 September 2026</time></span></div>
-        <p className={styles.disclosure}><strong>How to use this guide:</strong> compare {aeoProviders.length} providers, including my clearly labelled consultancy and {aeoProviders.length - 1} external options. The list is alphabetical. These are editorial fit assessments, not independently tested rankings. <a href="#methodology">Read the research method and disclosures.</a></p>
+        <p className={styles.disclosure}><strong>How to use this guide:</strong> compare {aeoProviders.length} providers, including my clearly labelled consultancy and {aeoProviders.length - 1} external options. The order is editorial, not a ranking. These are editorial fit assessments, not independently tested rankings. <a href="#methodology">Read the research method and disclosures.</a></p>
       </header>
       <div className={styles.layout}>
         <aside className={styles.contents}><nav aria-label="On this page"><p>On this page</p><ol>{navigation.map(([id, label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ol></nav></aside>

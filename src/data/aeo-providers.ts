@@ -11,7 +11,7 @@ type AeoNeed = (typeof aeoNeeds)[number]["id"];
 type AeoProvider = {
   id: string; name: string; url: string; needs: AeoNeed[]; fit: string;
   summary: string; evidence: string; question: string; scope: string; price: string;
-  sources: { label: string; url: string }[]; checked: string; owned?: boolean; disclosure?: string;
+  sources: { label: string; url: string }[]; checked: string; owned?: boolean; sponsored?: boolean; disclosure?: string;
 };
 
 // Alphabetical editorial shortlist. Scope and provider-reported evidence are distinct.
@@ -25,6 +25,17 @@ export const aeoProviders: AeoProvider[] = [
     scope: "This profile covers off-site GEO and PR. Confirm who owns technical work and AI measurement.",
     price: "Aira publishes digital PR starting generally from £3,000 per month. This is a PR starting price, not a complete AEO programme quote. Confirm scope and VAT.",
     sources: [{ label: "Digital PR scope and pricing", url: "https://aira.net/digital-pr/" }, { label: "Personal-loans PR case", url: "https://aira.net/case-studies/digital-pr-for-personal-loans/" }], checked: aeoReviewed,
+  },
+  {
+    id: "bubblegum-search", name: "Bubblegum Search", url: "https://www.bubblegumsearch.com/", needs: ["authority", "integrated"], sponsored: true,
+    fit: "Managed brand-mention outreach alongside organic search",
+    summary: "Bubblegum Search is an organic search agency offering AI SEO, digital PR and AI visibility work. Its approach combines technical SEO, content, authority building and targeted brand-mention outreach, with its own SourceSignal.ai platform used to track AI answers and the third-party sources behind them.",
+    evidence: "Its AI SEO page advertises managed outreach with guaranteed monthly brand mentions. SourceSignal.ai, run by Bubblegum Search Limited, was in invite-only onboarding when checked and labels its dashboard examples as illustrative rather than live data. No AI-citation case study was reviewed for this profile.",
+    question: "What exactly does the monthly mention guarantee count, and how will you show those mentions changed AI answers for our buying questions?",
+    scope: "Confirm the split between on-site SEO and third-party outreach, SourceSignal.ai reporting access, competitor benchmarking and who implements site changes.",
+    price: "AI SEO packages are advertised from £450 + VAT per month. Confirm what that tier includes, the minimum term and any separate retainer costs.",
+    disclosure: "Bubblegum Search paid for inclusion in this guide. The profile was written from its supplied copy and checked against its public pages; payment did not buy a ranking position.",
+    sources: [{ label: "AI SEO at Bubblegum Search", url: "https://www.bubblegumsearch.com/ai-seo-agency/" }], checked: "2026-09-23",
   },
   {
     id: "distinctly", name: "Distinctly", url: "https://distinctly.co/", needs: ["technical", "authority", "integrated"],

@@ -38,7 +38,7 @@ export function AeoGuide({ title, image, faqs, children }: {
           </figure>
         </div>
         <div className={styles.byline}><Link href="/author/sunny-patel/">By Sunny Patel, SEO consultant</Link><span>Published <time dateTime="2026-06-09">9 June 2026</time></span><span>Content and sources updated <time dateTime={aeoReviewed}>12 September 2026</time></span></div>
-        <p className={styles.disclosure}><strong>How to use this guide:</strong> compare {aeoProviders.length} providers, including my clearly labelled consultancy and {aeoProviders.length - 1} external options. The list is alphabetical. These are editorial fit assessments, not independently tested rankings. <a href="#methodology">Read the research method and disclosures.</a></p>
+        <p className={styles.disclosure}><strong>How to use this guide:</strong> compare {aeoProviders.length} providers, including my clearly labelled consultancy and {aeoProviders.length - 1} external options. The list is alphabetical; one paid inclusion is labelled. These are editorial fit assessments, not independently tested rankings. <a href="#methodology">Read the research method and disclosures.</a></p>
       </header>
       <div className={styles.layout}>
         <aside className={styles.contents}><nav aria-label="On this page"><p>On this page</p><ol>{navigation.map(([id, label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ol></nav></aside>
@@ -55,13 +55,13 @@ export function AeoGuide({ title, image, faqs, children }: {
             <h2 id="profiles-title">What does each AEO provider offer?</h2>
             <p>These profiles distinguish service promises from public case studies. Provider-reported results have different samples, periods and definitions; they are not a like-for-like performance ranking.</p>
             <div className={styles.profiles}>{aeoProviders.map(provider => <article id={provider.id} key={provider.id} className={`${styles.profile}${provider.owned ? ` ${styles.owned}` : ""}`}>
-              <div>{provider.owned && <p className={styles.eyebrow}>The author&apos;s own consultancy</p>}<h3>{provider.name}</h3><p className={styles.fit}>{provider.fit}</p><p className={styles.checked}>Sources checked<br /><time dateTime={provider.checked}>12 September 2026</time></p></div>
+              <div>{provider.owned && <p className={styles.eyebrow}>The author&apos;s own consultancy</p>}{provider.sponsored && <p className={styles.eyebrow}>Paid inclusion</p>}<h3>{provider.name}</h3><p className={styles.fit}>{provider.fit}</p><p className={styles.checked}>Sources checked<br /><time dateTime={provider.checked}>{new Date(provider.checked).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></p></div>
               <div><p>{provider.summary}</p><p className={aeo.price}><strong>Pricing:</strong> {provider.price}</p>
                 <details><summary>Evidence, scope and what to ask</summary><div className={styles.profileDetail}>
                   <p><strong>Published evidence:</strong> {provider.evidence}</p><p><strong>Ask before hiring:</strong> {provider.question}</p><p><strong>Scope to confirm:</strong> {provider.scope}</p>
-                  <ul className={styles.sourceLinks}>{provider.sources.map(source => <li key={source.url}><a href={source.url}>{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul>
+                  <ul className={styles.sourceLinks}>{provider.sources.map(source => <li key={source.url}><a href={source.url} rel={provider.sponsored ? "sponsored noopener" : undefined}>{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul>
                 </div></details>
-                {provider.disclosure && <p className={styles.relationship}><strong>Connection disclosed:</strong> {provider.disclosure}</p>}
+                {provider.disclosure && <p className={styles.relationship}><strong>{provider.sponsored ? "Paid inclusion:" : "Connection disclosed:"}</strong> {provider.disclosure}</p>}
                 {provider.owned && <><Link className={styles.primary} href="/ai-visibility/" data-cta-location="aeo_agencies_guide" data-cta-offer="ai_visibility_audit">See my AI visibility audit</Link><p className={styles.small}>£1,500 fixed fee. Review the scope and enquire about your market before booking.</p></>}
               </div>
             </article>)}</div>

@@ -5,7 +5,7 @@ export function bestAeoAgenciesSchemas(): Record<string, unknown>[] {
     "@type": "ItemList",
     "@id": "https://sunnypatel.co.uk/blog/best-aeo-agencies/#agency-list",
     name: "UK AEO agency and consultant shortlist",
-    description: "Eight providers listed alphabetically, including Sunny Patel, the guide author's consultancy, and seven external options. Not an independently tested ranking.",
+    description: "Nine providers listed alphabetically, including Sunny Patel, the guide author's consultancy, and eight external options, one of which paid for inclusion. Not an independently tested ranking.",
     itemListOrder: "https://schema.org/ItemListUnordered",
     numberOfItems: aeoProviders.length,
     itemListElement: aeoProviders.map((provider, index) => ({

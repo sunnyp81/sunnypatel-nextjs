@@ -560,6 +560,7 @@ export function organizationSchema() {
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       "https://maps.google.com/?cid=2292818604572155987",
+      "https://theorg.com/org/sunnypatel-co-uk",
       `${SITE_URL}/#localbusiness`,
     ],
     knowsAbout: Object.entries(TOPICS).map(([key, t]) => ({
@@ -622,6 +623,7 @@ export function localBusinessSchema() {
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       "https://maps.google.com/?cid=2292818604572155987",
+      "https://theorg.com/org/sunnypatel-co-uk",
       `${SITE_URL}/#organization`,
     ],
     areaServed: [

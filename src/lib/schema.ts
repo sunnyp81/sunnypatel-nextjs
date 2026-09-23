@@ -410,7 +410,6 @@ export function personSchema() {
     url: SITE_URL,
     sameAs: [
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
-      SITE_URL,
       "https://clutch.co/profile/sunny-patel",
       "https://maps.google.com/?cid=2292818604572155987",
       // Add these when live:
@@ -561,7 +560,7 @@ export function organizationSchema() {
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       "https://maps.google.com/?cid=2292818604572155987",
       "https://theorg.com/org/sunnypatel-co-uk",
-      `${SITE_URL}/#localbusiness`,
+      "https://clutch.co/profile/sunny-patel",
     ],
     knowsAbout: Object.entries(TOPICS).map(([key, t]) => ({
       "@type": "DefinedTerm",
@@ -624,7 +623,7 @@ export function localBusinessSchema() {
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       "https://maps.google.com/?cid=2292818604572155987",
       "https://theorg.com/org/sunnypatel-co-uk",
-      `${SITE_URL}/#organization`,
+      "https://clutch.co/profile/sunny-patel",
     ],
     areaServed: [
       { "@type": "Country", name: "United Kingdom" },

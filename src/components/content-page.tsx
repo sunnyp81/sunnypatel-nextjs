@@ -53,6 +53,8 @@ export function ContentPage({
   dateLine,
   tags,
   heroImage,
+  serviceHeroImage,
+  serviceHeroImageAlt,
   showCta = false,
   showStickyCta = true,
   isService = false,
@@ -77,6 +79,8 @@ export function ContentPage({
   dateLine?: string;
   tags?: string[];
   heroImage?: string;
+  serviceHeroImage?: string;
+  serviceHeroImageAlt?: string;
   showCta?: boolean;
   showStickyCta?: boolean;
   isService?: boolean;
@@ -93,6 +97,105 @@ export function ContentPage({
   sections?: Array<{ content: React.ReactNode; after?: React.ReactNode }>;
   children?: React.ReactNode;
 }) {
+  const headerContent = (
+    <>
+      {breadcrumbItems && breadcrumbItems.length > 0 && (
+        <Breadcrumb items={breadcrumbItems} />
+      )}
+      {!breadcrumbItems && backHref && (
+        <Link
+          href={backHref}
+          className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" />
+          {backLabel}
+        </Link>
+      )}
+
+      {badge && (
+        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+          {badge}
+        </p>
+      )}
+
+      <h1
+        className="text-3xl font-bold text-foreground md:text-5xl"
+        style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
+      >
+        {h1}
+      </h1>
+
+      {subtitle && (
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          {subtitle}
+        </p>
+      )}
+
+      {/* ── Service page: trust badges + header CTA ── */}
+      {isService && (
+        <>
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {(serviceHeaderBadges
+              ? serviceHeaderBadges.map((label, i) => ({
+                  label,
+                  icon: TRUST_BADGES[i % TRUST_BADGES.length].icon,
+                }))
+              : TRUST_BADGES
+            ).map(({ icon: Icon, label }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
+              >
+                <Icon className="h-3 w-3 shrink-0" />
+                {label}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-7 flex flex-wrap items-center gap-4">
+            <GradientButton asChild>
+              <Link href={serviceHeaderCtaHref} className="gap-2" data-cta-location="service_header" data-cta-offer={serviceHeaderCtaOffer}>
+                {serviceHeaderCtaLabel}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </GradientButton>
+            <span className="text-sm text-muted-foreground">
+              {serviceHeaderCtaMeta}
+            </span>
+          </div>
+        </>
+      )}
+
+      {(dateLine || (tags && tags.length > 0)) && (
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          {dateLine && (
+            <span className="text-sm text-muted-foreground">{dateLine}</span>
+          )}
+          {dateLine && tags && tags.length > 0 && (
+            <span className="text-muted-foreground">|</span>
+          )}
+          {tags?.map((tag) => (
+            <Link
+              key={tag}
+              href={`/blog/tag/${slugifyTag(tag)}`}
+              className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-brand/20 hover:text-brand"
+            >
+              {tag}
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {isBlog && (
+        <div className="mt-4">
+          <HumanEditedBadge />
+        </div>
+      )}
+
+      {isBlog && <AuthorByline />}
+    </>
+  );
+
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
@@ -119,101 +222,23 @@ export function ContentPage({
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-3xl px-6">
-          {breadcrumbItems && breadcrumbItems.length > 0 && (
-            <Breadcrumb items={breadcrumbItems} />
-          )}
-          {!breadcrumbItems && backHref && (
-            <Link
-              href={backHref}
-              className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
-            >
-              <ArrowLeft className="h-3.5 w-3.5" />
-              {backLabel}
-            </Link>
-          )}
-
-          {badge && (
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
-              {badge}
-            </p>
-          )}
-
-          <h1
-            className="text-3xl font-bold text-foreground md:text-5xl"
-            style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
-          >
-            {h1}
-          </h1>
-
-          {subtitle && (
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              {subtitle}
-            </p>
-          )}
-
-          {/* ── Service page: trust badges + header CTA ── */}
-          {isService && (
-            <>
-              <div className="mt-6 flex flex-wrap gap-2.5">
-                {(serviceHeaderBadges
-                  ? serviceHeaderBadges.map((label, i) => ({
-                      label,
-                      icon: TRUST_BADGES[i % TRUST_BADGES.length].icon,
-                    }))
-                  : TRUST_BADGES
-                ).map(({ icon: Icon, label }) => (
-                  <span
-                    key={label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
-                  >
-                    <Icon className="h-3 w-3 shrink-0" />
-                    {label}
-                  </span>
-                ))}
+        <div className={`relative z-10 mx-auto ${isService && serviceHeroImage ? "max-w-6xl" : "max-w-3xl"} px-6`}>
+          {isService && serviceHeroImage ? (
+            <div className="grid gap-8 md:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] md:items-center md:gap-10">
+              <div>{headerContent}</div>
+              <div>
+                <Image
+                  src={serviceHeroImage}
+                  alt={serviceHeroImageAlt || h1}
+                  width={800}
+                  height={450}
+                  className="h-auto w-full rounded-2xl"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                />
               </div>
-
-              <div className="mt-7 flex flex-wrap items-center gap-4">
-                <GradientButton asChild>
-                  <Link href={serviceHeaderCtaHref} className="gap-2" data-cta-location="service_header" data-cta-offer={serviceHeaderCtaOffer}>
-                    {serviceHeaderCtaLabel}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </GradientButton>
-                <span className="text-sm text-muted-foreground">
-                  {serviceHeaderCtaMeta}
-                </span>
-              </div>
-            </>
-          )}
-
-          {(dateLine || (tags && tags.length > 0)) && (
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-              {dateLine && (
-                <span className="text-sm text-muted-foreground">{dateLine}</span>
-              )}
-              {dateLine && tags && tags.length > 0 && (
-                <span className="text-muted-foreground">|</span>
-              )}
-              {tags?.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${slugifyTag(tag)}`}
-                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-brand/20 hover:text-brand"
-                >
-                  {tag}
-                </Link>
-              ))}
             </div>
-          )}
-
-          {isBlog && (
-            <div className="mt-4">
-              <HumanEditedBadge />
-            </div>
-          )}
-
-          {isBlog && <AuthorByline />}
+          ) : headerContent}
         </div>
 
         {/* Separator */}

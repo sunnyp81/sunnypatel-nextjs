@@ -1100,6 +1100,8 @@ export default async function ServicePage({
       <ContentPage
         h1={service.h1 || service.title}
         subtitle={service.subtitle}
+        serviceHeroImage={service.heroImage || undefined}
+        serviceHeroImageAlt={service.heroImageAlt || service.h1 || service.title}
         badge="Services"
         backHref="/services"
         backLabel="All Services"

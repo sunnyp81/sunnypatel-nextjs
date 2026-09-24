@@ -128,6 +128,8 @@ export default config({
         ogImage: fields.text({ label: "OG Image URL" }),
         h1: fields.text({ label: "Page Heading (H1)" }),
         subtitle: fields.text({ label: "Subtitle", multiline: true }),
+        heroImage: fields.text({ label: "Hero Image Path", description: "e.g. /images/services/seo-consulting.webp" }),
+        heroImageAlt: fields.text({ label: "Hero Image Alt Text" }),
         icon: fields.text({ label: "Icon Name (lucide-react)" }),
         featured: fields.checkbox({ label: "Show on Homepage", defaultValue: false }),
         sortOrder: fields.integer({ label: "Sort Order", defaultValue: 0 }),

@@ -58,8 +58,8 @@ export function Hero() {
   }
 
   return (
-    <HeroGeometric badge="SEO Consultant, Reading & UK-Wide" title1="SEO Run By the Person" title2="Doing the Actual Work">
-      <p className="mx-auto mb-8 max-w-xl px-4 text-base font-normal leading-relaxed tracking-wide text-white/75 sm:text-lg md:text-xl">
+    <HeroGeometric badge="SEO Consultant, Reading & UK-Wide" title1="SEO Run By the Person" title2="Doing the Actual Work" heroImage={{ src: "/images/services/home-hero.webp", alt: "SEO growth illustration" }}>
+      <p className="mx-auto mb-8 max-w-xl px-4 text-base font-normal leading-relaxed tracking-wide text-white/75 sm:text-lg md:text-xl lg:mx-0 lg:px-0">
         No account managers, no juniors. An independent{" "}
         <Link href="/services/seo-consultant-reading/" className="text-white underline decoration-white/40 underline-offset-2 transition-colors hover:text-brand">
           SEO consultant
@@ -67,7 +67,7 @@ export function Hero() {
         with 15+ years getting UK businesses ranked on Google and cited in AI search.
       </p>
 
-      <GlowCard className="mx-auto w-full max-w-2xl border-white/[0.08] bg-black/20 p-1.5 text-left backdrop-blur-sm" spread={55} proximity={90}>
+      <GlowCard className="mx-auto w-full max-w-2xl border-white/[0.08] bg-black/20 p-1.5 text-left backdrop-blur-sm lg:mx-0" spread={55} proximity={90}>
         <div className="relative overflow-hidden rounded-[1rem] border border-white/[0.06] bg-[#07070b]/95 p-4 shadow-[0_20px_70px_rgba(0,0,0,0.35)] sm:p-5">
           <div className="pointer-events-none absolute inset-x-16 -top-16 h-28 rounded-full bg-brand/15 blur-3xl" aria-hidden="true" />
 
@@ -108,7 +108,7 @@ export function Hero() {
                 </GradientButton>
               </div>
               <div className="mt-3"><FormError message={errorMsg} compact /></div>
-              <p className="mt-3 text-center text-xs text-white/65">
+              <p className="mt-3 text-center text-xs text-white/65 lg:text-left">
                 Prefer to talk? Call Sunny on{" "}<a href="tel:07305523333" className="font-semibold text-white underline decoration-white/40 underline-offset-4 transition-colors hover:text-brand">07305 523333</a>
               </p>
             </form>
@@ -117,9 +117,9 @@ export function Hero() {
       </GlowCard>
 
       <p className="mt-9 text-xs font-semibold uppercase tracking-[0.18em] text-white/65">Evidence, not promises</p>
-      <div className="mx-auto mt-4 grid max-w-2xl gap-3 sm:grid-cols-3">
+      <div className="mx-auto mt-4 grid max-w-2xl gap-3 sm:grid-cols-3 lg:mx-0">
         {PROOF.map((stat) => (
-          <Link key={stat.label} href={stat.href} className="group relative rounded-xl border border-white/[0.09] bg-white/[0.035] px-4 py-4 text-center transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-white/[0.18] hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
+          <Link key={stat.label} href={stat.href} className="group relative rounded-xl border border-white/[0.09] bg-white/[0.035] px-4 py-4 text-center lg:text-left transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-white/[0.18] hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-16 rounded-full opacity-15 blur-2xl transition-opacity duration-300 group-hover:opacity-35" style={{ background: stat.color }} aria-hidden="true" />
             <div className="relative whitespace-nowrap text-xl font-bold md:text-2xl" style={{ fontFamily: "var(--font-heading)", color: stat.color }}>{stat.value}</div>
             <div className="mt-1 text-xs leading-snug text-white/75 transition-colors duration-300 group-hover:text-white">{stat.label}</div>

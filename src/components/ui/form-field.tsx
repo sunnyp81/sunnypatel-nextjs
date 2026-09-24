@@ -2,7 +2,7 @@ import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 // Shared field styling, previously copy-pasted across all three lead forms.
 const FIELD_CLASS =
-  "w-full min-h-11 rounded-xl border border-white/[0.08] bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-[border-color,box-shadow,opacity] duration-300 focus:border-brand/50 focus:shadow-[0_0_20px_rgba(91,138,239,0.12)] focus:outline-none focus:ring-2 focus:ring-brand/25 disabled:opacity-50";
+  "w-full min-h-11 rounded-xl border border-input bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-[border-color,box-shadow,opacity] duration-300 focus:border-brand/50 focus:shadow-[0_0_20px_rgba(91,138,239,0.12)] focus:outline-none focus:ring-2 focus:ring-brand/25 disabled:opacity-50";
 
 export function FormField({
   id,

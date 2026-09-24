@@ -190,7 +190,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
   },
   turbopack: {
-    root: __dirname,
+    root: require("path").resolve(__dirname, ".."),
   },
   images: {
     dangerouslyAllowSVG: true,

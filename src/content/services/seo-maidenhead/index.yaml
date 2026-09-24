@@ -5,6 +5,8 @@ description: >-
 ogImage: ''
 h1: 'SEO Maidenhead | Royal Borough SEO Specialist'
 subtitle: ''
+heroImage: /images/services/seo-maidenhead.webp
+heroImageAlt: 'Neon line illustration: a map pin above the river Thames connected to a rising arrow'
 icon: ''
 featured: false
 sortOrder: 10

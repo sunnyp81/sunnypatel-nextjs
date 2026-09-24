@@ -6,6 +6,8 @@ description: >-
 ogImage: ''
 h1: 'Local SEO Services: Google Maps & Local Pack Rankings'
 subtitle: 'Dominate location-based searches and turn local visibility into enquiries'
+heroImage: /images/services/local-seo.webp
+heroImageAlt: 'Neon line illustration: a shopfront connected to a map pin with a pulse ring'
 icon: ''
 featured: false
 sortOrder: 15

@@ -1,6 +1,7 @@
 import Markdoc, { type Config } from "@markdoc/markdoc";
 import React from "react";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
+import { LocalPackCalculator } from "@/components/glow/local-pack-calculator";
 import {
   GlowChartFigure,
   GlowPanel,
@@ -63,6 +64,13 @@ export const markdocConfig: Config = {
     panels: {
       render: "GlowPanelRow",
     },
+    localpackcalc: {
+      render: "LocalPackCalculator",
+      selfClosing: true,
+      attributes: {
+        variant: { type: String, matches: ["dental"] },
+      },
+    },
   },
 };
 
@@ -79,6 +87,7 @@ export function renderMarkdoc(content: any) {
       GlowChartFigure,
       GlowPanel,
       GlowPanelRow,
+      LocalPackCalculator,
     },
   });
 }

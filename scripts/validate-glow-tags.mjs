@@ -23,6 +23,7 @@ const tags = {
   },
   panel: { attributes: { eyebrow: { type: String }, title: { type: String }, tone: { type: String, matches: ["good", "bad"] } } },
   panels: {},
+  localpackcalc: { selfClosing: true, attributes: { variant: { type: String, matches: ["dental"] } } },
 };
 
 const files = process.argv.slice(2).length

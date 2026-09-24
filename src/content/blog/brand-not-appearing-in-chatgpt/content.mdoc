@@ -8,7 +8,7 @@ Here's what's actually happening, why your brand is invisible to AI tools, and t
 
 ## The shift is real, but it needs context
 
-![AI referral traffic growth vs Google: AI referral traffic to the world's top 1,000 websites grew 357% year on year to June 2025, Google still dominates with 191B referrals](/images/stats/ai-referral-traffic-growth.svg)
+{% chart type="bar" eyebrow="Referral volume, June 2025" title="Referrals to the top 1,000 websites: Google vs all AI platforms combined" data="Google:191|AI platforms combined:1.13" suffix="bn" highlight="Google" source="Similarweb" /%}
 
 AI referral traffic grew 357% year on year to June 2025 (Similarweb). That sounds massive. It is massive in percentage terms. But Google still drove 191 billion referrals in the same month, compared to 1.13 billion from all AI platforms combined.
 
@@ -21,6 +21,12 @@ Total volume isn't the number that should worry you. Here's what happens when AI
 That last point is critical: cited brands had higher average CTR than uncited brands in this sample. If you're cited, you win. If you're not, you lose harder than before.
 
 85% of URLs cited in AI Overviews were published within the last 2 years (Authoritas). Fresh, structured, direct-answer content gets cited. Legacy pages stuffed with marketing copy don't.
+
+{% stats %}
+{% stat value="-61%" label="Organic CTR on queries showing an AI Overview, June 2024 to September 2025" source="Seer Interactive" /%}
+{% stat value="+35%" label="Higher organic CTR for brands cited in an AI Overview vs uncited brands" source="Seer Interactive" /%}
+{% stat value="85%" label="of URLs cited in AI Overviews were published within the last 2 years" source="Authoritas" /%}
+{% /stats %}
 
 ## Why Google rank 1 doesn't mean AI visibility
 
@@ -42,6 +48,10 @@ Google rankings reward backlinks, domain authority, and on-page optimisation. AI
 - Content behind login walls or heavy JavaScript rendering
 
 I've seen sites ranking position 1 for competitive terms that never appear in ChatGPT answers. The reason is almost always the same: their content is written for humans scrolling through a page, not for machines extracting answers.
+
+{% pullquote cite="From this post's ranking vs AI visibility section" %}
+I've seen sites ranking position 1 for competitive terms that never appear in ChatGPT answers. The reason is almost always the same: their content is written for humans scrolling through a page, not for machines extracting answers.
+{% /pullquote %}
 
 ## Three technical blockers keeping you invisible
 
@@ -90,6 +100,10 @@ Understanding the citation mechanism matters. Each platform works slightly diffe
 **Google AI Overviews** pull from Google's index but apply a different ranking logic than organic results. They favour content freshness (85% of cited URLs are under 2 years old), FAQ structures, and pages that multiple other authoritative sources link to and reference.
 
 The common thread: **third-party validation**. AI tools don't trust what you say about yourself. They trust what others say about you. A brand mentioned positively in 50 Reddit threads, 10 industry articles, and 3 news sites will get cited. A brand with a great website but zero external mentions won't.
+
+{% pullquote cite="From this post's citation mechanism section" %}
+The common thread: third-party validation. AI tools don't trust what you say about yourself. They trust what others say about you.
+{% /pullquote %}
 
 ## The practical fix checklist
 

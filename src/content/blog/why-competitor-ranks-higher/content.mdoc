@@ -24,6 +24,11 @@ The three most common technical suppressors I find:
 
 **Canonical splits.** Two versions of the same URL (with and without trailing slash, www vs non-www, HTTP vs HTTPS) both indexing, each collecting half the ranking signals that should be going to one page. On one of my sites, fixing this on 23 pages moved average position from 31.6 to 25.6 within 10 days.
 
+{% stats %}
+{% stat value="23/44" label="portfolio sites had canonical problems when audited" /%}
+{% stat value="25.6" label="average position after fixing canonical splits on 23 pages, down from 31.6, within 10 days" /%}
+{% /stats %}
+
 **Index bloat.** Google spending crawl budget on tag pages, parameter URLs, and empty archive pages instead of your real content. A site with 200 articles but 1,400 indexed pages is telling Google to treat most of its content as low-value.
 
 **Core Web Vitals failures.** If your Largest Contentful Paint is above 4 seconds on mobile, Google has a direct quality signal telling it your page is worse than competitors who've optimised. It won't block rankings entirely, but it's a persistent drag, especially in competitive niches where everything else is equal.
@@ -37,6 +42,10 @@ Google can't read your page the way a human does, but it can infer quality from 
 This usually comes down to one of three things:
 
 **Structure.** Does your page answer the question clearly in the first 200 words, or does it bury the answer after 600 words of background context? Competitors who lead with the answer win on dwell time because users get what they came for and read more: they don't bounce back to the SERP.
+
+{% pullquote cite="From reason 3, content quality signals" %}
+Competitors who lead with the answer win on dwell time because users get what they came for and read more: they don't bounce back to the SERP.
+{% /pullquote %}
 
 **Specificity.** Vague content that could have been written by anyone about anything performs worse than content that references specific data, real examples, and actual experience. If your competitor's page says "experts recommend 3-5 times per week" and yours says "research suggests frequency may vary," the user knows which one to trust.
 
@@ -69,6 +78,8 @@ Low CTR is almost always a title and meta description problem. I ran a full CTR 
 
 **How to check:** GSC > Performance > filter by the queries where your competitor beats you. Look at your CTR against the benchmark for that position (position 1 averages around 28%, position 3 around 11%, position 5 around 7%). If you're significantly below those numbers, it's a title problem, not a ranking problem.
 
+{% chart type="bar" eyebrow="CTR benchmarks" title="Average CTR by search position, this post's benchmark" data="Position 1:28|Position 3:11|Position 5:7" suffix="%" highlight="Position 1" /%}
+
 **The fix:** Rewrite the title to include the primary keyword near the front, a clear benefit, and stay under 60 characters so it doesn't truncate. The meta description should answer "why click this result over the others?", not repeat the title or describe the site.
 
 ## Reason 6: The Domain Authority Gap Is Genuinely the Issue
@@ -78,6 +89,10 @@ If you've ruled out topical depth, technical health, content quality, backlinks 
 A DR 65 site will beat a DR 20 site on competitive head keywords almost every time, regardless of how good the page is. Google uses domain authority as a tiebreaker and a trust signal for competitive queries. You're not going to close a 45-point DR gap in 6 months.
 
 But you can navigate around it. Go after long-tail queries with lower competition where your content depth is the deciding factor. Win there first, build the backlinks from those rankings, and gradually push up the authority. This is exactly what I did on several of my newer programmatic sites: start in the long tail, earn links from those positions, then push upward.
+
+{% pullquote cite="From reason 6, the domain authority gap" %}
+This is exactly what I did on several of my newer programmatic sites: start in the long tail, earn links from those positions, then push upward.
+{% /pullquote %}
 
 ## How to Diagnose Which Reason Applies to You
 

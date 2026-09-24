@@ -14,6 +14,8 @@ After auditing all 44 sites through Google Search Console, the same problems sur
 
 These aren't the kind of issues a standard SEO audit catches. They only become visible when you're looking at the same patterns across dozens of properties simultaneously.
 
+{% chart type="bar" eyebrow="Portfolio audit" title="Sites affected by each issue, out of 44 audited" data="Canonical URL splitting:23|Title tag truncation:8|Index bloat:31" suffix=" sites" highlight="Index bloat" source="Sunny Patel, 44-site Search Console audit" /%}
+
 ## Finding 1: A Single Character Was Splitting Rankings in Half {% #canonical-splitting %}
 
 One of my sites, a consultancy, had a page targeting "SEO consultant Reading" with 5,516 total impressions over 28 days. Respectable for a local service keyword. Except those impressions weren't on one page. They were split across two:
@@ -28,6 +30,10 @@ The only difference? A trailing slash.
 The site's configuration had `trailingSlash: true`, meaning every URL should end with a slash. But 872 internal links across 102 content files pointed to the non-trailing-slash version. Google followed those links, discovered both URLs, and indexed them separately.
 
 Each version accumulated its own impressions, its own click data, and its own ranking signals. Instead of one strong page, there were two weak ones competing against each other.
+
+{% pullquote cite="Finding 1, canonical URL splitting" %}
+Each version accumulated its own impressions, its own click data, and its own ranking signals. Instead of one strong page, there were two weak ones competing against each other.
+{% /pullquote %}
 
 ### Why This Matters for Multi-Site Owners
 
@@ -44,6 +50,12 @@ After fixing all 872 links on the consultancy site and deploying, alongside the 
 One of the portfolio sites, a UK salary data platform, was generating 7,733 impressions per month across 2,376 indexed pages. Of those, **1,546 pages were ranking on Google's first page**. The click-through rate? **0.21%**.
 
 Nearly 1,600 pages on page one of Google, and almost nobody was clicking.
+
+{% stats %}
+{% stat value="1,546" label="Pages ranking on Google's first page across the salary site" source="Sunny Patel, Search Console data" /%}
+{% stat value="0.21%" label="Click-through rate on those 1,546 first-page pages" source="Sunny Patel, Search Console data" /%}
+{% stat value="2,376" label="Total indexed pages on the site" source="Sunny Patel, Search Console data" /%}
+{% /stats %}
 
 ![Title truncation killing CTR at scale](/images/stats/title-truncation-scale.svg)
 
@@ -122,6 +134,8 @@ The common thread: **they're invisible unless you're looking at the data**. Your
 ## Update: Where the Traffic Actually Concentrates {% #traffic-concentration %}
 
 Four sites generate 79% of organic clicks across the roughly 100 properties I now track (the 44 audited above, plus launches since): **deadhangs.com** (2,587 clicks/28 days), **chargefinder.uk** (2,198), **waterhard.uk** (1,682) and **noisecheck.uk** (1,676). That's 8,143 of the portfolio's 10,300 clicks in the 28 days to 9 September 2026. Fifth place is colourlabelprinter at 282.
+
+{% chart type="bar" eyebrow="Traffic concentration" title="Organic clicks per 28 days, top 5 portfolio sites" data="deadhangs.com:2587|chargefinder.uk:2198|waterhard.uk:1682|noisecheck.uk:1676|colourlabelprinter:282" highlight="deadhangs.com" source="Sunny Patel, Search Console, 28 days to 9 September 2026" /%}
 
 54 properties returned zero clicks in the same window, and roughly 50 more returned under 10.
 

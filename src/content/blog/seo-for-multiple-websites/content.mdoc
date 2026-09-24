@@ -51,6 +51,11 @@ This is why I fixed wagearea.com's titles before touching newer sites. One mappi
 
 That's the kind of ROI you chase in a portfolio: outsized return, low effort, immediate impact.
 
+{% stats %}
+{% stat value="2,376" label="pages fixed instantly when Sunny Patel rewrote wagearea.com's title mapping function" source="Sunny Patel, portfolio data" /%}
+{% stat value="+134%" label="increase in wagearea.com daily impressions, from 383 to 898 in 5 days, from the same title fix" source="Sunny Patel, portfolio data" /%}
+{% /stats %}
+
 ## Keyword Cannibalisation Across a Portfolio
 
 Cannibalisation between your own sites is different from cannibalisation within one site. When two pages on the same domain target the same keyword, Google picks the one it thinks is best. When two separate domains you own target the same keyword with genuinely overlapping intent, you're paying for content, hosting, and maintenance on both while only one captures the ranking value.
@@ -111,6 +116,8 @@ Every technical audit follows the same checklist: canonical configuration, index
 
 When I find a new issue type, like the trailing slash problem, I add it to the [technical SEO audit](/services/technical-seo-audit/) template and retroactively check all 44 sites. That's how I discovered 23 sites had the same canonical splitting issue. Without a systematic approach, I'd have found it on one site and assumed it was isolated.
 
+{% chart type="bar" eyebrow="Portfolio audit" title="Sites affected by each technical issue, out of 44" data="Index bloat:31|Canonical splitting:23|Title truncation:8" suffix=" sites" highlight="Index bloat" source="Sunny Patel, technical SEO audit across 44 sites" /%}
+
 ### Scheduled Rebuilds
 
 Twelve of my Astro-based sites run weekly automated rebuilds via GitHub Actions every Monday at 06:00 UTC. This ensures sitemap freshness, catches build errors early, and keeps deployment pipelines tested. If a rebuild fails, I get notified before Google notices anything wrong.
@@ -143,5 +150,9 @@ Despite the complexity, managing multiple websites has one massive advantage ove
 When you see the same [SEO mistake](/blog/seo-mistakes/) on 23 of 44 sites, that's a systemic issue, not a one-off. When a title tag fix produces a 134% impression increase on one site, you can apply the same fix to 7 other sites with the same problem and reasonably expect similar results.
 
 Single-site SEO gives you anecdotes. Portfolio SEO gives you data.
+
+{% pullquote cite="On the portfolio advantage" %}
+Single-site SEO gives you anecdotes. Portfolio SEO gives you data.
+{% /pullquote %}
 
 The trailing slash fix on sunnypatel.co.uk, landing alongside separate page-pruning work in the same window, moved average position from 31.6 to 25.6. I then applied the trailing-slash fix to 22 other sites. That's the compound return of managing SEO across multiple websites: every lesson learned multiplies across the entire portfolio.

@@ -13,7 +13,11 @@ On 19-20 July, both lost the bulk of their impressions:
 
 Different niches, different content. Same owner, same stack (Astro on Cloudflare Pages), same build tooling. That shared tooling is itself a candidate cause.
 
+{% chart type="line" eyebrow="tradecost.uk drop" title="tradecost.uk daily impressions, 18 to 20 July 2026" data="18 Jul:374|19 Jul:62|20 Jul:48" source="Search Console, own data" /%}
+
 For redlighttherapy.expert specifically, the drop is Google-only. GA4 sessions from Google fell from 344 to 40 over the same 14-day window, while Bing sessions rose 308 to 396 and DuckDuckGo rose 464 to 602. Other search engines did not see the same page get worse. On-site remediation shipped 2-3 August (a fake-expert byline removed, 12 doorway pages redirected) produced no recovery in the six weeks that followed.
+
+{% chart type="bar" eyebrow="Search engine sessions" title="GA4 sessions by search engine, 14 days before and after the redlighttherapy.expert drop" data="Google (before):344|Google (after):40|Bing (before):308|Bing (after):396|DuckDuckGo (before):464|DuckDuckGo (after):602" source="GA4, own data, 14-day window" /%}
 
 ## Did a named Google update cause the drops? {% #named-update %}
 
@@ -25,6 +29,10 @@ The same pattern, a fast sustained drop rather than gradual decline, showed up o
 - **template.how**: this one was climbing (position improved from 60 to the high teens through early August) before reversing sharply on 16 August and falling back to the 60s-80s.
 
 Four sites, four confirmed drop dates, no single explanation that covers all of them.
+
+{% pullquote cite="On the portfolio drop pattern" %}
+Four sites, four confirmed drop dates, no single explanation that covers all of them.
+{% /pullquote %}
 
 ## What was growing at the same time? {% #growers %}
 
@@ -63,6 +71,8 @@ deadhangs.com and noisecheck.uk both dipped in mid-August, the week template.how
 | supplementcheck.org | Supplements | 14 | 976 | 11.6 | Improving (low volume) |
 
 Of the 21: 4 dropped sharply and stayed down, 6 grew or improved, 2 declined gradually, 9 were flat, thin or too new to call.
+
+{% chart type="donut" eyebrow="Portfolio outcomes" title="How 21 tracked sites moved, 20 June to 15 September 2026" data="Dropped sharply:4|Grew or improved:6|Declined gradually:2|Flat, thin or too new:9" source="Google Search Console, own 21-site sample" /%}
 
 All 21 are `siteOwner`-verified properties in the same Google Search Console account. Figures are 90-day totals, 20 June-15 September 2026.
 

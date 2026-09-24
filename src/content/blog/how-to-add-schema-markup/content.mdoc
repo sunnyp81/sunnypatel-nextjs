@@ -17,6 +17,10 @@ Schema describes what a page is. The type follows from the page's job, not from 
 
 Two rules keep you out of trouble. First, only mark up content that is visible on the page: an FAQPage block describing questions the page never shows violates Google's guidelines and risks a manual action. Second, one page can carry several types when they genuinely apply. A blog post can hold an Article plus an FAQPage plus a BreadcrumbList as long as each block describes real page content.
 
+{% pullquote cite="Step 1: pick the schema type" %}
+Schema describes what a page is. The type follows from the page's job, not from which type looks most impressive.
+{% /pullquote %}
+
 ## Step 2: Generate the JSON-LD
 
 JSON-LD is the format to use. Google recommends it over the older microdata and RDFa approaches. JSON-LD sits in one self-contained script tag instead of being woven through your HTML attributes. That makes it easier to add, audit, and remove without touching the page's markup.
@@ -37,11 +41,19 @@ The generated block goes into the HTML of the specific page it describes. Google
 
 **Custom-coded and framework sites.** Inline the script tag in the page template. The one rule that matters: schema belongs per-page, not injected globally. A LocalBusiness block on every page of a 200-page site is noise; on the contact page it is signal. This site, for instance, emits Article schema only on blog posts and service schema only on service pages, each generated in the page's own template.
 
+{% pullquote cite="Step 3: adding the code" %}
+A LocalBusiness block on every page of a 200-page site is noise; on the contact page it is signal.
+{% /pullquote %}
+
 ## Step 4: Validate, Then Monitor
 
 Before publishing, paste the page URL or the raw code into Google's Rich Results Test. It confirms both that the JSON parses and that the block qualifies for Google's rich result types, and it flags missing required fields with the exact property name. The Schema.org validator does a stricter structural check if you want a second opinion.
 
 After publishing, two things. Request indexing for the page in Search Console so Google recrawls it sooner. Then watch the enhancement reports. Search Console shows a report per rich result type such as FAQ or Product. Each report tracks how many pages carry valid markup and surfaces errors that appear later, such as a theme update silently breaking a template. Rich results typically appear days to weeks after recrawl, when Google chooses to show them at all.
+
+{% pullquote cite="The mistakes that undo the work" %}
+A generated block with an empty author or a wrong date is worse than none, because it asserts something false about the page.
+{% /pullquote %}
 
 ## The Mistakes That Undo the Work
 

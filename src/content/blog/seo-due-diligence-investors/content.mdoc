@@ -10,6 +10,8 @@ Sellers present organic traffic as a single number. "40,000 monthly visits from 
 
 **Brand vs non-brand traffic.** If 32,000 of those visits come from people searching the company name, brand awareness is driving most of that traffic, not the site's non-brand SEO performance. Strip out brand queries and you might find only 8,000 visits from actual organic ranking. That's an 80% haircut on the headline number.
 
+{% chart type="bar" eyebrow="Brand vs non-brand" title="A pitch-deck traffic number, broken down (illustrative example)" data="Total traffic:40000|Brand traffic:32000|Non-brand traffic:8000" highlight="Non-brand traffic" source="Sunny Patel, due diligence example" /%}
+
 **Seasonal spikes.** A gardening site showing 40,000 visits in June might average 9,000 across winter months. Sellers pick the peak month. You need 12 months minimum: 16 months is better, so you can compare year-on-year.
 
 **One-off viral content.** A single blog post that hit Reddit or Hacker News can inflate a 3-month average by 300%. That traffic doesn't come back. Google Search Console won't show it: it only measures Google organic search clicks and impressions, not referral traffic from other sites. Check the referrer or source/medium breakdown in GA4 (or your analytics tool) for a spike from reddit.com or news.ycombinator.com, then confirm the underlying organic trend once that spike is excluded.
@@ -60,7 +62,15 @@ Traffic can look stable while the site accumulates technical problems that will 
 
 **Index bloat.** Google indexing thousands of pages that add no value: empty tag archives, paginated listings, parameter variations. This wastes crawl budget and can trigger quality filters at scale. One of my sites had 1,400 indexed pages for 200 real articles.
 
+{% chart type="bar" eyebrow="Index bloat example" title="Index bloat on one acquisition target: real content vs indexed pages" data="Real articles:200|Indexed pages:1400" highlight="Indexed pages" source="Sunny Patel, acquisition audit example" /%}
+
 **Title truncation.** Pages ranking on page one with 0.2% click-through rates because Google truncates their titles at 55-60 characters. I found this pattern across 8 sites with programmatic content; [the salary data example](/blog/managing-44-websites-seo-data/) is the clearest case.
+
+{% stats %}
+{% stat value="23 of 44" label="Sites in the author's portfolio with trailing-slash URL splits" source="Sunny Patel, 44-site portfolio audit" /%}
+{% stat value="31 of 44" label="Sites in the author's portfolio with index bloat" source="Sunny Patel, 44-site portfolio audit" /%}
+{% stat value="8" label="Sites in the author's portfolio with title-truncation CTR problems" source="Sunny Patel, 44-site portfolio audit" /%}
+{% /stats %}
 
 None of these show up in a traffic dashboard. My guide to [common SEO mistakes](/blog/seo-mistakes/) covers further examples I see across acquisitions. All of them suppress revenue.
 
@@ -115,6 +125,10 @@ This isn't a 30-minute job. A thorough [technical SEO audit](/services/technical
 ## The Bottom Line
 
 Organic traffic is one of the most valuable assets in a digital business. It's also one of the most misunderstood. The number in the pitch deck tells you almost nothing. The data behind it tells you everything.
+
+{% pullquote cite="On reading pitch-deck traffic numbers, this guide" %}
+The number in the pitch deck tells you almost nothing. The data behind it tells you everything.
+{% /pullquote %}
 
 Before you sign, get Google Search Console access. Run the five checks. Look at query-level data, not aggregates. And if the seller hesitates to share raw data, that tells you something too.
 

@@ -29,6 +29,8 @@ That one site, catchment.school, recorded 98,770 sessions in the window, 84,957 
 
 The table shows 11 of the 20 sampled sites: catchment.school (excluded above) plus 8 more sites each under 300 total sessions in the window, where percentages swing on single-digit AI counts and aren't worth a row. supplementcheck.org and stackswitch.co, both referenced below, are among them. Treat the smaller rows shown (bestreviews.co.uk, luxurytrex.com, drivingtestpass.org) as directional rather than precise.
 
+{% chart type="bar" eyebrow="AI share by site" title="AI-referral share of total sessions, 90 days to 18 September 2026" data="e-bikereview.uk:10.7|bestreviews.co.uk:8.6|selflandlord.com:7.6|drivingtestpass.org:7.2|redlighttherapy.expert:5.9" suffix="%" highlight="e-bikereview.uk" source="Author's own GA4 data, 20-site sample" /%}
+
 ## Which AI assistant sends the most traffic? {% #by-assistant %}
 
 ChatGPT sent more AI-referral sessions in this sample than Perplexity, Claude, Copilot and Gemini combined. redlighttherapy.expert alone logged 835 ChatGPT sessions against 60 from Perplexity, 44 from Claude and 64 from Copilot in the same window.
@@ -41,6 +43,10 @@ e-bikereview.uk, redlighttherapy.expert and catchment.school produced the three 
 
 redlighttherapy.expert's AI-referral session count held through a period when the same site's Google organic traffic fell sharply, based on prior GSC tracking for this property (not re-verified in this pull). AI referral traffic did not replace the lost Google traffic in volume, but it did not disappear when Google visibility did.
 
+{% pullquote cite="From this post's by-site findings" %}
+AI referral traffic did not replace the lost Google traffic in volume, but it did not disappear when Google visibility did.
+{% /pullquote %}
+
 drugnote.com is the counter-example. It runs on the same Astro stack as several of the higher-AI-share sites and still returned a 0.05% AI share with only 10 AI-referral sessions against 21,928 total. Platform and content type do not predict AI referral share on their own.
 
 ## Does AI-referral traffic convert? {% #conversion %}
@@ -48,6 +54,11 @@ drugnote.com is the counter-example. It runs on the same Astro stack as several 
 This sample cannot answer that question at portfolio scale. Conversion tracking varies by site and most of the 20 sampled properties do not have comparable goal configurations set up.
 
 One data point exists from a separate pull: sunnypatel.co.uk logged 68 AI-referral sessions out of 1,442 total in the same 90-day period, a 4.7% share, with 3 goal completions attributed to ChatGPT referrals. That is one site, one goal type, and not enough to generalise a conversion rate for AI traffic against Google organic traffic.
+
+{% stats %}
+{% stat value="2.1%" label="of sessions across a 20-site sample came from AI assistants, 90 days to 18 September 2026" source="Author's own GA4 data" /%}
+{% stat value="3.4%" label="same share once one bot-skewed site is excluded" source="Author's own GA4 data" /%}
+{% /stats %}
 
 ## What if your own site shows no AI referral traffic yet? {% #zero-reading %}
 

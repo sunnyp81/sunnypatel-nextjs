@@ -12,6 +12,10 @@ The error is that sellers, buyers, and even in-house teams reach for the wrong n
 
 Mixing these up is where most valuations go wrong. The rest of this piece covers the sale-and-acquisition case in full, because that's where an incorrect number costs the most money.
 
+{% pullquote cite="From how I separate these three cases" %}
+Using the sale-value formula to justify internal spend overstates the case. Using the ROI formula to price a sale undervalues the asset.
+{% /pullquote %}
+
 ## The Basic Sale Formula, and Why It's Incomplete
 
 The standard formula for pricing a site on its organic traffic:
@@ -89,6 +93,8 @@ The result is the replacement cost: what you'd pay in Google Ads to buy the same
 
 That site's organic traffic is worth £3,280 a month in equivalent paid value. At a 30x multiplier, the organic traffic alone prices out at roughly £98,400, a number an investor can benchmark against their own paid acquisition costs rather than take on trust.
 
+{% chart type="bar" eyebrow="Worked example" title="Equivalent paid value per keyword, top 4 of 20" data="best robot lawn mower uk:619|robot mower review:305|robot mower for hills:200|husqvarna automower problems:122" prefix="£" highlight="best robot lawn mower uk" source="Worked example" /%}
+
 The CPC-equivalent figure estimates replacement advertising cost. It does not establish a floor or ceiling for business value. Compare observed conversion rates, contribution profit and acquisition costs before assuming organic traffic is more valuable than paid traffic.
 
 Use comparable CTR evidence when estimating potential organic traffic. The [portfolio CTR study](/blog/google-ctr-study/) recorded 5.96% in a position-one bucket containing only five query rows. It applied no country filter or brand exclusion and does not establish the expected CTR of a small UK site.
@@ -106,6 +112,11 @@ The metric I use: **query diversity ratio**.
 Using the same scoring I use for board reporting (see [SEO metrics for boards](/blog/seo-metrics-for-boards/)): a score above 2.0 means the site earns clicks across a wide spread of terms on many pages and tends to shrug off core updates. A score below 1.0 means most pages earn nothing, and the traffic that does exist is sitting on a small number of queries, exposed to the next reshuffle.
 
 **Why it matters:** if 60% or more of a site's traffic comes from five keywords, one update targeting that topic cluster can remove half the site's value overnight. Core updates that reshuffle rankings for a single dominant keyword cluster can strip a large share of a concentrated site's traffic within days, and I've seen this pattern play out across the portfolio more than once.
+
+{% stats %}
+{% stat value="2.0" label="query diversity score above which a site tends to shrug off core updates" /%}
+{% stat value="60%" label="or more of a site's traffic from five keywords risks losing half its value in one update" /%}
+{% /stats %}
 
 Diversified traffic survives better. A site ranking for 2,000 distinct queries is far more resilient than one ranking for 20, even at identical total traffic.
 
@@ -140,6 +151,10 @@ Two of my own sites tell different stories on the same metric.
 **deadhangs.com, lower volume, higher value per page.** This site has far fewer total impressions but stronger metrics where they count. Clicks come from people searching specific product and technique queries, and CTR is higher because the content matches the intent precisely. The equivalent paid traffic value per page runs roughly 4x higher than wagearea's, because the queries carry commercial intent: equipment, programmes, techniques people pay for.
 
 The lesson: don't compare raw traffic between sites. Compare equivalent paid traffic value per page. That normalises for intent, volume, and how monetisable the traffic actually is.
+
+{% pullquote cite="From the wagearea.co.uk vs deadhangs.com comparison" %}
+The lesson: don't compare raw traffic between sites. Compare equivalent paid traffic value per page.
+{% /pullquote %}
 
 ## The Valuation Checklist
 

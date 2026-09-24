@@ -20,7 +20,7 @@ AI referral traffic to the world's top 1,000 websites grew **357%** year on year
 
 ## AI Search Market Overview
 
-![AI referral traffic share by platform in 2026, ChatGPT 74.78%, Gemini 11.56%, Perplexity 7.23%](/images/stats/ai-search-market-share.svg)
+{% chart type="donut" eyebrow="AI referral share" title="Share of AI referral traffic by platform, 2026" data="ChatGPT:74.78|Gemini:11.56|Perplexity:7.23|Copilot:3.51|Claude:2.62" suffix="%" source="SE Ranking, 101,574 websites, 2026" /%}
 
 Three platforms dominate AI search in 2026: ChatGPT, Google AI Overviews, and Gemini, with Perplexity third by referral volume. Each operates differently, but together they represent a fundamental shift in how users interact with search.
 
@@ -31,6 +31,8 @@ Three platforms dominate AI search in 2026: ChatGPT, Google AI Overviews, and Ge
 - **2.5 billion** prompts per day, of which about **330 million** come from the United States (OpenAI, reported July 2025)
 - **74.78%** of all AI referral traffic to websites in 2026, down from 79.74% in 2025 as Gemini took share (SE Ranking)
 - **400 million** weekly active users in February 2025 and **300 million** in December 2024, so the weekly user base more than doubled in 12 months (OpenAI)
+
+{% chart eyebrow="ChatGPT growth" highlight="Feb 2026" title="ChatGPT weekly active users, millions" data="Dec 2024:300|Feb 2025:400|Oct 2025:800|Feb 2026:900" suffix="m" source="OpenAI announcements, December 2024 to February 2026" /%}
 
 ### Gemini, Perplexity and Copilot Usage Statistics
 
@@ -49,6 +51,10 @@ Three platforms dominate AI search in 2026: ChatGPT, Google AI Overviews, and Ge
 - AI referrals to websites plateaued at **240 to 280 million** visits a month from mid-2025 through January 2026, even as visits to the AI platforms themselves climbed toward 1.5 billion a month (Similarweb, June 2026)
 
 The trajectory matters more than the current share. The referral plateau in the Similarweb data is the most important number in this section: AI platforms are growing faster than the traffic they send out, because they answer more questions in place. Being cited inside the answer is now the visibility, whether or not a click follows.
+
+{% pullquote cite="The AI referral plateau, Similarweb data" %}
+AI platforms are growing faster than the traffic they send out, because they answer more questions in place.
+{% /pullquote %}
 
 ## Google search market share vs AI search in 2026
 
@@ -107,6 +113,12 @@ The impact on organic click-through rates is substantial and well-documented:
 - Brands cited within the AI Overview earned **35%** more organic clicks and **91%** more paid clicks than uncited brands in that study (Seer Interactive)
 - Seer's April 2026 update, covering 53 brands, 5.47 million queries and 2.43 billion impressions, found organic CTR on uncited informational queries fell **67%** over 2025, while cited brands earned **120%** more organic clicks per impression than uncited brands on the same results page
 - Even cited brands still underperform a results page with no AI Overview by **38%** (Seer Interactive, April 2026)
+
+{% stats %}
+{% stat value="-61%" label="Organic CTR on queries showing an AI Overview, June 2024 to September 2025" source="Seer Interactive" /%}
+{% stat value="+120%" label="More organic clicks per impression for brands cited in the AI Overview" source="Seer Interactive, April 2026" /%}
+{% stat value="-38%" label="How far cited brands still trail a results page with no AI Overview" source="Seer Interactive, April 2026" /%}
+{% /stats %}
 - Pew Research Center's tracking of 900 US adults and 68,879 searches found users clicked a traditional result on **8%** of visits when an AI summary appeared, against **15%** without one, and clicked a link inside the AI summary on just **1%** of visits (Pew, July 2025)
 
 The data reveals a critical distinction: AI Overviews hurt sites that are not cited but significantly benefit sites that are. Being referenced inside the AI Overview is now arguably more valuable than ranking in position 1 below it.
@@ -120,7 +132,7 @@ The data reveals a critical distinction: AI Overviews hurt sites that are not ci
 
 ## Zero-Click Search Statistics
 
-![Zero-click Google searches January to April 2026, UK 69.5%, US 68.0%, Canada 63.8%, Germany 62.1%](/images/stats/zero-click-search.svg)
+{% chart eyebrow="Zero-click by country" title="Google searches that ended without a click, January to April 2026" data="United Kingdom:69.5|United States:68.0|Canada:63.8|Germany:62.1" suffix="%" highlight="United Kingdom" source="SparkToro, 17 June 2026, Similarweb clickstream data" /%}
 
 Zero-click searches, queries where the user gets their answer directly on the search results page without clicking through to any website, have been rising for years. AI Overviews are accelerating this trend.
 
@@ -183,6 +195,8 @@ Content that performs well for AI citations shares a common thread: it is the mo
 Three large citation studies published between November 2025 and September 2026 agree on the shape of the answer: a handful of user-generated platforms dominate the top of the list, but most citations overall go to brand-owned websites.
 
 - Among the top sources Ahrefs tracks in Google AI Overview citations, **YouTube** takes **22.9%** of that share, **Reddit 18.5%**, **Facebook 10.1%**, Google's own properties **8.8%**, **Instagram 5.6%**, **Quora 4.7%**, **Wikipedia 4.0%**, TikTok and Amazon **3.3%** each (Ahrefs, 3 million+ US queries, updated 2 September 2026)
+
+{% chart type="bar" eyebrow="Top cited sources" title="Share of Google AI Overview citations by source, 2026" data="YouTube:22.9|Reddit:18.5|Facebook:10.1|Google:8.8|Instagram:5.6|Quora:4.7|Wikipedia:4.0|TikTok:3.3" suffix="%" highlight="YouTube" source="Ahrefs, 3 million+ US queries, updated 2 September 2026" /%}
 - **57%** of all AI citations go to brand-owned websites rather than social, UGC or media sites. On ChatGPT the split is **47%** brand sites and **30%** earned media (Profound, 11.84 billion citations across eight AI platforms, 16 April to 16 July 2026)
 - Reddit was the single most-cited domain across ChatGPT search, Google AI Mode and Perplexity in Semrush's 13-week study of 230,000 prompts and more than 100 million citations (Semrush, November 2025)
 - Citation patterns are volatile: ChatGPT's Reddit citations fell from close to **60%** of responses in early August 2025 to around **10%** by mid-September, and Wikipedia fell from about **55%** to under **20%** in the same window (Semrush)
@@ -314,6 +328,10 @@ Structured data gives AI retrieval systems explicit signals about what your cont
 ### 5. Optimise for Citation as Well as Rankings
 
 The old model: rank high, earn clicks. The emerging model: get cited in AI responses, earn visibility and qualified traffic. This requires restructuring content for direct answerability, adding specific data points, and building the topical depth that makes AI systems confident in citing your content. [LLM optimisation](/blog/what-is-llm-optimisation/) is the discipline that addresses this systematically.
+
+{% pullquote cite="From what these statistics mean for your SEO strategy" %}
+The old model: rank high, earn clicks. The emerging model: get cited in AI responses, earn visibility and qualified traffic.
+{% /pullquote %}
 
 ### Practical Next Steps
 

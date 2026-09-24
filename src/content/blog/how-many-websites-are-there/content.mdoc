@@ -32,6 +32,8 @@ The gap between 401.6 million registered domains and 305 million domains Netcraf
 
 This is the number that actually matters, and it's the one most roundups skip. Netcraft publishes a smaller active-site benchmark alongside its full survey, intended to represent sites serving distinct, real content rather than parked domains, placeholder pages, redirect-only hostnames, or bulk-registered names nobody has built anything on. As of the July 2026 survey, that active-site figure sits at roughly **216.7 million**, about **14 to 15%** of the 1.49 billion total hostnames Netcraft detects each month.
 
+{% chart type="donut" eyebrow="Netcraft active-site benchmark" title="Share of detected hostnames that are genuinely active, July 2026" data="Active sites:15|Parked, abandoned or never built out:85" suffix="%" highlight="Active sites" source="Netcraft active-site benchmark, July 2026" /%}
+
 Put another way: for every seven hostnames the crawlers find, roughly one is a genuinely maintained website. The other six are parked domains sitting on a registrar's default page, placeholder pages from a hosting package nobody finished setting up, redirect-only domains bought to protect a brand, or bulk-registered names bought purely as an asset. Separate research on domain parking backs the same picture from a different angle: CSC's Domain Security Report found roughly a third of third-party-registered domains lead to inactive or broken sites, and closer to half get repurposed purely for pay-per-click advertising rather than genuine content.
 
 This is also why W3Techs, the source behind the CMS figures further down this page, samples a much smaller pool than Netcraft's headline count. Since extending its methodology in November 2022, W3Techs no longer relies on a single top 10 million sites list; it now draws on Google's Chrome User Experience Report alongside a customised Tranco ranking, covering well over 20 million sites, and filters that pool down to what it calls "the relevant web," sites with meaningful content or functionality, deliberately excluding parked domains, default server pages and duplicate or spam hostnames. If a statistic about website technology or market share doesn't say which pool it's counting from, that's the first thing worth checking.
@@ -69,6 +71,8 @@ For a UK business choosing between .co.uk and the newer standalone .uk, the prac
 
 (Source: W3Techs, September 2026)
 
+{% chart type="bar" eyebrow="CMS market share" title="Share of all websites by CMS, September 2026" data="WordPress:40.3|Shopify:5.4|Wix:4.2|Squarespace:2.4" suffix="%" highlight="WordPress" source="W3Techs, September 2026" /%}
+
 Worth flagging: **31.5%** of all websites W3Techs surveys use none of the CMS platforms it monitors, meaning custom-built sites, static site generators, or platforms too small to track individually still make up a meaningful chunk of the web. WordPress's dominance is real, but it is dominance of the CMS market specifically, not of every website that exists.
 
 ## How Many Websites Does Google Actually Index?
@@ -76,6 +80,8 @@ Worth flagging: **31.5%** of all websites W3Techs surveys use none of the CMS pl
 Google has never published a live, official figure for how many pages or sites it has indexed, and the "over 130 trillion pages" line still doing the rounds online traces back to a decade-old blog post about Google's crawl frontier, not its index size. The most concrete number on record came out during the US Department of Justice's antitrust trial against Google, when Pandu Nayak, Google's Vice President of Search, testified under cross-examination that the company's web index held roughly **400 billion documents**. Nayak also acknowledged he could not confirm whether that figure had changed materially since 2020, so treat it as an order-of-magnitude figure rather than a current, precise count.
 
 That works out to roughly 1,846 documents for every active website Netcraft estimates exists, which makes sense once you account for individual pages, not whole sites, being the unit Google actually indexes. A single active website with a few hundred URLs contributes many documents to that 400 billion figure on its own.
+
+{% stat value="400 billion" label="documents in Google's web index, per antitrust trial testimony (order-of-magnitude, not a current precise count)" source="US DOJ v. Google LLC, testimony of Pandu Nayak, 2023" /%}
 
 ## UK Website and Domain Statistics
 
@@ -86,6 +92,12 @@ Since most of the work on this site is for UK businesses, the UK-specific number
 Set against Verisign's 401.6 million global registrations, the UK's 10.3 million .UK-namespace domains represent roughly **2.6%** of every domain registered worldwide, broadly in line with W3Techs' 2.4% website-share figure for .uk overall.
 
 Behind those domain numbers sits a near-universal UK internet population. **94%** of UK adults have home internet access, leaving **6%** without a home internet connection, according to Ofcom's Adults' Media Use and Attitudes 2026 report, based on fieldwork across 7,533 UK adults. That group is not necessarily offline altogether, many still get online via mobile data, work or a library, but it skews heavily towards the over-75s, a pattern that has held steady for several years running. For a UK business weighing up whether a website is still worth the investment in 2026, the honest answer sits in that 94% figure rather than in any of the more dramatic global "billions of websites" headlines.
+
+{% stats %}
+{% stat value="8 million" label=".co.uk domains, the largest single share of the .UK namespace" source="Nominet, May 2026" /%}
+{% stat value="10.3 million" label="domains in the full .UK namespace" source="Nominet, May 2026" /%}
+{% stat value="94%" label="of UK adults have home internet access" source="Ofcom, Adults' Media Use and Attitudes 2026" /%}
+{% /stats %}
 
 ## Year-on-Year Growth: Is the Web Still Growing?
 
@@ -98,6 +110,10 @@ That 8.1% domain growth rate outpaces UK internet adoption, which is effectively
 Three things fall out of this data that matter more than the headline "billions of websites" number.
 
 **Competition is smaller than the headline count suggests.** With only around 217 million sites genuinely active out of 1.49 billion hostnames Netcraft detects, the real competitive set for any given search query is a fraction of the number usually quoted. Use that to stop being intimidated by "there are two billion websites" framing and focus instead on the far smaller set of sites actually competing for the same terms and the same audience.
+
+{% pullquote cite="On the real size of the competition" %}
+With only around 217 million sites genuinely active out of 1.49 billion hostnames Netcraft detects, the real competitive set for any given search query is a fraction of the number usually quoted.
+{% /pullquote %}
 
 **Most of the web is genuinely dormant, and that's an opportunity for anyone still maintaining a working site.** If roughly 85% of registered hostnames are parked, abandoned, or never built out properly, then a site that is actually maintained, technically sound, and updated on a real schedule already clears a bar most of its nominal "competition" never reaches. A [technical SEO audit](/services/technical-seo-audit/) checks exactly the fundamentals, crawlability, indexation, Core Web Vitals, that separate an active, working site from the dormant majority Netcraft counts alongside it.
 

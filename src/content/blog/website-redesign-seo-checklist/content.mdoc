@@ -18,6 +18,10 @@ Here's what actually breaks:
 
 I've seen all five happen in a single redesign. The site lost 62% of its organic traffic in 3 weeks. It took 5 months to recover to 80% of the original level. For more on timelines, see [how long SEO takes](/blog/how-long-does-seo-take/) under normal conditions; post-redesign recovery adds 2-4 months on top.
 
+{% pullquote cite="From a redesign where all five failure points hit at once" %}
+The site lost 62% of its organic traffic in 3 weeks. It took 5 months to recover to 80% of the original level.
+{% /pullquote %}
+
 ![What breaks during a redesign](/images/stats/redesign-breakage-points.svg)
 
 ## Phase 1: Before the Redesign (Your Baseline)
@@ -89,6 +93,10 @@ Run through this before DNS cuts over to the new site, not after:
 4. Check the trailing slash and protocol on every redirect target. A redirect that lands on the wrong slash or `http` instead of `https` just creates a second redirect hop Google has to follow.
 5. Monitor GSC Coverage and server 404 logs daily for the first two weeks post-launch. Check each new 404 against the redirect map: if it's a URL that should have a relevant destination, it's a missing row, fix it. If it's a URL you deliberately retired with nothing to replace it, the 404 (or 410) is doing its job. Either way it's far cheaper to confirm in week one than to notice in month three.
 
+{% pullquote cite="From the pre-launch redirect verification checklist" %}
+Either way it's far cheaper to confirm in week one than to notice in month three.
+{% /pullquote %}
+
 ## Phase 3: Content Preservation
 
 Don't let designers remove text to "clean up" the page. If a page ranks for 40 keywords, those keywords are in the content. Removing paragraphs to make the design cleaner removes the content Google is ranking.
@@ -100,6 +108,11 @@ Rewriting H1 tags changes the primary signal Google uses to match queries. If yo
 ### Keep Body Content Intact
 
 I audit sites where the redesign removed 60% of the page content to fit a "modern minimal" layout. Every removed paragraph contained long-tail keywords the page ranked for. The page went from ranking for 40 queries to ranking for 8. That's a [common SEO mistake](/blog/seo-mistakes/) I find during [technical audits](/services/technical-seo-audit/).
+
+{% stats %}
+{% stat value="60%" label="of page content removed during one redesign audit to fit a modern minimal layout" /%}
+{% stat value="8" label="queries a page ranked for after that redesign, down from 40" /%}
+{% /stats %}
 
 ### Migrate Meta Data
 
@@ -171,6 +184,8 @@ Monitor these in Google Search Console every day:
 ## The Real Cost of Getting This Wrong
 
 A B2B SaaS company I audited redesigned their marketing site without URL mapping. They changed 180 URLs. Only 40 got redirects. The other 140, including 12 pages that drove 65% of their organic demo requests, returned 404s for 6 weeks before anyone noticed.
+
+{% chart type="bar" eyebrow="Case study" title="Redirect coverage in a 180-URL redesign that skipped mapping" data="Redirected:40|Broke as 404s:140" highlight="Broke as 404s" /%}
 
 Organic demo requests dropped 73%. Recovery took 4 months after implementing redirects. The redesign that was supposed to "modernise the brand" cost them an estimated £180,000 in pipeline.
 

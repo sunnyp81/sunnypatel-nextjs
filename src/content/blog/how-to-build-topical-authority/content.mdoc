@@ -32,6 +32,11 @@ I use three tiers:
 
 Generate the seed layer the same way an LLM would fan a query out into sub-questions: for every node, list what a reader would ask next, what a competitor's article leaves unanswered, and what a person would type into ChatGPT if the first answer didn't satisfy them. That fan-out list is your seed layer. It's also, increasingly, the mechanism AI Overviews use to decide who gets cited: Surfer SEO's study of 173,902 URLs found pages ranking for multiple fan-out queries were 161% more likely to be cited in an AI Overview than pages ranking for the main query alone, with a 0.77 correlation between fan-out query coverage and citation odds. A topical map built properly for Google is largely the same map an AI answer engine rewards.
 
+{% stats %}
+{% stat value="161%" label="more likely to be cited in an AI Overview when a page ranks for multiple fan-out queries" source="Surfer SEO, 173,902 URLs" /%}
+{% stat value="0.77" label="correlation between fan-out query coverage and AI Overview citation odds" source="Surfer SEO, 173,902 URLs" /%}
+{% /stats %}
+
 Most workable topical maps run 30 to 80 pieces per cluster, not because that's a magic number but because it's roughly the point where a root topic's real sub-questions are exhausted without padding the map with duplicate intent. If you're inventing seed queries nobody would actually type, you've overshot the cluster and started diluting it, which is exactly the problem covered below in pruning. This is the same exercise I run whenever I build a [topical map](/services/topical-maps/) for a client, root and node first, seed layer stress-tested against real queries before anyone writes a page.
 
 ## Step 3: Sequence Publishing, Don't Batch It
@@ -39,6 +44,10 @@ Most workable topical maps run 30 to 80 pieces per cluster, not because that's a
 Publish root and node content first, the hub pages. Then fill in seed content underneath, linking back up. Don't publish fifty scattered seed pages before a single hub exists to receive them; a search engine reads that as fragmentation, not depth.
 
 On my own sites, this is a hard sequencing rule, not a preference: no seed page goes live until its node hub is published and internally linked, because a spoke with nowhere to point loses most of its value. A cluster with 15 finished, interlinked pages reads as more authoritative than one spread thin across 50 subtopics, and it ranks that way too.
+
+{% pullquote cite="Step 3: sequence publishing" %}
+A cluster with 15 finished, interlinked pages reads as more authoritative than one spread thin across 50 subtopics, and it ranks that way too.
+{% /pullquote %}
 
 Publication velocity matters more than most people budget for. A site publishing two solid pieces a week for six months builds more durable authority signal than one that publishes twenty in a sprint and then goes quiet for a quarter. Sporadic bursts reset the momentum Google's historical-data component is measuring.
 
@@ -58,7 +67,17 @@ Run this check every time you add five or six new pieces to a cluster, not once 
 
 Low-competition subjects show initial signal within three to six months. Medium competition needs six to twelve. High competition, the kind with entrenched DR 70+ publishers already covering it in depth, is a twelve to twenty-four month build. Those ranges assume consistent publishing at the cadence above; a stop-start schedule doesn't only slow the timeline, it resets it, because the historical-data half of the equation depends on continuity.
 
+{% stats %}
+{% stat value="3-6 months" label="to initial signal on a low-competition subject" /%}
+{% stat value="6-12 months" label="to initial signal on a medium-competition subject" /%}
+{% stat value="12-24 months" label="build time against entrenched DR 70+ publishers" /%}
+{% /stats %}
+
 I've had clients see 150 to 280% traffic growth within six to nine months on this methodology. I've also had clusters that took the full two years to show it, in subjects where the top of the SERP was already occupied by publishers with a decade of head start. Say which one you're in before you commit a budget to it.
+
+{% pullquote cite="How long does building topical authority take" %}
+I've had clients see 150 to 280% traffic growth within six to nine months on this methodology.
+{% /pullquote %}
 
 ## How Do You Measure Progress?
 

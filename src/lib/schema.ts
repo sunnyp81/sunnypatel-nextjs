@@ -412,6 +412,8 @@ export function personSchema() {
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       "https://clutch.co/profile/sunny-patel",
       "https://maps.google.com/?cid=2292818604572155987",
+      "https://github.com/sunnyp81",
+      "https://theorg.com/org/sunnypatel-co-uk",
       // Add these when live:
       // "https://www.bark.com/en/gb/...",        ← create at bark.com
       // "https://www.yell.com/biz/...",          ← create at yell.com/add-your-business
@@ -624,6 +626,9 @@ export function localBusinessSchema() {
       "https://maps.google.com/?cid=2292818604572155987",
       "https://theorg.com/org/sunnypatel-co-uk",
       "https://clutch.co/profile/sunny-patel",
+      "https://www.hotfrog.co.uk/company/AEEx5NuefWmcqrDQhwUeLQ/sunny-patel/reading/internet-access",
+      "https://directory.getsurrey.co.uk/company/b5c3c72b94c4d07cd7d65ab591a0c867",
+      "https://directory.getwestlondon.co.uk/company/b5c3c72b94c4d07cd7d65ab591a0c867",
     ],
     areaServed: [
       { "@type": "Country", name: "United Kingdom" },

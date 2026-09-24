@@ -21,8 +21,11 @@ const tags = {
       series: { type: String },
     },
   },
-  panel: { attributes: { eyebrow: { type: String }, title: { type: String }, tone: { type: String, matches: ["good", "bad"] } } },
+  panel: { attributes: { eyebrow: { type: String }, title: { type: String }, tone: { type: String, matches: ["good", "bad"] }, id: { type: String } } },
   panels: {},
+  quotecheck: { selfClosing: true },
+  agencyscore: { selfClosing: true },
+  resourcepicker: { selfClosing: true },
   localpackcalc: { selfClosing: true, attributes: { variant: { type: String, matches: ["dental"] } } },
 };
 

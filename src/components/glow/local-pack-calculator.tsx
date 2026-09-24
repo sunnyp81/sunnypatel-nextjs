@@ -31,7 +31,9 @@ type State = {
 const EMPTY: State = { searches: "", position: "", reviews: "", rival: "", value: "", rate: "", profile: [] };
 
 function num(v: string) {
-  const n = Number(v.replace(/[,£%\s]/g, ""));
+  const t = v.replace(/[,£%\s]/g, "");
+  if (!t) return null;
+  const n = Number(t);
   return Number.isFinite(n) && n >= 0 ? n : null;
 }
 

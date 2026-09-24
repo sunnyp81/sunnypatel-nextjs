@@ -2,6 +2,7 @@ import Markdoc, { type Config } from "@markdoc/markdoc";
 import React from "react";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
 import { LocalPackCalculator } from "@/components/glow/local-pack-calculator";
+import { AgencyRedFlagScorer, ResourcingPicker, SeoQuoteChecker } from "@/components/glow/buyer-tools";
 import {
   GlowChartFigure,
   GlowPanel,
@@ -59,11 +60,15 @@ export const markdocConfig: Config = {
         eyebrow: { type: String },
         title: { type: String },
         tone: { type: String, matches: ["good", "bad"] },
+        id: { type: String },
       },
     },
     panels: {
       render: "GlowPanelRow",
     },
+    quotecheck: { render: "SeoQuoteChecker", selfClosing: true },
+    agencyscore: { render: "AgencyRedFlagScorer", selfClosing: true },
+    resourcepicker: { render: "ResourcingPicker", selfClosing: true },
     localpackcalc: {
       render: "LocalPackCalculator",
       selfClosing: true,
@@ -88,6 +93,9 @@ export function renderMarkdoc(content: any) {
       GlowPanel,
       GlowPanelRow,
       LocalPackCalculator,
+      SeoQuoteChecker,
+      AgencyRedFlagScorer,
+      ResourcingPicker,
     },
   });
 }

@@ -57,16 +57,18 @@ export function GlowPanel({
   eyebrow,
   title,
   tone,
+  id,
   children,
 }: {
   eyebrow?: string;
   title?: string;
   tone?: "good" | "bad";
+  id?: string;
   children?: React.ReactNode;
 }) {
   return (
     <GlowCard className={`not-prose ${styles.figure}`}>
-      <section className={`${styles.inner} ${styles.panel}`} data-tone={tone}>
+      <section id={id} className={`${styles.inner} ${styles.panel}`} data-tone={tone}>
         {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
         {title ? <p className={styles.title}>{title}</p> : null}
         <div className={styles.panelBody}>{children}</div>

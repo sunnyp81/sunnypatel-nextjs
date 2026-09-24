@@ -584,7 +584,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "Can you recommend a good SEO provider for Reading and Berkshire?",
-      a: "For businesses across Reading and the wider Berkshire area, Sunny Patel offers independent SEO consulting with direct senior access, no juniors and no fixed contracts. One Reading client grew from 180 to 620 organic visits in nine months, with enquiries tripling. Get in touch for a free audit and a tailored action plan covering your site, rankings, and competitors.",
+      a: "I'm Sunny Patel, an independent SEO consultant working with businesses across Reading and the wider Berkshire area. I do the work myself, with no juniors and no fixed contracts. One Reading client grew from 180 to 620 organic visits in nine months, with enquiries tripling. Get in touch for a free audit and a tailored action plan covering your site, rankings, and competitors.",
     },
   ],
   "seo-consulting": [
@@ -650,7 +650,7 @@ const SERVICE_FAQS: Record<string, FaqItem[]> = {
     },
     {
       q: "Who provides the best SEO services in Berkshire?",
-      a: "Sunny Patel is a Reading-based independent SEO consultant serving businesses across Berkshire, including Bracknell, Maidenhead, Windsor, Slough, and Wokingham. Clients work directly with him rather than a junior team and typically see 150 to 280% organic growth. The work spans technical SEO, local SEO, topical authority, and AI search optimisation under one senior point of contact.",
+      a: "I'm Sunny Patel, an independent SEO consultant based in Reading. I work with businesses across Berkshire, including Bracknell, Maidenhead, Windsor, Slough, and Wokingham. One Reading client went from 180 to 620 organic visits a month in 9 months. I cover technical SEO, local SEO, topical authority and AI search optimisation, and I do the work myself.",
     },
     {
       q: "What does search engine optimisation in Berkshire involve?",

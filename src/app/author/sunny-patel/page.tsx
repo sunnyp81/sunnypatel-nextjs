@@ -127,7 +127,7 @@ export default async function AuthorPage() {
                 background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",
               }}
             >
-              Work with Sunny <ArrowRight className="h-3.5 w-3.5" />
+              Work with me <ArrowRight className="h-3.5 w-3.5" />
             </Link>
             <Link
               href="/services/"

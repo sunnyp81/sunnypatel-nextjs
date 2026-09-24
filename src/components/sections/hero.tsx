@@ -77,7 +77,7 @@ export function Hero() {
                 <CheckCircle2 className="h-5 w-5 text-success" aria-hidden="true" />
               </div>
               <div>
-                <p className="font-semibold text-foreground">Your diagnosis request is with Sunny.</p>
+                <p className="font-semibold text-foreground">I&apos;ve got your diagnosis request.</p>
                 <p className="mt-1 text-sm text-muted-foreground">I&apos;ll reply personally within one working day.</p>
                 <a href="tel:07305523333" data-cta-location="homepage_hero_success" data-cta-offer="direct_call" className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-success px-4 py-2 text-sm font-semibold text-black transition-[background-color,transform] hover:scale-[1.02] hover:bg-success/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success/60 sm:w-auto">
                   Want to talk sooner? Call Sunny

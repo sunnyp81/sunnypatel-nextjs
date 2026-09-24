@@ -1,7 +1,23 @@
 {
-  "version": "2026-09-12",
+  "version": "2026-09-24",
   "pageUrl": "https://sunnypatel.co.uk/blog/seo-statistics-uk/",
   "statistics": [
+    {
+      "id": "uk-advertising-agencies",
+      "value": "18,985",
+      "label": "UK advertising agencies on the VAT/PAYE register",
+      "scope": "UK",
+      "topic": "Market",
+      "statement": "The UK had 18,985 advertising agencies (SIC 73.11) on the VAT and/or PAYE business register in 2026, up 8.6% on 17,485 in 2025, according to the ONS.",
+      "period": "IDBR snapshot 13 March 2026",
+      "sample": "ONS UK business: activity, size and location, 2026; VAT and/or PAYE based enterprises classified to SIC 73.11, figures rounded to the nearest 5.",
+      "source": "Office for National Statistics",
+      "sourceUrl": "https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/bulletins/ukbusinessactivitysizeandlocation/2026",
+      "caveat": "An enterprise count on the VAT/PAYE register, not a Companies House company count and not a count of SEO agencies. SEO and digital agencies can also register under other SIC codes, and businesses below VAT/PAYE thresholds are excluded.",
+      "checked": "2026-09-24",
+      "sourceDate": "2026-09-24",
+      "sourceDateType": "Published"
+    },
     {
       "id": "uk-zero-click",
       "value": "69.5%",

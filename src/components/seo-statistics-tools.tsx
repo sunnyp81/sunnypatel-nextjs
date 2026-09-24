@@ -33,7 +33,7 @@ export function StatisticsLibrary() {
   }
   return <>
     <div className={stats.filters}>
-      <div><label htmlFor="stat-scope">Geography and ownership</label><select id="stat-scope" value={scope} onChange={event => setScope(event.target.value)}><option value="all">All 18 statistics</option><option value="UK">UK research (11)</option><option value="US">US comparisons (3)</option><option value="Portfolio">My portfolio (4)</option></select></div>
+      <div><label htmlFor="stat-scope">Geography and ownership</label><select id="stat-scope" value={scope} onChange={event => setScope(event.target.value)}><option value="all">All 19 statistics</option><option value="UK">UK research (12)</option><option value="US">US comparisons (3)</option><option value="Portfolio">My portfolio (4)</option></select></div>
       <div><label htmlFor="stat-search">Find a statistic</label><input id="stat-search" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Try Google, AI, clicks or Ofcom" /></div>
     </div>
     <p className={styles.small} role="status">Showing {matches.length} of {data.statistics.length} statistics{copied ? ". Citation copied, including the source and limitation." : ". Each entry has its own permanent link."}</p>

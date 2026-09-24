@@ -86,6 +86,10 @@
 .article ul { list-style: disc; }
 .article ol { list-style: decimal; }
 .article { margin-bottom: 48px; max-width: 76ch; }
+.article h2:global(#agency-numbers) ~ table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+.article h2:global(#agency-numbers) ~ table :is(th, td) { padding: 10px 14px; border: 1px solid var(--guide-rule); text-align: left; }
+.article h2:global(#agency-numbers) ~ table :is(th, td):not(:first-child) { white-space: nowrap; }
+.article h2:global(#agency-numbers) ~ table th { background: #191f2c; font-weight: 600; }
 .scoreGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
 .proposal { min-width: 0; border: 1px solid #515b70; border-radius: 4px; padding: 16px; background: var(--guide-surface); }
 .proposal legend { font-size: 16px; font-weight: 600; padding: 0 8px; }

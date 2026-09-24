@@ -23,7 +23,7 @@ function HeroGeometric({
 
             <div className="relative z-10 container mx-auto px-4 pt-24 md:px-6 md:pt-28">
                 <div className={heroImage ? "grid gap-8 lg:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] lg:items-center lg:gap-10" : undefined}>
-                    <div className={cn("max-w-3xl mx-auto text-center", heroImage && "w-full min-w-0 lg:mx-0 lg:text-left")}>
+                    <div className={cn("max-w-3xl mx-auto text-center", heroImage && "relative z-10 w-full min-w-0 lg:mx-0 lg:text-left")}>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12">
                             <Circle className="h-2 w-2 fill-brand/80" />
                             <span className="text-sm text-white/60 tracking-wide">
@@ -54,13 +54,17 @@ function HeroGeometric({
                         )}
                     </div>
                     {heroImage && (
-                        <div className="mx-auto w-full max-w-sm lg:max-w-none">
+                        <div className="pointer-events-none relative z-0 mx-auto w-full max-w-sm overflow-visible lg:max-w-none">
                             <Image
                                 src={heroImage.src}
                                 alt={heroImage.alt}
                                 width={800}
                                 height={450}
-                                className="h-auto w-full rounded-[1.25rem]"
+                                className="h-auto w-full scale-[1.35] mix-blend-screen"
+                                style={{
+                                    maskImage: 'radial-gradient(ellipse 60% 55% at center, #000 55%, transparent 100%)',
+                                    WebkitMaskImage: 'radial-gradient(ellipse 60% 55% at center, #000 55%, transparent 100%)',
+                                }}
                                 priority
                                 sizes="(max-width: 1023px) 384px, 45vw"
                             />

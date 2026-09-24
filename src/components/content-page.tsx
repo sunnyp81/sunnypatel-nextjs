@@ -232,7 +232,7 @@ export function ContentPage({
                   alt={serviceHeroImageAlt || h1}
                   width={800}
                   height={450}
-                  className="h-auto w-full rounded-2xl"
+                  className="h-auto w-full rounded-2xl mix-blend-screen"
                   priority
                   sizes="(max-width: 768px) 100vw, 45vw"
                 />

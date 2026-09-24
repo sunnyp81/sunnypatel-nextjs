@@ -51,7 +51,22 @@ Not a count. The actual URLs. Where the links are, what sites they're on, whethe
 
 I've read hundreds of agency reports at this point. Here are the patterns that show up in the bad ones.
 
-![What your agency reports versus what Google Search Console actually shows](/images/stats/seo-agency-reports-vs-gsc.svg)
+{% panels %}
+{% panel tone="bad" title="Agency report says" %}
+- **DA increased 15 to 22.** Not a Google metric, no ranking impact.
+- **"Ranking for 500 keywords."** 480 are brand terms or position 50+.
+- **"50,000 impressions this month."** Sounds impressive with no context.
+- **"Traffic up 30% this quarter."** Includes bot, brand and direct traffic.
+- **"12 backlinks built."** No URLs provided, no traffic on sources.
+{% /panel %}
+{% panel tone="good" title="GSC actually shows" %}
+- **Non-brand clicks: +0% in 6 months.** Zero growth where it matters.
+- **12 keywords in top 10 (non-brand).** Only these drive real traffic.
+- **200 clicks (0.4% CTR).** Almost nobody actually clicked.
+- **Organic non-brand: down 8%.** SEO performance actually declined.
+- **0 referring domains with real traffic.** Links are on spam sites or PBNs.
+{% /panel %}
+{% /panels %}
 
 **They lead with Domain Authority.** Already covered, but it bears repeating. If DA is the headline metric, the agency is leading with a vanity number because the real numbers aren't impressive.
 
@@ -81,7 +96,18 @@ For comparison, here's what I include in every client report.
 
 **Competitor movement.** Who gained, who lost, what changed. This is the context that makes your own data meaningful.
 
-![SEO agency red flags scorecard showing pass and fail indicators](/images/stats/seo-agency-red-flags.svg)
+{% panel eyebrow="Red flags" title="SEO agency red flag scorecard" %}
+Score your agency: 0-2 flags means monitor closely, 3-4 means a serious talk is needed, 5+ means it's time to leave.
+
+- **No Google Search Console access.** You should have owner access from day one. Non-negotiable. Critical.
+- **Domain Authority is the headline metric.** DA is not a Google ranking factor, it's a third-party estimate. Red flag.
+- **Reports show brand keyword rankings.** You'd rank for your own name without an agency. This is padding. Red flag.
+- **Same report template every month.** Copy-paste analysis means nobody actually reviewed your data. Warning.
+- **No competitor analysis included.** SEO without competitor context is flying blind. Warning.
+- **No technical fixes log in reports.** If they can't list what they fixed, they probably didn't fix anything. Red flag.
+
+3+ red flags? Request a technical SEO audit to see where your site actually stands.
+{% /panel %}
 
 ## When to fire your agency
 

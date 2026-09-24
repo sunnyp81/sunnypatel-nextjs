@@ -24,7 +24,7 @@ In my own [technical SEO audit](/services/technical-seo-audit/) across the portf
 - **Title tag truncation**: 8 sites had programmatic titles exceeding Google's 55-60 character display limit
 - **Index bloat**: 31 sites had pages in Google's index that shouldn't have been there (tag archives, parameter URLs, thin pagination pages)
 
-![Multi-site technical debt: real numbers from a 44-site portfolio](/images/stats/multi-site-technical-debt.svg)
+{% chart eyebrow="Trailing slash fix" title="sunnypatel.co.uk canonicals: average position before and after" data="Before fix:31.6|After fix:25.6" suffix=" avg position" highlight="After fix" source="Sunny Patel, sunnypatel.co.uk Search Console data, 10-day window" /%}
 
 These problems recur when sites are built without a centralised quality check. The 23 sites got there by different routes: missing Astro trailing-slash config on some, Next.js routing inconsistencies on others, WordPress permalink settings clashing with CDN cache rules on the rest. Different stacks, same underlying pattern: internal links not matching the canonical URL format.
 
@@ -122,7 +122,18 @@ When I find a new issue type, like the trailing slash problem, I add it to the [
 
 Twelve of my Astro-based sites run weekly automated rebuilds via GitHub Actions every Monday at 06:00 UTC. This ensures sitemap freshness, catches build errors early, and keeps deployment pipelines tested. If a rebuild fails, I get notified before Google notices anything wrong.
 
-![How I allocate time across a 44-site SEO portfolio](/images/stats/multi-site-time-allocation.svg)
+{% panel eyebrow="Time allocation" title="How time splits across a 44-site portfolio" %}
+Not every site deserves equal attention: prioritise by revenue potential.
+
+| Category | Sites | Time each | Total hours | Share |
+|---|---|---|---|---|
+| High priority (revenue sites with fixable issues) | 4 | 15-20 hrs/mo | 70 hrs | 35% |
+| Growth phase (building content, no revenue yet) | 8 | 8-12 hrs/mo | 80 hrs | 40% |
+| Maintenance (stable traffic, earning revenue) | 14 | 2-4 hrs/mo | 42 hrs | 21% |
+| Monitor only (coasting, minimal intervention) | 18 | 30 min/mo | 9 hrs | 4% |
+
+**Total: roughly 201 hours a month across 44 sites.**
+{% /panel %}
 
 ### Systematic Title Frameworks
 

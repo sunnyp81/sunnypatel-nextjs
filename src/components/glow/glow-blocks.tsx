@@ -52,3 +52,34 @@ export function GlowChartFigure(props: GlowChartProps) {
     </GlowCard>
   );
 }
+
+export function GlowPanel({
+  eyebrow,
+  title,
+  tone,
+  children,
+}: {
+  eyebrow?: string;
+  title?: string;
+  tone?: "good" | "bad";
+  children?: React.ReactNode;
+}) {
+  return (
+    <GlowCard className={`not-prose ${styles.figure}`}>
+      <section className={`${styles.inner} ${styles.panel}`} data-tone={tone}>
+        {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
+        {title ? <p className={styles.title}>{title}</p> : null}
+        <div className={styles.panelBody}>{children}</div>
+      </section>
+    </GlowCard>
+  );
+}
+
+export function GlowPanelRow({ children }: { children?: React.ReactNode }) {
+  const count = React.Children.toArray(children).filter(React.isValidElement).length;
+  return (
+    <div className={`not-prose ${styles.statRow}`} data-count={Math.min(count, 3)}>
+      {children}
+    </div>
+  );
+}

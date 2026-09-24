@@ -16,7 +16,19 @@ Sellers present organic traffic as a single number. "40,000 monthly visits from 
 
 **One-off viral content.** A single blog post that hit Reddit or Hacker News can inflate a 3-month average by 300%. That traffic doesn't come back. Google Search Console won't show it: it only measures Google organic search clicks and impressions, not referral traffic from other sites. Check the referrer or source/medium breakdown in GA4 (or your analytics tool) for a spike from reddit.com or news.ycombinator.com, then confirm the underlying organic trend once that spike is excluded.
 
-![Seller-presented vs actual traffic breakdown](/images/stats/seo-due-diligence-traffic-split.svg)
+{% panels %}
+{% panel tone="bad" title="Pitch deck version" %}
+- **40,000 monthly organic visits.** Total organic visits, June peak. Looks like consistent growth.
+{% /panel %}
+{% panel tone="good" title="GSC reality" %}
+After filtering brand, seasonal and viral traffic:
+
+- **Brand traffic: 32,000.**
+- **Non-brand traffic: 5,200.**
+- **Viral one-off (Reddit post): 2,800.**
+- **Actual defensible SEO traffic: 5,200/mo, an 87% drop from the headline number.**
+{% /panel %}
+{% /panels %}
 
 > If the seller won't give you direct Google Search Console access, walk away. Third-party tools like Ahrefs and SEMrush estimate traffic; they don't measure it. I've seen Ahrefs overestimate a site's traffic by 4x and underestimate another by 60%.
 
@@ -97,7 +109,18 @@ Export the backlink profile from Ahrefs or Moz. Look for:
 
 A site with 500 backlinks from 40 referring domains is more fragile than one with 200 backlinks from 180 domains. Diversity matters more than volume.
 
-![SEO traffic defensibility scorecard](/images/stats/seo-due-diligence-defensibility.svg)
+{% panel title="SEO traffic defensibility: fragile vs resilient" %}
+How to tell if organic traffic will survive an algorithm update.
+
+| Signal | Fragile | Resilient |
+|---|---|---|
+| Query diversity (how many queries drive traffic) | 8 queries = 70% | 2,400+ queries |
+| Referring domains (backlink source diversity) | 12 domains | 180+ domains |
+| Topical coverage (content depth in primary topic) | 6 thin pages | 85+ deep guides |
+| Page concentration (% of traffic from top page) | 72% from 1 page | 8% from top page |
+
+**Fragile: one update away from collapse. Resilient: survives algorithm shifts.**
+{% /panel %}
 
 ## Red Flags That Should Kill a Deal
 

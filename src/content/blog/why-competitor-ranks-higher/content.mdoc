@@ -59,7 +59,31 @@ A site with 500 backlinks from cooking and food blogs will outrank a site with 2
 
 **How to check:** Export both backlink profiles from Ahrefs. Filter by "dofollow" referring domains. Then look at the anchor text distribution: are their links coming from pages that are thematically related to your target topic? Compare referring domain count on the specific page you're trying to rank (not just the root domain).
 
-![Backlink profile comparison: referring domain quality vs quantity](/images/stats/competitor-backlink-profile.svg)
+{% panel eyebrow="Backlink profile comparison" title="Volume is not the signal, topical relevance and domain diversity are" %}
+**Referring domains:** you, 54. Competitor, 142.
+
+**Link quality distribution**
+
+| Quality tier | You | Competitor |
+|---|---|---|
+| Editorial, high quality | 21% | 41% |
+| Industry-relevant | 18% | 28% |
+| Generic directories | 25% | 18% |
+| Low-quality, PBN | 36% | 13% |
+
+**Anchor text distribution**
+
+| Anchor type | You | Competitor |
+|---|---|---|
+| Branded | 38% | 52% |
+| Generic, "click here" | 12% | 14% |
+| Topical phrases | 18% | 26% |
+| Exact-match keyword | 32%, flagged | 8% |
+
+High exact-match anchor ratio: manual penalty risk.
+
+**Link velocity, 12 months:** the competitor shows consistent, steady growth from April to March. Your profile shows a spike mid-year, then flattens back to the earlier trend. Consistent velocity signals organic link earning; spikes flag artificial campaigns.
+{% /panel %}
 
 | Signal | You need to beat | Notes |
 |--------|-----------------|-------|
@@ -116,7 +140,7 @@ Ahrefs > compare the specific ranking page vs your page. Not root domain: the in
 **Step 6: Domain authority reality check**
 If all of the above are roughly equal and they still outrank you, the DR gap is the issue. Reframe your keyword strategy toward lower-competition queries.
 
-![Ranking gap analysis across 6 factors](/images/stats/competitor-ranking-gap-analysis.svg)
+{% chart eyebrow="Ranking gap" title="Factor scores, you vs competitor (0-100)" series="You;Competitor" data="Topical depth:32;78|Technical health:55;82|Content quality:61;74|Backlink profile:41;69|CTR signals:48;66|Domain authority:38;61" source="Worked example: largest gap is the primary fix, topical depth is the most common and most overlooked" /%}
 
 ## The Fix Is Usually Faster Than You Think
 

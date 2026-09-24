@@ -38,7 +38,24 @@ Pull your traffic graph from GSC Performance over the past 12 months and find th
 
 2026 has had a clear rhythm so far: a Discover-only update in February, a spam update in late March, a core update through late March and early April, a broad core update from 21 May to 2 June, and a further spam update that finished in late June. If your drop lines up with one of those windows within a day or two, that's your cause. If it started on a random Tuesday with no update nearby, it's more likely technical: a crawl issue, a hosting change, or an indexation problem.
 
-![Google Penalty Recovery Timeline](/images/stats/google-penalty-recovery-timeline.svg)
+{% panels %}
+{% panel eyebrow="Google penalty recovery" title="Manual action" %}
+1. **Check GSC Manual Actions.** Notification present: penalty confirmed. Day 0.
+2. **Audit and fix the root cause.** Links, cloaking or thin content, fully resolved. Weeks 1-4.
+3. **Submit a reconsideration request.** Document every fix: one shot, make it count. Week 4-5.
+4. **Google reviews and lifts the penalty.** Traffic begins recovering within days of lift. Weeks 6-12.
+
+Typical recovery: 6-12 weeks total.
+{% /panel %}
+{% panel eyebrow="Google penalty recovery" title="Algorithmic hit" %}
+1. **Match the drop to an update date.** No GSC notification: cross-reference the update log. Day 0.
+2. **Identify the signal type.** HCU, Penguin, Panda or Core, each has a different fix. Weeks 1-2.
+3. **Improve quality signals.** Content depth, E-E-A-T, remove thin pages. Months 1-3.
+4. **Wait for the next core update.** Google reassesses: no reconsideration route exists. Months 3-6+.
+
+Typical recovery: 3-6 months total.
+{% /panel %}
+{% /panels %}
 
 ## Helpful Content Isn't a Separate Penalty Any More
 
@@ -60,7 +77,12 @@ That pattern matches what I see across my own portfolio. Sites built on structur
 Sites built on structure alone, without anything a competing page couldn't produce with the same template, are the ones losing ground each cycle.
 {% /pullquote %}
 
-![Penalty Diagnosis Checklist](/images/stats/penalty-diagnosis-checklist.svg)
+{% panel eyebrow="Penalty diagnosis" title="Is it manual or algorithmic? Work through this before touching anything on the site" %}
+1. **Check GSC Manual Actions.** Security and Manual Actions, then Manual Actions.
+2. **Penalty listed?** If yes, manual action confirmed: note the type, site-wide or page-level. Fix the root cause fully (links, content, code), submit a reconsideration request in GSC, and expect 2-8 weeks for review.
+3. **If no manual action, dig deeper.** It is technical or algorithmic: you need to distinguish which.
+4. **Does the drop match an update date?** If yes, it is algorithmic: HCU, Core or Penguin. Fix the signals and wait, typically 3-6 months. If no, it is technical: crawl, redirects, robots or canonical, typically 4-12 weeks.
+{% /panel %}
 
 ## Link Spam: Disavow and Reconsideration
 

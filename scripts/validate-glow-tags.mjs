@@ -18,8 +18,11 @@ const tags = {
       prefix: { type: String },
       suffix: { type: String },
       highlight: { type: String },
+      series: { type: String },
     },
   },
+  panel: { attributes: { eyebrow: { type: String }, title: { type: String }, tone: { type: String, matches: ["good", "bad"] } } },
+  panels: {},
 };
 
 const files = process.argv.slice(2).length
@@ -40,9 +43,12 @@ for (const f of files) {
     if (counts[node.tag] !== undefined) counts[node.tag]++;
     if (node.tag === "chart") {
       const a = node.attributes;
+      const nSeries = a.series ? String(a.series).split(";").length : 1;
       const pts = String(a.data).split("|").map((p) => {
         const i = p.lastIndexOf(":");
-        return [p.slice(0, i).trim(), Number(p.slice(i + 1).trim().replace(/,/g, ""))];
+        const vals = p.slice(i + 1).split(";").map((v) => Number(v.trim().replace(/,/g, "")));
+        if (vals.length !== nSeries) probs.push(`line ${node.lines[0] + 1}: "${p}" has ${vals.length} values, series has ${nSeries}`);
+        return [p.slice(0, i).trim(), vals.every(Number.isFinite) ? vals[0] : NaN];
       });
       if (pts.length < 2 || pts.some(([l, v]) => !l || !Number.isFinite(v))) probs.push(`line ${node.lines[0] + 1}: bad chart data "${a.data}"`);
       if (a.type === "line" && pts.length < 3) probs.push(`line ${node.lines[0] + 1}: line chart needs 3+ points`);
@@ -51,7 +57,7 @@ for (const f of files) {
   }
   const lines = src.split("\n");
   for (const node of ast.walk()) {
-    if (node.type !== "tag" || !["chart", "stat", "pullquote"].includes(node.tag)) continue;
+    if (node.type !== "tag" || !["chart", "stat", "pullquote", "panel"].includes(node.tag)) continue;
     const [a, b] = [node.lines[0], node.lines[node.lines.length - 1]];
     const text = lines.slice(a, b + 1).join("\n");
     if (/[–—�]/.test(text)) probs.push(`line ${a + 1}: en/em dash or U+FFFD inside glow tag`);

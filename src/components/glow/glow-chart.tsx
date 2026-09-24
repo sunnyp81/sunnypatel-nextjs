@@ -21,10 +21,14 @@ export type GlowChartProps = {
   prefix?: string;
   suffix?: string;
   highlight?: string;
+  series?: string;
 };
+
+type Row = { label: string; raws: string[]; values: number[] };
 
 const BLUE = "#5B8AEF";
 const GOLD = "#D79F1E";
+const SERIES_COLOURS = ["#5B8AEF", "#D79F1E", "#8FB0F5"];
 const DONUT_COLOURS = [
   "#5B8AEF",
   "#D79F1E",
@@ -45,6 +49,21 @@ function parseData(data: string): Point[] {
       return { label, raw, value: Number(raw.replace(/,/g, "")) };
     })
     .filter((p) => p.label && Number.isFinite(p.value));
+}
+
+function parseRows(data: string): Row[] {
+  return data
+    .split("|")
+    .map((pair) => {
+      const i = pair.lastIndexOf(":");
+      const label = pair.slice(0, i).trim();
+      const raws = pair
+        .slice(i + 1)
+        .split(";")
+        .map((r) => r.trim());
+      return { label, raws, values: raws.map((r) => Number(r.replace(/,/g, ""))) };
+    })
+    .filter((r) => r.label && r.values.every((v) => Number.isFinite(v)));
 }
 
 function useReveal<T extends HTMLElement>(ref: React.RefObject<T | null>) {
@@ -318,7 +337,7 @@ function LineChart({
             <stop offset="0%" stopColor={BLUE} stopOpacity="0.22" />
             <stop offset="100%" stopColor={BLUE} stopOpacity="0" />
           </linearGradient>
-          <filter id={`${gid}-g`} x="-10%" y="-30%" width="120%" height="160%">
+          <filter id={`${gid}-g`} filterUnits="userSpaceOnUse" x={0} y={0} width={w} height={H}>
             <feGaussianBlur stdDeviation="4" result="b" />
             <feMerge>
               <feMergeNode in="b" />
@@ -571,6 +590,310 @@ function DonutChart({
   );
 }
 
+function Legend({ names }: { names: string[] }) {
+  return (
+    <ul className={styles.legend} style={{ margin: "0 0 1rem" }} aria-hidden="true">
+      {names.map((n, i) => (
+        <li key={n}>
+          <span
+            className={styles.swatch}
+            style={{ background: SERIES_COLOURS[i % SERIES_COLOURS.length] }}
+          />
+          {n}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function GroupedBarChart({
+  rows,
+  names,
+  fmtRaw,
+}: {
+  rows: Row[];
+  names: string[];
+  fmtRaw: (r: string) => string;
+}) {
+  const [active, setActive] = useState<number | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  useReveal(ref);
+  const onKey = useKeys(rows.length, active, setActive);
+  const max = Math.max(...rows.flatMap((r) => r.values));
+  return (
+    <div
+      ref={ref}
+      className={styles.chartWrap}
+      tabIndex={0}
+      role="group"
+      aria-label="Grouped bar chart, use arrow keys to read values"
+      onKeyDown={onKey}
+      onBlur={() => setActive(null)}
+      onPointerLeave={() => setActive(null)}
+    >
+      <Legend names={names} />
+      <div style={{ display: "grid", gap: "1.1rem" }}>
+        {rows.map((r, i) => (
+          <div
+            key={r.label}
+            onPointerEnter={() => setActive(i)}
+            aria-hidden="true"
+            className={active !== null && active !== i ? styles.dim : ""}
+            style={{ transition: "opacity 200ms ease" }}
+          >
+            <div style={{ fontSize: 14, color: "#EEEEEE", lineHeight: 1.35, marginBottom: 6 }}>
+              {r.label}
+            </div>
+            <div style={{ display: "grid", gap: 5 }}>
+              {r.values.map((v, j) => {
+                const c = SERIES_COLOURS[j % SERIES_COLOURS.length];
+                return (
+                  <div key={j} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div
+                      style={{
+                        flex: 1,
+                        height: 8,
+                        borderRadius: 4,
+                        background: "rgba(255,255,255,0.06)",
+                      }}
+                    >
+                      <div
+                        className={`${styles.bar} ${active === i ? (j === 1 ? styles.litGold : styles.lit) : ""}`}
+                        style={{
+                          height: "100%",
+                          width: `${Math.max(1.5, (v / max) * 100)}%`,
+                          borderRadius: 4,
+                          background: c,
+                          boxShadow: `0 0 8px ${c}59`,
+                          transitionDelay: `0ms, 0ms, ${i * 70}ms`,
+                        }}
+                      />
+                    </div>
+                    <span
+                      style={{
+                        minWidth: 64,
+                        textAlign: "right",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: active === i ? c : "#EEEEEE",
+                        fontVariantNumeric: "tabular-nums",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {fmtRaw(r.raws[j])}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+      {active !== null ? (
+        <p className={styles.srOnly} aria-live="polite">
+          {rows[active].label}:{" "}
+          {rows[active].raws.map((r, j) => `${names[j]} ${fmtRaw(r)}`).join(", ")}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function MultiLineChart({
+  rows,
+  names,
+  fmtRaw,
+  prefix,
+  suffix,
+}: {
+  rows: Row[];
+  names: string[];
+  fmtRaw: (r: string) => string;
+  prefix: string;
+  suffix: string;
+}) {
+  const [active, setActive] = useState<number | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  useReveal(ref);
+  const width = useWidth(ref, 640);
+  const onKey = useKeys(rows.length, active, setActive);
+  const gid = useId().replace(/:/g, "");
+  const H = 260;
+  const pad = { top: 16, right: 16, bottom: 34, left: 56 };
+  const w = Math.max(200, width);
+  const iw = w - pad.left - pad.right;
+  const ih = H - pad.top - pad.bottom;
+  const all = rows.flatMap((r) => r.values);
+  const minV = Math.min(0, ...all);
+  const maxV = niceMax(Math.max(...all));
+  const x = (i: number) =>
+    pad.left + (rows.length === 1 ? iw / 2 : (i / (rows.length - 1)) * iw);
+  const y = (v: number) => pad.top + ih - ((v - minV) / (maxV - minV)) * ih;
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => minV + t * (maxV - minV));
+  const lastIdx = rows.length - 1;
+  const extent = (i: number): [number, number] => {
+    const tw = rows[i].label.length * 7.2;
+    if (i === 0) return [x(i), x(i) + tw];
+    if (i === lastIdx) return [x(i) - tw, x(i)];
+    return [x(i) - tw / 2, x(i) + tw / 2];
+  };
+  const shown = new Set<number>([lastIdx]);
+  const lastLeft = extent(lastIdx)[0];
+  let prevRight = -Infinity;
+  rows.forEach((_, i) => {
+    if (i === lastIdx) return;
+    const [l, r] = extent(i);
+    if (l - prevRight >= 12 && lastLeft - r >= 12) {
+      shown.add(i);
+      prevRight = r;
+    }
+  });
+  const onMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    const px = e.clientX - e.currentTarget.getBoundingClientRect().left;
+    let best = 0;
+    let bestD = Infinity;
+    rows.forEach((_, i) => {
+      const d = Math.abs(x(i) - px);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    });
+    setActive(best);
+  };
+  return (
+    <div
+      ref={ref}
+      className={styles.chartWrap}
+      tabIndex={0}
+      role="group"
+      aria-label="Line chart, use arrow keys to read values"
+      onKeyDown={onKey}
+      onBlur={() => setActive(null)}
+    >
+      <Legend names={names} />
+      <div style={{ position: "relative" }}>
+        <svg
+          className={styles.svg}
+          width={w}
+          height={H}
+          viewBox={`0 0 ${w} ${H}`}
+          aria-hidden="true"
+          onPointerMove={onMove}
+          onPointerLeave={() => setActive(null)}
+        >
+          <defs>
+            <filter id={`${gid}-g`} filterUnits="userSpaceOnUse" x={0} y={0} width={w} height={H}>
+              <feGaussianBlur stdDeviation="4" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          {ticks.map((t) => (
+            <g key={t}>
+              <line
+                x1={pad.left}
+                x2={w - pad.right}
+                y1={y(t)}
+                y2={y(t)}
+                stroke="rgba(255,255,255,0.08)"
+              />
+              <text className={styles.axisText} x={pad.left - 10} y={y(t) + 4} textAnchor="end">
+                {prefix}
+                {fmtTick(t)}
+                {suffix}
+              </text>
+            </g>
+          ))}
+          {rows.map((r, i) =>
+            shown.has(i) ? (
+              <text
+                key={r.label}
+                className={styles.axisText}
+                x={x(i)}
+                y={H - 10}
+                textAnchor={i === 0 ? "start" : i === lastIdx ? "end" : "middle"}
+              >
+                {r.label}
+              </text>
+            ) : null,
+          )}
+          {names.map((_, j) => {
+            const c = SERIES_COLOURS[j % SERIES_COLOURS.length];
+            const d = rows
+              .map((r, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(r.values[j]).toFixed(1)}`)
+              .join(" ");
+            return (
+              <g key={j}>
+                <path
+                  className={styles.line}
+                  d={d}
+                  fill="none"
+                  stroke={c}
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  filter={`url(#${gid}-g)`}
+                  pathLength={1}
+                  strokeDasharray="1"
+                />
+                {rows.map((r, i) => (
+                  <circle
+                    key={r.label}
+                    cx={x(i)}
+                    cy={y(r.values[j])}
+                    r={active === i ? 6 : 3}
+                    fill="#050507"
+                    stroke={c}
+                    strokeWidth="2"
+                    className={styles.dot}
+                  />
+                ))}
+              </g>
+            );
+          })}
+          {active !== null ? (
+            <line
+              x1={x(active)}
+              x2={x(active)}
+              y1={pad.top}
+              y2={pad.top + ih}
+              stroke="rgba(255,255,255,0.3)"
+              strokeDasharray="3 4"
+            />
+          ) : null}
+        </svg>
+        {active !== null ? (
+          <div
+            className={styles.tooltip}
+            style={{
+              left: Math.min(w - 90, Math.max(90, x(active))),
+              top: y(Math.max(...rows[active].values)),
+            }}
+            aria-live="polite"
+          >
+            {rows[active].label}
+            {rows[active].raws.map((raw, j) => (
+              <span
+                key={j}
+                style={{
+                  display: "block",
+                  color: SERIES_COLOURS[j % SERIES_COLOURS.length],
+                  fontWeight: 600,
+                }}
+              >
+                {names[j]}: {fmtRaw(raw)}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 export function GlowChart({
   type = "bar",
   title,
@@ -579,12 +902,60 @@ export function GlowChart({
   prefix = "",
   suffix = "",
   highlight,
+  series,
 }: GlowChartProps) {
   const points = useMemo(() => parseData(data), [data]);
+  const rows = useMemo(() => (series ? parseRows(data) : []), [data, series]);
+  const names = useMemo(
+    () => (series ? series.split(";").map((n) => n.trim()) : []),
+    [series],
+  );
   const fmt = useCallback(
     (p: Point) => `${prefix}${/^-?\d{4,}$/.test(p.raw) ? Number(p.raw).toLocaleString("en-GB") : p.raw}${suffix}`,
     [prefix, suffix],
   );
+  const fmtRaw = useCallback(
+    (raw: string) =>
+      `${prefix}${/^-?\d{4,}$/.test(raw) ? Number(raw).toLocaleString("en-GB") : raw}${suffix}`,
+    [prefix, suffix],
+  );
+  if (series) {
+    if (!rows.length) return null;
+    return (
+      <>
+        {type === "line" ? (
+          <MultiLineChart rows={rows} names={names} fmtRaw={fmtRaw} prefix={prefix} suffix={suffix} />
+        ) : (
+          <GroupedBarChart rows={rows} names={names} fmtRaw={fmtRaw} />
+        )}
+        <div className={styles.srOnly}>
+          <table>
+            <caption>{title}</caption>
+            <thead>
+              <tr>
+                <th scope="col">{eyebrow || "Item"}</th>
+                {names.map((n) => (
+                  <th scope="col" key={n}>
+                    {n}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.label}>
+                  <th scope="row">{r.label}</th>
+                  {r.raws.map((raw, j) => (
+                    <td key={j}>{fmtRaw(raw)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  }
   if (!points.length) return null;
   return (
     <>

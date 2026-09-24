@@ -64,7 +64,12 @@ How I segment traffic by intent when I'm pricing an acquisition:
 
 When I look at a potential acquisition, I export every query from GSC, classify it by intent, and weight the traffic accordingly. A site with 80% commercial-intent traffic at 5,000 visits a month outvalues a site with 80% informational traffic at 20,000 visits a month, even though the second number looks bigger on a listing.
 
-![Traffic quality multipliers, commercial vs informational](/images/stats/traffic-quality-multipliers.svg)
+{% stats %}
+{% stat value="3-5x" label="value multiplier, commercial intent: buy standing desk uk, best robot mower. 1,000 visits/month equals about £4,800 equivalent paid value" source="Illustrative example" /%}
+{% stat value="2-3x" label="value multiplier, comparison intent: product A vs B, best product review. 1,000 visits/month equals about £2,400 equivalent paid value" source="Illustrative example" /%}
+{% stat value="1x" label="base value, informational intent: what is a standing desk, how to topic. 10,000 visits/month equals about £1,200 equivalent paid value" source="Illustrative example" /%}
+{% stat value="0.5x or less" label="brand or navigational intent: company name, brand.com login. Not SEO-driven, brand awareness value only" /%}
+{% /stats %}
 
 Board and investor reporting should carry the same split. Total traffic without an intent breakdown tells the wrong story to whoever is signing off the budget or the offer.
 
@@ -99,7 +104,22 @@ The CPC-equivalent figure estimates replacement advertising cost. It does not es
 
 Use comparable CTR evidence when estimating potential organic traffic. The [portfolio CTR study](/blog/google-ctr-study/) recorded 5.96% in a position-one bucket containing only five query rows. It applied no country filter or brand exclusion and does not establish the expected CTR of a small UK site.
 
-![Organic traffic valuation formula, broker number vs real number](/images/stats/organic-traffic-valuation-formula.svg)
+{% panels %}
+{% panel eyebrow="Same site, two valuations" title="Broker version: Google Analytics, total organic" tone="bad" %}
+14,200 monthly organic visits.
+
+Includes: 7,400 brand searches, 2,100 bot or spam visits, 900 from a seasonal spike.
+
+Revenue estimate times a 30x multiplier: £142,000, an inflated valuation.
+{% /panel %}
+{% panel eyebrow="Same site, two valuations" title="GSC reality: non-brand clicks only" tone="good" %}
+3,800 revenue-driving visits.
+
+Filtered to: non-brand only, converting queries, 12-month average.
+
+Actual revenue times a 30x multiplier: £38,000, a defensible valuation, 73% lower than the broker number.
+{% /panel %}
+{% /panels %}
 
 ## Defensibility: The Check Most Buyers Skip
 

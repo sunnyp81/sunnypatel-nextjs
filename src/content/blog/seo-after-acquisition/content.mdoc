@@ -18,7 +18,14 @@ Google ranks pages, not businesses. It doesn't care that ownership changed. It c
 
 **GSC ownership not transferred.** The buyer doesn't get Google Search Console access until weeks after close. Crawl errors accumulate unnoticed, sitemap submissions lapse, or a robots.txt change blocks half the site from indexing.
 
-![Post-acquisition traffic timeline](/images/stats/post-acquisition-seo-timeline.svg)
+{% panels %}
+{% panel eyebrow="Illustrative, post-acquisition traffic timeline" title="With a 90-day protection plan" tone="good" %}
+Traffic holds near its pre-sale baseline through the acquisition, dips around 20% by month 1 to 2, then recovery begins from month 2 to 3. By month 4 to 6, traffic is around 95% restored.
+{% /panel %}
+{% panel eyebrow="Illustrative, post-acquisition traffic timeline" title="Without protection, changes made immediately" tone="bad" %}
+Traffic keeps falling well past the initial dip, down around 55% by month 3 to 4, with only a slow, partial recovery by month 6.
+{% /panel %}
+{% /panels %}
 
 {% chart type="bar" eyebrow="Hosting downgrade" title="Load time before and after a hosting change, example case" data="Tuned VPS:1.2|Shared hosting:3.8" suffix="s" highlight="Shared hosting" source="Sunny Patel, SEO consulting observations" /%}
 
@@ -58,8 +65,6 @@ Track three numbers weekly in Google Search Console:
 1. **Non-brand clicks.** Filter out your brand name and domain variations. This is your real organic performance: the traffic Google sends because your content ranks, not because someone already knows your name.
 2. **Indexed pages count.** Go to Pages > Indexed. If this number starts dropping without you making changes, something's wrong: possibly a crawl directive you inherited, or Google reassessing content quality.
 3. **Crawl errors.** Under Settings > Crawl stats, watch for spikes in 404s, server errors, or crawl rate drops. These are early warning signals.
-
-![30-day protection checklist](/images/stats/post-acquisition-30-day-checklist.svg)
 
 ## Domain Migration: When You Must vs When You Shouldn't
 

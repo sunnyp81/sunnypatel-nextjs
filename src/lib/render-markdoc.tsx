@@ -1,7 +1,14 @@
 import Markdoc, { type Config } from "@markdoc/markdoc";
 import React from "react";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
-import { GlowChartFigure, GlowPullquote, GlowStat, GlowStatRow } from "@/components/glow/glow-blocks";
+import {
+  GlowChartFigure,
+  GlowPanel,
+  GlowPanelRow,
+  GlowPullquote,
+  GlowStat,
+  GlowStatRow,
+} from "@/components/glow/glow-blocks";
 
 export const markdocConfig: Config = {
   tags: {
@@ -42,7 +49,19 @@ export const markdocConfig: Config = {
         prefix: { type: String },
         suffix: { type: String },
         highlight: { type: String },
+        series: { type: String },
       },
+    },
+    panel: {
+      render: "GlowPanel",
+      attributes: {
+        eyebrow: { type: String },
+        title: { type: String },
+        tone: { type: String, matches: ["good", "bad"] },
+      },
+    },
+    panels: {
+      render: "GlowPanelRow",
     },
   },
 };
@@ -52,6 +71,14 @@ export function renderMarkdoc(content: any) {
   const node = content?.node ?? content;
   const transformed = Markdoc.transform(node, markdocConfig);
   return Markdoc.renderers.react(transformed, React, {
-    components: { ServiceMiniCta, GlowPullquote, GlowStat, GlowStatRow, GlowChartFigure },
+    components: {
+      ServiceMiniCta,
+      GlowPullquote,
+      GlowStat,
+      GlowStatRow,
+      GlowChartFigure,
+      GlowPanel,
+      GlowPanelRow,
+    },
   });
 }

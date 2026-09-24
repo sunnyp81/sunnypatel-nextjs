@@ -1,0 +1,107 @@
+Most "link building statistics" posts average someone else's case studies. This one is different: it is a frozen, dated pull of Ahrefs data across 28 sites I own, taken on 24 September 2026, with every referring domain, anchor and page checked rather than assumed.
+
+**The headline: the median owned site in this panel carries 601 referring domains and a Domain Rating of 0.6, and the anchor-text data shows most of that volume is templated PBN link-seller spam and fake review comments, not real link building.** Strip that out and the sites with genuinely earned links look nothing like the ones with the biggest numbers.
+
+## What counts as a referring domain here, and why the raw count misleads {% #what-counts %}
+
+A referring domain (RD) is a unique domain with at least one live link to a target, dofollow or nofollow, good or spam. Ahrefs counts it regardless of quality. That single fact makes "referring domains" a dangerous number to quote on its own, and this panel shows exactly why.
+
+Pull the raw RD count for 28 small sites and you get a median of 601.5, a mean of 499.7 and a range from 6 to 938. Read only that and you would conclude these are well-linked sites. They are not. Median Domain Rating across the same panel is 0.6. Twenty-two of the 28 sites carry a DR under 2, the range Ahrefs treats as functionally unranked.
+
+| Panel metric (n=28, pulled 24 September 2026) | Median | Mean | Range |
+|---|---|---|---|
+| Domain Rating | 0.6 | 2.1 | 0.0 – 9.0 |
+| Referring domains | 602 | 500 | 6 – 938 |
+| Dofollow referring domains | 51 | 87 | 3 – 349 |
+| Dofollow share of referring domains | 10.5% | 22.3% | 3.4% – 66.7% |
+
+A high RD count with a near-zero DR is not a link building result. It is a description of how much inbound spam a domain has accumulated while doing nothing to earn real links. Every one of the 28 sites in this panel had at least one referring domain; none sat at zero, so the median above is not inflated by a handful of well-linked outliers pulling up a mostly empty panel.
+
+{% stats %}
+{% stat value="0.6" label="median Domain Rating across 28 owned portfolio sites, 24 September 2026" source="Sunny Patel, Ahrefs API v3" /%}
+{% stat value="10.5%" label="median dofollow share of referring domains across the same 28-site panel" source="Sunny Patel, Ahrefs API v3" /%}
+{% /stats %}
+
+## What does the anchor text on these links actually say? {% #anchor-text %}
+
+Pulling the top anchor clusters by referring-domain count on 9 of the panel's more active sites answers the question raw numbers cannot: who is actually linking, and why.
+
+The same three templates repeat almost verbatim across sites with no other connection to each other:
+
+- **"Boost Rankings & Massive Traffic \| High DR & High Traffic SEO Backlinks for Casino, Crypto..."** — a PBN-network sales block, appearing on 4 of the 9 sites checked, at 313 to 457 referring domains per site, 0% dofollow.
+- A fabricated customer testimonial naming a specific SEO vendor by name, describing a "domain authority" jump that Ahrefs does not measure — appearing on 5 of the 9 sites, at 308 to 317 referring domains per site, 0% dofollow.
+- **"High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Network Service... Buy Backlinks Online Cheap"** — appearing on all 9 sites checked, at 36 to 49 referring domains per site, 100% dofollow.
+
+That third template alone places 36 to 49 dofollow links on each site. For comparison, the cleanest site in this panel, a small utility checker with a slow, organic-looking link history, has collected 15 referring domains and 8 dofollow links in total across its entire history. One spam template outnumbers that site's whole real backlink profile.
+
+{% pullquote cite="From the anchor-text pull, 24 September 2026" %}
+One PBN-sale template alone placed more dofollow links on a mid-tier panel site than the cleanest site in the panel had earned in total, across its entire history.
+{% /pullquote %}
+
+This is not unique to obscure sites. My own site, sunnypatel.co.uk, carries a separately documented backlink profile where 83% of referring domains were flagged as spam by Ahrefs, detailed in my [negative SEO case study](/blog/negative-seo-backlink-attack-case-study/). The pattern in this panel is the same phenomenon at smaller scale, spread across sites that share nothing but common ownership.
+
+## When did these links actually arrive? {% #timing %}
+
+Refdomain history by month is the clearest tell. Genuine link building is lumpy but gradual: a placement here, a mention there, growing over months or years as content and outreach compound. An automated campaign looks different: flat at zero, then a step-change that repeats across unrelated sites in the same calendar window.
+
+| Site type (deep-dive subset, n=9) | Refdomains, Oct 2025 | Refdomains, Sep 2026 | Biggest single-month jump |
+|---|---|---|---|
+| 7 of 9 sites with a synchronised spike | 0–202 | 492–697 | +136 to +342 in one month, concentrated May–Sep 2026 |
+| 1 site with a slow, organic-looking climb | 0 | 15 | +9 in one month, spread across 5 months |
+
+Seven of the nine sites checked in detail sat at zero or near-zero referring domains through the winter, then began climbing in March 2026 and accelerated hard from May onward, several adding 130 to 340 referring domains in a single month. That is not a content calendar. It is the signature of an automated PBN or negative-SEO campaign running against multiple unrelated sites at once. The one site with a genuinely different shape (waterhard.uk) grew from 0 to 15 referring domains gradually across eight months, in line with its real, if small, editorial mentions.
+
+{% chart type="line" eyebrow="Referring domains over 12 months" title="Refdomain growth, spam-pattern site vs organic-pattern site, Oct 2025 to Sep 2026" data="Oct:0|Nov:0|Dec:5|Jan:7|Feb:4|Mar:11|Apr:20|May:136|Jun:221|Jul:340|Aug:355|Sep:697" suffix=" RDs" highlight="Sep" source="Sunny Patel, Ahrefs API v3, refdomains-history" /%}
+
+## Which pages actually earn the links? {% #page-type %}
+
+On every spam-pattern site checked, the referring domains overwhelmingly point at the homepage, not at any specific piece of content.
+
+| Site | Homepage referring domains | Next-best page's referring domains |
+|---|---|---|
+| Deep-dive site A | 862 | 2 |
+| Deep-dive site B | 857 | 7 |
+| Deep-dive site C | 219 | 1 |
+| Deep-dive site D | 218 | 5 |
+| Organic-pattern site (waterhard.uk) | 11 | 2 (spread across 8 different data pages) |
+
+That last row is the point. On the one site in the deep-dive subset with a genuinely earned link profile, referring domains are spread across county- and utility-specific data pages, not stacked on the homepage. Real link building tends to point at the specific page that answers a specific question. Spam and negative SEO point at the root domain because the sender never looked at the site's content.
+
+## How many real links does a citation-worthy page actually need? {% #real-numbers %}
+
+Strip the spam out and the honest numbers are small. Three of my own statistics pages, none of them touched by the pattern above, show what real, earned links to a genuinely useful reference page look like, checked fresh on 24 September 2026:
+
+| Page | Referring domains (all URL variants) |
+|---|---|
+| /blog/seo-statistics-uk/ | 23 |
+| /blog/local-seo-statistics/ | 9 |
+| /blog/ai-search-statistics/ | 8 |
+
+These are not portfolio panel sites, they are my own site reported separately as a labelled case, not folded into the panel medians above. Twenty-three referring domains to one well-cited statistics page is a realistic target for a genuinely useful reference resource. It is also a fraction of the raw RD counts the panel sites accumulate from spam alone, which is exactly the comparison worth making: a real link building result and an inflated spam count can produce numbers on the same order of magnitude, and only anchor text, timing and page-level distribution tell them apart.
+
+{% stats %}
+{% stat value="23" label="referring domains to sunnypatel.co.uk's UK SEO statistics page across all URL variants, 24 September 2026" source="Sunny Patel, Ahrefs API v3" /%}
+{% /stats %}
+
+## Method {% #method %}
+
+- **Panel:** 28 domains I own, frozen on 24 September 2026 from two existing internal registries (an active site-directives list and a growth-monitoring site registry), before any data was pulled. No site was added or dropped based on its numbers. Client-owned sites and sunnypatel.co.uk itself are excluded from the panel and reported separately as a small labelled case.
+- **Data source:** Ahrefs API v3, `batch-analysis` for Domain Rating, referring domains, dofollow/nofollow split and organic traffic (mode=subdomains, protocol=both); `site-explorer-anchors`, `site-explorer-pages-by-backlinks` and `site-explorer-refdomains-history` for the 9-site deep-dive subset (the panel sites with a Domain Rating of 2 or higher, i.e. the ones with any real organic footprint to investigate further).
+- **Anchor-text classification:** an anchor was flagged as a spam/PBN pattern where its text advertised paid backlink or guest-post services, referenced a named SEO vendor in a fabricated testimonial, or matched Ahrefs' own PBN-network template language. Anchor counts can overlap where the same referring domain uses more than one anchor, so cluster counts are reported individually rather than summed into a single spam percentage.
+- **Dates:** referring-domain history covers the 12 months to 24 September 2026, grouped monthly.
+
+## Limitations {% #limitations %}
+
+Ahrefs crawls a large but incomplete slice of the web; a link it has not (yet) crawled does not exist in this dataset even if it is live. Referring domains it once counted can also disappear from a later pull without a "lost" event ever surfacing in a search, if the crawler simply hasn't revisited a page. Domain Rating is Ahrefs' own third-party metric, not a Google ranking signal, and it responds to link profile shape as Ahrefs defines it, not to how Google actually weighs a link internally.
+
+The spam-pattern classification above is directional, based on a sample of the top 15 anchor clusters by referring-domain count per site, not an exhaustive audit of every link. A site could carry additional spam outside that sample, or additional genuine links buried under a large spam cluster. The 9-site deep-dive subset is not representative of the full 28-site panel; it was deliberately selected as the sites with enough Domain Rating to be worth investigating in detail, so its findings should not be read as "true of every small site," only "true of the sites in this portfolio that have any real footprint at all."
+
+None of this data was independently audited by a third party.
+
+## How to cite this data {% #citation %}
+
+Link to this page and keep the panel size (28 sites), the pull date (24 September 2026) and the specific metric's scope attached to any figure you quote. Download the [aggregate CSV](/downloads/link-building-statistics-2026.csv) or [JSON](/downloads/link-building-statistics-2026.json): every statistic on this page with its own source line, no domain names, consistent with how this panel is reported throughout.
+
+For a second opinion on what your own backlink profile is actually made of, real editorial links versus inherited spam, a fixed-fee [SEO consulting session](/services/seo-consulting/) can walk through your own Ahrefs export line by line.
+
+Related reading: [UK SEO statistics](/blog/seo-statistics-uk/), [AI search statistics](/blog/ai-search-statistics/), and the full [negative SEO case study](/blog/negative-seo-backlink-attack-case-study/) behind the 83% figure quoted above.

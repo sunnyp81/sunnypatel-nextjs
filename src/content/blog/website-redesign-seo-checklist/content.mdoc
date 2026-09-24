@@ -22,7 +22,18 @@ I've seen all five happen in a single redesign. The site lost 62% of its organic
 The site lost 62% of its organic traffic in 3 weeks. It took 5 months to recover to 80% of the original level.
 {% /pullquote %}
 
-![What breaks during a redesign](/images/stats/redesign-breakage-points.svg)
+{% panel eyebrow="Ranked by traffic impact severity" title="What breaks during a website redesign" %}
+| Breakage point | Severity | Impact |
+|---|---|---|
+| URLs changed | Critical | 40-80% traffic loss. Missing 301 redirects cause immediate ranking loss; each missed URL loses backlink equity and authority. |
+| Content removed | Critical | 30-60% traffic loss. Removing paragraphs for a cleaner design strips the keywords Google ranked; H1 rewrites change query match. |
+| Internal links | High | 20-40% traffic loss. Nav restructuring breaks link equity flow; deep pages lose crawl priority and orphaned pages drop fast. |
+| Schema stripped | High | 15-30% CTR loss. FAQ, HowTo and Product schema rarely survive CMS changes; rich results disappear from SERPs. |
+| Page speed | Medium | 10-25% traffic loss. New designs load heavy hero images, custom fonts and JS animation libraries; CWV regression triggers a ranking drop. |
+| Old redirects lost | Medium | 10-20% traffic loss. Previous redirect rules aren't carried to the new platform; external backlinks to old URLs return 404. |
+
+Source: based on audit data from 44 managed websites, sunnypatel.co.uk.
+{% /panel %}
 
 ## Phase 1: Before the Redesign (Your Baseline)
 
@@ -118,7 +129,35 @@ I audit sites where the redesign removed 60% of the page content to fit a "moder
 
 Meta titles, meta descriptions, and image alt text must transfer to the new site. Meta titles and alt text carry real ranking weight; meta descriptions don't, Google has said directly that they're not a ranking signal, their job is the snippet Google shows in results, which is what drives click-through once you're already ranking. Losing any of the three during migration costs you something, just not the same thing. If your CMS migration doesn't carry them over automatically, export them and reimport them manually.
 
-![Redesign SEO phases](/images/stats/redesign-seo-checklist-phases.svg)
+{% panels %}
+{% panel eyebrow="Phase 1: Baseline, 2-3 days before launch" title="Before" %}
+- Export GSC traffic data
+- Full site crawl, Screaming Frog or Sitebulb
+- Map every URL redirect
+- Document existing redirects
+- Record Core Web Vitals
+- List schema markup pages
+- Screenshot the sitemap for a URL count
+{% /panel %}
+{% panel eyebrow="Phase 2: Build and QA, during development" title="During" %}
+- Canonical tags on every page
+- XML sitemap generating
+- robots.txt not blocking new pages
+- Schema markup carried over
+- Meta titles and descriptions kept
+- Internal links use new URLs
+- Image alt text preserved
+{% /panel %}
+{% panel eyebrow="Phase 3: Monitor, first 4 weeks post-launch" title="After" %}
+- Submit sitemap to GSC
+- Test 20 random old URLs
+- Verify Core Web Vitals
+- Monitor indexed page count
+- Track top 20 query positions
+- Check crawl errors daily
+- Compare CTR against baseline
+{% /panel %}
+{% /panels %}
 
 ## Phase 4: Technical Checklist During Build
 

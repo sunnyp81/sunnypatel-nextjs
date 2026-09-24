@@ -1,0 +1,64 @@
+On sunnypatel.co.uk, five stats and data pages hold 31 unique referring domains between them, checked on 24 September 2026. Every other non-homepage page on the site with a referring domain, 21 articles, service pages, landing pages and portfolio pages, holds 24 referring domains combined. Page age and promotion were not controlled for.
+
+The three largest are the UK SEO statistics page with 12, local SEO statistics with 8 and AI search statistics with 7.
+
+## Which page types hold the most referring domains on this site? {% #page-types %}
+
+Every page on sunnypatel.co.uk with at least one live referring domain was pulled and grouped by page type on 24 September 2026. Statistics-page counts use the union of the referring-domain lists for each URL variant of that page, pulled per URL and combined in Python so a domain linking to more than one variant is counted once. Other page types use per-page counts from Ahrefs' pages-by-backlinks report, summed per type; these are not separately checked for a domain repeating across two different pages of the same type.
+
+| Page type | Referring domains | Pages with any referring domain |
+|---|---|---|
+| Stats and data pages | 31 | 5 |
+| Landing pages | 9 | 9 |
+| Articles (guides, how-tos) | 8 | 6 |
+| Service pages | 5 | 4 |
+| Portfolio pages | 2 | 2 |
+| Free tools | 0 | 0 |
+
+| Statistics page | Unique referring domains |
+|---|---|
+| UK SEO statistics | 12 |
+| Local SEO statistics | 8 |
+| AI search statistics | 7 |
+| Content marketing statistics | 3 |
+| AI referral traffic study | 1 |
+
+No tool URL appeared with a referring domain in this pull.
+
+{% stats %}
+{% stat value="31" label="unique referring domains held by sunnypatel.co.uk's 5 stats and data pages combined, checked 24 September 2026" source="Sunny Patel, Ahrefs API v3" /%}
+{% stat value="0" label="referring domains found for any tool URL on the same site" source="Sunny Patel, Ahrefs API v3" /%}
+{% /stats %}
+
+{% chart type="bar" eyebrow="sunnypatel.co.uk referring domains by page type" title="Referring domains by page type, sunnypatel.co.uk, 24 September 2026" data="Stats and data pages:31|Landing pages:9|Articles:8|Service pages:5|Portfolio pages:2|Free tools:0" suffix=" RDs" highlight="Stats and data pages" source="Sunny Patel, Ahrefs API v3" /%}
+
+## Why raw referring-domain counts mislead {% #why-rd-misleads %}
+
+A referring-domain total on its own does not say how a link was placed. A saved review of anchor text on a wider panel of owned sites sampled the largest anchor clusters per site and flagged any anchor containing backlink-sales terms, such as wording advertising paid backlink or guest-post packages, or referencing the same named SEO vendor across unrelated sites. These flags appeared on 8 of the 9 reviewed sites. Anchor text can describe what a link's surrounding page says about itself, but it cannot prove who placed a link, why, or whether it was paid for. The panel-level detail is in Method below.
+
+## How many referring domains do sunnypatel.co.uk's statistics pages hold? {% #real-numbers %}
+
+The UK SEO statistics page holds 12 unique referring domains, the local SEO statistics page holds 8, and the AI search statistics page holds 7, each checked fresh on 24 September 2026 across every live URL variant of that page.
+
+My [UK SEO statistics](/blog/seo-statistics-uk/) page holds more referring domains on its own than the site's 4 service pages combined (5) or its 9 landing pages combined (9).
+
+## Method {% #method %}
+
+- **sunnypatel.co.uk dataset:** the author's own site. Statistics-page counts use the union of `site-explorer-referring-domains` (mode=exact) results for each live URL variant of that page, one call per URL, domains combined in Python. Other page types use per-page `refdomains_target` counts from `site-explorer-pages-by-backlinks`, summed per type. A single `site-explorer-all-backlinks` pull covering every non-homepage URL in one call was also attempted; it returned fewer domains per statistics page than the mode=exact pulls and missed the 9 landing pages entirely, so it was not used as the reported source. Raw pulls, the page-type classification rule and the compute script are saved alongside this page's working files.
+- **Portfolio panel:** 28 domains I own, frozen on 24 September 2026 from two existing internal registries (an active site-directives list and a growth-monitoring site registry), before any data was pulled. No site was added or dropped based on its numbers. Client-owned sites and sunnypatel.co.uk are excluded from this panel; sunnypatel.co.uk is reported separately above as the author's own site. Median Domain Rating across the panel was 0.6 and median referring domains 601.5. Median dofollow share was 10.5%, calculated per site as dofollow referring domains divided by total referring domains, then taking the median of those 28 ratios.
+- **Anchor review:** 10 of the 28 panel sites have a Domain Rating of 2 or higher. Anchor text and referring-domain history (12 months to 24 September 2026, grouped monthly) were reviewed for 9 of those 10; the tenth was excluded because it has only 6 total referring domains, too few to review. The saved review flagged sampled anchors containing backlink-sales terms or references to the same SEO vendor. These flags appeared on eight of nine reviewed sites. 6 of the 9 had a month where referring domains rose by more than 130 in that single month; the other 3 did not cross that threshold in any month of the 12.
+- **Page-target evidence:** pulled via `site-explorer-pages-by-backlinks` for 6 of the 9 reviewed sites (the other 3 were not checked at this level of detail). One of the 6 could only be measured as a sum across homepage URL variants without a domain-level list, so it is excluded from the ratio below. For the remaining 4 sites with the flagged anchor pattern, the homepage-to-next-page referring-domain ratio ranged from 43.6 to 431. The 6th site, with no flagged anchor pattern, showed a ratio of 5.5, with its referring domains spread across multiple individual data pages.
+
+## Limitations {% #limitations %}
+
+Ahrefs crawls a large but incomplete slice of the web; a link it has not yet crawled does not exist in this dataset even if it is live. Referring domains it once counted can also disappear from a later pull without a lost link ever surfacing in a search. Domain Rating is Ahrefs' own third-party metric, not a Google ranking signal.
+
+Page age and promotion effort were not controlled for anywhere in this post: older pages and pages that were actively promoted had more time and more chances to accumulate referring domains than newer or unpromoted ones, so the page-type comparison above describes what these pages hold today, not a controlled test of cause and effect. The anchor review is based on a sample of the largest anchor clusters per site, not an exhaustive audit of every link, and anchor wording alone cannot establish who placed a link or why. The 9-site subset used for the anchor review and timing evidence was selected by Domain Rating, not at random, and the 6-site page-target subset is smaller still; neither is representative of the full 28-site panel. The non-homepage `all-backlinks` pull described in Method under-counted known domains and is not relied on for the figures on this page. None of this data was independently audited by a third party.
+
+## How to cite this data {% #citation %}
+
+Link to this page and keep the pull date (24 September 2026) and each metric's stated scope attached to any figure you quote.
+
+Download the [aggregate CSV](/downloads/link-building-statistics-2026.csv) or [JSON](/downloads/link-building-statistics-2026.json); both list aggregate figures only, with no domain names other than sunnypatel.co.uk.
+
+For a review of what your own backlink profile is actually made of, a fixed-fee [SEO consulting session](/services/seo-consulting/) can go through your own Ahrefs export page by page. For the same kind of fact-check applied to AI-search figures, see my [AI search statistics](/blog/ai-search-statistics/) page.

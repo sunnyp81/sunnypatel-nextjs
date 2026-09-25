@@ -106,6 +106,35 @@ interface SoftwareApplicationData {
   ratingValue: string; ratingCount: string;
 }
 
+interface PreviewData {
+  title: string;
+  description: string;
+  urlLine: string;
+  favicon: string;
+  faqItems?: FAQPair[];
+  faqMore?: number;
+  articleDate?: string;
+  articleAuthor?: string;
+  panelName?: string;
+  panelAddress?: string;
+  panelPhone?: string;
+  panelHours?: string;
+  ratingValue?: string;
+  ratingCount?: string;
+  ratingBest?: string;
+  price?: string;
+  currency?: string;
+  availability?: string;
+  stepsCount?: number;
+  totalTime?: string;
+  eventDate?: string;
+  eventLocation?: string;
+  videoDuration?: string;
+  jobSalary?: string;
+  jobLocation?: string;
+  reviewAuthor?: string;
+}
+
 // ── Constants ──────────────────────────────────────────────────────────────────
 
 const SCHEMA_TYPES: SchemaType[] = [
@@ -237,6 +266,53 @@ function microdataValue(key: string, value: unknown, indent: string): string {
 
 function jsonLdToMicrodata(obj: Record<string, unknown>): string {
   return microdataObject(obj, '');
+}
+
+// ── Rich-result preview helpers ─────────────────────────────────────────────
+// Pure formatting helpers for the "How this could appear in Google" preview.
+// Google's own light-mode SERP colours are used inside the white mock card so
+// it reads as a faithful, simplified preview; everything outside the white
+// card uses the site's own design tokens.
+
+function formatPreviewDate(value: string): string {
+  if (!value) return '';
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return value;
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function formatIsoDuration(iso: string): string {
+  const match = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/i.exec(iso.trim());
+  if (!match) return iso;
+  const [, h, m, s] = match;
+  const parts: string[] = [];
+  if (h) parts.push(`${h}h`);
+  if (m) parts.push(`${m}m`);
+  if (!h && !m && s) parts.push(`${s}s`);
+  return parts.length > 0 ? parts.join(' ') : iso;
+}
+
+function getHostname(url: string, fallback = 'yoursite.com'): string {
+  if (!url) return fallback;
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return fallback;
+  }
+}
+
+function StarRating({ value, best = '5' }: { value: string; best?: string }) {
+  const v = Math.max(0, parseFloat(value) || 0);
+  const b = parseFloat(best) || 5;
+  const pct = b > 0 ? Math.min(1, v / b) * 100 : 0;
+  return (
+    <span className="relative inline-block text-sm leading-none tracking-[1px] text-[#dadce0]" aria-hidden="true">
+      <span>★★★★★</span>
+      <span className="absolute inset-0 overflow-hidden whitespace-nowrap text-[#fbbc04]" style={{ width: `${pct}%` }}>
+        ★★★★★
+      </span>
+    </span>
+  );
 }
 
 // ── Component ──────────────────────────────────────────────────────────────────
@@ -1043,6 +1119,196 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
 
   const outputCode = format === 'jsonld' ? scriptTag : microdataHtml;
   const schemaItemCount = useMemo(() => countSchemaItems(schemaObj), [schemaObj]);
+
+  // Derived data for the "How this could appear in Google" preview panel.
+  // Every field falls back to plain "Your ..." placeholder copy so the
+  // preview is never empty or broken before the user has typed anything.
+  const previewData = useMemo<PreviewData>(() => {
+    const faviconLetter = (label: string) => (label.trim().charAt(0) || 'S').toUpperCase();
+
+    switch (activeType) {
+      case 'FAQ': {
+        const items = faqPairs.filter(p => p.question || p.answer);
+        return {
+          title: 'Your page title',
+          description: items[0]?.answer || 'Your page description will appear here as you fill in the fields above.',
+          urlLine: 'yoursite.com',
+          favicon: 'S',
+          faqItems: items.length > 0 ? items.slice(0, 4) : [
+            { question: 'Your first question', answer: 'Your answer preview appears here once you fill in the fields.' },
+          ],
+          faqMore: Math.max(0, items.length - 4),
+        };
+      }
+      case 'Article': {
+        return {
+          title: article.headline || 'Your article headline',
+          description: article.description || 'Your article description will appear here as you fill in the fields above.',
+          urlLine: getHostname(article.authorUrl),
+          favicon: faviconLetter(article.publisherName || article.headline),
+          articleDate: formatPreviewDate(article.datePublished),
+          articleAuthor: article.authorName,
+        };
+      }
+      case 'LocalBusiness': {
+        const addressParts = [business.city, business.region].filter(Boolean).join(', ');
+        return {
+          title: business.name || 'Your business name',
+          description: [business.type, addressParts].filter(Boolean).join(' · ') || 'Your business description will appear here.',
+          urlLine: getHostname(business.url),
+          favicon: faviconLetter(business.name),
+          panelName: business.name || 'Your business name',
+          panelAddress: [business.street, addressParts, business.postalCode].filter(Boolean).join(', '),
+          panelPhone: business.phone,
+          panelHours: business.hours[0]
+            ? `${business.hours[0].day} ${business.hours[0].open}–${business.hours[0].close}${business.hours.length > 1 ? ` (+${business.hours.length - 1} more)` : ''}`
+            : '',
+        };
+      }
+      case 'Product': {
+        return {
+          title: product.name || 'Your product name',
+          description: product.description || 'Your product description will appear here as you fill in the fields above.',
+          urlLine: getHostname(product.url),
+          favicon: faviconLetter(product.brand || product.name),
+          ratingValue: product.ratingValue,
+          ratingCount: product.reviewCount,
+          price: product.price,
+          currency: product.currency,
+          availability: product.availability,
+        };
+      }
+      case 'BreadcrumbList': {
+        const items = breadcrumbs.filter(b => b.name || b.url);
+        const host = getHostname(items[0]?.url);
+        const trail = items.length > 1 ? items.slice(1).map(b => b.name || '…').join(' › ') : '';
+        return {
+          title: items[items.length - 1]?.name || 'Your page title',
+          description: 'Your page description will appear here as you fill in the fields above.',
+          urlLine: trail ? `${host} › ${trail}` : host,
+          favicon: faviconLetter(items[0]?.name || host),
+        };
+      }
+      case 'HowTo': {
+        const steps = howTo.steps.filter(s => s.name || s.text);
+        return {
+          title: howTo.title || 'Your how-to title',
+          description: howTo.description || 'Your description will appear here as you fill in the fields above.',
+          urlLine: 'yoursite.com',
+          favicon: faviconLetter(howTo.title),
+          stepsCount: steps.length,
+          totalTime: howTo.totalTime ? formatIsoDuration(howTo.totalTime) : '',
+        };
+      }
+      case 'Organization': {
+        const addressParts = [organization.city, organization.region].filter(Boolean).join(', ');
+        return {
+          title: organization.name || 'Your organisation name',
+          description: organization.description || 'Your organisation description will appear here.',
+          urlLine: getHostname(organization.url),
+          favicon: faviconLetter(organization.name),
+          panelName: organization.name || 'Your organisation name',
+          panelAddress: [organization.street, addressParts, organization.postalCode].filter(Boolean).join(', '),
+          panelPhone: organization.phone,
+        };
+      }
+      case 'Person': {
+        return {
+          title: person.name || 'Your name',
+          description: person.jobTitle || 'Your role and bio will appear here.',
+          urlLine: getHostname(person.url),
+          favicon: faviconLetter(person.name),
+        };
+      }
+      case 'Service': {
+        return {
+          title: service.name || 'Your service name',
+          description: service.description || 'Your service description will appear here.',
+          urlLine: getHostname(service.url || service.providerUrl),
+          favicon: faviconLetter(service.providerName || service.name),
+        };
+      }
+      case 'WebSite': {
+        return {
+          title: website.name || 'Your site name',
+          description: website.description || 'Your site description will appear here.',
+          urlLine: getHostname(website.url),
+          favicon: faviconLetter(website.name),
+        };
+      }
+      case 'JobPosting': {
+        const salary = job.salaryMin
+          ? `${job.salaryCurrency} ${job.salaryMin}${job.salaryMax ? `–${job.salaryMax}` : ''} / ${job.salaryUnit.toLowerCase()}`
+          : '';
+        const location = job.locationType === 'remote'
+          ? 'Remote'
+          : [job.city, job.region].filter(Boolean).join(', ');
+        return {
+          title: job.title || 'Your job title',
+          description: job.description || 'Your job description will appear here as you fill in the fields above.',
+          urlLine: getHostname(job.hiringOrgUrl),
+          favicon: faviconLetter(job.hiringOrgName || job.title),
+          jobSalary: salary,
+          jobLocation: location,
+        };
+      }
+      case 'Event': {
+        const location = event.attendanceMode === 'Online'
+          ? getHostname(event.onlineUrl, 'Online event')
+          : [event.venueName, event.city].filter(Boolean).join(', ');
+        return {
+          title: event.name || 'Your event name',
+          description: event.description || 'Your event description will appear here as you fill in the fields above.',
+          urlLine: getHostname(event.organizerUrl || event.offerUrl),
+          favicon: faviconLetter(event.organizerName || event.name),
+          eventDate: formatPreviewDate(event.startDate),
+          eventLocation: location,
+        };
+      }
+      case 'VideoObject': {
+        return {
+          title: video.name || 'Your video title',
+          description: video.description || 'Your video description will appear here as you fill in the fields above.',
+          urlLine: getHostname(video.contentUrl || video.embedUrl),
+          favicon: faviconLetter(video.name),
+          videoDuration: video.duration ? formatIsoDuration(video.duration) : '',
+        };
+      }
+      case 'Review': {
+        return {
+          title: review.itemName || 'Your review item',
+          description: review.reviewBody || 'Your review text will appear here as you fill in the fields above.',
+          urlLine: 'yoursite.com',
+          favicon: faviconLetter(review.itemName),
+          ratingValue: review.ratingValue,
+          ratingBest: review.bestRating || '5',
+          reviewAuthor: review.authorName,
+        };
+      }
+      case 'ItemList': {
+        return {
+          title: itemList.name || 'Your list title',
+          description: itemList.description || 'Your list description will appear here.',
+          urlLine: 'yoursite.com',
+          favicon: faviconLetter(itemList.name),
+        };
+      }
+      case 'SoftwareApplication': {
+        return {
+          title: app.name || 'Your app name',
+          description: app.description || 'Your app description will appear here as you fill in the fields above.',
+          urlLine: getHostname(app.url),
+          favicon: faviconLetter(app.name),
+          ratingValue: app.ratingValue,
+          ratingCount: app.ratingCount,
+          price: app.price,
+          currency: app.currency,
+        };
+      }
+      default:
+        return { title: 'Your page title', description: 'Your page description will appear here.', urlLine: 'yoursite.com', favicon: 'S' };
+    }
+  }, [activeType, faqPairs, article, business, product, breadcrumbs, howTo, organization, person, service, website, job, event, video, review, itemList, app]);
 
   // ── Actions ──────────────────────────────────────────────────────────────────
 
@@ -2024,6 +2290,162 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
     SoftwareApplication: renderSoftwareApplicationForm,
   };
 
+  function renderPreview() {
+    const otherTypesNoEnhancement = ['Person', 'Service', 'WebSite', 'ItemList'];
+    return (
+      <div className={cardClass}>
+        <h2 className="mb-1 text-lg font-semibold text-foreground">How this could appear in Google</h2>
+        <p className="mb-4 text-xs uppercase tracking-wide text-muted-foreground">Simplified SERP preview</p>
+
+        <div className="rounded-xl border border-black/10 bg-white p-4 sm:p-5">
+          <div className="flex items-center gap-2.5">
+            <span
+              aria-hidden="true"
+              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#e8eaed] text-[10px] font-bold text-[#5f6368]"
+            >
+              {previewData.favicon}
+            </span>
+            <p className="min-w-0 truncate text-sm text-[#202124]">{previewData.urlLine}</p>
+          </div>
+          <p className="mt-1.5 truncate text-lg text-[#1a0dab]">{previewData.title}</p>
+          <p className="mt-1 line-clamp-2 text-sm leading-snug text-[#4d5156]">{previewData.description}</p>
+
+          {activeType === 'FAQ' && (
+            <div className="mt-3 divide-y divide-black/10 border-t border-black/10">
+              {previewData.faqItems?.map((item, i) => (
+                <details key={i} className="group py-2" open={i === 0}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm text-[#202124] [&::-webkit-details-marker]:hidden">
+                    <span className="font-medium">{item.question || 'Untitled question'}</span>
+                    <span aria-hidden="true" className="shrink-0 text-[#5f6368] transition-transform group-open:rotate-180">⌄</span>
+                  </summary>
+                  <p className="mt-1.5 text-sm text-[#4d5156]">{item.answer || 'Answer preview.'}</p>
+                </details>
+              ))}
+              {(previewData.faqMore ?? 0) > 0 && (
+                <p className="pt-2 text-xs text-[#5f6368]">+{previewData.faqMore} more question{previewData.faqMore === 1 ? '' : 's'}</p>
+              )}
+            </div>
+          )}
+
+          {activeType === 'Product' && (
+            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm">
+              {previewData.ratingValue && (
+                <span className="inline-flex items-center gap-1.5">
+                  <StarRating value={previewData.ratingValue} />
+                  <span className="text-[#4d5156]">{previewData.ratingValue}{previewData.ratingCount ? ` (${previewData.ratingCount})` : ''}</span>
+                </span>
+              )}
+              {previewData.price && (
+                <span className="font-medium text-[#202124]">{previewData.currency} {previewData.price}</span>
+              )}
+              {previewData.availability && (
+                <span className={previewData.availability === 'InStock' ? 'text-xs font-medium text-[#188038]' : 'text-xs font-medium text-[#b3261e]'}>
+                  {previewData.availability === 'InStock' ? 'In stock' : previewData.availability === 'PreOrder' ? 'Pre-order' : 'Out of stock'}
+                </span>
+              )}
+            </div>
+          )}
+
+          {activeType === 'Review' && previewData.ratingValue && (
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+              <StarRating value={previewData.ratingValue} best={previewData.ratingBest} />
+              <span className="text-[#4d5156]">{previewData.ratingValue} / {previewData.ratingBest}</span>
+              {previewData.reviewAuthor && <span className="text-xs text-[#5f6368]">Reviewed by {previewData.reviewAuthor}</span>}
+            </div>
+          )}
+
+          {activeType === 'Event' && (previewData.eventDate || previewData.eventLocation) && (
+            <div className="mt-3 space-y-1 text-sm text-[#4d5156]">
+              {previewData.eventDate && <p><span className="font-medium text-[#202124]">Date</span> · {previewData.eventDate}</p>}
+              {previewData.eventLocation && <p><span className="font-medium text-[#202124]">Location</span> · {previewData.eventLocation}</p>}
+            </div>
+          )}
+
+          {(activeType === 'LocalBusiness' || activeType === 'Organization') && (
+            <div className="mt-3 rounded-lg border border-black/10 bg-[#f8f9fa] p-3 text-sm">
+              <p className="font-medium text-[#202124]">{previewData.panelName}</p>
+              {previewData.panelAddress && <p className="mt-0.5 text-[#4d5156]">{previewData.panelAddress}</p>}
+              {previewData.panelPhone && <p className="mt-0.5 text-[#4d5156]">{previewData.panelPhone}</p>}
+              {previewData.panelHours && <p className="mt-0.5 text-[#4d5156]">{previewData.panelHours}</p>}
+            </div>
+          )}
+
+          {activeType === 'HowTo' && (
+            <p className="mt-3 text-sm text-[#4d5156]">
+              {previewData.stepsCount} step{previewData.stepsCount === 1 ? '' : 's'}
+              {previewData.totalTime && ` · ${previewData.totalTime}`}
+            </p>
+          )}
+
+          {activeType === 'Article' && (previewData.articleDate || previewData.articleAuthor) && (
+            <p className="mt-3 text-xs text-[#5f6368]">
+              {[previewData.articleAuthor, previewData.articleDate].filter(Boolean).join(' · ')}
+            </p>
+          )}
+
+          {activeType === 'BreadcrumbList' && (
+            <p className="mt-3 text-xs text-[#5f6368]">Google may show this trail in place of the raw URL above.</p>
+          )}
+
+          {activeType === 'VideoObject' && (
+            <div className="mt-3 flex items-center gap-3">
+              <span aria-hidden="true" className="relative flex h-[54px] w-[96px] shrink-0 items-center justify-center rounded-md bg-[#3c4043]">
+                <span className="h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-white" />
+                {previewData.videoDuration && (
+                  <span className="absolute bottom-1 right-1 rounded bg-black/80 px-1 text-[10px] font-medium text-white">{previewData.videoDuration}</span>
+                )}
+              </span>
+              <span className="text-xs text-[#5f6368]">Video result</span>
+            </div>
+          )}
+
+          {activeType === 'JobPosting' && (previewData.jobSalary || previewData.jobLocation) && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {previewData.jobLocation && (
+                <span className="rounded-full border border-black/10 bg-[#f1f3f4] px-2.5 py-1 text-xs font-medium text-[#3c4043]">{previewData.jobLocation}</span>
+              )}
+              {previewData.jobSalary && (
+                <span className="rounded-full border border-[#188038]/40 px-2.5 py-1 text-xs font-medium text-[#188038]">{previewData.jobSalary}</span>
+              )}
+            </div>
+          )}
+
+          {activeType === 'SoftwareApplication' && (
+            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm">
+              {previewData.ratingValue && (
+                <span className="inline-flex items-center gap-1.5">
+                  <StarRating value={previewData.ratingValue} />
+                  <span className="text-[#4d5156]">{previewData.ratingValue}{previewData.ratingCount ? ` (${previewData.ratingCount})` : ''}</span>
+                </span>
+              )}
+              <span className="font-medium text-[#202124]">
+                {Number(previewData.price) === 0 ? 'Free' : `${previewData.currency} ${previewData.price}`}
+              </span>
+            </div>
+          )}
+
+          {otherTypesNoEnhancement.includes(activeType) && (
+            <p className="mt-3 text-xs text-[#5f6368]">
+              This schema type has no dedicated Google rich-result enhancement. It can still help AI systems and other search engines read the page.
+            </p>
+          )}
+        </div>
+
+        <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+          Preview only. Google decides whether to show rich results; valid markup does not guarantee them.
+        </p>
+
+        <p className="mt-4 border-t border-white/[0.08] pt-3 text-xs leading-relaxed text-muted-foreground">
+          Want schema added and validated across your whole site?{' '}
+          <Link href="/contact/" className="text-brand underline underline-offset-2 hover:opacity-80">
+            Request a free SEO diagnosis
+          </Link>
+          .
+        </p>
+      </div>
+    );
+  }
+
   // ── Main render ──────────────────────────────────────────────────────────────
 
   return (
@@ -2065,9 +2487,9 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
         ))}
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
         {/* Form panel */}
-        <div>
+        <div className="lg:row-span-2 xl:row-span-1">
           <div className={cardClass}>
             <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
               <div>
@@ -2084,94 +2506,95 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
           </div>
         </div>
 
-        {/* Preview panel */}
-        <div className="space-y-4">
-          <div className={cardClass}>
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <h2 className="text-lg font-semibold text-foreground">Structured Data Output</h2>
-              <div className="flex gap-2">
-                <button type="button" onClick={() => setFormat('jsonld')}
-                  className={format === 'jsonld' ? toggleActive : toggleInactive}>
-                  JSON-LD
-                </button>
-                <button type="button" onClick={() => setFormat('microdata')}
-                  className={format === 'microdata' ? toggleActive : toggleInactive}>
-                  Microdata
-                </button>
-              </div>
+        {/* Structured data output panel */}
+        <div className={cardClass}>
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-lg font-semibold text-foreground">Structured Data Output</h2>
+            <div className="flex gap-2">
+              <button type="button" onClick={() => setFormat('jsonld')}
+                className={format === 'jsonld' ? toggleActive : toggleInactive}>
+                JSON-LD
+              </button>
+              <button type="button" onClick={() => setFormat('microdata')}
+                className={format === 'microdata' ? toggleActive : toggleInactive}>
+                Microdata
+              </button>
             </div>
+          </div>
 
-            <div className="mb-4 space-y-3" aria-label="Markup checks">
-              {completenessIssues.length > 0 ? (
-                <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/5 px-4 py-3">
-                  <p className="mb-1 text-sm font-medium text-yellow-300">
-                    Template incomplete: {completenessIssues.length} {completenessIssues.length === 1 ? 'field needs' : 'fields need'} attention
-                  </p>
-                  <ul className="space-y-0.5">
-                    {completenessIssues.map((issue, i) => (
-                      <li key={i} className="text-sm text-yellow-200/80">- {issue}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-3">
-                  <p className="text-sm font-medium text-emerald-300">Template fields complete</p>
-                  <p className="mt-1 text-xs leading-relaxed text-emerald-100/70">
-                    The generator&apos;s basic field checks pass. This is separate from Google eligibility and page-level validation.
-                  </p>
-                </div>
-              )}
-
-              <div className={`rounded-lg border px-4 py-3 ${
-                googleEligibility.supported
-                  ? 'border-brand/20 bg-brand/5'
-                  : 'border-white/[0.08] bg-white/[0.02]'
-              }`}>
-                <p className="text-sm font-medium text-foreground">
-                  {googleEligibility.supported ? 'Google rich-result check' : 'Schema.org validation check'}
+          <div className="mb-4 space-y-3" aria-label="Markup checks">
+            {completenessIssues.length > 0 ? (
+              <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/5 px-4 py-3">
+                <p className="mb-1 text-sm font-medium text-yellow-300">
+                  Template incomplete: {completenessIssues.length} {completenessIssues.length === 1 ? 'field needs' : 'fields need'} attention
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{googleEligibility.message}</p>
+                <ul className="space-y-0.5">
+                  {completenessIssues.map((issue, i) => (
+                    <li key={i} className="text-sm text-yellow-200/80">- {issue}</li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            ) : (
+              <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-3">
+                <p className="text-sm font-medium text-emerald-300">Template fields complete</p>
+                <p className="mt-1 text-xs leading-relaxed text-emerald-100/70">
+                  The generator&apos;s basic field checks pass. This is separate from Google eligibility and page-level validation.
+                </p>
+              </div>
+            )}
 
-            {/* Code block */}
-            <div className="rounded-lg bg-[#0d0d14] border border-white/[0.08] p-4 font-mono text-sm overflow-x-auto">
-              <pre className="text-foreground/90 whitespace-pre-wrap break-words">
-                <code>{outputCode}</code>
-              </pre>
-            </div>
-
-            <div className="mt-4 rounded-lg border border-white/[0.08] bg-white/[0.02] px-4 py-3">
-              <p className="text-sm font-medium text-foreground">Validate by copy, open and paste</p>
-              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                Copy the markup, open a validator, choose its code option where shown, then paste. The validators do not support a reliable prefilled-code link.
+            <div className={`rounded-lg border px-4 py-3 ${
+              googleEligibility.supported
+                ? 'border-brand/20 bg-brand/5'
+                : 'border-white/[0.08] bg-white/[0.02]'
+            }`}>
+              <p className="text-sm font-medium text-foreground">
+                {googleEligibility.supported ? 'Google rich-result check' : 'Schema.org validation check'}
               </p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{googleEligibility.message}</p>
             </div>
+          </div>
 
-            {/* Actions */}
-            <div className="mt-3 flex flex-wrap gap-2">
-              <button type="button" className={btnPrimary} onClick={copyToClipboard}>
-                {copyStatus === 'copied' ? 'Markup copied' : copyStatus === 'error' ? 'Copy failed — try again' : 'Copy markup'}
-              </button>
-              <button type="button" className={btnSecondary} onClick={openRichResultsTest}>
-                Open Google Rich Results Test
-              </button>
-              <button type="button" className={btnSecondary} onClick={openSchemaValidator}>
-                Open Schema Markup Validator
-              </button>
-              <button type="button" className={btnSecondary} onClick={downloadJson}>
-                Download JSON
-              </button>
-            </div>
-            <p
-              className={`mt-3 min-h-5 text-xs ${copyStatus === 'error' ? 'text-red-300' : 'text-muted-foreground'}`}
-              role="status"
-              aria-live="polite"
-            >
-              {actionFeedback}
+          {/* Code block */}
+          <div className="rounded-lg bg-[#0d0d14] border border-white/[0.08] p-4 font-mono text-sm overflow-x-auto">
+            <pre className="text-foreground/90 whitespace-pre-wrap break-words">
+              <code>{outputCode}</code>
+            </pre>
+          </div>
+
+          <div className="mt-4 rounded-lg border border-white/[0.08] bg-white/[0.02] px-4 py-3">
+            <p className="text-sm font-medium text-foreground">Validate by copy, open and paste</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+              Copy the markup, open a validator, choose its code option where shown, then paste. The validators do not support a reliable prefilled-code link.
             </p>
           </div>
+
+          {/* Actions */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button type="button" className={btnPrimary} onClick={copyToClipboard}>
+              {copyStatus === 'copied' ? 'Markup copied' : copyStatus === 'error' ? 'Copy failed — try again' : 'Copy markup'}
+            </button>
+            <button type="button" className={btnSecondary} onClick={openRichResultsTest}>
+              Open Google Rich Results Test
+            </button>
+            <button type="button" className={btnSecondary} onClick={openSchemaValidator}>
+              Open Schema Markup Validator
+            </button>
+            <button type="button" className={btnSecondary} onClick={downloadJson}>
+              Download JSON
+            </button>
+          </div>
+          <p
+            className={`mt-3 min-h-5 text-xs ${copyStatus === 'error' ? 'text-red-300' : 'text-muted-foreground'}`}
+            role="status"
+            aria-live="polite"
+          >
+            {actionFeedback}
+          </p>
         </div>
+
+        {/* Rich-result preview panel */}
+        {renderPreview()}
       </div>
     </div>
   );

@@ -1,0 +1,109 @@
+property_sector,site_number,total_sessions,organic_sessions,chatgpt_sessions,copilot_sessions,perplexity_sessions,claude_sessions,gemini_sessions,ai_sessions_total,ai_share_of_total_pct
+"Food, health and wellness",S001,17371,8839,773,61,98,42,0,974,5.61
+Affiliate product reviews,S002,7212,1325,744,39,15,3,0,801,11.11
+"Careers, education and travel",S003,97123,11431,675,49,12,0,0,736,0.76
+Motoring and EV,S004,14356,11920,626,36,8,3,10,683,4.76
+Online tools and templates,S005,1188,79,451,3,1,0,2,457,38.47
+Affiliate product reviews,S006,4963,2384,252,20,5,1,1,279,5.62
+"Home, property and local data",S007,7974,592,206,13,7,6,0,232,2.91
+"Home, property and local data",S008,2754,1271,169,30,2,9,1,211,7.66
+Affiliate product reviews,S009,5377,1403,193,8,2,0,0,203,3.78
+"Home, property and local data",S010,4276,836,137,39,2,0,0,178,4.16
+Affiliate product reviews,S011,15226,22,160,0,0,0,0,160,1.05
+"Home, property and local data",S012,13982,10366,117,27,8,2,3,157,1.12
+"Careers, education and travel",S013,8009,197,79,2,6,2,0,89,1.11
+Online tools and templates,S014,466,120,88,1,0,0,0,89,19.1
+Online tools and templates,S015,321,43,76,0,0,0,0,76,23.68
+"Home, property and local data",S016,512,175,65,5,2,2,0,74,14.45
+SEO and marketing services,S017,1467,277,68,0,4,1,1,74,5.04
+Motoring and EV,S018,811,481,52,1,0,2,0,55,6.78
+Affiliate product reviews,S019,1091,542,49,2,0,0,1,52,4.77
+"Careers, education and travel",S020,617,36,38,1,1,0,0,40,6.48
+"Careers, education and travel",S021,2426,121,34,5,0,0,0,39,1.61
+Affiliate product reviews,S022,3579,833,22,2,5,0,9,38,1.06
+Affiliate product reviews,S023,3102,2110,23,4,2,6,1,36,1.16
+"Food, health and wellness",S024,10627,869,34,0,0,0,0,34,0.32
+"Food, health and wellness",S025,11281,2570,10,19,5,0,0,34,0.3
+Affiliate product reviews,S026,329,8,10,0,0,19,0,29,8.81
+Online tools and templates,S027,2050,1011,12,15,1,0,0,28,1.37
+"Careers, education and travel",S028,2610,1278,14,5,2,2,3,26,1.0
+"Home, property and local data",S029,7611,5652,8,3,6,0,6,23,0.3
+Local services and events,S030,143,45,22,0,0,0,0,22,15.38
+AI and technology,S031,596,134,5,13,2,0,0,20,3.36
+"Home, property and local data",S032,21204,315,16,3,0,0,0,19,0.09
+Affiliate product reviews,S033,352,28,19,0,0,0,0,19,5.4
+"Home, property and local data",S034,1476,650,6,9,0,0,0,15,1.02
+Online tools and templates,S035,83,5,13,0,0,0,0,13,15.66
+"Home, property and local data",S036,1104,747,5,1,2,0,3,11,1.0
+"Careers, education and travel",S037,1681,16,8,0,0,2,0,10,0.59
+"Food, health and wellness",S038,22591,4279,0,8,2,0,0,10,0.04
+Online tools and templates,S039,762,127,3,3,2,1,0,9,1.18
+"Food, health and wellness",S040,18777,340,6,0,3,0,0,9,0.05
+"Home, property and local data",S041,770,605,3,5,0,0,0,8,1.04
+Affiliate product reviews,S042,1953,35,7,1,0,0,0,8,0.41
+Affiliate product reviews,S043,1486,363,6,2,0,0,0,8,0.54
+"Home, property and local data",S044,622,67,6,0,1,0,0,7,1.13
+Motoring and EV,S045,572,435,1,6,0,0,0,7,1.22
+Online tools and templates,S046,611,267,0,6,0,0,0,6,0.98
+AI and technology,S047,61,6,3,0,0,0,3,6,9.84
+Online tools and templates,S048,933,68,2,3,0,0,0,5,0.54
+AI and technology,S049,66,2,5,0,0,0,0,5,7.58
+SEO and marketing services,S050,653,3,4,0,0,0,0,4,0.61
+Online tools and templates,S051,72,14,2,2,0,0,0,4,5.56
+SEO and marketing services,S052,79,16,4,0,0,0,0,4,5.06
+Online tools and templates,S053,52,3,4,0,0,0,0,4,7.69
+"Home, property and local data",S054,1557,397,0,1,1,1,0,3,0.19
+Online tools and templates,S055,89,3,2,1,0,0,0,3,3.37
+SEO and marketing services,S056,23,1,1,2,0,0,0,3,13.04
+"Home, property and local data",S057,441,43,3,0,0,0,0,3,0.68
+"Careers, education and travel",S058,302,47,1,1,0,0,0,2,0.66
+SEO and marketing services,S059,116,3,2,0,0,0,0,2,1.72
+"Food, health and wellness",S060,1269,859,0,1,0,0,0,1,0.08
+Online tools and templates,S061,1464,4,0,0,1,0,0,1,0.07
+AI and technology,S062,215,19,0,0,0,0,1,1,0.47
+Online tools and templates,S063,40,2,1,0,0,0,0,1,2.5
+Affiliate product reviews,S064,155,4,1,0,0,0,0,1,0.65
+SEO and marketing services,S065,18,1,1,0,0,0,0,1,5.56
+SEO and marketing services,S066,78,17,1,0,0,0,0,1,1.28
+Online tools and templates,S067,77,6,1,0,0,0,0,1,1.3
+Local services and events,S068,123,2,1,0,0,0,0,1,0.81
+"Home, property and local data",S069,10,7,0,0,0,0,0,0,0.0
+"Home, property and local data",S070,9,0,0,0,0,0,0,0,0.0
+"Home, property and local data",S071,429,37,0,0,0,0,0,0,0.0
+Motoring and EV,S072,328,188,0,0,0,0,0,0,0.0
+"Food, health and wellness",S073,107,21,0,0,0,0,0,0,0.0
+AI and technology,S074,662,21,0,0,0,0,0,0,0.0
+"Food, health and wellness",S075,67,5,0,0,0,0,0,0,0.0
+Online tools and templates,S076,24,7,0,0,0,0,0,0,0.0
+"Home, property and local data",S077,36,3,0,0,0,0,0,0,0.0
+SEO and marketing services,S078,42,0,0,0,0,0,0,0,0.0
+Online tools and templates,S079,88,2,0,0,0,0,0,0,0.0
+SEO and marketing services,S080,42,1,0,0,0,0,0,0,0.0
+Affiliate product reviews,S081,0,0,0,0,0,0,0,0,
+SEO and marketing services,S082,16,0,0,0,0,0,0,0,0.0
+SEO and marketing services,S083,122,3,0,0,0,0,0,0,0.0
+SEO and marketing services,S084,109,5,0,0,0,0,0,0,0.0
+SEO and marketing services,S085,123,10,0,0,0,0,0,0,0.0
+SEO and marketing services,S086,13,0,0,0,0,0,0,0,0.0
+Online tools and templates,S087,119,3,0,0,0,0,0,0,0.0
+Affiliate product reviews,S088,0,0,0,0,0,0,0,0,
+AI and technology,S089,0,0,0,0,0,0,0,0,
+AI and technology,S090,199,5,0,0,0,0,0,0,0.0
+AI and technology,S091,17,0,0,0,0,0,0,0,0.0
+AI and technology,S092,11,0,0,0,0,0,0,0,0.0
+"Food, health and wellness",S093,41,6,0,0,0,0,0,0,0.0
+SEO and marketing services,S094,45,7,0,0,0,0,0,0,0.0
+SEO and marketing services,S095,51,2,0,0,0,0,0,0,0.0
+SEO and marketing services,S096,41,2,0,0,0,0,0,0,0.0
+SEO and marketing services,S097,90,1,0,0,0,0,0,0,0.0
+SEO and marketing services,S098,113,4,0,0,0,0,0,0,0.0
+SEO and marketing services,S099,77,6,0,0,0,0,0,0,0.0
+SEO and marketing services,S100,65,3,0,0,0,0,0,0,0.0
+SEO and marketing services,S101,42,0,0,0,0,0,0,0,0.0
+SEO and marketing services,S102,104,2,0,0,0,0,0,0,0.0
+SEO and marketing services,S103,46,3,0,0,0,0,0,0,0.0
+SEO and marketing services,S104,56,0,0,0,0,0,0,0,0.0
+SEO and marketing services,S105,4,0,0,0,0,0,0,0,0.0
+Online tools and templates,S106,1,1,0,0,0,0,0,0,0.0
+"Food, health and wellness",S107,0,0,0,0,0,0,0,0,
+SEO and marketing services,S108,18,1,0,0,0,0,0,0,0.0

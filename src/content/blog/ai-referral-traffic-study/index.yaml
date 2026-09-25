@@ -1,14 +1,12 @@
 title: AI Referral Traffic Study
-metaTitle: 'AI Referral Traffic Study: 4,717 Sessions, 12 Sites, 90 Days'
+metaTitle: 'AI Referral Traffic Study: 1.84% of Sessions, 104 Sites'
 description: >-
-  Real GA4 data on AI referral traffic: 4,717 sessions from ChatGPT, Copilot,
-  Perplexity, Claude and Gemini across the 12 most-cited sites in my portfolio,
-  measured over 90 days. Which assistants send traffic, which niches win, and
-  why AI referral traffic survived a Google core update that crashed organic
-  clicks on 2 of these sites.
+  GA4 data, 104 sites: AI sent 1.84% of sessions, 7.99 per 100 organic, in 90
+  days to 21 Sep 2026. By assistant, sector, and vs the original 12-site
+  panel.
 ogImage: /images/blog/hero-ai-referral-traffic-study.webp
 date: '2026-08-02'
-lastUpdated: '2026-08-26'
+lastUpdated: '2026-09-25'
 tags:
   - AI Search
   - AEO
@@ -16,32 +14,44 @@ tags:
   - SEO Data
   - LLM
 faqs:
+  - question: What share of website traffic actually comes from AI assistants?
+    answer: >-
+      Across a 108-property portfolio frame (104 sites with measurable
+      sessions) over 90 days to 21 September 2026, sources matching five
+      declared AI assistants accounted for 1.84% of all sessions, or 7.99
+      AI-attributed sessions for every 100 organic-search sessions. The
+      median individual site's AI-attributed share was 0.65% of its own
+      sessions, and 36 of the 104 sites recorded zero matched AI sessions in
+      the window. The traffic concentrates in a small number of sites: the
+      top 10 sites alone carried 77.1% of all AI-matched sessions.
   - question: Which AI assistant sends the most referral traffic?
     answer: >-
-      In this dataset, ChatGPT sent 90% of all AI referral sessions (4,250 of
-      4,717 across 12 sites in 90 days to 26 August 2026). Microsoft Copilot
-      was a distant second at 5%, then Perplexity at 3% and Claude at 2%.
-      Gemini sent almost nothing: 6 sessions across the entire dataset.
-  - question: What kind of websites get the most AI referral traffic?
+      ChatGPT-matched sources accounted for 86.8% of the 6,165 AI-attributed
+      sessions measured across the full panel (chatgpt.com and openai
+      sources combined). Microsoft Copilot was second at 7.4%, Perplexity
+      third at 3.4%, Claude 1.7%, and Gemini 0.7%. Two external benchmarks
+      cited in Finding 1 (BrightEdge: 95.1% ChatGPT share of AI referral
+      traffic in August 2026; Similarweb: about 53% of worldwide visits to
+      AI platforms in May 2026) measure different populations and
+      denominators from this panel, but agree that ChatGPT is dominant.
+  - question: How does this compare to the original 12-site edition?
     answer: >-
-      Condition-led informational sites with structured, factual data
-      dominated. A health and wellness site (1,357 sessions) and an education
-      data site (993 sessions) led the table. Sites answering specific
-      questions with checkable data earned far more AI citations than
-      commercial or review-led sites in the same portfolio.
-  - question: Does AI referral traffic survive a Google core update?
+      The original 2 August 2026 edition, refreshed 26 August 2026, measured
+      a hand-picked panel of the 12 highest-AI-traffic sites in the
+      portfolio, not a representative sample. Those 12 properties are
+      included in the full 104-site panel above and also reported separately
+      as a comparison. One important caveat: this edition's window and the
+      first edition's window overlap by 64 of their 90 and 91 days
+      respectively, so the comparison is mostly the same period measured
+      twice with a shifted edge, not an independent before/after. Re-measured
+      over the new window, those same 12 sites produced 3,872 AI-attributed
+      sessions against 4,717 originally published; given the overlap, that
+      alone does not establish a falling trend.
+  - question: Does this study capture all AI visibility?
     answer: >-
-      In this dataset, yes. Two sites in the table lost most of their Google
-      organic clicks to a core update during the measurement window. Their AI
-      referral sessions did not fall with them, one held steady, the other
-      only dropped in line with the portfolio-wide average. Google ranking and
-      AI citation are measured differently, and a core update does not
-      automatically remove a site from the source list AI assistants already
-      cite.
-  - question: Does AI referral traffic show the full impact of AI search?
-    answer: >-
-      No. Referral sessions only count users who click through from an AI
-      answer. Many AI answers resolve the query without a click, and Bing
-      Copilot citations in particular convert to brand impressions rather than
-      visits. Treat referral data as the floor of AI visibility, not the
-      ceiling.
+      No. It counts GA4 sessions whose source label matches five declared
+      assistants. It does not measure unclicked answers or citations, cannot
+      identify every session with lost referrer attribution, and cannot
+      separate Google AI Overviews or AI Mode sessions from ordinary Google
+      organic search in this extraction. The size of that omitted activity
+      is not quantified here.

@@ -1,84 +1,133 @@
-Most AI search advice is written by people who have never measured AI traffic on a site they own. This post is the opposite: raw GA4 referral data from the 12 sites in my own portfolio that receive the most AI traffic, pulled on 26 August 2026, covering the 90 days from 28 May to 26 August 2026. This is a refresh of the original 2 August pull, same 12 sites, same method, updated numbers below.
+Edition 1 reported AI referral counts for 12 selected sites. Edition 2 adds total-session denominators across all 108 active properties in the authorised portfolio, so AI traffic can be read as a share of all sessions.
 
-The headline: **4,717 sessions arrived from AI assistants across these 12 sites in 90 days, and 90% of them came from ChatGPT.**
+**Across 104 portfolio sites with measurable sessions, sources matching the five-assistant matching rule described in the Method section accounted for 1.84% of all sessions, or 7.99 AI-attributed sessions for every 100 organic-search sessions, in the 90 days to 21 September 2026. ChatGPT-matched sources accounted for 86.8% of that traffic.**
 
-## Method, before anything else
-
-Numbers without a method are marketing. Here is mine:
-
-- **Source:** Google Analytics 4, one property per site, queried via the GA4 Data API on 26 August 2026.
-- **Window:** 28 May to 26 August 2026 (90 days).
-- **Definition:** a session whose `sessionSource` matches chatgpt, perplexity, claude, gemini, copilot or openai. This captures click-throughs from AI assistants, not impressions inside AI answers. The small `openai` source is counted in the ChatGPT column, since it is the same ecosystem.
-- **Selection:** the same 12 sites tracked in the original 2 August study, chosen for the highest AI referral traffic from my wider portfolio of 70+ live sites.
-- Sites are labelled by sector rather than domain, because several earn affiliate revenue and I would rather publish the data than invite cloners.
-
-I audited the popular third-party statistics in this space separately in my [AI search statistics fact-check](/blog/ai-search-statistics/). Most failed a primary-source check. Everything below is my own data.
-
-## The results
-
-| Site (by sector) | AI sessions (90d) | ChatGPT | Copilot | Perplexity | Claude | Gemini |
-|---|---|---|---|---|---|---|
-| Health and wellness | 1,357 | 1,145 | 71 | 79 | 62 | 0 |
-| Education data | 993 | 930 | 40 | 20 | 3 | 0 |
-| EV charging | 573 | 520 | 43 | 5 | 2 | 3 |
-| Document templates | 595 | 589 | 3 | 1 | 0 | 2 |
-| Property data | 259 | 231 | 14 | 10 | 4 | 0 |
-| Remote work and travel | 155 | 143 | 0 | 10 | 2 | 0 |
-| Water quality | 221 | 176 | 34 | 9 | 2 | 0 |
-| Mobile coverage | 176 | 143 | 30 | 3 | 0 | 0 |
-| Garden equipment reviews | 260 | 251 | 9 | 0 | 0 | 0 |
-| QR tools | 80 | 77 | 3 | 0 | 0 | 0 |
-| This site (SEO consulting) | 48 | 45 | 0 | 1 | 1 | 1 |
-| Fitness | 0 | 0 | 0 | 0 | 0 | 0 |
-
-Totals: 4,717 sessions. ChatGPT 4,250 (90.1%), Copilot 247 (5.2%), Perplexity 138 (2.9%), Claude 76 (1.6%), Gemini 6 (0.1%).
-
-{% chart type="donut" eyebrow="AI referral share" title="Share of 4,717 AI referral sessions by assistant, 90 days to 26 August 2026" data="ChatGPT:90.1|Copilot:5.2|Perplexity:2.9|Claude:1.6|Gemini:0.1" suffix="%" highlight="ChatGPT" source="Author's own portfolio data, GA4, 12 sites" /%}
-
-## Finding 1: ChatGPT is 90% of the AI referral market
-
-Every site with meaningful AI traffic has the same shape: ChatGPT first by a wide margin, everything else sharing scraps. If your AI visibility strategy is spread evenly across five assistants, you are misallocating 90% of the effort. Optimising for how ChatGPT selects and cites sources is, today, most of the job.
-
-## Finding 2: AI referral traffic survived a Google core update that crashed organic clicks
-
-This is the finding the first pull could not show, because it needed a second measurement window to appear. The health and wellness site and the education data site both lost most of their Google organic clicks to a core update during this period. One fell to near-zero daily clicks. Their AI referral sessions did not collapse with them. Google re-ranks a page against the current SERP. AI systems cite from a source list built up over time, and losing the first does not automatically remove a site from the second. Full breakdown on the [AI Visibility Results](/ai-visibility-results/) page.
-
-{% pullquote cite="From this study's second finding" %}
-AI systems cite from a source list built up over time, and losing the first does not automatically remove a site from the second.
-{% /pullquote %}
-
-## Finding 3: Gemini referral traffic barely exists
-
-Six sessions. Across twelve sites. In ninety days. Google's assistant either answers without citing, cites without generating clicks, or both. Do not let anyone sell you a "Gemini optimisation" line item on the strength of referral traffic, because there is barely any to optimise for. Google's AI Overviews affect your Google organic clicks instead, which is a different problem with different measurement.
-
-## Finding 4: condition-led data sites win, commercial sites lose
-
-The top of the table is entirely sites that answer specific factual questions: health conditions, school catchment data, charger locations, water hardness by area. The review site in the table earns a fraction of what the data sites earn. AI assistants cite sources that resolve questions with checkable facts. If your site's core content is "buy this", you will need a data layer to earn citations.
-
-{% chart type="bar" eyebrow="Top AI referral sites" title="AI referral sessions by site sector, 90 days to 26 August 2026" data="Health and wellness:1357|Education data:993|Document templates:595|EV charging:573|Garden equipment reviews:260" suffix=" sessions" highlight="Health and wellness" source="Author's own portfolio data, GA4, 12 sites" /%}
-
-## Finding 5: Copilot behaves differently, and referral counts undersell it
-
-Copilot sends modest referral traffic here, but it concentrates on utility sites (EV charging, water quality, mobile coverage: the three highest Copilot counts outside health). Copilot also surfaces brands inside answers where no click ever happens. One documented case from this portfolio: a healthcare company found and hired this practice through a Bing Copilot citation, a lead that referral analytics attributed to nothing. Referral data is the floor of AI visibility, not the ceiling.
-
-## Finding 6: the consultant's site nearly doubled, the fitness site dropped to zero
-
-This site earned 48 AI referral sessions in this window, up from 28 in the first pull. That is still a fraction of what the data-led niche sites earn, but it is moving in the right direction as more primary data gets published here. The fitness site went the other way: 13 sessions down to 0. Both changes are small enough to be noise on their own, and both are reported here rather than only the number that flatters the argument. Publishing primary data nobody else has remains the single lever that moves this number, up or down.
+## AI-matched sources accounted for 1.84% of recorded sessions
 
 {% stats %}
-{% stat value="48" label="AI referral sessions for this site (SEO consulting), 90 days to 26 August 2026, up from 28 in the first pull" source="Author's own portfolio data, GA4" /%}
-{% stat value="0" label="AI referral sessions for the fitness site in the same window, down from 13" source="Author's own portfolio data, GA4" /%}
+{% stat value="1.84%" label="AI-attributed share of all sessions, 104 sites with traffic, 90 days to 21 September 2026" source="Author's own portfolio data, GA4" /%}
+{% stat value="7.99" label="AI-attributed sessions per 100 organic-search sessions, same panel and window" source="Author's own portfolio data, GA4" /%}
+{% stat value="0.65%" label="Median property-level share of sessions attributed to matched AI sources" source="Author's own portfolio data, GA4" /%}
 {% /stats %}
 
-## What this means if you want AI traffic
+6,165 sessions matched an AI-assistant source out of 334,744 total sessions across the 104-site panel. The median site's own AI-attributed share was 0.65% of its sessions, the middle half of sites ran between 0% and 3.67%, and 36 of the 104 sites (34.6%) recorded zero matched AI sessions in this window (a further 4 properties had zero sessions of any kind and are excluded from these figures entirely). Edition 1 reported counts for a selected 12-site subset only; it did not publish this shape.
 
-1. **Weight your effort toward ChatGPT citation patterns** and treat the rest as secondary until the data changes.
-2. **Publish checkable primary data in your niche.** It is the single strongest citation magnet in this dataset.
-3. **Do not assume a Google ranking drop means an AI visibility drop.** Measure the two separately, they do not move together.
-4. **Measure the floor and the ceiling separately.** GA4 referral data for clicks, plus brand-presence checks inside AI answers for the invisible layer. My [free AI visibility check](/is-your-brand-visible-in-ai-search/) covers the second part.
-5. **Ignore vendors quoting industry statistics they cannot source.** Ask for their own data. If they have none, you have learned what you needed to know.
+One property supplied 97,123 of the panel's 334,744 sessions, 29.0%, in the Careers, education and travel sector. Excluding it raises the pooled AI share from 1.84% to 2.28%. Across the full panel, 246,655 sessions, 73.68%, were classified as Direct; this extraction does not establish why one property's Direct total is so large. Both the 1.84% and 2.28% figures are published.
 
-If you want this measurement done properly for your business, with a competitor benchmark and a prioritised plan, that is exactly what the [AI Visibility Audit](/ai-visibility/) is. If you are still working out what this discipline involves, start with [what a GEO agency actually does](/geo-agency/).
+## Finding 1: ChatGPT still sends most of the visible AI traffic, and it's concentrated in very few sites
+
+| Assistant | Sessions | Share of AI total | Sites with any |
+|---|---|---|---|
+| ChatGPT | 5,350 | 86.8% | 62 |
+| Microsoft Copilot | 458 | 7.4% | 42 |
+| Perplexity | 208 | 3.4% | 29 |
+| Claude | 104 | 1.7% | 17 |
+| Gemini | 45 | 0.7% | 14 |
+
+{% chart type="donut" eyebrow="AI referral share" title="Share of 6,165 AI referral sessions by assistant, 104 sites, 90 days to 21 September 2026" data="ChatGPT:86.8|Copilot:7.4|Perplexity:3.4|Claude:1.7|Gemini:0.7" suffix="%" highlight="ChatGPT" source="Author's own portfolio data, GA4, 104 sites" /%}
+
+The single highest site accounts for 15.8% of all matched AI sessions in the panel on its own. The top 3 sites account for 40.7%, and the top 10 for 77.1%. A small number of sites carry most of the matched traffic, and this analysis does not isolate which content features caused that concentration.
+
+Two external benchmarks, each opened and read directly, give different figures for ChatGPT's share. BrightEdge reports ChatGPT generated 95.1% of AI referral traffic in August 2026, up from 89.5% in April 2026. That figure comes from its own AI Market Pulse tracking; sample and method are not disclosed. Similarweb reports a separate measure: ChatGPT received approximately 53% of worldwide visits to generative-AI platforms themselves in May 2026, down from around 76% a year earlier. That is a panel-estimate of traffic to the AI tools, not referral clicks from them, and it identifies Claude as the fastest-growing platform proportionally over the same period. Neither source's population or denominator matches this panel of 104 owned sites. Both measurements agree only on direction: ChatGPT dominant, and Gemini or Claude the platform gaining fastest depending on the source. [BrightEdge, 24 September 2026](https://www.globenewswire.com/news-release/2026/09/24/3368345/0/en/brightedge-data-chatgpt-referral-traffic-more-than-doubles-in-2026-reaching-record-95-1-share-of-ai-traffic.html); [Similarweb, 29 July 2026](https://aisearch.similarweb.com/blog/gen-ai-stats/).
+
+## Finding 2: a third of sites recorded no matched AI sessions
+
+Zero matched AI sessions occurred on 36 of the 104 active sites (34.6%) in 90 days. This matches the concentration pattern above: matched AI traffic here collects around a handful of sites, the same pattern the first edition found, now visible against a full denominator instead of a hand-picked shortlist.
+
+{% chart type="bar" eyebrow="Top AI referral sites" title="Five individual sites with the most matched AI sessions, labelled by subject, 90 days to 21 September 2026" data="Health and wellness:974|Affiliate reviews (e-bikes):801|Education data:736|EV charging:683|Document templates:457" suffix=" sessions" highlight="Health and wellness" source="Author's own portfolio data, GA4" /%}
+
+## Finding 3: descriptive sector results
+
+Eight sectors contain at least the predeclared minimum of 3 active properties. A ninth (Local services and events) fell to 2 properties after excluding client and unconfirmed-ownership sites and is omitted from this table rather than published below the minimum. These are small, unequal groups: they provide descriptive results, not reliable industry rankings. Share is AI-matched sessions as a percentage of that sector's own total sessions.
+
+| Sector | Sites (n) | AI sessions | Share of sector's sessions |
+|---|---|---|---|
+| Online tools and templates | 18 | 697 | 8.26% |
+| Motoring and EV | 4 | 745 | 4.64% |
+| Affiliate product reviews | 12 | 1,634 | 3.65% |
+| SEO and marketing services | 27 | 89 | 2.44% |
+| Home, property and local data | 17 | 941 | 1.45% |
+| Food, health and wellness | 9 | 1,062 | 1.29% |
+| AI and technology | 8 | 32 | 1.75% |
+| Careers, education and travel | 7 | 942 | 0.84% |
+
+Affiliate product reviews recorded the most AI-matched sessions of any sector, 1,634, followed by Food, health and wellness at 1,062; Affiliate product reviews is only the fourth-largest sector by total sessions, so volume and share do not track each other here. Online tools and templates had the highest share by proportion among the eight published sectors, 8.26%.
+
+## Finding 4: the original 12-site panel, re-measured over a mostly-overlapping window
+
+The first edition's panel was never a random sample. It was the 12 sites already known to receive the most AI traffic, chosen to show what strong performance looks like. Those 12 properties are included in the full 104-site panel above and also reported separately here for comparison, not a disjoint sample.
+
+The refreshed edition-1 window (28 May to 26 August 2026) spans 91 inclusive days. Edition 2's window (24 June to 21 September 2026) spans 90. The two share 64 days, leaving 27 days exclusive to edition 1 and 26 exclusive to edition 2. These overlapping totals alone cannot establish a sustained trend. The cause of any difference between them was not measured. Historic labels were mapped to current GA4 property IDs using internal references, site subject and an old-window re-pull of each property. Re-pulling the original window independently gives 4,745 AI-matched sessions across the 12 properties, against 4,717 originally published, a close but not exact match. The original edition did not publish property IDs, so the mappings retain some uncertainty.
+
+| Site (by sector) | AI sessions, 24 Jun to 21 Sep 2026 | AI sessions, 28 May to 26 Aug 2026 (edition 1, published) |
+|---|---|---|
+| Health and wellness | 974 | 1,357 |
+| Education data | 736 | 993 |
+| EV charging | 683 | 573 |
+| Document templates | 457 | 595 |
+| Property data | 232 | 259 |
+| Garden equipment reviews | 203 | 260 |
+| Mobile coverage | 178 | 176 |
+| Water quality | 157 | 221 |
+| Remote work and travel | 89 | 155 |
+| QR tools | 89 | 80 |
+| This site (SEO consulting) | 74 | 48 |
+| Fitness | 0 | 0 |
+
+Edition-1 panel total this window: 3,872 AI-matched sessions on 171,630 total sessions (2.26% AI share, 8.41 per 100 organic sessions), against 4,717 published in the original edition. Given the 64-day window overlap, that difference alone does not establish a falling trend. The historic subset's median property-level share is 3.97%, compared with 0.65% for the full panel.
+
+## What this means if you own a site
+
+1. **Matched AI sources accounted for 1.84% of this portfolio's recorded sessions.** Measure your own baseline before setting a target; a hand-picked panel of your best-performing pages will show a higher number than your whole site.
+2. **A third of sites with any traffic recorded no matched AI sessions.** A zero on your own site is a common outcome in this panel (34.6% of sites), not a rare one.
+3. **The top 10 sites here carried 77.1% of all matched AI sessions.** This analysis does not isolate which content features caused that concentration; publishing checkable factual data is the pattern the first edition also found among the highest-traffic sites.
+4. **Compare the same properties using a consistent rule, and disclose window length and overlap.** A historic panel measured again over a mostly-overlapping window will read as change.
+5. **This method excludes unclicked citations and cannot isolate Google AI Overviews or AI Mode traffic from Google organic search.** The size of that omitted activity is unknown.
+
+The [AI Visibility Audit](/ai-visibility/) provides a site-specific baseline and action plan for your own site.
+
+## Method
+
+- **Source:** Google Analytics 4, GA4 Data API and Admin API, one property per site, pulled 24 September 2026 (UTC; 25 September in the UK).
+- **Window:** 24 June to 21 September 2026 (90 days). Dates use each property's own configured GA4 reporting time zone (Analytics Admin default), not one common zone.
+- **Panel:** every GA4 property in the accounts I hold as sole or majority owner. That covers the main portfolio account, my own sunnypatel.co.uk property, seo.associates and She Cooks She Eats. Two accounts were excluded, without naming the businesses involved. One is a sales-prospect's property, not yet a client and not mine to publish. The other is a client-adjacent property whose ownership I cannot confirm as mine to publish. One duplicate GA4 property for the same site (a second, URL-named copy of generator.express) was dropped. Sessions for every property were pulled once, on 24 September. Before publication, a separate ownership review on 25 September removed a further 7 individual properties: 2 are client sites, 5 have ownership I cannot confirm. None are named here, for the same reason as the two excluded accounts. That correction was ownership-driven only. No property was added or dropped based on its session or AI numbers. Every figure below was recomputed against the corrected 108-property frame. 4 of those 108 recorded zero sessions in the window. They remain in the downloads but are excluded from the share and percentile statistics below, leaving 104 sites in the panel.
+- **AI classification rule**, applied by matching `sessionSource` (case-insensitive substring) with one script against one immutable raw extraction per property, independent of what GA4 labels the channel group as:
+  - ChatGPT: source contains "chatgpt" or "openai"
+  - Microsoft Copilot: source contains "copilot" (the observed source string in this data is `copilot.com`, not `copilot.microsoft.com`)
+  - Perplexity: source contains "perplexity"
+  - Claude: source contains "claude"
+  - Gemini: source contains "gemini"
+- **What this cannot see:** generic `bing` sources are excluded from the Copilot count and counted as Bing organic search instead. GA4 cannot distinguish a Copilot click from a plain Bing search click once the source collapses to `bing`. This extraction cannot separate Google AI Overviews or AI Mode from other Google organic sessions at all. That traffic is invisible here, not zero. Of the 6,165 sessions matched to the five assistants, 5,770 (93.6%) already carried GA4's own "AI Assistant" channel label. The remaining 395 sessions, across 46 property rows, matched the source rule but GA4 had filed them under another channel, mostly "Unassigned".
+- **Other AI sources footnote:** six additional source domains contributed 24 sessions outside the five-platform scope; these are excluded.
+- **Organic sessions** are rows where GA4's `sessionDefaultChannelGroup` is exactly "Organic Search". Non-search channels are excluded even when a source name looks search-like.
+- Sites are labelled by sector, not domain: downloads use sector labels to protect commercially sensitive site identities.
+- **Selection bias.** This convenience sample describes one owner's portfolio. Shared infrastructure and content practices limit how far it generalises to other websites; treat every number below as a description of this portfolio, not a benchmark for "websites in general."
+
+A Python script applies the matching rule to the stored raw extracts and writes the aggregates below. Downloads contains property-level results and summary statistics.
+
+## Limitations
+
+- **Referrer loss.** Browser privacy settings, in-app browsers and some assistant apps can strip or rewrite referrer data before it reaches GA4. Missing attribution can cause an assistant-origin session to be recorded under another source label, such as "(direct)" or "(not set)"; this study cannot identify every session affected.
+- **Dark traffic.** Any AI answer that resolves a query without a click, or any citation inside an AI response nobody follows, is invisible to a referral method by definition. This study counts GA4 sessions attributed to matched source labels, not citations or mentions, and does not authenticate that every matched session is a genuine human click-through.
+- **GA4 channel rules.** Google publishes default channel-grouping rules, which can change; 395 sessions counted here, across 46 property rows, were not labelled "AI Assistant" by GA4 itself, only matched by this study's own source rule, and a further 24 sessions from six source domains outside the five predeclared platforms were excluded entirely.
+- **Selection bias.** This is 108 sites I own and operate, sharing a builder and hosting pattern. It describes this portfolio, not the whole web or an industry-representative rate.
+- **One property's session total looks anomalous** (the Careers, education and travel property's 97,123 sessions, noted above); it is reported as pulled, not corrected, with the sensitivity check (1.84% including it, 2.28% excluding it) both published.
+- **Edition-1 identity mapping.** The twelve historic sector labels were matched to current properties using internal references, site subject and an old-window re-pull, not a stored property ID, as detailed in Finding 4.
+
+## Edition history
+
+- **Edition 2, 25 September 2026** (this page): full 108-property frame (104 with sessions), 90 days to 21 September 2026, plus the original 12-site panel re-measured over a mostly-overlapping window.
+- **Edition 1, 2 August 2026, refreshed 26 August 2026**: 12-site hand-picked high-AI-traffic panel, 91 days to 26 August 2026. Kept above, unchanged, as a historic comparison.
+
+## How to cite
+
+Sunny Patel, "AI Referral Traffic Study," sunnypatel.co.uk, edition 2, 25 September 2026, GA4 data, 108-property portfolio frame (104 sites with sessions), 90 days to 21 September 2026. https://sunnypatel.co.uk/blog/ai-referral-traffic-study/
+
+## Downloads
+
+- [Edition 2 data: CSV](/downloads/ai-referral-traffic-study-2026-09-21-v2.csv): one row per property (sector label and an anonymous site number, no site names), all 108 properties in the frame
+- [Edition 2 data: JSON](/downloads/ai-referral-traffic-study-2026-09-21-v2.json): the same per-property rows plus sector splits, panel totals and the sensitivity check
+- [Edition 1 data: CSV](/downloads/ai-referral-traffic-study-2026-08-26-v1.csv): the original 12-site panel, unchanged
 
 ## Related Articles
 

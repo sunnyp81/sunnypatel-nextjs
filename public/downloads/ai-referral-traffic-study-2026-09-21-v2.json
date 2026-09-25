@@ -1,0 +1,1994 @@
+{
+  "window": [
+    "2026-06-24",
+    "2026-09-21"
+  ],
+  "matching_rule": {
+    "ChatGPT": "chatgpt|openai",
+    "Copilot": "copilot",
+    "Perplexity": "perplexity",
+    "Claude": "claude",
+    "Gemini": "gemini"
+  },
+  "excluded_no_sessions_in_window": {
+    "count": 4,
+    "note": "properties with zero sessions in the window; identities withheld, sector-only downloads policy"
+  },
+  "panel": {
+    "n_sites": 104,
+    "sessions": 334744,
+    "organic_sessions": 77125,
+    "direct_sessions": 246655,
+    "direct_share_pct": 73.68,
+    "ai_sessions": 6165,
+    "ga4_ai_assistant_channel_sessions": 5770,
+    "ai_share_of_all_pct": 1.84,
+    "ai_per_100_organic": 7.99,
+    "sites_with_zero_ai": 36,
+    "per_site_ai_share_pct": {
+      "median": 0.65,
+      "p25": 0.0,
+      "p75": 3.67,
+      "min": 0.0,
+      "max": 38.47
+    },
+    "by_assistant": {
+      "ChatGPT": {
+        "sessions": 5350,
+        "share_of_ai_pct": 86.78,
+        "sites_with_any": 62
+      },
+      "Copilot": {
+        "sessions": 458,
+        "share_of_ai_pct": 7.43,
+        "sites_with_any": 42
+      },
+      "Perplexity": {
+        "sessions": 208,
+        "share_of_ai_pct": 3.37,
+        "sites_with_any": 29
+      },
+      "Claude": {
+        "sessions": 104,
+        "share_of_ai_pct": 1.69,
+        "sites_with_any": 17
+      },
+      "Gemini": {
+        "sessions": 45,
+        "share_of_ai_pct": 0.73,
+        "sites_with_any": 14
+      }
+    }
+  },
+  "sensitivity_largest_site": {
+    "sector": "Careers, education and travel",
+    "sessions": 97123,
+    "share_of_panel_sessions_pct": 29.01,
+    "ai_share_of_all_pct_excluding_largest": 2.28
+  },
+  "concentration": {
+    "top1_share_of_ai_pct": 15.8,
+    "top3_share_of_ai_pct": 40.73,
+    "top10_share_of_ai_pct": 77.11
+  },
+  "ai_sessions_outside_ga4_ai_channel": 395,
+  "sectors": {
+    "AI and technology": {
+      "n_sites": 8,
+      "sessions": 1827,
+      "organic_sessions": 187,
+      "direct_sessions": 1521,
+      "direct_share_pct": 83.25,
+      "ai_sessions": 32,
+      "ga4_ai_assistant_channel_sessions": 23,
+      "ai_share_of_all_pct": 1.75,
+      "ai_per_100_organic": 17.11,
+      "sites_with_zero_ai": 4,
+      "per_site_ai_share_pct": {
+        "median": 0.23,
+        "p25": 0.0,
+        "p75": 6.52,
+        "min": 0.0,
+        "max": 9.84
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 13,
+          "share_of_ai_pct": 40.62,
+          "sites_with_any": 3
+        },
+        "Copilot": {
+          "sessions": 13,
+          "share_of_ai_pct": 40.62,
+          "sites_with_any": 1
+        },
+        "Perplexity": {
+          "sessions": 2,
+          "share_of_ai_pct": 6.25,
+          "sites_with_any": 1
+        },
+        "Claude": {
+          "sessions": 0,
+          "share_of_ai_pct": 0.0,
+          "sites_with_any": 0
+        },
+        "Gemini": {
+          "sessions": 4,
+          "share_of_ai_pct": 12.5,
+          "sites_with_any": 2
+        }
+      }
+    },
+    "Affiliate product reviews": {
+      "n_sites": 12,
+      "sessions": 44825,
+      "organic_sessions": 9057,
+      "direct_sessions": 33162,
+      "direct_share_pct": 73.98,
+      "ai_sessions": 1634,
+      "ga4_ai_assistant_channel_sessions": 1541,
+      "ai_share_of_all_pct": 3.65,
+      "ai_per_100_organic": 18.04,
+      "sites_with_zero_ai": 0,
+      "per_site_ai_share_pct": {
+        "median": 2.47,
+        "p25": 0.75,
+        "p75": 5.57,
+        "min": 0.41,
+        "max": 11.11
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 1486,
+          "share_of_ai_pct": 90.94,
+          "sites_with_any": 12
+        },
+        "Copilot": {
+          "sessions": 78,
+          "share_of_ai_pct": 4.77,
+          "sites_with_any": 8
+        },
+        "Perplexity": {
+          "sessions": 29,
+          "share_of_ai_pct": 1.77,
+          "sites_with_any": 5
+        },
+        "Claude": {
+          "sessions": 29,
+          "share_of_ai_pct": 1.77,
+          "sites_with_any": 4
+        },
+        "Gemini": {
+          "sessions": 12,
+          "share_of_ai_pct": 0.73,
+          "sites_with_any": 4
+        }
+      }
+    },
+    "Careers, education and travel": {
+      "n_sites": 7,
+      "sessions": 112768,
+      "organic_sessions": 13126,
+      "direct_sessions": 96724,
+      "direct_share_pct": 85.77,
+      "ai_sessions": 942,
+      "ga4_ai_assistant_channel_sessions": 890,
+      "ai_share_of_all_pct": 0.84,
+      "ai_per_100_organic": 7.18,
+      "sites_with_zero_ai": 0,
+      "per_site_ai_share_pct": {
+        "median": 1.0,
+        "p25": 0.66,
+        "p75": 1.61,
+        "min": 0.59,
+        "max": 6.48
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 849,
+          "share_of_ai_pct": 90.13,
+          "sites_with_any": 7
+        },
+        "Copilot": {
+          "sessions": 63,
+          "share_of_ai_pct": 6.69,
+          "sites_with_any": 6
+        },
+        "Perplexity": {
+          "sessions": 21,
+          "share_of_ai_pct": 2.23,
+          "sites_with_any": 4
+        },
+        "Claude": {
+          "sessions": 6,
+          "share_of_ai_pct": 0.64,
+          "sites_with_any": 3
+        },
+        "Gemini": {
+          "sessions": 3,
+          "share_of_ai_pct": 0.32,
+          "sites_with_any": 1
+        }
+      }
+    },
+    "Food, health and wellness": {
+      "n_sites": 9,
+      "sessions": 82131,
+      "organic_sessions": 17788,
+      "direct_sessions": 62747,
+      "direct_share_pct": 76.4,
+      "ai_sessions": 1062,
+      "ga4_ai_assistant_channel_sessions": 949,
+      "ai_share_of_all_pct": 1.29,
+      "ai_per_100_organic": 5.97,
+      "sites_with_zero_ai": 3,
+      "per_site_ai_share_pct": {
+        "median": 0.05,
+        "p25": 0.0,
+        "p75": 0.31,
+        "min": 0.0,
+        "max": 5.61
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 823,
+          "share_of_ai_pct": 77.5,
+          "sites_with_any": 4
+        },
+        "Copilot": {
+          "sessions": 89,
+          "share_of_ai_pct": 8.38,
+          "sites_with_any": 4
+        },
+        "Perplexity": {
+          "sessions": 108,
+          "share_of_ai_pct": 10.17,
+          "sites_with_any": 4
+        },
+        "Claude": {
+          "sessions": 42,
+          "share_of_ai_pct": 3.95,
+          "sites_with_any": 1
+        },
+        "Gemini": {
+          "sessions": 0,
+          "share_of_ai_pct": 0.0,
+          "sites_with_any": 0
+        }
+      }
+    },
+    "Home, property and local data": {
+      "n_sites": 17,
+      "sessions": 64767,
+      "organic_sessions": 21763,
+      "direct_sessions": 41426,
+      "direct_share_pct": 63.96,
+      "ai_sessions": 941,
+      "ga4_ai_assistant_channel_sessions": 851,
+      "ai_share_of_all_pct": 1.45,
+      "ai_per_100_organic": 4.32,
+      "sites_with_zero_ai": 4,
+      "per_site_ai_share_pct": {
+        "median": 1.0,
+        "p25": 0.04,
+        "p75": 2.02,
+        "min": 0.0,
+        "max": 14.45
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 741,
+          "share_of_ai_pct": 78.75,
+          "sites_with_any": 12
+        },
+        "Copilot": {
+          "sessions": 136,
+          "share_of_ai_pct": 14.45,
+          "sites_with_any": 11
+        },
+        "Perplexity": {
+          "sessions": 31,
+          "share_of_ai_pct": 3.29,
+          "sites_with_any": 9
+        },
+        "Claude": {
+          "sessions": 20,
+          "share_of_ai_pct": 2.13,
+          "sites_with_any": 5
+        },
+        "Gemini": {
+          "sessions": 13,
+          "share_of_ai_pct": 1.38,
+          "sites_with_any": 4
+        }
+      }
+    },
+    "Motoring and EV": {
+      "n_sites": 4,
+      "sessions": 16067,
+      "organic_sessions": 13024,
+      "direct_sessions": 2207,
+      "direct_share_pct": 13.74,
+      "ai_sessions": 745,
+      "ga4_ai_assistant_channel_sessions": 721,
+      "ai_share_of_all_pct": 4.64,
+      "ai_per_100_organic": 5.72,
+      "sites_with_zero_ai": 1,
+      "per_site_ai_share_pct": {
+        "median": 2.99,
+        "p25": 0.31,
+        "p75": 6.28,
+        "min": 0.0,
+        "max": 6.78
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 679,
+          "share_of_ai_pct": 91.14,
+          "sites_with_any": 3
+        },
+        "Copilot": {
+          "sessions": 43,
+          "share_of_ai_pct": 5.77,
+          "sites_with_any": 3
+        },
+        "Perplexity": {
+          "sessions": 8,
+          "share_of_ai_pct": 1.07,
+          "sites_with_any": 1
+        },
+        "Claude": {
+          "sessions": 5,
+          "share_of_ai_pct": 0.67,
+          "sites_with_any": 2
+        },
+        "Gemini": {
+          "sessions": 10,
+          "share_of_ai_pct": 1.34,
+          "sites_with_any": 1
+        }
+      }
+    },
+    "Online tools and templates": {
+      "n_sites": 18,
+      "sessions": 8440,
+      "organic_sessions": 1765,
+      "direct_sessions": 5701,
+      "direct_share_pct": 67.55,
+      "ai_sessions": 697,
+      "ga4_ai_assistant_channel_sessions": 686,
+      "ai_share_of_all_pct": 8.26,
+      "ai_per_100_organic": 39.49,
+      "sites_with_zero_ai": 4,
+      "per_site_ai_share_pct": {
+        "median": 1.33,
+        "p25": 0.05,
+        "p75": 9.68,
+        "min": 0.0,
+        "max": 38.47
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 655,
+          "share_of_ai_pct": 93.97,
+          "sites_with_any": 12
+        },
+        "Copilot": {
+          "sessions": 34,
+          "share_of_ai_pct": 4.88,
+          "sites_with_any": 8
+        },
+        "Perplexity": {
+          "sessions": 5,
+          "share_of_ai_pct": 0.72,
+          "sites_with_any": 4
+        },
+        "Claude": {
+          "sessions": 1,
+          "share_of_ai_pct": 0.14,
+          "sites_with_any": 1
+        },
+        "Gemini": {
+          "sessions": 2,
+          "share_of_ai_pct": 0.29,
+          "sites_with_any": 1
+        }
+      }
+    },
+    "SEO and marketing services": {
+      "n_sites": 27,
+      "sessions": 3653,
+      "organic_sessions": 368,
+      "direct_sessions": 2977,
+      "direct_share_pct": 81.49,
+      "ai_sessions": 89,
+      "ga4_ai_assistant_channel_sessions": 86,
+      "ai_share_of_all_pct": 2.44,
+      "ai_per_100_organic": 24.18,
+      "sites_with_zero_ai": 20,
+      "per_site_ai_share_pct": {
+        "median": 0.0,
+        "p25": 0.0,
+        "p75": 0.61,
+        "min": 0.0,
+        "max": 13.04
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 81,
+          "share_of_ai_pct": 91.01,
+          "sites_with_any": 7
+        },
+        "Copilot": {
+          "sessions": 2,
+          "share_of_ai_pct": 2.25,
+          "sites_with_any": 1
+        },
+        "Perplexity": {
+          "sessions": 4,
+          "share_of_ai_pct": 4.49,
+          "sites_with_any": 1
+        },
+        "Claude": {
+          "sessions": 1,
+          "share_of_ai_pct": 1.12,
+          "sites_with_any": 1
+        },
+        "Gemini": {
+          "sessions": 1,
+          "share_of_ai_pct": 1.12,
+          "sites_with_any": 1
+        }
+      }
+    }
+  },
+  "edition1_panel_new_window": {
+    "summary": {
+      "n_sites": 12,
+      "sessions": 171630,
+      "organic_sessions": 46066,
+      "direct_sessions": 119199,
+      "direct_share_pct": 69.45,
+      "ai_sessions": 3872,
+      "ga4_ai_assistant_channel_sessions": 3650,
+      "ai_share_of_all_pct": 2.26,
+      "ai_per_100_organic": 8.41,
+      "sites_with_zero_ai": 1,
+      "per_site_ai_share_pct": {
+        "median": 3.97,
+        "p25": 1.11,
+        "p75": 5.47,
+        "min": 0.0,
+        "max": 38.47
+      },
+      "by_assistant": {
+        "ChatGPT": {
+          "sessions": 3413,
+          "share_of_ai_pct": 88.15,
+          "sites_with_any": 11
+        },
+        "Copilot": {
+          "sessions": 239,
+          "share_of_ai_pct": 6.17,
+          "sites_with_any": 10
+        },
+        "Perplexity": {
+          "sessions": 148,
+          "share_of_ai_pct": 3.82,
+          "sites_with_any": 10
+        },
+        "Claude": {
+          "sessions": 56,
+          "share_of_ai_pct": 1.45,
+          "sites_with_any": 6
+        },
+        "Gemini": {
+          "sessions": 16,
+          "share_of_ai_pct": 0.41,
+          "sites_with_any": 4
+        }
+      }
+    },
+    "e1_published_ai_total": 4717,
+    "e1_repull_same_old_window_ai_total": 4745,
+    "rows": [
+      {
+        "label": "Health and wellness",
+        "e1_published_ai": 1357,
+        "e2_new_window_ai": 974,
+        "e2_new_window_total": 17371,
+        "e1_repull_old_window_ai": 1362
+      },
+      {
+        "label": "Education data",
+        "e1_published_ai": 993,
+        "e2_new_window_ai": 736,
+        "e2_new_window_total": 97123,
+        "e1_repull_old_window_ai": 996
+      },
+      {
+        "label": "EV charging",
+        "e1_published_ai": 573,
+        "e2_new_window_ai": 683,
+        "e2_new_window_total": 14356,
+        "e1_repull_old_window_ai": 578
+      },
+      {
+        "label": "Document templates",
+        "e1_published_ai": 595,
+        "e2_new_window_ai": 457,
+        "e2_new_window_total": 1188,
+        "e1_repull_old_window_ai": 598
+      },
+      {
+        "label": "Property data",
+        "e1_published_ai": 259,
+        "e2_new_window_ai": 232,
+        "e2_new_window_total": 7974,
+        "e1_repull_old_window_ai": 261
+      },
+      {
+        "label": "Remote work and travel",
+        "e1_published_ai": 155,
+        "e2_new_window_ai": 89,
+        "e2_new_window_total": 8009,
+        "e1_repull_old_window_ai": 160
+      },
+      {
+        "label": "Water quality",
+        "e1_published_ai": 221,
+        "e2_new_window_ai": 157,
+        "e2_new_window_total": 13982,
+        "e1_repull_old_window_ai": 221
+      },
+      {
+        "label": "Mobile coverage",
+        "e1_published_ai": 176,
+        "e2_new_window_ai": 178,
+        "e2_new_window_total": 4276,
+        "e1_repull_old_window_ai": 177
+      },
+      {
+        "label": "Garden equipment reviews",
+        "e1_published_ai": 260,
+        "e2_new_window_ai": 203,
+        "e2_new_window_total": 5377,
+        "e1_repull_old_window_ai": 262
+      },
+      {
+        "label": "QR tools",
+        "e1_published_ai": 80,
+        "e2_new_window_ai": 89,
+        "e2_new_window_total": 466,
+        "e1_repull_old_window_ai": 82
+      },
+      {
+        "label": "This site (SEO consulting)",
+        "e1_published_ai": 48,
+        "e2_new_window_ai": 74,
+        "e2_new_window_total": 1467,
+        "e1_repull_old_window_ai": 48
+      },
+      {
+        "label": "Fitness",
+        "e1_published_ai": 0,
+        "e2_new_window_ai": 0,
+        "e2_new_window_total": 41,
+        "e1_repull_old_window_ai": 0
+      }
+    ]
+  },
+  "omitted_thin_sectors": {
+    "n_sites": 2,
+    "original_sectors": [
+      "Local services and events"
+    ],
+    "note": "Below the predeclared n>=3 minimum even after merging; omitted from the published sector table rather than shown as a misleadingly-labelled 'Other' row."
+  },
+  "properties": [
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S001",
+      "total_sessions": 17371,
+      "organic_sessions": 8839,
+      "chatgpt_sessions": 773,
+      "copilot_sessions": 61,
+      "perplexity_sessions": 98,
+      "claude_sessions": 42,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 974,
+      "ai_share_of_total_pct": 5.61
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S002",
+      "total_sessions": 7212,
+      "organic_sessions": 1325,
+      "chatgpt_sessions": 744,
+      "copilot_sessions": 39,
+      "perplexity_sessions": 15,
+      "claude_sessions": 3,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 801,
+      "ai_share_of_total_pct": 11.11
+    },
+    {
+      "sector": "Careers, education and travel",
+      "site_number": "S003",
+      "total_sessions": 97123,
+      "organic_sessions": 11431,
+      "chatgpt_sessions": 675,
+      "copilot_sessions": 49,
+      "perplexity_sessions": 12,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 736,
+      "ai_share_of_total_pct": 0.76
+    },
+    {
+      "sector": "Motoring and EV",
+      "site_number": "S004",
+      "total_sessions": 14356,
+      "organic_sessions": 11920,
+      "chatgpt_sessions": 626,
+      "copilot_sessions": 36,
+      "perplexity_sessions": 8,
+      "claude_sessions": 3,
+      "gemini_sessions": 10,
+      "ai_sessions_total": 683,
+      "ai_share_of_total_pct": 4.76
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S005",
+      "total_sessions": 1188,
+      "organic_sessions": 79,
+      "chatgpt_sessions": 451,
+      "copilot_sessions": 3,
+      "perplexity_sessions": 1,
+      "claude_sessions": 0,
+      "gemini_sessions": 2,
+      "ai_sessions_total": 457,
+      "ai_share_of_total_pct": 38.47
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S006",
+      "total_sessions": 4963,
+      "organic_sessions": 2384,
+      "chatgpt_sessions": 252,
+      "copilot_sessions": 20,
+      "perplexity_sessions": 5,
+      "claude_sessions": 1,
+      "gemini_sessions": 1,
+      "ai_sessions_total": 279,
+      "ai_share_of_total_pct": 5.62
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S007",
+      "total_sessions": 7974,
+      "organic_sessions": 592,
+      "chatgpt_sessions": 206,
+      "copilot_sessions": 13,
+      "perplexity_sessions": 7,
+      "claude_sessions": 6,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 232,
+      "ai_share_of_total_pct": 2.91
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S008",
+      "total_sessions": 2754,
+      "organic_sessions": 1271,
+      "chatgpt_sessions": 169,
+      "copilot_sessions": 30,
+      "perplexity_sessions": 2,
+      "claude_sessions": 9,
+      "gemini_sessions": 1,
+      "ai_sessions_total": 211,
+      "ai_share_of_total_pct": 7.66
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S009",
+      "total_sessions": 5377,
+      "organic_sessions": 1403,
+      "chatgpt_sessions": 193,
+      "copilot_sessions": 8,
+      "perplexity_sessions": 2,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 203,
+      "ai_share_of_total_pct": 3.78
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S010",
+      "total_sessions": 4276,
+      "organic_sessions": 836,
+      "chatgpt_sessions": 137,
+      "copilot_sessions": 39,
+      "perplexity_sessions": 2,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 178,
+      "ai_share_of_total_pct": 4.16
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S011",
+      "total_sessions": 15226,
+      "organic_sessions": 22,
+      "chatgpt_sessions": 160,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 160,
+      "ai_share_of_total_pct": 1.05
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S012",
+      "total_sessions": 13982,
+      "organic_sessions": 10366,
+      "chatgpt_sessions": 117,
+      "copilot_sessions": 27,
+      "perplexity_sessions": 8,
+      "claude_sessions": 2,
+      "gemini_sessions": 3,
+      "ai_sessions_total": 157,
+      "ai_share_of_total_pct": 1.12
+    },
+    {
+      "sector": "Careers, education and travel",
+      "site_number": "S013",
+      "total_sessions": 8009,
+      "organic_sessions": 197,
+      "chatgpt_sessions": 79,
+      "copilot_sessions": 2,
+      "perplexity_sessions": 6,
+      "claude_sessions": 2,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 89,
+      "ai_share_of_total_pct": 1.11
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S014",
+      "total_sessions": 466,
+      "organic_sessions": 120,
+      "chatgpt_sessions": 88,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 89,
+      "ai_share_of_total_pct": 19.1
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S015",
+      "total_sessions": 321,
+      "organic_sessions": 43,
+      "chatgpt_sessions": 76,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 76,
+      "ai_share_of_total_pct": 23.68
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S016",
+      "total_sessions": 512,
+      "organic_sessions": 175,
+      "chatgpt_sessions": 65,
+      "copilot_sessions": 5,
+      "perplexity_sessions": 2,
+      "claude_sessions": 2,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 74,
+      "ai_share_of_total_pct": 14.45
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S017",
+      "total_sessions": 1467,
+      "organic_sessions": 277,
+      "chatgpt_sessions": 68,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 4,
+      "claude_sessions": 1,
+      "gemini_sessions": 1,
+      "ai_sessions_total": 74,
+      "ai_share_of_total_pct": 5.04
+    },
+    {
+      "sector": "Motoring and EV",
+      "site_number": "S018",
+      "total_sessions": 811,
+      "organic_sessions": 481,
+      "chatgpt_sessions": 52,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 0,
+      "claude_sessions": 2,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 55,
+      "ai_share_of_total_pct": 6.78
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S019",
+      "total_sessions": 1091,
+      "organic_sessions": 542,
+      "chatgpt_sessions": 49,
+      "copilot_sessions": 2,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 1,
+      "ai_sessions_total": 52,
+      "ai_share_of_total_pct": 4.77
+    },
+    {
+      "sector": "Careers, education and travel",
+      "site_number": "S020",
+      "total_sessions": 617,
+      "organic_sessions": 36,
+      "chatgpt_sessions": 38,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 1,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 40,
+      "ai_share_of_total_pct": 6.48
+    },
+    {
+      "sector": "Careers, education and travel",
+      "site_number": "S021",
+      "total_sessions": 2426,
+      "organic_sessions": 121,
+      "chatgpt_sessions": 34,
+      "copilot_sessions": 5,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 39,
+      "ai_share_of_total_pct": 1.61
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S022",
+      "total_sessions": 3579,
+      "organic_sessions": 833,
+      "chatgpt_sessions": 22,
+      "copilot_sessions": 2,
+      "perplexity_sessions": 5,
+      "claude_sessions": 0,
+      "gemini_sessions": 9,
+      "ai_sessions_total": 38,
+      "ai_share_of_total_pct": 1.06
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S023",
+      "total_sessions": 3102,
+      "organic_sessions": 2110,
+      "chatgpt_sessions": 23,
+      "copilot_sessions": 4,
+      "perplexity_sessions": 2,
+      "claude_sessions": 6,
+      "gemini_sessions": 1,
+      "ai_sessions_total": 36,
+      "ai_share_of_total_pct": 1.16
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S024",
+      "total_sessions": 10627,
+      "organic_sessions": 869,
+      "chatgpt_sessions": 34,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 34,
+      "ai_share_of_total_pct": 0.32
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S025",
+      "total_sessions": 11281,
+      "organic_sessions": 2570,
+      "chatgpt_sessions": 10,
+      "copilot_sessions": 19,
+      "perplexity_sessions": 5,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 34,
+      "ai_share_of_total_pct": 0.3
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S026",
+      "total_sessions": 329,
+      "organic_sessions": 8,
+      "chatgpt_sessions": 10,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 19,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 29,
+      "ai_share_of_total_pct": 8.81
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S027",
+      "total_sessions": 2050,
+      "organic_sessions": 1011,
+      "chatgpt_sessions": 12,
+      "copilot_sessions": 15,
+      "perplexity_sessions": 1,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 28,
+      "ai_share_of_total_pct": 1.37
+    },
+    {
+      "sector": "Careers, education and travel",
+      "site_number": "S028",
+      "total_sessions": 2610,
+      "organic_sessions": 1278,
+      "chatgpt_sessions": 14,
+      "copilot_sessions": 5,
+      "perplexity_sessions": 2,
+      "claude_sessions": 2,
+      "gemini_sessions": 3,
+      "ai_sessions_total": 26,
+      "ai_share_of_total_pct": 1.0
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S029",
+      "total_sessions": 7611,
+      "organic_sessions": 5652,
+      "chatgpt_sessions": 8,
+      "copilot_sessions": 3,
+      "perplexity_sessions": 6,
+      "claude_sessions": 0,
+      "gemini_sessions": 6,
+      "ai_sessions_total": 23,
+      "ai_share_of_total_pct": 0.3
+    },
+    {
+      "sector": "Local services and events",
+      "site_number": "S030",
+      "total_sessions": 143,
+      "organic_sessions": 45,
+      "chatgpt_sessions": 22,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 22,
+      "ai_share_of_total_pct": 15.38
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S031",
+      "total_sessions": 596,
+      "organic_sessions": 134,
+      "chatgpt_sessions": 5,
+      "copilot_sessions": 13,
+      "perplexity_sessions": 2,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 20,
+      "ai_share_of_total_pct": 3.36
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S032",
+      "total_sessions": 21204,
+      "organic_sessions": 315,
+      "chatgpt_sessions": 16,
+      "copilot_sessions": 3,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 19,
+      "ai_share_of_total_pct": 0.09
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S033",
+      "total_sessions": 352,
+      "organic_sessions": 28,
+      "chatgpt_sessions": 19,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 19,
+      "ai_share_of_total_pct": 5.4
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S034",
+      "total_sessions": 1476,
+      "organic_sessions": 650,
+      "chatgpt_sessions": 6,
+      "copilot_sessions": 9,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 15,
+      "ai_share_of_total_pct": 1.02
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S035",
+      "total_sessions": 83,
+      "organic_sessions": 5,
+      "chatgpt_sessions": 13,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 13,
+      "ai_share_of_total_pct": 15.66
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S036",
+      "total_sessions": 1104,
+      "organic_sessions": 747,
+      "chatgpt_sessions": 5,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 2,
+      "claude_sessions": 0,
+      "gemini_sessions": 3,
+      "ai_sessions_total": 11,
+      "ai_share_of_total_pct": 1.0
+    },
+    {
+      "sector": "Careers, education and travel",
+      "site_number": "S037",
+      "total_sessions": 1681,
+      "organic_sessions": 16,
+      "chatgpt_sessions": 8,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 2,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 10,
+      "ai_share_of_total_pct": 0.59
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S038",
+      "total_sessions": 22591,
+      "organic_sessions": 4279,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 8,
+      "perplexity_sessions": 2,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 10,
+      "ai_share_of_total_pct": 0.04
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S039",
+      "total_sessions": 762,
+      "organic_sessions": 127,
+      "chatgpt_sessions": 3,
+      "copilot_sessions": 3,
+      "perplexity_sessions": 2,
+      "claude_sessions": 1,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 9,
+      "ai_share_of_total_pct": 1.18
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S040",
+      "total_sessions": 18777,
+      "organic_sessions": 340,
+      "chatgpt_sessions": 6,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 3,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 9,
+      "ai_share_of_total_pct": 0.05
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S041",
+      "total_sessions": 770,
+      "organic_sessions": 605,
+      "chatgpt_sessions": 3,
+      "copilot_sessions": 5,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 8,
+      "ai_share_of_total_pct": 1.04
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S042",
+      "total_sessions": 1953,
+      "organic_sessions": 35,
+      "chatgpt_sessions": 7,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 8,
+      "ai_share_of_total_pct": 0.41
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S043",
+      "total_sessions": 1486,
+      "organic_sessions": 363,
+      "chatgpt_sessions": 6,
+      "copilot_sessions": 2,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 8,
+      "ai_share_of_total_pct": 0.54
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S044",
+      "total_sessions": 622,
+      "organic_sessions": 67,
+      "chatgpt_sessions": 6,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 1,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 7,
+      "ai_share_of_total_pct": 1.13
+    },
+    {
+      "sector": "Motoring and EV",
+      "site_number": "S045",
+      "total_sessions": 572,
+      "organic_sessions": 435,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 6,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 7,
+      "ai_share_of_total_pct": 1.22
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S046",
+      "total_sessions": 611,
+      "organic_sessions": 267,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 6,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 6,
+      "ai_share_of_total_pct": 0.98
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S047",
+      "total_sessions": 61,
+      "organic_sessions": 6,
+      "chatgpt_sessions": 3,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 3,
+      "ai_sessions_total": 6,
+      "ai_share_of_total_pct": 9.84
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S048",
+      "total_sessions": 933,
+      "organic_sessions": 68,
+      "chatgpt_sessions": 2,
+      "copilot_sessions": 3,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 5,
+      "ai_share_of_total_pct": 0.54
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S049",
+      "total_sessions": 66,
+      "organic_sessions": 2,
+      "chatgpt_sessions": 5,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 5,
+      "ai_share_of_total_pct": 7.58
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S050",
+      "total_sessions": 653,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 4,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 4,
+      "ai_share_of_total_pct": 0.61
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S051",
+      "total_sessions": 72,
+      "organic_sessions": 14,
+      "chatgpt_sessions": 2,
+      "copilot_sessions": 2,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 4,
+      "ai_share_of_total_pct": 5.56
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S052",
+      "total_sessions": 79,
+      "organic_sessions": 16,
+      "chatgpt_sessions": 4,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 4,
+      "ai_share_of_total_pct": 5.06
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S053",
+      "total_sessions": 52,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 4,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 4,
+      "ai_share_of_total_pct": 7.69
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S054",
+      "total_sessions": 1557,
+      "organic_sessions": 397,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 1,
+      "claude_sessions": 1,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 3,
+      "ai_share_of_total_pct": 0.19
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S055",
+      "total_sessions": 89,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 2,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 3,
+      "ai_share_of_total_pct": 3.37
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S056",
+      "total_sessions": 23,
+      "organic_sessions": 1,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 2,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 3,
+      "ai_share_of_total_pct": 13.04
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S057",
+      "total_sessions": 441,
+      "organic_sessions": 43,
+      "chatgpt_sessions": 3,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 3,
+      "ai_share_of_total_pct": 0.68
+    },
+    {
+      "sector": "Careers, education and travel",
+      "site_number": "S058",
+      "total_sessions": 302,
+      "organic_sessions": 47,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 2,
+      "ai_share_of_total_pct": 0.66
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S059",
+      "total_sessions": 116,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 2,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 2,
+      "ai_share_of_total_pct": 1.72
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S060",
+      "total_sessions": 1269,
+      "organic_sessions": 859,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 1,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 0.08
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S061",
+      "total_sessions": 1464,
+      "organic_sessions": 4,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 1,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 0.07
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S062",
+      "total_sessions": 215,
+      "organic_sessions": 19,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 1,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 0.47
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S063",
+      "total_sessions": 40,
+      "organic_sessions": 2,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 2.5
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S064",
+      "total_sessions": 155,
+      "organic_sessions": 4,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 0.65
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S065",
+      "total_sessions": 18,
+      "organic_sessions": 1,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 5.56
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S066",
+      "total_sessions": 78,
+      "organic_sessions": 17,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 1.28
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S067",
+      "total_sessions": 77,
+      "organic_sessions": 6,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 1.3
+    },
+    {
+      "sector": "Local services and events",
+      "site_number": "S068",
+      "total_sessions": 123,
+      "organic_sessions": 2,
+      "chatgpt_sessions": 1,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 1,
+      "ai_share_of_total_pct": 0.81
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S069",
+      "total_sessions": 10,
+      "organic_sessions": 7,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S070",
+      "total_sessions": 9,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S071",
+      "total_sessions": 429,
+      "organic_sessions": 37,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Motoring and EV",
+      "site_number": "S072",
+      "total_sessions": 328,
+      "organic_sessions": 188,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S073",
+      "total_sessions": 107,
+      "organic_sessions": 21,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S074",
+      "total_sessions": 662,
+      "organic_sessions": 21,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S075",
+      "total_sessions": 67,
+      "organic_sessions": 5,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S076",
+      "total_sessions": 24,
+      "organic_sessions": 7,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Home, property and local data",
+      "site_number": "S077",
+      "total_sessions": 36,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S078",
+      "total_sessions": 42,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S079",
+      "total_sessions": 88,
+      "organic_sessions": 2,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S080",
+      "total_sessions": 42,
+      "organic_sessions": 1,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S081",
+      "total_sessions": 0,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": null
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S082",
+      "total_sessions": 16,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S083",
+      "total_sessions": 122,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S084",
+      "total_sessions": 109,
+      "organic_sessions": 5,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S085",
+      "total_sessions": 123,
+      "organic_sessions": 10,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S086",
+      "total_sessions": 13,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S087",
+      "total_sessions": 119,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Affiliate product reviews",
+      "site_number": "S088",
+      "total_sessions": 0,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": null
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S089",
+      "total_sessions": 0,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": null
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S090",
+      "total_sessions": 199,
+      "organic_sessions": 5,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S091",
+      "total_sessions": 17,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "AI and technology",
+      "site_number": "S092",
+      "total_sessions": 11,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S093",
+      "total_sessions": 41,
+      "organic_sessions": 6,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S094",
+      "total_sessions": 45,
+      "organic_sessions": 7,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S095",
+      "total_sessions": 51,
+      "organic_sessions": 2,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S096",
+      "total_sessions": 41,
+      "organic_sessions": 2,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S097",
+      "total_sessions": 90,
+      "organic_sessions": 1,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S098",
+      "total_sessions": 113,
+      "organic_sessions": 4,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S099",
+      "total_sessions": 77,
+      "organic_sessions": 6,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S100",
+      "total_sessions": 65,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S101",
+      "total_sessions": 42,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S102",
+      "total_sessions": 104,
+      "organic_sessions": 2,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S103",
+      "total_sessions": 46,
+      "organic_sessions": 3,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S104",
+      "total_sessions": 56,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S105",
+      "total_sessions": 4,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Online tools and templates",
+      "site_number": "S106",
+      "total_sessions": 1,
+      "organic_sessions": 1,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    },
+    {
+      "sector": "Food, health and wellness",
+      "site_number": "S107",
+      "total_sessions": 0,
+      "organic_sessions": 0,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": null
+    },
+    {
+      "sector": "SEO and marketing services",
+      "site_number": "S108",
+      "total_sessions": 18,
+      "organic_sessions": 1,
+      "chatgpt_sessions": 0,
+      "copilot_sessions": 0,
+      "perplexity_sessions": 0,
+      "claude_sessions": 0,
+      "gemini_sessions": 0,
+      "ai_sessions_total": 0,
+      "ai_share_of_total_pct": 0.0
+    }
+  ]
+}

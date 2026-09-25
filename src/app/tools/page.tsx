@@ -25,7 +25,7 @@ export default function ToolsPage() {
             Free SEO Tools
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Practical tools for keyword research, technical SEO, content analysis, and campaign tracking. Everything runs in your browser â€” no sign-up, no data stored.
+            Practical tools for keyword research, technical SEO, content analysis, and campaign tracking. Everything runs in your browser: no sign-up, no data stored.
           </p>
 
           {categories.map((category) => (

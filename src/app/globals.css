@@ -441,13 +441,13 @@ html:not(.dark) .prose blockquote::before {
 }
 
 /* Light theme: the ghost secondary button needs ink text and a paper surface. */
-html:not(.dark) .gradient-button-variant {
+html.light .gradient-button-variant {
   color: var(--brand-ink);
   background: #ffffff;
   border-color: rgb(42 91 215 / 30%);
   box-shadow: var(--elev);
 }
-html:not(.dark) .gradient-button-variant:hover {
+html.light .gradient-button-variant:hover {
   background: #f0f4fd;
   border-color: rgb(42 91 215 / 55%);
   box-shadow: 0 10px 26px -14px var(--glow-brand);

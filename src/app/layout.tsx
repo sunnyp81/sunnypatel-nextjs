@@ -12,6 +12,7 @@ import {
 } from "@/lib/schema";
 import { AnalyticsEvents } from "@/components/analytics-events";
 import { ExitIntent } from "@/components/exit-intent";
+import { ThemeSync } from "@/components/theme/theme-toggle";
 
 const geist = Geist({
   variable: "--font-heading",
@@ -72,6 +73,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <ThemeSync />
         <ExitIntent />
         <AnalyticsEvents />
         {process.env.NODE_ENV === "production" && (

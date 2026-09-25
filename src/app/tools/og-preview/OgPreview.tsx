@@ -35,7 +35,7 @@ function truncate(text: string | undefined | null, max: number): string {
 /* ------------------------------------------------------------------ */
 function CheckIcon() {
   return (
-    <svg className="inline-block h-4 w-4 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+    <svg className="inline-block h-4 w-4 text-success-ink dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
     </svg>
   );
@@ -43,7 +43,7 @@ function CheckIcon() {
 
 function XIcon() {
   return (
-    <svg className="inline-block h-4 w-4 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+    <svg className="inline-block h-4 w-4 text-destructive dark:text-red-400" viewBox="0 0 20 20" fill="currentColor">
       <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
     </svg>
   );
@@ -93,7 +93,7 @@ function FacebookPreview({ data }: { data: OgData }) {
   const domain = getDomain(data.url);
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div className="rounded-xl border border-hairline dark:border-white/[0.06] bg-wash dark:bg-white/[0.02] p-6">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
         Facebook
       </h3>
@@ -149,13 +149,13 @@ function TwitterPreview({ data }: { data: OgData }) {
   const isLarge = card === 'summary_large_image';
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div className="rounded-xl border border-hairline dark:border-white/[0.06] bg-wash dark:bg-white/[0.02] p-6">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
         Twitter / X
       </h3>
       {isLarge ? (
         /* --- Large summary image card --- */
-        <div className="overflow-hidden rounded-2xl border border-white/[0.1] bg-black/40">
+        <div className="overflow-hidden rounded-2xl border border-black/[0.12] dark:border-white/[0.1] bg-white dark:bg-black/40">
           {image ? (
             <div style={{ aspectRatio: '16/9' }} className="overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -179,8 +179,8 @@ function TwitterPreview({ data }: { data: OgData }) {
         </div>
       ) : (
         /* --- Summary card (small image left) --- */
-        <div className="flex overflow-hidden rounded-2xl border border-white/[0.1] bg-black/40">
-          <div className="flex h-[125px] w-[125px] shrink-0 items-center justify-center overflow-hidden border-r border-white/[0.1] bg-white/[0.04]">
+        <div className="flex overflow-hidden rounded-2xl border border-black/[0.12] dark:border-white/[0.1] bg-white dark:bg-black/40">
+          <div className="flex h-[125px] w-[125px] shrink-0 items-center justify-center overflow-hidden border-r border-black/[0.1] dark:border-white/[0.1] bg-black/[0.04] dark:bg-white/[0.04]">
             {image ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={image} alt="" className="h-full w-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -215,11 +215,11 @@ function LinkedInPreview({ data }: { data: OgData }) {
   const domain = getDomain(data.url);
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div className="rounded-xl border border-hairline dark:border-white/[0.06] bg-wash dark:bg-white/[0.02] p-6">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
         LinkedIn
       </h3>
-      <div className="overflow-hidden rounded-lg border border-white/[0.1] bg-white/[0.03]">
+      <div className="overflow-hidden rounded-lg border border-black/[0.1] dark:border-white/[0.1] bg-white dark:bg-white/[0.03]">
         {image ? (
           <div style={{ aspectRatio: '1.91/1' }} className="overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -298,14 +298,14 @@ function TagAudit({ data }: { data: OgData }) {
   }
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div className="rounded-xl border border-hairline dark:border-white/[0.06] bg-wash dark:bg-white/[0.02] p-6">
       <h3 className="mb-4 text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
         Tag Audit
       </h3>
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-white/[0.08]">
+            <tr className="border-b border-hairline-strong dark:border-white/[0.08]">
               <th className="pb-2 pr-4 font-medium text-muted-foreground">Status</th>
               <th className="pb-2 pr-4 font-medium text-muted-foreground">Tag</th>
               <th className="pb-2 font-medium text-muted-foreground">Value</th>
@@ -313,26 +313,26 @@ function TagAudit({ data }: { data: OgData }) {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.tag} className="border-b border-white/[0.04]">
+              <tr key={row.tag} className="border-b border-hairline dark:border-white/[0.04]">
                 <td className="py-2 pr-4">
                   {row.status === 'present' && <CheckIcon />}
                   {row.status === 'missing' && <XIcon />}
                   {row.status === 'warning' && (
-                    <svg className="inline-block h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                    <svg className="inline-block h-4 w-4 text-gold-ink dark:text-amber-400" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                     </svg>
                   )}
                 </td>
                 <td className={`py-2 pr-4 font-mono text-xs ${
-                  row.status === 'present' ? 'text-emerald-400' :
-                  row.status === 'missing' ? 'text-red-400' :
-                  'text-amber-400'
+                  row.status === 'present' ? 'text-success-ink dark:text-emerald-400' :
+                  row.status === 'missing' ? 'text-destructive dark:text-red-400' :
+                  'text-gold-ink dark:text-amber-400'
                 }`}>
                   {row.tag}
                 </td>
                 <td className="py-2 text-xs text-muted-foreground break-all">
                   {row.value || (
-                    <span className={row.status === 'missing' ? 'text-red-400' : 'text-amber-400'}>
+                    <span className={row.status === 'missing' ? 'text-destructive dark:text-red-400' : 'text-gold-ink dark:text-amber-400'}>
                       {row.status === 'missing' ? 'Missing (critical)' : 'Not set'}
                     </span>
                   )}
@@ -407,7 +407,7 @@ export default function OgPreview() {
       </div>
 
       {/* URL input form */}
-      <form onSubmit={handleSubmit} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <form onSubmit={handleSubmit} className="rounded-xl border border-hairline dark:border-white/[0.06] bg-wash dark:bg-white/[0.02] p-6">
         <label htmlFor="og-url" className="text-sm font-medium text-foreground">
           Enter a URL to preview
         </label>
@@ -418,7 +418,7 @@ export default function OgPreview() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+            className="flex-1 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           />
           <button
             type="submit"
@@ -439,7 +439,7 @@ export default function OgPreview() {
 
       {/* Error */}
       {error && (
-        <div className="mt-6 rounded-xl border border-red-500/20 bg-red-500/5 p-4 text-sm text-red-400">
+        <div className="mt-6 rounded-xl border border-destructive/30 dark:border-red-500/20 bg-destructive/10 dark:bg-red-500/5 p-4 text-sm text-destructive dark:text-red-400">
           {error}
         </div>
       )}
@@ -459,7 +459,7 @@ export default function OgPreview() {
 
           {/* SEO tip */}
           <div className="rounded-xl border border-brand/20 bg-brand/5 p-6">
-            <h3 className="text-sm font-semibold text-brand" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h3 className="text-sm font-semibold text-brand-ink dark:text-brand" style={{ fontFamily: 'var(--font-heading)' }}>
               Why Open Graph tags matter for SEO
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -467,9 +467,9 @@ export default function OgPreview() {
               Google ranking factor, well-optimised social previews increase click-through rates from platforms like
               Facebook, Twitter/X, and LinkedIn. Higher engagement drives more referral traffic, brand signals,
               and natural backlinks &mdash; all of which have an indirect but meaningful impact on search rankings.
-              At minimum, every page should have <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand">og:title</code>,{' '}
-              <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand">og:description</code>, and{' '}
-              <code className="rounded bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand">og:image</code> set.
+              At minimum, every page should have <code className="rounded bg-black/[0.06] dark:bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand-ink dark:text-brand">og:title</code>,{' '}
+              <code className="rounded bg-black/[0.06] dark:bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand-ink dark:text-brand">og:description</code>, and{' '}
+              <code className="rounded bg-black/[0.06] dark:bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand-ink dark:text-brand">og:image</code> set.
             </p>
           </div>
         </div>

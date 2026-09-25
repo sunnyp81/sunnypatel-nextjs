@@ -18,7 +18,7 @@ export function KeyStatsStrip({
       </GlowStatRow>
       {jumpHref ? (
         <div className="mt-3 text-center">
-          <a href={jumpHref} className={`text-sm text-brand hover:underline ${styles.statJumpLink}`}>
+          <a href={jumpHref} className={`text-sm text-brand-ink hover:underline ${styles.statJumpLink}`}>
             Jump to all statistics ↓
           </a>
         </div>

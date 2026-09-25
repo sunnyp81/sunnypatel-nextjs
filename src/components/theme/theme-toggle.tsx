@@ -17,11 +17,41 @@ function applyTheme(theme: Theme) {
   window.setTimeout(() => root.classList.remove("theme-switching"), 400);
 }
 
+function storedTheme(): Theme {
+  try {
+    return localStorage.getItem("theme") === "light" ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
+}
+
+// React can rewrite <html className> after a hydration error recovery; re-apply the stored theme when that happens.
+export function ThemeSync() {
+  useEffect(() => {
+    const root = document.documentElement;
+    const sync = () => {
+      const want = storedTheme();
+      if (root.classList.contains(want) && !root.classList.contains(want === "dark" ? "light" : "dark")) return;
+      root.classList.toggle("dark", want === "dark");
+      root.classList.toggle("light", want === "light");
+      window.dispatchEvent(new CustomEvent("themechange", { detail: want }));
+    };
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+  return null;
+}
+
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+    setTheme(storedTheme());
+    const onChange = (e: Event) => setTheme((e as CustomEvent<Theme>).detail);
+    window.addEventListener("themechange", onChange);
+    return () => window.removeEventListener("themechange", onChange);
   }, []);
 
   const next: Theme = theme === "dark" ? "light" : "dark";

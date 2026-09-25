@@ -7,8 +7,8 @@ export function ComparisonTable() {
           style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}>
         Why Choose a Specialist vs. a Generalist Agency
       </h3>
-      <div className="overflow-hidden rounded-xl border border-hairline dark:border-white/[0.06]">
-        <table className="w-full text-left text-sm text-muted-foreground">
+      <div className="overflow-x-auto rounded-xl border border-hairline dark:border-white/[0.06]">
+        <table className="w-full min-w-[560px] text-left text-sm text-muted-foreground">
           <thead className="border-b border-hairline dark:border-white/[0.06] bg-surface-1 dark:bg-white/[0.02] text-xs uppercase text-foreground">
             <tr>
               <th scope="col" className="px-6 py-3">Feature</th>

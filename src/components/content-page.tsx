@@ -244,7 +244,7 @@ export function ContentPage({
           {isService && serviceHeroImage ? (
             <div className="grid gap-8 md:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] md:items-center md:gap-10">
               <div>{headerContent}</div>
-              <div>
+              <div className="overflow-hidden rounded-2xl bg-[#050507] shadow-[var(--elev)]">
                 <Image
                   src={serviceHeroImage}
                   alt={serviceHeroImageAlt || h1}

@@ -1,0 +1,88 @@
+.figure {
+  margin: 1.5rem 0 0;
+  border: 1px solid rgb(255 255 255 / 6%);
+  border-radius: 1rem;
+  background: #050507;
+  color: #F2F2F2;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+
+.label {
+  font-family: var(--font-body), sans-serif;
+}
+
+.focusRing {
+  stroke: #F2F2F2;
+  stroke-width: 2;
+  opacity: 0;
+}
+
+.townLink .label {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.townLink:hover .focusRing,
+.townLink:active .focusRing,
+.townLink:focus-visible .focusRing {
+  opacity: 1;
+}
+
+.navigation {
+  padding: 1rem 1rem 0;
+  border-top: 1px solid rgb(255 255 255 / 6%);
+}
+
+.heading {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.townList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.townList a {
+  display: inline-block;
+  color: #F2F2F2;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.townList a:hover,
+.townList a:active {
+  text-decoration-thickness: 2px;
+}
+
+.townList a:focus-visible {
+  outline: 2px solid #F2F2F2;
+  outline-offset: 3px;
+}
+
+.caption {
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 399px) {
+  .connections {
+    display: none;
+  }
+}

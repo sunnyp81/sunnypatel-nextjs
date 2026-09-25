@@ -13,6 +13,7 @@ import { WhoForGrid } from "@/components/services/WhoForGrid";
 import { CitationChecklist } from "@/components/services/CitationChecklist";
 import { CaseStudyCard } from "@/components/services/CaseStudyCard";
 import { StatsBar } from "@/components/services/StatsBar";
+import { CoverageMap } from "@/components/services/CoverageMap";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
 import { GlowProcess, GlowProcessStep } from "@/components/glow/glow-blocks";
 import { markdocConfig } from "@/lib/render-markdoc";
@@ -802,6 +803,12 @@ const SPECIFIC_DATA: Record<string, ConversionData> = {
   "ai-search-optimisation": AI_SEARCH_DATA,
 };
 
+const DEFAULT_COVERAGE_MAP_CAPTION = "Towns I cover across Berkshire. Positions approximate.";
+const COVERAGE_MAP_CAPTIONS: Record<string, string> = {
+  "seo-berkshire": DEFAULT_COVERAGE_MAP_CAPTION,
+  "seo-consultant-reading": "Towns I cover across Berkshire. Positions approximate. Remote work available UK-wide.",
+};
+
 const OFFER_EXAMPLE_KIND = {
   "technical-seo-audit": "technical-audit",
   "content-briefs": "content-brief",
@@ -890,7 +897,8 @@ const OFFER_HEADER_DATA = {
 function buildSections(
   rawContent: unknown,
   convData: ConversionData,
-  slug: string
+  slug: string,
+  coverageMap = false
 ) {
   // Transform the full document first (requires the real Node instance),
   // then split the resulting plain RenderableTree objects at h2 headings.
@@ -959,7 +967,14 @@ function buildSections(
   pos.whoFor = Math.max(pos.risk + 1, n - 1);
 
   const injections: Record<number, React.ReactNode> = {
-    [pos.statsBar]: <StatsBar />,
+    [pos.statsBar]: (
+      <>
+        <StatsBar />
+        {coverageMap && (
+          <CoverageMap caption={COVERAGE_MAP_CAPTIONS[slug] ?? DEFAULT_COVERAGE_MAP_CAPTION} />
+        )}
+      </>
+    ),
     [pos.testimonials]: (
       <TestimonialGrid testimonials={convData.testimonials} />
     ),
@@ -1070,7 +1085,7 @@ export default async function ServicePage({
     }));
 
   const convData = SPECIFIC_DATA[slug] ?? GENERIC_DATA;
-  const sections = buildSections(rawContent, convData, slug);
+  const sections = buildSections(rawContent, convData, slug, service.coverageMap);
   const usesServiceSpecificOffer = slug in OFFER_EXAMPLE_KIND;
   const offerForm = OFFER_FORM_DATA[slug as keyof typeof OFFER_FORM_DATA];
   const offerHeader = OFFER_HEADER_DATA[slug as keyof typeof OFFER_HEADER_DATA];

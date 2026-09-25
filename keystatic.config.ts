@@ -134,6 +134,7 @@ export default config({
         featured: fields.checkbox({ label: "Show on Homepage", defaultValue: false }),
         sortOrder: fields.integer({ label: "Sort Order", defaultValue: 0 }),
         canonicalOverride: fields.text({ label: "Canonical URL Override (e.g. /services/seo-consultant-reading/)" }),
+        coverageMap: fields.checkbox({ label: "Show Berkshire Coverage Map", defaultValue: false }),
         content: fields.markdoc({ label: "Service Content" }),
       },
     }),

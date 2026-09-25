@@ -111,8 +111,7 @@ interface PreviewData {
   description: string;
   urlLine: string;
   favicon: string;
-  faqItems?: FAQPair[];
-  faqMore?: number;
+  usingExample: boolean;
   articleDate?: string;
   articleAuthor?: string;
   panelName?: string;
@@ -125,8 +124,6 @@ interface PreviewData {
   price?: string;
   currency?: string;
   availability?: string;
-  stepsCount?: number;
-  totalTime?: string;
   eventDate?: string;
   eventLocation?: string;
   videoDuration?: string;
@@ -1121,192 +1118,278 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
   const schemaItemCount = useMemo(() => countSchemaItems(schemaObj), [schemaObj]);
 
   // Derived data for the "How this could appear in Google" preview panel.
-  // Every field falls back to plain "Your ..." placeholder copy so the
-  // preview is never empty or broken before the user has typed anything.
+  // Every field that is still empty falls back to that field's own form
+  // placeholder example (the same text shown in that input elsewhere in
+  // this file), and usingExample records whenever any of those fallbacks
+  // are in use so the UI can flag it. Which type gets a rich-result
+  // enhancement block is decided purely by GOOGLE_RICH_RESULT_TYPES, the
+  // same set the "Google rich-result check" box above already uses — see
+  // renderPreview().
   const previewData = useMemo<PreviewData>(() => {
     const faviconLetter = (label: string) => (label.trim().charAt(0) || 'S').toUpperCase();
+    const withExample = (value: string, example: string) => ({
+      display: value || example,
+      isExample: !value,
+    });
 
     switch (activeType) {
       case 'FAQ': {
-        const items = faqPairs.filter(p => p.question || p.answer);
+        const q = withExample(faqPairs[0]?.question ?? '', 'What is schema markup?');
+        const a = withExample(faqPairs[0]?.answer ?? '', 'Schema markup is structured data...');
         return {
-          title: 'Your page title',
-          description: items[0]?.answer || 'Your page description will appear here as you fill in the fields above.',
+          title: q.display,
+          description: a.display,
           urlLine: 'yoursite.com',
           favicon: 'S',
-          faqItems: items.length > 0 ? items.slice(0, 4) : [
-            { question: 'Your first question', answer: 'Your answer preview appears here once you fill in the fields.' },
-          ],
-          faqMore: Math.max(0, items.length - 4),
+          usingExample: q.isExample || a.isExample,
         };
       }
       case 'Article': {
+        const headline = withExample(article.headline, 'Article headline');
+        const description = withExample(article.description, 'Brief description');
+        const author = withExample(article.authorName, 'John Doe');
+        const authorUrl = withExample(article.authorUrl, 'https://example.com/author');
         return {
-          title: article.headline || 'Your article headline',
-          description: article.description || 'Your article description will appear here as you fill in the fields above.',
-          urlLine: getHostname(article.authorUrl),
-          favicon: faviconLetter(article.publisherName || article.headline),
+          title: headline.display,
+          description: description.display,
+          urlLine: getHostname(authorUrl.display),
+          favicon: faviconLetter(article.publisherName || headline.display),
           articleDate: formatPreviewDate(article.datePublished),
-          articleAuthor: article.authorName,
+          articleAuthor: author.display,
+          usingExample: headline.isExample || description.isExample || author.isExample,
         };
       }
       case 'LocalBusiness': {
-        const addressParts = [business.city, business.region].filter(Boolean).join(', ');
+        const name = withExample(business.name, 'Acme Plumbing');
+        const street = withExample(business.street, '123 High Street');
+        const city = withExample(business.city, 'London');
+        const region = withExample(business.region, 'Greater London');
+        const postalCode = withExample(business.postalCode, 'SW1A 1AA');
+        const phone = withExample(business.phone, '+44 20 1234 5678');
+        const url = withExample(business.url, 'https://example.com');
+        const addressParts = [city.display, region.display].filter(Boolean).join(', ');
         return {
-          title: business.name || 'Your business name',
-          description: [business.type, addressParts].filter(Boolean).join(' · ') || 'Your business description will appear here.',
-          urlLine: getHostname(business.url),
-          favicon: faviconLetter(business.name),
-          panelName: business.name || 'Your business name',
-          panelAddress: [business.street, addressParts, business.postalCode].filter(Boolean).join(', '),
-          panelPhone: business.phone,
+          title: name.display,
+          description: [business.type, addressParts].filter(Boolean).join(' · '),
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(name.display),
+          panelName: name.display,
+          panelAddress: [street.display, addressParts, postalCode.display].filter(Boolean).join(', '),
+          panelPhone: phone.display,
           panelHours: business.hours[0]
             ? `${business.hours[0].day} ${business.hours[0].open}–${business.hours[0].close}${business.hours.length > 1 ? ` (+${business.hours.length - 1} more)` : ''}`
             : '',
+          usingExample: name.isExample || street.isExample || city.isExample || phone.isExample,
         };
       }
       case 'Product': {
+        const name = withExample(product.name, 'Wireless Headphones');
+        const description = withExample(product.description, 'Premium noise-cancelling headphones');
+        const url = withExample(product.url, 'https://example.com/product');
+        const ratingValue = withExample(product.ratingValue, '4.5');
+        const reviewCount = withExample(product.reviewCount, '128');
+        const price = withExample(product.price, '299.99');
         return {
-          title: product.name || 'Your product name',
-          description: product.description || 'Your product description will appear here as you fill in the fields above.',
-          urlLine: getHostname(product.url),
-          favicon: faviconLetter(product.brand || product.name),
-          ratingValue: product.ratingValue,
-          ratingCount: product.reviewCount,
-          price: product.price,
+          title: name.display,
+          description: description.display,
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(product.brand || name.display),
+          ratingValue: ratingValue.display,
+          ratingCount: reviewCount.display,
+          price: price.display,
           currency: product.currency,
           availability: product.availability,
+          usingExample: name.isExample || description.isExample || ratingValue.isExample || reviewCount.isExample || price.isExample,
         };
       }
       case 'BreadcrumbList': {
-        const items = breadcrumbs.filter(b => b.name || b.url);
+        const filled = breadcrumbs.filter(b => b.name || b.url);
+        const usingExample = filled.length < 2;
+        const items = usingExample
+          ? [...filled, { name: 'Page name', url: 'https://example.com/page' }]
+          : filled;
         const host = getHostname(items[0]?.url);
         const trail = items.length > 1 ? items.slice(1).map(b => b.name || '…').join(' › ') : '';
         return {
-          title: items[items.length - 1]?.name || 'Your page title',
+          title: items[items.length - 1]?.name || 'Page name',
           description: 'Your page description will appear here as you fill in the fields above.',
           urlLine: trail ? `${host} › ${trail}` : host,
           favicon: faviconLetter(items[0]?.name || host),
+          usingExample,
         };
       }
       case 'HowTo': {
-        const steps = howTo.steps.filter(s => s.name || s.text);
+        const title = withExample(howTo.title, 'How to Change a Tyre');
+        const description = withExample(howTo.description, 'Step-by-step guide to...');
         return {
-          title: howTo.title || 'Your how-to title',
-          description: howTo.description || 'Your description will appear here as you fill in the fields above.',
+          title: title.display,
+          description: description.display,
           urlLine: 'yoursite.com',
-          favicon: faviconLetter(howTo.title),
-          stepsCount: steps.length,
-          totalTime: howTo.totalTime ? formatIsoDuration(howTo.totalTime) : '',
+          favicon: faviconLetter(title.display),
+          usingExample: title.isExample || description.isExample,
         };
       }
       case 'Organization': {
-        const addressParts = [organization.city, organization.region].filter(Boolean).join(', ');
+        const name = withExample(organization.name, 'Acme Ltd');
+        const description = withExample(organization.description, 'What the organisation does');
+        const street = withExample(organization.street, '123 High Street');
+        const city = withExample(organization.city, 'London');
+        const region = withExample(organization.region, 'Greater London');
+        const postalCode = withExample(organization.postalCode, 'SW1A 1AA');
+        const phone = withExample(organization.phone, '+44 20 1234 5678');
+        const url = withExample(organization.url, 'https://example.com');
+        const addressParts = [city.display, region.display].filter(Boolean).join(', ');
         return {
-          title: organization.name || 'Your organisation name',
-          description: organization.description || 'Your organisation description will appear here.',
-          urlLine: getHostname(organization.url),
-          favicon: faviconLetter(organization.name),
-          panelName: organization.name || 'Your organisation name',
-          panelAddress: [organization.street, addressParts, organization.postalCode].filter(Boolean).join(', '),
-          panelPhone: organization.phone,
+          title: name.display,
+          description: description.display,
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(name.display),
+          panelName: name.display,
+          panelAddress: [street.display, addressParts, postalCode.display].filter(Boolean).join(', '),
+          panelPhone: phone.display,
+          usingExample: name.isExample || description.isExample || street.isExample || phone.isExample,
         };
       }
       case 'Person': {
+        const name = withExample(person.name, 'Jane Doe');
+        const jobTitle = withExample(person.jobTitle, 'Marketing Director');
+        const url = withExample(person.url, 'https://example.com/team/jane-doe');
         return {
-          title: person.name || 'Your name',
-          description: person.jobTitle || 'Your role and bio will appear here.',
-          urlLine: getHostname(person.url),
-          favicon: faviconLetter(person.name),
+          title: name.display,
+          description: jobTitle.display,
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(name.display),
+          usingExample: name.isExample || jobTitle.isExample,
         };
       }
       case 'Service': {
+        const name = withExample(service.name, 'Boiler Repair');
+        const description = withExample(service.description, 'What the service covers');
+        const url = withExample(service.url || service.providerUrl, 'https://example.com/services/boiler-repair');
         return {
-          title: service.name || 'Your service name',
-          description: service.description || 'Your service description will appear here.',
-          urlLine: getHostname(service.url || service.providerUrl),
-          favicon: faviconLetter(service.providerName || service.name),
+          title: name.display,
+          description: description.display,
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(service.providerName || name.display),
+          usingExample: name.isExample || description.isExample,
         };
       }
       case 'WebSite': {
+        const name = withExample(website.name, 'Acme Ltd');
+        const description = withExample(website.description, 'What the site is about');
+        const url = withExample(website.url, 'https://example.com');
         return {
-          title: website.name || 'Your site name',
-          description: website.description || 'Your site description will appear here.',
-          urlLine: getHostname(website.url),
-          favicon: faviconLetter(website.name),
+          title: name.display,
+          description: description.display,
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(name.display),
+          usingExample: name.isExample || description.isExample,
         };
       }
       case 'JobPosting': {
-        const salary = job.salaryMin
-          ? `${job.salaryCurrency} ${job.salaryMin}${job.salaryMax ? `–${job.salaryMax}` : ''} / ${job.salaryUnit.toLowerCase()}`
-          : '';
+        const title = withExample(job.title, 'Senior Plumber');
+        const description = withExample(job.description, 'Full job description...');
+        const hiringOrgName = withExample(job.hiringOrgName, 'Acme Plumbing');
+        const hiringOrgUrl = withExample(job.hiringOrgUrl, 'https://example.com');
+        const city = withExample(job.city, 'London');
+        const region = withExample(job.region, 'Greater London');
+        const salaryMin = withExample(job.salaryMin, '30000');
+        const salaryMax = withExample(job.salaryMax, '40000');
+        const salary = `${job.salaryCurrency} ${salaryMin.display}–${salaryMax.display} / ${job.salaryUnit.toLowerCase()}`;
         const location = job.locationType === 'remote'
           ? 'Remote'
-          : [job.city, job.region].filter(Boolean).join(', ');
+          : [city.display, region.display].filter(Boolean).join(', ');
         return {
-          title: job.title || 'Your job title',
-          description: job.description || 'Your job description will appear here as you fill in the fields above.',
-          urlLine: getHostname(job.hiringOrgUrl),
-          favicon: faviconLetter(job.hiringOrgName || job.title),
+          title: title.display,
+          description: description.display,
+          urlLine: getHostname(hiringOrgUrl.display),
+          favicon: faviconLetter(hiringOrgName.display),
           jobSalary: salary,
           jobLocation: location,
+          usingExample: title.isExample || description.isExample || hiringOrgName.isExample || salaryMin.isExample || city.isExample,
         };
       }
       case 'Event': {
+        const name = withExample(event.name, 'Reading SEO Meetup');
+        const description = withExample(event.description, 'What the event covers');
+        const venueName = withExample(event.venueName, 'The Conference Centre');
+        const city = withExample(event.city, 'Reading');
+        const organizerName = withExample(event.organizerName, 'Acme Events Ltd');
+        const organizerUrl = withExample(event.organizerUrl || event.offerUrl, 'https://example.com');
         const location = event.attendanceMode === 'Online'
           ? getHostname(event.onlineUrl, 'Online event')
-          : [event.venueName, event.city].filter(Boolean).join(', ');
+          : [venueName.display, city.display].filter(Boolean).join(', ');
         return {
-          title: event.name || 'Your event name',
-          description: event.description || 'Your event description will appear here as you fill in the fields above.',
-          urlLine: getHostname(event.organizerUrl || event.offerUrl),
-          favicon: faviconLetter(event.organizerName || event.name),
+          title: name.display,
+          description: description.display,
+          urlLine: getHostname(organizerUrl.display),
+          favicon: faviconLetter(organizerName.display),
           eventDate: formatPreviewDate(event.startDate),
           eventLocation: location,
+          usingExample: name.isExample || description.isExample || venueName.isExample || city.isExample || organizerName.isExample,
         };
       }
       case 'VideoObject': {
+        const name = withExample(video.name, 'How to fix a leaking tap');
+        const description = withExample(video.description, 'What the video covers');
+        const url = withExample(video.contentUrl || video.embedUrl, 'https://example.com/video.mp4');
+        const duration = withExample(video.duration, 'PT1M33S');
         return {
-          title: video.name || 'Your video title',
-          description: video.description || 'Your video description will appear here as you fill in the fields above.',
-          urlLine: getHostname(video.contentUrl || video.embedUrl),
-          favicon: faviconLetter(video.name),
-          videoDuration: video.duration ? formatIsoDuration(video.duration) : '',
+          title: name.display,
+          description: description.display,
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(name.display),
+          videoDuration: formatIsoDuration(duration.display),
+          usingExample: name.isExample || description.isExample || duration.isExample,
         };
       }
       case 'Review': {
+        const itemName = withExample(review.itemName, 'Acme Boiler Service');
+        const authorName = withExample(review.authorName, 'Jane Doe');
+        const ratingValue = withExample(review.ratingValue, '4.5');
+        const reviewBody = withExample(review.reviewBody, 'What the review says...');
         return {
-          title: review.itemName || 'Your review item',
-          description: review.reviewBody || 'Your review text will appear here as you fill in the fields above.',
+          title: itemName.display,
+          description: reviewBody.display,
           urlLine: 'yoursite.com',
-          favicon: faviconLetter(review.itemName),
-          ratingValue: review.ratingValue,
+          favicon: faviconLetter(itemName.display),
+          ratingValue: ratingValue.display,
           ratingBest: review.bestRating || '5',
-          reviewAuthor: review.authorName,
+          reviewAuthor: authorName.display,
+          usingExample: itemName.isExample || authorName.isExample || ratingValue.isExample,
         };
       }
       case 'ItemList': {
+        const name = withExample(itemList.name, 'Best plumbers in Reading');
+        const description = withExample(itemList.description, 'What the list ranks');
         return {
-          title: itemList.name || 'Your list title',
-          description: itemList.description || 'Your list description will appear here.',
+          title: name.display,
+          description: description.display,
           urlLine: 'yoursite.com',
-          favicon: faviconLetter(itemList.name),
+          favicon: faviconLetter(name.display),
+          usingExample: name.isExample || description.isExample,
         };
       }
       case 'SoftwareApplication': {
+        const name = withExample(app.name, 'Schema Markup Generator');
+        const description = withExample(app.description, 'What the app does');
+        const url = withExample(app.url, 'https://example.com/app');
+        const ratingValue = withExample(app.ratingValue, '4.6');
+        const ratingCount = withExample(app.ratingCount, '52');
         return {
-          title: app.name || 'Your app name',
-          description: app.description || 'Your app description will appear here as you fill in the fields above.',
-          urlLine: getHostname(app.url),
-          favicon: faviconLetter(app.name),
-          ratingValue: app.ratingValue,
-          ratingCount: app.ratingCount,
+          title: name.display,
+          description: description.display,
+          urlLine: getHostname(url.display),
+          favicon: faviconLetter(name.display),
+          ratingValue: ratingValue.display,
+          ratingCount: ratingCount.display,
           price: app.price,
           currency: app.currency,
+          usingExample: name.isExample || description.isExample || ratingValue.isExample,
         };
       }
       default:
-        return { title: 'Your page title', description: 'Your page description will appear here.', urlLine: 'yoursite.com', favicon: 'S' };
+        return { title: 'Your page title', description: 'Your page description will appear here.', urlLine: 'yoursite.com', favicon: 'S', usingExample: false };
     }
   }, [activeType, faqPairs, article, business, product, breadcrumbs, howTo, organization, person, service, website, job, event, video, review, itemList, app]);
 
@@ -2291,11 +2374,18 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
   };
 
   function renderPreview() {
-    const otherTypesNoEnhancement = ['Person', 'Service', 'WebSite', 'ItemList'];
+    const hasRichResult = GOOGLE_RICH_RESULT_TYPES.has(activeType);
     return (
       <div className={cardClass}>
         <h2 className="mb-1 text-lg font-semibold text-foreground">How this could appear in Google</h2>
-        <p className="mb-4 text-xs uppercase tracking-wide text-muted-foreground">Simplified SERP preview</p>
+        <div className="mb-4 flex items-center justify-between gap-2">
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Simplified SERP preview</p>
+          {previewData.usingExample && (
+            <span className="rounded-full border border-white/[0.12] bg-white/[0.04] px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+              Example values
+            </span>
+          )}
+        </div>
 
         <div className="rounded-xl border border-black/10 bg-white p-4 sm:p-5">
           <div className="flex items-center gap-2.5">
@@ -2310,24 +2400,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
           <p className="mt-1.5 truncate text-lg text-[#1a0dab]">{previewData.title}</p>
           <p className="mt-1 line-clamp-2 text-sm leading-snug text-[#4d5156]">{previewData.description}</p>
 
-          {activeType === 'FAQ' && (
-            <div className="mt-3 divide-y divide-black/10 border-t border-black/10">
-              {previewData.faqItems?.map((item, i) => (
-                <details key={i} className="group py-2" open={i === 0}>
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm text-[#202124] [&::-webkit-details-marker]:hidden">
-                    <span className="font-medium">{item.question || 'Untitled question'}</span>
-                    <span aria-hidden="true" className="shrink-0 text-[#5f6368] transition-transform group-open:rotate-180">⌄</span>
-                  </summary>
-                  <p className="mt-1.5 text-sm text-[#4d5156]">{item.answer || 'Answer preview.'}</p>
-                </details>
-              ))}
-              {(previewData.faqMore ?? 0) > 0 && (
-                <p className="pt-2 text-xs text-[#5f6368]">+{previewData.faqMore} more question{previewData.faqMore === 1 ? '' : 's'}</p>
-              )}
-            </div>
-          )}
-
-          {activeType === 'Product' && (
+          {hasRichResult && activeType === 'Product' && (
             <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm">
               {previewData.ratingValue && (
                 <span className="inline-flex items-center gap-1.5">
@@ -2346,7 +2419,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             </div>
           )}
 
-          {activeType === 'Review' && previewData.ratingValue && (
+          {hasRichResult && activeType === 'Review' && previewData.ratingValue && (
             <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
               <StarRating value={previewData.ratingValue} best={previewData.ratingBest} />
               <span className="text-[#4d5156]">{previewData.ratingValue} / {previewData.ratingBest}</span>
@@ -2354,14 +2427,14 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             </div>
           )}
 
-          {activeType === 'Event' && (previewData.eventDate || previewData.eventLocation) && (
+          {hasRichResult && activeType === 'Event' && (previewData.eventDate || previewData.eventLocation) && (
             <div className="mt-3 space-y-1 text-sm text-[#4d5156]">
               {previewData.eventDate && <p><span className="font-medium text-[#202124]">Date</span> · {previewData.eventDate}</p>}
               {previewData.eventLocation && <p><span className="font-medium text-[#202124]">Location</span> · {previewData.eventLocation}</p>}
             </div>
           )}
 
-          {(activeType === 'LocalBusiness' || activeType === 'Organization') && (
+          {hasRichResult && (activeType === 'LocalBusiness' || activeType === 'Organization') && (
             <div className="mt-3 rounded-lg border border-black/10 bg-[#f8f9fa] p-3 text-sm">
               <p className="font-medium text-[#202124]">{previewData.panelName}</p>
               {previewData.panelAddress && <p className="mt-0.5 text-[#4d5156]">{previewData.panelAddress}</p>}
@@ -2370,24 +2443,17 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             </div>
           )}
 
-          {activeType === 'HowTo' && (
-            <p className="mt-3 text-sm text-[#4d5156]">
-              {previewData.stepsCount} step{previewData.stepsCount === 1 ? '' : 's'}
-              {previewData.totalTime && ` · ${previewData.totalTime}`}
-            </p>
-          )}
-
-          {activeType === 'Article' && (previewData.articleDate || previewData.articleAuthor) && (
+          {hasRichResult && activeType === 'Article' && (previewData.articleDate || previewData.articleAuthor) && (
             <p className="mt-3 text-xs text-[#5f6368]">
               {[previewData.articleAuthor, previewData.articleDate].filter(Boolean).join(' · ')}
             </p>
           )}
 
-          {activeType === 'BreadcrumbList' && (
+          {hasRichResult && activeType === 'BreadcrumbList' && (
             <p className="mt-3 text-xs text-[#5f6368]">Google may show this trail in place of the raw URL above.</p>
           )}
 
-          {activeType === 'VideoObject' && (
+          {hasRichResult && activeType === 'VideoObject' && (
             <div className="mt-3 flex items-center gap-3">
               <span aria-hidden="true" className="relative flex h-[54px] w-[96px] shrink-0 items-center justify-center rounded-md bg-[#3c4043]">
                 <span className="h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-white" />
@@ -2399,7 +2465,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             </div>
           )}
 
-          {activeType === 'JobPosting' && (previewData.jobSalary || previewData.jobLocation) && (
+          {hasRichResult && activeType === 'JobPosting' && (previewData.jobSalary || previewData.jobLocation) && (
             <div className="mt-3 flex flex-wrap gap-2">
               {previewData.jobLocation && (
                 <span className="rounded-full border border-black/10 bg-[#f1f3f4] px-2.5 py-1 text-xs font-medium text-[#3c4043]">{previewData.jobLocation}</span>
@@ -2410,7 +2476,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             </div>
           )}
 
-          {activeType === 'SoftwareApplication' && (
+          {hasRichResult && activeType === 'SoftwareApplication' && (
             <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm">
               {previewData.ratingValue && (
                 <span className="inline-flex items-center gap-1.5">
@@ -2424,10 +2490,8 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             </div>
           )}
 
-          {otherTypesNoEnhancement.includes(activeType) && (
-            <p className="mt-3 text-xs text-[#5f6368]">
-              This schema type has no dedicated Google rich-result enhancement. It can still help AI systems and other search engines read the page.
-            </p>
+          {!hasRichResult && (
+            <p className="mt-3 text-xs text-[#5f6368]">No special Google enhancement for this type right now.</p>
           )}
         </div>
 

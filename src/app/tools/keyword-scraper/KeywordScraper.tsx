@@ -5,13 +5,18 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import {
   buildScrapePlan,
+  countIntentBuckets,
+  filterKeywordRows,
+  INTENT_BUCKET_LABELS,
   KEYWORD_ENGINES,
   keywordRowsToCsv,
   parseUniqueLines,
   runKeywordScrape,
+  topModifierWords,
   validateScrapeSetup,
   type AutocompleteResult,
   type EngineId,
+  type IntentBucket,
   type KeywordEngine,
   type KeywordRow,
   type ScrapeProgress,
@@ -135,6 +140,8 @@ export default function KeywordScraper() {
   const [engines, setEngines] = useState<EngineState>(DEFAULT_ENGINES);
   const [requestLimit, setRequestLimit] = useState<(typeof REQUEST_LIMITS)[number]>(100);
   const [rows, setRows] = useState<KeywordRow[]>([]);
+  const [activeBucket, setActiveBucket] = useState<IntentBucket | null>(null);
+  const [activeModifier, setActiveModifier] = useState<string | null>(null);
   const [progress, setProgress] = useState<ScrapeProgress | null>(null);
   const [notice, setNotice] = useState<Notice>({
     tone: 'neutral',
@@ -160,9 +167,63 @@ export default function KeywordScraper() {
     () => KEYWORD_ENGINES.filter((engine) => engines[engine.id]),
     [engines],
   );
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' &&
+      new URLSearchParams(window.location.search).get('demo') === '1') {
+      const suggestions = [
+        'seo audit checklist', 'how to do an seo audit', 'seo audit vs seo review',
+        'best seo audit tool', 'seo audit near me', 'free seo audit online',
+        'seo audit cost', 'seo audit template', 'technical seo audit',
+        'seo audit for ecommerce', 'what is an seo audit', 'why seo audit matters',
+        'when should you do an seo audit', 'who does an seo audit', 'where to start an seo audit',
+        'which seo audit tool is best', 'can an seo audit improve rankings', 'does seo audit include backlinks',
+        'is an seo audit worth it', 'are seo audit tools accurate', 'should i buy an seo audit',
+        'seo audit vs site audit', 'seo audit versus content audit', 'seo audit or seo strategy',
+        'seo audit tools compared', 'seo audit tool alternative', 'seo audit vs technical audit',
+        'best free seo audit software', 'top seo audit services', 'cheap seo audit service',
+        'seo audit price', 'seo audit tool review', 'buy seo audit report',
+        'seo audit deals', 'seo audit agency near me', 'seo audit in london',
+        'seo audit in manchester', 'seo audit in birmingham', 'seo audit in leeds',
+        'seo audit in bristol', 'best seo audit in london', 'seo audit consultant near me',
+        'seo audit report example', 'seo audit spreadsheet', 'seo audit google sheets',
+        'seo audit wordpress', 'seo audit shopify', 'seo audit magento',
+        'seo audit screaming frog', 'seo audit semrush', 'seo audit ahrefs',
+        'seo audit for small business', 'seo audit for startups', 'seo audit for large websites',
+        'seo audit automation', 'seo audit python script', 'seo audit 2026 checklist',
+        'seo audit mobile usability', 'seo audit internal links', 'seo audit structured data',
+      ];
+      const demoRows = suggestions.map((keyword) => ({ keyword, regions: ['United Kingdom'] }));
+      const frame = window.requestAnimationFrame(() => {
+        setKeywords('seo audit');
+        setEngines(DEFAULT_ENGINES);
+        setRows(demoRows);
+        setProgress({
+          completedRequests: 100, totalRequests: 100, uniqueKeywords: demoRows.length,
+          keywordRegionPairs: demoRows.length, emptyResponses: 0, excludedSuggestions: 0,
+          timeoutCount: 0, errorCount: 0,
+        });
+        setNotice({ tone: 'success', text: `Demo: ${demoRows.length} fixture suggestions loaded without contacting Google.` });
+      });
+      return () => window.cancelAnimationFrame(frame);
+    }
+  }, []);
+
+  const seeds = useMemo(() => parseUniqueLines(keywords), [keywords]);
+  const intentCounts = useMemo(() => countIntentBuckets(rows), [rows]);
+  const modifiers = useMemo(() => topModifierWords(rows, seeds), [rows, seeds]);
+  const filteredRows = useMemo(
+    () => filterKeywordRows(rows, activeBucket, activeModifier),
+    [rows, activeBucket, activeModifier],
+  );
+  const hasFilter = activeBucket !== null || activeModifier !== null;
+  const maxIntentCount = Math.max(1, ...Object.values(intentCounts));
   const resultsText = useMemo(
-    () => rows.map((row) => `${row.keyword}\t${row.regions.join(', ')}`).join('\n'),
-    [rows],
+    () => filteredRows.map((row) => `${row.keyword}\t${row.regions.join(', ')}`).join('\n'),
+    [filteredRows],
+  );
+  const filteredRegionPairs = useMemo(
+    () => filteredRows.reduce((total, row) => total + row.regions.length, 0),
+    [filteredRows],
   );
   const keywordRegionPairs = useMemo(
     () => rows.reduce((total, row) => total + row.regions.length, 0),
@@ -190,6 +251,8 @@ export default function KeywordScraper() {
     controllerRef.current = controller;
     activeRunIdRef.current = runId;
     setRows([]);
+    setActiveBucket(null);
+    setActiveModifier(null);
     setProgress({
       completedRequests: 0,
       totalRequests: plan.totalRequests,
@@ -292,9 +355,10 @@ export default function KeywordScraper() {
     });
   }, [activeEngines.length, isRunning, keywordRegionPairs, progress?.completedRequests, rows.length]);
 
-  const handleDownload = useCallback(() => {
-    if (rows.length === 0) return;
-    const blob = new Blob([`\uFEFF${keywordRowsToCsv(rows)}`], {
+  const handleDownload = useCallback((exportAll = false) => {
+    const exportRows = exportAll ? rows : filteredRows;
+    if (exportRows.length === 0) return;
+    const blob = new Blob([`\uFEFF${keywordRowsToCsv(exportRows)}`], {
       type: 'text/csv;charset=utf-8;',
     });
     const url = URL.createObjectURL(blob);
@@ -306,11 +370,11 @@ export default function KeywordScraper() {
     trackEvent('keyword_download', {
       event_category: 'tool',
       tool: 'keyword_scraper',
-      unique_keyword_count: rows.length,
-      keyword_region_pair_count: keywordRegionPairs,
-      region_count: new Set(rows.flatMap((row) => row.regions)).size,
+      unique_keyword_count: exportRows.length,
+      keyword_region_pair_count: exportRows.reduce((total, row) => total + row.regions.length, 0),
+      region_count: new Set(exportRows.flatMap((row) => row.regions)).size,
     });
-  }, [keywordRegionPairs, rows]);
+  }, [filteredRows, rows]);
 
   const toggleEngine = (id: EngineId) => {
     setEngines((previous) => ({ ...previous, [id]: !previous[id] }));
@@ -395,17 +459,75 @@ export default function KeywordScraper() {
         ) : notice.text}
       </div>
 
+      <div className="mt-6 h-[36rem] overflow-y-auto rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:h-[25rem]" tabIndex={rows.length > 0 ? 0 : undefined} role="region" aria-label="Suggestion insights">
+        {rows.length === 0 && !isRunning && (
+          <section className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4" aria-labelledby="keyword-flow-heading">
+            <h2 id="keyword-flow-heading" className="mb-4 text-sm font-semibold text-foreground">From seed to suggestions</h2>
+            <div className="relative isolate">
+              <span aria-hidden="true" className="absolute bottom-5 left-1/2 top-5 -z-10 w-px bg-gradient-to-b from-brand to-[#D79F1E] md:bottom-auto md:left-5 md:right-5 md:top-1/2 md:h-px md:w-auto md:bg-gradient-to-r" />
+              <ol className="flex flex-col gap-4 md:flex-row">
+                {['Seed keyword', 'Expanded with letters/modifiers', 'Google suggestions', 'Grouped and exported'].map((label, index) => (
+                  <li key={label} className={`flex min-h-16 flex-1 items-center justify-center rounded-lg border bg-background px-3 py-3 text-center text-sm font-medium ${index < 2 ? 'border-brand/40 text-brand' : 'border-[#D79F1E]/40 text-[#D79F1E]'}`}>
+                    <span><span className="mr-2 font-mono">{index + 1}.</span>{label}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        )}
+        {rows.length > 0 && (
+          <section className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4" aria-labelledby="keyword-insights-heading">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h2 id="keyword-insights-heading" className="text-sm font-semibold text-foreground">
+                {rows.length} unique suggestions from {seeds.length} seed{seeds.length === 1 ? '' : 's'} across {activeEngines.length} region{activeEngines.length === 1 ? '' : 's'}
+              </h2>
+              <button type="button" onClick={() => { setActiveBucket(null); setActiveModifier(null); }} aria-pressed={!hasFilter} className="min-h-11 rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground hover:border-brand/60 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Show all</button>
+            </div>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div>
+                <h3 className="mb-2 text-sm font-medium text-foreground">Intent breakdown</h3>
+                <div className="space-y-1">
+                  {(Object.keys(INTENT_BUCKET_LABELS) as IntentBucket[]).map((bucket) => (
+                    <button key={bucket} type="button" aria-pressed={activeBucket === bucket} onClick={() => setActiveBucket((current) => current === bucket ? null : bucket)} className={`flex min-h-11 w-full items-center gap-3 rounded-lg border px-3 py-2 text-left text-sm text-foreground hover:border-brand/60 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 ${activeBucket === bucket ? 'border-brand bg-brand/15 font-semibold underline' : 'border-white/[0.12] bg-white/[0.03]'}`}>
+                      <span className="w-28 shrink-0">{INTENT_BUCKET_LABELS[bucket]}</span>
+                      <span aria-hidden="true" className="h-1.5 min-w-0 flex-1 rounded-full bg-white/[0.08]">
+                        <span className="block h-full rounded-full bg-brand" style={{ width: `${intentCounts[bucket] / maxIntentCount * 100}%`, minWidth: intentCounts[bucket] > 0 ? 3 : 0 }} />
+                      </span>
+                      <span className="min-w-8 text-right font-mono">{intentCounts[bucket]}</span>
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-foreground/75">A suggestion can match more than one category, so counts may add up to more than the total.</p>
+              </div>
+              <div>
+                <h3 className="mb-2 text-sm font-medium text-foreground">Top modifier words</h3>
+                <div className="flex flex-wrap gap-2">
+                  {modifiers.map(({ word, count }) => (
+                    <button key={word} type="button" aria-pressed={activeModifier === word} onClick={() => setActiveModifier((current) => current === word ? null : word)} className={`min-h-11 max-w-full break-all rounded-full border px-3 py-2 text-sm text-[#D79F1E] hover:border-[#D79F1E] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 ${activeModifier === word ? 'border-[#D79F1E] bg-[#D79F1E]/10 font-semibold underline' : 'border-[#D79F1E]/40 bg-white/[0.03]'}`}>
+                      {word} · {count}
+                    </button>
+                  ))}
+                </div>
+                {modifiers.length === 0 && <p className="text-sm text-foreground/75">No modifier words remain after excluding seeds and common words.</p>}
+                <p className="mt-3 text-xs leading-relaxed text-foreground/75">Counts show word occurrences. Select a category and a word to find suggestions matching both.</p>
+              </div>
+            </div>
+          </section>
+        )}
+      </div>
+
       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-12">
         <div className="flex flex-col gap-1.5 md:col-span-10">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <label htmlFor="keyword-results" className="text-sm font-medium text-foreground">Results</label>
-            <span className="rounded-md bg-brand/15 px-2 py-1 font-mono text-xs text-brand">{rows.length} unique; {keywordRegionPairs} region matches</span>
+            <span role="status" className="rounded-md bg-brand/15 px-2 py-1 font-mono text-xs text-brand">{filteredRows.length} unique{hasFilter ? ' (filtered)' : ''}; {filteredRegionPairs} region matches</span>
           </div>
           <textarea id="keyword-results" readOnly value={resultsText} rows={16} aria-busy={isRunning} aria-describedby="keyword-results-help" className={`${inputClassName} resize-none font-mono`} placeholder="Results will appear here..." />
           <p id="keyword-results-help" className="text-xs text-muted-foreground">Each line contains a suggestion followed by every region where it appeared.</p>
         </div>
         <div className="flex flex-col justify-end md:col-span-2">
-          <button type="button" onClick={handleDownload} disabled={rows.length === 0} className="min-h-11 w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-[background-color,border-color] hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 disabled:cursor-not-allowed disabled:opacity-40">Download CSV</button>
+          <button type="button" onClick={() => handleDownload()} disabled={filteredRows.length === 0} className="min-h-11 w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-[background-color,border-color] motion-reduce:transition-none hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 disabled:cursor-not-allowed disabled:opacity-40">{hasFilter ? `Export ${filteredRows.length} filtered rows` : 'Download CSV'}</button>
+          {hasFilter && <button type="button" onClick={() => handleDownload(true)} className="mt-2 min-h-11 rounded-lg px-3 py-2 text-sm text-brand underline underline-offset-4 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Export all rows</button>}
         </div>
       </div>
 

@@ -33,6 +33,78 @@ export interface KeywordRow {
   regions: string[];
 }
 
+export type IntentBucket = "question" | "comparison" | "commercial" | "local" | "other";
+
+export const INTENT_BUCKET_LABELS: Record<IntentBucket, string> = {
+  question: "Questions",
+  comparison: "Comparisons",
+  commercial: "Commercial",
+  local: "Local",
+  other: "Other",
+};
+
+const INTENT_PATTERNS = {
+  question: /\b(who|what|when|where|why|how|which|can|does|is|are|should)\b/i,
+  comparison: /\b(vs|versus|or|compared|alternative)\b/i,
+  commercial: /\b(best|top|cheap|price|cost|review|buy|near me|deals)\b/i,
+};
+const MODIFIER_STOP_WORDS = new Set(
+  "the a an and or of to in for with on at is are how what why which who when where can does should near me vs versus best top".split(" "),
+);
+
+function keywordTokens(value: string): string[] {
+  return value.toLowerCase().match(/[a-z0-9]+/g) ?? [];
+}
+
+export function classifyIntent(keyword: string): IntentBucket[] {
+  const buckets: IntentBucket[] = [];
+  if (INTENT_PATTERNS.question.test(keyword)) buckets.push("question");
+  if (INTENT_PATTERNS.comparison.test(keyword)) buckets.push("comparison");
+  if (INTENT_PATTERNS.commercial.test(keyword)) buckets.push("commercial");
+  if (/near me| in \w/i.test(keyword)) buckets.push("local");
+  return buckets.length > 0 ? buckets : ["other"];
+}
+
+export function countIntentBuckets(rows: readonly KeywordRow[]): Record<IntentBucket, number> {
+  const counts: Record<IntentBucket, number> = {
+    question: 0, comparison: 0, commercial: 0, local: 0, other: 0,
+  };
+  for (const row of rows) {
+    for (const bucket of classifyIntent(row.keyword)) counts[bucket] += 1;
+  }
+  return counts;
+}
+
+export function topModifierWords(
+  rows: readonly KeywordRow[],
+  seedWords: readonly string[],
+  limit = 8,
+): { word: string; count: number }[] {
+  const excluded = new Set([...MODIFIER_STOP_WORDS, ...seedWords.flatMap(keywordTokens)]);
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    for (const word of keywordTokens(row.keyword)) {
+      if (excluded.has(word) || (word.length <= 2 && !/^\d+$/.test(word))) continue;
+      counts.set(word, (counts.get(word) ?? 0) + 1);
+    }
+  }
+  return Array.from(counts, ([word, count]) => ({ word, count }))
+    .sort((a, b) => b.count - a.count || (a.word < b.word ? -1 : a.word > b.word ? 1 : 0))
+    .slice(0, Math.max(0, Math.floor(limit)));
+}
+
+export function filterKeywordRows(
+  rows: readonly KeywordRow[],
+  activeBucket: IntentBucket | null,
+  activeModifier: string | null,
+): KeywordRow[] {
+  const modifier = activeModifier?.toLowerCase();
+  return rows.filter((row) =>
+    (activeBucket === null || classifyIntent(row.keyword).includes(activeBucket)) &&
+    (modifier == null || keywordTokens(row.keyword).includes(modifier)),
+  );
+}
+
 export interface ScrapePlan {
   queries: string[];
   totalCandidateQueries: number;

@@ -90,7 +90,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: page.metaTitle || page.title,
     description: page.description,
-    ogImage: page.ogImage,
+    ogImage: page.ogImage || `${SITE_URL}/og/website-design/${slugStr}`,
     path,
   });
 }

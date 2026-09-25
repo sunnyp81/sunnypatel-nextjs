@@ -1,0 +1,9 @@
+{
+  "scene": "two connected elements spread wide across the frame: on the left a briefcase shape rendered as a glowing tube outline, on the right a coin shape rendered as a glowing tube outline, joined by one continuous flowing tube line that curves from the briefcase to the coin, both large and dominant filling roughly half the frame height",
+  "style": "premium dark SaaS website atmosphere, ultra minimal, high-end tech brand, like a smooth bent glass neon tube sign",
+  "render": "true black #050507 background, a single smooth continuous neon-tube line with rounded joins, gradient from brand blue #5B8AEF to gold #D79F1E along the line, strong soft bloom with a wide glow radius around the tube, subtle glassy highlight along the tube's length, no filled shapes, no background glow bars",
+  "camera": "flat front-on, centred, subject large and dominant, filling roughly half the frame height and spanning most of the frame width",
+  "light": "the glowing tube is the only light source, wide soft bloom, mostly black everywhere else",
+  "composition": "two connected elements spread wide across the frame, one on the left, one on the right, joined by a flowing line, using the full width, empty black space above and below",
+  "negative": ["text","letters","words","numerals","people","hands","faces","filled solid shape","large color area","diagonal glow bar","stock photo","clutter","flat vector illustration","cartoon","rainbow","purple","green","3D render","glossy plastic","thin weak line","small icon"]
+}

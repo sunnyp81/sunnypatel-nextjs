@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { PortfolioProof } from "@/components/sections/portfolio-proof";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
 import { AiStatBar } from "@/components/sections/ai-stat-bar";
@@ -47,6 +48,7 @@ export default async function Home() {
       <Navbar />
       <div id="main-content" tabIndex={-1} />
       <Hero />
+      <PortfolioProof />
       <Services />
       <Stats />
       <AiStatBar />

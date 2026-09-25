@@ -66,6 +66,180 @@ function parseRows(data: string): Row[] {
     .filter((r) => r.label && r.values.every((v) => Number.isFinite(v)));
 }
 
+/** A static, labelled summary; shares the interactive chart's data parsers. */
+export function drawChartToCanvas(canvas: HTMLCanvasElement, props: GlowChartProps, url: string) {
+  canvas.width = 1200;
+  canvas.height = 675;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas unavailable");
+  const { type = "bar", title, source, prefix = "", suffix = "", series } = props;
+  const points = parseData(props.data);
+  const rows = series ? parseRows(props.data) : points.map((p) => ({ label: p.label, raws: [p.raw], values: [p.value] }));
+  const names = series ? series.split(";").map((name) => name.trim()) : [""];
+  const entries = rows.flatMap((row, i) => row.values.map((value, j) => ({
+    label: `${row.label}${series ? ` — ${names[j] || `Series ${j + 1}`}` : ""}`,
+    value,
+    display: `${prefix}${/^-?\d{4,}$/.test(row.raws[j]) ? Number(row.raws[j]).toLocaleString("en-GB") : row.raws[j]}${suffix}`,
+    colour: series ? [BLUE, GOLD][j % 2] : type === "line" ? BLUE : [BLUE, GOLD][i % 2],
+  })));
+  if (!entries.length) throw new Error("No chart data");
+
+  ctx.fillStyle = "#050507";
+  ctx.fillRect(0, 0, 1200, 675);
+  // Canvas maxWidth keeps long source lines and URLs within the image.
+  const text = (value: string, x: number, y: number, width: number, size = 18, colour = "#EEEEEE") => {
+    ctx.font = `${size}px Arial, sans-serif`;
+    ctx.fillStyle = colour;
+    ctx.fillText(value, x, y, width);
+  };
+  text(title, 48, 57, 1104, 30);
+  const top = 100;
+  const height = 440;
+  const min = Math.min(0, ...entries.map((entry) => entry.value));
+  const max = Math.max(0, ...entries.map((entry) => entry.value));
+  const range = max - min || 1;
+  const line = type === "line";
+  const donut = type === "donut" && !series;
+  const rowHeight = height / entries.length;
+  const fontSize = Math.min(18, rowHeight * 0.65);
+
+  if (line) {
+    const x = (i: number) => 65 + (rows.length === 1 ? 235 : i * 470 / (rows.length - 1));
+    const y = (value: number) => top + height - 30 - (value - min) / range * (height - 60);
+    ctx.strokeStyle = "#808080";
+    ctx.beginPath();
+    ctx.moveTo(65, y(0));
+    ctx.lineTo(535, y(0));
+    ctx.stroke();
+    names.forEach((_, j) => {
+      ctx.strokeStyle = [BLUE, GOLD][j % 2];
+      ctx.lineWidth = 3;
+      ctx.setLineDash(j % 2 ? [8, 5] : []);
+      ctx.beginPath();
+      rows.forEach((row, i) => {
+        if (i === 0) ctx.moveTo(x(i), y(row.values[j]));
+        else ctx.lineTo(x(i), y(row.values[j]));
+      });
+      ctx.stroke();
+      ctx.setLineDash([]);
+      rows.forEach((row, i) => {
+        ctx.beginPath();
+        ctx.arc(x(i), y(row.values[j]), 4, 0, Math.PI * 2);
+        ctx.fillStyle = [BLUE, GOLD][j % 2];
+        ctx.fill();
+      });
+    });
+    text(rows[0].label, 48, 565, 240, 14, "#B4B4BC");
+    if (rows.length > 1) text(rows[rows.length - 1].label, 310, 565, 250, 14, "#B4B4BC");
+  } else if (donut) {
+    const total = points.reduce((sum, point) => sum + Math.max(0, point.value), 0);
+    let angle = -Math.PI / 2;
+    points.forEach((point, i) => {
+      const end = angle + (total ? Math.max(0, point.value) / total * Math.PI * 2 : 0);
+      ctx.beginPath();
+      ctx.moveTo(290, 320);
+      ctx.arc(290, 320, 180, angle, end);
+      ctx.closePath();
+      ctx.fillStyle = [BLUE, GOLD][i % 2];
+      ctx.fill();
+      ctx.strokeStyle = "#050507";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      angle = end;
+    });
+  }
+
+  entries.forEach((entry, i) => {
+    const y = top + (i + 0.7) * rowHeight;
+    if (line || donut) {
+      text(`${entry.label}: ${entry.display}`, 595, y, 557, fontSize, entry.colour);
+    } else {
+      text(entry.label, 48, y, 435, fontSize);
+      const x = (value: number) => 505 + (value - min) / range * 475;
+      ctx.fillStyle = "rgba(255,255,255,0.06)";
+      ctx.fillRect(505, y - fontSize + 2, 475, fontSize);
+      ctx.fillStyle = entry.colour;
+      ctx.fillRect(Math.min(x(0), x(entry.value)), y - fontSize + 2, Math.abs(x(entry.value) - x(0)), fontSize);
+      text(entry.display, 1000, y, 152, fontSize);
+    }
+  });
+  if (source) text(`Source: ${source}`, 48, 603, 1104, 16, "#B4B4BC");
+  text("SunnyPatel.co.uk", 48, 643, 180, 14, "#B4B4BC");
+  text(url, 240, 643, 912, 14, "#B4B4BC");
+}
+
+function downloadSlug(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+export function ChartActions(props: GlowChartProps) {
+  const [status, setStatus] = useState("");
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const announce = (message: string, temporary = false) => {
+    if (timer.current) clearTimeout(timer.current);
+    setStatus(message);
+    if (temporary) timer.current = setTimeout(() => setStatus(""), 2000);
+  };
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+
+  const copyCitation = async () => {
+    const date = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    const citation = `"${props.title}", Sunny Patel, ${document.title}, ${window.location.origin}${window.location.pathname}, accessed ${date}`;
+    try {
+      if (navigator.clipboard) await navigator.clipboard.writeText(citation);
+      else {
+        const focused = document.activeElement;
+        const textarea = document.createElement("textarea");
+        textarea.value = citation;
+        textarea.className = styles.clipboardFallback;
+        textarea.setAttribute("aria-label", "Chart citation");
+        document.body.appendChild(textarea);
+        try {
+          textarea.focus({ preventScroll: true });
+          textarea.select();
+          if (!document.execCommand("copy")) throw new Error("Copy failed");
+        } finally {
+          textarea.remove();
+          if (focused instanceof HTMLElement) focused.focus({ preventScroll: true });
+        }
+      }
+      announce("Copied", true);
+    } catch {
+      announce("Couldn't copy — copy manually");
+    }
+  };
+
+  const download = async () => {
+    try {
+      const canvas = document.createElement("canvas");
+      drawChartToCanvas(canvas, props, window.location.href);
+      const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(
+        (result) => result ? resolve(result) : reject(new Error("PNG unavailable")), "image/png",
+      ));
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      const page = window.location.pathname.split("/").filter(Boolean).pop() || "home";
+      anchor.download = `${downloadSlug(page)}-${downloadSlug(props.title)}.png`;
+      document.body.appendChild(anchor);
+      try { anchor.click(); } finally {
+        anchor.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+    } catch {
+      announce("Couldn't download — try again");
+    }
+  };
+
+  return (
+    <div className={styles.chartActions}>
+      <button type="button" className={styles.chartActionBtn} onClick={download}>Download PNG</button>
+      <button type="button" className={styles.chartActionBtn} onClick={copyCitation}>Copy citation</button>
+      <span className={styles.chartActionStatus} aria-live="polite" aria-atomic="true">{status}</span>
+    </div>
+  );
+}
+
 function useReveal<T extends HTMLElement>(ref: React.RefObject<T | null>) {
   useEffect(() => {
     const el = ref.current;

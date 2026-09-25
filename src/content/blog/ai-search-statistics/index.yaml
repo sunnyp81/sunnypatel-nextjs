@@ -13,6 +13,16 @@ tags:
   - Statistics
   - AI Overviews
   - ChatGPT
+keyStats:
+  - value: '-61%'
+    label: Organic CTR on queries showing an AI Overview, June 2024 to September 2025
+    source: Seer Interactive
+  - value: '+120%'
+    label: More organic clicks per impression for brands cited in the AI Overview
+    source: Seer Interactive, April 2026
+  - value: '-38%'
+    label: How far cited brands still trail a results page with no AI Overview
+    source: Seer Interactive, April 2026
 faqs:
   - question: How many AI searches happen per day?
     answer: >-

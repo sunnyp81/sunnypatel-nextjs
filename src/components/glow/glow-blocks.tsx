@@ -1,7 +1,7 @@
 import React from "react";
 import { GlowCard } from "@/components/ui/glow-card";
 import styles from "./glow.module.css";
-import { GlowChart, type GlowChartProps } from "./glow-chart";
+import { ChartActions, GlowChart, type GlowChartProps } from "./glow-chart";
 
 export function GlowPullquote({ cite, children }: { cite?: string; children?: React.ReactNode }) {
   return (
@@ -48,6 +48,7 @@ export function GlowChartFigure(props: GlowChartProps) {
         <figcaption className={styles.title}>{props.title}</figcaption>
         <GlowChart {...props} />
         {props.source ? <p className={styles.source}>Source: {props.source}</p> : null}
+        <ChartActions {...props} />
       </figure>
     </GlowCard>
   );

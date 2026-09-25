@@ -168,6 +168,59 @@
 }
 
 /* Chart */
+.chartActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.chartActionBtn {
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  color: #b4b4bc;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.chartActionBtn:hover {
+  background: rgba(255,255,255,0.06);
+  color: #eeeeee;
+}
+
+.chartActionBtn:active { background: rgba(255,255,255,0.1); }
+
+.chartActionBtn:focus-visible,
+.statJumpLink:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #5b8aef;
+  border-radius: 8px;
+}
+
+.chartActionStatus {
+  flex: 0 0 100%;
+  min-height: 3em;
+  color: #b4b4bc;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .chartActionStatus { flex: 1 0 220px; }
+}
+
+.clipboardFallback {
+  position: fixed;
+  top: 0;
+  left: -9999px;
+}
+
 .chartWrap {
   position: relative;
   outline: none;

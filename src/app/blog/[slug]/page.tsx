@@ -19,6 +19,13 @@ import { SeoStatisticsGuide } from "@/components/seo-statistics-guide";
 import { ReportHero } from "@/components/report-hero";
 import styles from "@/components/seo-companies-guide.module.css";
 
+// Match DynamicIslandTOC's heading IDs, using each post's first H2.
+const KEY_STATS_JUMP_HREF: Record<string, string> = {
+  "ai-search-statistics": "#ai-search-statistics-2026-quick-answer",
+  "content-marketing-statistics": "#content-marketing-industry-overview",
+  "local-seo-statistics": "#local-seo-statistics-2026-quick-answer",
+};
+
 const REPORT_HERO_CONFIG: Record<
   string,
   {
@@ -212,6 +219,8 @@ export default async function BlogPost({
           <RelatedPosts currentSlug={slug} currentTags={post.tags ?? []} allPosts={postSummaries} />
         </ReportHero>
       ) : <ContentPage
+        keyStats={post.keyStats}
+        keyStatsJumpHref={KEY_STATS_JUMP_HREF[slug]}
         h1={post.title}
         badge="Blog"
         backHref="/blog"

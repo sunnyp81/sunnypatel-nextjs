@@ -42,7 +42,7 @@ const ROOT = join(process.cwd(), "src", "content");
 // not a key in index.yaml.
 const COLLECTIONS = {
   services: ["title", "metaTitle", "description", "ogImage", "h1", "subtitle", "heroImage", "heroImageAlt", "icon", "featured", "sortOrder", "canonicalOverride"],
-  blog: ["title", "metaTitle", "description", "ogImage", "date", "lastUpdated", "tags", "faqs"],
+  blog: ["title", "metaTitle", "description", "ogImage", "date", "lastUpdated", "tags", "faqs", "keyStats"],
   "website-design": ["title", "metaTitle", "description", "ogImage", "h1", "subtitle", "sortOrder", "priceFrom", "nodeType", "parentNode"],
   portfolio: ["title", "metaTitle", "description", "ogImage", "tags", "featured", "client", "industry", "services", "year", "problem", "solution", "result", "metrics", "testimonialText", "testimonialAuthor", "testimonialRole"],
 };

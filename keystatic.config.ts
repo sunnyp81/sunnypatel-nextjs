@@ -162,6 +162,17 @@ export default config({
             itemLabel: (props) => props.fields.question.value || "FAQ",
           }
         ),
+        keyStats: fields.array(
+          fields.object({
+            value: fields.text({ label: "Value" }),
+            label: fields.text({ label: "Label" }),
+            source: fields.text({ label: "Source" }),
+          }),
+          {
+            label: "Key Stats",
+            itemLabel: (props) => props.fields.value.value || "Stat",
+          }
+        ),
         content: fields.markdoc({ label: "Post Content" }),
       },
     }),

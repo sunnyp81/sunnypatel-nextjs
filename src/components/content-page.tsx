@@ -1,4 +1,5 @@
 import React from "react";
+import { KeyStatsStrip } from "@/components/key-stats-strip";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { BlogStickyCta } from "@/components/blog-sticky-cta";
@@ -53,6 +54,8 @@ export function ContentPage({
   dateLine,
   tags,
   heroImage,
+  keyStats,
+  keyStatsJumpHref,
   serviceHeroImage,
   serviceHeroImageAlt,
   showCta = false,
@@ -79,6 +82,8 @@ export function ContentPage({
   dateLine?: string;
   tags?: string[];
   heroImage?: string;
+  keyStats?: readonly { value: string; label: string; source?: string }[];
+  keyStatsJumpHref?: string;
   serviceHeroImage?: string;
   serviceHeroImageAlt?: string;
   showCta?: boolean;
@@ -296,6 +301,7 @@ export function ContentPage({
         )}
 
         <div className={`relative mx-auto ${isService ? "max-w-4xl" : "max-w-3xl"} px-6 py-16`}>
+          {keyStats?.length ? <KeyStatsStrip stats={keyStats} jumpHref={keyStatsJumpHref} /> : null}
           {sections ? (
             sections.map((section, i) => (
               <React.Fragment key={i}>

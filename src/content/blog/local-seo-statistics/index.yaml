@@ -11,6 +11,16 @@ tags:
   - Statistics
   - Google Maps
   - Local Search
+keyStats:
+  - value: 7x
+    label: More clicks a complete Google Business Profile earns than an incomplete one
+    source: Google, 2026
+  - value: '1,260'
+    label: Average monthly views on a Google Business Profile
+    source: BrightLocal, Google My Business Insights Study, 2019 (2017-2018 data)
+  - value: 44%
+    label: Of Google Business Profiles are fully optimised
+    source: SOCi, 2026
 faqs:
   - question: What is the click-through rate for each position in the Google Local Pack?
     answer: >-

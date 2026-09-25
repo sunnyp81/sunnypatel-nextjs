@@ -111,8 +111,8 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
         })}
       </svg>
       <div className={styles.navigation}>
-        <h2 className={styles.heading}>{listHeading}</h2>
-        <ul className={styles.townList}>
+        <p id="coverage-towns-label" className={styles.heading}>{listHeading}</p>
+        <ul className={styles.townList} aria-labelledby="coverage-towns-label">
           {BERKSHIRE_TOWNS.map((town) => (
             <li key={town.name}>
               {town.slug ? <a href={`/services/${town.slug}/`}>{town.name}</a> : town.name}

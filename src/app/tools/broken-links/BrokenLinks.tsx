@@ -305,7 +305,7 @@ export default function BrokenLinks() {
 
             <button
               onClick={() => exportCsv(result.results, result.pageUrl)}
-              className="rounded-md border border-hairline dark:border-white/[0.08] px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-hairline-strong dark:border-white/[0.15]"
+              className="rounded-md border border-hairline dark:border-white/[0.08] px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-hairline-strong dark:hover:border-white/[0.15]"
             >
               Export CSV
             </button>
@@ -334,7 +334,7 @@ export default function BrokenLinks() {
                   {filtered.map((link, i) => (
                     <tr
                       key={i}
-                      className={`border-b border-hairline hover:bg-wash dark:bg-white/[0.02] ${getRowBorderClass(link.status)}`}
+                      className={`border-b border-hairline hover:bg-wash dark:hover:bg-white/[0.02] ${getRowBorderClass(link.status)}`}
                     >
                       <td className="px-4 py-3">
                         <a

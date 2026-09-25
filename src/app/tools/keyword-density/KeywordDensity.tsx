@@ -320,7 +320,7 @@ export default function KeywordDensity() {
               activeData.map((row, idx) => (
                 <div
                   key={row.phrase}
-                  className="grid grid-cols-12 gap-2 items-center border-b border-wash dark:border-white/[0.04] px-5 py-2.5 text-sm transition-colors hover:bg-wash dark:bg-white/[0.02]"
+                  className="grid grid-cols-12 gap-2 items-center border-b border-wash dark:border-white/[0.04] px-5 py-2.5 text-sm transition-colors hover:bg-wash dark:hover:bg-white/[0.02]"
                 >
                   <div className="col-span-1 text-muted-foreground font-mono text-xs">
                     {idx + 1}

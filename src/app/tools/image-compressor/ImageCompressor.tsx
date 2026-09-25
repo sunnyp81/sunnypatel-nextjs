@@ -442,7 +442,7 @@ export default function ImageCompressor() {
                   {/* Download */}
                   <button
                     onClick={() => downloadOne(r)}
-                    className="shrink-0 rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-2 dark:bg-white/[0.08]"
+                    className="shrink-0 rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-2 dark:hover:bg-white/[0.08]"
                   >
                     Download
                   </button>

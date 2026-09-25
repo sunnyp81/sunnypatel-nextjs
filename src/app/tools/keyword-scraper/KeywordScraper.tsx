@@ -414,7 +414,7 @@ export default function KeywordScraper() {
             <legend className="px-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Google regions</legend>
             <div className="mt-1 grid grid-cols-2 gap-1.5">
               {KEYWORD_ENGINES.map((engine) => (
-                <label key={engine.id} className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-foreground transition-colors hover:bg-wash dark:bg-white/[0.04] focus-within:ring-2 focus-within:ring-brand/40">
+                <label key={engine.id} className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-foreground transition-colors hover:bg-wash dark:hover:bg-white/[0.04] focus-within:ring-2 focus-within:ring-brand/40">
                   <input type="checkbox" checked={engines[engine.id]} onChange={() => toggleEngine(engine.id)} disabled={isRunning} className="h-4 w-4 rounded border-hairline-strong dark:border-white/20 accent-brand focus-visible:outline-none" />
                   {engine.label}
                 </label>

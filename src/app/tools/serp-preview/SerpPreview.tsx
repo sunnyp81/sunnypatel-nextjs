@@ -64,9 +64,9 @@ type StatusColor = 'green' | 'amber' | 'red';
 
 function StatusBadge({ color, label }: { color: StatusColor; label: string }) {
   const colors: Record<StatusColor, string> = {
-    green: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-    amber: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-    red: 'bg-red-500/15 text-red-400 border-red-500/30',
+    green: 'bg-success-ink/10 text-success-ink border-success-ink/30 dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30',
+    amber: 'bg-gold-ink/10 text-gold-ink border-gold-ink/30 dark:bg-amber-500/15 dark:text-amber-400 dark:border-amber-500/30',
+    red: 'bg-destructive/10 text-destructive border-destructive/30 dark:bg-red-500/15 dark:text-red-400 dark:border-red-500/30',
   };
   return (
     <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${colors[color]}`}>
@@ -81,9 +81,13 @@ function StatusBadge({ color, label }: { color: StatusColor; label: string }) {
 function PixelBar({ used, max }: { used: number; max: number }) {
   const pct = Math.min((used / max) * 100, 100);
   const color =
-    pct <= 85 ? 'bg-emerald-500' : pct <= 100 ? 'bg-amber-500' : 'bg-red-500';
+    pct <= 85
+      ? 'bg-success-ink dark:bg-emerald-500'
+      : pct <= 100
+        ? 'bg-gold-ink dark:bg-amber-500'
+        : 'bg-destructive dark:bg-red-500';
   return (
-    <div className="mt-1.5 h-1.5 w-full rounded-full bg-white/[0.06]">
+    <div className="mt-1.5 h-1.5 w-full rounded-full bg-hairline">
       <div
         className={`h-full rounded-full transition-all duration-200 ${color}`}
         style={{ width: `${pct}%` }}
@@ -139,7 +143,7 @@ function GooglePreviewCard({
     : 'Add a meta description to see how it will appear in Google search results.';
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
       <div className="mb-3 flex items-center gap-2">
         <div className="h-2 w-2 rounded-full bg-brand" />
         <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -170,7 +174,10 @@ function GooglePreviewCard({
                 }
               })()}
             </span>
-            <span style={{ fontFamily: 'Arial, sans-serif', fontSize: '12px', color: '#4d5156' }}>
+            <span
+              className="text-[#006621] dark:text-[#4d5156]"
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: '12px' }}
+            >
               {breadcrumb}
             </span>
           </div>
@@ -286,7 +293,7 @@ export default function SerpPreview() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+              className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="Your Page Title | Brand Name"
             />
             <PixelBar used={titlePx} max={maxTitlePx} />
@@ -307,7 +314,7 @@ export default function SerpPreview() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
-              className="w-full resize-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+              className="w-full resize-none rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="Write a compelling meta description for your page..."
             />
           </div>
@@ -325,7 +332,7 @@ export default function SerpPreview() {
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+              className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="https://example.com/your-page/"
             />
           </div>
@@ -333,13 +340,13 @@ export default function SerpPreview() {
           {/* Viewport toggle */}
           <div className="flex items-center gap-3">
             <span className="text-sm font-medium text-foreground">Viewport:</span>
-            <div className="flex overflow-hidden rounded-lg border border-white/[0.08]">
+            <div className="flex overflow-hidden rounded-lg border border-hairline-strong dark:border-white/[0.08]">
               <button
                 onClick={() => setViewport('desktop')}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   viewport === 'desktop'
                     ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
-                    : 'bg-white/[0.03] text-muted-foreground hover:text-foreground'
+                    : 'bg-wash text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Desktop (580px)
@@ -349,7 +356,7 @@ export default function SerpPreview() {
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   viewport === 'mobile'
                     ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
-                    : 'bg-white/[0.03] text-muted-foreground hover:text-foreground'
+                    : 'bg-wash text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Mobile (480px)
@@ -370,17 +377,17 @@ export default function SerpPreview() {
 
           {/* Quick stats */}
           <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 text-center">
+            <div className="rounded-lg border border-hairline bg-wash dark:bg-white/[0.02] p-3 text-center">
               <p className="text-xs text-muted-foreground">Title Width</p>
               <p className="mt-1 text-lg font-bold font-mono text-foreground">{titlePx}px</p>
               <p className="text-xs text-muted-foreground">/ {maxTitlePx}px max</p>
             </div>
-            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 text-center">
+            <div className="rounded-lg border border-hairline bg-wash dark:bg-white/[0.02] p-3 text-center">
               <p className="text-xs text-muted-foreground">Description</p>
               <p className="mt-1 text-lg font-bold font-mono text-foreground">{descLen}</p>
               <p className="text-xs text-muted-foreground">/ 160 chars</p>
             </div>
-            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 text-center">
+            <div className="rounded-lg border border-hairline bg-wash dark:bg-white/[0.02] p-3 text-center">
               <p className="text-xs text-muted-foreground">URL Length</p>
               <p className="mt-1 text-lg font-bold font-mono text-foreground">{urlLen}</p>
               <p className="text-xs text-muted-foreground">characters</p>
@@ -390,7 +397,7 @@ export default function SerpPreview() {
       </div>
 
       {/* How it works */}
-      <div className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-10 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
         <h2
           className="mb-3 text-lg font-semibold text-foreground"
           style={{ fontFamily: 'var(--font-heading)' }}

@@ -14,7 +14,7 @@ type HeadingData = {
 
 function ProgressBar({ percentage }: { percentage: number }) {
   return (
-    <div className="absolute left-0 top-0 h-full w-[2px] rounded-full bg-white/[0.06]">
+    <div className="absolute left-0 top-0 h-full w-[2px] rounded-full bg-hairline-strong dark:bg-white/[0.06]">
       <motion.div
         className="w-full rounded-full bg-brand"
         initial={{ height: "0%" }}
@@ -139,7 +139,7 @@ export function DynamicIslandTOC({
             className={cn(
               "group flex w-full items-center rounded-md py-1.5 pr-2 text-left text-[13px] leading-snug transition-all duration-200",
               isActive
-                ? "text-brand font-medium"
+                ? "text-brand-ink font-medium"
                 : "text-muted-foreground/60 hover:text-muted-foreground",
             )}
           >
@@ -164,7 +164,7 @@ export function DynamicIslandTOC({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="fixed right-6 top-1/2 z-40 hidden max-h-[60vh] w-52 -translate-y-1/2 xl:block 2xl:right-10 2xl:w-56"
           >
-            <div className="relative rounded-xl border border-white/[0.06] bg-[#08080d]/90 p-4 pl-5 shadow-xl backdrop-blur-md">
+            <div className="relative rounded-xl border border-hairline-strong bg-white/80 p-4 pl-5 shadow-[var(--elev)] backdrop-blur-md dark:border-white/[0.06] dark:bg-[#08080d]/90 dark:shadow-xl">
               <ProgressBar percentage={progress} />
               <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground/65">
                 On this page
@@ -186,7 +186,7 @@ export function DynamicIslandTOC({
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
             onClick={() => setMobileOpen(true)}
-            className="fixed right-4 top-20 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-[#08080d]/95 shadow-lg backdrop-blur-md xl:hidden"
+            className="fixed right-4 top-20 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-hairline-strong bg-white/85 shadow-[var(--elev)] backdrop-blur-md dark:border-white/[0.08] dark:bg-[#08080d]/95 dark:shadow-lg xl:hidden"
             aria-label="Table of contents"
           >
             <List className="h-4 w-4 text-muted-foreground" />
@@ -211,7 +211,7 @@ export function DynamicIslandTOC({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed right-0 top-0 z-[9999] h-full w-72 border-l border-white/[0.06] bg-[#08080d]/98 p-5 pt-6 shadow-2xl backdrop-blur-xl xl:hidden"
+              className="fixed right-0 top-0 z-[9999] h-full w-72 border-l border-hairline-strong bg-white/95 p-5 pt-6 shadow-[var(--elev)] backdrop-blur-xl dark:border-white/[0.06] dark:bg-[#08080d]/98 dark:shadow-2xl xl:hidden"
             >
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground/65">

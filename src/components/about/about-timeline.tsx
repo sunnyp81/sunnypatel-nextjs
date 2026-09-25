@@ -11,7 +11,7 @@ const entries = [
     company: "Figment Agency",
     description:
       "Managing 13 active client campaigns across diverse industries. Pioneered AI/LLM optimisation strategies and launched a YouTube SEO service line for scalable content growth.",
-    color: "#5B8AEF",
+    color: "var(--brand-ink)",
     border: "border-brand/20",
     bg: "bg-brand/10",
   },
@@ -22,7 +22,7 @@ const entries = [
     company: "Independent",
     description:
       "Built and ranked 45 profitable content websites from scratch. Full-stack SEO covering keyword research, content strategy, link acquisition, and advanced AI prompt engineering for automation.",
-    color: "#5a922c",
+    color: "var(--success-ink)",
     border: "border-success/20",
     bg: "bg-success/10",
   },
@@ -33,10 +33,10 @@ export function AboutTimeline() {
     <section className="relative py-24 md:py-32">
       {/* Background accent */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
+            "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
           maskImage: "radial-gradient(ellipse at center, black 20%, transparent 65%)",
           WebkitMaskImage:
@@ -52,7 +52,7 @@ export function AboutTimeline() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold-ink">
             Background
           </p>
           <h2
@@ -65,7 +65,7 @@ export function AboutTimeline() {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-brand/30 via-white/[0.08] to-transparent md:left-1/2 md:-translate-x-px" />
+          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-brand/30 via-hairline-strong dark:via-white/[0.08] to-transparent md:left-1/2 md:-translate-x-px" />
 
           <div className="space-y-8">
             {entries.map((entry, i) => (
@@ -90,7 +90,7 @@ export function AboutTimeline() {
                 />
 
                 {/* Card */}
-                <div className="flex-1 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-colors duration-200 hover:border-white/[0.1] hover:bg-white/[0.03]">
+                <div className="flex-1 rounded-2xl border border-hairline dark:border-white/[0.06] bg-surface-1 dark:bg-white/[0.02] p-6 transition-colors duration-200 hover:border-hairline-strong dark:hover:border-white/[0.1] hover:bg-surface-2 dark:hover:bg-white/[0.03]">
                   <div
                     className={`mb-3 flex items-center gap-3 ${i % 2 !== 0 ? "md:justify-end" : ""}`}
                   >
@@ -103,8 +103,8 @@ export function AboutTimeline() {
                     <span
                       className="rounded-full border px-2.5 py-0.5 text-xs font-medium"
                       style={{
-                        borderColor: `${entry.color}33`,
-                        backgroundColor: `${entry.color}11`,
+                        borderColor: `color-mix(in srgb, ${entry.color} 20%, transparent)`,
+                        backgroundColor: `color-mix(in srgb, ${entry.color} 7%, transparent)`,
                         color: entry.color,
                       }}
                     >

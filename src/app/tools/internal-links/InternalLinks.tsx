@@ -112,13 +112,16 @@ function ConfidenceBadge({ score }: { score: number }) {
 
   if (score >= 80) {
     label = 'High';
-    classes = 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30';
+    classes =
+      'bg-success-ink/10 text-success-ink border-success-ink/30 dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30';
   } else if (score >= 50) {
     label = 'Medium';
-    classes = 'bg-amber-500/15 text-amber-400 border-amber-500/30';
+    classes =
+      'bg-gold-ink/10 text-gold-ink border-gold-ink/30 dark:bg-amber-500/15 dark:text-amber-400 dark:border-amber-500/30';
   } else {
     label = 'Low';
-    classes = 'bg-white/10 text-white/65 border-white/20';
+    classes =
+      'bg-surface-2 text-ink-soft border-hairline-strong dark:bg-white/10 dark:text-white/65 dark:border-white/20';
   }
 
   return (
@@ -137,9 +140,9 @@ function OpportunityCard({ opp }: { opp: LinkOpportunity }) {
   const after = opp.context.substring(opp.phraseStart + opp.phrase.length);
 
   return (
-    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+    <div className="rounded-lg border border-hairline bg-wash dark:bg-white/[0.02] p-4">
       <div className="flex items-center justify-between gap-3 mb-2">
-        <code className="text-sm font-semibold text-brand">&quot;{opp.phrase}&quot;</code>
+        <code className="text-sm font-semibold text-brand-ink dark:text-brand">&quot;{opp.phrase}&quot;</code>
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-xs text-muted-foreground">{opp.frequency}x in target</span>
           <ConfidenceBadge score={opp.score} />
@@ -147,7 +150,7 @@ function OpportunityCard({ opp }: { opp: LinkOpportunity }) {
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">
         {before}
-        <span className="bg-brand/20 text-brand px-1 rounded">{match}</span>
+        <span className="bg-brand/20 text-brand-ink dark:text-brand px-1 rounded">{match}</span>
         {after}
       </p>
     </div>
@@ -171,16 +174,16 @@ function DirectionSection({
   opportunities: LinkOpportunity[];
 }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
       <div className="flex items-center gap-2 mb-1">
         <h3 className="text-lg font-semibold text-foreground">
-          Link from {fromLabel} <span className="text-brand">&rarr;</span> {toLabel}
+          Link from {fromLabel} <span className="text-brand-ink dark:text-brand">&rarr;</span> {toLabel}
         </h3>
       </div>
       {fromUrl && toUrl && (
         <p className="text-xs text-muted-foreground mb-4 break-all">
           Add links in <span className="text-foreground">{fromUrl}</span> pointing to{' '}
-          <span className="text-brand">{toUrl}</span>
+          <span className="text-brand-ink dark:text-brand">{toUrl}</span>
         </p>
       )}
       {opportunities.length === 0 ? (
@@ -220,7 +223,7 @@ export default function InternalLinks() {
   const totalOpps = aToBOpps.length + bToAOpps.length;
 
   const inputClasses =
-    'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
+    'w-full rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -241,7 +244,7 @@ export default function InternalLinks() {
       {/* Input panels */}
       <div className="grid gap-6 md:grid-cols-2 mb-6">
         {/* Page A */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
           <h2 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Page A</h2>
           <div className="space-y-3">
             <div>
@@ -268,7 +271,7 @@ export default function InternalLinks() {
         </div>
 
         {/* Page B */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
           <h2 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Page B</h2>
           <div className="space-y-3">
             <div>
@@ -310,23 +313,23 @@ export default function InternalLinks() {
       {hasRun && contentA.trim() && contentB.trim() && (
         <div className="space-y-8">
           {/* Summary */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h2 className="text-lg font-semibold text-foreground mb-3">Summary</h2>
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="text-center">
-                <p className="text-3xl font-bold text-brand">{totalOpps}</p>
+                <p className="text-3xl font-bold text-brand-ink dark:text-brand">{totalOpps}</p>
                 <p className="text-sm text-muted-foreground mt-1">Total opportunities</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-foreground">{aToBOpps.length}</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Page A <span className="text-brand">&rarr;</span> Page B
+                  Page A <span className="text-brand-ink dark:text-brand">&rarr;</span> Page B
                 </p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-foreground">{bToAOpps.length}</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Page B <span className="text-brand">&rarr;</span> Page A
+                  Page B <span className="text-brand-ink dark:text-brand">&rarr;</span> Page A
                 </p>
               </div>
             </div>
@@ -353,7 +356,7 @@ export default function InternalLinks() {
       )}
 
       {/* How it works */}
-      <div className="mt-12 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-12 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
         <h2
           className="text-xl font-bold text-foreground mb-4"
           style={{ fontFamily: 'var(--font-heading)' }}
@@ -389,7 +392,7 @@ export default function InternalLinks() {
               </p>
             </div>
           </div>
-          <div className="mt-4 pt-4 border-t border-white/[0.06]">
+          <div className="mt-4 pt-4 border-t border-hairline">
             <h3 className="font-semibold text-foreground mb-2">Best practices for internal linking</h3>
             <ul className="list-disc list-inside space-y-1.5">
               <li>Use descriptive, keyword-rich anchor text rather than &quot;click here&quot; or &quot;read more&quot;</li>

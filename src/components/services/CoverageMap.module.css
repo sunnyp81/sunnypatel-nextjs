@@ -1,9 +1,22 @@
 .figure {
   margin: 1.5rem 0 0;
-  border: 1px solid rgb(255 255 255 / 6%);
+  border: 1px solid var(--hairline);
   border-radius: 1rem;
+  background: var(--surface-1);
+  color: var(--ink-strong);
+  box-shadow: var(--elev);
+}
+
+:global(.dark) .figure {
   background: #050507;
-  color: #F2F2F2;
+}
+
+.ground {
+  fill: #ffffff;
+}
+
+:global(.dark) .ground {
+  fill: #050507;
 }
 
 .map {
@@ -20,9 +33,21 @@
 }
 
 .focusRing {
-  stroke: #F2F2F2;
+  stroke: var(--ink-strong);
   stroke-width: 2;
   opacity: 0;
+}
+
+:global(.dark) .focusRing {
+  stroke: #F2F2F2;
+}
+
+.leaderLine {
+  stroke: rgb(10 16 36 / 30%);
+}
+
+:global(.dark) .leaderLine {
+  stroke: rgb(242 242 242 / 30%);
 }
 
 .townLink .label {
@@ -38,7 +63,7 @@
 
 .navigation {
   padding: 1rem 1rem 0;
-  border-top: 1px solid rgb(255 255 255 / 6%);
+  border-top: 1px solid var(--hairline);
 }
 
 .heading {
@@ -60,9 +85,13 @@
 
 .townList a {
   display: inline-block;
-  color: #F2F2F2;
+  color: var(--ink-strong);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+:global(.dark) .townList a {
+  color: #F2F2F2;
 }
 
 .townList a:hover,
@@ -71,14 +100,26 @@
 }
 
 .townList a:focus-visible {
-  outline: 2px solid #F2F2F2;
+  outline: 2px solid var(--ink-strong);
   outline-offset: 3px;
+}
+
+:global(.dark) .townList a:focus-visible {
+  outline-color: #F2F2F2;
 }
 
 .caption {
   padding: 1rem;
   font-size: 0.875rem;
   line-height: 1.6;
+}
+
+.connections {
+  opacity: 0.85;
+}
+
+:global(.dark) .connections {
+  opacity: 0.6;
 }
 
 @media (max-width: 399px) {

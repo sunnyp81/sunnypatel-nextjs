@@ -80,7 +80,7 @@ const localServices = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24 md:py-32">
+    <section id="services" className="relative bg-surface-1 py-24 md:py-32 dark:bg-transparent">
       <div
         className="absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-[0.04] blur-[120px]"
         style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
@@ -94,7 +94,7 @@ export function Services() {
           viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand-ink">
             Specialist Services
           </p>
           <h2
@@ -106,11 +106,11 @@ export function Services() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
             Starting point for most clients: a fixed-fee{" "}
-            <a href="/services/technical-seo-audit/" className="text-brand underline-offset-4 hover:underline">
+            <a href="/services/technical-seo-audit/" className="text-brand-ink underline-offset-4 hover:underline">
               technical SEO audit service
             </a>{" "}
             to find what&apos;s holding your rankings back, backed by ongoing{" "}
-            <a href="/services/technical-seo-services/" className="text-brand underline-offset-4 hover:underline">
+            <a href="/services/technical-seo-services/" className="text-brand-ink underline-offset-4 hover:underline">
               technical SEO services
             </a>{" "}
             for sites that need continuous monitoring.
@@ -131,7 +131,7 @@ export function Services() {
               >
                 <a href={service.href} className="block h-full">
                 <GlowCard className="h-full" spread={40} proximity={64}>
-                  <div className="relative overflow-hidden rounded-xl border-[0.75px] bg-background p-5 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+                  <div className="relative overflow-hidden rounded-xl border-[0.75px] bg-surface-1 p-5 shadow-[var(--elev)] dark:bg-background dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
                     {/* Accent corner glow */}
                     <div
                       className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full opacity-[0.12] blur-2xl"
@@ -168,7 +168,7 @@ export function Services() {
         <div className="mt-10 flex justify-center">
           <a
             href="/services/"
-            className="rounded-full border border-brand/20 bg-brand/5 px-6 py-2 text-sm font-medium text-brand transition-colors hover:border-brand/40 hover:bg-brand/10"
+            className="rounded-full border border-brand/20 bg-brand/5 px-6 py-2 text-sm font-medium text-brand-ink transition-colors hover:border-brand/40 hover:bg-brand/10"
           >
             View All Services
           </a>
@@ -180,7 +180,7 @@ export function Services() {
             <a
               key={s.href}
               href={s.href}
-              className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-sm text-white/65 transition-colors hover:border-white/[0.16] hover:text-white/80"
+              className="rounded-full border border-hairline bg-wash px-4 py-1.5 text-sm text-ink-faint transition-colors hover:border-hairline-strong hover:text-ink-soft dark:border-white/[0.08] dark:bg-white/[0.02] dark:text-white/65 dark:hover:border-white/[0.16] dark:hover:text-white/80"
             >
               {s.label}
             </a>

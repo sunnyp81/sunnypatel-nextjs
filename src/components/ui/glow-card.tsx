@@ -23,7 +23,7 @@ export function GlowCard({
   blur?: number;
 }) {
   return (
-    <div className={cn("relative rounded-[1.25rem] border-[0.75px] border-border p-2", className)}>
+    <div className={cn("relative rounded-[1.25rem] border-[0.75px] border-brand/15 dark:border-border p-2 shadow-[var(--elev)]", className)}>
       <GlowingEffect
         spread={spread}
         glow

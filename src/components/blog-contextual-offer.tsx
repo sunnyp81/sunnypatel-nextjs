@@ -155,7 +155,7 @@ export function BlogContextualOffer({ variant }: { variant: OfferVariant }) {
   return (
     <div className="my-12 overflow-hidden rounded-2xl border border-brand/20 bg-gradient-to-br from-brand/[0.06] to-brand-deep/[0.04]">
       <div className="p-6 md:p-8">
-        <span className="text-xs font-semibold uppercase tracking-widest text-brand">
+        <span className="text-xs font-semibold uppercase tracking-widest text-brand-ink">
           {offer.eyebrow}
         </span>
         <h3
@@ -191,7 +191,7 @@ export function BlogContextualOffer({ variant }: { variant: OfferVariant }) {
                         : "flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-muted/40"
                     }
                   >
-                    <Icon className="h-4 w-4 text-brand" />
+                    <Icon className="h-4 w-4 text-brand-ink" />
                   </div>
                   <span className="text-sm font-semibold text-foreground">
                     {card.title}
@@ -203,7 +203,7 @@ export function BlogContextualOffer({ variant }: { variant: OfferVariant }) {
                 <span
                   className={
                     isPrimary
-                      ? "inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
+                      ? "inline-flex items-center gap-1.5 text-sm font-semibold text-brand-ink"
                       : "inline-flex items-center gap-1.5 text-sm font-semibold text-foreground"
                   }
                   style={{ fontFamily: "var(--font-heading)" }}

@@ -10,7 +10,7 @@ const values = [
     title: "Semantic SEO Methodology",
     description:
       "I build topical authority through comprehensive content architecture, not keyword stuffing. The Human-First approach creates sustainable rankings by covering every relevant query in your industry systematically.",
-    color: "#5B8AEF",
+    color: "var(--brand-ink)",
     border: "border-brand/20",
     bg: "bg-brand/10",
   },
@@ -19,7 +19,7 @@ const values = [
     title: "Data-Led Decisions",
     description:
       "Every recommendation comes from Search Console data, competitor analysis, and search intent research. No guesswork. No vanity metrics. Clear monthly reporting shows exactly how SEO impacts your revenue.",
-    color: "#4c7894",
+    color: "var(--teal-ink)",
     border: "border-teal/20",
     bg: "bg-teal/10",
   },
@@ -28,7 +28,7 @@ const values = [
     title: "Transparent Process",
     description:
       "You receive full documentation of every strategy, topical map, and content brief. No black-box tactics. You own all deliverables and understand exactly what's being done and why.",
-    color: "#5a922c",
+    color: "var(--success-ink)",
     border: "border-success/20",
     bg: "bg-success/10",
   },
@@ -37,8 +37,8 @@ const values = [
 export function AboutValues() {
   return (
     <section className="relative py-24 md:py-32">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline dark:via-white/[0.06] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline dark:via-white/[0.06] to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
@@ -48,7 +48,7 @@ export function AboutValues() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-success">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-success-ink">
             Core Values
           </p>
           <h2

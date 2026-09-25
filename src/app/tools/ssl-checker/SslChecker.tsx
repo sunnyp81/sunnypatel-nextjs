@@ -63,7 +63,7 @@ function isStrongAlgorithm(alg: string): boolean {
 /* ------------------------------------------------------------------ */
 function CheckCircle() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-emerald-400 shrink-0">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-success-ink dark:text-emerald-400 shrink-0">
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
       <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
@@ -72,7 +72,7 @@ function CheckCircle() {
 
 function XCircle() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-red-400 shrink-0">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-destructive dark:text-red-400 shrink-0">
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
       <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
@@ -81,7 +81,7 @@ function XCircle() {
 
 function ShieldCheck() {
   return (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-emerald-400">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-success-ink dark:text-emerald-400">
       <path d="M12 2l7 4v5c0 5.25-3.5 8.25-7 10-3.5-1.75-7-4.75-7-10V6l7-4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
       <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
@@ -90,7 +90,7 @@ function ShieldCheck() {
 
 function ShieldX() {
   return (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-red-400">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-destructive dark:text-red-400">
       <path d="M12 2l7 4v5c0 5.25-3.5 8.25-7 10-3.5-1.75-7-4.75-7-10V6l7-4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
       <path d="M14.5 9.5l-5 5M9.5 9.5l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
@@ -99,7 +99,7 @@ function ShieldX() {
 
 function ShieldWarning() {
   return (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-amber-400">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-gold-ink dark:text-amber-400">
       <path d="M12 2l7 4v5c0 5.25-3.5 8.25-7 10-3.5-1.75-7-4.75-7-10V6l7-4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
       <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       <circle cx="12" cy="16" r="0.5" fill="currentColor" stroke="currentColor" strokeWidth="1" />
@@ -109,7 +109,7 @@ function ShieldWarning() {
 
 function LockIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-brand">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-brand-ink dark:text-brand">
       <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" strokeWidth="2" />
       <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
@@ -121,7 +121,7 @@ function LockIcon() {
 /* ------------------------------------------------------------------ */
 function Spinner() {
   return (
-    <svg className="h-5 w-5 animate-spin text-brand" viewBox="0 0 24 24" fill="none">
+    <svg className="h-5 w-5 animate-spin text-brand-ink dark:text-brand" viewBox="0 0 24 24" fill="none">
       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
       <path
         className="opacity-75"
@@ -138,12 +138,12 @@ function Spinner() {
 function StatusBanner({ result }: { result: SslResult }) {
   if (result.error) {
     return (
-      <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-6 mb-6">
+      <div className="rounded-xl border border-destructive/30 bg-destructive/10 p-6 mb-6 dark:border-red-500/30 dark:bg-red-500/10">
         <div className="flex items-center gap-4">
           <ShieldX />
           <div>
-            <h2 className="text-lg font-bold text-red-400">SSL Check Failed</h2>
-            <p className="text-sm text-red-400/80 mt-1">{result.error}</p>
+            <h2 className="text-lg font-bold text-destructive dark:text-red-400">SSL Check Failed</h2>
+            <p className="text-sm text-destructive/80 dark:text-red-400/80 mt-1">{result.error}</p>
           </div>
         </div>
       </div>
@@ -155,12 +155,12 @@ function StatusBanner({ result }: { result: SslResult }) {
 
   if (isExpired) {
     return (
-      <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-6 mb-6">
+      <div className="rounded-xl border border-destructive/30 bg-destructive/10 p-6 mb-6 dark:border-red-500/30 dark:bg-red-500/10">
         <div className="flex items-center gap-4">
           <ShieldX />
           <div>
-            <h2 className="text-lg font-bold text-red-400">SSL Invalid or Expired</h2>
-            <p className="text-sm text-red-400/80 mt-1">
+            <h2 className="text-lg font-bold text-destructive dark:text-red-400">SSL Invalid or Expired</h2>
+            <p className="text-sm text-destructive/80 dark:text-red-400/80 mt-1">
               The SSL certificate for {result.domain} is not valid. Visitors will see a browser warning.
             </p>
           </div>
@@ -171,12 +171,12 @@ function StatusBanner({ result }: { result: SslResult }) {
 
   if (isExpiringSoon) {
     return (
-      <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-6 mb-6">
+      <div className="rounded-xl border border-gold-ink/30 bg-gold-ink/10 p-6 mb-6 dark:border-amber-500/30 dark:bg-amber-500/10">
         <div className="flex items-center gap-4">
           <ShieldWarning />
           <div>
-            <h2 className="text-lg font-bold text-amber-400">SSL Expiring Soon</h2>
-            <p className="text-sm text-amber-400/80 mt-1">
+            <h2 className="text-lg font-bold text-gold-ink dark:text-amber-400">SSL Expiring Soon</h2>
+            <p className="text-sm text-gold-ink/80 dark:text-amber-400/80 mt-1">
               The certificate for {result.domain} expires in {result.daysUntilExpiry} day{result.daysUntilExpiry !== 1 ? 's' : ''}. Renew it now to avoid downtime.
             </p>
           </div>
@@ -186,12 +186,12 @@ function StatusBanner({ result }: { result: SslResult }) {
   }
 
   return (
-    <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-6 mb-6">
+    <div className="rounded-xl border border-success-ink/30 bg-success-ink/10 p-6 mb-6 dark:border-emerald-500/30 dark:bg-emerald-500/10">
       <div className="flex items-center gap-4">
         <ShieldCheck />
         <div>
-          <h2 className="text-lg font-bold text-emerald-400">SSL Valid</h2>
-          <p className="text-sm text-emerald-400/80 mt-1">
+          <h2 className="text-lg font-bold text-success-ink dark:text-emerald-400">SSL Valid</h2>
+          <p className="text-sm text-success-ink/80 dark:text-emerald-400/80 mt-1">
             The certificate for {result.domain} is valid and expires in {result.daysUntilExpiry} day{result.daysUntilExpiry !== 1 ? 's' : ''}.
           </p>
         </div>
@@ -207,9 +207,9 @@ function ExpiryBar({ days }: { days: number }) {
   const maxDays = 365;
   const pct = Math.min(100, Math.max(0, (days / maxDays) * 100));
 
-  let barColor = 'bg-emerald-500';
-  if (days <= 30) barColor = 'bg-red-500';
-  else if (days <= 60) barColor = 'bg-amber-500';
+  let barColor = 'bg-success-ink dark:bg-emerald-500';
+  if (days <= 30) barColor = 'bg-destructive dark:bg-red-500';
+  else if (days <= 60) barColor = 'bg-gold-ink dark:bg-amber-500';
 
   return (
     <div className="mt-2">
@@ -217,7 +217,7 @@ function ExpiryBar({ days }: { days: number }) {
         <span>{days} day{days !== 1 ? 's' : ''} remaining</span>
         <span>{Math.round(pct)}%</span>
       </div>
-      <div className="h-2 w-full rounded-full bg-white/[0.06]">
+      <div className="h-2 w-full rounded-full bg-hairline">
         <div
           className={`h-2 rounded-full ${barColor} transition-all duration-500`}
           style={{ width: `${pct}%` }}
@@ -244,7 +244,7 @@ function CertificateDetails({ result }: { result: SslResult }) {
       : result.serialNumber;
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 mb-6">
+    <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6 mb-6">
       <h3
         className="text-lg font-bold text-foreground mb-4 flex items-center gap-2"
         style={{ fontFamily: 'var(--font-heading)' }}
@@ -306,7 +306,7 @@ function CertificateDetails({ result }: { result: SslResult }) {
               <button
                 type="button"
                 onClick={() => setSerialExpanded(!serialExpanded)}
-                className="ml-2 text-xs text-brand hover:underline"
+                className="ml-2 text-xs text-brand-ink dark:text-brand hover:underline"
               >
                 {serialExpanded ? 'collapse' : 'expand'}
               </button>
@@ -324,7 +324,7 @@ function CertificateDetails({ result }: { result: SslResult }) {
             {result.subjectAltNames.map((san) => (
               <span
                 key={san}
-                className="inline-flex rounded-md border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-foreground/80"
+                className="inline-flex rounded-md border border-hairline-strong dark:border-white/[0.08] bg-wash px-2.5 py-1 text-xs font-mono text-foreground/80"
               >
                 {san}
               </span>
@@ -366,7 +366,7 @@ function SecurityChecklist({ result }: { result: SslResult }) {
   const passedCount = checks.filter((c) => c.passed).length;
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 mb-6">
+    <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6 mb-6">
       <div className="flex items-center justify-between mb-4">
         <h3
           className="text-lg font-bold text-foreground"
@@ -462,7 +462,7 @@ export default function SslChecker() {
               value={domain}
               onChange={(e) => setDomain(e.target.value)}
               placeholder="example.com"
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] pl-[4.5rem] pr-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+              className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash pl-[4.5rem] pr-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
             />
           </div>
           <button
@@ -484,7 +484,7 @@ export default function SslChecker() {
 
       {/* Error */}
       {error && (
-        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+        <div className="mb-6 rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-400">
           {error}
         </div>
       )}
@@ -520,7 +520,7 @@ export default function SslChecker() {
           Why SSL Matters for SEO
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h3 className="text-sm font-semibold text-foreground mb-2">Google Ranking Signal</h3>
             <p className="text-sm text-muted-foreground">
               HTTPS has been a confirmed Google ranking signal since August 2014.
@@ -528,7 +528,7 @@ export default function SslChecker() {
               in search rankings over their HTTP equivalents.
             </p>
           </div>
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h3 className="text-sm font-semibold text-foreground mb-2">Browser Trust Signals</h3>
             <p className="text-sm text-muted-foreground">
               Chrome, Firefox, and Edge all display &ldquo;Not Secure&rdquo; warnings for HTTP sites.
@@ -536,7 +536,7 @@ export default function SslChecker() {
               far less likely to submit forms or make purchases on insecure pages.
             </p>
           </div>
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h3 className="text-sm font-semibold text-foreground mb-2">Expired Certificate Impact</h3>
             <p className="text-sm text-muted-foreground">
               An expired SSL certificate triggers a full-page browser warning that most users
@@ -546,7 +546,7 @@ export default function SslChecker() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="mt-6 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
           <h3 className="text-sm font-semibold text-foreground mb-2">SSL Best Practices</h3>
           <ul className="space-y-1.5 text-sm text-muted-foreground">
             <li>

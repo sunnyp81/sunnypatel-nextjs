@@ -151,10 +151,10 @@ export default async function ServicesIndex() {
           style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
         />
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+              "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage:
               "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
@@ -163,7 +163,7 @@ export default async function ServicesIndex() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-ink">
             Services
           </p>
           <h1
@@ -178,7 +178,7 @@ export default async function ServicesIndex() {
             </p>
           )}
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
       </div>
 
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -199,7 +199,7 @@ export default async function ServicesIndex() {
         <div className="mt-16">
           <Link
             href="/tools/"
-            className="group flex items-center justify-between rounded-xl border border-brand/20 bg-brand/[0.04] p-6 transition-all duration-300 hover:border-brand/40 hover:bg-brand/[0.07] hover:shadow-[0_0_32px_rgba(91,138,239,0.12)]"
+            className="group flex items-center justify-between rounded-xl border border-brand/20 bg-brand/[0.04] p-6 transition-all duration-300 hover:border-brand/40 hover:bg-brand/[0.07] hover:shadow-[0_0_24px_rgba(42,91,215,0.16)] dark:hover:shadow-[0_0_32px_rgba(91,138,239,0.12)]"
           >
             <div>
               <h3
@@ -212,7 +212,7 @@ export default async function ServicesIndex() {
                 20 free tools — website grader, speed checker, keyword scraper, schema generator, and more. No sign-up required.
               </p>
             </div>
-            <ArrowRight className="h-5 w-5 flex-shrink-0 text-brand transition-transform duration-200 group-hover:translate-x-1" />
+            <ArrowRight className="h-5 w-5 flex-shrink-0 text-brand-ink transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </div>
 
@@ -220,18 +220,18 @@ export default async function ServicesIndex() {
         {locationServices.length > 0 && (
           <div className="mt-16">
             <div className="mb-8 flex items-center gap-4">
-              <div className="h-px flex-1 bg-white/[0.06]" />
+              <div className="h-px flex-1 bg-hairline" />
               <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/65">
                 Location & Specialist Pages
               </p>
-              <div className="h-px flex-1 bg-white/[0.06]" />
+              <div className="h-px flex-1 bg-hairline" />
             </div>
             <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
               {locationServices.map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3.5 text-sm transition-all duration-200 hover:border-white/[0.1] hover:bg-white/[0.04]"
+                  className="group flex items-center justify-between rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] px-4 py-3.5 text-sm transition-all duration-200 hover:border-hairline-strong dark:hover:border-white/[0.1] hover:bg-surface-2 dark:hover:bg-white/[0.04]"
                 >
                   <div className="flex items-center gap-2">
                     <MapPin className="h-3.5 w-3.5 text-muted-foreground/65" />
@@ -239,7 +239,7 @@ export default async function ServicesIndex() {
                       {service.entry.title}
                     </span>
                   </div>
-                  <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-brand" />
+                  <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-brand-ink" />
                 </Link>
               ))}
             </div>
@@ -276,7 +276,7 @@ function ServiceCard({
         />
         <div className="relative flex h-full min-h-[11rem] flex-col justify-between rounded-xl border-[0.75px] bg-background p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
           <div>
-            <div className="mb-4 w-fit rounded-lg border border-white/[0.08] bg-white/[0.04] p-2.5 text-muted-foreground transition-colors duration-200 group-hover:border-brand/20 group-hover:bg-brand/10 group-hover:text-brand">
+            <div className="mb-4 w-fit rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.04] p-2.5 text-muted-foreground transition-colors duration-200 group-hover:border-brand/20 group-hover:bg-brand/10 group-hover:text-brand-ink">
               {icon}
             </div>
             <h2
@@ -291,7 +291,7 @@ function ServiceCard({
               </p>
             )}
           </div>
-          <div className="mt-4 flex items-center gap-1 text-xs font-medium text-muted-foreground/65 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+          <div className="mt-4 flex items-center gap-1 text-xs font-medium text-muted-foreground/65 transition-all duration-200 group-hover:gap-2 group-hover:text-brand-ink">
             View service
             <ArrowRight className="h-3 w-3" />
           </div>

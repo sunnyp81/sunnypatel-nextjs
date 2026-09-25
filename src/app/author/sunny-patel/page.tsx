@@ -49,7 +49,7 @@ export default async function AuthorPage() {
           style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
         />
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-          <div className="mx-auto mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-white/10">
+          <div className="mx-auto mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-hairline-strong dark:border-white/10">
             <Image
               src="/images/sunny-patel.jpg"
               alt="Sunny Patel"
@@ -73,17 +73,17 @@ export default async function AuthorPage() {
           {/* E-E-A-T credentials */}
           <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
             {[
-              { label: "15+ Years SEO", color: "#5B8AEF" },
-              { label: "15+ Years Hands-On", color: "#d79f1e" },
-              { label: "45-Site Test Portfolio", color: "#5a922c" },
-              { label: "44 Managed Sites", color: "#4c7894" },
+              { label: "15+ Years SEO", color: "var(--brand-ink)" },
+              { label: "15+ Years Hands-On", color: "var(--gold-ink)" },
+              { label: "45-Site Test Portfolio", color: "var(--success-ink)" },
+              { label: "44 Managed Sites", color: "var(--teal-ink)" },
             ].map((badge) => (
               <span
                 key={badge.label}
                 className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium"
                 style={{
-                  borderColor: `${badge.color}33`,
-                  backgroundColor: `${badge.color}10`,
+                  borderColor: `color-mix(in srgb, ${badge.color} 20%, transparent)`,
+                  backgroundColor: `color-mix(in srgb, ${badge.color} 10%, transparent)`,
                   color: badge.color,
                 }}
               >
@@ -110,7 +110,7 @@ export default async function AuthorPage() {
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 text-xs text-muted-foreground"
+                  className="rounded-full border border-hairline bg-wash px-2.5 py-1 text-xs text-muted-foreground dark:border-white/[0.06] dark:bg-white/[0.02]"
                 >
                   {skill}
                 </span>
@@ -141,7 +141,7 @@ export default async function AuthorPage() {
             {sorted.length} {sorted.length === 1 ? "article" : "articles"} published
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline dark:via-white/[0.08] to-transparent" />
       </div>
 
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -150,7 +150,7 @@ export default async function AuthorPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-hairline bg-wash transition-all duration-300 hover:border-hairline-strong hover:bg-surface-2 dark:border-white/[0.06] dark:bg-white/[0.02] dark:hover:border-white/[0.1] dark:hover:bg-white/[0.04]"
             >
               {post.entry.ogImage && (
                 <div className="relative aspect-[16/9] w-full">

@@ -2,7 +2,7 @@ import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 // Shared field styling, previously copy-pasted across all three lead forms.
 const FIELD_CLASS =
-  "w-full min-h-11 rounded-xl border border-input bg-[#0a0a0f] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-[border-color,box-shadow,opacity] duration-300 focus:border-brand/50 focus:shadow-[0_0_20px_rgba(91,138,239,0.12)] focus:outline-none focus:ring-2 focus:ring-brand/25 disabled:opacity-50";
+  "w-full min-h-11 rounded-xl border border-hairline-strong bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-[border-color,box-shadow,opacity] duration-300 focus:border-brand-ink/50 focus:shadow-[0_0_20px_var(--glow-brand)] focus:outline-none focus:ring-2 focus:ring-brand-ink/25 disabled:opacity-50 dark:border-input dark:bg-[#0a0a0f] dark:focus:shadow-[0_0_20px_rgba(91,138,239,0.12)]";
 
 export function FormField({
   id,
@@ -43,7 +43,7 @@ export function FormField({
       }
     >
       {label}
-      {required && <span className="ml-1 text-brand">*</span>}
+      {required && <span className="ml-1 text-brand-ink">*</span>}
       {optional && (
         <span className="ml-1 text-muted-foreground">(optional)</span>
       )}
@@ -97,7 +97,7 @@ export function FormSelect({
         className="mb-2 block text-sm font-medium text-muted-foreground"
       >
         {label}
-        {required && <span className="ml-1 text-brand">*</span>}
+        {required && <span className="ml-1 text-brand-ink">*</span>}
       </label>
       <select
         id={id}
@@ -135,8 +135,8 @@ export function FormError({
       role="alert"
       className={
         compact
-          ? "flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-3 py-2 text-xs text-red-400"
-          : "flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400"
+          ? "flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-3 py-2 text-xs text-red-700 dark:text-red-400"
+          : "flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-400"
       }
     >
       <AlertCircle className={compact ? "h-3 w-3 shrink-0" : "h-4 w-4 shrink-0"} />
@@ -179,7 +179,7 @@ export function FormSuccess({
       </a>
       <button
         onClick={onReset}
-        className="mt-2 text-sm text-brand transition-colors hover:text-brand/80"
+        className="mt-2 text-sm text-brand-ink transition-colors hover:text-brand-ink/80"
       >
         Send another message
       </button>

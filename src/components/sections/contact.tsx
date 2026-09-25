@@ -17,25 +17,25 @@ const HOW_HEARD_OPTIONS = [
 
 const contactItems = [
   {
-    icon: <Mail className="h-5 w-5 text-brand" />,
+    icon: <Mail className="h-5 w-5 text-brand-ink" />,
     label: "Email",
     value: "Hello@SunnyPatel.co.uk",
     href: "mailto:Hello@SunnyPatel.co.uk",
   },
   {
-    icon: <Phone className="h-5 w-5 text-brand" />,
+    icon: <Phone className="h-5 w-5 text-brand-ink" />,
     label: "Phone",
     value: "07305 523333",
     href: "tel:07305523333",
   },
   {
-    icon: <MapPin className="h-5 w-5 text-brand" />,
+    icon: <MapPin className="h-5 w-5 text-brand-ink" />,
     label: "Location",
     value: "Berkshire, UK (Remote & In-Person)",
     href: null,
   },
   {
-    icon: <Star className="h-5 w-5 text-brand" />,
+    icon: <Star className="h-5 w-5 text-brand-ink" />,
     label: "Reviews",
     value: "Google Business Profile",
     href: "https://share.google/DzDCSIfR2eTOxHTcm",
@@ -51,13 +51,26 @@ export function Contact() {
     });
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 md:py-32">
-      {/* Dot grid */}
+    <section id="contact" className="relative overflow-hidden bg-background py-24 md:py-32 dark:bg-transparent">
+      {/* Dot grid — dark original, unchanged pixels */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 hidden opacity-[0.06] dark:block"
         style={{
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 15%, transparent 50%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 15%, transparent 50%)",
+        }}
+      />
+      {/* Dot grid — light, themed grid-line token */}
+      <div
+        className="absolute inset-0 dark:hidden"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           maskImage:
             "radial-gradient(ellipse at center, black 15%, transparent 50%)",
@@ -70,7 +83,7 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left — info */}
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal">
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-ink">
               Free SEO Diagnosis
             </p>
             <h2
@@ -83,13 +96,13 @@ export function Contact() {
               Request a free 20-minute diagnosis and I&apos;ll help identify the most useful next step. For a full documented review, choose the £495 SEO audit.
             </p>
 
-            <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.03]">
+            <div className="overflow-hidden rounded-xl border border-hairline bg-surface-1 shadow-[var(--elev)] dark:border-white/[0.08] dark:bg-white/[0.03] dark:shadow-none">
               {contactItems.map((item, i) => {
                 const inner = (
                   <div
                     className={`flex items-center gap-4 px-5 py-4 transition-colors duration-200 ${item.href ? "hover:bg-brand/5" : ""}`}
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.04]">
                       {item.icon}
                     </div>
                     <div>
@@ -104,7 +117,7 @@ export function Contact() {
                 );
                 return (
                   <div key={item.label}>
-                    {i > 0 && <div className="border-t border-white/[0.06]" />}
+                    {i > 0 && <div className="border-t border-hairline dark:border-white/[0.06]" />}
                     {item.href ? (
                       <a
                         href={item.href}
@@ -125,7 +138,7 @@ export function Contact() {
 
           {/* Right — form */}
           <GlowCard spread={50} proximity={80}>
-            <div className="relative rounded-xl border-[0.75px] bg-background p-8 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+            <div className="relative rounded-xl border-[0.75px] bg-surface-1 p-8 shadow-[var(--elev)] dark:bg-background dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
               {status === "success" ? (
                 <FormSuccess
                   message="Your diagnosis request is with me. I'll reply personally within one working day."

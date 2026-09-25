@@ -234,7 +234,7 @@ export default function ImageCompressor() {
         className={`cursor-pointer rounded-xl border-2 border-dashed p-12 text-center transition-colors ${
           isDragging
             ? "border-brand bg-brand/[0.06]"
-            : "border-white/[0.12] bg-white/[0.02] hover:border-brand/40 hover:bg-brand/[0.03]"
+            : "border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.02] hover:border-brand/40 hover:bg-brand/[0.03]"
         }`}
       >
         <input
@@ -283,7 +283,7 @@ export default function ImageCompressor() {
 
       {/* Controls */}
       {files.length > 0 && (
-        <div className="mt-6 rounded-lg border border-white/[0.08] bg-white/[0.03] p-5">
+        <div className="mt-6 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-5">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Quality */}
             <div>
@@ -312,7 +312,7 @@ export default function ImageCompressor() {
               <select
                 value={outputFormat}
                 onChange={(e) => setOutputFormat(e.target.value as "auto" | "jpeg" | "webp" | "png")}
-                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground focus:border-brand focus:outline-none"
+                className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-3 py-2 text-sm text-foreground focus:border-brand focus:outline-none"
               >
                 <option value="auto">Auto (same as input)</option>
                 <option value="jpeg">JPEG</option>
@@ -331,7 +331,7 @@ export default function ImageCompressor() {
                 placeholder="e.g. 1920"
                 value={maxDim}
                 onChange={(e) => setMaxDim(e.target.value)}
-                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/65 focus:border-brand focus:outline-none"
+                className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/65 focus:border-brand focus:outline-none"
               />
               <p className="text-xs text-muted-foreground mt-1">Leave empty for original size</p>
             </div>
@@ -352,7 +352,7 @@ export default function ImageCompressor() {
 
       {/* Summary Bar */}
       {results.length > 0 && (
-        <div className="mt-8 rounded-lg border border-white/[0.08] bg-white/[0.03] p-5">
+        <div className="mt-8 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-5">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap gap-6 text-sm">
               <div>
@@ -368,7 +368,7 @@ export default function ImageCompressor() {
                 <span className="font-medium text-foreground">{formatBytes(totalCompressed)}</span>
               </div>
               <div>
-                <span className="rounded-full bg-emerald-500/15 text-emerald-400 px-2 py-0.5 text-xs font-mono">
+                <span className="rounded-full bg-success-ink/10 text-success-ink dark:bg-emerald-500/15 dark:text-emerald-400 px-2 py-0.5 text-xs font-mono">
                   -{totalSavings}%
                 </span>
               </div>
@@ -393,7 +393,7 @@ export default function ImageCompressor() {
             return (
               <div
                 key={i}
-                className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4"
+                className="rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4"
               >
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                   {/* Thumbnails */}
@@ -402,7 +402,7 @@ export default function ImageCompressor() {
                       <img
                         src={r.originalPreviewUrl}
                         alt="Original"
-                        className="h-16 w-16 rounded object-cover border border-white/[0.08]"
+                        className="h-16 w-16 rounded object-cover border border-hairline dark:border-white/[0.08]"
                       />
                       <span className="text-[10px] text-muted-foreground mt-1 block">Before</span>
                     </div>
@@ -415,7 +415,7 @@ export default function ImageCompressor() {
                       <img
                         src={r.compressedPreviewUrl}
                         alt="Compressed"
-                        className="h-16 w-16 rounded object-cover border border-white/[0.08]"
+                        className="h-16 w-16 rounded object-cover border border-hairline dark:border-white/[0.08]"
                       />
                       <span className="text-[10px] text-muted-foreground mt-1 block">After</span>
                     </div>
@@ -433,7 +433,7 @@ export default function ImageCompressor() {
                           {r.originalWidth}×{r.originalHeight} → {r.compressedWidth}×{r.compressedHeight}
                         </span>
                       )}
-                      <span className="rounded-full bg-emerald-500/15 text-emerald-400 px-2 py-0.5 text-xs font-mono">
+                      <span className="rounded-full bg-success-ink/10 text-success-ink dark:bg-emerald-500/15 dark:text-emerald-400 px-2 py-0.5 text-xs font-mono">
                         -{savings}%
                       </span>
                     </div>
@@ -442,7 +442,7 @@ export default function ImageCompressor() {
                   {/* Download */}
                   <button
                     onClick={() => downloadOne(r)}
-                    className="shrink-0 rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-white/[0.08]"
+                    className="shrink-0 rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-2 dark:bg-white/[0.08]"
                   >
                     Download
                   </button>
@@ -454,7 +454,7 @@ export default function ImageCompressor() {
       )}
 
       {/* Page Speed Context */}
-      <div className="mt-12 rounded-lg border border-white/[0.08] bg-white/[0.03] p-6">
+      <div className="mt-12 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-6">
         <h2
           className="text-lg font-semibold text-foreground mb-4"
           style={{ fontFamily: "var(--font-heading)" }}

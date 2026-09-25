@@ -250,8 +250,8 @@ function renderWordSpans(spans: WordSpan[], highlightType: 'added' | 'removed') 
     if (span.type === highlightType) {
       const cls =
         highlightType === 'added'
-          ? 'bg-emerald-500/25 rounded px-0.5'
-          : 'bg-red-500/25 rounded px-0.5 line-through';
+          ? 'bg-emerald-100 dark:bg-emerald-500/25 rounded px-0.5 underline decoration-2 underline-offset-2'
+          : 'bg-red-100 dark:bg-red-500/25 rounded px-0.5 line-through';
       return (
         <span key={idx} className={cls}>
           {span.text}
@@ -331,7 +331,7 @@ export default function TextDiff() {
             onChange={(e) => setOriginal(e.target.value)}
             placeholder="Paste the original text here..."
             rows={12}
-            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono resize-y"
+            className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono resize-y"
           />
         </div>
         <div>
@@ -341,7 +341,7 @@ export default function TextDiff() {
             onChange={(e) => setModified(e.target.value)}
             placeholder="Paste the modified text here..."
             rows={12}
-            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono resize-y"
+            className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono resize-y"
           />
         </div>
       </div>
@@ -351,25 +351,25 @@ export default function TextDiff() {
         <button
           onClick={handleSwap}
           disabled={!hasContent}
-          className="rounded-lg border border-white/[0.08] px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-white/[0.05] disabled:opacity-40 disabled:cursor-not-allowed"
+          className="rounded-lg border border-hairline-strong dark:border-white/[0.08] px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-black/[0.05] dark:hover:bg-white/[0.05] disabled:opacity-40 disabled:cursor-not-allowed"
         >
           Swap Texts
         </button>
         <button
           onClick={handleClear}
           disabled={!hasContent}
-          className="rounded-lg border border-white/[0.08] px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-white/[0.05] disabled:opacity-40 disabled:cursor-not-allowed"
+          className="rounded-lg border border-hairline-strong dark:border-white/[0.08] px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-black/[0.05] dark:hover:bg-white/[0.05] disabled:opacity-40 disabled:cursor-not-allowed"
         >
           Clear
         </button>
 
         {hasDiff && (
-          <div className="ml-auto flex items-center gap-1 rounded-lg border border-white/[0.08] p-0.5">
+          <div className="ml-auto flex items-center gap-1 rounded-lg border border-hairline-strong dark:border-white/[0.08] p-0.5">
             <button
               onClick={() => setView('unified')}
               className={`rounded-lg px-3 py-1.5 text-sm transition ${
                 view === 'unified'
-                  ? 'bg-brand/15 text-brand border border-brand/30'
+                  ? 'bg-brand/15 text-brand-ink dark:text-brand border border-brand/30'
                   : 'border border-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -379,7 +379,7 @@ export default function TextDiff() {
               onClick={() => setView('side-by-side')}
               className={`rounded-lg px-3 py-1.5 text-sm transition ${
                 view === 'side-by-side'
-                  ? 'bg-brand/15 text-brand border border-brand/30'
+                  ? 'bg-brand/15 text-brand-ink dark:text-brand border border-brand/30'
                   : 'border border-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -392,20 +392,20 @@ export default function TextDiff() {
       {/* Stats */}
       {hasDiff && (
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-center">
-            <div className="text-2xl font-bold text-emerald-400">{stats.added}</div>
+          <div className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-4 py-3 text-center">
+            <div className="text-2xl font-bold text-success-ink dark:text-emerald-400">{stats.added}</div>
             <div className="mt-0.5 text-xs text-muted-foreground">Lines Added</div>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-center">
-            <div className="text-2xl font-bold text-red-400">{stats.removed}</div>
+          <div className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-4 py-3 text-center">
+            <div className="text-2xl font-bold text-destructive dark:text-red-400">{stats.removed}</div>
             <div className="mt-0.5 text-xs text-muted-foreground">Lines Removed</div>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-center">
+          <div className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-4 py-3 text-center">
             <div className="text-2xl font-bold text-foreground">{stats.unchanged}</div>
             <div className="mt-0.5 text-xs text-muted-foreground">Lines Unchanged</div>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-center">
-            <div className="text-2xl font-bold text-brand">{stats.similarityPct}%</div>
+          <div className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-4 py-3 text-center">
+            <div className="text-2xl font-bold text-brand-ink dark:text-brand">{stats.similarityPct}%</div>
             <div className="mt-0.5 text-xs text-muted-foreground">Similarity</div>
           </div>
         </div>
@@ -413,7 +413,7 @@ export default function TextDiff() {
 
       {/* Diff output */}
       {hasDiff && view === 'unified' && (
-        <div className="mt-6 rounded-lg border border-white/[0.08] bg-[#0d0d14] p-0 font-mono text-sm overflow-auto max-h-[600px]">
+        <div className="mt-6 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-[#0d0d14] p-0 font-mono text-sm overflow-auto max-h-[600px]">
           {paired.map((line, idx) => {
             if (line.type === 'unchanged') {
               return (
@@ -433,12 +433,12 @@ export default function TextDiff() {
 
             if (line.type === 'removed') {
               return (
-                <div key={idx} className="flex bg-red-500/10 border-l-2 border-red-500">
+                <div key={idx} className="flex bg-red-50 dark:bg-red-500/10 border-l-2 border-red-600 dark:border-red-500">
                   <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                     {line.oldLineNo}
                   </span>
                   <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5" />
-                  <span className="flex-1 px-2 py-0.5 text-red-300 whitespace-pre-wrap break-all">
+                  <span className="flex-1 px-2 py-0.5 text-red-700 dark:text-red-300 whitespace-pre-wrap break-all">
                     - {line.oldText}
                   </span>
                 </div>
@@ -447,12 +447,12 @@ export default function TextDiff() {
 
             if (line.type === 'added') {
               return (
-                <div key={idx} className="flex bg-emerald-500/10 border-l-2 border-emerald-500">
+                <div key={idx} className="flex bg-emerald-50 dark:bg-emerald-500/10 border-l-2 border-emerald-600 dark:border-emerald-500">
                   <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5" />
                   <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                     {line.newLineNo}
                   </span>
-                  <span className="flex-1 px-2 py-0.5 text-emerald-300 whitespace-pre-wrap break-all">
+                  <span className="flex-1 px-2 py-0.5 text-emerald-700 dark:text-emerald-300 whitespace-pre-wrap break-all">
                     + {line.newText}
                   </span>
                 </div>
@@ -462,21 +462,21 @@ export default function TextDiff() {
             if (line.type === 'modified') {
               return (
                 <div key={idx}>
-                  <div className="flex bg-red-500/10 border-l-2 border-red-500">
+                  <div className="flex bg-red-50 dark:bg-red-500/10 border-l-2 border-red-600 dark:border-red-500">
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                       {line.oldLineNo}
                     </span>
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5" />
-                    <span className="flex-1 px-2 py-0.5 text-red-300 whitespace-pre-wrap break-all">
+                    <span className="flex-1 px-2 py-0.5 text-red-700 dark:text-red-300 whitespace-pre-wrap break-all">
                       - {line.oldSpans && renderWordSpans(line.oldSpans, 'removed')}
                     </span>
                   </div>
-                  <div className="flex bg-emerald-500/10 border-l-2 border-emerald-500">
+                  <div className="flex bg-emerald-50 dark:bg-emerald-500/10 border-l-2 border-emerald-600 dark:border-emerald-500">
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5" />
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                       {line.newLineNo}
                     </span>
-                    <span className="flex-1 px-2 py-0.5 text-emerald-300 whitespace-pre-wrap break-all">
+                    <span className="flex-1 px-2 py-0.5 text-emerald-700 dark:text-emerald-300 whitespace-pre-wrap break-all">
                       + {line.newSpans && renderWordSpans(line.newSpans, 'added')}
                     </span>
                   </div>
@@ -490,9 +490,9 @@ export default function TextDiff() {
       )}
 
       {hasDiff && view === 'side-by-side' && (
-        <div className="mt-6 grid grid-cols-2 gap-0 rounded-lg border border-white/[0.08] bg-[#0d0d14] font-mono text-sm overflow-auto max-h-[600px]">
+        <div className="mt-6 grid grid-cols-2 gap-0 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-[#0d0d14] font-mono text-sm overflow-auto max-h-[600px]">
           {/* Left: Original */}
-          <div className="border-r border-white/[0.08] overflow-auto">
+          <div className="border-r border-hairline-strong dark:border-white/[0.08] overflow-auto">
             {paired.map((line, idx) => {
               if (line.type === 'unchanged') {
                 return (
@@ -508,11 +508,11 @@ export default function TextDiff() {
               }
               if (line.type === 'removed') {
                 return (
-                  <div key={idx} className="flex bg-red-500/10 border-l-2 border-red-500">
+                  <div key={idx} className="flex bg-red-50 dark:bg-red-500/10 border-l-2 border-red-600 dark:border-red-500">
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                       {line.oldLineNo}
                     </span>
-                    <span className="flex-1 px-2 py-0.5 text-red-300 whitespace-pre-wrap break-all">
+                    <span className="flex-1 px-2 py-0.5 text-red-700 dark:text-red-300 whitespace-pre-wrap break-all">
                       {line.oldText}
                     </span>
                   </div>
@@ -528,11 +528,11 @@ export default function TextDiff() {
               }
               if (line.type === 'modified') {
                 return (
-                  <div key={idx} className="flex bg-red-500/10 border-l-2 border-red-500">
+                  <div key={idx} className="flex bg-red-50 dark:bg-red-500/10 border-l-2 border-red-600 dark:border-red-500">
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                       {line.oldLineNo}
                     </span>
-                    <span className="flex-1 px-2 py-0.5 text-red-300 whitespace-pre-wrap break-all">
+                    <span className="flex-1 px-2 py-0.5 text-red-700 dark:text-red-300 whitespace-pre-wrap break-all">
                       {line.oldSpans && renderWordSpans(line.oldSpans, 'removed')}
                     </span>
                   </div>
@@ -559,11 +559,11 @@ export default function TextDiff() {
               }
               if (line.type === 'added') {
                 return (
-                  <div key={idx} className="flex bg-emerald-500/10 border-l-2 border-emerald-500">
+                  <div key={idx} className="flex bg-emerald-50 dark:bg-emerald-500/10 border-l-2 border-emerald-600 dark:border-emerald-500">
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                       {line.newLineNo}
                     </span>
-                    <span className="flex-1 px-2 py-0.5 text-emerald-300 whitespace-pre-wrap break-all">
+                    <span className="flex-1 px-2 py-0.5 text-emerald-700 dark:text-emerald-300 whitespace-pre-wrap break-all">
                       {line.newText}
                     </span>
                   </div>
@@ -579,11 +579,11 @@ export default function TextDiff() {
               }
               if (line.type === 'modified') {
                 return (
-                  <div key={idx} className="flex bg-emerald-500/10 border-l-2 border-emerald-500">
+                  <div key={idx} className="flex bg-emerald-50 dark:bg-emerald-500/10 border-l-2 border-emerald-600 dark:border-emerald-500">
                     <span className="text-muted-foreground/65 text-right pr-3 select-none w-10 inline-block shrink-0 py-0.5">
                       {line.newLineNo}
                     </span>
-                    <span className="flex-1 px-2 py-0.5 text-emerald-300 whitespace-pre-wrap break-all">
+                    <span className="flex-1 px-2 py-0.5 text-emerald-700 dark:text-emerald-300 whitespace-pre-wrap break-all">
                       {line.newSpans && renderWordSpans(line.newSpans, 'added')}
                     </span>
                   </div>
@@ -597,7 +597,7 @@ export default function TextDiff() {
 
       {/* Empty state */}
       {!hasDiff && hasContent && (
-        <div className="mt-6 rounded-lg border border-white/[0.08] bg-[#0d0d14] p-8 text-center">
+        <div className="mt-6 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-[#0d0d14] p-8 text-center">
           <p className="text-muted-foreground">Both texts are identical. No differences found.</p>
         </div>
       )}
@@ -631,7 +631,7 @@ export default function TextDiff() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3"
+              className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-4 py-3"
             >
               <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>

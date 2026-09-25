@@ -37,10 +37,10 @@ export default async function PortfolioIndex() {
           style={{ background: "radial-gradient(circle, #d79f1e, transparent 70%)" }}
         />
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+              "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage:
               "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
@@ -49,7 +49,7 @@ export default async function PortfolioIndex() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold-ink">
             Portfolio
           </p>
           <h1
@@ -64,7 +64,7 @@ export default async function PortfolioIndex() {
             </p>
           )}
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
       </div>
 
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -102,20 +102,20 @@ export default async function PortfolioIndex() {
                       <div className="mb-3 flex items-start justify-between gap-3">
                         <div className="flex flex-wrap gap-1.5">
                           {project.entry.featured && (
-                            <span className="rounded-full border border-gold/20 bg-gold/10 px-2.5 py-0.5 text-xs font-medium text-gold">
+                            <span className="rounded-full border border-gold/20 bg-gold/10 px-2.5 py-0.5 text-xs font-medium text-gold-ink">
                               Featured
                             </span>
                           )}
                           {project.entry.tags?.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
-                              className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground"
+                              className="rounded-full border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground"
                             >
                               {tag}
                             </span>
                           ))}
                         </div>
-                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/70 transition-all duration-200 group-hover:border-gold/20 group-hover:bg-gold/10 group-hover:text-gold">
+                        <div className="shrink-0 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] p-1.5 text-muted-foreground/70 transition-all duration-200 group-hover:border-gold/20 group-hover:bg-gold/10 group-hover:text-gold-ink">
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                         </div>
                       </div>

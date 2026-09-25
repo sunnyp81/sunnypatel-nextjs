@@ -1,13 +1,14 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "motion/react";
 
 const tagColorMap: Array<{ test: RegExp; color: string; secondary: string }> = [
-  { test: /health|medical|aesthet|care/i, color: "#5B8AEF", secondary: "#4c7894" },
-  { test: /design|brand|creative/i,       color: "#d79f1e", secondary: "#5B8AEF" },
-  { test: /dev|code|tech|software/i,      color: "#4c7894", secondary: "#5a922c" },
-  { test: /seo|content|search|organic/i,  color: "#5a922c", secondary: "#4c7894" },
-  { test: /legal|law|finance/i,           color: "#4c7894", secondary: "#5B8AEF" },
+  { test: /health|medical|aesthet|care/i, color: "var(--brand-ink)", secondary: "var(--teal-ink)" },
+  { test: /design|brand|creative/i,       color: "var(--gold-ink)", secondary: "var(--brand-ink)" },
+  { test: /dev|code|tech|software/i,      color: "var(--teal-ink)", secondary: "var(--success-ink)" },
+  { test: /seo|content|search|organic/i,  color: "var(--success-ink)", secondary: "var(--teal-ink)" },
+  { test: /legal|law|finance/i,           color: "var(--teal-ink)", secondary: "var(--brand-ink)" },
 ];
 
 function getColors(tags: readonly string[], industry?: string | null) {
@@ -15,7 +16,7 @@ function getColors(tags: readonly string[], industry?: string | null) {
   for (const entry of tagColorMap) {
     if (entry.test.test(haystack)) return entry;
   }
-  return { color: "#5B8AEF", secondary: "#4c7894" };
+  return { color: "var(--brand-ink)", secondary: "var(--teal-ink)" };
 }
 
 type Metric = { readonly value: string; readonly label: string };
@@ -35,22 +36,23 @@ export function ChartHero({
   metrics?: readonly Metric[] | null;
 }) {
   const { color, secondary } = getColors(tags ?? [], industry);
-  const fillId = `chart-fill-${color.replace("#", "")}`;
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const fillId = `chart-fill-${uid}`;
 
   return (
     <div className="mx-auto max-w-5xl px-6 pb-2 pt-6">
       <motion.div
-        className="relative h-52 overflow-hidden rounded-2xl border border-white/[0.06] bg-[#050507]"
+        className="relative h-52 overflow-hidden rounded-2xl border border-hairline dark:border-white/[0.06] bg-surface-1 dark:bg-[#050507]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.25 }}
       >
         {/* Dot grid */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.18]"
+          className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px)",
+              "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
@@ -59,7 +61,7 @@ export function ChartHero({
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse at 75% 85%, ${color}25, transparent 55%)`,
+            background: `radial-gradient(ellipse at 75% 85%, color-mix(in srgb, ${color} 15%, transparent), transparent 55%)`,
           }}
         />
 
@@ -139,7 +141,7 @@ export function ChartHero({
             >
               {metrics[0].value}
             </div>
-            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/70">
+            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-ink-faint dark:text-white/70">
               {metrics[0].label}
             </div>
           </motion.div>
@@ -163,14 +165,14 @@ export function ChartHero({
             >
               {metrics[1].value}
             </div>
-            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/70">
+            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-ink-faint dark:text-white/70">
               {metrics[1].label}
             </div>
           </motion.div>
         )}
 
         {/* Subtle corner label */}
-        <div className="absolute bottom-3 right-4 text-[9px] font-semibold uppercase tracking-widest text-white/20">
+        <div className="absolute bottom-3 right-4 text-[9px] font-semibold uppercase tracking-widest text-ink-faint/60 dark:text-white/20">
           Results
         </div>
       </motion.div>

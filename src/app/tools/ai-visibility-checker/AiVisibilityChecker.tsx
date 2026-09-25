@@ -26,10 +26,16 @@ interface Result {
   verdict: string;
 }
 
+function readInk(varName: string, fallback: string): string {
+  if (typeof window === 'undefined') return fallback;
+  const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+  return value || fallback;
+}
+
 function scoreColor(pct: number): string {
-  if (pct >= 0.8) return '#5a922c';
-  if (pct >= 0.55) return '#d79f1e';
-  return '#e5484d';
+  if (pct >= 0.8) return readInk('--success-ink', '#5a922c');
+  if (pct >= 0.55) return readInk('--gold-ink', '#d79f1e');
+  return readInk('--destructive', '#e5484d');
 }
 
 export default function AiVisibilityChecker({ showHeading = true }: { showHeading?: boolean }) {
@@ -37,6 +43,13 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState('');
+  const [, setThemeTick] = useState(0);
+
+  useEffect(() => {
+    const onThemeChange = () => setThemeTick((t) => t + 1);
+    window.addEventListener('themechange', onThemeChange);
+    return () => window.removeEventListener('themechange', onThemeChange);
+  }, []);
 
   const runCheck = useCallback(async (rawUrl: string) => {
     const trimmed = rawUrl.trim();
@@ -137,7 +150,7 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
             )}
           </button>
         </div>
-        {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+        {error && <p className="mt-3 text-sm text-destructive dark:text-red-400">{error}</p>}
       </form>
 
       {result && (
@@ -149,7 +162,7 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
               style={{
                 fontFamily: 'var(--font-heading)',
                 color: scoreColor(result.totalScore / 100),
-                background: `${scoreColor(result.totalScore / 100)}1a`,
+                background: `color-mix(in oklab, ${scoreColor(result.totalScore / 100)} 12%, transparent)`,
               }}
             >
               {result.totalScore}
@@ -183,7 +196,7 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
                       {c.passed ? (
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" />
                       ) : (
-                        <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
+                        <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive dark:text-red-400" />
                       )}
                       <div className="min-w-0">
                         <p className="text-sm text-foreground">

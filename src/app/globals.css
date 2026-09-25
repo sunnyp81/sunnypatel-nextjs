@@ -116,6 +116,7 @@
   --elev: 0 1px 0 rgb(255 255 255 / 90%) inset, 0 1px 2px rgb(10 16 36 / 6%), 0 10px 30px -14px rgb(42 91 215 / 28%);
   --grid-line: rgb(42 91 215 / 8%);
   --on-brand: #ffffff;
+  --crosshair: rgb(10 16 36 / 22%);
 }
 
 .dark {
@@ -162,6 +163,7 @@
   --elev: none;
   --grid-line: rgb(255 255 255 / 4%);
   --on-brand: #ffffff;
+  --crosshair: rgba(255, 255, 255, 0.3);
 }
 
 @layer base {
@@ -206,10 +208,13 @@
   gap: 0.5rem;
   padding: 0.9375rem 2.25rem;
   border-radius: 0.875rem;
-  /* Spinning conic-gradient border via background-clip technique */
+  /* Spinning conic-gradient border via background-clip technique.
+     Fill = surface-1 (near-black in dark, matches old #08080d almost
+     exactly; pure white "card" in light) so the pill reads as a filled
+     button in both themes, just with an inverted base colour. */
   border: 1.5px solid transparent;
   background:
-    linear-gradient(#08080d, #08080d) padding-box,
+    linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     conic-gradient(
       from var(--cta-angle) at 50% 50%,
       #5B8AEF   0deg,
@@ -219,7 +224,7 @@
       #5B8AEF 360deg
     ) border-box;
   animation: cta-border-spin 3.5s linear infinite;
-  color: #fff !important;
+  color: var(--ink-strong) !important;
   font-weight: 600;
   font-size: 0.9375rem;
   font-family: var(--font-heading);
@@ -234,7 +239,7 @@
   filter: brightness(1.18);
   box-shadow: inset 0 0 24px rgba(91, 138, 239, 0.12), 0 0 36px rgba(91, 138, 239, 0.35);
   text-decoration: none !important;
-  color: #fff !important;
+  color: var(--ink-strong) !important;
 }
 
 /* ── Service page section breaks — landing page feel ───────── */
@@ -243,7 +248,7 @@
 .prose-service > h2 {
   margin-top: 3.5rem !important;
   padding-top: 2.5rem !important;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--hairline);
   position: relative;
 }
 .prose-service > h2::before {
@@ -271,13 +276,13 @@
   border-spacing: 0 !important;
   border-radius: 0.875rem !important;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--hairline) !important;
+  background: var(--wash);
   width: 100%;
 }
 .prose-service thead th {
-  background: rgba(91,138,239,0.08) !important;
-  color: #5B8AEF !important;
+  background: var(--brand-wash) !important;
+  color: var(--brand-ink) !important;
   font-size: 0.8125rem !important;
   font-weight: 600 !important;
   text-transform: uppercase;
@@ -288,7 +293,7 @@
 }
 .prose-service tbody td {
   padding: 1rem 1.5rem !important;
-  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+  border-bottom: 1px solid var(--hairline) !important;
   font-size: 0.9375rem;
 }
 .prose-service tbody tr:last-child td {
@@ -319,6 +324,46 @@
   border-radius: 0.75rem;
   background: rgba(91,138,239,0.04);
   padding: 1.25rem 1.5rem !important;
+}
+
+/* ── Light-mode article typography — "premium printed report" ──────
+   Tailwind Typography's un-inverted default is neutral grey; replace it
+   with the site's navy/ink tokens so light articles read as a deliberate
+   design rather than an inverted dark theme. Scoped to html:not(.dark)
+   so it can never affect the dark render (which keeps prose-invert). */
+html:not(.dark) .prose {
+  --tw-prose-body: var(--ink-soft);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--ink-soft);
+  --tw-prose-links: var(--brand-ink);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--ink-faint);
+  --tw-prose-bullets: var(--hairline-strong);
+  --tw-prose-hr: var(--hairline);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--gold-ink);
+  --tw-prose-captions: var(--ink-faint);
+  --tw-prose-kbd: var(--foreground);
+  --tw-prose-code: var(--brand-ink);
+  --tw-prose-th-borders: var(--hairline-strong);
+  --tw-prose-td-borders: var(--hairline);
+}
+
+/* Light-mode blockquote — gold-ink quotation mark, printed-report pull-quote feel. */
+.prose blockquote {
+  position: relative;
+}
+html:not(.dark) .prose blockquote::before {
+  content: "\201C";
+  position: absolute;
+  left: -0.05em;
+  top: -0.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.75em;
+  line-height: 1;
+  color: var(--gold-ink);
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 /* ── Aurora blob animations ──────────────────────────────── */
@@ -393,6 +438,19 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 8px 24px -12px rgba(91, 138, 239, 0.55);
+}
+
+/* Light theme: the ghost secondary button needs ink text and a paper surface. */
+html:not(.dark) .gradient-button-variant {
+  color: var(--brand-ink);
+  background: #ffffff;
+  border-color: rgb(42 91 215 / 30%);
+  box-shadow: var(--elev);
+}
+html:not(.dark) .gradient-button-variant:hover {
+  background: #f0f4fd;
+  border-color: rgb(42 91 215 / 55%);
+  box-shadow: 0 10px 26px -14px var(--glow-brand);
 }
 
 @media (prefers-reduced-motion: reduce) {

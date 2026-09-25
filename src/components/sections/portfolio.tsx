@@ -18,7 +18,7 @@ export type FeaturedProject = {
 
 export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] }) {
   return (
-    <section id="portfolio" className="relative overflow-hidden py-24 md:py-32">
+    <section id="portfolio" className="relative overflow-hidden bg-background py-24 md:py-32 dark:bg-transparent">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         {/* Header */}
         <motion.div
@@ -28,7 +28,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
           viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-gold">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-gold-ink">
             Portfolio
           </p>
           <h2
@@ -60,7 +60,7 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
             >
               <Link href={`/portfolio/${project.slug}`} className="group block h-full">
                 <GlowCard className="h-full transition-transform duration-200 group-hover:scale-[1.01]" spread={60} proximity={80}>
-                  <div className="flex h-full flex-col overflow-hidden rounded-xl border-[0.75px] bg-background shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+                  <div className="flex h-full flex-col overflow-hidden rounded-xl border-[0.75px] bg-surface-1 shadow-[var(--elev)] dark:bg-background dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
                     <ProjectCover
                       title={project.title}
                       tags={project.tags}
@@ -73,13 +73,13 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
                           {project.tags?.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
-                              className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground"
+                              className="rounded-full border border-hairline bg-wash px-2.5 py-0.5 text-xs text-muted-foreground dark:border-white/[0.08] dark:bg-white/[0.03]"
                             >
                               {tag}
                             </span>
                           ))}
                         </div>
-                        <div className="shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1.5 text-muted-foreground/70 transition-all duration-200 group-hover:border-gold/20 group-hover:bg-gold/10 group-hover:text-gold">
+                        <div className="shrink-0 rounded-lg border border-hairline bg-wash p-1.5 text-muted-foreground/70 transition-all duration-200 group-hover:border-gold/20 group-hover:bg-gold/10 group-hover:text-gold-ink dark:border-white/[0.08] dark:bg-white/[0.03]">
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                         </div>
                       </div>
@@ -93,11 +93,11 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
 
                       {/* First 2 metrics */}
                       {project.metrics && project.metrics.length > 0 && (
-                        <div className="mt-auto grid grid-cols-2 gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
+                        <div className="mt-auto grid grid-cols-2 gap-3 rounded-xl border border-hairline bg-wash p-3 dark:border-white/[0.06] dark:bg-white/[0.02]">
                           {project.metrics.slice(0, 2).map((metric) => (
                             <div key={metric.label}>
                               <div
-                                className="text-lg font-bold text-gold"
+                                className="text-lg font-bold text-gold-ink"
                                 style={{ fontFamily: "var(--font-heading)" }}
                               >
                                 {metric.value}

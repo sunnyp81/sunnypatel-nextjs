@@ -24,10 +24,10 @@ export default function ContactPage() {
           style={{ background: "radial-gradient(circle, #4c7894, transparent 70%)" }}
         />
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+              "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage:
               "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
@@ -36,7 +36,7 @@ export default function ContactPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-teal">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-teal-ink">
             Contact
           </p>
           <h1
@@ -49,7 +49,7 @@ export default function ContactPage() {
             Free for 20 minutes, no obligation, and a direct reply from Sunny within one working day.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
       </div>
 
       <Contact />

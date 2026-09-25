@@ -34,7 +34,7 @@ export function BlogLeadMagnet() {
         </h3>
         <p className="text-sm text-muted-foreground">
           The checklist is on its way to your email. In the meantime, feel free to{" "}
-          <a href="/contact/" className="text-brand hover:underline">
+          <a href="/contact/" className="text-brand-ink hover:underline">
             get in touch
           </a>{" "}
           if you want hands-on help.
@@ -51,9 +51,9 @@ export function BlogLeadMagnet() {
           <div className="flex-1">
             <div className="mb-3 flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-brand/20 bg-brand/10">
-                <Download className="h-4 w-4 text-brand" />
+                <Download className="h-4 w-4 text-brand-ink" />
               </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-brand">
+              <span className="text-xs font-semibold uppercase tracking-widest text-brand-ink">
                 Free Resource
               </span>
             </div>

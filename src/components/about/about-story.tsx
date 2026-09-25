@@ -16,7 +16,7 @@ export function AboutStory() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-ink">
               My Approach
             </p>
             <h2
@@ -43,26 +43,26 @@ export function AboutStory() {
               </p>
             </div>
 
-            <div className="mb-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+            <div className="mb-8 rounded-2xl border border-hairline dark:border-white/[0.06] bg-surface-1 dark:bg-white/[0.02] p-6">
               <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 See the real data
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
                   href="/portfolio/"
-                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand"
+                  className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand-ink"
                 >
                   Case studies
                 </a>
                 <a
                   href="/portfolio/ai-search-optimisation-copilot-citations/"
-                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand"
+                  className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand-ink"
                 >
                   120K Bing Copilot citations study
                 </a>
                 <a
                   href="/blog/ai-referral-traffic-study/"
-                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand"
+                  className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand-ink"
                 >
                   AI referral traffic study
                 </a>
@@ -72,8 +72,8 @@ export function AboutStory() {
             <HowIWorkSteps />
 
             {/* 60/40 framework card */}
-            <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02]">
-              <div className="border-b border-white/[0.06] px-6 py-4">
+            <div className="overflow-hidden rounded-2xl border border-hairline dark:border-white/[0.06] bg-surface-1 dark:bg-white/[0.02]">
+              <div className="border-b border-hairline dark:border-white/[0.06] px-6 py-4">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   The Human-First Framework
                 </p>
@@ -92,7 +92,7 @@ export function AboutStory() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
                     <div
-                      className="mb-1 text-2xl font-bold text-brand"
+                      className="mb-1 text-2xl font-bold text-brand-ink"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       60%
@@ -106,7 +106,7 @@ export function AboutStory() {
                   </div>
                   <div className="rounded-xl border border-success/20 bg-success/5 p-4">
                     <div
-                      className="mb-1 text-2xl font-bold text-success"
+                      className="mb-1 text-2xl font-bold text-success-ink"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       40%
@@ -125,7 +125,7 @@ export function AboutStory() {
 
           {/* Right — whiteboard photo */}
           <motion.div
-            className="relative overflow-hidden rounded-2xl border border-white/[0.08]"
+            className="relative overflow-hidden rounded-2xl border border-hairline-strong dark:border-white/[0.08]"
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}

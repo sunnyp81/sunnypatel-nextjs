@@ -54,26 +54,58 @@ function scoreToGrade(score: number): string {
   return 'F';
 }
 
-function gradeColor(grade: string): string {
-  if (grade === 'A+' || grade === 'A') return '#22c55e';
-  if (grade === 'B') return '#3b82f6';
-  if (grade === 'C') return '#f59e0b';
-  if (grade === 'D') return '#f97316';
-  return '#ef4444';
+function gradeColor(grade: string, isDark: boolean): string {
+  if (isDark) {
+    if (grade === 'A+' || grade === 'A') return '#22c55e';
+    if (grade === 'B') return '#3b82f6';
+    if (grade === 'C') return '#f59e0b';
+    if (grade === 'D') return '#f97316';
+    return '#ef4444';
+  }
+  // Light "blueprint paper" mode: deepened for AA contrast on white cards.
+  if (grade === 'A+' || grade === 'A') return '#15803d';
+  if (grade === 'B') return '#2a5bd7';
+  if (grade === 'C') return '#8a5a00';
+  if (grade === 'D') return '#b45309';
+  return '#b91c1c';
+}
+
+/* ------------------------------------------------------------------ */
+/*  Theme-aware colour hook (no next-themes; tracks the .dark class    */
+/*  and re-renders on the toggle's 'themechange' window event)         */
+/* ------------------------------------------------------------------ */
+function useIsDark(): boolean {
+  const [isDark, setIsDark] = useState(true);
+  useEffect(() => {
+    const update = () => setIsDark(document.documentElement.classList.contains('dark'));
+    update();
+    window.addEventListener('themechange', update);
+    return () => window.removeEventListener('themechange', update);
+  }, []);
+  return isDark;
 }
 
 /* ------------------------------------------------------------------ */
 /*  SVG Grade Badge (large, 120x120)                                   */
 /* ------------------------------------------------------------------ */
 function GradeBadge({ grade, score }: { grade: string; score: number }) {
-  const color = gradeColor(grade);
+  const isDark = useIsDark();
+  const color = gradeColor(grade, isDark);
   const circumference = 2 * Math.PI * 52;
   const offset = circumference - (score / 100) * circumference;
 
   return (
     <div className="flex flex-col items-center gap-2">
       <svg width="120" height="120" viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="52" fill="none" stroke="white" strokeOpacity="0.06" strokeWidth="8" />
+        <circle
+          cx="60"
+          cy="60"
+          r="52"
+          fill="none"
+          stroke={isDark ? '#ffffff' : '#0a1024'}
+          strokeOpacity={isDark ? 0.06 : 0.08}
+          strokeWidth="8"
+        />
         <circle
           cx="60"
           cy="60"
@@ -104,8 +136,8 @@ function GradeBadge({ grade, score }: { grade: string; score: number }) {
           y="80"
           textAnchor="middle"
           dominantBaseline="middle"
-          fill="white"
-          fillOpacity="0.5"
+          fill={isDark ? '#ffffff' : '#2b3450'}
+          fillOpacity={isDark ? 0.5 : 1}
           fontSize="13"
           fontWeight="500"
         >
@@ -120,15 +152,24 @@ function GradeBadge({ grade, score }: { grade: string; score: number }) {
 /*  SVG Donut Gauge (smaller, 80x80)                                   */
 /* ------------------------------------------------------------------ */
 function DonutGauge({ score, label }: { score: number; label: string }) {
+  const isDark = useIsDark();
   const grade = scoreToGrade(score);
-  const color = gradeColor(grade);
+  const color = gradeColor(grade, isDark);
   const circumference = 2 * Math.PI * 32;
   const offset = circumference - (score / 100) * circumference;
 
   return (
     <div className="flex flex-col items-center gap-1.5">
       <svg width="80" height="80" viewBox="0 0 80 80">
-        <circle cx="40" cy="40" r="32" fill="none" stroke="white" strokeOpacity="0.06" strokeWidth="6" />
+        <circle
+          cx="40"
+          cy="40"
+          r="32"
+          fill="none"
+          stroke={isDark ? '#ffffff' : '#0a1024'}
+          strokeOpacity={isDark ? 0.06 : 0.08}
+          strokeWidth="6"
+        />
         <circle
           cx="40"
           cy="40"
@@ -164,7 +205,7 @@ function DonutGauge({ score, label }: { score: number; label: string }) {
 /* ------------------------------------------------------------------ */
 function CheckIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400 shrink-0">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-success-ink dark:text-emerald-400 shrink-0">
       <polyline points="20 6 9 17 4 12" />
     </svg>
   );
@@ -172,7 +213,7 @@ function CheckIcon() {
 
 function XIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-red-400 shrink-0">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-destructive dark:text-red-400 shrink-0">
       <line x1="18" y1="6" x2="6" y2="18" />
       <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
@@ -215,7 +256,7 @@ function ExpandableSection({ title, checks }: { title: string; checks: Check[] }
   const failCount = checks.filter((c) => !c.passed).length;
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02]">
+    <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02]">
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between p-4 text-left"
@@ -223,7 +264,7 @@ function ExpandableSection({ title, checks }: { title: string; checks: Check[] }
         <div className="flex items-center gap-3">
           <span className="text-sm font-semibold text-foreground">{title}</span>
           {failCount > 0 && (
-            <span className="inline-flex items-center rounded-full border border-red-500/30 bg-red-500/10 px-2 py-0.5 text-xs font-medium text-red-400">
+            <span className="inline-flex items-center rounded-full border border-destructive/30 dark:border-red-500/30 bg-destructive/10 dark:bg-red-500/10 px-2 py-0.5 text-xs font-medium text-destructive dark:text-red-400">
               {failCount} issue{failCount > 1 ? 's' : ''}
             </span>
           )}
@@ -231,7 +272,7 @@ function ExpandableSection({ title, checks }: { title: string; checks: Check[] }
         <ChevronIcon open={open} />
       </button>
       {open && (
-        <div className="border-t border-white/[0.06] p-4 space-y-3">
+        <div className="border-t border-hairline p-4 space-y-3">
           {sorted.map((check, i) => (
             <div key={i} className="flex items-start gap-3">
               {check.passed ? <CheckIcon /> : <XIcon />}
@@ -270,7 +311,7 @@ function ContentDetails({ stats }: { stats: ContentStats }) {
   ];
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02]">
+    <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02]">
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between p-4 text-left"
@@ -279,7 +320,7 @@ function ContentDetails({ stats }: { stats: ContentStats }) {
         <ChevronIcon open={open} />
       </button>
       {open && (
-        <div className="border-t border-white/[0.06] p-4 space-y-3">
+        <div className="border-t border-hairline p-4 space-y-3">
           {items.map((item, i) => (
             <div key={i} className="flex items-center gap-3">
               {item.good ? <CheckIcon /> : <XIcon />}
@@ -313,6 +354,7 @@ function Spinner() {
 /*  Main component                                                     */
 /* ------------------------------------------------------------------ */
 export default function WebsiteGrader() {
+  const isDark = useIsDark();
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [loadingPhase, setLoadingPhase] = useState('');
@@ -432,12 +474,12 @@ export default function WebsiteGrader() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+            className="flex-1 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           />
           <button
             type="submit"
             disabled={loading || !url.trim()}
-            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {loading ? (
               <span className="flex items-center gap-2">
@@ -453,12 +495,12 @@ export default function WebsiteGrader() {
 
       {/* Loading state */}
       {loading && (
-        <div className="mb-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-8">
+        <div className="mb-8 rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-8">
           <div className="flex flex-col items-center gap-4">
             <Spinner />
             <p className="text-sm text-muted-foreground animate-pulse">{loadingPhase}</p>
             <div className="w-full max-w-xs">
-              <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+              <div className="h-1.5 w-full rounded-full bg-hairline overflow-hidden">
                 <div
                   className="h-full rounded-full bg-brand animate-pulse"
                   style={{ width: loadingPhase.includes('performance') ? '80%' : loadingPhase.includes('Analysing') ? '50%' : '25%' }}
@@ -471,7 +513,7 @@ export default function WebsiteGrader() {
 
       {/* Error */}
       {error && (
-        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+        <div className="mb-6 rounded-lg border border-destructive/30 dark:border-red-500/30 bg-destructive/10 dark:bg-red-500/10 p-3 text-sm text-destructive dark:text-red-400">
           {error}
         </div>
       )}
@@ -480,7 +522,7 @@ export default function WebsiteGrader() {
       {result && (
         <div className="space-y-8">
           {/* Overall grade + URL */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
               <GradeBadge grade={result.grade} score={result.overallScore} />
               <div className="text-center sm:text-left">
@@ -488,7 +530,7 @@ export default function WebsiteGrader() {
                   className="text-xl font-bold text-foreground sm:text-2xl"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
-                  Overall Grade: <span style={{ color: gradeColor(result.grade) }}>{result.grade}</span>
+                  Overall Grade: <span style={{ color: gradeColor(result.grade, isDark) }}>{result.grade}</span>
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground break-all">{result.url}</p>
                 <p className="mt-2 text-xs text-muted-foreground">
@@ -500,25 +542,25 @@ export default function WebsiteGrader() {
 
           {/* 2x2 category grid */}
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 flex flex-col items-center gap-2">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 flex flex-col items-center gap-2">
               <DonutGauge score={result.seoScore} label="SEO Score" />
               <p className="text-xs text-muted-foreground">
                 {result.seoChecks.filter((c) => c.passed).length}/{result.seoChecks.length} checks passed
               </p>
             </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 flex flex-col items-center gap-2">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 flex flex-col items-center gap-2">
               <DonutGauge score={result.performanceScore} label="Performance" />
               <p className="text-xs text-muted-foreground">
                 {result.performanceScore > 0 ? 'PageSpeed Insights (mobile)' : 'Could not fetch PageSpeed data'}
               </p>
             </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 flex flex-col items-center gap-2">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 flex flex-col items-center gap-2">
               <DonutGauge score={result.securityScore} label="Security" />
               <p className="text-xs text-muted-foreground">
                 {result.securityChecks.filter((c) => c.passed).length}/{result.securityChecks.length} headers present
               </p>
             </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 flex flex-col items-center gap-2">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 flex flex-col items-center gap-2">
               <DonutGauge score={result.contentScore} label="Content" />
               <p className="text-xs text-muted-foreground">
                 {result.contentStats.wordCount.toLocaleString()} words, {result.contentStats.internalLinks} internal links
@@ -553,7 +595,7 @@ export default function WebsiteGrader() {
               </p>
               <Link
                 href="/contact/"
-                className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
+                className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
               >
                 Make an Enquiry
               </Link>
@@ -572,25 +614,25 @@ export default function WebsiteGrader() {
             What This Tool Checks
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
               <h3 className="text-sm font-semibold text-foreground mb-2">SEO (40% of grade)</h3>
               <p className="text-sm text-muted-foreground">
                 Title tag, meta description, heading structure, canonical tags, Open Graph meta, structured data, image alt text, and indexability.
               </p>
             </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
               <h3 className="text-sm font-semibold text-foreground mb-2">Performance (30% of grade)</h3>
               <p className="text-sm text-muted-foreground">
                 Google PageSpeed Insights score for mobile. Covers Core Web Vitals including LCP, CLS, and interaction responsiveness.
               </p>
             </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
               <h3 className="text-sm font-semibold text-foreground mb-2">Security (20% of grade)</h3>
               <p className="text-sm text-muted-foreground">
                 HTTPS usage, Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, and Strict-Transport-Security headers.
               </p>
             </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+            <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
               <h3 className="text-sm font-semibold text-foreground mb-2">Content (10% of grade)</h3>
               <p className="text-sm text-muted-foreground">
                 Word count, internal and external link count, image count, and heading diversity to assess content depth and structure.

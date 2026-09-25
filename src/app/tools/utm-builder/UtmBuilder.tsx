@@ -111,9 +111,9 @@ export default function UtmBuilder() {
 
   /* Shared input classes */
   const inputClass =
-    'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
+    'w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
   const inputErrorClass =
-    'w-full rounded-lg border border-red-500/50 bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-red-500/50 focus:outline-none focus:ring-1 focus:ring-red-500/30';
+    'w-full rounded-lg border border-destructive/50 dark:border-red-500/50 bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-destructive/50 dark:focus:border-red-500/50 focus:outline-none focus:ring-1 focus:ring-destructive/30 dark:focus:ring-red-500/30';
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -131,11 +131,11 @@ export default function UtmBuilder() {
       </div>
 
       {/* Form */}
-      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)]">
         {/* Website URL — full width */}
         <div className="mb-5">
           <label className="text-sm font-medium text-foreground">
-            Website URL <span className="text-red-400">*</span>
+            Website URL <span className="text-destructive dark:text-red-400">*</span>
           </label>
           <input
             type="url"
@@ -145,7 +145,7 @@ export default function UtmBuilder() {
             className={touched && (!websiteUrl || !urlValid) ? inputErrorClass : inputClass + ' mt-1.5'}
           />
           {touched && websiteUrl && !urlValid && (
-            <p className="mt-1 text-xs text-red-400">Enter a valid URL (e.g. https://example.com)</p>
+            <p className="mt-1 text-xs text-destructive dark:text-red-400">Enter a valid URL (e.g. https://example.com)</p>
           )}
         </div>
 
@@ -154,7 +154,7 @@ export default function UtmBuilder() {
           {/* Source */}
           <div>
             <label className="text-sm font-medium text-foreground">
-              utm_source <span className="text-red-400">*</span>
+              utm_source <span className="text-destructive dark:text-red-400">*</span>
             </label>
             <input
               type="text"
@@ -169,7 +169,7 @@ export default function UtmBuilder() {
                   key={s}
                   type="button"
                   onClick={() => { setSource(s); setTouched(true); }}
-                  className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-brand/40 hover:text-foreground cursor-pointer transition-colors"
+                  className="rounded-full border border-hairline-strong dark:border-white/[0.1] bg-surface-2 dark:bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-brand/40 hover:text-foreground cursor-pointer transition-colors"
                 >
                   {s}
                 </button>
@@ -180,7 +180,7 @@ export default function UtmBuilder() {
           {/* Medium */}
           <div>
             <label className="text-sm font-medium text-foreground">
-              utm_medium <span className="text-red-400">*</span>
+              utm_medium <span className="text-destructive dark:text-red-400">*</span>
             </label>
             <input
               type="text"
@@ -195,7 +195,7 @@ export default function UtmBuilder() {
                   key={m}
                   type="button"
                   onClick={() => { setMedium(m); setTouched(true); }}
-                  className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-brand/40 hover:text-foreground cursor-pointer transition-colors"
+                  className="rounded-full border border-hairline-strong dark:border-white/[0.1] bg-surface-2 dark:bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground hover:border-brand/40 hover:text-foreground cursor-pointer transition-colors"
                 >
                   {m}
                 </button>
@@ -206,7 +206,7 @@ export default function UtmBuilder() {
           {/* Campaign */}
           <div>
             <label className="text-sm font-medium text-foreground">
-              utm_campaign <span className="text-red-400">*</span>
+              utm_campaign <span className="text-destructive dark:text-red-400">*</span>
             </label>
             <input
               type="text"
@@ -248,17 +248,17 @@ export default function UtmBuilder() {
 
         {/* Validation hint */}
         {requiredMissing && (
-          <p className="mt-4 text-xs text-red-400">
+          <p className="mt-4 text-xs text-destructive dark:text-red-400">
             Fill in all required fields (URL, source, medium, campaign) to generate a link.
           </p>
         )}
       </div>
 
       {/* Generated URL */}
-      <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-6 rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)]">
         <label className="text-sm font-medium text-foreground">Generated URL</label>
         <div className="mt-2 flex items-stretch gap-3">
-          <div className="flex-1 overflow-x-auto rounded-lg border border-white/[0.08] bg-black/30 px-4 py-3 font-mono text-sm text-foreground">
+          <div className="flex-1 overflow-x-auto rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-black/30 px-4 py-3 font-mono text-sm text-foreground">
             {canGenerate ? (
               <span className="break-all">{generatedUrl}</span>
             ) : (
@@ -268,7 +268,7 @@ export default function UtmBuilder() {
           <button
             onClick={handleCopy}
             disabled={!canGenerate}
-            className="shrink-0 rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="shrink-0 rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-all hover:bg-[#4a79de] hover:shadow-[0_10px_32px_-6px_var(--glow-brand)] dark:hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {copied ? 'Copied!' : 'Copy to clipboard'}
           </button>
@@ -277,7 +277,7 @@ export default function UtmBuilder() {
 
       {/* History */}
       {history.length > 0 && (
-        <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="mt-6 rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)]">
           <div className="mb-3 flex items-center justify-between">
             <h2
               className="text-lg font-semibold text-foreground"
@@ -296,7 +296,7 @@ export default function UtmBuilder() {
             {history.map((entry, idx) => (
               <li
                 key={entry.ts}
-                className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-2.5"
+                className="flex items-center gap-3 rounded-lg border border-hairline bg-surface-2 dark:bg-white/[0.02] px-4 py-2.5"
               >
                 <div className="min-w-0 flex-1">
                   <p className="text-xs text-muted-foreground">{entry.label}</p>
@@ -304,7 +304,7 @@ export default function UtmBuilder() {
                 </div>
                 <button
                   onClick={() => handleCopyHistory(idx)}
-                  className="shrink-0 rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
+                  className="shrink-0 rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-surface-2 dark:bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
                 >
                   {copiedHistoryIdx === idx ? 'Copied!' : 'Copy'}
                 </button>
@@ -315,7 +315,7 @@ export default function UtmBuilder() {
       )}
 
       {/* How it works */}
-      <div className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-10 rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
         <h2
           className="mb-3 text-lg font-semibold text-foreground"
           style={{ fontFamily: 'var(--font-heading)' }}

@@ -7,8 +7,8 @@ const badgeVariants = cva(
     variants: {
       variant: {
         subtle:
-          "border border-white/[0.08] bg-white/[0.03] text-white/65",
-        brand: "border border-brand/20 bg-brand/[0.07] text-brand",
+          "border border-hairline-strong bg-wash text-ink-faint dark:border-white/[0.08] dark:text-white/65",
+        brand: "border border-brand/20 bg-brand/[0.07] text-brand-ink",
       },
       size: {
         sm: "px-2.5 py-0.5 text-xs",

@@ -41,9 +41,9 @@ export function PortfolioDetail({
   ].filter((m) => m.value);
 
   const psr = [
-    { label: "The Problem", text: project.problem, color: "#ef4444", accent: "border-red-500/20 bg-red-500/5" },
-    { label: "The Solution", text: project.solution, color: "#5B8AEF", accent: "border-brand/20 bg-brand/5" },
-    { label: "The Result", text: project.result, color: "#5a922c", accent: "border-success/20 bg-success/5" },
+    { label: "The Problem", text: project.problem, textClass: "text-red-700 dark:text-red-400", borderClass: "border-red-500/30", accent: "border-red-500/20 bg-red-500/5" },
+    { label: "The Solution", text: project.solution, textClass: "text-brand-ink", borderClass: "border-brand/30", accent: "border-brand/20 bg-brand/5" },
+    { label: "The Result", text: project.result, textClass: "text-success-ink", borderClass: "border-success/30", accent: "border-success/20 bg-success/5" },
   ].filter((s) => s.text);
 
   return (
@@ -55,9 +55,9 @@ export function PortfolioDetail({
           style={{ background: "radial-gradient(circle, #d79f1e, transparent 70%)" }}
         />
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
             WebkitMaskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
@@ -79,7 +79,7 @@ export function PortfolioDetail({
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-medium text-gold"
+                    className="rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-ink"
                   >
                     {tag}
                   </span>
@@ -108,7 +108,7 @@ export function PortfolioDetail({
           {/* Metadata row */}
           {meta.length > 0 && (
             <motion.div
-              className="mt-10 flex flex-wrap gap-px overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.06]"
+              className="mt-10 flex flex-wrap gap-px overflow-hidden rounded-xl border border-hairline dark:border-white/[0.06] bg-hairline-strong dark:bg-white/[0.06]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
@@ -125,7 +125,7 @@ export function PortfolioDetail({
           )}
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
       </div>
 
       {/* Chart hero visual */}
@@ -137,7 +137,7 @@ export function PortfolioDetail({
 
       {/* Metrics strip */}
       {project.metrics && project.metrics.length > 0 && (
-        <div className="border-b border-white/[0.05]">
+        <div className="border-b border-hairline dark:border-white/[0.05]">
           <div className="mx-auto max-w-5xl px-6 py-12">
             <motion.div
               className="grid grid-cols-2 gap-8 md:grid-cols-4"
@@ -156,7 +156,7 @@ export function PortfolioDetail({
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                 >
                   <div
-                    className="text-3xl font-bold text-gold md:text-4xl"
+                    className="text-3xl font-bold text-gold-ink md:text-4xl"
                     style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
                   >
                     {m.value}
@@ -185,8 +185,7 @@ export function PortfolioDetail({
                 <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="relative h-full rounded-xl border-[0.75px] bg-background p-6">
                   <span
-                    className={`mb-3 inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest ${s.accent}`}
-                    style={{ color: s.color, borderColor: `${s.color}33` }}
+                    className={`mb-3 inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest ${s.accent} ${s.textClass} ${s.borderClass}`}
                   >
                     {s.label}
                   </span>
@@ -200,16 +199,16 @@ export function PortfolioDetail({
 
       {/* Testimonial */}
       {project.testimonialText && (
-        <div className="border-t border-white/[0.05]">
+        <div className="border-t border-hairline dark:border-white/[0.05]">
           <div className="mx-auto max-w-3xl px-6 py-16">
             <motion.div
-              className="relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 md:p-10"
+              className="relative rounded-2xl border border-hairline dark:border-white/[0.06] bg-surface-1 dark:bg-white/[0.02] p-8 md:p-10"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.01 }}
               transition={{ duration: 0.6 }}
             >
-              <Quote className="mb-6 h-8 w-8 text-gold/40" />
+              <Quote className="mb-6 h-8 w-8 text-gold-ink/40" />
               <p
                 className="text-lg leading-relaxed text-foreground md:text-xl"
                 style={{ fontFamily: "var(--font-heading)" }}
@@ -218,7 +217,7 @@ export function PortfolioDetail({
               </p>
               {(project.testimonialAuthor || project.testimonialRole) && (
                 <div className="mt-6 flex items-center gap-3">
-                  <div className="h-px flex-1 bg-white/[0.08]" />
+                  <div className="h-px flex-1 bg-hairline-strong dark:bg-white/[0.08]" />
                   <div className="text-right">
                     {project.testimonialAuthor && (
                       <p className="text-sm font-semibold text-foreground">
@@ -239,7 +238,7 @@ export function PortfolioDetail({
       {/* Extra prose content (if any) */}
       {renderedContent && (
         <div className="mx-auto max-w-3xl px-6 pb-16">
-          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-hr:border-white/[0.08]">
+          <div className="prose dark:prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand-ink prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-hr:border-hairline dark:prose-hr:border-white/[0.08]">
             {renderedContent}
           </div>
         </div>

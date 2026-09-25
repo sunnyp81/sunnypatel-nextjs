@@ -40,7 +40,7 @@ export function BlogStickyCta() {
         />
 
         {/* Inner card */}
-        <div className="relative overflow-hidden rounded-[calc(1rem-1px)] bg-[#08080d]/98 shadow-2xl shadow-black/50 backdrop-blur-2xl">
+        <div className="relative overflow-hidden rounded-[calc(1rem-1px)] bg-white/95 shadow-[var(--elev)] backdrop-blur-2xl dark:bg-[#08080d]/98 dark:shadow-2xl dark:shadow-black/50">
           {/* Ambient background effects */}
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.08]"
@@ -65,7 +65,7 @@ export function BlogStickyCta() {
           >
             {/* Left: icon + text */}
             <div className="relative flex items-center gap-3">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand transition-colors duration-300 group-hover:border-brand/40 group-hover:bg-brand/20">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand-ink transition-colors duration-300 group-hover:border-brand/40 group-hover:bg-brand/20">
                 <Sparkles className="h-3.5 w-3.5" />
               </div>
               <div>
@@ -78,7 +78,7 @@ export function BlogStickyCta() {
 
             {/* Right: button */}
             <span
-              className="relative inline-flex shrink-0 items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2.5 text-xs font-semibold text-white shadow-[0_0_24px_rgba(91,138,239,0.35)] transition-shadow duration-300 group-hover:shadow-[0_0_36px_rgba(91,138,239,0.55)] sm:px-5"
+              className="relative inline-flex shrink-0 items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2.5 text-xs font-semibold text-white shadow-[0_0_24px_var(--glow-brand)] transition-shadow duration-300 group-hover:shadow-[0_0_36px_var(--glow-brand)] dark:shadow-[0_0_24px_rgba(91,138,239,0.35)] dark:group-hover:shadow-[0_0_36px_rgba(91,138,239,0.55)] sm:px-5"
               style={{
                 fontFamily: "var(--font-heading)",
                 background: "linear-gradient(135deg, #5B8AEF 0%, #3d6fe8 100%)",

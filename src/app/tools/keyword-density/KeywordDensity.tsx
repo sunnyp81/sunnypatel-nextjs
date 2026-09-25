@@ -160,18 +160,18 @@ export default function KeywordDensity() {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={12}
-              className="w-full resize-y rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
+              className="w-full resize-y rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
               placeholder="Paste your article, page copy, or any text here..."
             />
             <div className="flex gap-4 text-xs text-muted-foreground">
               <span>
-                <span className="rounded-full bg-brand/15 px-2 py-0.5 font-mono text-brand">
+                <span className="rounded-full bg-brand/15 px-2 py-0.5 font-mono text-brand-ink dark:text-brand">
                   {totalWords}
                 </span>{' '}
                 words
               </span>
               <span>
-                <span className="rounded-full bg-brand/15 px-2 py-0.5 font-mono text-brand">
+                <span className="rounded-full bg-brand/15 px-2 py-0.5 font-mono text-brand-ink dark:text-brand">
                   {charCount.toLocaleString()}
                 </span>{' '}
                 characters
@@ -188,7 +188,7 @@ export default function KeywordDensity() {
               type="text"
               value={targetKeyword}
               onChange={(e) => setTargetKeyword(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+              className="w-full rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
               placeholder="e.g. seo consultant"
             />
           </div>
@@ -206,16 +206,16 @@ export default function KeywordDensity() {
               <div className="mt-3 grid grid-cols-2 gap-3">
                 <div>
                   <p className="text-xs text-muted-foreground">Count</p>
-                  <p className="text-2xl font-bold text-brand">{targetStats.count}</p>
+                  <p className="text-2xl font-bold text-brand-ink dark:text-brand">{targetStats.count}</p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Density</p>
-                  <p className="text-2xl font-bold text-brand">{targetStats.density.toFixed(2)}%</p>
+                  <p className="text-2xl font-bold text-brand-ink dark:text-brand">{targetStats.density.toFixed(2)}%</p>
                 </div>
               </div>
               {targetStats.density > 0 && (
                 <div className="mt-3">
-                  <div className="h-1.5 w-full rounded-full bg-white/[0.06]">
+                  <div className="h-1.5 w-full rounded-full bg-surface-2 dark:bg-white/[0.06]">
                     <div
                       className="h-1.5 rounded-full bg-brand"
                       style={{ width: `${Math.min(targetStats.density * 10, 100)}%` }}
@@ -234,7 +234,7 @@ export default function KeywordDensity() {
           )}
 
           {/* Summary stats */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+          <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-5">
             <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Summary
             </p>
@@ -280,8 +280,8 @@ export default function KeywordDensity() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
                   activeTab === tab.id
-                    ? 'bg-brand/15 text-brand border-brand/30'
-                    : 'border-white/[0.08] text-muted-foreground hover:text-foreground'
+                    ? 'bg-brand/15 text-brand-ink dark:text-brand border-brand/30'
+                    : 'border-hairline dark:border-white/[0.08] text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {tab.label}
@@ -294,7 +294,7 @@ export default function KeywordDensity() {
                   type="checkbox"
                   checked={stopFilter}
                   onChange={() => setStopFilter((v) => !v)}
-                  className="h-3.5 w-3.5 rounded border-white/20 accent-brand"
+                  className="h-3.5 w-3.5 rounded border-hairline-strong dark:border-white/20 accent-brand"
                 />
                 Exclude stop words
               </label>
@@ -302,9 +302,9 @@ export default function KeywordDensity() {
           </div>
 
           {/* Table */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+          <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] overflow-hidden">
             {/* Header row */}
-            <div className="grid grid-cols-12 gap-2 border-b border-white/[0.06] px-5 py-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            <div className="grid grid-cols-12 gap-2 border-b border-hairline px-5 py-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               <div className="col-span-1">#</div>
               <div className="col-span-4">Phrase</div>
               <div className="col-span-2 text-right">Count</div>
@@ -320,7 +320,7 @@ export default function KeywordDensity() {
               activeData.map((row, idx) => (
                 <div
                   key={row.phrase}
-                  className="grid grid-cols-12 gap-2 items-center border-b border-white/[0.04] px-5 py-2.5 text-sm transition-colors hover:bg-white/[0.02]"
+                  className="grid grid-cols-12 gap-2 items-center border-b border-wash dark:border-white/[0.04] px-5 py-2.5 text-sm transition-colors hover:bg-wash dark:bg-white/[0.02]"
                 >
                   <div className="col-span-1 text-muted-foreground font-mono text-xs">
                     {idx + 1}
@@ -332,12 +332,12 @@ export default function KeywordDensity() {
                     {row.count}
                   </div>
                   <div className="col-span-2 text-right">
-                    <span className="rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand">
+                    <span className="rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand-ink dark:text-brand">
                       {row.density.toFixed(2)}%
                     </span>
                   </div>
                   <div className="col-span-3 flex items-center">
-                    <div className="h-1.5 w-full rounded-full bg-white/[0.06]">
+                    <div className="h-1.5 w-full rounded-full bg-surface-2 dark:bg-white/[0.06]">
                       <div
                         className="h-1.5 rounded-full bg-brand"
                         style={{ width: `${(row.count / maxCount) * 100}%` }}
@@ -352,7 +352,7 @@ export default function KeywordDensity() {
       )}
 
       {/* How it works */}
-      <div className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-10 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
         <h2
           className="mb-3 text-lg font-semibold text-foreground"
           style={{ fontFamily: 'var(--font-heading)' }}

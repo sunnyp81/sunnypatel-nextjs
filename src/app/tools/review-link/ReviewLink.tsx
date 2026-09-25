@@ -5,17 +5,17 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 // ── Style constants ────────────────────────────────────────────────────────────
 
 const inputClass =
-  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
+  'w-full rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 const labelClass = 'block text-sm font-medium text-foreground mb-1.5';
-const cardClass = 'rounded-xl border border-white/[0.06] bg-white/[0.02] p-6';
+const cardClass = 'rounded-xl border border-hairline bg-wash p-6';
 const btnPrimary =
   'rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4a7be0] transition-colors';
 const btnSecondary =
-  'rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-white/[0.08] transition-colors';
+  'rounded-lg border border-black/[0.12] dark:border-white/[0.12] bg-black/[0.04] dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-black/[0.06] dark:hover:bg-white/[0.08] transition-colors';
 const urlDisplayClass =
-  'rounded-lg bg-[#0d0d14] border border-white/[0.08] p-4 font-mono text-sm break-all';
+  'bg-surface-2 dark:bg-[#0d0d14] border border-black/[0.08] dark:border-white/[0.08] p-4 rounded-lg font-mono text-sm break-all';
 const templateCardClass =
-  'relative rounded-lg border border-white/[0.08] bg-white/[0.03] p-4';
+  'relative rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4';
 
 // ── QR Code Generator (canvas-based) ──────────────────────────────────────────
 
@@ -434,7 +434,7 @@ function placeAlignment(
 
 function StepBadge({ step }: { step: number }) {
   return (
-    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand/15 text-brand text-xs font-bold shrink-0">
+    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand/15 text-brand-ink text-xs font-bold shrink-0">
       {step}
     </span>
   );
@@ -456,7 +456,7 @@ function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) 
     <button onClick={handleCopy} className={btnSecondary}>
       {copied ? (
         <span className="flex items-center gap-1.5">
-          <svg className="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="h-4 w-4 text-green-700 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
           Copied!
@@ -549,7 +549,7 @@ export default function ReviewLink() {
                       href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-brand hover:underline"
+                      className="text-brand-ink hover:underline"
                     >
                       Google Place ID Finder
                     </a>
@@ -575,7 +575,7 @@ export default function ReviewLink() {
                 <div>
                   <label className={labelClass}>Direct Review Link</label>
                   <div className={urlDisplayClass}>
-                    <span className="text-brand">{reviewUrl}</span>
+                    <span className="text-brand-ink">{reviewUrl}</span>
                   </div>
                   <div className="mt-3 flex gap-2">
                     <CopyButton text={reviewUrl} label="Copy Link" />
@@ -619,7 +619,7 @@ export default function ReviewLink() {
                 <div className={templateCardClass}>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <svg className="h-4 w-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <svg className="h-4 w-4 text-brand-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                       <span className="text-sm font-medium text-foreground">Email Template</span>
@@ -635,7 +635,7 @@ export default function ReviewLink() {
                 <div className={templateCardClass}>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <svg className="h-4 w-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <svg className="h-4 w-4 text-brand-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                       </svg>
                       <span className="text-sm font-medium text-foreground">SMS Template</span>
@@ -650,7 +650,7 @@ export default function ReviewLink() {
                 {/* QR Code */}
                 <div className={templateCardClass}>
                   <div className="flex items-center gap-2 mb-4">
-                    <svg className="h-4 w-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg className="h-4 w-4 text-brand-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
                     </svg>
                     <span className="text-sm font-medium text-foreground">QR Code</span>
@@ -695,7 +695,7 @@ export default function ReviewLink() {
                 },
               ].map((item) => (
                 <li key={item.title} className="flex gap-3">
-                  <svg className="h-5 w-5 text-brand shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="h-5 w-5 text-brand-ink shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>
@@ -739,7 +739,7 @@ export default function ReviewLink() {
                 },
               ].map((item) => (
                 <li key={item.title} className="flex gap-3">
-                  <svg className="h-5 w-5 text-brand/60 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="h-5 w-5 text-brand-ink/60 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>

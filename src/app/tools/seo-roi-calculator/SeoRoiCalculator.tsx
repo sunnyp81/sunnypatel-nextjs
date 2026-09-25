@@ -143,7 +143,7 @@ export default function SeoRoiCalculator() {
 
       <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
         {/* Inputs */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 space-y-5 h-fit">
+        <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 space-y-5 h-fit">
           <NumberField
             label="Monthly search volume"
             value={searchVolume}
@@ -214,12 +214,12 @@ export default function SeoRoiCalculator() {
             <StatCard
               label="Extra revenue / mo"
               value={GBP.format(model.extraRevenueAtTarget)}
-              color="text-brand"
+              color="text-brand-ink"
             />
             <StatCard
               label="First-year ROI"
               value={`${NUM.format(Math.round(model.roi))}%`}
-              color={model.roi >= 0 ? 'text-emerald-400' : 'text-red-400'}
+              color={model.roi >= 0 ? 'text-success-ink dark:text-emerald-400' : 'text-destructive dark:text-red-400'}
             />
           </div>
 
@@ -232,7 +232,7 @@ export default function SeoRoiCalculator() {
             <StatCard
               label="Year 1 net profit"
               value={GBP.format(model.year1Profit)}
-              color={model.year1Profit >= 0 ? 'text-emerald-400' : 'text-red-400'}
+              color={model.year1Profit >= 0 ? 'text-success-ink dark:text-emerald-400' : 'text-destructive dark:text-red-400'}
             />
             <StatCard
               label="Payback"
@@ -242,7 +242,7 @@ export default function SeoRoiCalculator() {
           </div>
 
           {/* 12-month projection chart */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
             <div className="flex items-center justify-between mb-4">
               <h2
                 className="text-lg font-semibold text-foreground"
@@ -252,7 +252,7 @@ export default function SeoRoiCalculator() {
               </h2>
               <button
                 onClick={exportCSV}
-                className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
+                className="rounded-lg bg-brand-ink px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(42,91,215,0.45)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
               >
                 Export CSV
               </button>
@@ -274,11 +274,11 @@ export default function SeoRoiCalculator() {
           </div>
 
           {/* Monthly table */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+          <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-white/[0.06] text-left text-xs text-muted-foreground">
+                  <tr className="border-b border-hairline text-left text-xs text-muted-foreground">
                     <th className="px-4 py-3 font-medium">Month</th>
                     <th className="px-4 py-3 font-medium">Position</th>
                     <th className="px-4 py-3 font-medium">Clicks</th>
@@ -289,7 +289,7 @@ export default function SeoRoiCalculator() {
                 </thead>
                 <tbody>
                   {model.rows.map((r) => (
-                    <tr key={r.month} className="border-b border-white/[0.04] last:border-0">
+                    <tr key={r.month} className="border-b border-hairline dark:border-white/[0.04] last:border-0">
                       <td className="px-4 py-2.5 text-foreground">{r.month}</td>
                       <td className="px-4 py-2.5 text-muted-foreground">{r.position.toFixed(1)}</td>
                       <td className="px-4 py-2.5 text-muted-foreground">{NUM.format(Math.round(r.clicks))}</td>
@@ -306,7 +306,7 @@ export default function SeoRoiCalculator() {
       </div>
 
       {/* How it works */}
-      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 mt-8">
+      <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 mt-8">
         <h2
           className="text-xl font-bold tracking-tight text-foreground mb-4"
           style={{ fontFamily: 'var(--font-heading)' }}
@@ -335,7 +335,7 @@ export default function SeoRoiCalculator() {
             features, brand, and intent, and rankings are never linear. Use it to sanity-check
             whether a keyword is worth the investment. For the full methodology behind each input,
             including a worked example in pounds, read{' '}
-            <a href="/blog/how-to-calculate-seo-roi/" className="text-brand underline underline-offset-2 hover:opacity-80">
+            <a href="/blog/how-to-calculate-seo-roi/" className="text-brand-ink underline underline-offset-2 hover:opacity-80">
               how to calculate SEO ROI
             </a>.
           </p>
@@ -347,7 +347,7 @@ export default function SeoRoiCalculator() {
 
 function StatCard({ label, value, color }: { label: string; value: string; color: string }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+    <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-4 text-center">
       <p className={`text-xl font-bold sm:text-2xl ${color}`}>{value}</p>
       <p className="text-xs text-muted-foreground mt-1">{label}</p>
     </div>
@@ -378,7 +378,7 @@ function NumberField({
         min={min}
         step={step}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+        className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
       />
       {hint && <p className="mt-1 text-xs text-muted-foreground">{hint}</p>}
     </div>
@@ -402,7 +402,7 @@ function RangeField({
     <div>
       <div className="flex items-center justify-between mb-1.5">
         <label className="text-sm font-medium text-foreground">{label}</label>
-        <span className="text-sm font-semibold text-brand">{value}</span>
+        <span className="text-sm font-semibold text-brand-ink">{value}</span>
       </div>
       <input
         type="range"

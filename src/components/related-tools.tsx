@@ -26,7 +26,7 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
   if (picked.length === 0) return null;
 
   return (
-    <div className="border-t border-white/[0.05]">
+    <div className="border-t border-hairline">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <h2
           className="mb-6 text-lg font-semibold text-foreground"
@@ -41,15 +41,15 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
               href={tool.href}
               data-cta-location="related_tools"
               data-cta-offer={tool.href}
-              className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-200 hover:border-brand/30 hover:bg-brand/[0.04] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+              className="group rounded-xl border border-hairline bg-wash p-5 transition-colors duration-200 hover:border-brand/30 hover:bg-brand/[0.04] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
             >
-              <h3 className="font-semibold text-foreground group-hover:text-brand transition-colors">
+              <h3 className="font-semibold text-foreground group-hover:text-brand-ink transition-colors">
                 {tool.name}
               </h3>
               <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
                 {tool.description}
               </p>
-              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors duration-200 group-hover:text-brand">
+              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors duration-200 group-hover:text-brand-ink">
                 Try it <ArrowRight className="h-3 w-3" />
               </div>
             </Link>

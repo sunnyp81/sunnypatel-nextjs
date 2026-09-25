@@ -31,7 +31,7 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-[#050507]">
+    <footer className="border-t border-hairline bg-surface-2 dark:bg-[#050507]">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-5">
           {/* Brand */}
@@ -41,7 +41,7 @@ export function Footer() {
               className="text-xl font-bold tracking-tight text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Sunny<span className="text-brand">Patel</span>
+              Sunny<span className="text-brand-ink">Patel</span>
             </a>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground" style={{ lineHeight: 1.7 }}>
               SEO consultant and AI strategist helping UK businesses grow
@@ -50,14 +50,14 @@ export function Footer() {
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href="tel:07305523333"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink"
               >
                 <Phone className="h-4 w-4" />
                 07305 523333
               </a>
               <a
                 href="mailto:Hello@SunnyPatel.co.uk"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink"
               >
                 <Mail className="h-4 w-4" />
                 Hello@SunnyPatel.co.uk
@@ -66,7 +66,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/sunny-patel-co-uk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink"
               >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
@@ -75,7 +75,7 @@ export function Footer() {
                 href="https://share.google/DzDCSIfR2eTOxHTcm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink"
               >
                 <Star className="h-4 w-4" />
                 Google Reviews
@@ -96,7 +96,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground/80"
+                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink dark:hover:text-foreground/80"
                   >
                     {link.label}
                   </a>
@@ -118,7 +118,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground/80"
+                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink dark:hover:text-foreground/80"
                   >
                     {link.label}
                   </a>
@@ -148,7 +148,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground/80"
+                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink dark:hover:text-foreground/80"
                   >
                     {link.label}
                   </a>
@@ -159,18 +159,18 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-8 md:flex-row">
           <div className="flex flex-col gap-1">
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-ink-faint dark:text-muted-foreground">
               &copy; 2026 Sunny Patel. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground">
-              Part of <span className="text-muted-foreground">ND Media Ltd</span> &mdash; Company No. 10784524
+            <p className="text-xs text-ink-faint dark:text-muted-foreground">
+              Part of <span className="text-ink-faint dark:text-muted-foreground">ND Media Ltd</span> &mdash; Company No. 10784524
             </p>
           </div>
           <div className="flex gap-4">
-            <a href="/privacy-policy/" className="text-xs text-muted-foreground transition-colors hover:text-foreground">Privacy Policy</a>
-            <a href="/terms-of-use/" className="text-xs text-muted-foreground transition-colors hover:text-foreground">Terms of Use</a>
+            <a href="/privacy-policy/" className="text-xs text-ink-faint dark:text-muted-foreground transition-colors hover:text-brand-ink dark:hover:text-foreground">Privacy Policy</a>
+            <a href="/terms-of-use/" className="text-xs text-ink-faint dark:text-muted-foreground transition-colors hover:text-brand-ink dark:hover:text-foreground">Terms of Use</a>
           </div>
         </div>
       </div>

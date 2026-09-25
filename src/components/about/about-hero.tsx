@@ -21,10 +21,10 @@ export function AboutHero() {
       />
       {/* Dot grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+            "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           maskImage:
             "radial-gradient(ellipse at 50% 0%, black 30%, transparent 80%)",
@@ -39,7 +39,7 @@ export function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand">
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-ink">
             SEO & AI Consultant
           </span>
 
@@ -49,7 +49,7 @@ export function AboutHero() {
           >
             Sunny Patel
             <br />
-            <span className="bg-gradient-to-r from-brand via-teal to-success bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-brand-ink via-teal-ink to-success-ink bg-clip-text text-transparent">
               SEO Consultant & AI Strategist
             </span>
           </h1>
@@ -74,7 +74,7 @@ export function AboutHero() {
 
         {/* Stats strip */}
         <motion.div
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.06] md:grid-cols-4"
+          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-hairline dark:border-white/[0.06] bg-hairline-strong dark:bg-white/[0.06] md:grid-cols-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -97,7 +97,7 @@ export function AboutHero() {
       </div>
 
       {/* Bottom separator */}
-      <div className="mt-16 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+      <div className="mt-16 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
     </div>
   );
 }

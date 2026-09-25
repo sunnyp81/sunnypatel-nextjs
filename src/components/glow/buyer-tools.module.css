@@ -11,18 +11,18 @@
 .select {
   height: 44px;
   border-radius: 10px;
-  border: 1px solid #5f5f60;
-  background: #050507;
+  border: 1px solid var(--input);
+  background: var(--background);
   padding: 0 0.85rem;
   font-size: 16px;
-  color: #eeeeee;
+  color: var(--ink-strong);
   max-width: 100%;
 }
 
 .select:focus-visible {
   outline: none;
-  border-color: #5b8aef;
-  box-shadow: 0 0 0 3px rgba(91, 138, 239, 0.3);
+  border-color: var(--brand-ink);
+  box-shadow: 0 0 0 3px var(--glow-brand);
 }
 
 .summary {
@@ -32,14 +32,14 @@
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.01em;
-  color: #eeeeee;
+  color: var(--ink-strong);
 }
 
 .para {
   margin: 0.9rem 0 0;
   font-size: 15px;
   line-height: 1.6;
-  color: #b4b4bc;
+  color: var(--ink-soft);
 }
 
 .bandList {
@@ -58,16 +58,16 @@
   min-height: 44px;
   padding: 0 0.9rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #050507;
+  border: 1px solid var(--hairline-strong);
+  background: var(--background);
   font-size: 14px;
-  color: #b4b4bc;
+  color: var(--ink-soft);
   transition: border-color 200ms ease, box-shadow 200ms ease;
 }
 
 .bandRange {
   font-variant-numeric: tabular-nums;
-  color: #eeeeee;
+  color: var(--ink-strong);
 }
 
 .bandTag {
@@ -76,13 +76,13 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #d79f1e;
+  color: var(--gold-ink);
 }
 
 .bandHit {
-  border-color: #5b8aef !important;
-  color: #eeeeee !important;
-  box-shadow: 0 0 14px rgba(91, 138, 239, 0.35);
+  border-color: var(--brand-ink) !important;
+  color: var(--ink-strong) !important;
+  box-shadow: 0 0 14px var(--glow-brand);
 }
 
 .budget {
@@ -96,11 +96,11 @@
   gap: 0.4rem;
   font-size: 15px;
   line-height: 1.55;
-  color: #eeeeee;
+  color: var(--ink-strong);
 }
 
 .plain strong {
-  color: #d79f1e;
+  color: var(--gold-ink);
 }
 
 .flagList {
@@ -116,7 +116,7 @@
   padding-left: 1.4rem;
   font-size: 15px;
   line-height: 1.55;
-  color: #b4b4bc;
+  color: var(--ink-soft);
 }
 
 .flagList li::before {
@@ -127,12 +127,12 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #d79f1e;
-  box-shadow: 0 0 8px rgba(215, 159, 30, 0.7);
+  background: var(--color-gold);
+  box-shadow: 0 0 8px var(--glow-gold);
 }
 
 .flagList strong {
-  color: #eeeeee;
+  color: var(--ink-strong);
 }
 
 .flagChecks {
@@ -145,8 +145,8 @@
 
 .flagChecks li {
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #050507;
+  border: 1px solid var(--hairline-strong);
+  background: var(--background);
   transition: border-color 200ms ease, box-shadow 200ms ease;
 }
 
@@ -164,7 +164,7 @@
   height: 20px;
   margin-top: 2px;
   flex: none;
-  accent-color: #d79f1e;
+  accent-color: var(--color-gold);
 }
 
 .flagChecks strong {
@@ -174,16 +174,16 @@
   gap: 0.5rem;
   font-size: 15px;
   font-weight: 600;
-  color: #eeeeee;
+  color: var(--ink-strong);
 }
 
 .flagChecks li:hover {
-  border-color: #5f5f60;
+  border-color: var(--input);
 }
 
 .flagOn {
-  border-color: rgba(215, 159, 30, 0.7) !important;
-  box-shadow: 0 0 14px rgba(215, 159, 30, 0.25);
+  border-color: var(--color-gold) !important;
+  box-shadow: 0 0 14px var(--glow-gold);
 }
 
 .why {
@@ -191,7 +191,7 @@
   margin-top: 0.2rem;
   font-size: 14px;
   line-height: 1.5;
-  color: #b4b4bc;
+  color: var(--ink-soft);
 }
 
 .critical {
@@ -199,8 +199,9 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  /* fixed dark ink: sits on a solid gold chip, must stay dark in both themes */
   color: #050507;
-  background: #d79f1e;
+  background: var(--color-gold);
   border-radius: 4px;
   padding: 2px 6px;
 }
@@ -222,29 +223,29 @@
 .meter span {
   height: 10px;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--hairline);
   transition: background-color 250ms ease, box-shadow 250ms ease;
 }
 
 .meter .segBlue {
-  background: #5b8aef;
-  box-shadow: 0 0 10px rgba(91, 138, 239, 0.6);
+  background: var(--color-brand);
+  box-shadow: 0 0 10px var(--glow-brand);
 }
 
 .meter .segGold {
-  background: #d79f1e;
-  box-shadow: 0 0 10px rgba(215, 159, 30, 0.6);
+  background: var(--color-gold);
+  box-shadow: 0 0 10px var(--glow-gold);
 }
 
 .alert {
   margin: 1rem 0 0;
   padding: 0.9rem 1rem;
   border-radius: 10px;
-  border: 1px solid rgba(215, 159, 30, 0.6);
+  border: 1px solid var(--glow-gold);
   background: rgba(215, 159, 30, 0.08);
   font-size: 15px;
   line-height: 1.55;
-  color: #eeeeee;
+  color: var(--ink-strong);
 }
 
 .stack {
@@ -259,16 +260,16 @@
   min-height: 44px;
   padding: 0 0.9rem;
   border-radius: 10px;
-  border: 1px solid #5f5f60;
-  background: #050507;
+  border: 1px solid var(--input);
+  background: var(--background);
   font-size: 15px;
-  color: #eeeeee;
+  color: var(--ink-strong);
   cursor: pointer;
   transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
 }
 
 .stack label:hover {
-  border-color: #5b8aef;
+  border-color: var(--brand-ink);
 }
 
 .stack input {
@@ -278,7 +279,7 @@
 }
 
 .stack label:has(input:focus-visible) {
-  box-shadow: 0 0 0 3px rgba(91, 138, 239, 0.4);
+  box-shadow: 0 0 0 3px var(--glow-brand);
 }
 
 .pick {
@@ -287,9 +288,9 @@
   gap: 0.35rem;
   padding: 1.1rem 1.2rem;
   border-radius: 10px;
-  border: 1px solid #5b8aef;
-  background: rgba(91, 138, 239, 0.08);
-  box-shadow: 0 0 20px rgba(91, 138, 239, 0.25);
+  border: 1px solid var(--brand-ink);
+  background: var(--brand-wash);
+  box-shadow: 0 0 20px var(--glow-brand);
 }
 
 .pickLead {
@@ -298,7 +299,7 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #eeeeee;
+  color: var(--ink-strong);
 }
 
 .pickRest::first-letter {
@@ -308,7 +309,7 @@
 .pickRest {
   font-size: 16px;
   line-height: 1.5;
-  color: #d79f1e;
+  color: var(--gold-ink);
 }
 
 .tableScroll {
@@ -318,7 +319,7 @@
 }
 
 .tableScroll:focus-visible {
-  outline: 2px solid #5b8aef;
+  outline: 2px solid var(--brand-ink);
   outline-offset: 2px;
 }
 
@@ -343,41 +344,41 @@
 .matrix th {
   text-align: left;
   font-weight: 600;
-  color: #808080;
+  color: var(--ink-faint);
   padding: 0.4rem 0.5rem;
   vertical-align: bottom;
 }
 
 .matrix tbody th {
   vertical-align: middle;
-  color: #b4b4bc;
+  color: var(--ink-soft);
   white-space: nowrap;
 }
 
 .matrix td {
   padding: 0.6rem 0.65rem;
   border-radius: 6px;
-  background: #050507;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #b4b4bc;
+  background: var(--background);
+  border: 1px solid var(--hairline);
+  color: var(--ink-soft);
   vertical-align: top;
   transition: border-color 200ms ease, box-shadow 200ms ease, color 200ms ease;
 }
 
 .hiHead {
-  color: #5b8aef !important;
+  color: var(--brand-ink) !important;
 }
 
 .cellLine {
-  border-color: rgba(91, 138, 239, 0.35) !important;
-  color: #eeeeee !important;
+  border-color: var(--glow-brand) !important;
+  color: var(--ink-strong) !important;
 }
 
 .cellOn {
-  border-color: #d79f1e !important;
-  color: #eeeeee !important;
+  border-color: var(--gold-ink) !important;
+  color: var(--ink-strong) !important;
   font-weight: 600;
-  box-shadow: 0 0 16px rgba(215, 159, 30, 0.35);
+  box-shadow: 0 0 16px var(--glow-gold);
 }
 
 .srOnly {
@@ -392,5 +393,5 @@
 .error {
   font-size: 13px;
   line-height: 1.45;
-  color: #d79f1e;
+  color: var(--gold-ink);
 }

@@ -18,7 +18,7 @@ export function AboutFaq() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-teal">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-teal-ink">
             FAQ
           </p>
           <h2
@@ -38,7 +38,7 @@ export function AboutFaq() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
             >
-              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] transition-all duration-200 hover:border-white/[0.1] hover:bg-white/[0.04]">
+              <div className="rounded-xl border border-hairline dark:border-white/[0.06] bg-surface-1 dark:bg-white/[0.02] transition-all duration-200 hover:border-hairline-strong dark:hover:border-white/[0.1] hover:bg-surface-2 dark:hover:bg-white/[0.04]">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
                   aria-expanded={open === i}
@@ -54,9 +54,9 @@ export function AboutFaq() {
                   </span>
                   <span
                     aria-hidden="true"
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/[0.1] transition-all duration-300 ${
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-hairline-strong dark:border-white/[0.1] transition-all duration-300 ${
                       open === i
-                        ? "rotate-45 border-brand/30 bg-brand/10 text-brand"
+                        ? "rotate-45 border-brand/30 bg-brand/10 text-brand-ink"
                         : "text-muted-foreground"
                     }`}
                   >

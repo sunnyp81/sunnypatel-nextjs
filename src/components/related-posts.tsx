@@ -32,7 +32,7 @@ export function RelatedPosts({
   if (scored.length === 0) return null;
 
   return (
-    <div className="border-t border-white/[0.05]">
+    <div className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-16">
         <h2
           className="mb-8 text-2xl font-bold text-foreground"
@@ -45,7 +45,7 @@ export function RelatedPosts({
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-hairline bg-wash transition-all duration-300 hover:border-hairline-strong hover:bg-hairline"
             >
               {post.ogImage && (
                 <div className="relative aspect-[16/9] w-full">
@@ -69,7 +69,7 @@ export function RelatedPosts({
                   </div>
                 )}
                 <h3
-                  className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand"
+                  className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand-ink"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {post.title}
@@ -79,7 +79,7 @@ export function RelatedPosts({
                     {post.description}
                   </p>
                 )}
-                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+                <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand-ink">
                   Read more <ArrowRight className="h-3 w-3" />
                 </div>
               </div>

@@ -3,22 +3,24 @@
 .hero > p { max-width: 780px; }
 .hero > p:last-of-type { max-width: none; }
 .featuredChart { margin: 32px 0 0; }
-.featuredChart > a { display: block; border: 1px solid #354057; border-radius: 8px; overflow: hidden; }
+.featuredChart > a { display: block; border: 1px solid var(--hairline-strong); border-radius: 8px; overflow: hidden; }
 .featuredChart img { display: block; width: 100%; height: auto; }
-.featuredChart figcaption { margin-top: 12px; color: #c3cedf; font-size: 0.88rem; line-height: 1.65; }
-.featuredChart a:focus-visible { outline: 3px solid #8aacff; outline-offset: 4px; }
-.tableScroll { overflow-x: auto; border: 1px solid #354057; border-radius: 8px; }
-.tableScroll:focus-visible { outline: 3px solid #8aacff; outline-offset: 4px; }
+.featuredChart figcaption { margin-top: 12px; color: var(--ink-faint); font-size: 0.88rem; line-height: 1.65; }
+.featuredChart a:focus-visible { outline: 3px solid #2a5bd7; outline-offset: 4px; }
+:global(.dark) .featuredChart a:focus-visible { outline-color: #8aacff; }
+.tableScroll { overflow-x: auto; border: 1px solid var(--hairline-strong); border-radius: 8px; }
+.tableScroll:focus-visible { outline: 3px solid #2a5bd7; outline-offset: 4px; }
+:global(.dark) .tableScroll:focus-visible { outline-color: #8aacff; }
 .table { width: 100%; min-width: 580px; table-layout: fixed; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.96rem; }
-.table caption { text-align: left; padding: 16px; color: #c3cedf; font-size: 0.88rem; }
-.table th, .table td { position: relative; text-align: right; padding: 14px 16px; border-top: 1px solid #354057; white-space: nowrap; }
+.table caption { text-align: left; padding: 16px; color: var(--ink-faint); font-size: 0.88rem; }
+.table th, .table td { position: relative; text-align: right; padding: 14px 16px; border-top: 1px solid var(--hairline-strong); white-space: nowrap; }
 .table tr > :first-child { text-align: left; }
-.table thead th { color: #e7ecf6; background: #182235; font-weight: 600; }
-.table td { color: #f3f5fa; }
-.table tbody th { font-weight: 500; color: #dbe4f5; }
-.table tfoot { background: #182235; font-weight: 700; }
-.miniBar { position: absolute; left: 0; bottom: 0; height: 3px; background: #8aacff; }
-.scrollHint { color: #c3cedf; font-size: 0.88rem; }
-.citation { margin: 24px 0; padding: 24px; border: 1px solid #354057; background: #182235; color: #e7ecf6; font-size: 1rem; line-height: 1.75; overflow-wrap: anywhere; }
+.table thead th { color: var(--ink-strong); background: var(--surface-3); font-weight: 600; }
+.table td { color: var(--ink-strong); }
+.table tbody th { font-weight: 500; color: var(--ink-strong); }
+.table tfoot { background: var(--surface-3); font-weight: 700; }
+.miniBar { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--brand-ink); }
+.scrollHint { color: var(--ink-faint); font-size: 0.88rem; }
+.citation { margin: 24px 0; padding: 24px; border: 1px solid var(--hairline-strong); background: var(--surface-2); color: var(--ink-strong); font-size: 1rem; line-height: 1.75; overflow-wrap: anywhere; }
 .downloads { display: grid; gap: 16px; padding-left: 22px; }
 @media (max-width: 600px) { .hero h1 { font-size: 2.25rem; } .citation { padding: 18px; } }

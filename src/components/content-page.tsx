@@ -17,9 +17,9 @@ function AuthorByline() {
   return (
     <Link
       href="/author/sunny-patel/"
-      className="mt-5 inline-flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 transition-colors duration-200 hover:border-white/[0.1] hover:bg-white/[0.04]"
+      className="mt-5 inline-flex items-center gap-3 rounded-xl border border-hairline bg-wash px-4 py-2.5 transition-colors duration-200 hover:border-hairline-strong hover:bg-hairline"
     >
-      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10">
+      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-hairline-strong">
         <Image
           src="/images/sunny-patel.jpg"
           alt="Sunny Patel"
@@ -37,7 +37,7 @@ function AuthorByline() {
 }
 
 const PROSE_CLASS =
-  "prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-brand prose-blockquote:border-l-brand/40 prose-blockquote:text-muted-foreground prose-hr:border-white/[0.08]";
+  "prose dark:prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand-ink prose-a:underline prose-a:decoration-brand-ink/30 prose-a:underline-offset-2 hover:prose-a:decoration-brand-ink dark:prose-a:no-underline dark:hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-wash prose-code:px-1.5 prose-code:py-0.5 prose-code:text-brand-ink prose-blockquote:border-l-gold/40 prose-blockquote:text-muted-foreground prose-hr:border-hairline";
 
 const TRUST_BADGES = [
   { icon: CalendarDays, label: "15+ years experience" },
@@ -118,7 +118,7 @@ export function ContentPage({
       )}
 
       {badge && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-ink">
           {badge}
         </p>
       )}
@@ -149,7 +149,7 @@ export function ContentPage({
             ).map(({ icon: Icon, label }) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
+                className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand-ink"
               >
                 <Icon className="h-3 w-3 shrink-0" />
                 {label}
@@ -183,7 +183,7 @@ export function ContentPage({
             <Link
               key={tag}
               href={`/blog/tag/${slugifyTag(tag)}`}
-              className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-brand/20 hover:text-brand"
+              className="rounded-full border border-hairline bg-wash px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-brand/20 hover:text-brand-ink"
             >
               {tag}
             </Link>
@@ -213,12 +213,25 @@ export function ContentPage({
           className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 rounded-full opacity-[0.05] blur-[120px]"
           style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
         />
-        {/* Dot grid */}
+        {/* Dot grid — dark: original white dots */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0 opacity-[0.06] dark:block hidden"
           style={{
             backgroundImage:
               "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+            maskImage:
+              "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+          }}
+        />
+        {/* Dot grid — light: faint blueprint grid dots via themed token */}
+        <div
+          className="pointer-events-none absolute inset-0 dark:hidden"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage:
               "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
@@ -247,13 +260,13 @@ export function ContentPage({
         </div>
 
         {/* Separator */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong to-transparent" />
       </div>
 
       {/* Hero image */}
       {heroImage && (
         <div className="mx-auto max-w-4xl px-6 -mt-2 mb-4">
-          <div className="relative aspect-[2/1] overflow-hidden rounded-2xl border border-white/[0.06]">
+          <div className="relative aspect-[2/1] overflow-hidden rounded-2xl border border-hairline">
             <Image
               src={heroImage}
               alt={h1}
@@ -336,7 +349,7 @@ export function ContentPage({
             ctaSubtitle={ctaSubtitle}
           />
         ) : (
-          <div className="relative overflow-hidden border-t border-white/[0.05]">
+          <div className="relative overflow-hidden border-t border-hairline">
             {/* Ambient glow */}
             <div
               className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-[0.07] blur-[80px]"
@@ -344,7 +357,7 @@ export function ContentPage({
             />
 
             <div className="relative mx-auto max-w-3xl px-6 py-20 text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-ink">
                 Get Started
               </p>
               <h2
@@ -374,7 +387,7 @@ export function ContentPage({
                     key={label}
                     className="inline-flex items-center gap-1.5 text-xs text-muted-foreground"
                   >
-                    <Icon className="h-3 w-3 text-brand/50" />
+                    <Icon className="h-3 w-3 text-brand-ink/50" />
                     {label}
                   </span>
                 ))}

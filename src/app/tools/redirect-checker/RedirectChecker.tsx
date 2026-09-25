@@ -63,10 +63,10 @@ function getStatusColor(status: number): BadgeColor {
 }
 
 const BADGE_CLASSES: Record<BadgeColor, string> = {
-  green: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-  blue: 'bg-blue-500/15 text-blue-400 border-blue-500/30',
-  amber: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-  red: 'bg-red-500/15 text-red-400 border-red-500/30',
+  green: 'bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border-emerald-500/30',
+  blue: 'bg-blue-500/10 dark:bg-blue-500/15 text-blue-700 dark:text-blue-400 border-blue-500/30',
+  amber: 'bg-amber-500/10 dark:bg-amber-500/15 text-amber-800 dark:text-amber-400 border-amber-500/30',
+  red: 'bg-red-500/10 dark:bg-red-500/15 text-red-700 dark:text-red-400 border-red-500/30',
 };
 
 /* ------------------------------------------------------------------ */
@@ -88,7 +88,7 @@ function StatusBadge({ status }: { status: number }) {
 /* ------------------------------------------------------------------ */
 function WarningBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/30 bg-amber-500/15 px-2.5 py-0.5 text-xs font-semibold text-amber-400">
+    <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/30 bg-amber-500/10 dark:bg-amber-500/15 px-2.5 py-0.5 text-xs font-semibold text-amber-800 dark:text-amber-400">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
         <line x1="12" y1="9" x2="12" y2="13" />
@@ -106,8 +106,8 @@ function ArrowConnector() {
   return (
     <div className="flex items-center justify-center py-1">
       <div className="flex flex-col items-center">
-        <div className="h-6 w-px border-l border-dashed border-white/[0.15]" />
-        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" className="text-white/70">
+        <div className="h-6 w-px border-l border-dashed border-black/[0.15] dark:border-white/[0.15]" />
+        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" className="text-ink-faint dark:text-white/70">
           <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
@@ -123,7 +123,7 @@ function ChainNode({ step, index }: { step: RedirectStep; index: number }) {
   const location = step.headers?.location || step.headers?.Location || null;
 
   return (
-    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+    <div className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4">
       <div className="flex flex-wrap items-center gap-2 mb-2">
         <span className="text-xs font-medium text-muted-foreground">
           Hop {index + 1}
@@ -158,7 +158,7 @@ function ChainSummary({ result }: { result: CheckResult }) {
   const longChain = hops > 2;
 
   return (
-    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4 mb-4">
+    <div className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4 mb-4">
       <h3 className="text-sm font-semibold text-foreground mb-3">Chain Summary</h3>
       <div className="flex flex-wrap gap-3 text-sm">
         <div className="flex items-center gap-1.5">
@@ -317,8 +317,8 @@ export default function RedirectChecker() {
             onClick={() => { setBulkMode(false); setError(''); setSingleResult(null); }}
             className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
               !bulkMode
-                ? 'bg-brand/20 text-brand border border-brand/30'
-                : 'text-muted-foreground hover:text-foreground border border-white/[0.08]'
+                ? 'bg-brand/20 text-brand-ink border border-brand/30'
+                : 'text-muted-foreground hover:text-foreground border border-black/[0.08] dark:border-white/[0.08]'
             }`}
           >
             Single URL
@@ -328,8 +328,8 @@ export default function RedirectChecker() {
             onClick={() => { setBulkMode(true); setError(''); setBulkResults([]); }}
             className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
               bulkMode
-                ? 'bg-brand/20 text-brand border border-brand/30'
-                : 'text-muted-foreground hover:text-foreground border border-white/[0.08]'
+                ? 'bg-brand/20 text-brand-ink border border-brand/30'
+                : 'text-muted-foreground hover:text-foreground border border-black/[0.08] dark:border-white/[0.08]'
             }`}
           >
             Bulk Check
@@ -343,7 +343,7 @@ export default function RedirectChecker() {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://example.com/old-page"
-              className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+              className="flex-1 rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
             />
             <button
               type="submit"
@@ -370,7 +370,7 @@ export default function RedirectChecker() {
               onChange={(e) => setBulkUrls(e.target.value)}
               placeholder={"https://example.com/page-1\nhttps://example.com/page-2\nhttps://example.com/page-3"}
               rows={6}
-              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
+              className="w-full rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono"
             />
             <button
               type="submit"
@@ -392,7 +392,7 @@ export default function RedirectChecker() {
 
       {/* Error */}
       {error && (
-        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-700 dark:text-red-400">
           {error}
         </div>
       )}
@@ -424,7 +424,7 @@ export default function RedirectChecker() {
       {bulkMode && bulkResults.length > 0 && (
         <div className="space-y-6">
           {bulkResults.map((item, idx) => (
-            <div key={idx} className="rounded-lg border border-white/[0.08] bg-white/[0.02] p-4">
+            <div key={idx} className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-xs font-medium text-muted-foreground">URL {idx + 1}</span>
                 <span className="break-all text-sm font-mono text-foreground/80">{item.inputUrl}</span>
@@ -438,7 +438,7 @@ export default function RedirectChecker() {
               )}
 
               {item.error && (
-                <p className="text-sm text-red-400">{item.error}</p>
+                <p className="text-sm text-red-700 dark:text-red-400">{item.error}</p>
               )}
 
               {item.result && item.result.chain.length > 0 && (
@@ -468,21 +468,21 @@ export default function RedirectChecker() {
           How Redirect Chains Work
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">301 Moved Permanently</h3>
             <p className="text-sm text-muted-foreground">
               The page has permanently moved to a new URL. Search engines transfer almost all ranking
               signals (link equity) to the destination. This is the recommended redirect type for SEO.
             </p>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">302 Found / 307 Temporary</h3>
             <p className="text-sm text-muted-foreground">
               The page has temporarily moved. Search engines may not pass full link equity. If a page
               has permanently moved, a 302 should be changed to a 301 to preserve rankings.
             </p>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">Redirect Chains</h3>
             <p className="text-sm text-muted-foreground">
               When a URL redirects to another URL that also redirects, it creates a chain. Each hop
@@ -490,7 +490,7 @@ export default function RedirectChecker() {
               the original URL and the final destination.
             </p>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">Redirect Loops</h3>
             <p className="text-sm text-muted-foreground">
               A redirect loop occurs when URL A redirects to URL B, which redirects back to URL A.
@@ -500,7 +500,7 @@ export default function RedirectChecker() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+        <div className="mt-6 rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash p-4">
           <h3 className="text-sm font-semibold text-foreground mb-2">SEO Impact of Redirects</h3>
           <ul className="space-y-1.5 text-sm text-muted-foreground">
             <li>

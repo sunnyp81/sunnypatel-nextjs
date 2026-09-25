@@ -65,7 +65,7 @@ export function AiVisibilityProof() {
         {PROOF_POINTS.map(({ sector, stat, unit, detail }) => (
           <div
             key={sector}
-            className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5"
+            className="rounded-xl border border-hairline bg-wash p-5"
           >
             <TrendingUp className="mb-3 h-5 w-5 text-brand" />
             <p

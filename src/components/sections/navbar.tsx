@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 const links = [
   { href: "/services/", label: "Services" },
@@ -20,7 +21,7 @@ export function Navbar() {
   const menuButton = useRef<HTMLButtonElement>(null);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-background/70 backdrop-blur-xl backdrop-saturate-[1.8]"
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-hairline bg-background/70 backdrop-blur-xl backdrop-saturate-[1.8]"
       onKeyDown={(event) => {
         if (event.key === "Escape" && open) {
           setOpen(false);
@@ -55,55 +56,60 @@ export function Navbar() {
             <path d="M58.792 69.170L54.148 69.170L54.148 30.830L67.918 30.830Q74.344 30.830 77.908 33.908Q81.472 36.986 81.472 42.440Q81.472 46.112 79.852 48.785Q78.232 51.458 75.208 52.862Q72.184 54.266 67.918 54.266L58.792 54.266L58.792 69.170M58.792 35.366L58.792 49.730L67.918 49.730Q72.238 49.730 74.425 47.894Q76.612 46.058 76.612 42.440Q76.612 38.930 74.425 37.148Q72.238 35.366 67.918 35.366" fill="#5B8AEF"/>
           </svg>
           <span>
-            Sunny<span className="text-brand">Patel</span>
+            Sunny<span className="text-brand-ink">Patel</span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="rounded-lg border border-white/[0.06] px-3 py-1.5 text-sm text-muted-foreground shadow-[0_0_8px_rgba(91,138,239,0.07)] transition-[border-color,background-color,color,box-shadow,transform] duration-300 hover:scale-[1.04] hover:border-brand/30 hover:bg-brand/[0.06] hover:text-foreground hover:shadow-[0_0_20px_rgba(91,138,239,0.28)]"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <div className="hidden items-center gap-4 md:flex">
+          <div className="flex items-center gap-1">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded-lg border border-hairline px-3 py-1.5 text-sm text-muted-foreground shadow-[0_0_8px_rgba(42,91,215,0.10)] transition-[border-color,background-color,color,box-shadow,transform] duration-300 hover:scale-[1.04] hover:border-brand/30 hover:bg-brand/[0.06] hover:text-foreground hover:shadow-[0_0_20px_var(--glow-brand)] dark:shadow-[0_0_8px_rgba(91,138,239,0.07)]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
-        <div className="hidden md:block">
+          <ThemeToggle />
+
           <GradientButton asChild className="min-w-0 px-5 py-2.5 text-sm leading-none">
             <a href="/contact/" data-cta-location="desktop_nav" data-cta-offer="free_20_minute_seo_diagnosis">Free SEO Diagnosis</a>
           </GradientButton>
         </div>
 
-        <button
-          ref={menuButton}
-          onClick={() => setOpen(!open)}
-          className="flex h-11 w-11 items-center justify-center p-2 text-muted-foreground hover:text-foreground md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            ref={menuButton}
+            onClick={() => setOpen(!open)}
+            className="flex h-11 w-11 items-center justify-center p-2 text-muted-foreground hover:text-foreground"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-white/[0.06] bg-background/95 backdrop-blur-xl px-6 py-5 md:hidden">
+        <div id="mobile-menu" className="border-t border-hairline bg-background/95 backdrop-blur-xl px-6 py-5 md:hidden">
           <div className="flex flex-col gap-1 mb-5">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg border border-white/[0.04] px-3 py-2.5 text-sm text-muted-foreground transition-[border-color,background-color,color,box-shadow] duration-200 hover:border-brand/25 hover:bg-brand/[0.05] hover:text-foreground hover:shadow-[0_0_16px_rgba(91,138,239,0.2)]"
+                className="rounded-lg border border-black/[0.04] px-3 py-2.5 text-sm text-muted-foreground transition-[border-color,background-color,color,box-shadow] duration-200 hover:border-brand/25 hover:bg-brand/[0.05] hover:text-foreground hover:shadow-[0_0_16px_rgba(42,91,215,0.14)] dark:border-white/[0.04] dark:hover:shadow-[0_0_16px_rgba(91,138,239,0.2)]"
               >
                 {link.label}
               </a>
             ))}
           </div>
-          <div className="mb-5 h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+          <div className="mb-5 h-px bg-gradient-to-r from-transparent via-black/[0.07] to-transparent dark:via-white/[0.07]" />
           <GradientButton asChild className="min-w-0 w-full text-sm leading-none">
             <a href="/contact/" data-cta-location="mobile_nav" data-cta-offer="free_20_minute_seo_diagnosis" onClick={() => setOpen(false)}>
               Free SEO Diagnosis

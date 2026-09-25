@@ -35,13 +35,13 @@ function getStatusBadgeClass(status: number): string {
   const cat = getStatusCategory(status);
   switch (cat) {
     case 'working':
-      return 'bg-emerald-500/15 text-emerald-400';
+      return 'bg-success-ink/10 text-success-ink dark:bg-emerald-500/15 dark:text-emerald-400';
     case 'redirected':
-      return 'bg-amber-500/15 text-amber-400';
+      return 'bg-gold-ink/10 text-gold-ink dark:bg-amber-500/15 dark:text-amber-400';
     case 'broken':
-      return 'bg-red-500/15 text-red-400';
+      return 'bg-destructive/10 text-destructive dark:bg-red-500/15 dark:text-red-400';
     case 'timeout':
-      return 'bg-white/[0.06] text-muted-foreground';
+      return 'bg-surface-2 dark:bg-white/[0.06] text-muted-foreground';
   }
 }
 
@@ -69,7 +69,7 @@ function truncateUrl(url: string, max: number = 60): string {
 /* ------------------------------------------------------------------ */
 function Spinner() {
   return (
-    <svg className="h-5 w-5 animate-spin text-brand" viewBox="0 0 24 24" fill="none">
+    <svg className="h-5 w-5 animate-spin text-brand-ink dark:text-brand" viewBox="0 0 24 24" fill="none">
       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
       <path
         className="opacity-75"
@@ -202,7 +202,7 @@ export default function BrokenLinks() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className="flex-1 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+            className="flex-1 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           />
           <button
             type="submit"
@@ -223,7 +223,7 @@ export default function BrokenLinks() {
 
       {/* Error */}
       {error && (
-        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+        <div className="mb-6 rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-400">
           {error}
         </div>
       )}
@@ -235,7 +235,7 @@ export default function BrokenLinks() {
             <Spinner />
             {progress}
           </div>
-          <div className="h-2 rounded-full bg-white/[0.06] overflow-hidden">
+          <div className="h-2 rounded-full bg-surface-2 dark:bg-white/[0.06] overflow-hidden">
             <div
               className="h-2 rounded-full bg-brand transition-all duration-500 animate-pulse"
               style={{ width: '60%' }}
@@ -248,7 +248,7 @@ export default function BrokenLinks() {
       {result && (
         <>
           {/* Summary bar */}
-          <div className="mb-6 rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="mb-6 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-3">Scan Summary</h3>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1.5">
@@ -256,22 +256,22 @@ export default function BrokenLinks() {
                 <span className="font-medium text-foreground">{result.totalLinks}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
+                <span className="inline-block h-2 w-2 rounded-full bg-success-ink dark:bg-emerald-400" />
                 <span className="text-muted-foreground">Working:</span>
-                <span className="font-medium text-emerald-400">{counts.working}</span>
+                <span className="font-medium text-success-ink dark:text-emerald-400">{counts.working}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-full bg-red-400" />
+                <span className="inline-block h-2 w-2 rounded-full bg-destructive dark:bg-red-400" />
                 <span className="text-muted-foreground">Broken:</span>
-                <span className="font-medium text-red-400">{counts.broken}</span>
+                <span className="font-medium text-destructive dark:text-red-400">{counts.broken}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-full bg-amber-400" />
+                <span className="inline-block h-2 w-2 rounded-full bg-gold-ink dark:bg-amber-400" />
                 <span className="text-muted-foreground">Redirected:</span>
-                <span className="font-medium text-amber-400">{counts.redirected}</span>
+                <span className="font-medium text-gold-ink dark:text-amber-400">{counts.redirected}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 rounded-full bg-white/30" />
+                <span className="inline-block h-2 w-2 rounded-full bg-ink-faint dark:bg-white/30" />
                 <span className="text-muted-foreground">Timeout:</span>
                 <span className="font-medium text-muted-foreground">{counts.timeout}</span>
               </div>
@@ -294,8 +294,8 @@ export default function BrokenLinks() {
                   onClick={() => setFilter(tab.key)}
                   className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                     filter === tab.key
-                      ? 'bg-brand/20 text-brand border border-brand/30'
-                      : 'text-muted-foreground hover:text-foreground border border-white/[0.08]'
+                      ? 'bg-brand/20 text-brand-ink dark:text-brand border border-brand/30'
+                      : 'text-muted-foreground hover:text-foreground border border-hairline dark:border-white/[0.08]'
                   }`}
                 >
                   {tab.label} ({tab.count})
@@ -305,18 +305,18 @@ export default function BrokenLinks() {
 
             <button
               onClick={() => exportCsv(result.results, result.pageUrl)}
-              className="rounded-md border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-white/[0.15]"
+              className="rounded-md border border-hairline dark:border-white/[0.08] px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-hairline-strong dark:border-white/[0.15]"
             >
               Export CSV
             </button>
           </div>
 
           {/* Results table */}
-          <div className="rounded-lg border border-white/[0.08] overflow-hidden">
+          <div className="rounded-lg border border-hairline dark:border-white/[0.08] overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-sm">
                 <thead>
-                  <tr className="border-b border-white/[0.08] bg-white/[0.02]">
+                  <tr className="border-b border-hairline dark:border-white/[0.08] bg-wash dark:bg-white/[0.02]">
                     <th className="text-left px-4 py-3 font-medium text-muted-foreground">URL</th>
                     <th className="text-left px-4 py-3 font-medium text-muted-foreground w-24">Status</th>
                     <th className="text-left px-4 py-3 font-medium text-muted-foreground w-24">Type</th>
@@ -334,14 +334,14 @@ export default function BrokenLinks() {
                   {filtered.map((link, i) => (
                     <tr
                       key={i}
-                      className={`border-b border-white/[0.06] hover:bg-white/[0.02] ${getRowBorderClass(link.status)}`}
+                      className={`border-b border-hairline hover:bg-wash dark:bg-white/[0.02] ${getRowBorderClass(link.status)}`}
                     >
                       <td className="px-4 py-3">
                         <a
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-mono text-xs text-foreground/80 hover:text-brand transition-colors"
+                          className="font-mono text-xs text-foreground/80 hover:text-brand-ink dark:hover:text-brand transition-colors"
                           title={link.url}
                         >
                           {truncateUrl(link.url)}
@@ -358,7 +358,7 @@ export default function BrokenLinks() {
                         <span
                           className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                             link.internal
-                              ? 'bg-brand/15 text-brand'
+                              ? 'bg-brand/15 text-brand-ink dark:text-brand'
                               : 'bg-purple-500/15 text-purple-400'
                           }`}
                         >
@@ -386,28 +386,28 @@ export default function BrokenLinks() {
           How Broken Links Hurt SEO
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">Wasted Crawl Budget</h3>
             <p className="text-sm text-muted-foreground">
               Broken internal links waste Googlebot&apos;s crawl budget. Every request that returns a 404
               is a missed opportunity to crawl and index a real page on your site.
             </p>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">Reduced User Trust</h3>
             <p className="text-sm text-muted-foreground">
               Broken external links erode user trust and signal poor content maintenance. Visitors who
               click a dead link are more likely to bounce and less likely to convert.
             </p>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">Poor Maintenance Signals</h3>
             <p className="text-sm text-muted-foreground">
               Frequent 404 errors can indicate to Google that a page is poorly maintained. This may
               affect quality assessments and reduce your overall crawl priority.
             </p>
           </div>
-          <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+          <div className="rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4">
             <h3 className="text-sm font-semibold text-foreground mb-2">Lost Link Equity</h3>
             <p className="text-sm text-muted-foreground">
               Redirect chains pass less link equity than direct links. Each hop in a redirect chain
@@ -416,7 +416,7 @@ export default function BrokenLinks() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+        <div className="mt-6 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4">
           <h3 className="text-sm font-semibold text-foreground mb-2">How to Fix Broken Links</h3>
           <ul className="space-y-1.5 text-sm text-muted-foreground">
             <li>

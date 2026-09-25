@@ -169,10 +169,10 @@ function isValidUrl(url: string): boolean {
 const chevronSvg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E")`;
 
 const selectClass =
-  'w-full appearance-none rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 pr-8 text-sm text-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
+  'w-full appearance-none rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 pr-8 text-sm text-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 
 const inputClass =
-  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
+  'w-full rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
@@ -324,7 +324,7 @@ export default function HreflangGenerator() {
           <button
             key={preset.label}
             onClick={() => applyPreset(preset)}
-            className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
+            className="rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
           >
             {preset.label}
           </button>
@@ -333,14 +333,14 @@ export default function HreflangGenerator() {
           onClick={() =>
             setRows([{ id: makeId(), url: '', language: 'en', region: '' }])
           }
-          className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
+          className="rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/[0.08]"
         >
           Custom (reset)
         </button>
       </div>
 
       {/* Language rows */}
-      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2
             className="text-lg font-semibold text-foreground"
@@ -440,7 +440,7 @@ export default function HreflangGenerator() {
                 <button
                   onClick={() => removeRow(row.id)}
                   disabled={rows.length <= 1}
-                  className="text-red-400 hover:text-red-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors p-2 text-sm"
+                  className="text-destructive hover:text-destructive/70 dark:text-red-400 dark:hover:text-red-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors p-2 text-sm"
                   title="Remove row"
                 >
                   <svg
@@ -470,13 +470,13 @@ export default function HreflangGenerator() {
       {/* x-default + output format */}
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         {/* x-default */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
           <label className="flex cursor-pointer items-center gap-3">
             <input
               type="checkbox"
               checked={includeXDefault}
               onChange={(e) => setIncludeXDefault(e.target.checked)}
-              className="h-4 w-4 rounded border-white/20 accent-brand"
+              className="h-4 w-4 rounded border-hairline-strong dark:border-white/20 accent-brand"
             />
             <span className="text-sm font-medium text-foreground">
               Include x-default (fallback URL)
@@ -500,7 +500,7 @@ export default function HreflangGenerator() {
         </div>
 
         {/* Output format */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
           <p className="mb-3 text-sm font-medium text-foreground">Output Format</p>
           <div className="flex gap-3">
             <button
@@ -508,7 +508,7 @@ export default function HreflangGenerator() {
               className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${
                 outputFormat === 'html'
                   ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
-                  : 'border border-white/[0.12] bg-white/[0.04] text-foreground hover:border-brand/40 hover:bg-brand/[0.08]'
+                  : 'border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] text-foreground hover:border-brand/40 hover:bg-brand/[0.08]'
               }`}
             >
               HTML &lt;link&gt; Tags
@@ -518,7 +518,7 @@ export default function HreflangGenerator() {
               className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${
                 outputFormat === 'xml'
                   ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
-                  : 'border border-white/[0.12] bg-white/[0.04] text-foreground hover:border-brand/40 hover:bg-brand/[0.08]'
+                  : 'border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] text-foreground hover:border-brand/40 hover:bg-brand/[0.08]'
               }`}
             >
               XML Sitemap
@@ -529,11 +529,11 @@ export default function HreflangGenerator() {
 
       {/* Warnings */}
       {warnings.length > 0 && (
-        <div className="mt-4 rounded-lg border border-amber-400/20 bg-amber-400/[0.05] p-4">
-          <p className="mb-1.5 text-sm font-medium text-amber-400">Warnings</p>
+        <div className="mt-4 rounded-lg border border-gold-ink/20 bg-gold-ink/[0.06] p-4 dark:border-amber-400/20 dark:bg-amber-400/[0.05]">
+          <p className="mb-1.5 text-sm font-medium text-gold-ink dark:text-amber-400">Warnings</p>
           <ul className="space-y-1">
             {warnings.map((w, i) => (
-              <li key={i} className="text-amber-400 text-xs">
+              <li key={i} className="text-gold-ink dark:text-amber-400 text-xs">
                 {w}
               </li>
             ))}
@@ -553,7 +553,7 @@ export default function HreflangGenerator() {
             {copied ? 'Copied!' : 'Copy to Clipboard'}
           </button>
         </div>
-        <div className="rounded-lg bg-[#0d0d14] border border-white/[0.08] p-4 font-mono text-sm overflow-x-auto">
+        <div className="rounded-lg bg-surface-2 dark:bg-[#0d0d14] border border-hairline dark:border-white/[0.08] p-4 font-mono text-sm overflow-x-auto">
           {output ? (
             <pre className="whitespace-pre text-foreground">{output}</pre>
           ) : (
@@ -565,7 +565,7 @@ export default function HreflangGenerator() {
       </div>
 
       {/* How it works */}
-      <div className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-10 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
         <h2
           className="mb-3 text-lg font-semibold text-foreground"
           style={{ fontFamily: 'var(--font-heading)' }}
@@ -574,7 +574,7 @@ export default function HreflangGenerator() {
         </h2>
         <div className="space-y-4 text-sm text-muted-foreground">
           <p>
-            The <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-foreground">hreflang</code> attribute
+            The <code className="rounded bg-surface-2 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">hreflang</code> attribute
             tells search engines which language and regional version of a page to show to users. It
             prevents duplicate content issues across multilingual sites and ensures the right version
             appears in local search results.
@@ -584,9 +584,9 @@ export default function HreflangGenerator() {
             <h3 className="mb-1.5 text-foreground font-medium">Tag syntax</h3>
             <p>
               Each tag uses an ISO 639-1 language code (e.g.{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-foreground">en</code>),
+              <code className="rounded bg-surface-2 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">en</code>),
               optionally followed by an ISO 3166-1 Alpha-2 region code (e.g.{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-foreground">en-GB</code>
+              <code className="rounded bg-surface-2 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">en-GB</code>
               ). Language-only tags target all regions for that language; language + region tags
               target a specific country.
             </p>
@@ -596,7 +596,7 @@ export default function HreflangGenerator() {
             <h3 className="mb-1.5 text-foreground font-medium">x-default</h3>
             <p>
               The{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-foreground">
+              <code className="rounded bg-surface-2 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">
                 x-default
               </code>{' '}
               value designates the fallback page shown when no other hreflang matches the
@@ -627,12 +627,12 @@ export default function HreflangGenerator() {
             <ul className="mt-1.5 list-disc space-y-1 pl-5">
               <li>
                 <span className="text-foreground font-medium">HTML &lt;link&gt; tags</span> — placed
-                in the <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-foreground">&lt;head&gt;</code> of
+                in the <code className="rounded bg-surface-2 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">&lt;head&gt;</code> of
                 each page. Best for smaller sites.
               </li>
               <li>
                 <span className="text-foreground font-medium">XML Sitemap</span> — hreflang annotations
-                added inside each <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-foreground">&lt;url&gt;</code> element.
+                added inside each <code className="rounded bg-surface-2 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">&lt;url&gt;</code> element.
                 Better for large sites with many language versions.
               </li>
               <li>

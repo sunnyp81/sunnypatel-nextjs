@@ -39,6 +39,31 @@ const DONUT_COLOURS = [
   "#B4B4BC",
 ];
 
+/**
+ * Canvas can't read CSS custom properties, so the PNG export needs its own
+ * resolved palette per theme. BLUE/GOLD stay fixed hues in both (matches
+ * the CSS token contract); only neutral bg/text/axis colours flip.
+ */
+type CanvasPalette = { bg: string; text: string; faint: string; axis: string; track: string };
+const DARK_PALETTE: CanvasPalette = {
+  bg: "#050507",
+  text: "#EEEEEE",
+  faint: "#B4B4BC",
+  axis: "#808080",
+  track: "rgba(255,255,255,0.06)",
+};
+const LIGHT_PALETTE: CanvasPalette = {
+  bg: "#FFFFFF",
+  text: "#0A1024",
+  faint: "#5D6782",
+  axis: "#5D6782",
+  track: "rgba(10,16,36,0.08)",
+};
+function currentCanvasPalette(): CanvasPalette {
+  if (typeof document === "undefined") return DARK_PALETTE;
+  return document.documentElement.classList.contains("light") ? LIGHT_PALETTE : DARK_PALETTE;
+}
+
 function parseData(data: string): Point[] {
   return data
     .split("|")
@@ -66,8 +91,17 @@ function parseRows(data: string): Row[] {
     .filter((r) => r.label && r.values.every((v) => Number.isFinite(v)));
 }
 
-/** A static, labelled summary; shares the interactive chart's data parsers. */
-export function drawChartToCanvas(canvas: HTMLCanvasElement, props: GlowChartProps, url: string) {
+/**
+ * A static, labelled summary; shares the interactive chart's data parsers.
+ * `palette` defaults to the dark export (canvas can't resolve CSS vars);
+ * pass `currentCanvasPalette()` to match whichever theme is active on export.
+ */
+export function drawChartToCanvas(
+  canvas: HTMLCanvasElement,
+  props: GlowChartProps,
+  url: string,
+  palette: CanvasPalette = DARK_PALETTE,
+) {
   canvas.width = 1200;
   canvas.height = 675;
   const ctx = canvas.getContext("2d");
@@ -84,10 +118,10 @@ export function drawChartToCanvas(canvas: HTMLCanvasElement, props: GlowChartPro
   })));
   if (!entries.length) throw new Error("No chart data");
 
-  ctx.fillStyle = "#050507";
+  ctx.fillStyle = palette.bg;
   ctx.fillRect(0, 0, 1200, 675);
   // Canvas maxWidth keeps long source lines and URLs within the image.
-  const text = (value: string, x: number, y: number, width: number, size = 18, colour = "#EEEEEE") => {
+  const text = (value: string, x: number, y: number, width: number, size = 18, colour = palette.text) => {
     ctx.font = `${size}px Arial, sans-serif`;
     ctx.fillStyle = colour;
     ctx.fillText(value, x, y, width);
@@ -106,7 +140,7 @@ export function drawChartToCanvas(canvas: HTMLCanvasElement, props: GlowChartPro
   if (line) {
     const x = (i: number) => 65 + (rows.length === 1 ? 235 : i * 470 / (rows.length - 1));
     const y = (value: number) => top + height - 30 - (value - min) / range * (height - 60);
-    ctx.strokeStyle = "#808080";
+    ctx.strokeStyle = palette.axis;
     ctx.beginPath();
     ctx.moveTo(65, y(0));
     ctx.lineTo(535, y(0));
@@ -129,8 +163,8 @@ export function drawChartToCanvas(canvas: HTMLCanvasElement, props: GlowChartPro
         ctx.fill();
       });
     });
-    text(rows[0].label, 48, 565, 240, 14, "#B4B4BC");
-    if (rows.length > 1) text(rows[rows.length - 1].label, 310, 565, 250, 14, "#B4B4BC");
+    text(rows[0].label, 48, 565, 240, 14, palette.faint);
+    if (rows.length > 1) text(rows[rows.length - 1].label, 310, 565, 250, 14, palette.faint);
   } else if (donut) {
     const total = points.reduce((sum, point) => sum + Math.max(0, point.value), 0);
     let angle = -Math.PI / 2;
@@ -142,7 +176,7 @@ export function drawChartToCanvas(canvas: HTMLCanvasElement, props: GlowChartPro
       ctx.closePath();
       ctx.fillStyle = [BLUE, GOLD][i % 2];
       ctx.fill();
-      ctx.strokeStyle = "#050507";
+      ctx.strokeStyle = palette.bg;
       ctx.lineWidth = 2;
       ctx.stroke();
       angle = end;
@@ -156,16 +190,16 @@ export function drawChartToCanvas(canvas: HTMLCanvasElement, props: GlowChartPro
     } else {
       text(entry.label, 48, y, 435, fontSize);
       const x = (value: number) => 505 + (value - min) / range * 475;
-      ctx.fillStyle = "rgba(255,255,255,0.06)";
+      ctx.fillStyle = palette.track;
       ctx.fillRect(505, y - fontSize + 2, 475, fontSize);
       ctx.fillStyle = entry.colour;
       ctx.fillRect(Math.min(x(0), x(entry.value)), y - fontSize + 2, Math.abs(x(entry.value) - x(0)), fontSize);
       text(entry.display, 1000, y, 152, fontSize);
     }
   });
-  if (source) text(`Source: ${source}`, 48, 603, 1104, 16, "#B4B4BC");
-  text("SunnyPatel.co.uk", 48, 643, 180, 14, "#B4B4BC");
-  text(url, 240, 643, 912, 14, "#B4B4BC");
+  if (source) text(`Source: ${source}`, 48, 603, 1104, 16, palette.faint);
+  text("SunnyPatel.co.uk", 48, 643, 180, 14, palette.faint);
+  text(url, 240, 643, 912, 14, palette.faint);
 }
 
 function downloadSlug(value: string) {
@@ -212,7 +246,7 @@ export function ChartActions(props: GlowChartProps) {
   const download = async () => {
     try {
       const canvas = document.createElement("canvas");
-      drawChartToCanvas(canvas, props, window.location.href);
+      drawChartToCanvas(canvas, props, window.location.href, currentCanvasPalette());
       const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(
         (result) => result ? resolve(result) : reject(new Error("PNG unavailable")), "image/png",
       ));
@@ -359,7 +393,7 @@ function BarChart({
                 }}
               >
                 <span
-                  style={{ fontSize: 14, color: "#EEEEEE", lineHeight: 1.35 }}
+                  style={{ fontSize: 14, color: "var(--ink-strong)", lineHeight: 1.35 }}
                 >
                   {p.label}
                 </span>
@@ -367,7 +401,7 @@ function BarChart({
                   style={{
                     fontSize: 14,
                     fontWeight: 600,
-                    color: hi || isActive ? GOLD : "#EEEEEE",
+                    color: hi || isActive ? GOLD : "var(--ink-strong)",
                     fontVariantNumeric: "tabular-nums",
                     whiteSpace: "nowrap",
                   }}
@@ -379,7 +413,7 @@ function BarChart({
                 style={{
                   height: 10,
                   borderRadius: 5,
-                  background: "rgba(255,255,255,0.06)",
+                  background: "var(--hairline)",
                 }}
               >
                 <div
@@ -393,7 +427,7 @@ function BarChart({
                     background: hi
                       ? `linear-gradient(90deg, #9A7420, ${GOLD})`
                       : `linear-gradient(90deg, #3D6FE8, ${colour})`,
-                    boxShadow: `0 0 10px ${hi ? "rgba(215,159,30,0.35)" : "rgba(91,138,239,0.35)"}`,
+                    boxShadow: `0 0 10px ${hi ? "var(--glow-gold)" : "var(--glow-brand)"}`,
                     transitionDelay: `0ms, 0ms, ${i * 70}ms`,
                   }}
                 />
@@ -526,7 +560,7 @@ function LineChart({
               x2={w - pad.right}
               y1={y(t)}
               y2={y(t)}
-              stroke="rgba(255,255,255,0.08)"
+              stroke="var(--hairline)"
             />
             <text
               className={styles.axisText}
@@ -574,7 +608,7 @@ function LineChart({
             cx={x(i)}
             cy={y(p.value)}
             r={active === i ? 6 : 3.5}
-            fill="#050507"
+            fill="var(--background)"
             stroke={i === points.length - 1 ? GOLD : BLUE}
             strokeWidth="2"
             className={styles.dot}
@@ -586,7 +620,7 @@ function LineChart({
             x2={x(active)}
             y1={pad.top}
             y2={pad.top + ih}
-            stroke="rgba(215,159,30,0.5)"
+            stroke="var(--glow-gold)"
             strokeDasharray="3 4"
           />
         ) : null}
@@ -666,7 +700,7 @@ function DonutChart({
               cy="110"
               r={R}
               fill="none"
-              stroke="rgba(255,255,255,0.06)"
+              stroke="var(--hairline)"
               strokeWidth="18"
             />
             {points.map((p, i) => {
@@ -716,7 +750,7 @@ function DonutChart({
               fontFamily: "var(--font-heading)",
               fontSize: 26,
               fontWeight: 700,
-              color: GOLD,
+              color: "var(--gold-ink)",
               fontVariantNumeric: "tabular-nums",
               lineHeight: 1.1,
             }}
@@ -726,7 +760,7 @@ function DonutChart({
           <span
             style={{
               fontSize: 13,
-              color: "#B4B4BC",
+              color: "var(--ink-soft)",
               marginTop: 4,
               lineHeight: 1.3,
             }}
@@ -815,7 +849,7 @@ function GroupedBarChart({
             className={active !== null && active !== i ? styles.dim : ""}
             style={{ transition: "opacity 200ms ease" }}
           >
-            <div style={{ fontSize: 14, color: "#EEEEEE", lineHeight: 1.35, marginBottom: 6 }}>
+            <div style={{ fontSize: 14, color: "var(--ink-strong)", lineHeight: 1.35, marginBottom: 6 }}>
               {r.label}
             </div>
             <div style={{ display: "grid", gap: 5 }}>
@@ -828,7 +862,7 @@ function GroupedBarChart({
                         flex: 1,
                         height: 8,
                         borderRadius: 4,
-                        background: "rgba(255,255,255,0.06)",
+                        background: "var(--hairline)",
                       }}
                     >
                       <div
@@ -849,7 +883,7 @@ function GroupedBarChart({
                         textAlign: "right",
                         fontSize: 14,
                         fontWeight: 600,
-                        color: active === i ? c : "#EEEEEE",
+                        color: active === i ? c : "var(--ink-strong)",
                         fontVariantNumeric: "tabular-nums",
                         whiteSpace: "nowrap",
                       }}
@@ -972,7 +1006,7 @@ function MultiLineChart({
                 x2={w - pad.right}
                 y1={y(t)}
                 y2={y(t)}
-                stroke="rgba(255,255,255,0.08)"
+                stroke="var(--hairline)"
               />
               <text className={styles.axisText} x={pad.left - 10} y={y(t) + 4} textAnchor="end">
                 {prefix}
@@ -1019,7 +1053,7 @@ function MultiLineChart({
                     cx={x(i)}
                     cy={y(r.values[j])}
                     r={active === i ? 6 : 3}
-                    fill="#050507"
+                    fill="var(--background)"
                     stroke={c}
                     strokeWidth="2"
                     className={styles.dot}
@@ -1034,7 +1068,7 @@ function MultiLineChart({
               x2={x(active)}
               y1={pad.top}
               y2={pad.top + ih}
-              stroke="rgba(255,255,255,0.3)"
+              stroke="var(--crosshair)"
               strokeDasharray="3 4"
             />
           ) : null}

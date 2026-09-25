@@ -1,6 +1,22 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+
+/* ------------------------------------------------------------------ */
+/*  Theme detection (light/dark) — CSS vars handle most colours        */
+/*  automatically, but a few tier colours below are computed in JS     */
+/*  and need to pick a light-safe or dark-original hex explicitly.     */
+/* ------------------------------------------------------------------ */
+function useLightTheme(): boolean {
+  const [isLight, setIsLight] = useState(false);
+  useEffect(() => {
+    const update = () => setIsLight(document.documentElement.classList.contains('light'));
+    update();
+    window.addEventListener('themechange', update);
+    return () => window.removeEventListener('themechange', update);
+  }, []);
+  return isLight;
+}
 
 /* ------------------------------------------------------------------ */
 /*  Syllable counting                                                  */
@@ -118,14 +134,14 @@ function analyseText(text: string): AnalysisResult | null {
 /* ------------------------------------------------------------------ */
 /*  Flesch Reading Ease label + colour                                 */
 /* ------------------------------------------------------------------ */
-function getFleschLabel(score: number): { label: string; color: string } {
-  if (score >= 90) return { label: 'Very Easy', color: '#22c55e' };
-  if (score >= 80) return { label: 'Easy', color: '#4ade80' };
-  if (score >= 70) return { label: 'Fairly Easy', color: '#86efac' };
-  if (score >= 60) return { label: 'Standard', color: '#facc15' };
-  if (score >= 50) return { label: 'Fairly Difficult', color: '#f59e0b' };
-  if (score >= 30) return { label: 'Difficult', color: '#ef4444' };
-  return { label: 'Very Difficult', color: '#dc2626' };
+function getFleschLabel(score: number, isLight: boolean): { label: string; color: string } {
+  if (score >= 90) return { label: 'Very Easy', color: isLight ? '#15803d' : '#22c55e' };
+  if (score >= 80) return { label: 'Easy', color: isLight ? '#15803d' : '#4ade80' };
+  if (score >= 70) return { label: 'Fairly Easy', color: isLight ? '#3f7a1f' : '#86efac' };
+  if (score >= 60) return { label: 'Standard', color: isLight ? '#8a5a00' : '#facc15' };
+  if (score >= 50) return { label: 'Fairly Difficult', color: isLight ? '#7a4a00' : '#f59e0b' };
+  if (score >= 30) return { label: 'Difficult', color: isLight ? '#b91c1c' : '#ef4444' };
+  return { label: 'Very Difficult', color: isLight ? '#991b1b' : '#dc2626' };
 }
 
 function getGradeDescription(grade: number): string {
@@ -141,20 +157,20 @@ function getGradeDescription(grade: number): string {
   return `Grade ${g} \u2014 postgraduate level`;
 }
 
-function getGradeColor(grade: number): string {
-  if (grade <= 6) return '#22c55e';
-  if (grade <= 8) return '#4ade80';
-  if (grade <= 10) return '#facc15';
-  if (grade <= 12) return '#f59e0b';
-  return '#ef4444';
+function getGradeColor(grade: number, isLight: boolean): string {
+  if (grade <= 6) return isLight ? '#15803d' : '#22c55e';
+  if (grade <= 8) return isLight ? '#3f7a1f' : '#4ade80';
+  if (grade <= 10) return isLight ? '#8a5a00' : '#facc15';
+  if (grade <= 12) return isLight ? '#7a4a00' : '#f59e0b';
+  return isLight ? '#b91c1c' : '#ef4444';
 }
 
-function getFogColor(fog: number): string {
-  if (fog <= 8) return '#22c55e';
-  if (fog <= 10) return '#4ade80';
-  if (fog <= 12) return '#facc15';
-  if (fog <= 14) return '#f59e0b';
-  return '#ef4444';
+function getFogColor(fog: number, isLight: boolean): string {
+  if (fog <= 8) return isLight ? '#15803d' : '#22c55e';
+  if (fog <= 10) return isLight ? '#3f7a1f' : '#4ade80';
+  if (fog <= 12) return isLight ? '#8a5a00' : '#facc15';
+  if (fog <= 14) return isLight ? '#7a4a00' : '#f59e0b';
+  return isLight ? '#b91c1c' : '#ef4444';
 }
 
 function getFogLabel(fog: number): string {
@@ -227,7 +243,7 @@ function CircularGauge({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255,255,255,0.06)"
+          stroke="var(--hairline)"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -264,7 +280,7 @@ function ScoreCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+    <div className="rounded-xl border border-hairline bg-wash p-5">
       <h3
         className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground"
       >
@@ -280,6 +296,7 @@ function ScoreCard({
 /* ------------------------------------------------------------------ */
 export default function ReadabilityScore() {
   const [text, setText] = useState('');
+  const isLight = useLightTheme();
 
   const result = useMemo(() => analyseText(text), [text]);
 
@@ -303,7 +320,7 @@ export default function ReadabilityScore() {
         <div className="flex items-center justify-between">
           <label className="text-sm font-medium text-foreground">Your Content</label>
           {result && (
-            <span className="rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand">
+            <span className="rounded-full bg-brand/15 px-2 py-0.5 text-xs font-mono text-brand-ink">
               {result.words} words
             </span>
           )}
@@ -312,13 +329,13 @@ export default function ReadabilityScore() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={8}
-          className="w-full resize-y rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+          className="w-full resize-y rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           placeholder="Paste your article, blog post, or any text content here to analyse its readability..."
         />
         <div className="flex items-center gap-3">
           <button
             onClick={() => setText('')}
-            className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-wash px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             Clear
           </button>
@@ -347,8 +364,8 @@ export default function ReadabilityScore() {
                   <CircularGauge
                     value={result.fleschReadingEase}
                     max={100}
-                    color={getFleschLabel(result.fleschReadingEase).color}
-                    label={getFleschLabel(result.fleschReadingEase).label}
+                    color={getFleschLabel(result.fleschReadingEase, isLight).color}
+                    label={getFleschLabel(result.fleschReadingEase, isLight).label}
                   />
                 </div>
                 <p className="mt-3 text-center text-xs text-muted-foreground">
@@ -364,7 +381,7 @@ export default function ReadabilityScore() {
                   <CircularGauge
                     value={result.fleschKincaidGrade}
                     max={20}
-                    color={getGradeColor(result.fleschKincaidGrade)}
+                    color={getGradeColor(result.fleschKincaidGrade, isLight)}
                     label="Grade"
                   />
                 </div>
@@ -381,7 +398,7 @@ export default function ReadabilityScore() {
                   <CircularGauge
                     value={result.gunningFog}
                     max={20}
-                    color={getFogColor(result.gunningFog)}
+                    color={getFogColor(result.gunningFog, isLight)}
                     label={getFogLabel(result.gunningFog)}
                   />
                 </div>
@@ -398,7 +415,7 @@ export default function ReadabilityScore() {
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M8 1.333A6.667 6.667 0 1 0 14.667 8 6.674 6.674 0 0 0 8 1.333Zm0 10.667a.667.667 0 1 1 0-1.334.667.667 0 0 1 0 1.334Zm.667-3.334a.667.667 0 0 1-1.334 0V5.333a.667.667 0 0 1 1.334 0v3.333Z"
-                  fill="#5B8AEF"
+                  fill="var(--brand-ink)"
                 />
               </svg>
               <span className="text-sm font-semibold text-foreground">Recommendation</span>
@@ -407,7 +424,7 @@ export default function ReadabilityScore() {
           </div>
 
           {/* Stats panel */}
-          <div className="mb-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+          <div className="mb-8 rounded-xl border border-hairline bg-wash p-5">
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               Content Statistics
             </h3>
@@ -460,7 +477,7 @@ export default function ReadabilityScore() {
       )}
 
       {/* How it works */}
-      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="rounded-xl border border-hairline bg-wash p-6">
         <h2
           className="mb-3 text-lg font-semibold text-foreground"
           style={{ fontFamily: 'var(--font-heading)' }}
@@ -472,7 +489,7 @@ export default function ReadabilityScore() {
             <h3 className="font-medium text-foreground">Flesch Reading Ease (FRE)</h3>
             <p className="mt-1">
               Developed by Rudolf Flesch in 1948, this formula scores text on a 0&ndash;100 scale. Higher scores mean easier reading. The formula is:{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-brand">
+              <code className="rounded bg-hairline px-1.5 py-0.5 text-xs font-mono text-brand-ink">
                 206.835 &minus; 1.015 &times; (words &divide; sentences) &minus; 84.6 &times; (syllables &divide; words)
               </code>
               . A score of 60&ndash;70 is considered standard &mdash; easily understood by 13&ndash;15 year old students. Most web content should aim for 60 or above.
@@ -482,7 +499,7 @@ export default function ReadabilityScore() {
             <h3 className="font-medium text-foreground">Flesch-Kincaid Grade Level</h3>
             <p className="mt-1">
               Created by J. Peter Kincaid for the US Navy, this formula converts readability into a US grade level. The formula is:{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-brand">
+              <code className="rounded bg-hairline px-1.5 py-0.5 text-xs font-mono text-brand-ink">
                 0.39 &times; (words &divide; sentences) + 11.8 &times; (syllables &divide; words) &minus; 15.59
               </code>
               . A result of 8.0 means the text is suitable for an eighth-grader (13&ndash;14 years old). For general web content, aim for grade 7&ndash;9.
@@ -492,7 +509,7 @@ export default function ReadabilityScore() {
             <h3 className="font-medium text-foreground">Gunning Fog Index</h3>
             <p className="mt-1">
               Developed by Robert Gunning in 1952, this index estimates the years of formal education needed to understand a text on first reading. The formula is:{' '}
-              <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-xs font-mono text-brand">
+              <code className="rounded bg-hairline px-1.5 py-0.5 text-xs font-mono text-brand-ink">
                 0.4 &times; ((words &divide; sentences) + 100 &times; (complex words &divide; words))
               </code>
               . &ldquo;Complex words&rdquo; are those with three or more syllables, excluding common suffixes like -es, -ed, and -ing. A Fog Index of 12 requires roughly a high-school senior reading level. For most audiences, aim for 8&ndash;12.

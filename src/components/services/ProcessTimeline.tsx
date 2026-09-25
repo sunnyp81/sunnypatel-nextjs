@@ -6,7 +6,7 @@ export function ProcessTimeline({
   accentColor: string;
 }) {
   return (
-    <div className="rounded-2xl border border-brand/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]">
+    <div className="rounded-2xl border border-brand/20 bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)] dark:shadow-[0_0_24px_rgba(91,138,239,0.10)]">
       <h2
         className="mb-8 text-xl font-bold text-foreground"
         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
@@ -17,10 +17,7 @@ export function ProcessTimeline({
       {/* Desktop */}
       <div className="hidden md:block">
         <div className="relative flex justify-between">
-          <div
-            className="absolute left-4 right-4 top-4 h-px"
-            style={{ backgroundColor: `${accentColor}25` }}
-          />
+          <div className="absolute left-4 right-4 top-4 h-px bg-brand-ink/25" />
           {steps.map((step, i) => (
             <div
               key={i}
@@ -28,8 +25,8 @@ export function ProcessTimeline({
               style={{ width: `${100 / steps.length}%` }}
             >
               <p
-                className="mb-2 text-[10px] font-medium uppercase tracking-widest"
-                style={{ fontFamily: "monospace", color: `${accentColor}80` }}
+                className="mb-2 text-[10px] font-medium uppercase tracking-widest text-brand-ink dark:text-brand-ink/50"
+                style={{ fontFamily: "monospace" }}
               >
                 {step.phase}
               </p>
@@ -53,10 +50,7 @@ export function ProcessTimeline({
       {/* Mobile */}
       <div className="md:hidden">
         <div className="relative space-y-6 pl-10">
-          <div
-            className="absolute bottom-0 left-[15px] top-0 w-px"
-            style={{ backgroundColor: `${accentColor}25` }}
-          />
+          <div className="absolute bottom-0 left-[15px] top-0 w-px bg-brand-ink/25" />
           {steps.map((step, i) => (
             <div key={i} className="relative">
               <div
@@ -66,8 +60,8 @@ export function ProcessTimeline({
                 {i + 1}
               </div>
               <p
-                className="mb-1 text-[10px] font-medium uppercase tracking-widest"
-                style={{ fontFamily: "monospace", color: `${accentColor}80` }}
+                className="mb-1 text-[10px] font-medium uppercase tracking-widest text-brand-ink dark:text-brand-ink/50"
+                style={{ fontFamily: "monospace" }}
               >
                 {step.phase}
               </p>

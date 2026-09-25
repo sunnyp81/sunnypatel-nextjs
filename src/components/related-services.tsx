@@ -111,7 +111,7 @@ export function RelatedServices({
     if (others.length === 0) return null;
 
     return (
-      <div className="border-t border-white/[0.05]">
+      <div className="border-t border-hairline">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <h2
             className="mb-8 text-2xl font-bold text-foreground"
@@ -127,7 +127,7 @@ export function RelatedServices({
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}/`}
-                  className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
+                  className="group flex flex-col rounded-2xl border border-hairline bg-wash p-6 transition-all duration-300 hover:border-hairline-strong hover:bg-hairline"
                 >
                   <div
                     className="mb-4 w-fit rounded-lg border p-2"
@@ -136,7 +136,7 @@ export function RelatedServices({
                     <Icon className="h-4 w-4" style={{ color }} />
                   </div>
                   <h3
-                    className="mb-2 text-base font-semibold text-foreground transition-colors group-hover:text-brand"
+                    className="mb-2 text-base font-semibold text-foreground transition-colors group-hover:text-brand-ink"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {service.title}
@@ -144,7 +144,7 @@ export function RelatedServices({
                   <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
                     {service.description}
                   </p>
-                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+                  <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand-ink">
                     Learn more <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
@@ -163,8 +163,8 @@ export function RelatedServices({
     .slice(0, 3);
 
   return (
-    <div className="my-12 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 md:p-8">
-      <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-brand">
+    <div className="my-12 rounded-2xl border border-hairline bg-wash p-6 md:p-8">
+      <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-brand-ink">
         Related Services
       </p>
       <h3
@@ -180,7 +180,7 @@ export function RelatedServices({
             <Link
               key={service.href}
               href={service.href}
-              className="group flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04]"
+              className="group flex flex-col rounded-xl border border-hairline bg-wash p-4 transition-all duration-300 hover:border-hairline-strong hover:bg-hairline"
             >
               <div
                 className="mb-3 w-fit rounded-lg border p-2"
@@ -192,7 +192,7 @@ export function RelatedServices({
                 <Icon className="h-4 w-4" style={{ color: service.color }} />
               </div>
               <h4
-                className="mb-1 text-sm font-semibold text-foreground transition-colors group-hover:text-brand"
+                className="mb-1 text-sm font-semibold text-foreground transition-colors group-hover:text-brand-ink"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {service.title}
@@ -200,7 +200,7 @@ export function RelatedServices({
               <p className="mb-3 flex-1 text-xs leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
-              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-all duration-200 group-hover:gap-2 group-hover:text-brand-ink">
                 Learn more <ArrowRight className="h-3 w-3" />
               </span>
             </Link>
@@ -216,7 +216,7 @@ export function RelatedServices({
             <p className="text-sm font-medium text-foreground">Try our free SEO tools</p>
             <p className="text-xs text-muted-foreground">Website grader, speed checker, keyword scraper, and 17 more, no sign-up required.</p>
           </div>
-          <ArrowRight className="h-4 w-4 flex-shrink-0 text-brand transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-4 w-4 flex-shrink-0 text-brand-ink transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
     </div>

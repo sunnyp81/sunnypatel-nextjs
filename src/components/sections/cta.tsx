@@ -8,9 +8,15 @@ import Link from "next/link";
 export function Cta() {
   return (
     <section className="relative overflow-hidden py-24">
+      {/* Dark original: unchanged pixels */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden dark:block"
         style={{ background: "linear-gradient(135deg, #0a0a0f 0%, #0d0d14 50%, #0a0a0f 100%)" }}
+      />
+      {/* Light: confident deep brand gradient band */}
+      <div
+        className="absolute inset-0 dark:hidden"
+        style={{ background: "linear-gradient(135deg, #0a1024 0%, #2a5bd7 55%, #14265e 100%)" }}
       />
       <div
         className="absolute inset-0 opacity-[0.05]"
@@ -41,7 +47,7 @@ export function Cta() {
         transition={{ duration: 0.6 }}
       >
         <h2
-          className="mb-6 text-3xl font-bold text-foreground md:text-5xl"
+          className="mb-6 text-3xl font-bold text-white md:text-5xl dark:text-foreground"
           style={{
             fontFamily: "var(--font-heading)",
             letterSpacing: "-0.03em",
@@ -50,8 +56,8 @@ export function Cta() {
         >
           Find What&apos;s Blocking Your Organic Growth
         </h2>
-        <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-          In a free 20-minute SEO diagnosis, we&apos;ll focus on your biggest search problem and the best next move. Need a documented full-site review? The <Link href="/services/technical-seo-audit/" className="text-foreground underline decoration-white/30 underline-offset-4 transition-colors hover:text-brand">£495 audit</Link> is the deeper option.
+        <p className="mx-auto mb-10 max-w-xl text-lg text-white/75 dark:text-muted-foreground">
+          In a free 20-minute SEO diagnosis, we&apos;ll focus on your biggest search problem and the best next move. Need a documented full-site review? The <Link href="/services/technical-seo-audit/" className="text-white underline decoration-white/40 underline-offset-4 transition-colors hover:text-white/80 dark:text-foreground dark:decoration-white/30 dark:hover:text-brand">£495 audit</Link> is the deeper option.
         </p>
 
         {/* Pulsing ring wrapper */}
@@ -65,8 +71,8 @@ export function Cta() {
             </a>
           </GradientButton>
         </div>
-        <p className="mt-5 text-sm text-muted-foreground">
-          Prefer to talk? <a href="tel:07305523333" className="font-medium text-foreground underline decoration-white/30 underline-offset-4 transition-colors hover:text-brand">Call Sunny on 07305 523333</a>
+        <p className="mt-5 text-sm text-white/75 dark:text-muted-foreground">
+          Prefer to talk? <a href="tel:07305523333" className="font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors hover:text-white/80 dark:text-foreground dark:decoration-white/30 dark:hover:text-brand">Call Sunny on 07305 523333</a>
         </p>
 
         {/* Internal links to key service pages */}
@@ -83,7 +89,7 @@ export function Cta() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-xs text-muted-foreground/60 transition-all duration-200 hover:border-brand/20 hover:text-brand"
+              className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs text-white/70 transition-all duration-200 hover:border-white/40 hover:text-white dark:border-white/[0.06] dark:bg-white/[0.02] dark:text-muted-foreground/60 dark:hover:border-brand/20 dark:hover:text-brand"
             >
               {link.label}
             </a>

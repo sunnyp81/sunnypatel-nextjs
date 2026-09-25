@@ -43,7 +43,7 @@ export default function ToolsPage() {
                     <a
                       key={tool.href}
                       href={tool.href}
-                      className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all duration-300 hover:border-brand/30 hover:bg-brand/[0.04] hover:shadow-[0_0_24px_rgba(91,138,239,0.15)]"
+                      className="group rounded-xl border border-hairline bg-wash p-5 shadow-[var(--elev)] transition-all duration-300 hover:border-brand/30 hover:bg-brand-wash hover:shadow-[0_0_24px_rgba(42,91,215,0.12)] dark:shadow-none dark:hover:shadow-[0_0_24px_rgba(91,138,239,0.15)]"
                     >
                       <h3 className="font-semibold text-foreground group-hover:text-brand transition-colors">
                         {tool.name}

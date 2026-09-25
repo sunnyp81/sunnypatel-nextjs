@@ -147,15 +147,15 @@ export default function WordCounter() {
     min: number,
     max: number
   ): { pct: number; color: string; label: string } {
-    if (current === 0) return { pct: 0, color: "bg-white/10", label: "---" };
+    if (current === 0) return { pct: 0, color: "bg-hairline-strong dark:bg-white/10", label: "---" };
     if (current < min) {
       const pct = Math.min((current / min) * 100, 100);
-      return { pct, color: "bg-yellow-500", label: `${current} (under)` };
+      return { pct, color: "bg-gold-ink dark:bg-yellow-500", label: `${current} (under)` };
     }
     if (current <= max) {
-      return { pct: 100, color: "bg-green-500", label: `${current} (ideal)` };
+      return { pct: 100, color: "bg-success-ink dark:bg-green-500", label: `${current} (ideal)` };
     }
-    return { pct: 100, color: "bg-red-500", label: `${current} (over)` };
+    return { pct: 100, color: "bg-destructive dark:bg-red-500", label: `${current} (over)` };
   }
 
   return (
@@ -190,7 +190,7 @@ export default function WordCounter() {
         ].map((stat) => (
           <div
             key={stat.label}
-            className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center"
+            className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-4 text-center"
           >
             <div className="text-2xl font-bold text-foreground">
               {stat.value}
@@ -211,13 +211,13 @@ export default function WordCounter() {
       <div className="mt-6 flex items-center gap-3">
         <button
           onClick={handleClear}
-          className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-white/[0.08] transition-colors"
+          className="rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-surface-2 dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-surface-3 dark:hover:bg-white/[0.08] transition-colors"
         >
           Clear
         </button>
         <button
           onClick={handleCopy}
-          className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4A79DE] transition-colors"
+          className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] hover:bg-[#4A79DE] transition-colors"
         >
           Copy Text
         </button>
@@ -229,13 +229,13 @@ export default function WordCounter() {
         onChange={handleChange}
         rows={12}
         placeholder="Paste or type your text here..."
-        className="mt-4 w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 resize-none"
+        className="mt-4 w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 resize-none"
       />
 
       {/* Bottom row: SEO Guide + Top Keywords */}
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         {/* SEO Content Length Guide */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-5">
           <h2
             className="text-lg font-bold text-foreground"
             style={{ fontFamily: "var(--font-heading)" }}
@@ -266,7 +266,7 @@ export default function WordCounter() {
                       {label}
                     </span>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                  <div className="h-2 w-full rounded-full bg-hairline overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all duration-300 ${color}`}
                       style={{ width: `${pct}%` }}
@@ -279,7 +279,7 @@ export default function WordCounter() {
         </div>
 
         {/* Top Keywords */}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-5">
           <h2
             className="text-lg font-bold text-foreground"
             style={{ fontFamily: "var(--font-heading)" }}
@@ -310,7 +310,7 @@ export default function WordCounter() {
                           ` (${((kw.count / stats.words) * 100).toFixed(1)}%)`}
                       </span>
                     </div>
-                    <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                    <div className="h-1.5 w-full rounded-full bg-hairline overflow-hidden">
                       <div
                         className="h-full rounded-full bg-brand transition-all duration-300"
                         style={{ width: `${barPct}%` }}

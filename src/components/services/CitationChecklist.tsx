@@ -10,7 +10,7 @@ const PLATFORMS = [
 
 export function CitationChecklist() {
   return (
-    <div className="rounded-2xl border border-brand/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]">
+    <div className="rounded-2xl border border-brand/20 bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)] dark:shadow-[0_0_24px_rgba(91,138,239,0.10)]">
       <h3
         className="mb-6 text-xl font-bold text-foreground"
         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
@@ -24,7 +24,7 @@ export function CitationChecklist() {
             key={p.name}
             className="flex items-start gap-3 rounded-xl border border-brand/10 bg-brand/[0.04] p-4"
           >
-            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border border-white/[0.12] bg-white/[0.04]">
+            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border border-hairline-strong dark:border-white/[0.12] bg-surface-2 dark:bg-white/[0.04]">
               <span className="text-xs text-muted-foreground/70">?</span>
             </div>
             <div>

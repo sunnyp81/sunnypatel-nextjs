@@ -42,7 +42,7 @@ export default async function BlogIndex() {
           style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
         />
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0 opacity-[0.06] dark:block hidden"
           style={{
             backgroundImage:
               "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
@@ -53,8 +53,20 @@ export default async function BlogIndex() {
               "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
           }}
         />
+        <div
+          className="pointer-events-none absolute inset-0 dark:hidden"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+            maskImage:
+              "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+          }}
+        />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-ink">
             Blog
           </p>
           <h1
@@ -69,7 +81,7 @@ export default async function BlogIndex() {
             </p>
           )}
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong to-transparent" />
       </div>
 
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -80,7 +92,7 @@ export default async function BlogIndex() {
             {/* Featured post */}
             {featured && (
               <Link href={`/blog/${featured.slug}`} className="group mb-6 block">
-                <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-brand/20 hover:bg-white/[0.04]">
+                <div className="relative overflow-hidden rounded-2xl border border-hairline bg-wash transition-all duration-300 hover:border-brand/20 hover:bg-hairline">
                   {/* Hover glow */}
                   <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(91,138,239,0.04), transparent 60%)" }} />
@@ -100,7 +112,7 @@ export default async function BlogIndex() {
                     )}
                     <div className="flex flex-1 flex-col justify-center p-8 md:p-10">
                       <div className="mb-3 flex items-center gap-3">
-                        <span className="rounded-full border border-brand/20 bg-brand/10 px-2.5 py-0.5 text-xs font-medium text-brand">
+                        <span className="rounded-full border border-brand/20 bg-brand/10 px-2.5 py-0.5 text-xs font-medium text-brand-ink">
                           Latest
                         </span>
                         {featured.entry.date && (
@@ -114,7 +126,7 @@ export default async function BlogIndex() {
                         )}
                       </div>
                       <h2
-                        className="mb-3 text-2xl font-bold text-foreground transition-colors duration-200 group-hover:text-brand md:text-3xl"
+                        className="mb-3 text-2xl font-bold text-foreground transition-colors duration-200 group-hover:text-brand-ink md:text-3xl"
                         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
                       >
                         {featured.entry.title}
@@ -130,14 +142,14 @@ export default async function BlogIndex() {
                             <TagLink
                               key={tag}
                               href={`/blog/tag/${slugifyTag(tag)}`}
-                              className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand"
+                              className="rounded-full bg-wash px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand-ink"
                             >
                               {tag}
                             </TagLink>
                           ))}
                         </div>
                       )}
-                      <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-muted-foreground/65 transition-all duration-200 group-hover:gap-2.5 group-hover:text-brand">
+                      <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-muted-foreground/65 transition-all duration-200 group-hover:gap-2.5 group-hover:text-brand-ink">
                         Read article
                         <ArrowRight className="h-4 w-4" />
                       </div>
@@ -154,7 +166,7 @@ export default async function BlogIndex() {
                   <Link
                     key={post.slug}
                     href={`/blog/${post.slug}`}
-                    className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-hairline bg-wash transition-all duration-300 hover:border-hairline-strong hover:bg-hairline"
                   >
                     {post.entry.ogImage && (
                       <div className="relative aspect-[16/9] w-full">
@@ -178,7 +190,7 @@ export default async function BlogIndex() {
                         </div>
                       )}
                       <h2
-                        className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand"
+                        className="mb-2 flex-1 text-base font-semibold text-foreground transition-colors duration-200 group-hover:text-brand-ink"
                         style={{ fontFamily: "var(--font-heading)" }}
                       >
                         {post.entry.title}
@@ -194,14 +206,14 @@ export default async function BlogIndex() {
                             <TagLink
                               key={tag}
                               href={`/blog/tag/${slugifyTag(tag)}`}
-                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand"
+                              className="rounded-full bg-wash px-2 py-0.5 text-[10px] text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand-ink"
                             >
                               {tag}
                             </TagLink>
                           ))}
                         </div>
                       )}
-                      <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand">
+                      <div className="flex items-center gap-1 text-xs font-medium text-muted-foreground/70 transition-all duration-200 group-hover:gap-2 group-hover:text-brand-ink">
                         Read more <ArrowRight className="h-3 w-3" />
                       </div>
                     </div>

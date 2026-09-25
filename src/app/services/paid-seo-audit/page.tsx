@@ -145,10 +145,10 @@ export default function PaidSeoAuditPage() {
             style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
           />
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            className="pointer-events-none absolute inset-0"
             style={{
               backgroundImage:
-                "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+                "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
               backgroundSize: "32px 32px",
               maskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
               WebkitMaskImage:
@@ -164,7 +164,7 @@ export default function PaidSeoAuditPage() {
               ]}
             />
 
-            <p className="mb-3 mt-4 text-xs font-semibold uppercase tracking-widest text-brand">
+            <p className="mb-3 mt-4 text-xs font-semibold uppercase tracking-widest text-brand-ink">
               Services
             </p>
             <h1
@@ -184,7 +184,7 @@ export default function PaidSeoAuditPage() {
               {TRUST_BADGES.map(({ icon: Icon, label }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand-ink"
                 >
                   <Icon className="h-3 w-3 shrink-0" />
                   {label}
@@ -205,7 +205,7 @@ export default function PaidSeoAuditPage() {
               </span>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
         </div>
 
         {/* Main content */}
@@ -247,7 +247,7 @@ export default function PaidSeoAuditPage() {
               What the audit covers
             </h2>
             <div className="space-y-6">
-              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
+              <div className="rounded-xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">Technical SEO</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Technical SEO covers seven ranked areas: crawlability and indexation errors,
@@ -257,7 +257,7 @@ export default function PaidSeoAuditPage() {
                   ranking impact.
                 </p>
               </div>
-              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
+              <div className="rounded-xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">Content and topical authority</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Content gap analysis against your top three organic competitors. Which pages
@@ -266,7 +266,7 @@ export default function PaidSeoAuditPage() {
                   where it is absent.
                 </p>
               </div>
-              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
+              <div className="rounded-xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">AI-search visibility</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Citation presence across ChatGPT, Bing Copilot, Google AI Overviews, and
@@ -276,7 +276,7 @@ export default function PaidSeoAuditPage() {
                   AI-search work.
                 </p>
               </div>
-              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
+              <div className="rounded-xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-6">
                 <h3 className="mb-2 text-base font-semibold text-foreground">Prioritised action plan</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Every finding is scored on a two-axis matrix: effort to implement versus
@@ -299,7 +299,7 @@ export default function PaidSeoAuditPage() {
             <div className="mt-8 space-y-2.5">
               {WHAT_YOU_GET.map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
                   <span className="text-sm text-muted-foreground">{item}</span>
                 </div>
               ))}
@@ -319,20 +319,20 @@ export default function PaidSeoAuditPage() {
               Who this is for
             </h2>
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+              <div className="rounded-xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-5">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-ink">
                   Good fit
                 </p>
                 <div className="space-y-2.5">
                   {YES_FOR.map((item) => (
                     <div key={item} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-ink" />
                       <span className="text-sm text-muted-foreground">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
+              <div className="rounded-xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-5">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Not the right fit
                 </p>
@@ -372,7 +372,7 @@ export default function PaidSeoAuditPage() {
                 Sites with more than 500 indexed pages need a scoping conversation before
                 booking. Complex enterprise architectures may fall outside the standard £495
                 fee.{" "}
-                <Link href="/contact/" className="text-brand hover:underline">
+                <Link href="/contact/" className="text-brand-ink hover:underline">
                   Get in touch
                 </Link>{" "}
                 to discuss. Common questions about scope and deliverables are answered below.
@@ -392,7 +392,7 @@ export default function PaidSeoAuditPage() {
               {FAQS.map((faq) => (
                 <div
                   key={faq.q}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5"
+                  className="rounded-xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-5"
                 >
                   <h3 className="mb-2 text-sm font-semibold text-foreground">{faq.q}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
@@ -416,7 +416,7 @@ export default function PaidSeoAuditPage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand-ink"
                 >
                   {link.label}
                   <ArrowRight className="h-3 w-3" />

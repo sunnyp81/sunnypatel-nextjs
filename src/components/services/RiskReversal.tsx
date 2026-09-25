@@ -11,14 +11,11 @@ export function RiskReversal({
 }) {
   return (
     <div
-      className="rounded-2xl border border-brand/20 bg-white/[0.02] p-6 shadow-[0_0_24px_rgba(91,138,239,0.10)]"
+      className="rounded-2xl border border-brand/20 bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)] dark:shadow-[0_0_24px_rgba(91,138,239,0.10)]"
       style={{ borderLeftWidth: 3, borderLeftColor: accentColor }}
     >
       <div className="mb-4 flex items-center gap-3">
-        <div
-          className="flex h-9 w-9 items-center justify-center rounded-xl"
-          style={{ backgroundColor: `${accentColor}18` }}
-        >
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-ink/10">
           <Shield className="h-5 w-5" style={{ color: accentColor }} />
         </div>
         <h3

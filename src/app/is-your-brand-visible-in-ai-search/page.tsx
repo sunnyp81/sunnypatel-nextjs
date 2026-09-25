@@ -96,10 +96,21 @@ export default function IsYourBrandVisiblePage() {
             style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
           />
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            className="pointer-events-none absolute inset-0 hidden opacity-[0.06] dark:block"
             style={{
               backgroundImage:
                 "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+              maskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-0 block dark:hidden"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
               backgroundSize: "32px 32px",
               maskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
               WebkitMaskImage:
@@ -130,12 +141,12 @@ export default function IsYourBrandVisiblePage() {
               Results in seconds, no email required.
             </p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline dark:via-white/[0.08] to-transparent" />
         </div>
 
         {/* Free checker — primary CTA */}
         <div className="mx-auto max-w-3xl px-6">
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-2 sm:p-4">
+          <div className="rounded-2xl border border-hairline bg-wash p-2 dark:border-white/[0.08] dark:bg-white/[0.02] sm:p-4">
             <AiVisibilityChecker showHeading={false} />
           </div>
         </div>
@@ -178,7 +189,7 @@ export default function IsYourBrandVisiblePage() {
               {WARNING_SIGNS.map(({ icon: Icon, title, detail }) => (
                 <div
                   key={title}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5"
+                  className="rounded-xl border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] p-5"
                 >
                   <Icon className="mb-3 h-5 w-5 text-brand" />
                   <h3 className="mb-2 text-sm font-semibold text-foreground">{title}</h3>
@@ -250,7 +261,7 @@ export default function IsYourBrandVisiblePage() {
               {FAQS.map((faq) => (
                 <div
                   key={faq.q}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5"
+                  className="rounded-xl border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] p-5"
                 >
                   <h3 className="mb-2 text-sm font-semibold text-foreground">{faq.q}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
@@ -274,7 +285,7 @@ export default function IsYourBrandVisiblePage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
                 >
                   {link.label}
                   <ArrowRight className="h-3 w-3" />

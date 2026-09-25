@@ -85,9 +85,9 @@ export function ExitIntent() {
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <button type="button" className="absolute inset-0 cursor-default bg-black/75 backdrop-blur-sm" onClick={dismiss} aria-label="Close checklist offer" />
       <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="exit-intent-title" className="relative w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
-        <div className="relative overflow-hidden rounded-2xl border border-white/[0.1] bg-[#0a0a10] shadow-2xl shadow-brand/10">
+        <div className="relative overflow-hidden rounded-2xl border border-hairline-strong bg-white shadow-[var(--elev)] dark:border-white/[0.1] dark:bg-[#0a0a10] dark:shadow-2xl dark:shadow-brand/10">
           <div className="pointer-events-none absolute left-1/2 top-0 h-32 w-64 -translate-x-1/2 rounded-full bg-brand opacity-20 blur-[60px]" aria-hidden="true" />
-          <button type="button" onClick={dismiss} className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60" aria-label="Close checklist offer">
+          <button type="button" onClick={dismiss} className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-wash dark:hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60" aria-label="Close checklist offer">
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
 
@@ -101,7 +101,7 @@ export function ExitIntent() {
               </div>
             ) : (
               <>
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-brand/20 bg-brand/10"><Sparkles className="h-5 w-5 text-brand" aria-hidden="true" /></div>
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-brand/20 bg-brand/10"><Sparkles className="h-5 w-5 text-brand-ink" aria-hidden="true" /></div>
                 <h2 id="exit-intent-title" className="text-xl font-bold text-foreground md:text-2xl" style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}>Take the 47-point SEO checklist</h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Run the same first-pass checks I use across technical SEO, content, internal links and AI visibility.</p>
                 <ul className="my-5 space-y-2 text-left">
@@ -113,7 +113,7 @@ export function ExitIntent() {
                   <FormField id="exit-name" label="Your name" placeholder="Your name" autoComplete="name" required srOnlyLabel value={formData.name} onChange={(event) => setFormData((current) => ({ ...current, name: event.target.value }))} disabled={status === "loading"} />
                   <FormField id="exit-email" label="Email address" type="email" placeholder="you@company.com" autoComplete="email" required srOnlyLabel value={formData.email} onChange={(event) => setFormData((current) => ({ ...current, email: event.target.value }))} disabled={status === "loading"} />
                   <FormError message={errorMsg} compact />
-                  <button type="submit" disabled={status === "loading"} aria-busy={status === "loading"} data-cta-location="exit_intent" data-cta-offer="seo_checklist" className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] hover:scale-[1.02] hover:bg-brand/90 hover:shadow-[0_0_30px_rgba(91,138,239,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 disabled:opacity-70">
+                  <button type="submit" disabled={status === "loading"} aria-busy={status === "loading"} data-cta-location="exit_intent" data-cta-offer="seo_checklist" className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] hover:scale-[1.02] hover:bg-brand/90 hover:shadow-[0_0_30px_var(--glow-brand)] dark:hover:shadow-[0_0_30px_rgba(91,138,239,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ink dark:focus-visible:ring-white/70 disabled:opacity-70">
                     {status === "loading" ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />Sending</> : <><Download className="h-4 w-4" aria-hidden="true" />Email Me the Checklist</>}
                   </button>
                   <p className="text-xs text-muted-foreground">One email with the checklist. No mailing list.</p>

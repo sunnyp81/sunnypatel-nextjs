@@ -24,7 +24,7 @@ import { ServiceInlineForm } from "@/components/service-inline-form";
 /* ── Conversion data ──────────────────────────────────────── */
 
 const GENERIC_DATA = {
-  accent: "#5B8AEF",
+  accent: "var(--brand-ink)",
   testimonials: [
     {
       quote:
@@ -69,7 +69,7 @@ const GENERIC_DATA = {
       result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
     {
       industry: "Professional Services",
@@ -77,7 +77,7 @@ const GENERIC_DATA = {
       result: "Top-3 local pack positions for main service terms, 3\u00d7 monthly enquiries",
       metric: "3\u00d7 monthly enquiries",
       timeline: "6 months",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
   ],
   timeline: [
@@ -129,7 +129,7 @@ const GENERIC_DATA = {
 };
 
 const SEO_READING_DATA = {
-  accent: "#5B8AEF",
+  accent: "var(--brand-ink)",
   testimonials: [
     {
       quote:
@@ -167,7 +167,7 @@ const SEO_READING_DATA = {
       result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
     {
       industry: "Professional Services",
@@ -175,7 +175,7 @@ const SEO_READING_DATA = {
       result: "Top-3 local pack positions for main service terms, 3\u00d7 monthly enquiries",
       metric: "3\u00d7 monthly enquiries",
       timeline: "6 months",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
   ],
   timeline: [
@@ -227,7 +227,7 @@ const SEO_READING_DATA = {
 };
 
 const SEO_LONDON_DATA = {
-  accent: "#5B8AEF",
+  accent: "var(--brand-ink)",
   testimonials: [
     {
       quote:
@@ -265,7 +265,7 @@ const SEO_LONDON_DATA = {
       result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
     {
       industry: "Professional Services",
@@ -273,7 +273,7 @@ const SEO_LONDON_DATA = {
       result: "Page-one positions across core service queries, sustained month-on-month growth",
       metric: "3\u00d7 monthly enquiries",
       timeline: "7 months",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
   ],
   timeline: [
@@ -325,7 +325,7 @@ const SEO_LONDON_DATA = {
 };
 
 const AI_SEARCH_DATA = {
-  accent: "#5B8AEF",
+  accent: "var(--brand-ink)",
   testimonials: [
     {
       quote:
@@ -363,7 +363,7 @@ const AI_SEARCH_DATA = {
       result: "47 Bing Copilot citations within 8 weeks through entity and schema optimisation",
       metric: "0\u219247 citations",
       timeline: "8 weeks",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
     {
       industry: "Professional Services",
@@ -371,7 +371,7 @@ const AI_SEARCH_DATA = {
       result: "Cited in AI Overviews for 12 target queries through content restructure and FAQ architecture",
       metric: "12 AI Overview citations",
       timeline: "3 months",
-      accentColor: "#5B8AEF",
+      accentColor: "var(--brand-ink)",
     },
   ],
   timeline: [

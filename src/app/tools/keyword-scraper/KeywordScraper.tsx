@@ -131,7 +131,7 @@ function completionNotice(summary: ScrapeSummary, capped: boolean): Notice {
 }
 
 const inputClassName =
-  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:border-brand/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-50';
+  'w-full rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:border-brand/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-50';
 
 export default function KeywordScraper() {
   const [keywords, setKeywords] = useState('seo consultant');
@@ -382,11 +382,11 @@ export default function KeywordScraper() {
 
   const statusColour =
     notice.tone === 'error'
-      ? 'text-red-300'
+      ? 'text-destructive dark:text-red-300'
       : notice.tone === 'warning'
-        ? 'text-amber-300'
+        ? 'text-gold-ink dark:text-amber-300'
         : notice.tone === 'success'
-          ? 'text-emerald-300'
+          ? 'text-success-ink dark:text-emerald-300'
           : 'text-muted-foreground';
 
   return (
@@ -410,12 +410,12 @@ export default function KeywordScraper() {
             <textarea id="keyword-seeds" value={keywords} onChange={(event) => setKeywords(event.target.value)} disabled={isRunning} rows={10} className={`${inputClassName} resize-none font-mono`} placeholder={'seo consultant\nkeyword research'} />
           </div>
 
-          <fieldset className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-3">
+          <fieldset className="rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-3">
             <legend className="px-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Google regions</legend>
             <div className="mt-1 grid grid-cols-2 gap-1.5">
               {KEYWORD_ENGINES.map((engine) => (
-                <label key={engine.id} className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-foreground transition-colors hover:bg-white/[0.04] focus-within:ring-2 focus-within:ring-brand/40">
-                  <input type="checkbox" checked={engines[engine.id]} onChange={() => toggleEngine(engine.id)} disabled={isRunning} className="h-4 w-4 rounded border-white/20 accent-brand focus-visible:outline-none" />
+                <label key={engine.id} className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-foreground transition-colors hover:bg-wash dark:bg-white/[0.04] focus-within:ring-2 focus-within:ring-brand/40">
+                  <input type="checkbox" checked={engines[engine.id]} onChange={() => toggleEngine(engine.id)} disabled={isRunning} className="h-4 w-4 rounded border-hairline-strong dark:border-white/20 accent-brand focus-visible:outline-none" />
                   {engine.label}
                 </label>
               ))}
@@ -449,7 +449,7 @@ export default function KeywordScraper() {
           <button type="button" onClick={handleStart} disabled={isRunning} className="min-h-11 w-full rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[#070A12] shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-[background-color,box-shadow] hover:bg-[#6f9cf3] hover:shadow-[0_0_28px_rgba(91,138,239,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 disabled:cursor-not-allowed disabled:opacity-40">
             {isRunning ? 'Running...' : 'Start'}
           </button>
-          <button type="button" onClick={handleStop} disabled={!isRunning} className="min-h-11 w-full rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-sm font-semibold text-red-300 transition-colors hover:bg-red-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300/70 disabled:cursor-not-allowed disabled:opacity-40">Stop</button>
+          <button type="button" onClick={handleStop} disabled={!isRunning} className="min-h-11 w-full rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-2.5 text-sm font-semibold text-destructive transition-colors hover:bg-destructive/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-destructive/70 dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-300 dark:hover:bg-red-500/20 dark:focus-visible:ring-red-300/70 disabled:cursor-not-allowed disabled:opacity-40">Stop</button>
         </div>
       </div>
 
@@ -461,13 +461,13 @@ export default function KeywordScraper() {
 
       <div className="mt-6 h-[36rem] overflow-y-auto rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 md:h-[25rem]" tabIndex={rows.length > 0 ? 0 : undefined} role="region" aria-label="Suggestion insights">
         {rows.length === 0 && !isRunning && (
-          <section className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4" aria-labelledby="keyword-flow-heading">
+          <section className="rounded-xl border border-hairline dark:border-white/[0.08] bg-wash dark:bg-white/[0.02] p-4" aria-labelledby="keyword-flow-heading">
             <h2 id="keyword-flow-heading" className="mb-4 text-sm font-semibold text-foreground">From seed to suggestions</h2>
             <div className="relative isolate">
-              <span aria-hidden="true" className="absolute bottom-5 left-1/2 top-5 -z-10 w-px bg-gradient-to-b from-brand to-[#D79F1E] md:bottom-auto md:left-5 md:right-5 md:top-1/2 md:h-px md:w-auto md:bg-gradient-to-r" />
+              <span aria-hidden="true" className="absolute bottom-5 left-1/2 top-5 -z-10 w-px bg-gradient-to-b from-brand to-gold-ink md:bottom-auto md:left-5 md:right-5 md:top-1/2 md:h-px md:w-auto md:bg-gradient-to-r" />
               <ol className="flex flex-col gap-4 md:flex-row">
                 {['Seed keyword', 'Expanded with letters/modifiers', 'Google suggestions', 'Grouped and exported'].map((label, index) => (
-                  <li key={label} className={`flex min-h-16 flex-1 items-center justify-center rounded-lg border bg-background px-3 py-3 text-center text-sm font-medium ${index < 2 ? 'border-brand/40 text-brand' : 'border-[#D79F1E]/40 text-[#D79F1E]'}`}>
+                  <li key={label} className={`flex min-h-16 flex-1 items-center justify-center rounded-lg border bg-background px-3 py-3 text-center text-sm font-medium ${index < 2 ? 'border-brand/40 text-brand-ink dark:text-brand' : 'border-gold-ink/40 text-gold-ink'}`}>
                     <span><span className="mr-2 font-mono">{index + 1}.</span>{label}</span>
                   </li>
                 ))}
@@ -476,21 +476,21 @@ export default function KeywordScraper() {
           </section>
         )}
         {rows.length > 0 && (
-          <section className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4" aria-labelledby="keyword-insights-heading">
+          <section className="rounded-xl border border-hairline dark:border-white/[0.08] bg-wash dark:bg-white/[0.02] p-4" aria-labelledby="keyword-insights-heading">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h2 id="keyword-insights-heading" className="text-sm font-semibold text-foreground">
                 {rows.length} unique suggestions from {seeds.length} seed{seeds.length === 1 ? '' : 's'} across {activeEngines.length} region{activeEngines.length === 1 ? '' : 's'}
               </h2>
-              <button type="button" onClick={() => { setActiveBucket(null); setActiveModifier(null); }} aria-pressed={!hasFilter} className="min-h-11 rounded-lg border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-sm text-foreground hover:border-brand/60 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Show all</button>
+              <button type="button" onClick={() => { setActiveBucket(null); setActiveModifier(null); }} aria-pressed={!hasFilter} className="min-h-11 rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-3 py-2 text-sm text-foreground hover:border-brand/60 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Show all</button>
             </div>
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               <div>
                 <h3 className="mb-2 text-sm font-medium text-foreground">Intent breakdown</h3>
                 <div className="space-y-1">
                   {(Object.keys(INTENT_BUCKET_LABELS) as IntentBucket[]).map((bucket) => (
-                    <button key={bucket} type="button" aria-pressed={activeBucket === bucket} onClick={() => setActiveBucket((current) => current === bucket ? null : bucket)} className={`flex min-h-11 w-full items-center gap-3 rounded-lg border px-3 py-2 text-left text-sm text-foreground hover:border-brand/60 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 ${activeBucket === bucket ? 'border-brand bg-brand/15 font-semibold underline' : 'border-white/[0.12] bg-white/[0.03]'}`}>
+                    <button key={bucket} type="button" aria-pressed={activeBucket === bucket} onClick={() => setActiveBucket((current) => current === bucket ? null : bucket)} className={`flex min-h-11 w-full items-center gap-3 rounded-lg border px-3 py-2 text-left text-sm text-foreground hover:border-brand/60 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 ${activeBucket === bucket ? 'border-brand bg-brand/15 font-semibold underline' : 'border-hairline-strong dark:border-white/[0.12] bg-wash'}`}>
                       <span className="w-28 shrink-0">{INTENT_BUCKET_LABELS[bucket]}</span>
-                      <span aria-hidden="true" className="h-1.5 min-w-0 flex-1 rounded-full bg-white/[0.08]">
+                      <span aria-hidden="true" className="h-1.5 min-w-0 flex-1 rounded-full bg-surface-2 dark:bg-white/[0.08]">
                         <span className="block h-full rounded-full bg-brand" style={{ width: `${intentCounts[bucket] / maxIntentCount * 100}%`, minWidth: intentCounts[bucket] > 0 ? 3 : 0 }} />
                       </span>
                       <span className="min-w-8 text-right font-mono">{intentCounts[bucket]}</span>
@@ -503,7 +503,7 @@ export default function KeywordScraper() {
                 <h3 className="mb-2 text-sm font-medium text-foreground">Top modifier words</h3>
                 <div className="flex flex-wrap gap-2">
                   {modifiers.map(({ word, count }) => (
-                    <button key={word} type="button" aria-pressed={activeModifier === word} onClick={() => setActiveModifier((current) => current === word ? null : word)} className={`min-h-11 max-w-full break-all rounded-full border px-3 py-2 text-sm text-[#D79F1E] hover:border-[#D79F1E] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 ${activeModifier === word ? 'border-[#D79F1E] bg-[#D79F1E]/10 font-semibold underline' : 'border-[#D79F1E]/40 bg-white/[0.03]'}`}>
+                    <button key={word} type="button" aria-pressed={activeModifier === word} onClick={() => setActiveModifier((current) => current === word ? null : word)} className={`min-h-11 max-w-full break-all rounded-full border px-3 py-2 text-sm text-gold-ink hover:border-gold-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 ${activeModifier === word ? 'border-gold-ink bg-gold-ink/10 font-semibold underline' : 'border-gold-ink/40 bg-wash'}`}>
                       {word} · {count}
                     </button>
                   ))}
@@ -520,19 +520,19 @@ export default function KeywordScraper() {
         <div className="flex flex-col gap-1.5 md:col-span-10">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <label htmlFor="keyword-results" className="text-sm font-medium text-foreground">Results</label>
-            <span role="status" className="rounded-md bg-brand/15 px-2 py-1 font-mono text-xs text-brand">{filteredRows.length} unique{hasFilter ? ' (filtered)' : ''}; {filteredRegionPairs} region matches</span>
+            <span role="status" className="rounded-md bg-brand/15 px-2 py-1 font-mono text-xs text-brand-ink dark:text-brand">{filteredRows.length} unique{hasFilter ? ' (filtered)' : ''}; {filteredRegionPairs} region matches</span>
           </div>
           <textarea id="keyword-results" readOnly value={resultsText} rows={16} aria-busy={isRunning} aria-describedby="keyword-results-help" className={`${inputClassName} resize-none font-mono`} placeholder="Results will appear here..." />
           <p id="keyword-results-help" className="text-xs text-muted-foreground">Each line contains a suggestion followed by every region where it appeared.</p>
         </div>
         <div className="flex flex-col justify-end md:col-span-2">
-          <button type="button" onClick={() => handleDownload()} disabled={filteredRows.length === 0} className="min-h-11 w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-[background-color,border-color] motion-reduce:transition-none hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 disabled:cursor-not-allowed disabled:opacity-40">{hasFilter ? `Export ${filteredRows.length} filtered rows` : 'Download CSV'}</button>
-          {hasFilter && <button type="button" onClick={() => handleDownload(true)} className="mt-2 min-h-11 rounded-lg px-3 py-2 text-sm text-brand underline underline-offset-4 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Export all rows</button>}
+          <button type="button" onClick={() => handleDownload()} disabled={filteredRows.length === 0} className="min-h-11 w-full rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground transition-[background-color,border-color] motion-reduce:transition-none hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 disabled:cursor-not-allowed disabled:opacity-40">{hasFilter ? `Export ${filteredRows.length} filtered rows` : 'Download CSV'}</button>
+          {hasFilter && <button type="button" onClick={() => handleDownload(true)} className="mt-2 min-h-11 rounded-lg px-3 py-2 text-sm text-brand-ink dark:text-brand underline underline-offset-4 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Export all rows</button>}
         </div>
       </div>
 
       {rows.length > 0 && !isRunning && (
-        <section className="mt-8 border-y border-white/[0.08] py-6" aria-labelledby="keyword-next-step">
+        <section className="mt-8 border-y border-hairline dark:border-white/[0.08] py-6" aria-labelledby="keyword-next-step">
           <h2 id="keyword-next-step" className="text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>Turn the suggestions into a content decision</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
             Classify intent and choose the right page format before writing. Autocomplete suggestions
@@ -540,12 +540,12 @@ export default function KeywordScraper() {
           </p>
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <Link href="/tools/seo-prompts/" data-cta-location="keyword_scraper_results" data-cta-offer="seo_prompt_library" className="inline-flex min-h-11 items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#4a79de] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">Classify intent with an SEO prompt</Link>
-            <Link href="/services/content-briefs/" data-cta-location="keyword_scraper_results" data-cta-offer="content_briefs" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-foreground transition-[background-color,border-color] hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">Explore writer-ready content briefs</Link>
+            <Link href="/services/content-briefs/" data-cta-location="keyword_scraper_results" data-cta-offer="content_briefs" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-hairline-strong bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-foreground transition-[background-color,border-color] hover:border-brand/40 hover:bg-brand/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">Explore writer-ready content briefs</Link>
           </div>
         </section>
       )}
 
-      <div className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-10 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
         <h2 className="mb-3 text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>How it works</h2>
         <ul className="space-y-2 text-sm text-muted-foreground">
           <li><span className="font-medium text-foreground">Seed keywords:</span> enter one or more starting topics, one per line.</li>

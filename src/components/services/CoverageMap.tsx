@@ -75,8 +75,8 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
             </linearGradient>
           ))}
         </defs>
-        <rect width={WIDTH} height={HEIGHT} fill="#050507" />
-        <g className={styles.connections} aria-hidden="true" opacity="0.6" filter="url(#coverage-map-glow)">
+        <rect className={styles.ground} width={WIDTH} height={HEIGHT} />
+        <g className={styles.connections} aria-hidden="true" filter="url(#coverage-map-glow)">
           {towns.filter((town) => !town.isBase).map((town) => (
             <line key={town.name} x1={town.x} y1={town.y} x2={base.x} y2={base.y}
               stroke={`url(#coverage-map-line-${town.name})`} strokeWidth="1.5" />
@@ -87,18 +87,19 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
           const node = (
             <>
               <line
+                className={styles.leaderLine}
                 x1={town.x} y1={town.y}
                 x2={Math.max(label.x - 24, Math.min(town.x, label.x + 24))}
                 y2={label.y > town.y ? label.y - 17 : label.y + 5}
-                stroke="#F2F2F2" strokeOpacity="0.3" strokeWidth="0.75"
+                strokeWidth="0.75"
                 pointerEvents="none"
               />
               <circle className={styles.focusRing} cx={town.x} cy={town.y} r="10" fill="none" />
               <circle cx={town.x} cy={town.y} r={town.isBase ? 6 : 4.5}
-                fill={town.isBase ? "#D79F1E" : "#5B8AEF"}
+                fill={town.isBase ? "var(--gold-ink)" : "var(--brand-ink)"}
                 filter="url(#coverage-map-glow)" />
               <text x={label.x} y={label.y} textAnchor={label.anchor}
-                fill="#F2F2F2" fontSize="16" className={styles.label}>
+                fill="var(--ink-strong)" fontSize="16" className={styles.label}>
                 {town.isBase ? "Reading (base)" : town.name}
               </text>
             </>

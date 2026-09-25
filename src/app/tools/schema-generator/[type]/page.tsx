@@ -76,7 +76,7 @@ export default async function SchemaTypePage({
             </div>
           </section>
 
-          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <section className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h2
               className="text-xl font-bold tracking-tight text-foreground mb-4"
               style={{ fontFamily: "var(--font-heading)" }}
@@ -120,7 +120,7 @@ export default async function SchemaTypePage({
             <div className="flex flex-wrap gap-2">
               <Link
                 href="/tools/schema-generator/"
-                className="rounded-lg border px-4 py-2 text-sm font-medium transition-colors border-white/[0.08] text-muted-foreground hover:text-foreground"
+                className="rounded-lg border px-4 py-2 text-sm font-medium transition-colors border-hairline dark:border-white/[0.08] text-muted-foreground hover:text-foreground"
               >
                 All schema types
               </Link>
@@ -128,7 +128,7 @@ export default async function SchemaTypePage({
                 <Link
                   key={t.slug}
                   href={`/tools/schema-generator/${t.slug}/`}
-                  className="rounded-lg border px-4 py-2 text-sm font-medium transition-colors border-white/[0.08] text-muted-foreground hover:text-foreground"
+                  className="rounded-lg border px-4 py-2 text-sm font-medium transition-colors border-hairline dark:border-white/[0.08] text-muted-foreground hover:text-foreground"
                 >
                   {t.label}
                 </Link>

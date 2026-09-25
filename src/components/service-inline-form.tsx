@@ -209,14 +209,14 @@ export function ServiceInlineForm({
               Prefer to talk?{" "}
               <a
                 href="tel:07305523333"
-                className="text-brand underline decoration-brand/60 underline-offset-2 transition-colors hover:text-foreground"
+                className="text-brand-ink underline decoration-brand/60 underline-offset-2 transition-colors hover:text-foreground"
               >
                 07305 523333
               </a>
               {" · "}
               <a
                 href="mailto:Hello@SunnyPatel.co.uk"
-                className="text-brand underline decoration-brand/60 underline-offset-2 transition-colors hover:text-foreground"
+                className="text-brand-ink underline decoration-brand/60 underline-offset-2 transition-colors hover:text-foreground"
               >
                 Hello@SunnyPatel.co.uk
               </a>
@@ -234,7 +234,7 @@ export function ServiceInlineForm({
 
   /* ── Full: two-column layout with copy + form ───────────── */
   return (
-    <div id={id} className="relative overflow-hidden" style={{ background: "#0a0a10" }}>
+    <div id={id} className="relative overflow-hidden bg-background dark:bg-[#0a0a10]">
       {/* Strong top separator */}
       <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
       {/* Ambient glow */}
@@ -244,10 +244,10 @@ export function ServiceInlineForm({
       />
       {/* Dot grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(91,138,239,0.4) 1px, transparent 1px)",
+            "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
           maskImage:
             "radial-gradient(ellipse at center, black 30%, transparent 75%)",
@@ -260,7 +260,7 @@ export function ServiceInlineForm({
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* ── Left: copy & trust ───────────────────────── */}
           <div className="flex flex-col justify-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-ink">
               Get Started
             </p>
             <h2
@@ -279,7 +279,7 @@ export function ServiceInlineForm({
                   className="flex items-start gap-2.5 text-sm text-muted-foreground"
                 >
                   <Star
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand"
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-ink"
                     fill="currentColor"
                   />
                   {point}
@@ -318,7 +318,7 @@ export function ServiceInlineForm({
                 </p>
                 <p className="flex items-center gap-1.5 text-xs">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-success" />
-                  <span className="text-success/90">Currently accepting new clients</span>
+                  <span className="text-success-ink/90">Currently accepting new clients</span>
                 </p>
               </div>
             )}

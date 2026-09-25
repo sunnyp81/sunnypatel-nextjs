@@ -42,12 +42,26 @@ const highlights: {
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-24 md:py-32">
+    <section id="about" className="relative overflow-hidden bg-background py-24 md:py-32">
+      {/* Dark original dot grid — unchanged pixels in dark mode */}
       <div
-        className="absolute inset-0 opacity-[0.08]"
+        className="absolute inset-0 hidden opacity-[0.08] dark:block"
         style={{
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 20%, transparent 60%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 20%, transparent 60%)",
+        }}
+      />
+      {/* Light: faint blueprint grid dots using themed grid-line token */}
+      <div
+        className="absolute inset-0 dark:hidden"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           maskImage:
             "radial-gradient(ellipse at center, black 20%, transparent 60%)",
@@ -64,7 +78,7 @@ export function About() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-success">
+          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-success-ink">
             Why Work With Sunny
           </p>
           <h2
@@ -95,7 +109,7 @@ export function About() {
                   inactiveZone={0.01}
                   borderWidth={3}
                 />
-                <div className="relative flex h-full flex-col gap-4 overflow-hidden rounded-xl border-[0.75px] bg-background p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+                <div className="relative flex h-full flex-col gap-4 overflow-hidden rounded-xl border-[0.75px] bg-surface-1 p-6 shadow-[var(--elev)] dark:bg-background dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
                   <div className="w-fit rounded-lg border-[0.75px] border-border bg-muted p-2.5">
                     {item.icon}
                   </div>

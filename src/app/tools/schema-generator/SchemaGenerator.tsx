@@ -170,16 +170,16 @@ const GOOGLE_RICH_RESULT_TYPES = new Set<SchemaType>([
 // ── Style constants ────────────────────────────────────────────────────────────
 
 const inputClass =
-  'w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
+  'w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30';
 const labelClass = 'block text-sm font-medium text-foreground mb-1.5';
-const cardClass = 'rounded-xl border border-white/[0.06] bg-white/[0.02] p-6';
+const cardClass = 'rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6 shadow-[var(--elev)]';
 const btnPrimary =
   'rounded-lg bg-[#315fbd] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(49,95,189,0.35)] transition-colors hover:bg-[#274f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70';
 const btnSecondary =
-  'rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-white/[0.08] transition-colors';
-const dangerText = 'text-red-400 hover:text-red-300 transition-colors';
-const toggleActive = 'rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors bg-brand/15 text-brand border-brand/30';
-const toggleInactive = 'rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors border-white/[0.08] text-muted-foreground hover:text-foreground';
+  'rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground hover:bg-brand-wash dark:hover:bg-white/[0.08] transition-colors';
+const dangerText = 'text-red-700 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 transition-colors';
+const toggleActive = 'rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors bg-brand/15 text-brand-ink dark:text-brand border-brand/30';
+const toggleInactive = 'rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors border-hairline dark:border-white/[0.08] text-muted-foreground hover:text-foreground';
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -1707,7 +1707,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
       <div className="space-y-4">
         {breadcrumbs.map((b, i) => (
           <div key={i} className="flex items-end gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] text-xs font-semibold text-muted-foreground">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-hairline dark:border-white/[0.08] bg-wash dark:bg-white/[0.04] text-xs font-semibold text-muted-foreground">
               {i + 1}
             </div>
             <div className="flex-1">
@@ -2250,8 +2250,8 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
           </Field>
         </div>
         {(review.itemType === 'LocalBusiness' || review.itemType === 'Organization') && (
-          <div className="sm:col-span-2 rounded-lg border border-yellow-500/20 bg-yellow-500/5 px-4 py-3">
-            <p className="text-sm text-yellow-400/80">
+          <div className="sm:col-span-2 rounded-lg border border-amber-600/30 dark:border-yellow-500/20 bg-amber-50 dark:bg-yellow-500/5 px-4 py-3">
+            <p className="text-sm text-amber-900 dark:text-yellow-400/80">
               Google does not show review snippets when a business reviews itself. Use this markup for third-party
               reviews only, not for a business rating its own products or services.
             </p>
@@ -2276,7 +2276,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
         </div>
         {itemList.items.map((it, i) => (
           <div key={i} className="flex items-end gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] text-xs font-semibold text-muted-foreground">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-hairline dark:border-white/[0.08] bg-wash dark:bg-white/[0.04] text-xs font-semibold text-muted-foreground">
               {i + 1}
             </div>
             <div className="flex-1">
@@ -2381,7 +2381,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
         <div className="mb-4 flex items-center justify-between gap-2">
           <p className="text-xs uppercase tracking-wide text-muted-foreground">Simplified SERP preview</p>
           {previewData.usingExample && (
-            <span className="rounded-full border border-white/[0.12] bg-white/[0.04] px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+            <span className="rounded-full border border-hairline-strong dark:border-white/[0.12] bg-wash dark:bg-white/[0.04] px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
               Example values
             </span>
           )}
@@ -2499,7 +2499,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
           Preview only. Google decides whether to show rich results; valid markup does not guarantee them.
         </p>
 
-        <p className="mt-4 border-t border-white/[0.08] pt-3 text-xs leading-relaxed text-muted-foreground">
+        <p className="mt-4 border-t border-hairline dark:border-white/[0.08] pt-3 text-xs leading-relaxed text-muted-foreground">
           Want schema added and validated across your whole site?{' '}
           <Link href="/contact/" className="text-brand underline underline-offset-2 hover:opacity-80">
             Request a free SEO diagnosis
@@ -2542,8 +2542,8 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             aria-pressed={activeType === type}
             className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
               activeType === type
-                ? 'bg-brand/15 text-brand border-brand/30'
-                : 'border-white/[0.08] text-muted-foreground hover:text-foreground'
+                ? 'bg-brand/15 text-brand-ink dark:text-brand border-brand/30'
+                : 'border-hairline dark:border-white/[0.08] text-muted-foreground hover:text-foreground'
             }`}
           >
             {type}
@@ -2588,20 +2588,20 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
 
           <div className="mb-4 space-y-3" aria-label="Markup checks">
             {completenessIssues.length > 0 ? (
-              <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/5 px-4 py-3">
-                <p className="mb-1 text-sm font-medium text-yellow-300">
+              <div className="rounded-lg border border-amber-600/30 dark:border-yellow-500/20 bg-amber-50 dark:bg-yellow-500/5 px-4 py-3">
+                <p className="mb-1 text-sm font-medium text-amber-900 dark:text-yellow-300">
                   Template incomplete: {completenessIssues.length} {completenessIssues.length === 1 ? 'field needs' : 'fields need'} attention
                 </p>
                 <ul className="space-y-0.5">
                   {completenessIssues.map((issue, i) => (
-                    <li key={i} className="text-sm text-yellow-200/80">- {issue}</li>
+                    <li key={i} className="text-sm text-amber-800 dark:text-yellow-200/80">- {issue}</li>
                   ))}
                 </ul>
               </div>
             ) : (
-              <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-3">
-                <p className="text-sm font-medium text-emerald-300">Template fields complete</p>
-                <p className="mt-1 text-xs leading-relaxed text-emerald-100/70">
+              <div className="rounded-lg border border-emerald-600/30 dark:border-emerald-500/20 bg-emerald-50 dark:bg-emerald-500/5 px-4 py-3">
+                <p className="text-sm font-medium text-emerald-800 dark:text-emerald-300">Template fields complete</p>
+                <p className="mt-1 text-xs leading-relaxed text-emerald-700 dark:text-emerald-100/70">
                   The generator&apos;s basic field checks pass. This is separate from Google eligibility and page-level validation.
                 </p>
               </div>
@@ -2610,7 +2610,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             <div className={`rounded-lg border px-4 py-3 ${
               googleEligibility.supported
                 ? 'border-brand/20 bg-brand/5'
-                : 'border-white/[0.08] bg-white/[0.02]'
+                : 'border-hairline dark:border-white/[0.08] bg-wash dark:bg-white/[0.02]'
             }`}>
               <p className="text-sm font-medium text-foreground">
                 {googleEligibility.supported ? 'Google rich-result check' : 'Schema.org validation check'}
@@ -2620,13 +2620,13 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
           </div>
 
           {/* Code block */}
-          <div className="rounded-lg bg-[#0d0d14] border border-white/[0.08] p-4 font-mono text-sm overflow-x-auto">
+          <div className="rounded-lg bg-surface-2 dark:bg-[#0d0d14] border border-hairline dark:border-white/[0.08] p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-foreground/90 whitespace-pre-wrap break-words">
               <code>{outputCode}</code>
             </pre>
           </div>
 
-          <div className="mt-4 rounded-lg border border-white/[0.08] bg-white/[0.02] px-4 py-3">
+          <div className="mt-4 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash dark:bg-white/[0.02] px-4 py-3">
             <p className="text-sm font-medium text-foreground">Validate by copy, open and paste</p>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
               Copy the markup, open a validator, choose its code option where shown, then paste. The validators do not support a reliable prefilled-code link.
@@ -2649,7 +2649,7 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
             </button>
           </div>
           <p
-            className={`mt-3 min-h-5 text-xs ${copyStatus === 'error' ? 'text-red-300' : 'text-muted-foreground'}`}
+            className={`mt-3 min-h-5 text-xs ${copyStatus === 'error' ? 'text-red-700 dark:text-red-300' : 'text-muted-foreground'}`}
             role="status"
             aria-live="polite"
           >

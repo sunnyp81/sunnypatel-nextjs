@@ -64,10 +64,10 @@ function ElegantShape({
                         "absolute inset-0 rounded-full",
                         "bg-gradient-to-r to-transparent",
                         gradient,
-                        "backdrop-blur-[2px] border-2 border-white/[0.15]",
-                        "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
+                        "backdrop-blur-[2px] border-2 border-black/[0.08] dark:border-white/[0.15]",
+                        "shadow-[0_8px_32px_0_rgba(42,91,215,0.18)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
                         "after:absolute after:inset-0 after:rounded-full",
-                        "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
+                        "after:bg-[radial-gradient(circle_at_50%_50%,rgba(42,91,215,0.14),transparent_70%)] dark:after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
                     )}
                 />
             </motion.div>
@@ -87,8 +87,17 @@ function HeroGeometric({
     children?: React.ReactNode;
 }) {
     return (
-        <section id="homepage-hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand/[0.06] via-transparent to-gold/[0.04] blur-3xl" />
+        <section id="homepage-hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#f5f7fb] dark:bg-[#030303]">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand/[0.14] via-transparent to-gold/[0.09] blur-3xl dark:from-brand/[0.06] dark:to-gold/[0.04]" />
+            <div
+                className="absolute inset-0 opacity-100 dark:opacity-0 pointer-events-none"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)",
+                    backgroundSize: "48px 48px",
+                }}
+                aria-hidden="true"
+            />
 
             <div className="absolute inset-0 overflow-hidden">
                 <ElegantShape
@@ -139,22 +148,22 @@ function HeroGeometric({
 
             <div className="relative z-10 container mx-auto px-4 pt-24 md:px-6 md:pt-28">
                 <div className="max-w-3xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/[0.06] border border-brand/[0.18] dark:bg-white/[0.03] dark:border-white/[0.08] mb-8 md:mb-12">
                         <Circle className="h-2 w-2 fill-brand/80" />
-                        <span className="text-sm text-white/60 tracking-wide">
+                        <span className="text-sm text-ink-soft dark:text-white/60 tracking-wide">
                             {badge}
                         </span>
                     </div>
 
                     <div>
                         <h1 className="text-2xl sm:text-4xl md:text-[2.5rem] font-bold mb-6 md:mb-8 tracking-tight">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#0a1024] to-[#2a5bd7] dark:from-white dark:to-white/80">
                                 {title1}{" "}
                             </span>
                             <br />
                             <span
                                 className={cn(
-                                    "bg-clip-text text-transparent bg-gradient-to-r from-[#7ba3f5] via-white/90 to-gold"
+                                    "bg-clip-text text-transparent bg-gradient-to-r from-[#1d3fa8] via-[#2a5bd7] to-[#8a5a00] dark:from-[#7ba3f5] dark:via-white/90 dark:to-gold"
                                 )}
                             >
                                 {title2}
@@ -170,7 +179,7 @@ function HeroGeometric({
                 </div>
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-[#030303]/80 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-[#f5f7fb]/80 dark:to-[#030303]/80 pointer-events-none" />
         </section>
     );
 }

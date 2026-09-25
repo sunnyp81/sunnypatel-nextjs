@@ -51,18 +51,18 @@ const STATUS_ORDER: Record<TitleStatus, number> = {
 const STATUS_CONFIG: Record<TitleStatus, { label: string; badge: string; bar: string }> = {
   good: {
     label: 'Good',
-    badge: 'bg-emerald-500/15 text-emerald-400',
-    bar: 'bg-emerald-500',
+    badge: 'bg-success-ink/15 text-success-ink dark:bg-emerald-500/15 dark:text-emerald-400',
+    bar: 'bg-success-ink dark:bg-emerald-500',
   },
   'too-short': {
     label: 'Too Short',
-    badge: 'bg-amber-500/15 text-amber-400',
-    bar: 'bg-amber-500',
+    badge: 'bg-gold-ink/15 text-gold-ink dark:bg-amber-500/15 dark:text-amber-400',
+    bar: 'bg-gold-ink dark:bg-amber-500',
   },
   'too-long': {
     label: 'Too Long',
-    badge: 'bg-red-500/15 text-red-400',
-    bar: 'bg-red-500',
+    badge: 'bg-destructive/15 text-destructive dark:bg-red-500/15 dark:text-red-400',
+    bar: 'bg-destructive dark:bg-red-500',
   },
 };
 
@@ -142,7 +142,7 @@ export default function TitleChecker() {
       </div>
 
       {/* Input area */}
-      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 mb-6">
+      <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 mb-6 shadow-[var(--elev)]">
         <label className="text-sm font-medium text-foreground block mb-2">
           Title Tags (one per line)
         </label>
@@ -151,20 +151,20 @@ export default function TitleChecker() {
           onChange={(e) => setInput(e.target.value)}
           rows={8}
           placeholder={"Best Running Shoes for Flat Feet 2026 | Expert Reviews\nHow to Train for a Marathon: Complete Beginner's Guide\n10 Budget-Friendly Home Office Desks Under £200"}
-          className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono resize-y"
+          className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 font-mono resize-y"
         />
         <div className="flex flex-wrap items-center gap-3 mt-4">
           <button
             onClick={exportCSV}
             disabled={results.length === 0}
-            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
+            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
           >
             Export CSV
           </button>
           <button
             onClick={clearAll}
             disabled={results.length === 0}
-            className="rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
+            className="rounded-lg border border-hairline-strong dark:border-white/[0.12] bg-surface-2 dark:bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
           >
             Clear All
           </button>
@@ -176,8 +176,8 @@ export default function TitleChecker() {
                 onClick={() => setSortMode(mode)}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                   sortMode === mode
-                    ? 'bg-brand/20 text-brand border border-brand/30'
-                    : 'border border-white/[0.08] bg-white/[0.03] text-muted-foreground hover:text-foreground'
+                    ? 'bg-brand-wash text-brand-ink border border-brand-ink/30 dark:bg-brand/20 dark:text-brand dark:border-brand/30'
+                    : 'border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {mode === 'input' ? 'Order' : mode === 'status' ? 'Status' : 'Length'}
@@ -191,9 +191,9 @@ export default function TitleChecker() {
       {results.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
           <StatCard label="Titles Checked" value={stats.total} color="text-foreground" />
-          <StatCard label="Good" value={stats.good} color="text-emerald-400" />
-          <StatCard label="Too Long" value={stats.tooLong} color="text-red-400" />
-          <StatCard label="Too Short" value={stats.tooShort} color="text-amber-400" />
+          <StatCard label="Good" value={stats.good} color="text-success-ink dark:text-emerald-400" />
+          <StatCard label="Too Long" value={stats.tooLong} color="text-destructive dark:text-red-400" />
+          <StatCard label="Too Short" value={stats.tooShort} color="text-gold-ink dark:text-amber-400" />
         </div>
       )}
 
@@ -206,7 +206,7 @@ export default function TitleChecker() {
             return (
               <div
                 key={i}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-5"
+                className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-4 sm:p-5"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start gap-3">
                   <div className="flex-1 min-w-0">
@@ -230,7 +230,7 @@ export default function TitleChecker() {
                 </div>
                 {/* Pixel width progress bar */}
                 <div className="mt-3">
-                  <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                  <div className="h-1.5 w-full rounded-full bg-hairline overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all ${config.bar}`}
                       style={{ width: `${barPercent}%` }}
@@ -248,7 +248,7 @@ export default function TitleChecker() {
       )}
 
       {/* How it works */}
-      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
         <h2
           className="text-xl font-bold tracking-tight text-foreground mb-4"
           style={{ fontFamily: 'var(--font-heading)' }}
@@ -310,7 +310,7 @@ function StatCard({
   color: string;
 }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+    <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-4 text-center">
       <p className={`text-2xl font-bold ${color}`}>{value}</p>
       <p className="text-xs text-muted-foreground mt-1">{label}</p>
     </div>

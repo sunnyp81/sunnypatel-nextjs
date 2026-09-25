@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const stats = [
-  { value: 340, suffix: "%", label: "Aatma Organic Growth YoY", color: "from-brand to-gold" },
-  { value: 45, suffix: "", label: "SEO Test Sites", color: "from-gold to-success" },
-  { value: 12, suffix: "+", label: "Testing Verticals", color: "from-success to-teal" },
-  { value: 15, suffix: "+", label: "Years Experience", color: "from-teal to-brand" },
+  { value: 340, suffix: "%", label: "Aatma Organic Growth YoY", color: "dark:from-brand dark:to-gold", accent: "border-brand-ink" },
+  { value: 45, suffix: "", label: "SEO Test Sites", color: "dark:from-gold dark:to-success", accent: "border-gold-ink" },
+  { value: 12, suffix: "+", label: "Testing Verticals", color: "dark:from-success dark:to-teal", accent: "border-success-ink" },
+  { value: 15, suffix: "+", label: "Years Experience", color: "dark:from-teal dark:to-brand", accent: "border-teal-ink" },
 ];
 
 function useCountUp(target: number, duration = 1800, started: boolean) {
@@ -33,13 +34,13 @@ function useCountUp(target: number, duration = 1800, started: boolean) {
   return count;
 }
 
-function StatItem({ value, suffix, label, color, started }: typeof stats[0] & { started: boolean }) {
+function StatItem({ value, suffix, label, color, accent, started }: typeof stats[0] & { started: boolean }) {
   const count = useCountUp(value, 1800, started);
 
   return (
-    <div className="text-center">
+    <div className={cn("rounded-2xl border-t-2 bg-white px-4 py-6 text-center shadow-[var(--elev)]", "dark:border-t-0 dark:bg-transparent dark:px-0 dark:py-0 dark:shadow-none", accent)}>
       <div
-        className={`bg-gradient-to-r ${color} bg-clip-text text-3xl font-bold text-transparent md:text-5xl`}
+        className={cn("text-3xl font-bold md:text-5xl text-foreground dark:bg-gradient-to-r dark:bg-clip-text dark:text-transparent", color)}
         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
       >
         {count}{suffix}
@@ -71,8 +72,8 @@ export function Stats() {
 
   return (
     <section className="relative overflow-hidden py-20" ref={ref}>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/30 dark:via-brand/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/30 dark:via-brand/20 to-transparent" />
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{ background: "radial-gradient(ellipse at center, #5B8AEF, transparent 60%)" }}

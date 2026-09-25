@@ -90,10 +90,21 @@ export default function AiVisibilityResultsPage() {
             style={{ background: "radial-gradient(circle, #5B8AEF, transparent 70%)" }}
           />
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            className="pointer-events-none absolute inset-0 hidden opacity-[0.06] dark:block"
             style={{
               backgroundImage:
                 "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+              maskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-0 block dark:hidden"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
               backgroundSize: "32px 32px",
               maskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
               WebkitMaskImage:
@@ -150,7 +161,7 @@ export default function AiVisibilityResultsPage() {
               </span>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline dark:via-white/[0.08] to-transparent" />
         </div>
 
         {/* Main content */}
@@ -203,7 +214,7 @@ export default function AiVisibilityResultsPage() {
               {FAQS.map((faq) => (
                 <div
                   key={faq.q}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5"
+                  className="rounded-xl border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] p-5"
                 >
                   <h3 className="mb-2 text-sm font-semibold text-foreground">{faq.q}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
@@ -227,7 +238,7 @@ export default function AiVisibilityResultsPage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
                 >
                   {link.label}
                   <ArrowRight className="h-3 w-3" />

@@ -258,7 +258,7 @@ export default async function BlogPost({
       >
         {rendered}
         {post.faqs && post.faqs.length > 0 ? (
-          <section aria-labelledby="faq-title" className="mt-10 border-t border-white/[0.08] pt-8">
+          <section aria-labelledby="faq-title" className="mt-10 border-t border-hairline pt-8">
             <h2 id="faq-title" className="font-[var(--font-heading)] text-2xl font-semibold tracking-tight text-foreground">
               Common questions
             </h2>
@@ -266,7 +266,7 @@ export default async function BlogPost({
               {post.faqs.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-xl border border-white/[0.08] bg-white/[0.02] px-4 py-3 open:bg-white/[0.03]"
+                  className="group rounded-xl border border-hairline bg-wash px-4 py-3 open:bg-hairline"
                 >
                   <summary className="cursor-pointer list-none font-medium text-foreground marker:content-none">
                     {faq.question}

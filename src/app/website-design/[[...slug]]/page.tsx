@@ -143,27 +143,27 @@ export default async function WebsiteDesignPage({
         ctaSubtitle="Message me at Hello@SunnyPatel.co.uk or call 07305 523333. Same working day response with a fixed quote and a timeline."
       >
         {visuals?.intro}
-        <div className="prose prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:my-6 prose-th:text-foreground prose-td:text-muted-foreground">
+        <div className="prose dark:prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand-ink prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:my-6 prose-th:text-foreground prose-td:text-muted-foreground">
           {rendered}
         </div>
         {visuals?.close}
-        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
+        <div className="mt-12 rounded-2xl border border-hairline-strong dark:border-white/[0.08] bg-surface-1 dark:bg-white/[0.02] p-6">
           <h3 className="text-lg font-semibold text-foreground">Explore the website design cluster</h3>
           <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 text-sm">
-            <li><Link href="/website-design/" className="text-brand hover:underline">Website design overview</Link></li>
-            <li><Link href="/website-design/wordpress/" className="text-brand hover:underline">WordPress web design</Link></li>
-            <li><Link href="/website-design/small-business/" className="text-brand hover:underline">Small business websites</Link></li>
-            <li><Link href="/website-design/packages/" className="text-brand hover:underline">Packages and pricing</Link></li>
-            <li><Link href="/website-design/seo/" className="text-brand hover:underline">SEO web design</Link></li>
-            <li><Link href="/website-design/redesign/" className="text-brand hover:underline">Website redesign</Link></li>
-            <li><Link href="/website-design/platforms/" className="text-brand hover:underline">Platforms hub</Link></li>
-            <li><Link href="/website-design/industries/" className="text-brand hover:underline">Industries hub</Link></li>
-            <li><Link href="/website-design/pricing/" className="text-brand hover:underline">Pricing hub</Link></li>
-            <li><Link href="/website-design/seo-performance/" className="text-brand hover:underline">SEO + performance hub</Link></li>
-            <li><Link href="/website-design/redesign-ux/" className="text-brand hover:underline">Redesign + UX hub</Link></li>
-            <li><Link href="/website-design/proof/" className="text-brand hover:underline">Proof hub</Link></li>
-            <li><Link href="/website-design/portfolio/" className="text-brand hover:underline">Portfolio</Link></li>
-            <li><Link href="/website-design/case-studies/" className="text-brand hover:underline">Case studies</Link></li>
+            <li><Link href="/website-design/" className="text-brand-ink hover:underline">Website design overview</Link></li>
+            <li><Link href="/website-design/wordpress/" className="text-brand-ink hover:underline">WordPress web design</Link></li>
+            <li><Link href="/website-design/small-business/" className="text-brand-ink hover:underline">Small business websites</Link></li>
+            <li><Link href="/website-design/packages/" className="text-brand-ink hover:underline">Packages and pricing</Link></li>
+            <li><Link href="/website-design/seo/" className="text-brand-ink hover:underline">SEO web design</Link></li>
+            <li><Link href="/website-design/redesign/" className="text-brand-ink hover:underline">Website redesign</Link></li>
+            <li><Link href="/website-design/platforms/" className="text-brand-ink hover:underline">Platforms hub</Link></li>
+            <li><Link href="/website-design/industries/" className="text-brand-ink hover:underline">Industries hub</Link></li>
+            <li><Link href="/website-design/pricing/" className="text-brand-ink hover:underline">Pricing hub</Link></li>
+            <li><Link href="/website-design/seo-performance/" className="text-brand-ink hover:underline">SEO + performance hub</Link></li>
+            <li><Link href="/website-design/redesign-ux/" className="text-brand-ink hover:underline">Redesign + UX hub</Link></li>
+            <li><Link href="/website-design/proof/" className="text-brand-ink hover:underline">Proof hub</Link></li>
+            <li><Link href="/website-design/portfolio/" className="text-brand-ink hover:underline">Portfolio</Link></li>
+            <li><Link href="/website-design/case-studies/" className="text-brand-ink hover:underline">Case studies</Link></li>
           </ul>
         </div>
       </ContentPage>

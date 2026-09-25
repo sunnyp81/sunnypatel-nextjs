@@ -208,7 +208,7 @@ export default function SchemaGeneratorPage() {
                 <Link
                   key={t.name}
                   href={t.href}
-                  className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors hover:border-brand/30 hover:bg-brand/[0.04]"
+                  className="group rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-5 transition-colors hover:border-brand/30 hover:bg-brand/[0.04]"
                 >
                   <h3 className="text-sm font-semibold text-foreground mb-1.5 group-hover:text-brand transition-colors">{t.name}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{t.body}</p>
@@ -248,7 +248,7 @@ export default function SchemaGeneratorPage() {
             </ol>
           </section>
 
-          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <section className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h2
               className="text-xl font-bold tracking-tight text-foreground mb-4"
               style={{ fontFamily: "var(--font-heading)" }}

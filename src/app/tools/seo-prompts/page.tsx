@@ -71,7 +71,7 @@ export default function SeoPromptsPage() {
       <div className="pt-24 pb-16">
         <SeoPrompts />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h2
               className="text-xl font-bold tracking-tight text-foreground mb-4"
               style={{ fontFamily: "var(--font-heading)" }}

@@ -33,7 +33,11 @@ function ScoreGauge({ score, label }: { score: number; label: string }) {
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
   const color =
-    score >= 90 ? '#10b981' : score >= 50 ? '#f59e0b' : '#ef4444';
+    score >= 90
+      ? 'var(--success-ink)'
+      : score >= 50
+        ? 'var(--gold-ink)'
+        : 'var(--destructive)';
 
   return (
     <div className="flex flex-col items-center gap-2">
@@ -44,7 +48,7 @@ function ScoreGauge({ score, label }: { score: number; label: string }) {
             cy="60"
             r={radius}
             fill="none"
-            stroke="rgba(255,255,255,0.06)"
+            stroke="var(--hairline)"
             strokeWidth="8"
           />
           <circle
@@ -122,15 +126,15 @@ function getMetricStatus(
 }
 
 const borderColors: Record<StatusColor, string> = {
-  green: 'border-l-emerald-400',
-  amber: 'border-l-amber-400',
-  red: 'border-l-red-400',
+  green: 'border-l-success-ink dark:border-l-emerald-400',
+  amber: 'border-l-gold-ink dark:border-l-amber-400',
+  red: 'border-l-destructive dark:border-l-red-400',
 };
 
 const badgeColors: Record<StatusColor, string> = {
-  green: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-  amber: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-  red: 'bg-red-500/15 text-red-400 border-red-500/30',
+  green: 'bg-success-ink/10 text-success-ink border-success-ink/30 dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30',
+  amber: 'bg-gold-ink/10 text-gold-ink border-gold-ink/30 dark:bg-amber-500/15 dark:text-amber-400 dark:border-amber-500/30',
+  red: 'bg-destructive/10 text-destructive border-destructive/30 dark:bg-red-500/15 dark:text-red-400 dark:border-red-500/30',
 };
 
 const METRICS = [
@@ -188,7 +192,7 @@ function MetricCard({
 
   return (
     <div
-      className={`rounded-lg border border-white/[0.06] border-l-4 ${borderColors[status.color]} bg-white/[0.02] p-4`}
+      className={`rounded-lg border border-hairline border-l-4 ${borderColors[status.color]} bg-wash dark:bg-white/[0.02] p-4`}
     >
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
@@ -235,7 +239,7 @@ function OpportunityRow({ audit }: { audit: AuditResult }) {
   }
 
   return (
-    <div className="flex items-start justify-between gap-4 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3">
+    <div className="flex items-start justify-between gap-4 rounded-lg border border-hairline bg-wash dark:bg-white/[0.02] px-4 py-3">
       <div className="min-w-0">
         <p className="text-sm font-medium text-foreground">{audit.title}</p>
         <p className="mt-0.5 text-xs text-muted-foreground line-clamp-2">
@@ -243,7 +247,7 @@ function OpportunityRow({ audit }: { audit: AuditResult }) {
         </p>
       </div>
       {savingsLabel && (
-        <span className="shrink-0 rounded-md bg-amber-500/15 px-2 py-1 text-xs font-medium text-amber-400">
+        <span className="shrink-0 rounded-md bg-gold-ink/10 px-2 py-1 text-xs font-medium text-gold-ink dark:bg-amber-500/15 dark:text-amber-400">
           Save {savingsLabel}
         </span>
       )}
@@ -354,7 +358,7 @@ export default function SpeedChecker() {
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !loading) runTest();
             }}
-            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+            className="w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
             placeholder="https://example.com"
             disabled={loading}
           />
@@ -370,8 +374,8 @@ export default function SpeedChecker() {
 
       {/* Loading state */}
       {loading && (
-        <div className="mb-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
-          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-white/10 border-t-brand" />
+        <div className="mb-8 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-8 text-center">
+          <div className="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-black/10 dark:border-white/10 border-t-brand" />
           <p className="text-sm font-medium text-foreground">
             Analysing... this usually takes 10-20 seconds
           </p>
@@ -383,8 +387,8 @@ export default function SpeedChecker() {
 
       {/* Error */}
       {error && (
-        <div className="mb-8 rounded-xl border border-red-500/30 bg-red-500/10 p-4">
-          <p className="text-sm text-red-400">{error}</p>
+        <div className="mb-8 rounded-xl border border-destructive/30 bg-destructive/10 p-4">
+          <p className="text-sm text-destructive">{error}</p>
         </div>
       )}
 
@@ -396,7 +400,7 @@ export default function SpeedChecker() {
             <span className="text-sm font-medium text-foreground">
               Results:
             </span>
-            <div className="flex overflow-hidden rounded-lg border border-white/[0.08]">
+            <div className="flex overflow-hidden rounded-lg border border-hairline-strong dark:border-white/[0.08]">
               {(['mobile', 'desktop'] as const).map((s) => {
                 const r = results.find((x) => x.strategy === s);
                 return (
@@ -406,7 +410,7 @@ export default function SpeedChecker() {
                     className={`px-4 py-2 text-sm font-medium transition-colors ${
                       activeTab === s
                         ? 'bg-brand text-white shadow-[0_0_20px_rgba(91,138,239,0.35)]'
-                        : 'bg-white/[0.03] text-muted-foreground hover:text-foreground'
+                        : 'bg-wash text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {s.charAt(0).toUpperCase() + s.slice(1)}
@@ -424,7 +428,7 @@ export default function SpeedChecker() {
                 {results.map((r) => (
                   <div
                     key={r.strategy}
-                    className="flex justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] p-6"
+                    className="flex justify-center rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6"
                   >
                     <ScoreGauge
                       score={r.score}
@@ -477,7 +481,7 @@ export default function SpeedChecker() {
       )}
 
       {/* SEO impact section */}
-      <div className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+      <div className="mt-10 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
         <h2
           className="mb-3 text-lg font-semibold text-foreground"
           style={{ fontFamily: 'var(--font-heading)' }}
@@ -503,7 +507,7 @@ export default function SpeedChecker() {
               Need help improving your Core Web Vitals?{' '}
               <a
                 href="/contact/"
-                className="font-medium text-brand underline underline-offset-2 hover:text-brand/80"
+                className="font-medium text-brand-ink dark:text-brand underline underline-offset-2 hover:text-brand/80"
               >
                 Get in touch
               </a>{' '}

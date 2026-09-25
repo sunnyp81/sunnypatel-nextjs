@@ -6,7 +6,7 @@ import ImageCompressor from "./ImageCompressor";
 export function generateMetadata() {
   return {
     title: "Image Compressor for Page Speed | Reduce Image File Size",
-    description: "Compress images in your browser to improve page load speed. Reduce JPEG and PNG file sizes without losing visible quality. No upload â€” 100% private.",
+    description: "Compress images in your browser to improve page load speed. Reduce JPEG and PNG file sizes without losing visible quality. No upload: 100% private.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/image-compressor/" },
   };
 }

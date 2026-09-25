@@ -1,5 +1,5 @@
 import { reader } from "@/lib/content";
-import { renderToolOgImage } from "@/lib/og-template";
+import { renderToolOgImage, websiteDesignHeadline } from "@/lib/og-template";
 
 export async function GET(
   _req: Request,
@@ -10,7 +10,7 @@ export async function GET(
 
   return renderToolOgImage({
     eyebrow: "WEBSITE DESIGN",
-    title: page ? page.h1 || page.title : "Website Design",
+    title: page ? websiteDesignHeadline(page) : "Website Design",
     description: page
       ? page.description
       : "Custom website design and build for UK small businesses.",

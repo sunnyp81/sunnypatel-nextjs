@@ -5,9 +5,23 @@ export const ogImageContentType = "image/png";
 
 function truncate(text: string, max = 150) {
   if (text.length <= max) return text;
-  const cut = text.slice(0, max);
-  const lastSpace = cut.lastIndexOf(" ");
-  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max).trimEnd()}\u2026`;
+  const cut = text.slice(0, max - 1);
+  const boundary = /\s/.test(text[max - 1]) ? cut.length : cut.search(/\s+\S*$/);
+  const words = boundary >= 0 ? cut.slice(0, boundary) : "";
+  return `${words.replace(/[\s\p{P}]+$/gu, "")}\u2026`;
+}
+
+export function websiteDesignHeadline(page: {
+  title: string;
+  h1?: string;
+  metaTitle?: string;
+}) {
+  const candidates = [page.title, page.h1, page.metaTitle]
+    .filter((value): value is string => Boolean(value?.trim()))
+    .map((value) => value.split(/ \| | - |:| \u2013 /)[0].trim())
+    .filter(Boolean);
+  return candidates.find((value) => value.length <= 48)
+    ?? truncate(candidates[0] || "Website Design", 48);
 }
 
 export function renderToolOgImage({
@@ -30,7 +44,7 @@ export function renderToolOgImage({
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           padding: "70px 80px",
           background: "#050507",
           fontFamily: "sans-serif",
@@ -68,7 +82,7 @@ export function renderToolOgImage({
         <div
           style={{
             display: "flex",
-            fontSize: headline.length > 40 ? "56px" : "68px",
+            fontSize: headline.length > 40 ? "64px" : "76px",
             fontWeight: 700,
             color: "white",
             lineHeight: 1.15,
@@ -94,40 +108,49 @@ export function renderToolOgImage({
 
         <div
           style={{
+            position: "absolute",
+            left: "80px",
+            right: "80px",
+            bottom: "85px",
+            height: "10px",
             display: "flex",
             alignItems: "center",
-            gap: "20px",
-            marginTop: "auto",
+            justifyContent: "space-between",
           }}
         >
           <div
             style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "9999px",
-              backgroundColor: "#5B8AEF",
-              boxShadow: "0 0 16px 4px rgba(91,138,239,0.9)",
-            }}
-          />
-          <div
-            style={{
-              width: "90px",
-              height: "3px",
-              borderRadius: "9999px",
+              position: "absolute",
+              left: "5px",
+              right: "5px",
+              top: "4px",
+              height: "2px",
               background: "linear-gradient(90deg, #5B8AEF, #D79F1E)",
               boxShadow: "0 0 12px 2px rgba(180,150,120,0.5)",
             }}
           />
-          <div
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "9999px",
-              backgroundColor: "#D79F1E",
-              boxShadow: "0 0 16px 4px rgba(215,159,30,0.9)",
-            }}
-          />
-          <div style={{ display: "flex", marginLeft: "12px" }}>
+          {["#5B8AEF", "#999587", "#D79F1E"].map((color) => (
+            <div
+              key={color}
+              style={{
+                width: "10px",
+                height: "10px",
+                borderRadius: "9999px",
+                backgroundColor: color,
+                boxShadow: `0 0 16px 4px ${color}`,
+              }}
+            />
+          ))}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            right: "80px",
+            bottom: "36px",
+            display: "flex",
+          }}
+        >
+          <div style={{ display: "flex" }}>
             <span style={{ color: "#5B8AEF", fontSize: "20px", fontWeight: 700 }}>
               SunnyPatel
             </span>

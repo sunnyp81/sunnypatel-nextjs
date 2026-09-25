@@ -6,7 +6,7 @@ import SslChecker from "./SslChecker";
 export function generateMetadata() {
   return {
     title: "SSL Certificate Checker | HTTPS Security Test",
-    description: "Check your SSL certificate status, expiry date, issuer, and chain validity. HTTPS is a Google ranking signal â€” make sure your certificate is valid.",
+    description: "Check your SSL certificate status, expiry date, issuer, and chain validity. HTTPS is a Google ranking signal: make sure your certificate is valid.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/ssl-checker/" },
   };
 }

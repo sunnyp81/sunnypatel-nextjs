@@ -7,6 +7,8 @@ import {
   GlowChartFigure,
   GlowPanel,
   GlowPanelRow,
+  GlowProcess,
+  GlowProcessStep,
   GlowPullquote,
   GlowStat,
   GlowStatRow,
@@ -66,6 +68,17 @@ export const markdocConfig: Config = {
     panels: {
       render: "GlowPanelRow",
     },
+    process: {
+      render: "GlowProcess",
+    },
+    step: {
+      render: "GlowProcessStep",
+      selfClosing: true,
+      attributes: {
+        title: { type: String, required: true },
+        detail: { type: String, required: true },
+      },
+    },
     quotecheck: { render: "SeoQuoteChecker", selfClosing: true },
     agencyscore: { render: "AgencyRedFlagScorer", selfClosing: true },
     resourcepicker: { render: "ResourcingPicker", selfClosing: true },
@@ -92,6 +105,8 @@ export function renderMarkdoc(content: any) {
       GlowChartFigure,
       GlowPanel,
       GlowPanelRow,
+      GlowProcess,
+      GlowProcessStep,
       LocalPackCalculator,
       SeoQuoteChecker,
       AgencyRedFlagScorer,

@@ -85,3 +85,24 @@ export function GlowPanelRow({ children }: { children?: React.ReactNode }) {
     </div>
   );
 }
+
+export function GlowProcess({ children }: { children?: React.ReactNode }) {
+  const count = React.Children.toArray(children).filter(React.isValidElement).length;
+  return (
+    <GlowCard className={`not-prose ${styles.figure}`}>
+      <ol className={`${styles.inner} ${styles.processList}`} data-count={Math.min(count, 6)}>
+        {children}
+      </ol>
+    </GlowCard>
+  );
+}
+
+export function GlowProcessStep({ title, detail }: { title: string; detail: string }) {
+  return (
+    <li className={styles.processStep}>
+      <span className={styles.processNode} aria-hidden="true" />
+      <p className={styles.processStepTitle}>{title}</p>
+      <p className={styles.processStepDetail}>{detail}</p>
+    </li>
+  );
+}

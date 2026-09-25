@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Download, FileSearch, ListChecks } from "lucide-react";
+import { AlertTriangle, ArrowRight, Download, FileSearch, ListChecks } from "lucide-react";
 
 type ExampleKind = "technical-audit" | "content-brief";
 
@@ -12,13 +12,27 @@ const EXAMPLES = {
     icon: FileSearch,
     downloadHref: "/downloads/technical-seo-audit-finding-demonstration.txt",
     downloadLabel: "Download the demonstration finding",
-    rows: [
-      ["Finding", "Filtered category URLs are crawlable and internally linked"],
-      ["Evidence", "The fictional crawl found 184 filter URLs and 62 conflicting canonical targets"],
-      ["Why it matters", "Search engines receive mixed signals about which category URL should be indexed"],
-      ["Recommended action", "Choose indexable filter combinations. Remove links to the rest and align canonical rules"],
-      ["Acceptance check", "Re-crawl the affected directory and check whether unapproved filter combinations are still discovered through internal links in the scoped crawl"],
-    ],
+    report: {
+      siteName: "Northstar Garden Supply",
+      docTitle: "Technical SEO Audit",
+      findingId: "F-07",
+      severity: "High impact",
+      finding: "Filtered category URLs are crawlable and internally linked",
+      evidence:
+        "The fictional crawl found 184 filter URLs and 62 conflicting canonical targets in the pots category.",
+      evidenceSnippet: [
+        "https://northstargardensupply.example/pots?colour=terracotta&size=large",
+        "https://northstargardensupply.example/pots?colour=terracotta&sort=price",
+        "https://northstargardensupply.example/pots?in-stock=true&size=large",
+        "canonical: https://northstargardensupply.example/pots",
+      ],
+      whyItMatters: "Search engines receive mixed signals about which category URL should be indexed",
+      recommendedAction:
+        "Choose indexable filter combinations. Remove links to the rest and align canonical rules",
+      acceptanceCheck:
+        "Re-crawl the affected directory and check whether unapproved filter combinations are still discovered through internal links in the scoped crawl",
+      footerNote: "Example finding · fictional site · not a client result",
+    },
   },
   "content-brief": {
     eyebrow: "Demonstration content brief",
@@ -47,8 +61,8 @@ export function ServiceOfferExamples({ kind }: { kind: ExampleKind }) {
       aria-labelledby={`${kind}-example-title`}
       className="overflow-hidden border-y border-white/[0.10] bg-white/[0.025]"
     >
-      <div className="grid lg:grid-cols-[0.85fr_1.5fr]">
-        <div className="border-b border-white/[0.08] p-6 lg:border-b-0 lg:border-r lg:p-8">
+      <div className="grid min-w-0 lg:grid-cols-[0.85fr_1.5fr]">
+        <div className="min-w-0 border-b border-white/[0.08] p-6 lg:border-b-0 lg:border-r lg:p-8">
           <div className="mb-5 flex h-10 w-10 items-center justify-center border border-brand/25 bg-brand/[0.08] text-brand">
             <Icon className="h-5 w-5" aria-hidden="true" />
           </div>
@@ -75,17 +89,80 @@ export function ServiceOfferExamples({ kind }: { kind: ExampleKind }) {
           </a>
         </div>
 
-        <div>
-          <dl className="divide-y divide-white/[0.07]">
-            {example.rows.map(([term, detail]) => (
-              <div key={term} className="grid gap-1 px-6 py-4 sm:grid-cols-[9rem_1fr] sm:gap-5 lg:px-8">
-                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/75">
-                  {term}
-                </dt>
-                <dd className="text-sm leading-6 text-muted-foreground">{detail}</dd>
+        <div className="min-w-0">
+          {"report" in example ? (
+            <div className="min-w-0 px-6 pt-6 lg:px-8 lg:pt-8">
+              <div className="min-w-0 border border-white/[0.12] bg-[#0a0a0f] p-5 sm:p-6">
+                <div className="flex flex-wrap items-start justify-between gap-3 border-b border-white/[0.10] pb-4">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      {example.report.siteName} · {example.report.docTitle}
+                    </p>
+                    <p className="mt-1.5 font-mono text-xs text-brand">{example.report.findingId}</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 border border-gold/40 bg-gold/[0.10] px-2.5 py-1 text-xs font-semibold text-gold">
+                    <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
+                    {example.report.severity}
+                  </span>
+                </div>
+
+                <dl className="mt-4 space-y-4">
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/75">
+                      Finding
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-foreground">{example.report.finding}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/75">
+                      Evidence
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-muted-foreground">{example.report.evidence}</dd>
+                    <pre className="mt-2 overflow-x-auto border border-white/[0.10] bg-black/40 p-3 font-mono text-[11.5px] leading-5 text-foreground/80">
+                      <code>{example.report.evidenceSnippet.join("\n")}</code>
+                    </pre>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/75">
+                      Why it matters
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-muted-foreground">{example.report.whyItMatters}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/75">
+                      Recommended action
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {example.report.recommendedAction}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/75">
+                      Acceptance check
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {example.report.acceptanceCheck}
+                    </dd>
+                  </div>
+                </dl>
+
+                <p className="mt-5 border-t border-white/[0.10] pt-3 text-xs italic text-muted-foreground">
+                  {example.report.footerNote}
+                </p>
               </div>
-            ))}
-          </dl>
+            </div>
+          ) : (
+            <dl className="divide-y divide-white/[0.07]">
+              {example.rows.map(([term, detail]) => (
+                <div key={term} className="grid gap-1 px-6 py-4 sm:grid-cols-[9rem_1fr] sm:gap-5 lg:px-8">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/75">
+                    {term}
+                  </dt>
+                  <dd className="text-sm leading-6 text-muted-foreground">{detail}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
           <div className="px-6 py-5 lg:px-8">
             <Link
               href="#enquire"

@@ -14,6 +14,7 @@ import { CitationChecklist } from "@/components/services/CitationChecklist";
 import { CaseStudyCard } from "@/components/services/CaseStudyCard";
 import { StatsBar } from "@/components/services/StatsBar";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
+import { GlowProcess, GlowProcessStep } from "@/components/glow/glow-blocks";
 import { markdocConfig } from "@/lib/render-markdoc";
 import { ServiceOfferExamples } from "@/components/service-offer-examples";
 import { ServiceInlineForm } from "@/components/service-inline-form";
@@ -928,7 +929,7 @@ function buildSections(
     Markdoc.renderers.react(
       { ...(wrapper as object), children: g } as RenderableTreeNode,
       React,
-      { components: { ServiceMiniCta } }
+      { components: { ServiceMiniCta, GlowProcess, GlowProcessStep } }
     )
   );
 

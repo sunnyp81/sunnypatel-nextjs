@@ -1,41 +1,55 @@
-title: 'Google CTR by Position'
-metaTitle: 'Google CTR Study 2026: Data, Method and Limitations'
+title: 'Google CTR by Position: Benchmarks, Caveats and How to Measure Your Own'
+metaTitle: 'Google CTR by Position: Benchmarks and Caveats'
 description: >-
-  Inspect Google CTR across 2,615 query rows from 53 Search Console properties.
-  Download historical data with sample sizes, collection limits and corrections.
+  What AWR, First Page Sage and Sistrix report for CTR by position, why our
+  portfolio figures were withdrawn, and how to build your own benchmark.
 ogImage: '/images/blog/hero-google-ctr-study.webp'
 date: '2026-07-10'
-lastUpdated: '2026-09-12'
+lastUpdated: '2026-09-25'
 tags:
   - CTR Study
   - Original Research
   - Google Search Console
   - SEO Data
 faqs:
-  - question: What CTR did the position-one bucket record?
+  - question: What CTR does Google's position one actually get?
     answer: >-
-      The rounded position-one bucket recorded 43 clicks from 721 impressions:
-      5.96% CTR across five query rows. It is a small portfolio observation with
-      no country filter or explicit brand exclusion. It is not a universal target.
-  - question: Is this a UK non-brand CTR benchmark?
+      It depends which study and market you read. Advanced Web Ranking
+      (US, desktop, July 2026) reports 20.02%. First Page Sage (US,
+      blended, Mar-Aug 2026) reports 7.1%. Sistrix (mobile, 80 million
+      keywords) reports 28.5%. AWR and First Page Sage cover the US; none
+      of the three establishes a UK benchmark, and country, device and
+      brand handling all move the figure.
+  - question: Why were this page's own CTR figures withdrawn?
     answer: >-
-      No. The collection applied neither a UK country filter nor an explicit
-      brand exclusion. The retained aggregate does not establish its country or
-      brand mix. Descriptions of this edition as a UK non-brand benchmark have
-      been corrected.
-  - question: Does position four outperform position one?
+      The July 2026 collection had no UK filter, no brand exclusion, an
+      unpaginated 5,000-row cap ordered by clicks, and a position-one
+      bucket built from just five rows. A September 2026 re-extraction
+      fixed those problems and still found the panel too concentrated in
+      one property and too thin on query-level click coverage to support
+      a reliable benchmark; see the Correction section for the exact
+      figures behind that decision.
+  - question: How do I exclude branded clicks from my own Search Console data?
     answer: >-
-      Position four had higher CTR in this sample. The buckets contain different
-      query groups, so their percentages do not show that a lower ranking causes
-      more clicks. The data cannot predict the effect of moving the same query.
-  - question: Does the table include every portfolio query?
+      Use the query dimension's custom regex filter set to "doesn't
+      match", with a pattern covering your brand name and its common
+      misspellings. Exclude brand queries when building a non-brand
+      benchmark.
+  - question: Does Search Console show every query that got clicks?
     answer: >-
-      No. The script requested up to 5,000 rows per property without pagination
-      and retained returned rows with at least 50 impressions. Search Console
-      also limits which queries it returns. The published table contains all
-      retained bucket totals, not all underlying search activity.
-  - question: Can I reuse the table and chart?
+      No. Search Console omits anonymised queries, and reporting limits
+      can omit additional rows. Compare query-level clicks with
+      property-level clicks for the same dates, country, device and
+      search type, and document any query filter you apply, since a
+      filter also removes anonymised queries from the property-level
+      total.
+  - question: Can I use a published CTR study as my own target?
     answer: >-
-      Yes. Reuse the published aggregate table and our chart with a link to this
-      study. Keep the measurement dates, sample sizes and limitations with the
-      figures. CSV, JSON, PNG and SVG downloads are available without registration.
+      Treat it as a reference point, not a target. Sistrix reports
+      position-one CTR ranging from 13.7% to 46.9% depending on SERP
+      layout, about a 5.3-percentage-point reduction with a featured
+      snippet present, and 27% without an AI Overview against 11% with
+      one present in its German data. None of the studies on this page
+      establishes a UK benchmark. Your own filtered Search Console data
+      can fit your situation better once its sample size and coverage
+      are sufficient.

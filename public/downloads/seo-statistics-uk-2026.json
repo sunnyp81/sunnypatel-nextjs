@@ -243,22 +243,6 @@
       "sourceDateType": "Published"
     },
     {
-      "id": "portfolio-position-one",
-      "value": "5.96%",
-      "label": "CTR in the portfolio's rounded position-one bucket",
-      "scope": "Portfolio",
-      "topic": "Clicks",
-      "statement": "The rounded position-one bucket in Sunny Patel's portfolio study recorded 43 clicks from 721 impressions: 5.96% CTR.",
-      "period": "9 April–7 July 2026",
-      "sample": "Five query-property rows in this bucket; 2,615 qualifying rows across 53 Search Console properties in the full study.",
-      "source": "Sunny Patel: Google CTR study",
-      "sourceUrl": "https://sunnypatel.co.uk/blog/google-ctr-study/",
-      "caveat": "Small convenience sample. The extraction has no country filter or explicit brand exclusion. Property overlap was not verified. These are period-average position buckets, not fixed rankings or a UK benchmark.",
-      "checked": "2026-09-12",
-      "sourceDate": "2026-07-10",
-      "sourceDateType": "Dataset updated"
-    },
-    {
       "id": "portfolio-page-one-clicks",
       "value": "86.9%",
       "label": "Sample clicks from rounded position buckets 1–10",

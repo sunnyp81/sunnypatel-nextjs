@@ -16,7 +16,6 @@ import { SeoCompaniesGuide } from "@/components/seo-companies-guide";
 import { LocalSeoGuide } from "@/components/local-seo-guide";
 import { AeoGuide } from "@/components/aeo-guide";
 import { SeoStatisticsGuide } from "@/components/seo-statistics-guide";
-import { CtrStudyGuide } from "@/components/ctr-study-guide";
 import { ReportHero } from "@/components/report-hero";
 import styles from "@/components/seo-companies-guide.module.css";
 
@@ -184,10 +183,6 @@ export default async function BlogPost({
         <SeoStatisticsGuide title={post.title} faqs={post.faqs ?? []}>
           {rendered}
         </SeoStatisticsGuide>
-      ) : slug === "google-ctr-study" ? (
-        <CtrStudyGuide title={post.title} faqs={post.faqs ?? []}>
-          {rendered}
-        </CtrStudyGuide>
       ) : REPORT_HERO_CONFIG[slug] ? (
         <ReportHero
           title={post.title}

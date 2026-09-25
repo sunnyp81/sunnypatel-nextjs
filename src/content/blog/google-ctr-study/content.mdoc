@@ -1,4 +1,87 @@
-## What does this Google CTR study show? {% #findings %}
+Published studies put Google's position-one organic CTR anywhere from 7.1% to 28.5%, depending on country, device and whether branded clicks are included. Advanced Web Ranking (US, July 2026) reports 20.02% desktop. First Page Sage (US, Mar-Aug 2026) reports 7.1% blended. Sistrix (mobile, 80 million keywords) reports 28.5%. No single curve fits every query type.
+
+## Correction, 25 September 2026 {% #correction %}
+
+The portfolio CTR figures previously published on this page, from a July 2026 collection, are withdrawn as a benchmark. They should not be cited or quoted going forward. The reasons:
+
+The July 2026 collection had no UK country filter and no brand exclusion. It used an unpaginated 5,000-row cap per property, ordered by clicks, which can bias which queries survive the cap before any impression threshold is applied. Its position-one bucket held only five query rows, which did not support a general benchmark.
+
+A September 2026 re-extraction used a UK filter, brand exclusion and a fixed 31-property panel, but still did not support a reliable CTR-by-position benchmark. One property supplied 99.4% of the panel's pooled non-brand clicks; with that property excluded, position one fell to a 0.51% CTR from just 11 clicks. Median query-level click coverage across properties was about 19% of each property's own click totals, well short of what a defensible curve needs. These are the reasons for withdrawal, not a new benchmark to replace the old one.
+
+The July 2026 figures and methodology are reproduced below, with withdrawal annotations, for transparency. Its downloads remain available there, also marked withdrawn.
+
+## What do published CTR studies report by position? {% #published-studies %}
+
+The table compares CTR figures from three publishers: [Advanced Web Ranking](https://www.advancedwebranking.com/seo/organic-ctr), [First Page Sage](https://firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/) and [Sistrix](https://www.sistrix.com/blog/why-almost-everything-you-knew-about-google-ctr-is-no-longer-valid/). Their samples and methods differ, so compare each figure within its stated scope.
+
+| Position | Advanced Web Ranking (US, desktop, Jul 2026) | First Page Sage (US, blended, Mar-Aug 2026) | Sistrix (mobile, 80M keywords, published 2020, modified 2025) |
+|---|---|---|---|
+| 1 | 20.02% | 7.1% | 28.5% |
+| 2 | 10.36% | 3.0% | 15.7% |
+| 3 | 3.89% | 1.7% | 11% |
+| 4 | 1.71% | 1.1% | not available in the extracted source notes |
+| 5 | 1.08% | 0.7% | not available in the extracted source notes |
+| 6 | 0.73% | 0.6% | not available in the extracted source notes |
+| 7 | 0.46% | 0.4% | not available in the extracted source notes |
+| 8 | 0.47% | 0.3% | not available in the extracted source notes |
+| 9 | 0.54% | 0.2% | not available in the extracted source notes |
+| 10 | 0.58% | 0.2% | 2.5% |
+
+Advanced Web Ranking pulls from more than 1.75 million US SERPs a month (about 1 million desktop, 750,000 mobile), with a position-one baseline alone of 184.8 million impressions and 37.0 million clicks. Its headline figures blend branded and non-brand queries; its own branded/unbranded split shows branded position one at 27.32% against unbranded at 19.38%.
+
+First Page Sage draws on 1,184 client and panel domains, 3.67 billion impressions and 41.2 million clicks, plus a separate SERP sample of more than 214,000 queries, re-crawled weekly. It excludes navigational queries where the clicked result is the brand's own domain.
+
+Sistrix's mobile-only study analysed 80 million keywords and billions of results, first published 14 July 2020 and modified 7 July 2025. Its country and brand handling are not stated in the extracted source. A [separate Sistrix study](https://www.sistrix.com/blog/ai-overviews-in-germany/) of over 100 million German keywords, published 25 February 2026, reports position-one CTR at 27% without an AI Overview present and 11% with one present, a fall of about 59%.
+
+None of these three studies replicate each other. AWR and First Page Sage cover the US; the German AI Overview figures cover Germany; none establishes a UK benchmark. Sistrix reports position-one CTR ranging from 13.7% to 46.9% across SERP layouts, about a 5.3-percentage-point reduction with a featured snippet present, and about a 10-point reduction with Google Ads present. Quote the study whose country, device and brand handling match your own situation, and treat every figure in this table as a reference point, not a target.
+
+## How do you benchmark your own CTR in Search Console? {% #benchmark-your-own %}
+
+Your own filtered Search Console data can give a more relevant benchmark than a published study, when its sample size and coverage are sufficient. Build it with these checks.
+
+**Filter to your real market.** Search Console's Countries report lets you isolate one country. A global blend hides the fact that your UK CTR and your US CTR can differ sharply, especially on SERPs where Google shows different features by market.
+
+**Exclude your own brand.** Use the query dimension's custom regex filter, set to "doesn't match", with a pattern covering your brand name and its common misspellings, for example `(yourbrand|your-brand|misspelling)`. Exclude brand queries when building a non-brand benchmark; AWR's own data shows branded position one at 27.32% against unbranded at 19.38%, an 8-point gap in that one dataset.
+
+**Split by device.** Pull desktop, mobile and tablet separately so you can compare their CTRs without blending different query mixes and search-result layouts.
+
+**Decide query level or page level, and know the difference.** Query-level rows tie to one search term. A page can rank for many queries at many positions, so a page-level CTR blends that mix. Query-level rows let you examine the mix directly, though some queries are omitted, covered next.
+
+**Treat position as a period average, not a fixed rank.** Search Console's position is the average across every impression in your date range. A query bucketed at position four did not necessarily hold position four throughout the period, and a wide date range smooths over real movement.
+
+**Expect missing rows.** Search Console omits anonymised, low-volume queries from query-level exports, and its reporting limits can omit additional rows. Compare query-level clicks with property-level clicks for the same dates, country, device and search type. Document any query filter you apply: a query filter also removes anonymised queries from the property-level total, changing what the comparison measures. See Google's notes on [performance data limits](https://developers.google.com/search/blog/2022/10/performance-data-deep-dive) and [filtering and comparison](https://support.google.com/webmasters/answer/17011165?hl=en).
+
+**Check for AI Overviews and other SERP features.** Search Console does not label which of your impressions came from a SERP with an AI Overview, a featured snippet or a shopping module. Use dated SERP observations to investigate these features for your own queries; a live check today shows the current result and cannot establish which features appeared on every historical impression.
+
+**Set a minimum sample size before you look at the data.** Decide your minimum query count and impression count per bucket before you calculate anything, and merge or exclude any bucket that falls short. Report each bucket's query count and impression count so a reader can judge how much support it has.
+
+**Report per-query figures alongside any pooled number.** Pooled CTR weights each query by its own impressions, so high-impression queries dominate it. Report the spread of per-query CTRs alongside the pooled figure, and check whether a handful of queries account for most of your impressions.
+
+## A worked example {% #worked-example %}
+
+The table below uses invented, round numbers to show the method. It is not measured data and should not be quoted as a real CTR figure.
+
+| Position bucket | Hypothetical clicks | Hypothetical impressions | CTR |
+|---|---|---|---|
+| 1 | 40 | 200 | 20.0% |
+| 2 | 15 | 150 | 10.0% |
+| 3 | 8 | 160 | 5.0% |
+
+CTR for each bucket is clicks divided by impressions, multiplied by 100. Position one here is 40 divided by 200, giving 20.0%. Suppose those 40 clicks came from only 4 query rows, and your predeclared minimum was 20 rows. Exclude that bucket, or apply a predeclared rule for merging it into an adjacent bucket. The withdrawn July edition below reported position one from only five rows.
+
+Test several plausible CTR assumptions against qualified outcomes and contribution profit, using the [SEO ROI calculator](/tools/seo-roi-calculator/) for scenario planning. A fixed-fee [SEO consulting session](/services/seo-consulting/) can review your own filtered Search Console export with you, position by position.
+
+## How to cite the published studies {% #citation %}
+
+Cite the specific external study by name, date and country when quoting a published figure, not "SEO studies show". The external figures above do not establish a UK benchmark. For more sourced SEO figures, see [UK SEO statistics](/blog/seo-statistics-uk/) and [link-building statistics](/blog/link-building-statistics/). Send a correction with the relevant row and evidence through the [contact page](/contact/).
+
+---
+
+## Withdrawn July 2026 edition {% #withdrawn-july-2026 %}
+
+The July figures and methodology are reproduced below with withdrawal annotations, from the edition published 10 July 2026 and corrected 12 September 2026. This section is withdrawn as of 25 September 2026 (see Correction above) and is kept only for transparency and audit history. Do not cite any figure below as a current benchmark.
+
+### What did the July 2026 edition show? {% #findings-jul-2026 %}
 
 The retained query rows recorded 1,667 clicks from 382,941 impressions. Their combined click-through rate was 0.44%. These are observations from a managed portfolio with no country filter or explicit brand exclusion.
 
@@ -6,86 +89,47 @@ The rounded position-one bucket recorded 43 clicks from 721 impressions. Its 5.9
 
 The buckets contain different query groups. Their difference does not establish that position four performs better than position one for the same query. Query intent and search-result features were not recorded in the retained aggregate.
 
-Rounded position buckets 1–10 contributed 1,448 of the 1,667 clicks: 86.9%. Buckets 11–20 and 21+ contributed 282,472 impressions: 73.8% of the total. Those are shares of the retained sample rather than shares of all portfolio traffic.
+Rounded position buckets 1-10 contributed 1,448 of the 1,667 clicks: 86.9%. Buckets 11-20 and 21+ contributed 282,472 impressions: 73.8% of the total. Those are shares of the retained sample rather than shares of all portfolio traffic.
 
-{% stat value="86.9%" label="of total clicks came from rounded position buckets 1 to 10 in the retained sample" source="Own portfolio data, Search Console, 9 April to 7 July 2026" /%}
+### How was the July 2026 sample collected? {% #methodology-jul-2026 %}
 
-## How was the CTR sample collected? {% #methodology %}
-
-The collection requested query-level Google Search Console data for 9 April–7 July 2026 inclusive. It counted 53 accessible properties with at least one qualifying row. The extraction date recorded in the dataset is 10 July 2026.
+The collection requested query-level Google Search Console data for 9 April-7 July 2026 inclusive. It counted 53 accessible properties with at least one qualifying row. The extraction date recorded in the dataset is 10 July 2026.
 
 The script requested up to 5,000 rows per property in one request. It retained returned rows with at least 50 impressions and an average position of at least 0.5. It made no further requests to retrieve additional pages of rows.
 
-Google sorts query results by clicks in descending order. This cap can favour clicked queries before the impression threshold is applied.
-
-Google also warns that the API returns top rows rather than guaranteeing every data row. See the [Search Analytics query documentation](https://developers.google.com/webmaster-tools/v1/searchanalytics/query).
+Google sorts query results by clicks in descending order. This cap can favour clicked queries before the impression threshold is applied. Google also warns that the API returns top rows rather than guaranteeing every data row. See the [Search Analytics query documentation](https://developers.google.com/webmaster-tools/v1/searchanalytics/query).
 
 The collection used the query dimension with the default web search type. It did not filter country or device and did not classify or exclude brand queries. It did not save country shares or query lengths.
 
-The request left aggregation at the API's automatic default. Query-only requests normally aggregate by property, but this extraction did not retain the returned aggregation type. These are not page-level CTR observations.
+The script counted qualifying Search Console properties as "sites". The retained output has no property inventory that establishes 53 distinct domains or rules out overlapping domain and URL-prefix properties.
 
-One row represents a query within a property over the measurement period. The same query can appear in more than one property. The 2,615 rows are therefore not necessarily 2,615 distinct search phrases.
+### How were July 2026 position buckets and CTR calculated? {% #calculation-jul-2026 %}
 
-The script counted qualifying Search Console properties as “sites”. The retained output has no property inventory that establishes 53 distinct domains or rules out overlapping domain and URL-prefix properties. The corrected article uses “properties” to describe that count.
+Bucket CTR equals total bucket clicks divided by total bucket impressions, multiplied by 100: an impression-weighted result, not an average of row or property percentages.
 
-## How are position buckets and CTR calculated? {% #calculation %}
+The legacy code rounds average positions below 10.5 to the nearest integer, assigns 10.5 through 20.5 inclusive to "11-20", and assigns anything above 20.5 to "21+". These exact boundaries are preserved in the download. Search Console position is an average over impressions; a query in bucket four did not necessarily hold position four throughout the period.
 
-Bucket CTR equals total bucket clicks divided by total bucket impressions, multiplied by 100. It is an impression-weighted result. It is neither an average of the row percentages nor an average of the property percentages.
+### What could the July 2026 dataset not establish, even before withdrawal? {% #limitations-jul-2026 %}
 
-The legacy code rounds average positions below 10.5 to the nearest integer. It assigns positions from 10.5 through 20.5 inclusive to “11–20”.
+This dataset never established a UK-wide CTR curve or a non-brand benchmark. It never measured the effect of AI Overviews, explained zero-click behaviour or predicted the gain from moving a particular ranking.
 
-It assigns positions above 20.5 to “21+”. These exact boundaries are preserved in the download.
+The sample was a convenience collection of accessible properties. Country, device, sector and brand composition were not retained. The position-one, position-two and position-three buckets contained five, six and 14 rows respectively. The 5,000-row cap and the 50-impression threshold both restricted coverage, and no extraction coverage ratio or overlap audit was saved with this edition. [Editorial note, added 25 September 2026]: a later re-extraction checked this coverage gap and found the underlying portfolio could not support a reliable curve; see Correction above.
 
-The inclusive 20.5 boundary differs from applying ordinary rounding throughout. The retained aggregates cannot show whether any row sat exactly on that boundary. Changing the historical totals without the original rows would invent a correction.
+### Withdrawn July 2026 aggregate table {% #table-jul-2026 %}
 
-Search Console position is an average over impressions. A query in bucket four did not necessarily hold position four throughout the period.
+| Position bucket | Clicks | Impressions | CTR | Query rows |
+|---|---|---|---|---|
+| 1 | 43 | 721 | 5.96% | 5 |
+| 2 | 7 | 3,199 | 0.22% | 6 |
+| 3 | 44 | 2,784 | 1.58% | 14 |
+| 4 | 377 | 4,381 | 8.61% | 24 |
+| 5 | 150 | 5,069 | 2.96% | 37 |
+| 6 | 407 | 25,649 | 1.59% | 71 |
+| 7 | 262 | 25,582 | 1.02% | 81 |
+| 8 | 40 | 14,787 | 0.27% | 60 |
+| 9 | 73 | 9,783 | 0.75% | 76 |
+| 10 | 45 | 8,514 | 0.53% | 67 |
+| 11-20 | 119 | 48,279 | 0.25% | 324 |
+| 21+ | 100 | 234,193 | 0.04% | 1,850 |
 
-Google also counts different result formats in ways that make a position bucket an unreliable label for a physical results page. Read Google's [position and impression definitions](https://support.google.com/webmasters/answer/7042828).
-
-## What can this dataset not establish? {% #limitations %}
-
-This dataset cannot establish a UK-wide CTR curve or a non-brand benchmark. It cannot measure the effect of AI Overviews, explain zero-click behaviour or predict the gain from moving a particular ranking.
-
-{% pullquote cite="On what this dataset cannot show" %}
-This dataset cannot establish a UK-wide CTR curve or a non-brand benchmark. It cannot measure the effect of AI Overviews, explain zero-click behaviour or predict the gain from moving a particular ranking.
-{% /pullquote %}
-
-The sample is a convenience collection of accessible properties. Country, device, sector and brand composition were not retained. Properties without qualifying rows do not contribute to the reported count.
-
-The position-one, position-two and position-three buckets contain five, six and 14 rows respectively. Those thin groups should remain visible when quoting their percentages. A large overall impression count does not make each bucket reliable.
-
-The source output contains bucket totals only. It cannot support a per-property spread, a brand split or a robust uncertainty interval. Impressions should not be treated as independent survey respondents.
-
-This correction checks the retained aggregate and extraction script. The original property-query responses and property inventory were not retained in the published artefacts. It is not an independent audit of the underlying Search Console accounts.
-
-The 5,000-row cap and the 50-impression threshold both restrict coverage. Search Console can withhold anonymised queries even when requests are paginated. No extraction coverage ratio or overlap audit was saved with this edition.
-
-## How should you use these CTR figures? {% #use-the-data %}
-
-Use the figures to inspect how a declared sample was aggregated. Use your own comparable country, device, query and page data for forecasts. Keep clicks and impressions beside every percentage.
-
-Compare matching segments over defined periods. Record title changes, ranking changes and other changes that could affect the comparison. An observed improvement alone does not isolate its cause.
-
-{% pullquote cite="On using these CTR figures" %}
-Record title changes, ranking changes and other changes that could affect the comparison. An observed improvement alone does not isolate its cause.
-{% /pullquote %}
-
-For a business case, test a range of assumptions against contribution profit and qualified outcomes. The [SEO ROI calculator](/tools/seo-roi-calculator/) supports scenario planning. This study does not supply a universal expected CTR for that calculation.
-
-## What would a stronger repeat study require? {% #next-edition %}
-
-A stronger study requires a fixed authorised property panel, an explicit UK country filter and a declared brand-classification rule. Device splits, coverage checks and minimum reporting thresholds should be specified before analysis.
-
-Choose one non-overlapping property definition per site. Record inclusion, attrition and failed requests. Retain an anonymised audit trail privately so the published counts can be checked without exposing domains or search queries.
-
-Retrieve additional API pages where available and compare returned totals with matching property totals. Document anonymised-query limits and truncation. Apply the impression threshold consistently and inspect how different thresholds affect the results.
-
-Publish the new edition separately with its own dates and method. A filtered UK panel must not be spliced into this unfiltered historical series. The current repair changes interpretation and access to the data; it is not a new collection.
-
-## What was corrected in September 2026? {% #corrections %}
-
-The 12 September 2026 correction removes unsupported UK-only and non-brand descriptions. It replaces causal ranking claims with sample observations. The original measurement dates and all 12 bucket totals remain unchanged.
-
-The earlier article attributed differences between buckets to query intent and AI features without collecting those variables. It also suggested that moving from one bucket to another would multiply CTR. Those explanations and forecasts have been withdrawn.
-
-The corrected citation names 53 qualifying properties and 2,615 query rows. The downloads include the extraction limits and precise bucket boundaries. Send a correction with the relevant table row and evidence through the [contact page](/contact/).
+Withdrawn: [July 2026 aggregate CSV](/downloads/google-ctr-study-2026-07.csv) or [JSON](/downloads/google-ctr-study-2026-07.json). Both are kept online for audit history only and should not be cited as a current benchmark.

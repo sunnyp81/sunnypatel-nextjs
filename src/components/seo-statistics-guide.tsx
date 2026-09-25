@@ -15,7 +15,7 @@ export function SeoStatisticsGuide({title, faqs, children}: {title: string; faqs
       <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/blog/">Blog</Link><span>/</span><span aria-current="page">UK SEO statistics</span></nav>
       <div className={styles.heroGrid}><div>
         <p className={styles.eyebrow}>September 2026 evidence update</p><h1>{title}</h1>
-        <p className={styles.dek}>19 statistics, with sources and dates.</p>
+        <p className={styles.dek}>18 statistics, with sources and dates.</p>
         <p>Compare UK search behaviour, AI adoption and advertising spend. Each figure includes its sample and limitation. US comparisons and my portfolio observations are labelled.</p>
         <div className={styles.actions}><a className={styles.primary} href="#statistics">Find a statistic <span aria-hidden="true">↓</span></a><a className={styles.textLink} href="/downloads/seo-statistics-uk-2026.csv" download>Download all 19 (CSV)</a></div>
       </div><figure className={stats.chart}>
@@ -25,7 +25,7 @@ export function SeoStatisticsGuide({title, faqs, children}: {title: string; faqs
       </figure></div>
       <div className={stats.quickLinks}><a href="#google-referral-share">Google referral share: 91.75%</a><a href="#uk-search-ad-spend">UK search ads: £17.9bn</a><a href="#portfolio-position-one">My CTR sample: inspect the denominator</a></div>
       <div className={styles.byline}><Link href="/author/sunny-patel/">Compiled by Sunny Patel</Link><span>First published 7 March 2026</span><span>Sources checked 12 September 2026; ONS agency data added 24 September 2026</span></div>
-      <p className={styles.disclosure}>This is a sourced compilation with four author-owned portfolio figures. A 2026 review date does not turn older fieldwork into 2026 data. Use each entry&apos;s measurement period when citing it.</p>
+      <p className={styles.disclosure}>This is a sourced compilation with three author-owned portfolio figures. A 2026 review date does not turn older fieldwork into 2026 data. Use each entry&apos;s measurement period when citing it.</p>
     </header>
     <div className={styles.layout}><aside className={styles.contents}><nav aria-label="On this page"><p>On this page</p><ol>{navigation.map(([id,label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ol></nav></aside>
       <div className={styles.body}>

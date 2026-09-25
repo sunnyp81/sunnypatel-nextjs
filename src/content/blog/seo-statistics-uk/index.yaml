@@ -1,7 +1,7 @@
 title: 'UK SEO Statistics 2026'
-metaTitle: 'UK SEO Statistics 2026: 19 Sourced Benchmarks'
+metaTitle: 'UK SEO Statistics 2026: 18 Sourced Benchmarks'
 description: >-
-  19 sourced UK SEO statistics, including 18,985 UK advertising agencies,
+  18 sourced UK SEO statistics, including 18,985 UK advertising agencies,
   with clear dates and limitations. Download the CSV and citations.
 ogImage: '/images/blog/hero-seo-statistics-uk.webp'
 date: '2026-03-07'
@@ -32,9 +32,9 @@ faqs:
   - question: What is a good organic click-through rate?
     answer: >-
       A useful CTR benchmark matches the country, device, query intent and
-      ranking definition of your own data. My portfolio's position-one
-      bucket recorded 5.96% from just five query rows. The extraction has no
-      country or explicit brand filter, so this is not a universal UK target.
+      ranking definition of your own data. Published studies disagree because
+      their samples differ, so compare your own Search Console data within
+      consistent country, device and brand segments.
   - question: How much is spent on search advertising in the UK?
     answer: >-
       IAB UK and Oliver Wyman reported £17.9bn in UK search advertising

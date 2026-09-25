@@ -1,0 +1,237 @@
+{
+  "monthly_retainer_entry_price": {
+    "label": "monthly retainer: entry/starting price (all providers that state one)",
+    "n": 61,
+    "published": true,
+    "median": 497.0,
+    "q1": 300.0,
+    "q3": 640.0,
+    "iqr_width": 340.0,
+    "min": 24.0,
+    "max": 2000.0
+  },
+  "monthly_retainer_top_price": {
+    "label": "monthly retainer: top stated price (providers with a stated ceiling only)",
+    "n": 34,
+    "published": true,
+    "median": 1493.5,
+    "q1": 996.0,
+    "q3": 2000.0,
+    "iqr_width": 1004.0,
+    "min": 48.0,
+    "max": 10000.0
+  },
+  "monthly_retainer_n_open_ended": 27,
+  "one_off_audit_low": {
+    "label": "one_off_audit: low price points (n=providers, not pooled endpoints)",
+    "n": 5,
+    "published": false,
+    "note": "n=5 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "one_off_audit_high": {
+    "label": "one_off_audit: high price points (stated ceilings only)",
+    "n": 4,
+    "published": false,
+    "note": "n=4 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "one_off_audit_raw_low_points": [
+    60.0,
+    349.0,
+    397.0,
+    500.0,
+    1500.0
+  ],
+  "one_off_audit_raw_high_points": [
+    60.0,
+    397.0,
+    750.0,
+    899.0
+  ],
+  "local_seo_low": {
+    "label": "local_seo: low price points (n=providers, not pooled endpoints)",
+    "n": 4,
+    "published": false,
+    "note": "n=4 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "local_seo_high": {
+    "label": "local_seo: high price points (stated ceilings only)",
+    "n": 3,
+    "published": false,
+    "note": "n=3 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "local_seo_raw_low_points": [
+    350.0,
+    350.0,
+    395.0,
+    650.0
+  ],
+  "local_seo_raw_high_points": [
+    550.0,
+    1050.0,
+    1095.0
+  ],
+  "link_building_low": {
+    "label": "link_building: low price points (n=providers, not pooled endpoints)",
+    "n": 2,
+    "published": false,
+    "note": "n=2 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "link_building_high": {
+    "label": "link_building: high price points (stated ceilings only)",
+    "n": 2,
+    "published": false,
+    "note": "n=2 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "link_building_raw_low_points": [
+    1800.0,
+    3500.0
+  ],
+  "link_building_raw_high_points": [
+    1800.0,
+    8500.0
+  ],
+  "hourly_rate": {
+    "label": "hourly rate: providers stating a per-hour figure",
+    "n": 7,
+    "published": false,
+    "note": "n=7 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "day_rate": {
+    "label": "day rate: providers stating a per-day figure",
+    "n": 1,
+    "published": false,
+    "note": "n=1 < minimum 8: not published as a median/IQR, raw points only."
+  },
+  "hourly_rate_raw_points": [
+    30.0,
+    49.0,
+    60.0,
+    75.0,
+    90.0,
+    150.0,
+    300.0
+  ],
+  "day_rate_raw_points": [
+    400.0
+  ],
+  "retainer_by_region": {
+    "London": {
+      "label": "monthly retainer entry price: London",
+      "n": 6,
+      "published": false,
+      "note": "n=6 < minimum 8: not published as a median/IQR, raw points only."
+    },
+    "South East": {
+      "label": "monthly retainer entry price: South East",
+      "n": 7,
+      "published": false,
+      "note": "n=7 < minimum 8: not published as a median/IQR, raw points only."
+    },
+    "North": {
+      "label": "monthly retainer entry price: North",
+      "n": 17,
+      "published": true,
+      "median": 500.0,
+      "q1": 497.0,
+      "q3": 649.99,
+      "iqr_width": 152.99,
+      "min": 110.0,
+      "max": 1500.0
+    },
+    "South West": {
+      "label": "monthly retainer entry price: South West",
+      "n": 4,
+      "published": false,
+      "note": "n=4 < minimum 8: not published as a median/IQR, raw points only."
+    },
+    "Scotland": {
+      "label": "monthly retainer entry price: Scotland",
+      "n": 4,
+      "published": false,
+      "note": "n=4 < minimum 8: not published as a median/IQR, raw points only."
+    },
+    "UK-wide/remote": {
+      "label": "monthly retainer entry price: UK-wide/remote",
+      "n": 5,
+      "published": false,
+      "note": "n=5 < minimum 8: not published as a median/IQR, raw points only."
+    },
+    "Midlands": {
+      "label": "monthly retainer entry price: Midlands",
+      "n": 9,
+      "published": true,
+      "median": 400.0,
+      "q1": 360.0,
+      "q3": 500.0,
+      "iqr_width": 140.0,
+      "min": 99.0,
+      "max": 1530.0
+    },
+    "Wales/NI": {
+      "label": "monthly retainer entry price: Wales/NI",
+      "n": 7,
+      "published": false,
+      "note": "n=7 < minimum 8: not published as a median/IQR, raw points only."
+    },
+    "not stated": {
+      "label": "monthly retainer entry price: not stated",
+      "n": 1,
+      "published": false,
+      "note": "n=1 < minimum 8: not published as a median/IQR, raw points only."
+    },
+    "East of England": {
+      "label": "monthly retainer entry price: East of England",
+      "n": 1,
+      "published": false,
+      "note": "n=1 < minimum 8: not published as a median/IQR, raw points only."
+    }
+  },
+  "provider_type_counts": {
+    "agency": 72,
+    "freelancer": 3
+  },
+  "region_counts": {
+    "London": 11,
+    "not stated": 2,
+    "Midlands": 11,
+    "South East": 8,
+    "North": 19,
+    "South West": 4,
+    "Scotland": 7,
+    "UK-wide/remote": 5,
+    "Wales/NI": 7,
+    "East of England": 1
+  },
+  "n_unique_providers_included": 75,
+  "n_rows_total": 85,
+  "publish_rate": {
+    "included_own_unbundled_price_domains": 75,
+    "uk_reachable_no_qualifying_price_domains": 75,
+    "denominator_uk_reachable_domains": 150,
+    "rate_pct": 50.0,
+    "excluded_non_uk_domains": 12,
+    "excluded_inaccessible_domains": 17,
+    "redirect_only_domains": 3,
+    "total_unique_domains_touched": 182,
+    "total_comparator_pages_fetched": 186,
+    "pages_successfully_read": 166,
+    "pages_returned_access_error": 17,
+    "pages_that_only_redirected": 3
+  },
+  "clutch_directory_sample": {
+    "note": "Self-reported bands on Clutch.co agency profiles, USD, not GBP; never pooled with the site-published panel above. First 10 UK SEO agencies per 5 Clutch city pages (London, Manchester, Birmingham, Scotland, Bristol), checked 2026-09-25, 50 listing rows total.",
+    "hourly_rate_band_usd": {
+      "$50-$99": 15,
+      "$100-$149": 22,
+      "$150-$199": 8,
+      "not_stated": 5
+    },
+    "min_project_size_band_usd": {
+      "$1,000+": 27,
+      "$5,000+": 15,
+      "$10,000+": 3,
+      "not_stated": 5
+    },
+    "n_listing_rows": 50
+  }
+}

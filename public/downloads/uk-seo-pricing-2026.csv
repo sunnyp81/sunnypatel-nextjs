@@ -1,0 +1,21 @@
+bucket,n_providers,median_gbp,q1_gbp,q3_gbp,min_gbp,max_gbp,published_as_median,note
+monthly_retainer_entry_price,61,497,300,640,24,2000,true,"starting/entry price stated by each provider, national, all regions pooled"
+monthly_retainer_top_price,34,1493.5,996,2000,48,10000,true,"only providers that state a closed ceiling; 27 more give an open ""from GBP X"" with no stated top"
+monthly_retainer_entry_price_North,17,500,497,649.99,110,1500,true,North of England providers only
+monthly_retainer_entry_price_Midlands,9,400,360,500,99,1530,true,Midlands providers only
+hourly_rate,7,,,,30,300,false,n below minimum publish threshold of 8; raw points only; day rate kept separate as a different unit
+day_rate,1,,,,400,400,false,n below minimum publish threshold of 8; single data point
+one_off_audit_low,5,,,,60,1500,false,n below minimum publish threshold of 8; raw points only
+one_off_audit_high,4,,,,60,899,false,n below minimum publish threshold of 8; raw points only
+local_seo_low,4,,,,350,650,false,n below minimum publish threshold of 8; raw points only
+local_seo_high,3,,,,550,1095,false,n below minimum publish threshold of 8; raw points only
+link_building_low,2,,,,1800,3500,false,n below minimum publish threshold of 8; raw points only; excludes one per-link non-monthly price
+link_building_high,2,,,,1800,8500,false,n below minimum publish threshold of 8; raw points only; excludes one per-link non-monthly price
+clutch_directory_hourly_band_50_99_usd,,,,,,,false,"15 of 50 Clutch listing rows; separate USD-denominated directory source, not pooled with site-published prices"
+clutch_directory_hourly_band_100_149_usd,,,,,,,false,22 of 50 Clutch listing rows
+clutch_directory_hourly_band_150_199_usd,,,,,,,false,8 of 50 Clutch listing rows
+clutch_directory_hourly_band_not_stated,,,,,,,false,5 of 50 Clutch listing rows
+clutch_directory_min_project_1000_usd,,,,,,,false,27 of 50 Clutch listing rows
+clutch_directory_min_project_5000_usd,,,,,,,false,15 of 50 Clutch listing rows
+clutch_directory_min_project_10000_usd,,,,,,,false,3 of 50 Clutch listing rows
+clutch_directory_min_project_not_stated,,,,,,,false,5 of 50 Clutch listing rows

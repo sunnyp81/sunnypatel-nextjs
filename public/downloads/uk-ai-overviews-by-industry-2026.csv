@@ -1,0 +1,11 @@
+sector,panel_n,usable_n,aio_present_n,aio_present_pct_of_usable,citations_resolved,citations_unresolved,gov_nhs_public_body,publisher_media,brand_company,forum_ugc,reference,other,max_seed_concentration_pct
+Health/NHS,38,37,14,37.8,47,6,25,2,12,1,2,5,26.3
+Finance/Banking,47,47,30,63.8,27,2,3,6,15,2,1,0,21.3
+Legal,35,35,19,54.3,34,6,9,1,14,1,4,5,28.6
+Travel/Tourism,41,40,21,52.5,34,2,8,0,21,5,0,0,24.4
+Home Improvement/Trades,46,46,20,43.5,39,1,0,1,33,4,1,0,21.7
+Retail/Ecommerce,42,40,16,40.0,32,0,0,2,28,0,2,0,23.8
+Automotive,42,42,13,31.0,50,0,1,5,38,5,1,0,23.8
+Education,42,40,15,37.5,50,0,14,2,28,4,2,0,23.8
+Food/Restaurants,32,32,12,37.5,32,0,2,10,11,4,4,1,31.2
+Insurance,34,34,28,82.4,49,0,1,4,41,3,0,0,23.5

@@ -1,0 +1,53 @@
+title: UK AI Overviews by Industry 2026
+metaTitle: "UK AI Overviews by Industry 2026: 399-Query Study"
+description: >-
+  Google AI Overview presence across 10 UK sectors from a locked,
+  multi-topic 399-query panel, plus which kinds of sources AI Overviews
+  cite. Download the CSV and JSON.
+ogImage: '/images/blog/hero-uk-ai-overviews-by-industry.webp'
+date: '2026-09-25'
+lastUpdated: '2026-09-25'
+tags:
+  - AI Overviews
+  - AI Search
+  - Statistics
+faqs:
+  - question: How often do UK AI Overviews appear, by sector?
+    answer: >-
+      In a locked 399-query panel (5 seed topics per sector, 393 usable),
+      Google AI Overviews appeared most in insurance (82.4%) and finance
+      (63.8%), and least in automotive (31.0%) and food/restaurants and
+      education (both 37.5%). Overall, 188 of 393 usable queries (47.8%)
+      showed an AI Overview. This is one measurement wave for one panel,
+      GB, 25 September 2026, not a national estimate.
+  - question: Which sources do UK AI Overviews cite most?
+    answer: >-
+      In a 100-query stratified citation sample (10 randomly selected
+      AI-Overview-positive queries per sector), of 394 resolved citation
+      rows: 61.2% brand/company, 16.0% government/NHS/public body, 8.4%
+      publisher/media, 7.4% forum/UGC (YouTube, Reddit, Trustpilot and
+      similar), 4.3% reference (Wikipedia and comparable works) and 2.8%
+      other (UK charities and intergovernmental bodies).
+  - question: Is this a representative sample of all UK searches?
+    answer: >-
+      No. The panel is a volume-ranked, sector-relevance-filtered set of
+      399 queries built from 5 distinct seed topics per sector (for
+      example Finance/Banking uses mortgage, credit card, savings
+      account, pension and isa), not a random or volume-weighted sample
+      of UK search demand. No single seed contributes more than 31.2% of
+      any sector's queries by first-assignment, disclosed per sector in
+      the page, though queries assigned to different seeds can still
+      share a keyword root.
+  - question: What counts as an AI Overview citation in this study?
+    answer: >-
+      A citation is a URL returned in the `ai_overview_sitelink` position
+      type from Ahrefs's SERP data for a query with a confirmed AI
+      Overview. Google Shopping product-view rows are excluded. Where
+      Google returned an opaque redirect link instead of a readable URL
+      (4.1% of citations), the row is recorded as unresolved rather than
+      guessed at.
+  - question: Can I reuse this data?
+    answer: >-
+      Yes, cite the source and keep the panel date, sector and denominator
+      attached to any figure you reuse. The CSV and JSON downloads are
+      ungated.

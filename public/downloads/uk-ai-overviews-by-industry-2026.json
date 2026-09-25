@@ -1,0 +1,402 @@
+{
+  "overall": {
+    "panel_n": 399,
+    "usable_n": 393,
+    "usable_rate_pct": 98.5,
+    "missing_n": 6,
+    "aio_present_n": 188,
+    "aio_present_pct_of_usable": 47.8,
+    "aio_present_pct_of_panel": 47.1
+  },
+  "sectors": {
+    "Health/NHS": {
+      "panel_n": 38,
+      "usable_n": 37,
+      "aio_present_n": 14,
+      "aio_present_pct_of_usable": 37.8,
+      "citations_resolved": 47,
+      "citations_unresolved": 6,
+      "citation_categories": {
+        "government_nhs_public_body": 25,
+        "other": 5,
+        "publisher_media": 2,
+        "reference": 2,
+        "forum_ugc": 1,
+        "brand_company": 12
+      },
+      "max_seed_concentration_pct": 26.3,
+      "max_seed": "nhs"
+    },
+    "Finance/Banking": {
+      "panel_n": 47,
+      "usable_n": 47,
+      "aio_present_n": 30,
+      "aio_present_pct_of_usable": 63.8,
+      "citations_resolved": 27,
+      "citations_unresolved": 2,
+      "citation_categories": {
+        "publisher_media": 6,
+        "brand_company": 15,
+        "government_nhs_public_body": 3,
+        "reference": 1,
+        "forum_ugc": 2
+      },
+      "max_seed_concentration_pct": 21.3,
+      "max_seed": "pension"
+    },
+    "Legal": {
+      "panel_n": 35,
+      "usable_n": 35,
+      "aio_present_n": 19,
+      "aio_present_pct_of_usable": 54.3,
+      "citations_resolved": 34,
+      "citations_unresolved": 6,
+      "citation_categories": {
+        "reference": 4,
+        "brand_company": 14,
+        "government_nhs_public_body": 9,
+        "other": 5,
+        "publisher_media": 1,
+        "forum_ugc": 1
+      },
+      "max_seed_concentration_pct": 28.6,
+      "max_seed": "will"
+    },
+    "Travel/Tourism": {
+      "panel_n": 41,
+      "usable_n": 40,
+      "aio_present_n": 21,
+      "aio_present_pct_of_usable": 52.5,
+      "citations_resolved": 34,
+      "citations_unresolved": 2,
+      "citation_categories": {
+        "brand_company": 21,
+        "government_nhs_public_body": 8,
+        "forum_ugc": 5
+      },
+      "max_seed_concentration_pct": 24.4,
+      "max_seed": "holiday"
+    },
+    "Home Improvement/Trades": {
+      "panel_n": 46,
+      "usable_n": 46,
+      "aio_present_n": 20,
+      "aio_present_pct_of_usable": 43.5,
+      "citations_resolved": 39,
+      "citations_unresolved": 1,
+      "citation_categories": {
+        "reference": 1,
+        "brand_company": 33,
+        "forum_ugc": 4,
+        "publisher_media": 1
+      },
+      "max_seed_concentration_pct": 21.7,
+      "max_seed": "bathroom"
+    },
+    "Retail/Ecommerce": {
+      "panel_n": 42,
+      "usable_n": 40,
+      "aio_present_n": 16,
+      "aio_present_pct_of_usable": 40.0,
+      "citations_resolved": 32,
+      "citations_unresolved": 0,
+      "citation_categories": {
+        "brand_company": 28,
+        "reference": 2,
+        "publisher_media": 2
+      },
+      "max_seed_concentration_pct": 23.8,
+      "max_seed": "amazon"
+    },
+    "Automotive": {
+      "panel_n": 42,
+      "usable_n": 42,
+      "aio_present_n": 13,
+      "aio_present_pct_of_usable": 31.0,
+      "citations_resolved": 50,
+      "citations_unresolved": 0,
+      "citation_categories": {
+        "brand_company": 38,
+        "publisher_media": 5,
+        "forum_ugc": 5,
+        "reference": 1,
+        "government_nhs_public_body": 1
+      },
+      "max_seed_concentration_pct": 23.8,
+      "max_seed": "car finance"
+    },
+    "Education": {
+      "panel_n": 42,
+      "usable_n": 40,
+      "aio_present_n": 15,
+      "aio_present_pct_of_usable": 37.5,
+      "citations_resolved": 50,
+      "citations_unresolved": 0,
+      "citation_categories": {
+        "brand_company": 28,
+        "forum_ugc": 4,
+        "government_nhs_public_body": 14,
+        "reference": 2,
+        "publisher_media": 2
+      },
+      "max_seed_concentration_pct": 23.8,
+      "max_seed": "university"
+    },
+    "Food/Restaurants": {
+      "panel_n": 32,
+      "usable_n": 32,
+      "aio_present_n": 12,
+      "aio_present_pct_of_usable": 37.5,
+      "citations_resolved": 32,
+      "citations_unresolved": 0,
+      "citation_categories": {
+        "publisher_media": 10,
+        "forum_ugc": 4,
+        "brand_company": 11,
+        "other": 1,
+        "government_nhs_public_body": 2,
+        "reference": 4
+      },
+      "max_seed_concentration_pct": 31.2,
+      "max_seed": "restaurant"
+    },
+    "Insurance": {
+      "panel_n": 34,
+      "usable_n": 34,
+      "aio_present_n": 28,
+      "aio_present_pct_of_usable": 82.4,
+      "citations_resolved": 49,
+      "citations_unresolved": 0,
+      "citation_categories": {
+        "brand_company": 41,
+        "government_nhs_public_body": 1,
+        "publisher_media": 4,
+        "forum_ugc": 3
+      },
+      "max_seed_concentration_pct": 23.5,
+      "max_seed": "travel insurance"
+    }
+  },
+  "citation_categories_overall": {
+    "government_nhs_public_body": 63,
+    "other": 11,
+    "publisher_media": 33,
+    "reference": 17,
+    "forum_ugc": 29,
+    "brand_company": 241
+  },
+  "top_domains": [
+    [
+      "www.gov.uk",
+      26
+    ],
+    [
+      "www.youtube.com",
+      20
+    ],
+    [
+      "www.moneysavingexpert.com",
+      15
+    ],
+    [
+      "www.comparethemarket.com",
+      15
+    ],
+    [
+      "www.moneysupermarket.com",
+      14
+    ],
+    [
+      "www.gocompare.com",
+      9
+    ],
+    [
+      "www.amazon.co.uk",
+      9
+    ],
+    [
+      "www.aviva.co.uk",
+      9
+    ],
+    [
+      "www.nhs.uk",
+      8
+    ],
+    [
+      "en.wikipedia.org",
+      8
+    ],
+    [
+      "dictionary.cambridge.org",
+      6
+    ],
+    [
+      "www.postoffice.co.uk",
+      6
+    ],
+    [
+      "www.axa.co.uk",
+      6
+    ],
+    [
+      "www.england.nhs.uk",
+      5
+    ],
+    [
+      "www.facebook.com",
+      4
+    ],
+    [
+      "www.citizensadvice.org.uk",
+      4
+    ],
+    [
+      "elec.training",
+      4
+    ],
+    [
+      "www.ebay.com",
+      4
+    ],
+    [
+      "www.confused.com",
+      4
+    ],
+    [
+      "prepkitchen.co.uk",
+      4
+    ]
+  ],
+  "seed_concentration": {
+    "Health/NHS": {
+      "n": 38,
+      "top_seed": "nhs",
+      "top_n": 10,
+      "top_pct": 26.3,
+      "breakdown": {
+        "gp appointment": 6,
+        "nhs": 10,
+        "pharmacy": 8,
+        "dentist": 9,
+        "mental health": 5
+      }
+    },
+    "Finance/Banking": {
+      "n": 47,
+      "top_seed": "pension",
+      "top_n": 10,
+      "top_pct": 21.3,
+      "breakdown": {
+        "savings account": 9,
+        "pension": 10,
+        "mortgage": 10,
+        "credit card": 10,
+        "isa": 8
+      }
+    },
+    "Legal": {
+      "n": 35,
+      "top_seed": "will",
+      "top_n": 10,
+      "top_pct": 28.6,
+      "breakdown": {
+        "conveyancing": 5,
+        "will": 10,
+        "probate": 3,
+        "solicitor": 10,
+        "divorce": 7
+      }
+    },
+    "Travel/Tourism": {
+      "n": 41,
+      "top_seed": "holiday",
+      "top_n": 10,
+      "top_pct": 24.4,
+      "breakdown": {
+        "holiday": 10,
+        "flight": 10,
+        "cruise": 9,
+        "hotel": 5,
+        "visa": 7
+      }
+    },
+    "Home Improvement/Trades": {
+      "n": 46,
+      "top_seed": "bathroom",
+      "top_n": 10,
+      "top_pct": 21.7,
+      "breakdown": {
+        "kitchen": 8,
+        "bathroom": 10,
+        "electrician": 8,
+        "boiler": 10,
+        "roofing": 10
+      }
+    },
+    "Retail/Ecommerce": {
+      "n": 42,
+      "top_seed": "amazon",
+      "top_n": 10,
+      "top_pct": 23.8,
+      "breakdown": {
+        "amazon": 10,
+        "ebay": 10,
+        "returns": 10,
+        "black friday": 9,
+        "delivery": 3
+      }
+    },
+    "Automotive": {
+      "n": 42,
+      "top_seed": "car finance",
+      "top_n": 10,
+      "top_pct": 23.8,
+      "breakdown": {
+        "mot": 9,
+        "car finance": 10,
+        "car insurance": 10,
+        "car service": 6,
+        "used cars": 7
+      }
+    },
+    "Education": {
+      "n": 42,
+      "top_seed": "university",
+      "top_n": 10,
+      "top_pct": 23.8,
+      "breakdown": {
+        "gcse": 8,
+        "student loan": 9,
+        "online course": 6,
+        "apprenticeship": 9,
+        "university": 10
+      }
+    },
+    "Food/Restaurants": {
+      "n": 32,
+      "top_seed": "restaurant",
+      "top_n": 10,
+      "top_pct": 31.2,
+      "breakdown": {
+        "takeaway": 6,
+        "recipe": 6,
+        "restaurant": 10,
+        "meal delivery": 5,
+        "diet": 5
+      }
+    },
+    "Insurance": {
+      "n": 34,
+      "top_seed": "travel insurance",
+      "top_n": 8,
+      "top_pct": 23.5,
+      "breakdown": {
+        "travel insurance": 8,
+        "home insurance": 8,
+        "health insurance": 5,
+        "pet insurance": 8,
+        "life insurance": 5
+      }
+    }
+  }
+}

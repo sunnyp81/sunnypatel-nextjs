@@ -1,0 +1,93 @@
+Google's AI Overview appeared for 188 of 393 usable queries (47.8%) in a locked 399-query UK panel across 10 sectors, pulled from Ahrefs's GB SERP data on 25 September 2026. Presence ranged from 31.0% in automotive to 82.4% in insurance. Brand/company domains account for 241 of 394 resolved citation rows (61.2%) in a 100-query stratified citation sample, more than any other source type.
+
+## How often do AI Overviews appear, by UK sector? {% #presence-by-sector %}
+
+Each sector's queries come from 5 distinct seed topics, for example mortgage, credit card, savings account, pension and ISA for Finance/Banking. The last column shows the largest share of a sector's queries supplied by any one seed; the [method](#method) explains how it is counted.
+
+| Sector | Usable queries | AI Overview present | Presence rate | Max share assigned to one source seed |
+|---|---|---|---|---|
+| Insurance | 34 | 28 | 82.4% | 23.5% |
+| Finance/Banking | 47 | 30 | 63.8% | 21.3% |
+| Legal | 35 | 19 | 54.3% | 28.6% |
+| Travel/Tourism | 40 | 21 | 52.5% | 24.4% |
+| Home Improvement/Trades | 46 | 20 | 43.5% | 21.7% |
+| Retail/Ecommerce | 40 | 16 | 40.0% | 23.8% |
+| Health/NHS | 37 | 14 | 37.8% | 26.3% |
+| Education | 40 | 15 | 37.5% | 23.8% |
+| Food/Restaurants | 32 | 12 | 37.5% | 31.2% |
+| Automotive | 42 | 13 | 31.0% | 23.8% |
+| **All sectors** | **393** | **188** | **47.8%** | **21.3% to 31.2%** |
+
+{% chart type="bar" eyebrow="AI Overview presence by sector" title="Share of usable panel queries showing an AI Overview, GB, 25 September 2026" data="Insurance:82.4|Finance/Banking:63.8|Legal:54.3|Travel/Tourism:52.5|Home Improvement/Trades:43.5|Retail/Ecommerce:40.0|Health/NHS:37.8|Education:37.5|Food/Restaurants:37.5|Automotive:31.0" suffix="%" highlight="Insurance" source="Ahrefs GB SERP data, 399-query locked panel, 25 September 2026" /%}
+
+Of 399 panel queries, 393 (98.5%) returned usable feature data. The remaining 6 (1.5%) returned an empty feature array with no other evidence and were treated as missing, not as confirmed absence of an AI Overview. Every panel query clears a predeclared minimum recorded UK search volume of 100 a month.
+
+{% stats %}
+{% stat value="47.8%" label="of usable panel queries showed a visible Google AI Overview, GB, 25 September 2026" source="Ahrefs GB SERP data, 399-query locked panel" /%}
+{% /stats %}
+
+## Which kinds of sources do AI Overviews cite, by sector? {% #citation-types %}
+
+Citation collection required one API call per query, so pulling every AI-Overview-positive query in the panel was not practical. The citation sample was instead drawn with a predeclared stratified random rule: up to 10 AI-Overview-positive queries per sector, selected with a fixed random seed (Python's `random.seed(20260925)` over each sector's sorted query list), giving 100 queries, exactly 10 per sector. This replaces a top-by-volume selection: each eligible query within a sector had an equal chance of selection. 3 of the 100 sampled queries returned an AI Overview with no external sitelinks. The other 97 queries returned 411 individual citation rows, with 17 (4.1%) left unresolved because Google returned an opaque redirect link instead of a readable URL.
+
+| Sector | Resolved citations | Government/NHS/public body | Publisher/media | Brand/company | Forum/UGC | Reference | Other | Unresolved |
+|---|---|---|---|---|---|---|---|---|
+| Health/NHS | 47 | 25 | 2 | 12 | 1 | 2 | 5 | 6 |
+| Finance/Banking | 27 | 3 | 6 | 15 | 2 | 1 | 0 | 2 |
+| Legal | 34 | 9 | 1 | 14 | 1 | 4 | 5 | 6 |
+| Travel/Tourism | 34 | 8 | 0 | 21 | 5 | 0 | 0 | 2 |
+| Home Improvement/Trades | 39 | 0 | 1 | 33 | 4 | 1 | 0 | 1 |
+| Retail/Ecommerce | 32 | 0 | 2 | 28 | 0 | 2 | 0 | 0 |
+| Automotive | 50 | 1 | 5 | 38 | 5 | 1 | 0 | 0 |
+| Education | 50 | 14 | 2 | 28 | 4 | 2 | 0 | 0 |
+| Food/Restaurants | 32 | 2 | 10 | 11 | 4 | 4 | 1 | 0 |
+| Insurance | 49 | 1 | 4 | 41 | 3 | 0 | 0 | 0 |
+| **All sectors** | **394** | **63** | **33** | **241** | **29** | **17** | **11** | **17** |
+
+{% chart type="donut" eyebrow="Citation type, 100-query stratified sample" title="Source types among 394 resolved citation rows in this sample, 25 September 2026" data="Brand/company:61.2|Government/NHS/public body:16.0|Publisher/media:8.4|Forum/UGC:7.4|Reference:4.3|Other:2.8" suffix="%" source="Ahrefs GB SERP data, 100-query stratified citation sample" /%}
+
+Government, NHS and public-body sources are strongest in Health/NHS (25 of 47, 53%, dominated by nhs.uk and gov.uk pages) and roughly equal in Legal and Education (9 of 34, 26%, and 14 of 50, 28%: gov.uk guidance on divorce, wills, probate and apprenticeships, and the National Careers Service). Brand/company citations account for 76.0% to 87.5% of resolved citations in Automotive, Home Improvement/Trades, Insurance and Retail/Ecommerce, driven by price-comparison sites (Compare the Market, MoneySuperMarket, GoCompare) and product/service sellers, with close to zero government or reference citations in those four sectors. Food/Restaurants has the highest publisher share among the sampled sectors (10 of 32, 31%, recipe and nutrition publishers such as BBC Good Food and Healthline), close behind its own brand/company share (11 of 32, 34%).
+
+The most-cited individual domains, pooled across all resolved citations, were gov.uk (26), youtube.com (20), moneysavingexpert.com (15), comparethemarket.com (15) and moneysupermarket.com (14). This reflects one snapshot of one 100-query stratified sample, not a ranked market-share table. Every sector contributed exactly 10 queries to the citation sample, so a sector's resolved-citation total in the table above varies with how many sitelinks its 10 sampled queries happened to return, not with that sector's panel size.
+
+{% stats %}
+{% stat value="61.2%" label="of the 394 resolved citation rows in this sample are brand/company domains, more than any other source type" source="Ahrefs GB SERP data, 100-query stratified citation sample" /%}
+{% /stats %}
+
+## Method {% #method %}
+
+**Panel construction (v2, locked before pulling).** This replaces an earlier single-seed-per-sector design, retired unpublished after an internal review found it let one topic dominate several sectors (for example 48 of 50 Finance queries containing "mortgage"). The revised rule: for each of the same 10 sectors, 5 predeclared seed topics covering distinct recognisable sub-areas were expanded with Ahrefs's related-terms endpoint (`terms=all`, top-10 view, GB), each filtered to GB volume 100+/month, filtered to require a sector-relevant word root, filtered to exclude queries flagged solely navigational, capped at the top 10 candidates by volume per seed, deduplicated within the sector and then against every other sector's already-locked queries (first sector processed keeps a shared query), and combined. The sector-relevance word-root lists were also broadened in a small number of sectors alongside the seed change (for example adding "card"/"cards" to Finance/Banking and "santander" to Automotive). Nine of the fifty seeds reused an earlier related-terms pull that had used a larger candidate pool (150 rows) than the 20-row pool used for the 41 new seeds; both pools were then filtered and capped by the same top-10-per-seed rule, but the wider starting pool for those nine seeds is a methodological inconsistency, disclosed here. No sector was topped up to exactly 50 if its 5 seeds produced fewer eligible candidates; sector sizes here range from 32 (Food/Restaurants) to 47 (Finance/Banking), 399 queries in total. The maximum share any single seed contributes to its sector, counting each query once against the seed that first supplied it, ranges from 21.3% (Finance/Banking) to 31.2% (Food/Restaurants), shown in the table above; this measures seed provenance, not topic concentration, since queries assigned to one seed can still share a keyword root with another seed's queries.
+
+**Seed share column.** The "max share" column measures first-assigned seed provenance, not topic concentration: it counts each query once, against the single seed that first supplied it, and is calculated against each sector's full panel count (the "usable queries" column excludes the small number of missing rows within that same panel, so the two columns use slightly different denominators). Because some query text overlaps between seeds (for example several Health/NHS queries assigned to other seeds still contain the word "nhs"), the percentage understates raw topic-word overlap. The rule below gives the exact construction method and each sector's actual query count, which varies because some seeds returned fewer than 10 eligible candidates.
+
+**AI Overview presence.** Measured with Ahrefs's keywords-explorer endpoint (`serp_features`, GB, exact match), batched per sector in one call. A query counts as AI-Overview-present if `ai_overview` appears in its returned SERP features. A non-empty feature array without `ai_overview` counts as AI Overview absent. An empty feature array with no other evidence counts as missing, never as absent.
+
+**Citations.** Measured with Ahrefs's serp-overview endpoint, filtered to `ai_overview` and `ai_overview_sitelink` position types, one query per API call. A citation row counts as resolved when its returned URL is a direct link; an opaque `google.com/goto?url=...` redirect is recorded as unresolved and excluded from resolved-category totals rather than guessed at from its title. Google Shopping product-view rows are excluded entirely. Duplicate URLs within a single query's own sitelink set are counted as separate rows rather than deduplicated: one query ("cheap flights") returned the same YouTube URL three times under different titles. Domains were classified into government/NHS/public body (statutory bodies and non-departmental public bodies, such as VisitBritain and the Student Loans Company, alongside gov.uk and nhs.uk), publisher/media (independent news, broadcast, trade press and ranking publishers not owned by the product or service discussed; this category also includes large US hospital-system health publishers such as Mayo Clinic and Cleveland Clinic, whose content is neither a UK government source nor a commercial seller to this audience, a judgement call flagged in Limitations), forum/UGC (classified by hosting platform, not by who is quoted on it: YouTube, Reddit, TikTok, Instagram, Facebook, LinkedIn, Trustpilot, Tripadvisor, Fandom, Medium), reference (Wikipedia and comparable general reference works), other (UK registered charities and intergovernmental organisations that are neither UK government nor a commercial seller, such as Citizens Advice, Age UK, Mind, Rethink and the World Health Organization, a UN specialised agency), and brand/company as the default for any domain that sells or advises on the product or service in question. Where a query's citation set had already been pulled during construction of an earlier version of this panel and that query survived unchanged into this locked panel and stratified sample, the existing pull was reused; 21 of the 100 sampled queries were reused this way, the other 79 were pulled fresh.
+
+Data was extracted on 25 September 2026. Per-query snapshot dates were not requested from Ahrefs, so the underlying Google observations behind each query may predate extraction and differ between queries; the panel is treated as one dated extraction, not 399 individually dated observations.
+
+## Limitations {% #limitations %}
+
+**This is one measurement wave of one locked panel, not a repeated or weighted survey.** AI Overview presence and Google's citation choices are known to vary by device, location within the UK, time of day and account personalisation; none of that variation is captured here. Do not read the sector percentages as a forecast of what a specific business will see, or as a trend without a second wave to compare against.
+
+**Sector panel sizes are unequal and not volume-matched across sectors.** Because the rule takes each seed's own top-10 candidates rather than backfilling to a fixed total, sectors range from 32 queries (Food/Restaurants) to 47 (Finance/Banking). Each sector's AI Overview presence rate is calculated against its own usable count, which correctly describes that constructed panel; it does not establish that the rate is unbiased or representative of the sector as a whole. Each sector contributed exactly 10 citation-sample queries regardless of this panel-size difference; citation totals in that table vary with returned sitelinks and unresolved URLs, not panel size.
+
+**The citation sample is a predeclared stratified random subsample, not a full citation census.** Exactly 10 queries per sector were drawn with a fixed, disclosed random seed from each sector's AI-Overview-positive queries, not the highest-volume ones: each eligible query within a sector had an equal chance of selection. It is still a 100-query sample of 188 AI-Overview-positive queries, not every citation in the panel.
+
+**Citation counts are pooled citation-row totals, not a count of unique publishers or an estimate of click share.** Each returned citation row counts once, including repeated citations of the same domain across different queries and the one query with a URL repeated within its own sitelink set (see Method). A citation appearing inside an AI Overview is not evidence that the AI Overview drove a click to that page, and this study makes no traffic or revenue claim for any cited site.
+
+**Domain-type classification involved judgement calls.** Domain categories reflect the stated classification rules; a different, defensible rule set could shift the category shares, particularly the boundary between "brand/company" and "other" for professional bodies, charities and B2B data firms.
+
+**Some saved citation records contain placeholder text in place of the original opaque redirect and Shopping URLs**, recorded during data collection to keep the working files readable. The 17 redirect-labelled rows can be counted and are excluded from the resolved totals, but their original destinations cannot be independently re-checked from those working files.
+
+**The percentages are not weighted by search volume or clicks.** Search volume determined which queries were eligible to enter the panel (a 100+/month floor), but each usable query counts equally in the presence rate. A few high-volume queries without an AI Overview could account for most of a sector's searches while its unweighted presence rate in this table stays high. This study did not measure clicks.
+
+Search Console cannot independently verify Google's SERP feature placement, so no second data source corroborates the presence figures beyond Ahrefs's own serp-overview endpoint agreeing with its keywords-explorer endpoint on spot checks during an earlier pilot for this study.
+
+## How to cite this page {% #how-to-cite %}
+
+Sunny Patel, "UK AI Overviews by Industry 2026," sunnypatel.co.uk, 25 September 2026, based on Ahrefs GB SERP data, 399-query locked panel. Link to this page and keep the panel date and denominator (393 usable queries; 100-query stratified citation sample) attached to any figure you reuse.
+
+[Download the sector aggregates as CSV](/downloads/uk-ai-overviews-by-industry-2026.csv) or [as JSON](/downloads/uk-ai-overviews-by-industry-2026.json), including every sector's presence rate, citation category breakdown and seed-concentration figures; the JSON version also includes the 20 most-cited hostnames.
+
+For an assessment of your own pages rather than a panel like this one, see the fixed-fee [AI search optimisation review](/services/ai-search-optimisation/). For the wider AI-search picture behind this study, see [120 AI Search Statistics 2026](/blog/ai-search-statistics/) and the [AI referral traffic study](/blog/ai-referral-traffic-study/).

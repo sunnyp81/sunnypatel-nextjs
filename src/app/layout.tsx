@@ -50,9 +50,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className="dark scroll-smooth">
+    <html lang="en-GB" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
-        <style dangerouslySetInnerHTML={{ __html: `html{color-scheme:dark}.dark{--background:#050507;--foreground:oklch(0.95 0 0)}body{background-color:#050507;color:oklch(0.95 0 0);-webkit-font-smoothing:antialiased}` }} />
+        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("theme")==="light"){var d=document.documentElement;d.classList.remove("dark");d.classList.add("light")}}catch(e){}` }} />
+        <style dangerouslySetInnerHTML={{ __html: `html{color-scheme:dark}html.light{color-scheme:light}.dark{--background:#050507;--foreground:oklch(0.95 0 0)}body{background-color:var(--background,#050507);color:var(--foreground);-webkit-font-smoothing:antialiased}` }} />
       </head>
       <body
         className={`${geist.variable} ${hankenGrotesk.variable} antialiased`}

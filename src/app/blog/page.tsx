@@ -2,8 +2,8 @@ import { reader } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
-import Image from "next/image";
 import Link from "next/link";
+import { ThemedImage } from "@/components/themed-image";
 import { ArrowRight } from "lucide-react";
 import { slugifyTag } from "@/lib/utils";
 import { TagLink } from "@/components/tag-link";
@@ -101,7 +101,7 @@ export default async function BlogIndex() {
                     {/* Featured image */}
                     {featured.entry.ogImage && (
                       <div className="relative aspect-[16/9] w-full shrink-0 md:aspect-auto md:w-[340px] lg:w-[420px]">
-                        <Image
+                        <ThemedImage
                           src={featured.entry.ogImage}
                           alt={featured.entry.title}
                           fill
@@ -170,7 +170,7 @@ export default async function BlogIndex() {
                   >
                     {post.entry.ogImage && (
                       <div className="relative aspect-[16/9] w-full">
-                        <Image
+                        <ThemedImage
                           src={post.entry.ogImage}
                           alt={post.entry.title}
                           fill

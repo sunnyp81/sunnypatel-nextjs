@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ThemedImage } from "@/components/themed-image";
 import data from "@/data/ctr-study.json";
 import method from "@/data/ctr-study-method.json";
 import styles from "./seo-companies-guide.module.css";
@@ -25,7 +25,7 @@ export function CtrStudyGuide({title, faqs, children}: {title: string; faqs: rea
       <p className={styles.disclosure}><strong>Scope correction · 12 September 2026.</strong> This collection had no country filter or explicit brand exclusion. Earlier UK-only descriptions and causal ranking claims have been withdrawn. The historical totals are unchanged. <a href="#corrections">Read the correction</a>.</p>
       <figure className={ctr.featuredChart}>
         <a href="/images/stats/portfolio-ctr-study-2026.svg" aria-label="Open the CTR study chart at full size">
-          <Image src="/images/stats/portfolio-ctr-study-2026.svg" width={1600} height={900} alt="CTR by rounded average-position bucket, with impressions and query-row counts. All 12 values and sample sizes appear in the table below." />
+          <ThemedImage src="/images/stats/portfolio-ctr-study-2026.svg" width={1600} height={900} alt="CTR by rounded average-position bucket, with impressions and query-row counts. All 12 values and sample sizes appear in the table below." />
         </a>
         <figcaption>Historical portfolio data · 9 April–7 July 2026. <a href="/images/stats/portfolio-ctr-study-2026.svg">View the full-size chart</a> or <a href="#ctr-table">read the accessible data table</a>.</figcaption>
       </figure>

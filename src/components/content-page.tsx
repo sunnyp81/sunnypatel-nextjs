@@ -8,6 +8,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { ServiceInlineForm } from "@/components/service-inline-form";
 import Image from "next/image";
 import Link from "next/link";
+import { ThemedImage } from "@/components/themed-image";
 import { ArrowLeft, ArrowRight, CalendarDays, Shield, Sparkles } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { BlogTOC } from "@/components/blog-toc";
@@ -244,13 +245,13 @@ export function ContentPage({
           {isService && serviceHeroImage ? (
             <div className="grid gap-8 md:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] md:items-center md:gap-10">
               <div>{headerContent}</div>
-              <div className="overflow-hidden rounded-2xl bg-[#050507] shadow-[var(--elev)]">
-                <Image
+              <div className="overflow-hidden rounded-2xl border border-[#d6deee] shadow-[var(--elev)] dark:border-0 dark:bg-[#050507]">
+                <ThemedImage
                   src={serviceHeroImage}
                   alt={serviceHeroImageAlt || h1}
                   width={800}
                   height={450}
-                  className="h-auto w-full rounded-2xl mix-blend-screen"
+                  className="h-auto w-full rounded-2xl dark:mix-blend-screen"
                   priority
                   sizes="(max-width: 768px) 100vw, 45vw"
                 />
@@ -267,7 +268,7 @@ export function ContentPage({
       {heroImage && (
         <div className="mx-auto max-w-4xl px-6 -mt-2 mb-4">
           <div className="relative aspect-[2/1] overflow-hidden rounded-2xl border border-hairline">
-            <Image
+            <ThemedImage
               src={heroImage}
               alt={h1}
               fill

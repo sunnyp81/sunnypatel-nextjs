@@ -1,5 +1,6 @@
 import Markdoc, { type Config } from "@markdoc/markdoc";
 import React from "react";
+import { hasLightVariant, lightVariantPath } from "@/lib/light-image";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
 import { LocalPackCalculator } from "@/components/glow/local-pack-calculator";
 import { AgencyRedFlagScorer, ResourcingPicker, SeoQuoteChecker } from "@/components/glow/buyer-tools";
@@ -14,7 +15,29 @@ import {
   GlowStatRow,
 } from "@/components/glow/glow-blocks";
 
+// Themed swap for markdown `![alt](/images/...)` images (e.g. the Berkshire
+// coverage/results charts inlined in service content). Markdoc's default
+// image node renders a plain <img>, which this preserves; it only adds a
+// light-mode sibling when a `.light.<ext>` file exists in the manifest.
+export function MarkdocImage({ src, alt, title }: { src: string; alt?: string; title?: string }) {
+  if (!hasLightVariant(src)) {
+    return <img src={src} alt={alt ?? ""} title={title} loading="lazy" />;
+  }
+  return (
+    <>
+      <img src={src} alt={alt ?? ""} title={title} loading="lazy" className="hidden dark:block" />
+      <img src={lightVariantPath(src)} alt={alt ?? ""} title={title} loading="lazy" className="dark:hidden" />
+    </>
+  );
+}
+
 export const markdocConfig: Config = {
+  nodes: {
+    image: {
+      ...Markdoc.nodes.image,
+      render: "MarkdocImage",
+    },
+  },
   tags: {
     cta: {
       render: "ServiceMiniCta",
@@ -98,6 +121,7 @@ export function renderMarkdoc(content: any) {
   const transformed = Markdoc.transform(node, markdocConfig);
   return Markdoc.renderers.react(transformed, React, {
     components: {
+      MarkdocImage,
       ServiceMiniCta,
       GlowPullquote,
       GlowStat,

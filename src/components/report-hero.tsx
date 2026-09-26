@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ThemedImage } from "@/components/themed-image";
 import styles from "./seo-companies-guide.module.css";
 
 export function ReportHero({
@@ -73,7 +73,7 @@ export function ReportHero({
             </div>
             {heroImage ? (
               <figure className={styles.heroFigure}>
-                <Image
+                <ThemedImage
                   src={heroImage}
                   width={1600}
                   height={900}

@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ThemedImage } from "@/components/themed-image";
 import { aeoProviders, aeoNeeds, aeoReviewed, aeoProposalCriteria } from "@/data/aeo-providers";
 import { SeoCompanyFinder, SeoProposalScorecard } from "./seo-companies-tools";
 import styles from "./seo-companies-guide.module.css";
@@ -33,7 +33,7 @@ export function AeoGuide({ title, image, faqs, children }: {
             <div className={styles.actions}><a className={styles.primary} href="#compare">Find your AEO shortlist <span aria-hidden="true">↓</span></a><a className={styles.textLink} href="/downloads/aeo-provider-brief.txt" download>Download the AEO brief</a></div>
           </div>
           <figure className={styles.heroFigure}>
-            <Image src={image} width={1600} height={900} sizes="(max-width: 800px) 100vw, 480px" alt="A paper answer shape connected by blue threads to three source cards with London landmarks." priority />
+            <ThemedImage src={image} width={1600} height={900} sizes="(max-width: 800px) 100vw, 480px" alt="A paper answer shape connected by blue threads to three source cards with London landmarks." priority />
             <figcaption>Ask for the sources and measurements behind an answer-engine claim.</figcaption>
           </figure>
         </div>

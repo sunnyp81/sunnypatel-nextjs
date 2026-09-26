@@ -11,6 +11,8 @@ import { HumanEditedBadge } from "@/components/human-edited-badge";
 type Metric = { readonly value: string; readonly label: string };
 
 type Project = {
+  heroImageBefore?: string | null;
+  heroImageBeforeAlt?: string | null;
   heroImage?: string | null;
   heroImageAlt?: string | null;
   title: string;
@@ -131,27 +133,33 @@ export function PortfolioDetail({
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
       </div>
 
-      {/* Featured screenshot, or the generic chart hero */}
+      {/* Featured screenshot (optionally paired with a before shot), or the generic chart hero */}
       {project.heroImage ? (
         <div className="mx-auto max-w-5xl px-6 pb-2 pt-10">
-          <figure className="mx-auto max-w-[660px]">
-            <div className="relative rounded-[1.25rem] border-[0.75px] border-border p-2 shadow-[var(--elev)]">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-              <Image
-                src={project.heroImage}
-                alt={project.heroImageAlt || project.title}
-                width={621}
-                height={696}
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 700px) 100vw, 644px"
-                className="relative h-auto w-full rounded-xl border-[0.75px] border-hairline bg-white"
-              />
-            </div>
-            {project.heroImageAlt && (
-              <figcaption className="mt-3 text-center text-xs text-muted-foreground">{project.heroImageAlt}</figcaption>
-            )}
-          </figure>
+          <div className={project.heroImageBefore ? "grid gap-5 md:grid-cols-2" : "mx-auto max-w-[560px]"}>
+            {[
+              { src: project.heroImageBefore, alt: project.heroImageBeforeAlt },
+              { src: project.heroImage, alt: project.heroImageAlt },
+            ]
+              .filter((img): img is { src: string; alt: string | null | undefined } => Boolean(img.src))
+              .map((img) => (
+                <figure key={img.src}>
+                  <Image
+                    src={img.src}
+                    alt={img.alt || project.title}
+                    width={1370}
+                    height={1734}
+                    priority
+                    fetchPriority="high"
+                    sizes="(max-width: 768px) 100vw, 480px"
+                    className="h-auto w-full rounded-2xl border border-hairline shadow-[var(--elev)] dark:border-white/[0.06]"
+                  />
+                  {img.alt && (
+                    <figcaption className="mt-3 text-center text-xs text-muted-foreground">{img.alt}</figcaption>
+                  )}
+                </figure>
+              ))}
+          </div>
         </div>
       ) : (
         <ChartHero

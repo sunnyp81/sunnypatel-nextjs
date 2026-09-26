@@ -3,8 +3,10 @@ metaTitle: 'Mobile PageSpeed Case Study: 76 to 90, Sunny Patel'
 description: >-
   How I took a heavy Next.js statistics page from a 76 to a 90 mobile PageSpeed score in one evening, halving first paint without touching the design.
 ogImage: ''
-heroImage: /images/portfolio/pagespeed-mobile-90-ai-search-statistics.png
-heroImageAlt: 'PageSpeed Insights mobile report for /blog/ai-search-statistics/, 26 September 2026, 8:12pm: Performance 90, Accessibility 100, Best Practices 100, SEO 100.'
+heroImageBefore: /images/portfolio/pagespeed-mobile-before-ai-search-statistics.webp
+heroImageBeforeAlt: 'Before: PageSpeed Insights mobile report, 26 September 2026, 6:55pm. Performance 76, FCP 3.0s, LCP 5.0s.'
+heroImage: /images/portfolio/pagespeed-mobile-after-ai-search-statistics.webp
+heroImageAlt: 'After: PageSpeed Insights mobile report, 26 September 2026, 8:12pm. Performance 90, FCP 1.4s, LCP 3.5s.'
 tags:
 - Technical SEO
 - Performance

@@ -44,7 +44,7 @@ const COLLECTIONS = {
   services: ["title", "metaTitle", "description", "ogImage", "h1", "subtitle", "heroImage", "heroImageAlt", "icon", "featured", "sortOrder", "canonicalOverride", "coverageMap"],
   blog: ["title", "metaTitle", "description", "ogImage", "date", "lastUpdated", "tags", "faqs", "keyStats"],
   "website-design": ["title", "metaTitle", "description", "ogImage", "h1", "subtitle", "sortOrder", "priceFrom", "nodeType", "parentNode"],
-  portfolio: ["title", "metaTitle", "description", "ogImage", "heroImage", "heroImageAlt", "tags", "featured", "client", "industry", "services", "year", "problem", "solution", "result", "metrics", "testimonialText", "testimonialAuthor", "testimonialRole"],
+  portfolio: ["title", "metaTitle", "description", "ogImage", "heroImageBefore", "heroImageBeforeAlt", "heroImage", "heroImageAlt", "tags", "featured", "client", "industry", "services", "year", "problem", "solution", "result", "metrics", "testimonialText", "testimonialAuthor", "testimonialRole"],
 };
 const SINGLETONS = {
   "pages/about": ["title", "description", "ogImage", "h1", "subtitle"],

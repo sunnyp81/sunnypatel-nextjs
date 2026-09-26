@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Quote } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -10,6 +11,8 @@ import { HumanEditedBadge } from "@/components/human-edited-badge";
 type Metric = { readonly value: string; readonly label: string };
 
 type Project = {
+  heroImage?: string | null;
+  heroImageAlt?: string | null;
   title: string;
   description?: string | null;
   tags?: readonly string[] | null;
@@ -128,12 +131,35 @@ export function PortfolioDetail({
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
       </div>
 
-      {/* Chart hero visual */}
-      <ChartHero
-        tags={project.tags}
-        industry={project.industry}
-        metrics={project.metrics}
-      />
+      {/* Featured screenshot, or the generic chart hero */}
+      {project.heroImage ? (
+        <div className="mx-auto max-w-5xl px-6 pb-2 pt-10">
+          <figure className="mx-auto max-w-[660px]">
+            <div className="relative rounded-[1.25rem] border-[0.75px] border-border p-2 shadow-[var(--elev)]">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <Image
+                src={project.heroImage}
+                alt={project.heroImageAlt || project.title}
+                width={621}
+                height={696}
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 700px) 100vw, 644px"
+                className="relative h-auto w-full rounded-xl border-[0.75px] border-hairline bg-white"
+              />
+            </div>
+            {project.heroImageAlt && (
+              <figcaption className="mt-3 text-center text-xs text-muted-foreground">{project.heroImageAlt}</figcaption>
+            )}
+          </figure>
+        </div>
+      ) : (
+        <ChartHero
+          tags={project.tags}
+          industry={project.industry}
+          metrics={project.metrics}
+        />
+      )}
 
       {/* Metrics strip */}
       {project.metrics && project.metrics.length > 0 && (

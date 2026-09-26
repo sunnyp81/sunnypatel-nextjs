@@ -1,0 +1,42 @@
+title: 'Mobile PageSpeed Optimisation: 76 to 90 Without a Design Change'
+metaTitle: 'Mobile PageSpeed Case Study: 76 to 90, Sunny Patel'
+description: >-
+  How I took a heavy Next.js statistics page from a 76 to a 90 mobile PageSpeed score in one evening, halving first paint without touching the design.
+ogImage: ''
+heroImage: /images/portfolio/pagespeed-mobile-90-ai-search-statistics.png
+heroImageAlt: 'PageSpeed Insights mobile report for /blog/ai-search-statistics/, 26 September 2026, 8:12pm: Performance 90, Accessibility 100, Best Practices 100, SEO 100.'
+tags:
+- Technical SEO
+- Performance
+- Core Web Vitals
+featured: true
+client: In-House (sunnypatel.co.uk)
+industry: Technical SEO & Web Performance
+services: 'Performance Audit, Core Web Vitals, Next.js Optimisation'
+year: '2026'
+problem: >-
+  My AI search statistics page dropped to a 76 mobile PageSpeed score after I
+  added interactive charts, glow cards and a light theme. First paint took 3.0
+  seconds and the hero image took 5.0 seconds on a throttled phone. The desktop
+  score was still 100, so the slowdown only showed on mobile.
+solution: >-
+  I profiled the page in PageSpeed Insights and local Lighthouse, then fixed the
+  four things holding up the first screen: the analytics script, the table of
+  contents code, the hover animation library and the hero image priority. Every
+  fix changed when, or in what order, code loads. None of them changed how the page looks.
+result: >-
+  Mobile PageSpeed went from 76 to 90. First Contentful Paint fell from 3.0s to
+  1.4s, Largest Contentful Paint from 5.0s to 3.5s, and Cumulative Layout Shift
+  stayed at 0. Accessibility, Best Practices and SEO all held at 100.
+metrics:
+- value: 76 to 90
+  label: Mobile PageSpeed score
+- value: 3.0s to 1.4s
+  label: First Contentful Paint
+- value: 5.0s to 3.5s
+  label: Largest Contentful Paint
+- value: '0'
+  label: Design changes
+testimonialText: ''
+testimonialAuthor: ''
+testimonialRole: ''

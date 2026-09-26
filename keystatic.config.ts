@@ -212,6 +212,8 @@ export default config({
         metaTitle: fields.text({ label: "Title Tag" }),
         description: fields.text({ label: "Meta Description", multiline: true }),
         ogImage: fields.text({ label: "OG Image URL" }),
+        heroImage: fields.text({ label: "Featured Screenshot (replaces chart hero)" }),
+        heroImageAlt: fields.text({ label: "Featured Screenshot Alt Text" }),
         tags: fields.array(fields.text({ label: "Tag" }), {
           label: "Tags",
           itemLabel: (props) => props.value,

@@ -41,7 +41,7 @@ export default async function PortfolioPage({
   const content = await project.content();
   const rendered = renderMarkdoc(content);
 
-  const { title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole } = project;
+  const { heroImage, heroImageAlt, title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole } = project;
 
   return (
     <main className="relative min-h-screen bg-background">
@@ -65,7 +65,7 @@ export default async function PortfolioPage({
       <Navbar />
       <div id="main-content" tabIndex={-1} />
       <PortfolioDetail
-        project={{ title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole }}
+        project={{ heroImage, heroImageAlt, title, description, tags, client, industry, services, year, problem, solution, result, metrics, testimonialText, testimonialAuthor, testimonialRole }}
         renderedContent={rendered}
       />
       <Cta />

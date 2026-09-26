@@ -353,7 +353,7 @@ function Spinner() {
 /* ------------------------------------------------------------------ */
 /*  Main component                                                     */
 /* ------------------------------------------------------------------ */
-export default function WebsiteGrader() {
+export default function WebsiteGrader({ compact = false }: { compact?: boolean }) {
   const isDark = useIsDark();
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -452,19 +452,21 @@ export default function WebsiteGrader() {
   }, [runGrade]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <div className={compact ? 'mx-auto max-w-full' : 'mx-auto max-w-6xl px-4 py-8 sm:px-6'}>
       {/* Header */}
-      <div className="mb-8">
-        <h1
-          className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          Website Grader
-        </h1>
-        <p className="mt-2 text-base text-muted-foreground">
-          Get an instant A-F grade covering SEO, performance, security, and content quality. Enter any URL for a free audit with actionable recommendations.
-        </p>
-      </div>
+      {!compact && (
+        <div className="mb-8">
+          <h1
+            className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            Website Grader
+          </h1>
+          <p className="mt-2 text-base text-muted-foreground">
+            Get an instant A-F grade covering SEO, performance, security, and content quality. Enter any URL for a free audit with actionable recommendations.
+          </p>
+        </div>
+      )}
 
       {/* Input form */}
       <form onSubmit={handleSubmit} className="mb-8">
@@ -605,7 +607,7 @@ export default function WebsiteGrader() {
       )}
 
       {/* How it works (shown when no results) */}
-      {!result && !loading && (
+      {!compact && !result && !loading && (
         <div className="mt-12">
           <h2
             className="text-xl font-bold tracking-tight text-foreground mb-4"

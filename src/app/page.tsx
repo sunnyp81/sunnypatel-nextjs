@@ -1,5 +1,9 @@
 import { Hero } from "@/components/sections/hero";
 import { PortfolioProof } from "@/components/sections/portfolio-proof";
+import { StatsChartsSection } from "@/components/home/stats-charts-section";
+import { FreeToolSection } from "@/components/home/free-tool-section";
+import { BuyerToolsSection } from "@/components/home/buyer-tools-section";
+import { CoverageSection } from "@/components/home/coverage-section";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
 import { AiStatBar } from "@/components/sections/ai-stat-bar";
@@ -49,7 +53,9 @@ export default async function Home() {
       <div id="main-content" tabIndex={-1} />
       <Hero />
       <PortfolioProof />
+      <StatsChartsSection />
       <Services />
+      <FreeToolSection />
       <Stats />
       <AiStatBar />
       <About />
@@ -65,7 +71,9 @@ export default async function Home() {
       />
       <Portfolio featuredItems={featuredItems} />
       <Testimonials />
+      <BuyerToolsSection />
       <Cta />
+      <CoverageSection />
       <Contact />
       <Footer />
       <HomepageMobileCta />

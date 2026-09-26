@@ -48,7 +48,6 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
         aria-labelledby="coverage-map-title coverage-map-desc"
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         width="100%"
-        height="auto"
       >
         <title id="coverage-map-title">Berkshire towns served</title>
         <desc id="coverage-map-desc">

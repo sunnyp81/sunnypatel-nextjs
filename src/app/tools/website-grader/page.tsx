@@ -2,6 +2,7 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { RelatedTools } from "@/components/related-tools";
 import WebsiteGrader from "./WebsiteGrader";
+import { schemaGraph, websiteGraderPageSchema, websiteGraderSchema } from "@/lib/schema";
 
 export function generateMetadata() {
   return {
@@ -14,6 +15,10 @@ export function generateMetadata() {
 export default function WebsiteGraderPage() {
   return (
     <main className="relative min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: schemaGraph(websiteGraderPageSchema(), websiteGraderSchema()) }}
+      />
       <Navbar />
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">

@@ -18,7 +18,7 @@ import { Footer } from "@/components/sections/footer";
 import { Navbar } from "@/components/sections/navbar";
 import { buildMetadata } from "@/lib/metadata";
 import { reader } from "@/lib/content";
-import { reviewSchema, schemaGraph } from "@/lib/schema";
+import { homePageSchemas, reviewSchema, schemaGraph } from "@/lib/schema";
 import { TESTIMONIALS } from "@/lib/testimonial-data";
 import { HomepageMobileCta } from "@/components/homepage-mobile-cta";
 import proof from "@/data/proof.json";
@@ -43,12 +43,15 @@ export default async function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      {TESTIMONIALS.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: schemaGraph(reviewSchema(TESTIMONIALS)) }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: schemaGraph(
+            ...homePageSchemas(),
+            ...(TESTIMONIALS.length > 0 ? [reviewSchema(TESTIMONIALS)] : [])
+          ),
+        }}
+      />
       <Navbar />
       <div id="main-content" tabIndex={-1} />
       <Hero />

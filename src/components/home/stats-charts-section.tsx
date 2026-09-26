@@ -17,6 +17,7 @@ const GlowChartFigure = dynamic(
 export function StatsChartsSection() {
   return (
     <section
+      id="ai-search-charts"
       aria-labelledby="stats-charts-heading"
       className="bg-surface-1 py-24 md:py-32 dark:bg-[#050507]"
     >
@@ -73,7 +74,7 @@ export function StatsChartsSection() {
               </figcaption>
               <p className="mt-2 text-sm leading-6 text-muted-foreground dark:text-white/70">
                 Between January and April 2026, 69.5% of UK Google searches ended with no click to any
-                website, the highest zero-click rate of the four countries measured (US 68.0%, Canada
+                website, the highest zero-click rate of the six countries SparkToro measured (US 68.0%, Canada
                 63.8%, Germany 62.1%).
               </p>
               <p className="mt-2 text-xs leading-5 text-muted-foreground dark:text-white/70">

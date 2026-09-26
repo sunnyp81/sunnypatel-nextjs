@@ -3,9 +3,7 @@
 import { useId, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { schemaGraph } from "@/lib/schema";
-
-const SITE_URL = "https://sunnypatel.co.uk";
+import { BUYER_TOOLS as TOOLS, type BuyerToolId as ToolId } from "@/data/buyer-tools";
 
 function ToolSkeleton() {
   return (
@@ -30,63 +28,11 @@ const ResourcingPicker = dynamic(
   { ssr: false, loading: ToolSkeleton },
 );
 
-type ToolId = "quote" | "agency" | "resourcing";
-
-const TOOLS: {
-  id: ToolId;
-  label: string;
-  question: string;
-  description: string;
-  sourceHref: string;
-  sourceLabel: string;
-}[] = [
-  {
-    id: "quote",
-    label: "SEO quote checker",
-    question: "Is the SEO quote I've been given fair?",
-    description:
-      "Enter a quoted price and it checks it against the 2026 UK price bands for retainers, day rates, hourly rates and one-off projects, then flags contract terms worth questioning.",
-    sourceHref: "/services/how-much-does-seo-cost/",
-    sourceLabel: "Read the full SEO pricing guide",
-  },
-  {
-    id: "agency",
-    label: "Agency red flag scorer",
-    question: "Is my current SEO agency doing a good job?",
-    description:
-      "Tick the statements that are true of your agency's reporting and access, and it scores how serious the problem is, from monitor closely through to time to leave.",
-    sourceHref: "/blog/seo-agency-lying/",
-    sourceLabel: "Read how to tell if your SEO agency is lying to you",
-  },
-  {
-    id: "resourcing",
-    label: "Resourcing picker",
-    question: "Should I hire in-house, use an agency, or bring in a consultant?",
-    description:
-      "Pick your monthly organic revenue and the SEO resource you have now, and it returns the starting recommendation from this site's in-house vs agency vs consultant framework.",
-    sourceHref: "/blog/inhouse-seo-vs-agency-vs-consultant/",
-    sourceLabel: "Read the full in-house vs agency vs consultant guide",
-  },
-];
-
 const TOOL_COMPONENTS: Record<ToolId, React.ComponentType> = {
   quote: SeoQuoteChecker,
   agency: AgencyRedFlagScorer,
   resourcing: ResourcingPicker,
 };
-
-function toolSchema(tool: (typeof TOOLS)[number]) {
-  return {
-    "@type": "WebApplication",
-    name: tool.label,
-    url: `${SITE_URL}/#buyer-tools`,
-    description: tool.description,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Any (runs in browser)",
-    isAccessibleForFree: true,
-    offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
-  };
-}
 
 export function BuyerToolsSection() {
   const tabBaseId = useId();
@@ -127,11 +73,6 @@ export function BuyerToolsSection() {
       aria-labelledby="buyer-tools-heading"
       className="bg-surface-1 py-24 md:py-32 dark:bg-transparent"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: schemaGraph(...TOOLS.map(toolSchema)) }}
-      />
-
       <div className="mx-auto max-w-4xl px-6">
         <div className="mb-10 text-center">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">

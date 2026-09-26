@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 const SITE_URL = "https://sunnypatel.co.uk";
-const DEFAULT_TITLE = "SEO Consultant UK | 15+ Years | Free Diagnosis";
-const DEFAULT_DESCRIPTION =
+export const DEFAULT_TITLE = "SEO Consultant UK | 15+ Years | Free Diagnosis";
+export const DEFAULT_DESCRIPTION =
   "Independent SEO consultant with 15+ years of experience and a 45-site testing portfolio. Free 20-minute SEO diagnosis for UK businesses.";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/images/sunny-patel-seo-consultant.png`;
 

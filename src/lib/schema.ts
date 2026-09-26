@@ -1,3 +1,7 @@
+import { BERKSHIRE_TOWNS } from "@/data/berkshire-towns";
+import { BUYER_TOOLS, type BuyerTool } from "@/data/buyer-tools";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/metadata";
+
 const SITE_URL = "https://sunnypatel.co.uk";
 
 // =============================================================================
@@ -634,12 +638,8 @@ export function localBusinessSchema() {
       { "@type": "Country", name: "United Kingdom" },
       { "@type": "AdministrativeArea", name: "Berkshire" },
       { "@type": "AdministrativeArea", name: "Thames Valley" },
-      { "@type": "City", name: "Reading" },
-      { "@type": "City", name: "Bracknell" },
-      { "@type": "City", name: "Slough" },
-      { "@type": "City", name: "Windsor" },
-      { "@type": "City", name: "Maidenhead" },
-      { "@type": "City", name: "Wokingham" },
+      // Same town list as the homepage coverage map, so schema and map never drift.
+      ...BERKSHIRE_TOWNS.map((t) => ({ "@type": "City", name: t.name })),
     ],
     founder: { "@id": `${SITE_URL}/#person` },
     priceRange: "$$",
@@ -931,6 +931,142 @@ export function reviewSchema(
       bestRating: 5,
     },
   };
+}
+
+// =============================================================================
+// HOMEPAGE + TOOL SCHEMAS
+// =============================================================================
+
+const WEBSITE_GRADER_ID = `${SITE_URL}/tools/website-grader/#app`;
+const HOME_CHARTS_ID = `${SITE_URL}/#ai-search-charts`;
+const HOME_COVERAGE_ID = `${SITE_URL}/#coverage`;
+const buyerToolId = (id: BuyerTool["id"]) => `${SITE_URL}/#buyer-tool-${id}`;
+
+const FREE_OFFER = { "@type": "Offer", price: "0", priceCurrency: "GBP" };
+
+/** One definition, emitted on both /tools/website-grader/ and the homepage embed. */
+export function websiteGraderSchema() {
+  return {
+    "@type": "WebApplication",
+    "@id": WEBSITE_GRADER_ID,
+    name: "Website Grader",
+    description:
+      "Free website grader that checks on-page SEO, mobile page speed, security headers and content signals, then returns an A to F grade with specific fixes.",
+    url: `${SITE_URL}/tools/website-grader/`,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript. Runs in any modern web browser.",
+    isAccessibleForFree: true,
+    offers: FREE_OFFER,
+    author: { "@id": `${SITE_URL}/#person` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    inLanguage: "en-GB",
+  };
+}
+
+export function websiteGraderPageSchema() {
+  return {
+    "@type": "WebPage",
+    "@id": `${SITE_URL}/tools/website-grader/#webpage`,
+    url: `${SITE_URL}/tools/website-grader/`,
+    name: "Free Website Grader | SEO Page Grader, Speed & Security",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    mainEntity: { "@id": WEBSITE_GRADER_ID },
+    inLanguage: "en-GB",
+  };
+}
+
+/** Buyer tools run client-side only and live in the homepage #buyer-tools section. */
+export function buyerToolSchemas() {
+  return BUYER_TOOLS.map((tool) => ({
+    "@type": "WebApplication",
+    "@id": buyerToolId(tool.id),
+    name: tool.label,
+    description: tool.description,
+    url: `${SITE_URL}/#buyer-tools`,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript. Runs entirely in the browser; inputs are not sent anywhere.",
+    isAccessibleForFree: true,
+    offers: FREE_OFFER,
+    author: { "@id": `${SITE_URL}/#person` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    inLanguage: "en-GB",
+  }));
+}
+
+/** Charts section: cites the two primary studies it plots; figures live on the stats page. */
+function homeChartsSchema() {
+  return {
+    "@type": "WebPageElement",
+    "@id": HOME_CHARTS_ID,
+    name: "Why fewer of your rankings are turning into clicks",
+    url: `${SITE_URL}/#ai-search-charts`,
+    about: { "@id": topicId("ai-search-optimisation") },
+    isBasedOn: {
+      "@type": "BlogPosting",
+      url: `${SITE_URL}/blog/ai-search-statistics/`,
+    },
+    citation: [
+      {
+        "@type": "CreativeWork",
+        name: "AIO Impact on Google CTR: September 2025 Update",
+        url: "https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update",
+        datePublished: "2025-11-04",
+        publisher: { "@type": "Organization", name: "Seer Interactive" },
+      },
+      {
+        "@type": "CreativeWork",
+        name: "Zero-Click Searches: Highest in the UK, Lowest in Germany, and France has the Most Efficient Searchers",
+        url: "https://sparktoro.com/blog/zero-click-searches-highest-in-the-uk-lowest-in-germany-and-france-has-the-most-efficient-searchers/",
+        datePublished: "2026-06-17",
+        publisher: { "@type": "Organization", name: "SparkToro" },
+      },
+    ],
+  };
+}
+
+/** Coverage section: points at #localbusiness, whose areaServed already lists the mapped towns. */
+function homeCoverageSchema() {
+  return {
+    "@type": "WebPageElement",
+    "@id": HOME_COVERAGE_ID,
+    name: "Reading-based, in person across Berkshire, remote UK-wide",
+    url: `${SITE_URL}/#coverage`,
+    about: { "@id": `${SITE_URL}/#localbusiness` },
+  };
+}
+
+/**
+ * Homepage graph (page-level; layout.tsx supplies Person, Organization,
+ * LocalBusiness, WebSite and topic DefinedTerms).
+ * about -> #localbusiness: the homepage carries its reviews, rating and coverage.
+ */
+export function homePageSchemas() {
+  const buyerTools = buyerToolSchemas();
+  return [
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: `${SITE_URL}/`,
+      name: DEFAULT_TITLE,
+      description: DEFAULT_DESCRIPTION,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#localbusiness` },
+      primaryImageOfPage: { "@id": `${SITE_URL}/#photo` },
+      hasPart: [
+        { "@id": HOME_CHARTS_ID },
+        { "@id": WEBSITE_GRADER_ID },
+        ...buyerTools.map((t) => ({ "@id": t["@id"] })),
+        { "@id": HOME_COVERAGE_ID },
+      ],
+      inLanguage: "en-GB",
+    },
+    homeChartsSchema(),
+    websiteGraderSchema(),
+    ...buyerTools,
+    homeCoverageSchema(),
+  ];
 }
 
 export function schemaGraph(...schemas: Record<string, unknown>[]) {

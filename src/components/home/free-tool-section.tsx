@@ -30,18 +30,6 @@ const relatedTools = [
   { name: "Schema Markup Generator", href: "/tools/schema-generator/" },
 ];
 
-const websiteGraderSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Website Grader",
-  url: "https://sunnypatel.co.uk/tools/website-grader/",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  isAccessibleForFree: true,
-  offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
-  author: { "@type": "Person", name: "Sunny Patel", url: "https://sunnypatel.co.uk/" },
-};
-
 export function FreeToolSection() {
   return (
     <section
@@ -49,11 +37,6 @@ export function FreeToolSection() {
       aria-labelledby="free-tool-heading"
       className="relative border-t border-hairline bg-surface-1 py-24 md:py-32 dark:border-white/[0.05] dark:bg-transparent"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteGraderSchema) }}
-      />
-
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-10 text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand-ink">

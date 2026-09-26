@@ -95,11 +95,13 @@ function HeroGeometric({
                     backgroundImage:
                         "linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)",
                     backgroundSize: "48px 48px",
+                    maskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
                 }}
                 aria-hidden="true"
             />
 
-            <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_70%,transparent)]">
                 <ElegantShape
                     delay={0.3}
                     width={600}
@@ -146,7 +148,7 @@ function HeroGeometric({
                 />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 pt-24 md:px-6 md:pt-28">
+            <div className="relative z-10 container mx-auto px-4 pt-24 pb-24 md:px-6 md:pt-28 md:pb-32">
                 <div className="max-w-3xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/[0.06] border border-brand/[0.18] dark:bg-white/[0.03] dark:border-white/[0.08] mb-8 md:mb-12">
                         <Circle className="h-2 w-2 fill-brand/80" />

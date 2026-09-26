@@ -51,7 +51,7 @@ export function PortfolioProof() {
   return (
     <section
       aria-labelledby="portfolio-proof-heading"
-      className="border-t border-hairline bg-surface-1 py-24 md:py-32 dark:border-white/[0.05] dark:bg-[#050507]"
+      className="bg-gradient-to-b from-background to-surface-1 py-24 md:py-32 dark:bg-none dark:bg-[#050507]"
     >
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-10">

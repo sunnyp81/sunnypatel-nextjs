@@ -2,7 +2,16 @@
 
 import { memo, useCallback, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { animate } from "motion/react";
+
+type Animate = typeof import("motion/react").animate;
+let animateFn: Animate | null = null;
+let animateLoad: Promise<Animate> | null = null;
+// motion is only needed once a pointer actually nears a card, so load it on demand.
+function loadAnimate(): Promise<Animate> {
+  if (animateFn) return Promise.resolve(animateFn);
+  animateLoad ??= import("motion/react").then((m) => (animateFn = m.animate));
+  return animateLoad;
+}
 
 interface GlowingEffectProps {
   blur?: number;
@@ -85,37 +94,59 @@ const GlowingEffect = memo(
           const angleDiff = ((targetAngle - currentAngle + 180) % 360) - 180;
           const newAngle = currentAngle + angleDiff;
 
-          animate(currentAngle, newAngle, {
-            duration: movementDuration,
-            ease: [0.16, 1, 0.3, 1],
-            onUpdate: (value) => {
-              element.style.setProperty("--start", String(value));
-            },
-          });
+          const run = (animate: Animate) =>
+            animate(currentAngle, newAngle, {
+              duration: movementDuration,
+              ease: [0.16, 1, 0.3, 1],
+              onUpdate: (value) => {
+                element.style.setProperty("--start", String(value));
+              },
+            });
+          if (animateFn) run(animateFn);
+          else loadAnimate().then(run);
         });
       },
       [inactiveZone, proximity, movementDuration]
     );
 
     useEffect(() => {
-      if (disabled) return;
+      if (disabled || !containerRef.current) return;
 
       const handleScroll = () => handleMove();
       const handlePointerMove = (e: PointerEvent) => handleMove(e);
+      let listening = false;
 
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      document.body.addEventListener("pointermove", handlePointerMove, {
-        passive: true,
-      });
+      const attach = () => {
+        if (listening) return;
+        listening = true;
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        document.body.addEventListener("pointermove", handlePointerMove, {
+          passive: true,
+        });
+      };
+      const detach = () => {
+        if (!listening) return;
+        listening = false;
+        window.removeEventListener("scroll", handleScroll);
+        document.body.removeEventListener("pointermove", handlePointerMove);
+        containerRef.current?.style.setProperty("--active", "0");
+      };
+
+      // Only track the pointer while the card is on (or near) screen.
+      const io = new IntersectionObserver(
+        ([entry]) => (entry.isIntersecting ? attach() : detach()),
+        { rootMargin: `${Math.max(proximity, 0) + 200}px` }
+      );
+      io.observe(containerRef.current);
 
       return () => {
+        io.disconnect();
         if (animationFrameRef.current) {
           cancelAnimationFrame(animationFrameRef.current);
         }
-        window.removeEventListener("scroll", handleScroll);
-        document.body.removeEventListener("pointermove", handlePointerMove);
+        detach();
       };
-    }, [handleMove, disabled]);
+    }, [handleMove, disabled, proximity]);
 
     return (
       <>

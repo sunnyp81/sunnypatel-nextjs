@@ -24,7 +24,7 @@ type ThemedImageProps = Omit<ImageProps, "src"> & {
  */
 export function ThemedImage({ src, alt, lightAlt, className, priority, ...rest }: ThemedImageProps) {
   if (!hasLightVariant(src)) {
-    return <Image src={src} alt={alt} className={className} priority={priority} {...rest} />;
+    return <Image src={src} alt={alt} className={className} priority={priority} fetchPriority={priority ? "high" : undefined} {...rest} />;
   }
 
   const lightClass = className ? `dark:hidden ${className}` : "dark:hidden";
@@ -32,7 +32,7 @@ export function ThemedImage({ src, alt, lightAlt, className, priority, ...rest }
 
   return (
     <>
-      <Image src={src} alt={alt} className={darkClass} priority={priority} {...rest} />
+      <Image src={src} alt={alt} className={darkClass} priority={priority} fetchPriority={priority ? "high" : undefined} {...rest} />
       <Image src={lightVariantPath(src)} alt={lightAlt ?? alt} className={lightClass} {...rest} />
     </>
   );

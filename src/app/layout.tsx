@@ -80,7 +80,7 @@ export default function RootLayout({
           <>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-SJRTDNRZG6"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
             <Script id="ga4-config" strategy="afterInteractive">{`
               window.dataLayer = window.dataLayer || [];

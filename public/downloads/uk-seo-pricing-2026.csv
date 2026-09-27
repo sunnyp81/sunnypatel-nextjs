@@ -3,6 +3,11 @@ monthly_retainer_entry_price,61,497,300,640,24,2000,true,"starting/entry price s
 monthly_retainer_top_price,34,1493.5,996,2000,48,10000,true,"only providers that state a closed ceiling; 27 more give an open ""from GBP X"" with no stated top"
 monthly_retainer_entry_price_North,17,500,497,649.99,110,1500,true,North of England providers only
 monthly_retainer_entry_price_Midlands,9,400,360,500,99,1530,true,Midlands providers only
+monthly_retainer_entry_price_group_London_and_South_East,13,640,299,800,24,2000,true,"region group (London + South East), set after collection so n>=8"
+monthly_retainer_entry_price_group_North_of_England,17,500,497,649.99,110,1500,true,"region group (North), set after collection so n>=8"
+monthly_retainer_entry_price_group_Midlands,9,400,360,500,99,1530,true,"region group (Midlands), set after collection so n>=8"
+monthly_retainer_entry_price_group_Scotland_Wales_and_Northern_Ireland,11,399,275,500,129,1300,true,"region group (Scotland + Wales/NI), set after collection so n>=8"
+monthly_retainer_entry_price_group_South_West_East_of_England_UK-wide_or_not_stated,11,400,279,500,185,599,true,"region group (South West + East of England + UK-wide/remote + not stated), set after collection so n>=8"
 hourly_rate,7,,,,30,300,false,n below minimum publish threshold of 8; raw points only; day rate kept separate as a different unit
 day_rate,1,,,,400,400,false,n below minimum publish threshold of 8; single data point
 one_off_audit_low,5,,,,60,1500,false,n below minimum publish threshold of 8; raw points only

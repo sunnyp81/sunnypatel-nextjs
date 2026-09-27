@@ -41,22 +41,19 @@ Of the other 75, most show a generic market-range article, a "from £X" figure t
 
 Of the 75 included providers, 72 are agencies and 3 are independent freelancers. That is still too few freelancers to report a separate freelancer median against the agency figures above. The 3 freelancer data points are an hourly rate of £150 (minimum 3 hours), a rate of £300 per 60-minute session, and a combination of a £500/month retainer with a £400 day rate for one-off projects.
 
-North of England providers are the largest single region in this panel (19 of 75 providers overall) and, within the monthly retainer service specifically, are one of only 2 of 10 recorded region categories to clear the 8-provider threshold for its own median.
+London and South East providers publish the highest entry retainer in this panel: a median of £640/month across 13 providers, against £399 to £500/month in every other region group. The 42 providers in a named region outside London and the South East have a median entry retainer of £497/month.
 
-| Region | Retainer providers (n) | Median entry price | Median reported? |
+| Region group | Providers (n) | Median entry | Middle 50% |
 |---|---|---|---|
-| North | 17 | £500/mo | Yes |
-| Midlands | 9 | £400/mo | Yes |
-| South East | 7 | not reported, n<8 | No |
-| Wales/NI | 7 | not reported, n<8 | No |
-| London | 6 | not reported, n<8 | No |
-| UK-wide/remote | 5 | not reported, n<8 | No |
-| Scotland | 4 | not reported, n<8 | No |
-| South West | 4 | not reported, n<8 | No |
-| East of England | 1 | not reported, n<8 | No |
-| Not stated | 1 | not reported, n<8 | No |
+| London and South East | 13 | £640/mo | £299 to £800 |
+| North of England | 17 | £500/mo | £497 to £650 |
+| Midlands | 9 | £400/mo | £360 to £500 |
+| Scotland, Wales and NI | 11 | £399/mo | £275 to £500 |
+| Other and unassigned | 11 | £400/mo | £279 to £500 |
 
-That is 61 retainer providers across 10 region categories, matching the national retainer n above. A thin regional n is a fact about how many providers in that region publish a full price on their own site, not a claim about what the region actually costs; treat every row below 8 as a count, not a price signal.
+{% chart type="bar" eyebrow="UK SEO monthly retainer prices by region group" title="Median entry retainer price by region group, 61 UK providers, checked Sep 2026" data="London and South East (n=13):640|North of England (n=17):500|Midlands (n=9):400|Scotland, Wales and NI (n=11):399|Other and unassigned (n=11):400" suffix="" highlight="London and South East (n=13)" source="Sunny Patel, frozen panel of 75 UK providers" /%}
+
+That is all 61 retainer providers, matching the national retainer n above, and every row clears the 8-provider minimum. The 10 recorded regions are grouped because 8 of them had fewer than 8 retainer providers on their own; London (6) and the South East (7) are combined as one commuter market, and Scotland (4) and Wales/NI (7) as the devolved nations. The "other and unassigned" row pools regions too small to stand alone (South West 4, UK-wide/remote 5, East of England 1, not stated 1), so read it as a remainder, not a region. The London and South East spread is also the widest in the panel, from a £24/month entry product to £2,000/month, so its higher median sits on a wide range.
 
 ## Directory-reported hourly rates and minimum project size (Clutch) {% #directory-data %}
 
@@ -138,7 +135,7 @@ If you want a starting point priced up front, [my own technical SEO audit is a f
 
 **VAT.** Recorded exactly as stated on each page. Most state nothing either way.
 
-**Minimum publish threshold.** Predeclared: a service or region bucket is reported as a median or interquartile range only with at least 8 providers in it. Sub-8 buckets are shown as individual figures, not averaged.
+**Minimum publish threshold.** Predeclared: a service or region bucket is reported as a median or interquartile range only with at least 8 providers in it. Sub-8 buckets are shown as individual figures, not averaged. The regional groupings in the [region table](#type-and-region) were set after collection, on 27 September 2026, so every group clears that threshold; each provider keeps its original recorded region.
 
 **Calculation.** Median and quartiles use linear interpolation at position (n-1) x p. A "from £X" price with no stated ceiling is counted in the entry-price statistic and excluded from the top-price statistic. The fetch ledger, raw panel and compute script are kept on file. Provider names and URLs are not published.
 

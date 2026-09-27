@@ -233,5 +233,87 @@
       "not_stated": 5
     },
     "n_listing_rows": 50
+  },
+  "retainer_by_region_group": {
+    "London and South East": {
+      "label": "monthly retainer entry price: London and South East",
+      "regions": [
+        "London",
+        "South East"
+      ],
+      "n": 13,
+      "published": true,
+      "median": 640,
+      "q1": 299,
+      "q3": 800,
+      "iqr_width": 501,
+      "min": 24,
+      "max": 2000,
+      "note": "region groups set after collection (27 Sep 2026) so each group has n>=8"
+    },
+    "North of England": {
+      "label": "monthly retainer entry price: North of England",
+      "regions": [
+        "North"
+      ],
+      "n": 17,
+      "published": true,
+      "median": 500,
+      "q1": 497,
+      "q3": 649.99,
+      "iqr_width": 152.99,
+      "min": 110,
+      "max": 1500,
+      "note": "region groups set after collection (27 Sep 2026) so each group has n>=8"
+    },
+    "Midlands": {
+      "label": "monthly retainer entry price: Midlands",
+      "regions": [
+        "Midlands"
+      ],
+      "n": 9,
+      "published": true,
+      "median": 400,
+      "q1": 360,
+      "q3": 500,
+      "iqr_width": 140,
+      "min": 99,
+      "max": 1530,
+      "note": "region groups set after collection (27 Sep 2026) so each group has n>=8"
+    },
+    "Scotland, Wales and Northern Ireland": {
+      "label": "monthly retainer entry price: Scotland, Wales and Northern Ireland",
+      "regions": [
+        "Scotland",
+        "Wales/NI"
+      ],
+      "n": 11,
+      "published": true,
+      "median": 399,
+      "q1": 275,
+      "q3": 500,
+      "iqr_width": 225,
+      "min": 129,
+      "max": 1300,
+      "note": "region groups set after collection (27 Sep 2026) so each group has n>=8"
+    },
+    "South West, East of England, UK-wide or not stated": {
+      "label": "monthly retainer entry price: South West, East of England, UK-wide or not stated",
+      "regions": [
+        "South West",
+        "East of England",
+        "UK-wide/remote",
+        "not stated"
+      ],
+      "n": 11,
+      "published": true,
+      "median": 400,
+      "q1": 279,
+      "q3": 500,
+      "iqr_width": 221,
+      "min": 185,
+      "max": 599,
+      "note": "region groups set after collection (27 Sep 2026) so each group has n>=8"
+    }
   }
 }

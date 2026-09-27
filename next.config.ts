@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Legacy /Services casing is handled in proxy.ts. Config redirects are
+      // Legacy /Services casing is handled in worker.ts. Config redirects are
       // case-insensitive and would also redirect /services/ back to itself.
       { source: "/services/ai-visibility-audit", destination: "/services/paid-seo-audit/", permanent: true },
       { source: "/services/ai-visibility-audit/", destination: "/services/paid-seo-audit/", permanent: true },
@@ -185,9 +185,6 @@ const nextConfig: NextConfig = {
       { source: "/cv", destination: "/cv.pdf" },
       { source: "/cv/", destination: "/cv.pdf" },
     ];
-  },
-  experimental: {
-    optimizeCss: true,
   },
   turbopack: {
     root: __dirname,

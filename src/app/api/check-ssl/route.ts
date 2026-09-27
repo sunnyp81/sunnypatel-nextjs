@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import * as tls from "tls";
 
 interface SslResult {
   valid: boolean;
@@ -15,168 +14,100 @@ interface SslResult {
   error?: string;
 }
 
-function checkSsl(domain: string): Promise<SslResult> {
-  return new Promise((resolve) => {
-    const timeout = 5000;
-    let settled = false;
+interface CtIssuance {
+  dns_names: string[];
+  issuer: { friendly_name?: string; name: string };
+  not_before: string;
+  not_after: string;
+  cert_sha256: string;
+  revoked?: boolean;
+}
 
-    const timer = setTimeout(() => {
-      if (!settled) {
-        settled = true;
-        try {
-          socket.destroy();
-        } catch {}
-        resolve({
-          valid: false,
-          subject: { CN: "" },
-          issuer: { O: "", CN: "" },
-          validFrom: "",
-          validTo: "",
-          daysUntilExpiry: 0,
-          serialNumber: "",
-          signatureAlgorithm: "",
-          subjectAltNames: [],
-          chainValid: false,
-          error: `Connection timed out after ${timeout / 1000}s`,
-        });
-      }
-    }, timeout);
+const EMPTY: Omit<SslResult, "error"> = {
+  valid: false,
+  subject: { CN: "" },
+  issuer: { O: "", CN: "" },
+  validFrom: "",
+  validTo: "",
+  daysUntilExpiry: 0,
+  serialNumber: "",
+  signatureAlgorithm: "",
+  subjectAltNames: [],
+  chainValid: false,
+};
 
-    const socket = tls.connect(
-      {
-        host: domain,
-        port: 443,
-        servername: domain,
-        rejectUnauthorized: false,
-        timeout,
-      },
-      () => {
-        if (settled) return;
+function dnField(dn: string, key: string): string {
+  const m = dn.match(new RegExp(`(?:^|,\\s*)${key}=("[^"]*"|[^,]*)`));
+  return m ? m[1].replace(/^"|"$/g, "").trim() : "";
+}
 
-        const cert = socket.getPeerCertificate(true);
-        const authorized = socket.authorized;
-
-        if (!cert || !cert.subject) {
-          settled = true;
-          clearTimeout(timer);
-          socket.destroy();
-          resolve({
-            valid: false,
-            subject: { CN: "" },
-            issuer: { O: "", CN: "" },
-            validFrom: "",
-            validTo: "",
-            daysUntilExpiry: 0,
-            serialNumber: "",
-            signatureAlgorithm: "",
-            subjectAltNames: [],
-            chainValid: false,
-            error: "No certificate returned by server",
-          });
-          return;
-        }
-
-        const validFrom = cert.valid_from;
-        const validTo = cert.valid_to;
-        const now = new Date();
-        const expiryDate = new Date(validTo);
-        const startDate = new Date(validFrom);
-        const daysUntilExpiry = Math.floor(
-          (expiryDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
-        );
-        const isExpired = expiryDate < now || startDate > now;
-
-        // Parse SAN
-        let subjectAltNames: string[] = [];
-        if (cert.subjectaltname) {
-          subjectAltNames = cert.subjectaltname
-            .split(", ")
-            .map((s: string) => s.replace(/^DNS:/, ""));
-        }
-
-        // Determine signature algorithm from raw cert info
-        // Node.js doesn't directly expose this, but we can get it from the cert object
-        const sigAlg =
-          (cert as unknown as Record<string, unknown>).sigalg as string ||
-          (cert as unknown as Record<string, unknown>).signatureAlgorithm as string ||
-          "Unknown";
-
-        settled = true;
-        clearTimeout(timer);
-        socket.destroy();
-
-        resolve({
-          valid: authorized && !isExpired,
-          subject: {
-            CN: cert.subject?.CN || "",
-          },
-          issuer: {
-            O: cert.issuer?.O || "",
-            CN: cert.issuer?.CN || "",
-          },
-          validFrom: validFrom,
-          validTo: validTo,
-          daysUntilExpiry,
-          serialNumber: cert.serialNumber || "",
-          signatureAlgorithm: sigAlg,
-          subjectAltNames,
-          chainValid: authorized,
-        });
-      }
-    );
-
-    socket.on("error", (err: Error) => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-
-      let errorMsg = err.message;
-      if (err.message.includes("ENOTFOUND")) {
-        errorMsg = `DNS lookup failed: ${domain} does not resolve`;
-      } else if (err.message.includes("ECONNREFUSED")) {
-        errorMsg = `Connection refused: ${domain} is not accepting connections on port 443`;
-      } else if (err.message.includes("ECONNRESET")) {
-        errorMsg = `Connection reset by ${domain}`;
-      } else if (err.message.includes("ETIMEDOUT")) {
-        errorMsg = `Connection timed out for ${domain}`;
-      }
-
-      resolve({
-        valid: false,
-        subject: { CN: "" },
-        issuer: { O: "", CN: "" },
-        validFrom: "",
-        validTo: "",
-        daysUntilExpiry: 0,
-        serialNumber: "",
-        signatureAlgorithm: "",
-        subjectAltNames: [],
-        chainValid: false,
-        error: errorMsg,
-      });
-    });
-
-    socket.on("timeout", () => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      socket.destroy();
-
-      resolve({
-        valid: false,
-        subject: { CN: "" },
-        issuer: { O: "", CN: "" },
-        validFrom: "",
-        validTo: "",
-        daysUntilExpiry: 0,
-        serialNumber: "",
-        signatureAlgorithm: "",
-        subjectAltNames: [],
-        chainValid: false,
-        error: `Connection timed out for ${domain}`,
-      });
-    });
+function coversDomain(entry: CtIssuance, domain: string): boolean {
+  return entry.dns_names.some((n) => {
+    const name = n.trim().toLowerCase();
+    if (name === domain) return true;
+    return name.startsWith("*.") && domain.endsWith(name.slice(1)) && domain.split(".").length === name.split(".").length;
   });
+}
+
+// Workers cannot read a live peer certificate, so details come from certificate
+// transparency logs and trust is proven by a real HTTPS handshake.
+async function checkSsl(domain: string): Promise<SslResult> {
+  let chainValid = false;
+  let handshakeError = "";
+  try {
+    await fetch(`https://${domain}/`, {
+      method: "HEAD",
+      redirect: "manual",
+      signal: AbortSignal.timeout(5000),
+    });
+    chainValid = true;
+  } catch (err) {
+    handshakeError = err instanceof Error ? err.message : String(err);
+  }
+
+  let entries: CtIssuance[] = [];
+  try {
+    const res = await fetch(
+      `https://api.certspotter.com/v1/issuances?domain=${encodeURIComponent(domain)}&expand=dns_names&expand=issuer&expand=revocation`,
+      { signal: AbortSignal.timeout(8000) }
+    );
+    if (res.ok) entries = (await res.json()) as CtIssuance[];
+  } catch {}
+
+  const now = Date.now();
+  const cert = entries
+    .filter((e) => coversDomain(e, domain) && Date.parse(e.not_before) <= now)
+    .sort((a, b) => Date.parse(b.not_before) - Date.parse(a.not_before))[0];
+
+  if (!cert) {
+    return {
+      ...EMPTY,
+      chainValid,
+      error: !chainValid
+        ? `Could not establish a trusted HTTPS connection to ${domain}${handshakeError ? ` (${handshakeError})` : ""}`
+        : "Certificate details unavailable from certificate transparency logs, try again shortly",
+    };
+  }
+
+  const validFrom = new Date(cert.not_before);
+  const validTo = new Date(cert.not_after);
+  const daysUntilExpiry = Math.floor((validTo.getTime() - now) / (1000 * 60 * 60 * 24));
+  const isExpired = validTo.getTime() < now;
+  const subjectAltNames = Array.from(new Set(cert.dns_names));
+
+  return {
+    valid: chainValid && !isExpired,
+    subject: { CN: subjectAltNames.includes(domain) ? domain : subjectAltNames[0] || "" },
+    issuer: { O: dnField(cert.issuer.name, "O") || cert.issuer.friendly_name || "", CN: dnField(cert.issuer.name, "CN") },
+    validFrom: validFrom.toUTCString(),
+    validTo: validTo.toUTCString(),
+    daysUntilExpiry,
+    serialNumber: "",
+    signatureAlgorithm: "Unknown",
+    subjectAltNames,
+    chainValid,
+    ...(chainValid ? {} : { error: `HTTPS handshake failed: ${handshakeError || "untrusted or invalid certificate"}` }),
+  };
 }
 
 export async function POST(req: NextRequest) {

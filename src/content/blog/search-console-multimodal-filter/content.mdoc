@@ -25,7 +25,12 @@ Two more limits I found while pulling the data:
 
 **The data starts on 10 September 2026 for the retailers I checked.** Checked by date range, neither of the two retailers below shows a multimodal impression before 10 September, two weeks before the announcement. For the sports retailer, the 16-month view gives the same totals as the 3-month view. For those two, the report holds no earlier multimodal history to compare against, so their baseline starts now. Check your own properties the same way.
 
-**The API does not have it yet.** On 27 September I checked the Search Console API's list of search types: web, image, video, news, discover and Google News. Requesting a multimodal type returns an "invalid value" error. I then compared the API's web figures for one retailer against the interface's text-based view for 10 to 25 September. They matched row for row: 10,739 clicks and 192,838 impressions. So if a dashboard or reporting tool pulls Web figures from the API, those figures currently leave out the multimodal numbers. To see them, open the interface or use its export.
+**The API does not have it yet.** On 27 September I checked the Search Console API's list of search types. Multimodal is missing, and requesting it returns an "invalid value" error. I then compared the API's web figures for one retailer against the interface's text-based view for 10 to 25 September. They matched row for row. So if a dashboard or reporting tool pulls Web figures from the API, those figures currently leave out the multimodal numbers. To see them, open the interface or use its export.
+
+{% stats %}
+{% stat value="6" label="search types listed in the Search Console API discovery document on 27 September 2026: web, image, video, news, discover and Google News. Multimodal is missing from the list." /%}
+{% stat value="192,838" label="impressions, with 10,739 clicks, that the API returned as Web for one retailer over 10 to 25 September. The interface's text-based view gave the same rows, so the API's Web figures exclude multimodal." /%}
+{% /stats %}
 
 ## What My Data Shows: Retailers Get It, Content Sites Don't
 
@@ -68,7 +73,13 @@ That fits the entry points: Lens and Circle to Search are built into phones. Mos
 
 ### 3. Positions are high and CTR is lower
 
-Average multimodal position was 1.9 for both retailers and 2.2 for the wholesaler. Text search positions for the same sites in the same window were 7.4 and 8.0. Multimodal CTR was still lower in all three cases: 1.7% against 3.6%, 1.9% against 5.6% and 2.9% against 7.0%.
+Average multimodal position was 1.9 for both retailers, against text positions of 7.4 and 8.0. The wholesaler's multimodal position was 2.2; I did not pull its overall text position. Multimodal CTR was still lower in all three cases.
+
+| Site | Position (multimodal / text) | CTR (multimodal / text) |
+|---|---|---|
+| Sports retailer | 1.9 / 7.4 | 1.7% / 3.6% |
+| Hobby retailer | 1.9 / 8.0 | 1.9% / 5.6% |
+| Wholesaler | 2.2 / n/a | 2.9% / 7.0% |
 
 I would treat those positions with care. My working explanation, which this data cannot confirm, is that a visual results layout behaves differently from a list of links, and that many Lens users get their answer (what is this thing?) without clicking. Either way, a multimodal position of 1.9 has produced far fewer clicks per impression than text positions on the same sites.
 
@@ -91,6 +102,10 @@ Google's announcement does not include optimisation advice. The steps below come
 ### Record a baseline now
 
 For the two retailers I checked by date range, the multimodal series starts on 10 September 2026, and the API does not carry it today. Export the multimodal view by page and by date from the interface every month and keep the files, so you have your own record of how the channel grows. If you report to clients or a board, add a multimodal line by hand for as long as the API leaves it out.
+
+{% pullquote cite="From my Search Console page data" %}
+The two retailers' pages for the same item recorded 50 and 45 multimodal impressions. I cannot tell whether they appeared for the same searches.
+{% /pullquote %}
 
 ### Photograph your own products
 

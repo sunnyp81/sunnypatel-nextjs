@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { reader } from "@/lib/content";
 
 export const size = { width: 1200, height: 630 };
+export const dynamicParams = false;
 export const contentType = "image/png";
 
 export async function generateStaticParams() {

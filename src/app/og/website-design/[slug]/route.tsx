@@ -1,6 +1,14 @@
 import { reader } from "@/lib/content";
 import { renderToolOgImage, websiteDesignHeadline } from "@/lib/og-template";
 
+// Prerendered at build so the Worker never needs the OG renderer at runtime.
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const slugs = await reader.collections.websiteDesign.list();
+  return slugs.map((slug) => ({ slug }));
+}
+
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ slug: string }> }

@@ -3,6 +3,7 @@ import { TOOLS_OG_DATA } from "@/lib/tools-og-data";
 import { SCHEMA_TYPE_ENTRIES, getEntry } from "../type-content";
 
 export const size = ogImageSize;
+export const dynamicParams = false;
 export const contentType = ogImageContentType;
 
 export function generateStaticParams() {

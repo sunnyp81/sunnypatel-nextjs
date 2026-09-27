@@ -418,6 +418,7 @@ export function personSchema() {
       "https://maps.google.com/?cid=2292818604572155987",
       "https://github.com/sunnyp81",
       "https://theorg.com/org/sunnypatel-co-uk",
+      "https://www.facebook.com/profile.php?id=61594791483419",
       // Add these when live:
       // "https://www.bark.com/en/gb/...",        ← create at bark.com
       // "https://www.yell.com/biz/...",          ← create at yell.com/add-your-business
@@ -566,6 +567,7 @@ export function organizationSchema() {
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       "https://maps.google.com/?cid=2292818604572155987",
       "https://theorg.com/org/sunnypatel-co-uk",
+      "https://www.facebook.com/profile.php?id=61594791483419",
       "https://clutch.co/profile/sunny-patel",
     ],
     knowsAbout: Object.entries(TOPICS).map(([key, t]) => ({
@@ -629,6 +631,7 @@ export function localBusinessSchema() {
       "https://www.linkedin.com/in/sunny-patel-co-uk/",
       "https://maps.google.com/?cid=2292818604572155987",
       "https://theorg.com/org/sunnypatel-co-uk",
+      "https://www.facebook.com/profile.php?id=61594791483419",
       "https://clutch.co/profile/sunny-patel",
       "https://www.hotfrog.co.uk/company/AEEx5NuefWmcqrDQhwUeLQ/sunny-patel/reading/internet-access",
       "https://directory.getsurrey.co.uk/company/b5c3c72b94c4d07cd7d65ab591a0c867",

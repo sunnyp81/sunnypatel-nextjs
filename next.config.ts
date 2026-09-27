@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  // OpenNext needs segment prefetch responses rather than inlined page RSC.
+  experimental: { prefetchInlining: false },
   async headers() {
     return [
       {

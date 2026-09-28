@@ -9,7 +9,9 @@
     "lint": "eslint",
     "normalize:content": "node scripts/normalize-content.mjs",
     "validate:content": "node scripts/normalize-content.mjs --check",
-    "validate:blog-images": "node scripts/validate-blog-images.mjs"
+    "validate:blog-images": "node scripts/validate-blog-images.mjs",
+    "deploy:prod": "vercel --prod && node scripts/purge-cf-cache.mjs",
+    "purge:cf": "node scripts/purge-cf-cache.mjs"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.48",

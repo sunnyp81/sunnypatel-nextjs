@@ -1,0 +1,14 @@
+title: 'I tested my Next.js site on Vercel and Cloudflare Workers: the real speed test'
+metaTitle: 'Vercel vs Cloudflare Workers: My Next.js Speed Test'
+description: >-
+  I deployed this Next.js site to Cloudflare Workers. Here are five-run mobile and
+  desktop Lighthouse medians, curl timings, costs and the migration problems.
+ogImage: /images/blog/hero-vercel-vs-cloudflare-workers.webp
+date: '2026-09-28'
+lastUpdated: '2026-09-28'
+tags:
+- Next.js
+- Cloudflare Workers
+- Vercel
+- Website Performance
+faqs: []

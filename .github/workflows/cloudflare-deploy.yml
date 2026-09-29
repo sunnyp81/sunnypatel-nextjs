@@ -2,7 +2,7 @@ name: Cloudflare Deploy
 
 on:
   push:
-    branches: [cf-workers-migration]
+    branches: [master]
   workflow_dispatch:
 
 jobs:

@@ -165,7 +165,7 @@ export function Footer() {
               &copy; 2026 Sunny Patel. All rights reserved.
             </p>
             <p className="text-xs text-ink-faint dark:text-muted-foreground">
-              Part of <span className="text-ink-faint dark:text-muted-foreground">ND Media Ltd</span> &mdash; Company No. 10784524
+              Part of <span className="text-ink-faint dark:text-muted-foreground">ND Media Ltd</span>, Company No. 10784524
             </p>
           </div>
           <div className="flex gap-4">

@@ -1,0 +1,43 @@
+title: "Search Console's Multimodal Filter: What the First 16 Days of Data Show"
+metaTitle: 'GSC Multimodal Search Filter: What the First Data Shows'
+description: >-
+  Google now reports Lens and Circle to Search traffic in Search Console. I
+  checked 46 properties: here is who gets multimodal traffic and how to grow it.
+ogImage: '/images/blog/hero-search-console-multimodal-filter.webp'
+date: '2026-09-27'
+tags:
+- Google Search Console
+- Ecommerce SEO
+- Image SEO
+faqs:
+- question: What is the multimodal search type in Google Search Console?
+  answer: >-
+    It is a new option under Web in the Performance report's search type
+    filter. Google says it tracks results triggered by a query that uses an
+    image, photo or screenshot, including Google Lens, Circle to Search on
+    Android, image uploads to Google Search and Chrome's "Search this image"
+    option. Text-only queries stay under Web (text).
+- question: Why is there no query data for multimodal searches?
+  answer: >-
+    Search Console does not report queries for this search type. It shows "No query data for multimodal web search" on the
+    Queries tab. Pages, countries, devices and dates are still available.
+- question: Can I get multimodal data from the Search Console API?
+  answer: >-
+    Not at the time of writing. On 27 September 2026 the API's search type
+    options were still web, image, video, news, discover and Google News, and
+    a request for a multimodal type returned an invalid value error. The API's
+    web totals matched the interface's text-based view exactly, so Web figures
+    pulled through the API leave out multimodal numbers. Use the interface and
+    its export to see them.
+- question: How far back does multimodal data go?
+  answer: >-
+    In the two retailers I checked by date range, the series starts
+    on 10 September 2026, two weeks before Google announced the report on 24
+    September. Nothing appears before that date.
+- question: Which websites get the most multimodal search traffic?
+  answer: >-
+    In my sample, ecommerce sites selling physical products with their own
+    product pages. Two retailers received 3,303 and 5,056 multimodal
+    impressions between 10 and 25 September 2026. Across 37 other properties,
+    mostly content, affiliate and service sites, the three-month view showed
+    110 impressions and 2 clicks in total.

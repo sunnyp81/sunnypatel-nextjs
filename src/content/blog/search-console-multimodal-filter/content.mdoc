@@ -1,0 +1,134 @@
+Google Search Console now splits Web search into two types: text-based and multimodal. Multimodal covers searches that start with an image, such as Google Lens, Circle to Search, image uploads and Chrome's "Search this image". I checked 46 properties the week it launched. In that sample, two ecommerce retailers are already getting real multimodal traffic, while my content, affiliate and service sites are getting almost none. Here is what the data shows and what I would do about it.
+
+## What Google Added on 24 September 2026
+
+Google announced the change on the [Search Central blog](https://developers.google.com/search/blog/2026/09/web-multimodal-in-sc) on 24 September 2026. Open the Performance report, click the search type filter and the Web option now has two children: Text-based and Multimodal.
+
+![Search Console search type filter showing Web split into Text-based and Multimodal, with Google's tooltip definition](/images/blog/gsc-multimodal-search-type-filter.webp)
+
+Google's tooltip gives the definition: web multimodal "tracks search results triggered by a query that uses an image, photo or screenshot." Text-only queries stay under Web text-based.
+
+According to Google's announcement, the data includes four entry points:
+
+- Google Lens
+- Circle to Search on Android
+- Image uploads to Google Search
+- Chrome's right-click "Search this image"
+
+Google added the same data to the report for generative AI features, so the multimodal filter works there too. Google says the rollout is global and you will only see figures if your site gets this kind of traffic.
+
+## What the Report Shows (and What It Leaves Out)
+
+You get clicks, impressions, CTR and average position, broken down by page, country, device, search appearance and date. You do not get queries. Click the Queries tab with the multimodal filter on and Search Console says "No query data for multimodal web search". Whatever the user searched with, the report keeps it out of view.
+
+Two more limits I found while pulling the data:
+
+**The data starts on 10 September 2026 for the retailers I checked.** Checked by date range, neither of the two retailers below shows a multimodal impression before 10 September, two weeks before the announcement. For the sports retailer, the 16-month view gives the same totals as the 3-month view. For those two, the report holds no earlier multimodal history to compare against, so their baseline starts now. Check your own properties the same way.
+
+**The API does not have it yet.** On 27 September I checked the Search Console API's list of search types. Multimodal is missing, and requesting it returns an "invalid value" error. I then compared the API's web figures for one retailer against the interface's text-based view for 10 to 25 September. They matched row for row. So if a dashboard or reporting tool pulls Web figures from the API, those figures currently leave out the multimodal numbers. To see them, open the interface or use its export.
+
+{% stats %}
+{% stat value="6" label="search types listed in the Search Console API discovery document on 27 September 2026: web, image, video, news, discover and Google News. Multimodal is missing from the list." /%}
+{% stat value="192,838" label="impressions, with 10,739 clicks, that the API returned as Web for one retailer over 10 to 25 September. The interface's text-based view gave the same rows, so the API's Web figures exclude multimodal." /%}
+{% /stats %}
+
+## What My Data Shows: Retailers Get It, Content Sites Don't
+
+I ran the multimodal filter across every property I could access: 37 of my own sites (affiliate reviews, data tools, local service sites and this one) and 9 client properties. For the three client sites with meaningful volume, I pulled 10 to 25 September for both search types so the windows match exactly. Client names are left out.
+
+| Site | Multimodal impr. | Share of web impr. | CTR (multimodal / text) |
+|---|---|---|---|
+| Sports retailer | 3,303 | 4.5% | 1.7% / 3.6% |
+| Hobby retailer | 5,056 | 2.6% | 1.9% / 5.6% |
+| Wholesaler | 171 | 1.2% | 2.9% / 7.0% |
+| My 37 sites | 110 | n/a | 1.8% / n/a |
+
+My own sites' figure is the 3-month view. Multimodal clicks were 56, 98 and 5 for the three client sites over 10 to 25 September, and 2 in total across my 37 sites.
+
+{% chart type="bar" eyebrow="Multimodal share" title="Multimodal impressions as a share of all web search impressions, 10 to 25 September 2026" data="Sports retailer:4.5|Hobby retailer:2.6|Wholesaler:1.2" suffix="%" highlight="Sports retailer" source="Author's own Search Console data, three client properties, anonymised" /%}
+
+Here is the sports retailer's multimodal view. The line is flat until 10 September, then it runs at roughly 170 to 270 impressions a day.
+
+![Search Console Performance report filtered to Web multimodal for an anonymised UK sports retailer: 56 clicks, 3.3k impressions, 1.7% CTR, average position 1.9, with data starting on 10 September 2026](/images/blog/gsc-multimodal-retailer-chart.webp)
+
+Of my 37 own properties, 28 had zero multimodal impressions. The 9 that registered anything are mostly sites about physical products: a label printer review site had 54 impressions and a pull-up bar site had 29. This site, a consultancy, had 4. Nothing I run that is built around data, calculators or services got more than a handful.
+
+Four patterns stand out.
+
+### 1. Product pages collect it
+
+The sports retailer had 442 different pages with at least one multimodal impression. The hobby retailer hit Search Console's 1,000-row display limit. Nine of the sports retailer's top ten multimodal pages by clicks were individual product pages (the tenth was a brand page), and all ten of the hobby retailer's were. The report cannot show what people photographed, but a plausible pattern is someone taking a picture of an item they want to identify or buy and landing on a page that sells it.
+
+One product appeared among the top multimodal pages for both retailers: the same model, from the same manufacturer. Both shops received multimodal impressions on their page for that item, so stockists of the same product may be competing for the same image-led searches. The hidden queries make that impossible to confirm.
+
+### 2. It is almost all mobile
+
+{% stats %}
+{% stat value="94.5%" label="of the sports retailer's multimodal impressions came from mobile, against 69% of its text search impressions" /%}
+{% stat value="90.8%" label="of the hobby retailer's multimodal impressions came from mobile" /%}
+{% stat value="93 of 98" label="multimodal clicks on the hobby retailer came from phones" /%}
+{% /stats %}
+
+That fits the entry points: Lens and Circle to Search are built into phones. Most multimodal clicks came from phones, and product pages led both retailers' top ten pages by clicks.
+
+### 3. Positions are high and CTR is lower
+
+Average multimodal position was 1.9 for both retailers, against text positions of 7.4 and 8.0. The wholesaler's multimodal position was 2.2; I did not pull its overall text position. Multimodal CTR was still lower in all three cases.
+
+| Site | Position (multimodal / text) | CTR (multimodal / text) |
+|---|---|---|
+| Sports retailer | 1.9 / 7.4 | 1.7% / 3.6% |
+| Hobby retailer | 1.9 / 8.0 | 1.9% / 5.6% |
+| Wholesaler | 2.2 / n/a | 2.9% / 7.0% |
+
+I would treat those positions with care. My working explanation, which this data cannot confirm, is that a visual results layout behaves differently from a list of links, and that many Lens users get their answer (what is this thing?) without clicking. Either way, a multimodal position of 1.9 has produced far fewer clicks per impression than text positions on the same sites.
+
+### 4. The volume is small but it is new
+
+For the sports retailer, multimodal was 4.5% of web impressions and 2.2% of web clicks. That is a small slice of search visibility. The useful part is that it is now measurable: before this report, Search Console had no multimodal view to open. You can now see which product pages receive multimodal impressions and start improving the ones that don't.
+
+## What This Means for Website Growth
+
+The report gives you a page-level view of image-led searches, so you can measure them and improve the pages that receive them.
+
+If you sell physical products, multimodal search is a discovery channel you can track at page level for the first time. Someone photographing a product in a shop, at a friend's house or in a social post may well be a buyer with a specific item in mind. For a product you stock, your page or a competitor's can appear for that photo.
+
+On the content, data and service sites in my sample, the report is close to zero. If your site looks like those, check your own report before planning anything around it, then look again monthly in case a page surprises you.
+
+## How to Capitalise on Multimodal Search
+
+Google's announcement does not include optimisation advice. The steps below come from Google's [image SEO best practices](https://developers.google.com/search/docs/appearance/google-images), its [product structured data documentation](https://developers.google.com/search/docs/appearance/structured-data/product) and what the data above shows about which pages receive multimodal impressions.
+
+### Record a baseline now
+
+For the two retailers I checked by date range, the multimodal series starts on 10 September 2026, and the API does not carry it today. Export the multimodal view by page and by date from the interface every month and keep the files, so you have your own record of how the channel grows. If you report to clients or a board, add a multimodal line by hand for as long as the API leaves it out.
+
+{% pullquote cite="From my Search Console page data" %}
+The two retailers' pages for the same item recorded 50 and 45 multimodal impressions. I cannot tell whether they appeared for the same searches.
+{% /pullquote %}
+
+### Photograph your own products
+
+Both retailers showed up for the same product. When every stockist uses the manufacturer's images, several pages carry near-identical pictures. My recommendation is to add your own photos, taken from more angles and in real settings, so your page offers something the others don't. This data does not prove it. Treat it as a reasonable bet. Google's own guidance is to use "high-quality photos" that appeal to users.
+
+### Put the image next to the words that describe it
+
+Google recommends placing images "near relevant text and on pages that are relevant to the image subject matter." On a product page that means the main photo sits beside the product name, model number and key specifications. Use a standard HTML image element (Google says it does not index CSS background images), write descriptive filenames and write alt text that says what the product is.
+
+### Get product structured data and Merchant Center right
+
+Most of the top multimodal pages in my data were product pages. Complete Product structured data (name, image, brand, offers, price and availability) and a clean Merchant Center feed are standard product search hygiene: they help Google understand which item a page sells. I have no data yet showing they lift multimodal impressions specifically. Check the Merchant listings and Product snippets reports in Search Console for errors before anything else.
+
+### Fix the mobile product page
+
+On all three client sites, more than 90% of multimodal impressions came from phones. A mobile product page that loads slowly, hides the price below the fold or opens with a pop-up may make those visits less useful. Test your top multimodal pages on a real phone.
+
+### Find the pages that should be winning
+
+Filter the Pages tab to multimodal and sort by impressions. Compare that list with your best-selling products. A best seller with no multimodal impressions is the first page to improve: better photos, cleaner structured data, clearer on-page text.
+
+## The Bottom Line
+
+The multimodal filter gives you a first page-level view of image-led search. In my data it is a few percent of web impressions for the two retailers and close to nothing for the other sites I checked. Retailers who start exporting the data now, and fix their product photos and product pages, will have months of their own trend data to work from.
+
+My [technical SEO audit](/services/technical-seo-audit/) reviews your own Search Console data, multimodal included.

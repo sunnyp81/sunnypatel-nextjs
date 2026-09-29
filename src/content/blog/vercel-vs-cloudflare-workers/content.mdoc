@@ -1,4 +1,4 @@
-Vercel was faster. Across five-run Lighthouse medians on four pages, Vercel led every mobile performance score and served the first byte sooner on three of four pages, while desktop scores were almost level.
+I initially called Vercel faster because its default Lighthouse scores led on all four mobile pages. That verdict was too strong. When I applied throttling in Chrome, the mobile performance medians for Vercel and Workers were 83/81 on the homepage, 85/85 on the blog page, 93/92 on services and 94/94 on the SSL checker. Both hosts scored 100 on every desktop page. These runs do not show a clear overall speed winner.
 
 I deployed a Cloudflare Workers version of this Next.js site because its Vercel Hobby usage was approaching several limits. The live domain still routes to Vercel through Cloudflare. The migration exposed an adapter bug that made the first speed comparison misleading, so I fixed it before running the comparison below.
 
@@ -14,9 +14,11 @@ I compared the direct Vercel production host, `sunnypatel-nextjs.vercel.app`, wi
 
 The Vercel host served the current master build. The Worker served the migration branch, including the redirect move from `proxy.ts`, removal of `optimizeCss`, and the prefetch fix described below. This is a comparison of the two live deployments, not a controlled test of hosting alone.
 
-On 28 September 2026, I ran Lighthouse 12 in headless Chrome from one UK connection. I used its default mobile throttling and desktop preset, with five runs per host, device and page, alternating hosts after each run. The four paths were the homepage, an AI Overviews blog post, the services page and the [SSL checker](/tools/ssl-checker/). I also interleaved 30 curl requests per host and path to measure time to first byte. The PageSpeed Insights API returned HTTP 429 on all three attempts for each host, so I used the local Lighthouse reports. These are lab measurements. I have no CrUX field data for these platform subdomains, and a different connection or cache state can change the result.
+On 28 September 2026, I ran Lighthouse 12 in headless Chrome from one UK connection. The first set used Lighthouse's default simulated throttling, with five runs per host, device and page. I then repeated all four pages with `--throttling-method=devtools`, which applies network and CPU throttling during the load. I alternated hosts, warmed each host and path with two unmeasured requests, and ran five additional mobile tests of the Worker blog page with QUIC disabled. The four paths were the homepage, an AI Overviews blog post, the services page and the [SSL checker](/tools/ssl-checker/).
 
-## Lighthouse results after the prefetch fix
+I also interleaved 30 curl requests per host and path to measure time to first byte. The PageSpeed Insights API returned HTTP 429 on all three attempts for each host, so I used the local Lighthouse reports. These are lab measurements. DevTools throttling is an applied browser throttle, though it still models network conditions at the request level. I have no CrUX field data for these platform subdomains, and a different connection or cache state can change the result.
+
+## Lighthouse results with simulated throttling
 
 ### Mobile Lighthouse medians
 
@@ -36,9 +38,39 @@ On 28 September 2026, I ran Lighthouse 12 in headless Chrome from one UK connect
 | Services | 100 / 99 | 0.54 / 0.88 | 722 / 762 |
 | SSL checker | 100 / 100 | 0.46 / 0.65 | 622 / 645 |
 
-V/W means Vercel / Workers. Vercel led the mobile performance median on all four pages. On desktop, Vercel scored 100 on every page; Workers scored 99 on three and 100 on the SSL checker. Accessibility medians were 100 except on services, where both scored 96. Best Practices and SEO medians were 100 throughout. One Workers desktop blog run scored SEO 92, explained below.
+V/W means Vercel / Workers. These default Lighthouse scores favoured Vercel on all four mobile pages. On desktop, Vercel scored 100 on every page; Workers scored 99 on three and 100 on the SSL checker. Accessibility medians were 100 except on services, where both scored 96. Best Practices and SEO medians were 100 throughout. One Workers desktop blog run scored SEO 92, explained below.
 
-Each figure is the median of five runs. The raw reports and test summary retain FCP, TBT, CLS, Speed Index, server response time, full score ranges and total transfer. A lab score is a snapshot of this deployment and connection.
+Each figure is the median of five runs. Lighthouse calculated the paint timings in these tables with its Lantern simulation. The raw reports retain the actual browser observations from the same runs, as well as FCP, TBT, CLS, Speed Index, server response time, full score ranges and total transfer.
+
+## What changed when I applied throttling in Chrome
+
+The new five-run medians were much closer. The table uses the same pages and hosts, with network and CPU throttling applied during each Chrome load.
+
+| Page | Mobile score V/W | Mobile LCP seconds V/W | Desktop score V/W | Desktop LCP seconds V/W |
+|---|---:|---:|---:|---:|
+| Home | 83 / 81 | 2.28 / 2.27 | 100 / 100 | 0.27 / 0.31 |
+| AI Overviews post | 85 / 85 | 2.26 / 2.36 | 100 / 100 | 0.23 / 0.27 |
+| Services | 93 / 92 | 1.98 / 1.97 | 100 / 100 | 0.22 / 0.21 |
+| SSL checker | 94 / 94 | 2.03 / 2.08 | 100 / 100 | 0.22 / 0.21 |
+
+I also checked the observed FCP and LCP values in the earlier, unthrottled browser traces. They differ from Lantern's simulated timings. Each cell below is median FCP / LCP in milliseconds across five runs.
+
+| Device | Page | Observed Vercel FCP / LCP | Observed Workers FCP / LCP |
+|---|---|---:|---:|
+| Mobile | Home | 496 / 496 | 1267 / 1267 |
+| Mobile | AI Overviews post | 1326 / 1326 | 1266 / 1283 |
+| Mobile | Services | 1290 / 1290 | 1315 / 1315 |
+| Mobile | SSL checker | 1336 / 1336 | 260 / 260 |
+| Desktop | Home | 398 / 398 | 385 / 385 |
+| Desktop | AI Overviews post | 398 / 398 | 388 / 388 |
+| Desktop | Services | 356 / 356 | 368 / 368 |
+| Desktop | SSL checker | 273 / 273 | 277 / 277 |
+
+The observed mobile home and SSL checker timings pull in opposite directions. The other pages and the desktop observations are close. The default simulated scores therefore gave me more confidence in a Vercel speed lead than the browser observations warranted.
+
+[Lighthouse's throttling guide](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md) explains that its default method models a slower load from an unthrottled trace. DevTools throttling applies a request-level network limit and slows CPU work in Chrome. Neither method is a field measurement or a packet-level mobile network test.
+
+The protocol mix may matter to the simulation. Across the five mobile blog runs, Vercel made 225 first-party requests over h2. Workers made 283 over h3 and 12 over h2. I disabled QUIC for five more Worker blog runs: all 295 first-party requests used h2, the median score was 86 and LCP was 2.31 seconds. With h3, Workers scored 85 with 2.36 seconds LCP; Vercel scored 85 with 2.26 seconds LCP. The h2 control stayed close. Different handling of QUIC latency by Lantern is one possible reason for the earlier simulated gap, but this test does not isolate that cause.
 
 ## Time to first byte and response delivery
 
@@ -91,4 +123,4 @@ A mostly prerendered Next.js site like this one can benefit if Vercel's usage li
 
 ## My verdict
 
-Vercel led all four mobile Lighthouse performance medians and had lower curl TTFB on three pages. The Worker build offers a route away from Vercel's ISR allowance, and its prefetch request storm is fixed. The builds and hostnames differ, so these measurements cannot isolate a pure hosting effect. I would switch this site's traffic only after testing the prefetch setting and route changes against the live domain.
+I no longer have evidence to call Vercel faster overall. Its default simulated Lighthouse scores led on mobile and its curl TTFB was lower on three pages, while the observed browser timings and the new applied-throttling medians were close or mixed. The Worker build offers a route away from Vercel's ISR allowance, and its prefetch request storm is fixed. The builds and hostnames differ, so these measurements cannot isolate a pure hosting effect. I would decide on a traffic move after testing the route changes and performance against the live domain.

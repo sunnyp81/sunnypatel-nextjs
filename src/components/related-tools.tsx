@@ -11,20 +11,51 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
     : [];
   const others = rest.filter((t) => !sameCategory.includes(t));
   const workflows: Record<string, string[]> = {
-    "/tools/schema-validator/": ["/tools/schema-generator/", "/tools/robots-generator/", "/tools/sitemap-generator/"],
-    "/tools/sitemap-generator/": ["/tools/robots-generator/", "/tools/schema-validator/", "/tools/broken-links/"],
-    "/tools/llms-txt-generator/": ["/tools/ai-visibility-checker/", "/tools/sitemap-generator/", "/tools/schema-validator/"],
-    "/tools/meta-description-generator/": ["/tools/serp-preview/", "/tools/title-checker/", "/tools/readability-score/"],
-    "/tools/keyword-scraper/": ["/tools/seo-prompts/", "/tools/serp-preview/", "/tools/schema-generator/"],
-    "/tools/seo-prompts/": ["/tools/keyword-scraper/", "/tools/schema-generator/", "/tools/serp-preview/"],
-    "/tools/schema-generator/": ["/tools/seo-prompts/", "/tools/website-grader/", "/tools/keyword-scraper/"],
+    "/tools/schema-validator/": [
+      "/tools/schema-generator/",
+      "/tools/robots-generator/",
+      "/tools/sitemap-generator/",
+    ],
+    "/tools/sitemap-generator/": [
+      "/tools/robots-generator/",
+      "/tools/schema-validator/",
+      "/tools/broken-links/",
+    ],
+    "/tools/llms-txt-generator/": [
+      "/tools/ai-visibility-checker/",
+      "/tools/sitemap-generator/",
+      "/tools/schema-validator/",
+    ],
+    "/tools/meta-description-generator/": [
+      "/tools/serp-preview/",
+      "/tools/title-checker/",
+      "/tools/readability-score/",
+    ],
+    "/tools/keyword-scraper/": [
+      "/tools/seo-prompts/",
+      "/tools/serp-preview/",
+      "/tools/schema-generator/",
+    ],
+    "/tools/seo-prompts/": [
+      "/tools/keyword-scraper/",
+      "/tools/schema-generator/",
+      "/tools/serp-preview/",
+    ],
+    "/tools/schema-generator/": [
+      "/tools/seo-prompts/",
+      "/tools/website-grader/",
+      "/tools/keyword-scraper/",
+    ],
   };
-  const preferred = (workflows[currentHref] || []).flatMap(href => {
-    const tool = rest.find(item => item.href === href);
+  const preferred = (workflows[currentHref] || []).flatMap((href) => {
+    const tool = rest.find((item) => item.href === href);
     return tool ? [tool] : [];
   });
   const picked = [...preferred, ...sameCategory, ...others]
-    .filter((tool, index, all) => all.findIndex(item => item.href === tool.href) === index)
+    .filter(
+      (tool, index, all) =>
+        all.findIndex((item) => item.href === tool.href) === index,
+    )
     .slice(0, 3);
 
   if (picked.length === 0) return null;

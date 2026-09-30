@@ -1,10 +1,24 @@
 export type ToolOgEntry = { headline: string; description: string };
 
 export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
-  "schema-validator": { headline: "Free Schema Validator", description: "Check JSON-LD syntax and structured data properties from code or a URL." },
-  "sitemap-generator": { headline: "Free XML Sitemap Generator", description: "Crawl linked HTML pages and download a sitemap draft." },
-  "llms-txt-generator": { headline: "Free llms.txt Generator", description: "Draft a proposed llms.txt file for your website." },
-  "meta-description-generator": { headline: "Free Meta Description Generator", description: "Create six search descriptions and compare estimated pixel widths." },
+  "schema-validator": {
+    headline: "Free Schema Validator",
+    description:
+      "Check JSON-LD syntax and structured data properties from code or a URL.",
+  },
+  "sitemap-generator": {
+    headline: "Free XML Sitemap Generator",
+    description: "Crawl linked HTML pages and download a sitemap draft.",
+  },
+  "llms-txt-generator": {
+    headline: "Free llms.txt Generator",
+    description: "Draft a proposed llms.txt file for your website.",
+  },
+  "meta-description-generator": {
+    headline: "Free Meta Description Generator",
+    description:
+      "Create six search descriptions and compare estimated pixel widths.",
+  },
   "ai-visibility-checker": {
     headline: "Free AI Visibility Checker",
     description:

@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { reader } from "@/lib/content";
 
-
 const SITE_URL = "https://sunnypatel.co.uk";
 
 // Static routes: use a fixed date rather than new Date() to avoid
@@ -9,60 +8,325 @@ const SITE_URL = "https://sunnypatel.co.uk";
 const LAST_DEPLOY = new Date("2026-04-09");
 
 const staticRoutes: MetadataRoute.Sitemap = [
-  { url: `${SITE_URL}/`,                   lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 1.0 },
-  { url: `${SITE_URL}/about/`,             lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
-  { url: `${SITE_URL}/services/`,          lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.9 },
-  { url: `${SITE_URL}/portfolio/`,         lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
-  { url: `${SITE_URL}/blog/`,              lastModified: LAST_DEPLOY, changeFrequency: "daily",   priority: 0.9 },
-  { url: `${SITE_URL}/contact/`,           lastModified: LAST_DEPLOY, changeFrequency: "yearly",  priority: 0.7 },
-  { url: `${SITE_URL}/proof/`,             lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.7 },
+  {
+    url: `${SITE_URL}/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "weekly",
+    priority: 1.0,
+  },
+  {
+    url: `${SITE_URL}/about/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/services/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${SITE_URL}/portfolio/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/blog/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "daily",
+    priority: 0.9,
+  },
+  {
+    url: `${SITE_URL}/contact/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "yearly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/proof/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
   // AI visibility cluster
-  { url: `${SITE_URL}/ai-visibility/`,             lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.9 },
-  { url: `${SITE_URL}/ai-visibility-consultant/`,  lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
-  { url: `${SITE_URL}/geo-agency/`,                lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
-  { url: `${SITE_URL}/is-your-brand-visible-in-ai-search/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/ai-visibility-results/`,     lastModified: new Date("2026-08-26"), changeFrequency: "monthly", priority: 0.8 },
+  {
+    url: `${SITE_URL}/ai-visibility/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
+    url: `${SITE_URL}/ai-visibility-consultant/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/geo-agency/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/is-your-brand-visible-in-ai-search/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/ai-visibility-results/`,
+    lastModified: new Date("2026-08-26"),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
   // Tools hub + individual tools
-  { url: `${SITE_URL}/tools/`,                lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.9 },
-  ...["schema-validator", "sitemap-generator", "llms-txt-generator", "meta-description-generator"].map((slug) => ({ url: `${SITE_URL}/tools/${slug}/`, lastModified: new Date("2026-09-30"), changeFrequency: "monthly" as const, priority: 0.7 })),
-  { url: `${SITE_URL}/tools/keyword-scraper/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/serp-preview/`,    lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/title-checker/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/schema-generator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/schema-generator/faq/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/article/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/local-business/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/product/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/breadcrumb/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/how-to/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/organization/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/person/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/service/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/website/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/job-posting/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/event/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/video/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/review/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/item-list/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/schema-generator/software-application/`, lastModified: new Date("2026-09-10"), changeFrequency: "monthly", priority: 0.65 },
-  { url: `${SITE_URL}/tools/robots-generator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/hreflang-generator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/redirect-checker/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/utm-builder/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/seo-roi-calculator/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/seo-prompts/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/keyword-density/`,  lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/readability-score/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/internal-links/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/word-counter/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/text-diff/`,        lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/website-grader/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
-  { url: `${SITE_URL}/tools/ai-visibility-checker/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.8 },
-  { url: `${SITE_URL}/tools/speed-checker/`,    lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/broken-links/`,     lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/ssl-checker/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/og-preview/`,       lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/review-link/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
+  {
+    url: `${SITE_URL}/tools/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  ...[
+    "schema-validator",
+    "sitemap-generator",
+    "llms-txt-generator",
+    "meta-description-generator",
+  ].map((slug) => ({
+    url: `${SITE_URL}/tools/${slug}/`,
+    lastModified: new Date("2026-09-30"),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  })),
+  {
+    url: `${SITE_URL}/tools/keyword-scraper/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/serp-preview/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/title-checker/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/faq/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/article/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/local-business/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/product/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/breadcrumb/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/how-to/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/organization/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/person/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/service/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/website/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/job-posting/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/event/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/video/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/review/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/item-list/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/schema-generator/software-application/`,
+    lastModified: new Date("2026-09-10"),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  },
+  {
+    url: `${SITE_URL}/tools/robots-generator/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/hreflang-generator/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/redirect-checker/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/utm-builder/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/seo-roi-calculator/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/seo-prompts/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/keyword-density/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/readability-score/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/internal-links/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/word-counter/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/text-diff/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/website-grader/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/tools/ai-visibility-checker/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/tools/speed-checker/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/broken-links/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/ssl-checker/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/og-preview/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/tools/review-link/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
   // privacy-policy and terms-of-use excluded to save crawl budget
 ];
 
@@ -79,7 +343,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "monthly" as const,
         priority: 0.7,
       };
-    })
+    }),
   );
 
   // Service pages
@@ -113,7 +377,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const serviceSlugs = await reader.collections.services.list();
   const serviceEntries = serviceSlugs
-    .filter((slug) => !NOINDEX_SERVICE_SLUGS.has(slug) && !CANONICAL_OVERRIDE_SLUGS.has(slug))
+    .filter(
+      (slug) =>
+        !NOINDEX_SERVICE_SLUGS.has(slug) && !CANONICAL_OVERRIDE_SLUGS.has(slug),
+    )
     .map((slug) => ({
       url: `${SITE_URL}/services/${slug}/`,
       lastModified: LAST_DEPLOY,

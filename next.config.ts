@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
     return [
       // Legacy /Services casing is handled in worker.ts. Config redirects are
       // case-insensitive and would also redirect /services/ back to itself.
+      // Image compressor retired 2026-09-30: 4 impressions and 0 clicks in 90 days, off-topic for SEO leads.
+      { source: "/tools/image-compressor", destination: "/tools/", permanent: true },
+      { source: "/tools/image-compressor/:path*", destination: "/tools/", permanent: true },
       { source: "/services/ai-visibility-audit", destination: "/services/paid-seo-audit/", permanent: true },
       { source: "/services/ai-visibility-audit/", destination: "/services/paid-seo-audit/", permanent: true },
       {

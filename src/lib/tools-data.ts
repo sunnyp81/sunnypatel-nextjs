@@ -138,12 +138,6 @@ export const tools: Tool[] = [
     href: "/tools/review-link/",
     category: "Local SEO",
   },
-  {
-    name: "Image Compressor",
-    description: "Compress images in-browser to improve page speed. No upload - 100% private.",
-    href: "/tools/image-compressor/",
-    category: "Page Speed",
-  },
 ];
 
 export const categories = [...new Set(tools.map((t) => t.category))];

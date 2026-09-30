@@ -16,11 +16,7 @@ export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
     description:
       "Generate correct hreflang tags for multilingual and multi-regional websites. Supports HTML link tags and XML sitemap format. Free international SEO tool.",
   },
-  "image-compressor": {
-    headline: "Image Compressor for Page Speed",
-    description:
-      "Compress images in your browser to improve page load speed. Reduce JPEG and PNG file sizes without losing visible quality. No upload \u2014 100% private.",
-  },
+
   "internal-links": {
     headline: "Internal Link Opportunity Finder",
     description:

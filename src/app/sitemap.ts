@@ -62,7 +62,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/tools/ssl-checker/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/og-preview/`,       lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/review-link/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/tools/image-compressor/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   // privacy-policy and terms-of-use excluded — low crawl-priority, waste crawl budget
 ];
 

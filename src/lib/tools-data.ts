@@ -6,6 +6,10 @@ export type Tool = {
 };
 
 export const tools: Tool[] = [
+  { name: "Schema Validator", description: "Check JSON-LD syntax, graph nodes and Google supported properties.", href: "/tools/schema-validator/", category: "Technical SEO" },
+  { name: "XML Sitemap Generator", description: "Crawl internal HTML links and download a sitemap draft.", href: "/tools/sitemap-generator/", category: "Technical SEO" },
+  { name: "llms.txt Generator", description: "Draft a proposed llms.txt file from your site details and links.", href: "/tools/llms-txt-generator/", category: "AI & Prompts" },
+  { name: "Meta Description Generator", description: "Create six editable search descriptions with width estimates.", href: "/tools/meta-description-generator/", category: "On-Page SEO" },
   {
     name: "Keyword Suggestions",
     description: "Scrape Google Autocomplete suggestions across 8 regions with a-z expansion.",

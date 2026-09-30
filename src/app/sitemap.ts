@@ -4,7 +4,7 @@ import { reader } from "@/lib/content";
 
 const SITE_URL = "https://sunnypatel.co.uk";
 
-// Static routes — use a fixed date rather than new Date() to avoid
+// Static routes: use a fixed date rather than new Date() to avoid
 // telling Google every page changed on every build
 const LAST_DEPLOY = new Date("2026-04-09");
 
@@ -24,6 +24,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/ai-visibility-results/`,     lastModified: new Date("2026-08-26"), changeFrequency: "monthly", priority: 0.8 },
   // Tools hub + individual tools
   { url: `${SITE_URL}/tools/`,                lastModified: LAST_DEPLOY, changeFrequency: "weekly",  priority: 0.9 },
+  ...["schema-validator", "sitemap-generator", "llms-txt-generator", "meta-description-generator"].map((slug) => ({ url: `${SITE_URL}/tools/${slug}/`, lastModified: new Date("2026-09-30"), changeFrequency: "monthly" as const, priority: 0.7 })),
   { url: `${SITE_URL}/tools/keyword-scraper/`, lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/serp-preview/`,    lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/title-checker/`,   lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
@@ -62,11 +63,11 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${SITE_URL}/tools/ssl-checker/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/og-preview/`,       lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE_URL}/tools/review-link/`,      lastModified: LAST_DEPLOY, changeFrequency: "monthly", priority: 0.7 },
-  // privacy-policy and terms-of-use excluded — low crawl-priority, waste crawl budget
+  // privacy-policy and terms-of-use excluded to save crawl budget
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Blog posts — use lastUpdated if available, else published date
+  // Blog posts: use lastUpdated if available, else published date
   const blogSlugs = await reader.collections.blog.list();
   const blogEntries = await Promise.all(
     blogSlugs.map(async (slug) => {
@@ -103,7 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "seo-consultant-york",
   ]);
 
-  // Pages with canonicalOverride pointing to another page — exclude from sitemap
+  // Pages with canonicalOverride pointing to another page are excluded from sitemap
   // to avoid diluting the canonical target's authority
   const CANONICAL_OVERRIDE_SLUGS = new Set([
     "local-seo-agency",

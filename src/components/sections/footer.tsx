@@ -1,4 +1,5 @@
 import { Linkedin, Mail, Phone, Star } from "lucide-react";
+import { tools } from "@/lib/tools-data";
 
 const links = [
   { href: "/services/", label: "Services" },
@@ -143,7 +144,7 @@ export function Footer() {
                 { href: "/tools/schema-generator/", label: "Schema Generator" },
                 { href: "/tools/broken-links/", label: "Broken Link Checker" },
                 { href: "/tools/seo-prompts/", label: "SEO Prompt Library" },
-                { href: "/tools/", label: "View All 20 Tools" },
+                { href: "/tools/", label: `View All ${tools.length} Tools` },
               ].map((link) => (
                 <li key={link.href}>
                   <a

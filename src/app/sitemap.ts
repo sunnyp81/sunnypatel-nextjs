@@ -89,6 +89,8 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   ...[
+    "local-seo-audit",
+    "keyword-cannibalisation-checker",
     "schema-validator",
     "sitemap-generator",
     "llms-txt-generator",

@@ -21,6 +21,8 @@ export function downloadText(name: string, text: string, type = "text/plain") {
   const link = document.createElement("a");
   link.href = objectUrl;
   link.download = name;
+  document.body.appendChild(link);
   link.click();
-  setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
 }

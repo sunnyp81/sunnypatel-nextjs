@@ -11,6 +11,16 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
     : [];
   const others = rest.filter((t) => !sameCategory.includes(t));
   const workflows: Record<string, string[]> = {
+    "/tools/local-seo-audit/": [
+      "/tools/review-link/",
+      "/tools/schema-validator/",
+      "/tools/website-grader/",
+    ],
+    "/tools/keyword-cannibalisation-checker/": [
+      "/tools/keyword-scraper/",
+      "/tools/internal-links/",
+      "/tools/serp-preview/",
+    ],
     "/tools/schema-validator/": [
       "/tools/schema-generator/",
       "/tools/robots-generator/",

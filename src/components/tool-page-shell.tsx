@@ -18,6 +18,64 @@ export type ToolPageInfo = {
 };
 
 export const newToolPages: Record<string, ToolPageInfo> = {
+  "local-seo-audit": {
+    slug: "local-seo-audit",
+    title: "Local SEO Audit Tool",
+    description: "Check a business page for local search signals, contact details and structured data.",
+    intro: "Enter a business page and its details to get a scored, prioritised local SEO checklist.",
+    explanation: [
+      "A local service page should make it easy for people to see who serves their area and how to get in touch. This tool reads the HTML returned for one public URL. It looks for your business name, town and phone in visible text, page headings and metadata, then compares those details with any LocalBusiness or Organization structured data. It also checks for a map or directions link, a Google Maps or Business Profile link, a telephone link and review signals.",
+      "Use the checklist when publishing a new location page or reviewing an existing one. Enter the business name, town and phone exactly as customers know them. A pass means the specified signal was detected in the returned page, while a warning means it was partial or ambiguous. A fail points to a missing signal. The score is a weighted sum of these checks, with partial credit for warnings. It is a practical editing guide, not a Google score or ranking prediction.",
+      "Review each finding against the actual page before changing it. In particular, a local landing page should describe a real service in that town rather than repeat place names mechanically. Keep contact details consistent with your genuine business records. This tool cannot open your Google Business Profile, verify an address, see rankings or assess content added after the HTML response loads.",
+    ],
+    steps: [
+      "Enter the public page URL, business name, town and phone number.",
+      "Run the check and review the highest weighted gaps first.",
+      "Compare flagged details with the live page and your real business records before editing.",
+    ],
+    checks: [
+      "Business details in visible text and structured data",
+      "LocalBusiness fields, town in key page elements and service headings",
+      "Map, Google listing, click-to-call and review signals",
+    ],
+    limits: "This checks one returned HTML page. It cannot inspect your Google Business Profile, confirm rankings, validate a physical address or see content rendered later by JavaScript.",
+    faqs: [
+      { q: "Is the score a Google metric?", a: "No. It is a transparent weighted checklist of on-page signals. Google does not supply this score." },
+      { q: "Can this check my Google Business Profile?", a: "No. It can only find links to a profile or Maps page in the returned HTML." },
+      { q: "Do I need to show my address?", a: "Only publish an address that genuinely represents the business. The audit marks missing address information as a review point, not proof that you need a public shopfront." },
+      { q: "Will it check several locations?", a: "Run each location page separately with its own town and business details." },
+    ],
+    service: { href: "/services/local-seo/", label: "local SEO service", lead: "For a wider local search review, see my" },
+  },
+  "keyword-cannibalisation-checker": {
+    slug: "keyword-cannibalisation-checker",
+    title: "Keyword Cannibalisation Checker",
+    description: "Find queries receiving impressions across several pages in a Google Search Console export.",
+    intro: "Paste or upload a query and page CSV to find overlapping search queries across your pages.",
+    explanation: [
+      "Keyword cannibalisation describes a situation where several pages compete for the same search intent. More than one page appearing for a query is only a clue: a category page and a detailed article may both deserve visibility. This checker groups the rows in a Google Search Console query and page table. It flags queries with impressions on at least two distinct pages and shows the impressions, clicks, average position and impression share for each page.",
+      "Use a table covering a useful date range with Query and Page on every row. Search Console's standard Performance export usually gives separate dimension tables, which cannot be joined into query and page pairs. For a targeted check, filter by one query, open Pages, choose Export and CSV, then add that query as a Query column to the exported page rows. Repeat for other queries and combine the rows. A query and page table exported from the Search Console API also works. The file stays in your browser.",
+      "Issues with more combined impressions and similar page positions rise to the top. The suggested owner is the page with most clicks, using best position as a tie-breaker. This is a starting point for review, not an instruction to delete or redirect a page. Check intent, content quality, conversions and the wider query set before deciding whether to consolidate, differentiate or leave both pages alone. Download the flagged rows to share or investigate further.",
+    ],
+    steps: [
+      "In Search Console, open Performance, then Search results and choose a date range.",
+      "Choose a query in Queries to filter the report, open Pages, then choose Export and CSV. Add that query as a Query column to each exported page row.",
+      "Repeat for other queries and combine the rows into one CSV with Query, Page, Clicks, Impressions and Position columns. Upload or paste it here.",
+    ],
+    checks: [
+      "Queries with impressions on two or more distinct pages",
+      "Per-page clicks, impressions, average position and impression share",
+      "Priority based on combined impressions and position proximity",
+    ],
+    limits: "An overlap is not automatically a problem. Exported rows can be limited or anonymised by Search Console. The suggested owner uses clicks and position only; final decisions need editorial judgement.",
+    faqs: [
+      { q: "Can I use separate Queries and Pages CSV files?", a: "No. Each input row must contain both a query and its page. Separate totals cannot be reliably joined." },
+      { q: "Is keyword cannibalization the same term?", a: "Yes. Cannibalization is the US spelling; this page uses the British spelling cannibalisation." },
+      { q: "Does every overlap need a fix?", a: "No. Several pages may serve different intents for the same query. Review the pages before making changes." },
+      { q: "Is my export uploaded?", a: "No. Your file and pasted rows are read and analysed in your browser." },
+    ],
+    service: { href: "/services/technical-seo-audit/", label: "technical SEO audit", lead: "For a full review of competing pages and site structure, see my" },
+  },
   "readability-score": {
     slug: "readability-score",
     title: "Readability Checker",

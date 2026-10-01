@@ -7,6 +7,18 @@ export type Tool = {
 
 export const tools: Tool[] = [
   {
+    name: "Local SEO Audit Tool",
+    description: "Check a business page for local search signals and get a prioritised checklist.",
+    href: "/tools/local-seo-audit/",
+    category: "Local SEO",
+  },
+  {
+    name: "Keyword Cannibalisation Checker",
+    description: "Find queries shared by several pages in a Search Console export.",
+    href: "/tools/keyword-cannibalisation-checker/",
+    category: "Keyword Research",
+  },
+  {
     name: "Schema Validator",
     description:
       "Check JSON-LD syntax, graph nodes and Google supported properties.",

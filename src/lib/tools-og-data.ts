@@ -1,6 +1,14 @@
 export type ToolOgEntry = { headline: string; description: string };
 
 export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
+  "local-seo-audit": {
+    headline: "Free Local SEO Audit Tool",
+    description: "Check business details, local page signals and structured data.",
+  },
+  "keyword-cannibalisation-checker": {
+    headline: "Keyword Cannibalisation Checker",
+    description: "Find queries shared by pages in your Search Console export.",
+  },
   "schema-validator": {
     headline: "Free Schema Validator",
     description:

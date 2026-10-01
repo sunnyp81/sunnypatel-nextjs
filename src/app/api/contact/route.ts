@@ -96,6 +96,7 @@ async function turnstileOk(token: unknown, ip: string): Promise<boolean> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ secret, response: token, remoteip: ip }),
+      signal: AbortSignal.timeout(4000),
     });
     const data = (await r.json()) as { success?: boolean };
     return data.success === true;
@@ -162,12 +163,10 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!(await turnstileOk(turnstileToken, ip))) {
-      return NextResponse.json(
-        { error: "Verification failed. Please try again." },
-        { status: 400 }
-      );
-    }
+    // Label mode: a failed or missing Turnstile check never drops a real lead
+    // (privacy browsers can block the script); it marks the email instead.
+    const verified = await turnstileOk(turnstileToken, ip);
+    const subjectPrefix = verified ? "" : "[Unverified] ";
 
     const leadKey = `lead:${new Date().toISOString()}:${crypto.randomUUID().slice(0, 8)}`;
     await storeLead(leadKey, {
@@ -180,6 +179,7 @@ export async function POST(request: Request) {
       howHeard: typeof howHeard === "string" && HOW_HEARD_LABELS[howHeard] ? howHeard : "",
       leadMagnet: typeof leadMagnet === "string" && /^[a-z0-9-]{1,60}$/.test(leadMagnet) ? leadMagnet : "",
       landing_page: typeof landing_page === "string" ? landing_page.slice(0, 300) : "",
+      verified,
     });
 
     const res = await fetch("https://api.emailit.com/v2/emails", {
@@ -193,9 +193,10 @@ export async function POST(request: Request) {
         to: MAIL_TO,
         reply_to: email,
         subject:
-          typeof offer === "string" && offer.trim()
+          subjectPrefix +
+          (typeof offer === "string" && offer.trim()
             ? `${offer.trim()}: enquiry from ${name}`
-            : `New enquiry from ${name}`,
+            : `New enquiry from ${name}`),
         text: [
           `Offer: ${typeof offer === "string" && offer.trim() ? offer.trim() : "General enquiry"}`,
           `Name: ${name}`,

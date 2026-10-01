@@ -1,10 +1,74 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { getToolJourney, trackEvent } from "@/lib/analytics";
 import { getAttribution } from "@/lib/attribution";
 
 export type FormStatus = "idle" | "loading" | "success" | "error";
+
+// Public Turnstile site key (invisible widget for sunnypatel.co.uk lead forms).
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFLM8CkdZF0txmms";
+
+type Turnstile = {
+  render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+  execute: (id: string) => void;
+  remove: (id: string) => void;
+};
+
+let turnstileScript: Promise<Turnstile | null> | null = null;
+
+function loadTurnstile(): Promise<Turnstile | null> {
+  const w = window as unknown as { turnstile?: Turnstile };
+  if (w.turnstile) return Promise.resolve(w.turnstile);
+  turnstileScript ??= new Promise((resolve) => {
+    const s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    s.async = true;
+    s.onload = () => resolve(w.turnstile ?? null);
+    s.onerror = () => resolve(null);
+    document.head.appendChild(s);
+  });
+  return turnstileScript;
+}
+
+// Returns a token, or "" if the script is blocked or slow: the server then labels
+// the enquiry as unverified instead of rejecting it.
+function getTurnstileToken(): Promise<string> {
+  // Overall cap: a script that never loads or answers must not hold up the lead.
+  return Promise.race([
+    fetchTurnstileToken(),
+    new Promise<string>((resolve) => setTimeout(() => resolve(""), 8000)),
+  ]);
+}
+
+async function fetchTurnstileToken(): Promise<string> {
+  const turnstile = await loadTurnstile();
+  if (!turnstile) return "";
+  return new Promise((resolve) => {
+    const el = document.createElement("div");
+    el.style.display = "none";
+    document.body.appendChild(el);
+    let id = "";
+    const done = (token: string) => {
+      clearTimeout(timer);
+      try { if (id) turnstile.remove(id); } catch {}
+      el.remove();
+      resolve(token);
+    };
+    const timer = setTimeout(() => done(""), 8000);
+    try {
+      id = turnstile.render(el, {
+        sitekey: TURNSTILE_SITE_KEY,
+        execution: "execute",
+        callback: (token: string) => done(token),
+        "error-callback": () => done(""),
+      });
+      turnstile.execute(id);
+    } catch {
+      done("");
+    }
+  });
+}
 
 /**
  * Shared state machine for the lead-capture forms (Contact, ServiceInlineForm,
@@ -23,6 +87,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [formData, setFormData] = useState<T>(opts.initial);
+  const inFlight = useRef(false);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -32,6 +97,8 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (inFlight.current) return;
+    inFlight.current = true;
     setStatus("loading");
     setErrorMsg("");
 
@@ -39,6 +106,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
       const payload = {
         ...(opts.transform ? opts.transform(formData) : formData),
         ...getAttribution(),
+        turnstileToken: await getTurnstileToken(),
       };
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -79,6 +147,8 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
         form_location: opts.eventLabel,
         error_type: "network",
       });
+    } finally {
+      inFlight.current = false;
     }
   }
 

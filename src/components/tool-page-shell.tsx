@@ -18,6 +18,54 @@ export type ToolPageInfo = {
 };
 
 export const newToolPages: Record<string, ToolPageInfo> = {
+  "readability-score": {
+    slug: "readability-score",
+    title: "Readability Checker",
+    description:
+      "Check readability with Flesch Reading Ease, Flesch-Kincaid Grade Level and Gunning Fog, sentence by sentence, in your browser.",
+    intro:
+      "Paste your text to get Flesch Reading Ease, Flesch-Kincaid Grade Level and Gunning Fog scores, with the long sentences and complex words that drag them down.",
+    explanation: [
+      "Readability formulas estimate how much effort a piece of text asks of a reader. They count sentence length and word length, usually by syllables, and turn those counts into a score. Flesch Reading Ease runs from 0 to 100, where a higher score is easier to read. Flesch-Kincaid Grade Level and Gunning Fog express the same idea as a rough number of years of schooling.",
+      "I use these scores as a quick editing check, not as a target in themselves. A service page for small business owners usually works best in plain English, while a technical guide can carry longer words if the audience expects them. Search engines do not publish readability scores as a ranking factor, so the reason to improve them is that people understand and act on clearer pages.",
+      "Run a draft through the checker, then work on the longest sentences and the densest paragraphs first. Split sentences that carry two ideas, swap jargon for the word a customer would use, and check the score again. Your text stays in your browser and is never uploaded.",
+    ],
+    steps: [
+      "Paste or type your text into the box.",
+      "Read the three scores and the plain-English summary.",
+      "Shorten the longest sentences and simplify complex words, then check again.",
+    ],
+    checks: [
+      "Flesch Reading Ease (0 to 100, higher is easier)",
+      "Flesch-Kincaid Grade Level and Gunning Fog Index",
+      "Word, sentence and syllable counts behind each score",
+    ],
+    limits:
+      "Formulas count syllables and sentence length only. They cannot judge accuracy, structure, tone or whether the text answers the reader's question, and syllable counts are estimates.",
+    faqs: [
+      {
+        q: "What is a good Flesch Reading Ease score?",
+        a: "Around 60 to 70 is generally treated as plain English. Specialist audiences can cope with lower scores, so judge it against who will read the page.",
+      },
+      {
+        q: "Does readability affect Google rankings?",
+        a: "Google has not said it uses readability formulas for ranking. Clearer writing helps people understand the page, which is the outcome that matters.",
+      },
+      {
+        q: "Is my text uploaded anywhere?",
+        a: "No. The scores are calculated in your browser.",
+      },
+      {
+        q: "Why do different tools give slightly different scores?",
+        a: "Tools count syllables and sentence breaks in different ways, so small differences between checkers are normal.",
+      },
+    ],
+    service: {
+      href: "/services/content-briefs/",
+      label: "content strategy and briefs service",
+      lead: "If you want a hand making your pages clearer and more persuasive, see my",
+    },
+  },
   "schema-validator": {
     slug: "schema-validator",
     title: "Schema Validator",

@@ -1,26 +1,19 @@
-import { Navbar } from "@/components/sections/navbar";
-import { Footer } from "@/components/sections/footer";
-import { RelatedTools } from "@/components/related-tools";
+import { ToolPageShell, newToolPages } from "@/components/tool-page-shell";
 import ReadabilityScore from "./ReadabilityScore";
 
 export function generateMetadata() {
   return {
-    title: "Free Readability Score Calculator | Flesch-Kincaid Analyser",
-    description: "Check the readability of your content with Flesch Reading Ease, Flesch-Kincaid Grade Level, and Gunning Fog Index scores. Free content analysis tool.",
+    title: "Readability Checker: Flesch Reading Ease and Grade Level",
+    description:
+      "Free readability checker. Get Flesch Reading Ease, Flesch-Kincaid Grade Level and Gunning Fog scores for any text, calculated privately in your browser.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/readability-score/" },
   };
 }
 
 export default function ReadabilityScorePage() {
   return (
-    <main className="relative min-h-screen bg-background">
-      <Navbar />
-      <div id="main-content" tabIndex={-1} />
-      <div className="pt-24 pb-16">
-        <ReadabilityScore />
-      </div>
-      <RelatedTools currentHref="/tools/readability-score/" />
-      <Footer />
-    </main>
+    <ToolPageShell info={newToolPages["readability-score"]}>
+      <ReadabilityScore />
+    </ToolPageShell>
   );
 }

@@ -301,20 +301,7 @@ export default function ReadabilityScore() {
   const result = useMemo(() => analyseText(text), [text]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-      {/* Header */}
-      <div className="mb-8">
-        <h1
-          className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          Readability Score Calculator
-        </h1>
-        <p className="mt-3 text-muted-foreground">
-          Paste your content below to analyse its readability with Flesch Reading Ease, Flesch-Kincaid Grade Level, and Gunning Fog Index scores.
-        </p>
-      </div>
-
+    <div>
       {/* Textarea */}
       <div className="mb-8 flex flex-col gap-1.5">
         <div className="flex items-center justify-between">

@@ -499,7 +499,7 @@ export default function ReadabilityScore() {
               <code className="rounded bg-hairline px-1.5 py-0.5 text-xs font-mono text-brand-ink">
                 0.4 &times; ((words &divide; sentences) + 100 &times; (complex words &divide; words))
               </code>
-              . &ldquo;Complex words&rdquo; are those with three or more syllables, excluding common suffixes like -es, -ed, and -ing. A Fog Index of 12 requires roughly a high-school senior reading level. For most audiences, aim for 8&ndash;12.
+              . &ldquo;Complex words&rdquo; are those with three or more syllables, excluding common suffixes like -es, -ed, and -ing. A Fog Index of 12 requires roughly a high-school senior reading level. For most audiences, aim for 8 to 12.
             </p>
           </div>
           <div>

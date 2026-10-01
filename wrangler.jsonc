@@ -11,6 +11,10 @@
   "services": [
     { "binding": "WORKER_SELF_REFERENCE", "service": "sunnypatel-nextjs" }
   ],
+  // Contact enquiries stored before sending (90-day TTL) so a mail failure never loses a lead.
+  "kv_namespaces": [
+    { "binding": "LEADS", "id": "620db2ee86174b52bd365d78188dd4a2" }
+  ],
   "images": {
     "binding": "IMAGES"
   },

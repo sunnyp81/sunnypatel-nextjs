@@ -1,8 +1,26 @@
 import { NextResponse } from "next/server";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
 const LEAD_MAGNET_FROM = "Sunny Patel <hello@sunnypatel.co.uk>";
+const LEAD_TTL = 90 * 24 * 3600;
+
+type LeadStore = { put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void> };
+
+// Best effort: a missing binding or KV error must never block the enquiry email.
+async function storeLead(key: string, value: unknown) {
+  try {
+    const { env } = await getCloudflareContext({ async: true });
+    const store = (env as { LEADS?: LeadStore }).LEADS;
+    if (!store) return;
+    // Never let a slow KV write hold up the enquiry email.
+    await Promise.race([
+      store.put(key, JSON.stringify(value), { expirationTtl: LEAD_TTL }),
+      new Promise((resolve) => setTimeout(resolve, 1500)),
+    ]);
+  } catch {}
+}
 
 const HOW_HEARD_LABELS: Record<string, string> = {
   google: "Google search",
@@ -151,6 +169,19 @@ export async function POST(request: Request) {
       );
     }
 
+    const leadKey = `lead:${new Date().toISOString()}:${crypto.randomUUID().slice(0, 8)}`;
+    await storeLead(leadKey, {
+      at: new Date().toISOString(),
+      name: String(name).slice(0, 200),
+      email: String(email).slice(0, 200),
+      phone: phone ? String(phone).slice(0, 50) : "",
+      message: typeof message === "string" ? message.slice(0, 5000) : "",
+      offer: typeof offer === "string" ? offer.slice(0, 200) : "",
+      howHeard: typeof howHeard === "string" && HOW_HEARD_LABELS[howHeard] ? howHeard : "",
+      leadMagnet: typeof leadMagnet === "string" && /^[a-z0-9-]{1,60}$/.test(leadMagnet) ? leadMagnet : "",
+      landing_page: typeof landing_page === "string" ? landing_page.slice(0, 300) : "",
+    });
+
     const res = await fetch("https://api.emailit.com/v2/emails", {
       method: "POST",
       headers: {
@@ -190,6 +221,8 @@ export async function POST(request: Request) {
         scheduled_at: null,
       }),
     });
+
+    await storeLead(`${leadKey}:emailit-http`, res.status);
 
     if (!res.ok) {
       const err = await res.text().catch(() => "");

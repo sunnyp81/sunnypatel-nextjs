@@ -59,10 +59,10 @@ export function Hero() {
   }
 
   return (
-    <HeroGeometric badge="SEO Consultant, Reading & UK-Wide" title1="SEO Run By the Person" title2="Doing the Actual Work">
+    <HeroGeometric badge="Sunny Patel | Reading and UK-wide" title1="SEO Run By the Person" title2="Doing the Actual Work">
       <p className="mx-auto mb-8 max-w-xl px-4 text-base font-normal leading-relaxed tracking-wide text-ink-soft dark:text-white/75 sm:text-lg md:text-xl">
         No account managers, no juniors. An independent{" "}
-        <Link href="/services/seo-consultant-reading/" className="text-foreground dark:text-white underline decoration-foreground/40 dark:decoration-white/40 underline-offset-2 transition-colors hover:text-brand">
+        <Link href="/services/freelance-seo-consultant/" className="text-foreground dark:text-white underline decoration-foreground/40 dark:decoration-white/40 underline-offset-2 transition-colors hover:text-brand">
           SEO consultant
         </Link>{" "}
         with 15+ years getting UK businesses ranked on Google and cited in AI search.

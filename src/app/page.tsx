@@ -24,7 +24,11 @@ import { HomepageMobileCta } from "@/components/homepage-mobile-cta";
 import proof from "@/data/proof.json";
 
 export function generateMetadata() {
-  return buildMetadata({ path: "/" });
+  return buildMetadata({
+    path: "/",
+    title: "Sunny Patel | SEO Consultant and AI Strategist",
+    description: "Sunny Patel is a Berkshire-based SEO consultant with 15+ years of experience and a 45-site testing portfolio. Explore his work or request a free 20-minute SEO diagnosis.",
+  });
 }
 
 export default async function Home() {

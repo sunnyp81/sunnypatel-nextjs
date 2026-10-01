@@ -475,11 +475,11 @@ export default function ReadabilityScore() {
           <div>
             <h3 className="font-medium text-foreground">Flesch Reading Ease (FRE)</h3>
             <p className="mt-1">
-              Developed by Rudolf Flesch in 1948, this formula scores text on a 0&ndash;100 scale. Higher scores mean easier reading. The formula is:{' '}
+              Developed by Rudolf Flesch in 1948, this formula scores text on a 0 to 100 scale. Higher scores mean easier reading. The formula is:{' '}
               <code className="rounded bg-hairline px-1.5 py-0.5 text-xs font-mono text-brand-ink">
                 206.835 &minus; 1.015 &times; (words &divide; sentences) &minus; 84.6 &times; (syllables &divide; words)
               </code>
-              . A score of 60&ndash;70 is considered standard &mdash; easily understood by 13&ndash;15 year old students. Most web content should aim for 60 or above.
+              . A score of 60 to 70 is considered standard, easily understood by 13 to 15 year old students. Most web content should aim for 60 or above.
             </p>
           </div>
           <div>
@@ -489,7 +489,7 @@ export default function ReadabilityScore() {
               <code className="rounded bg-hairline px-1.5 py-0.5 text-xs font-mono text-brand-ink">
                 0.39 &times; (words &divide; sentences) + 11.8 &times; (syllables &divide; words) &minus; 15.59
               </code>
-              . A result of 8.0 means the text is suitable for an eighth-grader (13&ndash;14 years old). For general web content, aim for grade 7&ndash;9.
+              . A result of 8.0 means the text is suitable for an eighth-grader (13 to 14 years old). For general web content, aim for grade 7 to 9.
             </p>
           </div>
           <div>
@@ -510,7 +510,7 @@ export default function ReadabilityScore() {
               <li>Break long paragraphs into shorter ones.</li>
               <li>Use active voice instead of passive voice.</li>
               <li>Front-load your main point in each paragraph.</li>
-              <li>Read your content aloud &mdash; if you stumble, simplify.</li>
+              <li>Read your content aloud. If you stumble, simplify.</li>
             </ul>
           </div>
         </div>

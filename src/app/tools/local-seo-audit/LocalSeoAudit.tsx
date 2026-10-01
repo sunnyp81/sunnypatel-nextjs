@@ -51,6 +51,11 @@ const hasPhone = (text: string, phone: string) => {
 };
 const includes = (text: string, phrase: string) =>
   normal(text).includes(normal(phrase));
+// Google Maps / Business Profile URL shapes, including cid links and share links.
+const GOOGLE_LISTING =
+  /(?:google\.[^/\s"]+\/maps|maps\.google\.|maps\.app\.goo\.gl|g\.page\/|share\.google\/|[?&]cid=\d|search\.google\.com\/local|g\.co\/kgs)/i;
+const REVIEW_LINK =
+  /(?:share\.google\/|g\.page\/|search\.google\.com\/local\/(?:reviews|writereview)|trustpilot\.|reviews\.io|\/reviews?\/?(?:$|[?#]))/i;
 
 function collectEntities(value: unknown): Business[] {
   if (Array.isArray(value)) return value.flatMap(collectEntities);
@@ -92,6 +97,10 @@ function inspect(
   const links = [...doc.querySelectorAll("a[href]")].map(
     (a) => a.getAttribute("href") || "",
   );
+  const ldText = [...doc.querySelectorAll('script[type="application/ld+json"]')]
+    .map((script) => script.textContent || "")
+    .join("\n");
+  const schemaLinks = ldText.match(/https?:\/\/[^\s"\\]+/g) ?? [];
   const entities = [
     ...doc.querySelectorAll('script[type="application/ld+json"]'),
   ].flatMap((script) => {
@@ -235,12 +244,10 @@ function inspect(
     check(
       "Google listing link",
       6,
-      links.some((href) =>
-        /google\.[^/]+\/maps|maps\.app\.goo\.gl|g\.page\//i.test(href),
-      )
+      [...links, ...schemaLinks].some((href) => GOOGLE_LISTING.test(href))
         ? "pass"
         : "fail",
-      "Checked links to Google Maps and Business Profiles.",
+      "Checked page links and structured data sameAs for Google Maps and Business Profile URLs.",
       "Link to your real Google listing if one is available.",
     ),
     check(
@@ -259,10 +266,12 @@ function inspect(
     check(
       "Reviews or testimonials",
       5,
-      /\b(reviews?|testimonials?|client feedback)\b/i.test(text)
+      /\b(reviews?|testimonials?|client feedback)\b/i.test(text) ||
+        /"(aggregateRating|review)"\s*:/i.test(ldText) ||
+        links.some((href) => REVIEW_LINK.test(href))
         ? "pass"
         : "fail",
-      "Checked visible text for review and testimonial wording.",
+      "Checked visible text, review markup and links to review pages.",
       "Show genuine, attributable customer feedback when you have permission to publish it.",
     ),
     check(

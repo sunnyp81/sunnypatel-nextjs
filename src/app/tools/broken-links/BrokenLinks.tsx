@@ -16,6 +16,7 @@ interface LinkResult {
 interface ScanResult {
   pageUrl: string;
   totalLinks: number;
+  incomplete?: boolean;
   results: LinkResult[];
 }
 
@@ -83,7 +84,7 @@ function Spinner() {
 /* ------------------------------------------------------------------ */
 /*  CSV export                                                         */
 /* ------------------------------------------------------------------ */
-function exportCsv(results: LinkResult[], pageUrl: string) {
+function exportCsv(results: LinkResult[], pageUrl: string, incomplete = false) {
   const header = 'URL,Status,OK,Type,Response Time (ms)\n';
   const rows = results
     .map(
@@ -104,7 +105,7 @@ function exportCsv(results: LinkResult[], pageUrl: string) {
     }
   })();
 
-  link.download = `broken-links-${domain}-${new Date().toISOString().slice(0, 10)}.csv`;
+  link.download = `broken-links-${domain}-${new Date().toISOString().slice(0, 10)}${incomplete ? "-partial" : ""}.csv`;
   link.click();
   URL.revokeObjectURL(link.href);
 }
@@ -190,7 +191,7 @@ export default function BrokenLinks() {
           Broken Link Checker
         </h1>
         <p className="mt-2 text-base text-muted-foreground">
-          Scan any webpage for broken links and 404 errors. Fix dead links to improve SEO and user experience.
+          Check up to 100 unique links from a public webpage for HTTP errors and redirects. Network failures are reported separately; a timed-out scan may return only some links.
         </p>
       </div>
 
@@ -201,13 +202,14 @@ export default function BrokenLinks() {
             type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
+            aria-label="Webpage URL to scan"
             placeholder="https://example.com"
-            className="flex-1 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+            className="min-w-0 flex-1 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           />
           <button
             type="submit"
             disabled={loading || !url.trim()}
-            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="rounded-lg bg-[#2a5bd7] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {loading ? (
               <span className="flex items-center gap-2">
@@ -249,10 +251,13 @@ export default function BrokenLinks() {
         <>
           {/* Summary bar */}
           <div className="mb-6 rounded-lg border border-hairline dark:border-white/[0.08] bg-wash p-4">
-            <h3 className="text-sm font-semibold text-foreground mb-3">Scan Summary</h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">{result.incomplete ? "Partial Scan Summary" : "Scan Summary"}</h3>
+            {result.incomplete && (
+              <p role="status" className="mb-3 text-sm text-muted-foreground">The scan reached its time limit before every extracted link could be checked. Counts and exports cover only the {result.totalLinks} links checked. Retry to request another scan; an unchecked link is not a working-link result.</p>
+            )}
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1.5">
-                <span className="text-muted-foreground">Total links:</span>
+                <span className="text-muted-foreground">Links checked:</span>
                 <span className="font-medium text-foreground">{result.totalLinks}</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -304,7 +309,7 @@ export default function BrokenLinks() {
             </div>
 
             <button
-              onClick={() => exportCsv(result.results, result.pageUrl)}
+              onClick={() => exportCsv(result.results, result.pageUrl, result.incomplete)}
               className="rounded-md border border-hairline dark:border-white/[0.08] px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-hairline-strong dark:hover:border-white/[0.15]"
             >
               Export CSV

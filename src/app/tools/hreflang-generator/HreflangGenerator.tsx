@@ -180,8 +180,8 @@ const inputClass =
 
 export default function HreflangGenerator() {
   const [rows, setRows] = useState<Row[]>([
-    { id: makeId(), url: '', language: 'en', region: 'GB' },
-    { id: makeId(), url: '', language: 'en', region: 'US' },
+    { id: 'initial-gb', url: '', language: 'en', region: 'GB' },
+    { id: 'initial-us', url: '', language: 'en', region: 'US' },
   ]);
   const [includeXDefault, setIncludeXDefault] = useState(true);
   const [xDefaultUrl, setXDefaultUrl] = useState('');
@@ -356,29 +356,15 @@ export default function HreflangGenerator() {
           </button>
         </div>
 
-        {/* Column labels (desktop) */}
-        <div className="mb-2 hidden grid-cols-12 gap-3 md:grid">
-          <div className="col-span-5">
-            <span className="text-sm font-medium text-foreground">URL</span>
-          </div>
-          <div className="col-span-3">
-            <span className="text-sm font-medium text-foreground">Language</span>
-          </div>
-          <div className="col-span-3">
-            <span className="text-sm font-medium text-foreground">Region (optional)</span>
-          </div>
-          <div className="col-span-1" />
-        </div>
-
         <div className="flex flex-col gap-3">
           {rows.map((row, i) => (
             <div key={row.id} className="grid grid-cols-1 gap-3 md:grid-cols-12">
               {/* URL */}
               <div className="md:col-span-5">
-                <label className="mb-1 block text-sm font-medium text-foreground md:hidden">
+                <label htmlFor={`hreflang-${row.id}-url`} className="mb-1 block text-sm font-medium text-foreground">
                   URL
                 </label>
-                <input
+                <input id={`hreflang-${row.id}-url`}
                   type="url"
                   value={row.url}
                   onChange={(e) => updateRow(row.id, 'url', e.target.value)}
@@ -389,10 +375,10 @@ export default function HreflangGenerator() {
 
               {/* Language */}
               <div className="md:col-span-3">
-                <label className="mb-1 block text-sm font-medium text-foreground md:hidden">
+                <label htmlFor={`hreflang-${row.id}-language`} className="mb-1 block text-sm font-medium text-foreground">
                   Language
                 </label>
-                <select
+                <select id={`hreflang-${row.id}-language`}
                   value={row.language}
                   onChange={(e) => updateRow(row.id, 'language', e.target.value)}
                   className={selectClass}
@@ -413,10 +399,10 @@ export default function HreflangGenerator() {
 
               {/* Region */}
               <div className="md:col-span-3">
-                <label className="mb-1 block text-sm font-medium text-foreground md:hidden">
-                  Region
+                <label htmlFor={`hreflang-${row.id}-region`} className="mb-1 block text-sm font-medium text-foreground">
+                  Region (optional)
                 </label>
-                <select
+                <select id={`hreflang-${row.id}-region`}
                   value={row.region}
                   onChange={(e) => updateRow(row.id, 'region', e.target.value)}
                   className={selectClass}
@@ -484,7 +470,8 @@ export default function HreflangGenerator() {
           </label>
           {includeXDefault && (
             <div className="mt-3">
-              <input
+              <label htmlFor="hreflang-default-url" className="mb-1 block text-sm font-medium text-foreground">Fallback URL</label>
+              <input id="hreflang-default-url"
                 type="url"
                 value={xDefaultUrl}
                 onChange={(e) => setXDefaultUrl(e.target.value)}

@@ -348,10 +348,10 @@ export default function SpeedChecker() {
       {/* URL input + button */}
       <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end">
         <div className="flex flex-1 flex-col gap-1.5">
-          <label className="text-sm font-medium text-foreground">
+          <label htmlFor="speed-url" className="text-sm font-medium text-foreground">
             Website URL
           </label>
-          <input
+          <input id="speed-url"
             type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}

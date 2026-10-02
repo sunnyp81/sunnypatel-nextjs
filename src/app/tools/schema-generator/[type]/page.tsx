@@ -57,7 +57,7 @@ export default async function SchemaTypePage({
       <Navbar />
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
-        <SchemaGenerator initialType={entry.schemaType} />
+        <SchemaGenerator initialType={entry.schemaType} heading={`${entry.label} Schema Generator`} introduction={`Create ${entry.label} structured data for your page. Fill in the fields, check the generated markup and validate it against the requirements of the search feature you want. Markup does not guarantee a rich result.`} />
 
         <div className="mx-auto max-w-6xl space-y-10 px-4 sm:px-6">
           <section>

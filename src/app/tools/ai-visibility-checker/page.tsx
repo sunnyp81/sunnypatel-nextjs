@@ -5,9 +5,9 @@ import AiVisibilityChecker from "./AiVisibilityChecker";
 
 export function generateMetadata() {
   return {
-    title: "Free AI Visibility Checker | Can ChatGPT Cite Your Site?",
+    title: "AI Visibility Checker | Technical Readiness Diagnostic",
     description:
-      "Check whether AI search engines like ChatGPT, Perplexity and Google AI Overviews can crawl, verify and cite your website. Free scored report in 20 seconds.",
+      "Inspect crawl directives, structured data and page structure with a free technical diagnostic. Its heuristic score does not measure AI retrieval or citations.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/ai-visibility-checker/" },
   };
 }

@@ -248,8 +248,8 @@ export default function InternalLinks() {
           <h2 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Page A</h2>
           <div className="space-y-3">
             <div>
-              <label className="text-sm font-medium text-foreground mb-1 block">Page URL</label>
-              <input
+              <label htmlFor="internal-url-a" className="text-sm font-medium text-foreground mb-1 block">Page URL</label>
+              <input id="internal-url-a"
                 type="url"
                 value={urlA}
                 onChange={(e) => setUrlA(e.target.value)}
@@ -258,8 +258,8 @@ export default function InternalLinks() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-foreground mb-1 block">Content</label>
-              <textarea
+              <label htmlFor="internal-content-a" className="text-sm font-medium text-foreground mb-1 block">Content</label>
+              <textarea id="internal-content-a"
                 value={contentA}
                 onChange={(e) => setContentA(e.target.value)}
                 placeholder="Paste the full text content of Page A..."
@@ -275,8 +275,8 @@ export default function InternalLinks() {
           <h2 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Page B</h2>
           <div className="space-y-3">
             <div>
-              <label className="text-sm font-medium text-foreground mb-1 block">Page URL</label>
-              <input
+              <label htmlFor="internal-url-b" className="text-sm font-medium text-foreground mb-1 block">Page URL</label>
+              <input id="internal-url-b"
                 type="url"
                 value={urlB}
                 onChange={(e) => setUrlB(e.target.value)}
@@ -285,8 +285,8 @@ export default function InternalLinks() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-foreground mb-1 block">Content</label>
-              <textarea
+              <label htmlFor="internal-content-b" className="text-sm font-medium text-foreground mb-1 block">Content</label>
+              <textarea id="internal-content-b"
                 value={contentB}
                 onChange={(e) => setContentB(e.target.value)}
                 placeholder="Paste the full text content of Page B..."

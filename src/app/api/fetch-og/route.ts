@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { safePublicFetch } from "@/lib/safe-public-fetch";
+
+export const runtime = "nodejs";
 
 interface OgData {
   url: string;
@@ -110,13 +113,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000);
-
     let response: Response;
     try {
-      response = await fetch(parsedUrl.href, {
-        signal: controller.signal,
+      response = await safePublicFetch(parsedUrl.href, {
+        timeoutMs: 10000,
         headers: {
           "User-Agent":
             "Mozilla/5.0 (compatible; OGPreviewBot/1.0; +https://sunnypatel.co.uk/tools/og-preview/)",
@@ -125,8 +125,7 @@ export async function POST(request: NextRequest) {
         redirect: "follow",
       });
     } catch (err: unknown) {
-      clearTimeout(timeout);
-      if (err instanceof Error && err.name === "AbortError") {
+      if (err instanceof Error && /AbortError|PublicFetchError/.test(err.name) && /timed out/i.test(err.message)) {
         return NextResponse.json(
           { error: "Request timed out after 10 seconds" },
           { status: 504 }
@@ -135,8 +134,6 @@ export async function POST(request: NextRequest) {
       const message =
         err instanceof Error ? err.message : "Failed to fetch URL";
       return NextResponse.json({ error: message }, { status: 502 });
-    } finally {
-      clearTimeout(timeout);
     }
 
     if (!response.ok) {

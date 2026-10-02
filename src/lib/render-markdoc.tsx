@@ -31,8 +31,26 @@ export function MarkdocImage({ src, alt, title }: { src: string; alt?: string; t
   );
 }
 
+// Preserve native table semantics while keeping wide data inside the reading column.
+export function MarkdocTable({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="my-6 min-w-0 max-w-full">
+      <p className="mb-2 text-xs text-muted-foreground sm:hidden">Scroll horizontally if columns extend beyond the screen.</p>
+      <div
+        className="max-w-full overflow-x-auto rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        tabIndex={0}
+        role="region"
+        aria-label="Data table, scroll horizontally for additional columns"
+      >
+        <table>{children}</table>
+      </div>
+    </div>
+  );
+}
+
 export const markdocConfig: Config = {
   nodes: {
+    table: { ...Markdoc.nodes.table, render: "MarkdocTable" },
     image: {
       ...Markdoc.nodes.image,
       render: "MarkdocImage",
@@ -122,6 +140,7 @@ export function renderMarkdoc(content: any) {
   return Markdoc.renderers.react(transformed, React, {
     components: {
       MarkdocImage,
+      MarkdocTable,
       ServiceMiniCta,
       GlowPullquote,
       GlowStat,

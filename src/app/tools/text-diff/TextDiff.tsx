@@ -325,8 +325,8 @@ export default function TextDiff() {
       {/* Input textareas */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-foreground">Original</label>
-          <textarea
+          <label htmlFor="diff-original" className="mb-1.5 block text-sm font-medium text-foreground">Original</label>
+          <textarea id="diff-original"
             value={original}
             onChange={(e) => setOriginal(e.target.value)}
             placeholder="Paste the original text here..."
@@ -335,8 +335,8 @@ export default function TextDiff() {
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-foreground">Modified</label>
-          <textarea
+          <label htmlFor="diff-modified" className="mb-1.5 block text-sm font-medium text-foreground">Modified</label>
+          <textarea id="diff-modified"
             value={modified}
             onChange={(e) => setModified(e.target.value)}
             placeholder="Paste the modified text here..."

@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { TrendingUp, Users, Clock, Award } from "lucide-react";
 
 const STATS = [
   { icon: Clock, value: "15+", label: "Years Experience", color: "var(--brand-ink)" },
-  { icon: TrendingUp, value: "+340%", label: "Published Organic Growth", color: "var(--teal-ink)" },
-  { icon: Users, value: "45", label: "SEO Test Sites", color: "var(--brand-ink)" },
+  { icon: TrendingUp, value: "+340%", label: "Aatma Organic Traffic YoY (Case Study)", color: "var(--teal-ink)" },
+  { icon: Users, value: "45", label: "Historical Portfolio Case Study", color: "var(--brand-ink)" },
   { icon: Award, value: "Free", label: "20-Minute Diagnosis", color: "var(--teal-ink)" },
 ] as const;
 
@@ -39,6 +40,9 @@ export function StatsBar() {
           </div>
         ))}
       </div>
+      <p className="relative px-6 pb-5 text-center text-xs text-muted-foreground">
+        Historical examples: <Link className="underline underline-offset-4" href="/portfolio/aatma-aesthetics-website-design-development-seo/">Aatma case study</Link> and <Link className="underline underline-offset-4" href="/portfolio/niche-affiliate-seo-portfolio-45-sites/">45-site portfolio case study</Link>. These are separate examples, not current portfolio totals or forecasts.
+      </p>
     </div>
   );
 }

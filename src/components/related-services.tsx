@@ -5,6 +5,14 @@ import { ArrowRight, Globe, Code, Map, BarChart3, FileText, TrendingUp, Palette 
 const STATIC_SERVICES = [
   {
     icon: Globe,
+    title: "AI Visibility Audit",
+    description: "A measured citation baseline and prioritised review of technical access, content and entity evidence.",
+    href: "/ai-visibility/",
+    color: "#5B8AEF",
+    keywords: ["ai", "chatgpt", "perplexity", "copilot", "geo", "aeo", "citation"],
+  },
+  {
+    icon: Globe,
     title: "Topical Authority",
     description: "Build content networks that establish your site as the go-to source in your niche.",
     href: "/services/topical-authority/",
@@ -79,9 +87,32 @@ const COLOR_MAP: Record<string, string> = {
   "google-algorithm-update-recovery": "#5a922c",
 };
 
-function scoreService(service: typeof STATIC_SERVICES[number], tags: readonly string[], title: string) {
+// Choose the next useful investigation for this service, rather than file order.
+const RELATED_SERVICE_SLUGS: Record<string, readonly string[]> = {
+  "freelance-seo-consultant": ["technical-seo-audit", "seo-consulting", "content-briefs"],
+  "affordable-seo-consultant": ["technical-seo-audit", "small-business-seo-consultant", "freelance-seo-consultant"],
+  "seo-consultant-reading": ["technical-seo-audit", "local-seo", "seo-berkshire"],
+  "seo-berkshire": ["local-seo", "technical-seo-audit", "seo-consulting"],
+  "seo-maidenhead": ["local-seo", "technical-seo-audit", "seo-berkshire"],
+  "seo-bracknell": ["local-seo", "technical-seo-audit", "seo-berkshire"],
+  "technical-seo-audit": ["technical-seo-services", "content-briefs", "seo-consulting"],
+  "paid-seo-audit": ["technical-seo-audit", "content-briefs", "seo-consulting"],
+  "topical-authority": ["topical-maps", "content-briefs", "semantic-seo"],
+  "semantic-seo": ["topical-maps", "content-briefs", "technical-seo-audit"],
+  "content-briefs": ["topical-maps", "topical-authority", "seo-consulting"],
+  "google-algorithm-update-recovery": ["technical-seo-audit", "topical-authority", "seo-consulting"],
+  "woocommerce-seo-consultant": ["ecommerce-seo-consultant", "technical-seo-audit", "wordpress-seo-consultant"],
+  "white-label-seo": ["content-briefs", "technical-seo-audit", "topical-maps"],
+  "seo-consulting": ["technical-seo-audit", "content-briefs", "topical-maps"],
+  "local-seo": ["technical-seo-audit", "small-business-seo-consultant", "seo-consulting"],
+  "igaming-seo-consultant": ["technical-seo-audit", "topical-authority", "content-briefs"],
+  "seo": ["technical-seo-audit", "seo-consulting", "topical-authority"],
+  "b2b-seo": ["technical-seo-audit", "content-briefs", "topical-authority"],
+};
+
+function scoreService(service: { keywords: readonly string[] }, tags: readonly string[], title: string) {
   const text = `${tags.join(" ")} ${title}`.toLowerCase();
-  return service.keywords.filter((kw) => text.includes(kw)).length;
+  return service.keywords.filter((kw) => kw.length <= 3 ? text.split(/\W+/).includes(kw) : text.includes(kw)).length;
 }
 
 type ServiceSummary = {
@@ -107,7 +138,21 @@ export function RelatedServices({
 }) {
   /* ── Service page mode: show other services ───────────────── */
   if (currentSlug && allServices) {
-    const others = allServices.filter((s) => s.slug !== currentSlug).slice(0, 3);
+    const candidates = allServices.filter((s) => s.slug !== currentSlug);
+    const preferred = RELATED_SERVICE_SLUGS[currentSlug];
+    const current = allServices.find((s) => s.slug === currentSlug);
+    const ranked = candidates.map((service, index) => ({
+      service,
+      index,
+      score: preferred?.includes(service.slug)
+        ? 100 - preferred.indexOf(service.slug)
+        : scoreService(
+            { keywords: `${service.title} ${service.subtitle}`.toLowerCase().split(/\W+/).filter((word) => word.length > 3 && !["consultant", "services", "with", "your"].includes(word)) },
+            [],
+            `${current?.title ?? currentSlug} ${current?.description ?? ""}`,
+          ),
+    }));
+    const others = ranked.sort((a, b) => b.score - a.score || a.index - b.index).slice(0, 3).map(({ service }) => service);
     if (others.length === 0) return null;
 
     return (
@@ -213,8 +258,8 @@ export function RelatedServices({
           className="group flex items-center justify-between"
         >
           <div>
-            <p className="text-sm font-medium text-foreground">Try our free SEO tools</p>
-            <p className="text-xs text-muted-foreground">Website grader, speed checker, keyword scraper, and 17 more, no sign-up required.</p>
+            <p className="text-sm font-medium text-foreground">Try my free SEO tools</p>
+            <p className="text-xs text-muted-foreground">Website grader, speed checker, keyword scraper and other practical checks. No sign-up required.</p>
           </div>
           <ArrowRight className="h-4 w-4 flex-shrink-0 text-brand-ink transition-transform group-hover:translate-x-1" />
         </Link>

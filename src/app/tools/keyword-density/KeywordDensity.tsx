@@ -155,8 +155,8 @@ export default function KeywordDensity() {
         <div className="lg:col-span-8 flex flex-col gap-4">
           {/* Textarea */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-foreground">Content</label>
-            <textarea
+            <label htmlFor="density-content" className="text-sm font-medium text-foreground">Content</label>
+            <textarea id="density-content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={12}
@@ -181,10 +181,10 @@ export default function KeywordDensity() {
 
           {/* Target keyword */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-foreground">
+            <label htmlFor="density-keyword" className="text-sm font-medium text-foreground">
               Target Keyword <span className="text-muted-foreground">(optional)</span>
             </label>
-            <input
+            <input id="density-keyword"
               type="text"
               value={targetKeyword}
               onChange={(e) => setTargetKeyword(e.target.value)}

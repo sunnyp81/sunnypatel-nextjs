@@ -4,7 +4,7 @@ import { reader } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { ContentPage } from "@/components/content-page";
 import { notFound } from "next/navigation";
-import { serviceSchema, breadcrumbSchema, faqSchema, schemaGraph } from "@/lib/schema";
+import { serviceSchema, breadcrumbSchema, schemaGraph } from "@/lib/schema";
 import { RelatedServices } from "@/components/related-services";
 import { TestimonialGrid } from "@/components/services/TestimonialGrid";
 import { ProcessTimeline } from "@/components/services/ProcessTimeline";
@@ -16,7 +16,7 @@ import { StatsBar } from "@/components/services/StatsBar";
 import { CoverageMap } from "@/components/services/CoverageMap";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
 import { GlowProcess, GlowProcessStep } from "@/components/glow/glow-blocks";
-import { markdocConfig, MarkdocImage } from "@/lib/render-markdoc";
+import { markdocConfig, MarkdocImage, MarkdocTable } from "@/lib/render-markdoc";
 import { ServiceOfferExamples } from "@/components/service-offer-examples";
 import { ServiceInlineForm } from "@/components/service-inline-form";
 
@@ -98,13 +98,13 @@ const GENERIC_DATA = {
     },
     {
       phase: "Month 4\u20136",
-      label: "Rankings build",
-      description: "Target pages climbing, authority signals strengthening",
+      label: "Review and refine",
+      description: "Review query coverage, clicks and implementation priorities",
     },
     {
       phase: "Month 7+",
-      label: "Compound growth",
-      description: "Authority compound effect, content cluster dominance",
+      label: "Ongoing measurement",
+      description: "Review measured outcomes and adjust the content plan",
     },
   ],
   riskPoints: [
@@ -196,13 +196,13 @@ const SEO_READING_DATA = {
     },
     {
       phase: "Month 4\u20136",
-      label: "Rankings build",
-      description: "Target pages climbing, local pack positions strengthening",
+      label: "Review and refine",
+      description: "Review local query coverage, clicks and recorded enquiries",
     },
     {
       phase: "Month 7\u20139+",
-      label: "Compounding growth",
-      description: "Authority compound effect, content cluster dominance",
+      label: "Ongoing measurement",
+      description: "Review measured outcomes and adjust the content plan",
     },
   ],
   riskPoints: [
@@ -223,7 +223,7 @@ const SEO_READING_DATA = {
   ],
   ctaTitle: "Stop losing Reading customers to competitors who rank above you",
   ctaSubtitle:
-    "Send me your site for a free audit. I\u2019ll show you exactly where you\u2019re losing rankings and give you a prioritised action plan \u2014 no obligation.",
+    "Send me your site for a free 20-minute SEO diagnosis. We will discuss your biggest search problem and the next useful step. A full audit and written action plan are separate paid work.",
 };
 
 const SEO_LONDON_DATA = {
@@ -294,13 +294,13 @@ const SEO_LONDON_DATA = {
     },
     {
       phase: "Month 4\u20136",
-      label: "Rankings build",
-      description: "Target pages climbing, authority signals strengthening",
+      label: "Review and refine",
+      description: "Review query coverage, clicks and implementation priorities",
     },
     {
       phase: "Month 7\u201312+",
-      label: "Compound growth",
-      description: "Authority compound effect, content cluster dominance across London queries",
+      label: "Ongoing measurement",
+      description: "Review London query coverage and adjust the content plan",
     },
   ],
   riskPoints: [
@@ -398,7 +398,7 @@ const AI_SEARCH_DATA = {
     {
       phase: "Month 3+",
       label: "Citation velocity",
-      description: "Compound growth as entity authority builds across platforms",
+      description: "Review observed citations and entity evidence across platforms",
     },
   ],
   riskPoints: [
@@ -419,380 +419,7 @@ const AI_SEARCH_DATA = {
   ],
   ctaTitle: "Ready to appear in AI search results?",
   ctaSubtitle:
-    "Get in touch for a free audit. I\u2019ll check your current AI citation baseline and show you exactly where you\u2019re missing visibility.",
-};
-
-type FaqItem = { q: string; a: string };
-
-const SERVICE_FAQS: Record<string, FaqItem[]> = {
-  "travel-seo-consultant": [
-    {
-      q: "How far ahead of the season should travel content publish?",
-      a: "Travel content should publish 3 to 4 months before peak booking windows so pages have time to index, earn internal links and gather search signals before demand rises.",
-    },
-    {
-      q: "Can a small operator outrank OTAs?",
-      a: "Not for generic \"holidays\" terms. A small operator can compete for destination, experience and audience long-tail searches where OTA pages are thin and specialist knowledge gives the page a reason to rank.",
-    },
-    {
-      q: "What does travel SEO cost?",
-      a: "A travel SEO audit costs £495 at a fixed fee. Ongoing retainers start from £1,500 per month and are scoped around the number of destinations, templates and markets involved.",
-    },
-  ],
-  "architects-seo-consultant": [
-    {
-      q: "Do project portfolio pages help SEO?",
-      a: "Project portfolio pages help only when they include useful text, project type, location and process. Image galleries alone give search engines too little context and usually rank for nothing beyond a project name.",
-    },
-    {
-      q: "Should an architect target planning-permission keywords?",
-      a: "Yes. Informational planning content is often the highest-volume entry point for prospective clients and can feed enquiries when it connects clearly to the relevant architectural service.",
-    },
-    {
-      q: "How long before an architecture site sees results?",
-      a: "Architecture sites typically need 4 to 6 months to improve for local service terms. Competitive sector terms take longer because the practice needs stronger project evidence, content coverage and authority.",
-    },
-  ],
-  "healthcare-seo-consultant": [
-    {
-      q: "Does Google treat healthcare websites differently?",
-      a: "Yes. YMYL pages need demonstrable expertise, clear author credentials and accurate content that qualified practitioners have authored or reviewed.",
-    },
-    {
-      q: "Who writes the medical content?",
-      a: "Your clinicians author or review the medical content. I provide the search structure, briefs, schema and technical work while the provider retains responsibility for clinical accuracy and approval.",
-    },
-    {
-      q: "How do you measure healthcare SEO?",
-      a: "I measure healthcare SEO through enquiries, calls, bookings and visibility for service and location terms. I never use clinical outcomes as an SEO performance measure.",
-    },
-  ],
-  "hotel-seo-consultant": [
-    {
-      q: "Can a hotel outrank Booking.com?",
-      a: "Yes for its own brand name and for specific local long-tail searches. A hotel will rarely beat Booking.com for broad \"hotels in [city]\" terms, so the strategy targets queries with a clearer reason to book direct.",
-    },
-    {
-      q: "Does the booking engine affect SEO?",
-      a: "Yes. Subdomain and third-party booking engines can split authority, interrupt analytics and weaken the mobile journey. I review the setup and show where the handover causes a search or tracking problem.",
-    },
-    {
-      q: "What does hotel SEO cost?",
-      a: "A hotel SEO audit costs £495 at a fixed fee. Ongoing retainers start from £1,500 per month and depend on the number of properties, offers and booking systems involved.",
-    },
-  ],
-  "wix-seo-consultant": [
-    {
-      q: "Is Wix bad for SEO?",
-      a: "No longer for small and medium sites. Wix becomes limiting when a site grows beyond a few hundred pages or needs complex URL, taxonomy and crawl controls.",
-    },
-    {
-      q: "Can you rank a Wix site on page one?",
-      a: "Yes. A Wix site can rank on page one for local and niche terms when it has clear structure, useful content, appropriate schema and enough authority.",
-    },
-    {
-      q: "Should I move from Wix to WordPress?",
-      a: "Only when a specific Wix limit is blocking growth. I assess the site before recommending a migration so the business doesn't take on cost and ranking risk without a defined benefit.",
-    },
-  ],
-  "automotive-seo-consultant": [
-    {
-      q: "Can a dealer rank against Auto Trader?",
-      a: "Not for most generic used-car terms. A dealer can compete for brand and location searches, local services and finance-adjacent queries where its pages offer more specific value.",
-    },
-    {
-      q: "Should vehicle stock pages be indexed?",
-      a: "Selectively. Index stable model and category pages, then control fast-changing listings so sold stock doesn't create crawl waste, dead ends and soft 404s.",
-    },
-    {
-      q: "Does automotive content get cited in AI search?",
-      a: "Yes. Structured review and comparison content from my own portfolio has earned thousands of AI citations when the pages provide clear specifications, methodology and useful answers.",
-    },
-  ],
-  "seo-training-consultant": [
-    {
-      q: "Is the training generic or specific to our site?",
-      a: "The training is specific to your business. Every exercise uses your site, your Google Search Console data and your competitors so attendees work on decisions they will make after the session.",
-    },
-    {
-      q: "How is training different from SEO consulting?",
-      a: "Training builds your team's skills through a defined curriculum. Consulting answers your current questions session by session and assumes your team already has the capacity to act on the guidance.",
-    },
-    {
-      q: "How much does SEO training cost?",
-      a: "Half-day workshops cost £750, full-day workshops cost £1,250 and the six-week team programme costs £2,500. Each price covers a team of up to 8 people. The programme includes six weekly 90-minute sessions, set work and feedback during the programme.",
-    },
-  ],
-  "squarespace-seo-consultant": [
-    {
-      q: "Can Squarespace sites rank well?",
-      a: "Yes. Squarespace sites can rank for local and niche service terms when page structure, content, internal links and images are handled properly.",
-    },
-    {
-      q: "Can I add schema markup to Squarespace?",
-      a: "Yes. Schema markup can be added through code injection at page level or site-wide. I set it up so each block describes the real page and avoids unnecessary duplication.",
-    },
-    {
-      q: "When should I leave Squarespace?",
-      a: "Leave Squarespace when the site needs large-scale content, complex URL structures or custom technical control that the platform cannot provide. A migration needs a specific blocked requirement.",
-    },
-  ],
-  "seo-migration-consultant": [
-    {
-      q: "How long does a website migration affect SEO?",
-      a: "Managed migrations typically cause a 2-4 week dip while search engines recrawl and transfer signals. Unmanaged migrations can suppress rankings for 3-6 months, and removed pages may lose visibility permanently.",
-    },
-    {
-      q: "Do I need an SEO consultant if my developer is handling the migration?",
-      a: "Yes. Developers preserve function, but rankings depend on SEO-specific tasks such as the redirect map, content parity checks, and the Google Search Console handover. An SEO consultant owns those checks and works alongside the development team.",
-    },
-    {
-      q: "Should I change domain and redesign at the same time?",
-      a: "No. Sequence them so each change can be measured and any problem can be isolated. If both changes are unavoidable, complete the migration first and release the redesign after rankings and indexation have stabilised.",
-    },
-    {
-      q: "What does a migration SEO audit cost?",
-      a: "A migration SEO audit costs £495 at a fixed fee. It covers the URL inventory, redirect map, and staging crawl before launch.",
-    },
-  ],
-  "seo-consultant-reading": [
-    {
-      q: "Why hire an SEO consultant in Reading instead of an agency?",
-      a: "An SEO consultant in Reading gives you direct access to the senior strategist on every call and deliverable — no account managers, no junior staff. You get the same services as a Reading SEO agency (technical audits, content strategy, local SEO, topical authority) at lower cost because you're not funding office overhead and management layers. Most Reading businesses see equivalent or better results from the independent model.",
-    },
-    {
-      q: "What is the best SEO company in Reading?",
-      a: "The best SEO company in Reading depends on your needs. Traditional SEO agencies offer team capacity for high-volume work. Independent SEO consultants offer direct senior expertise and lower overhead. For most Reading businesses — professional services, tech companies, and growth-stage firms — an independent consultant delivers stronger ROI because every pound goes to strategy, not agency overhead.",
-    },
-    {
-      q: "What SEO services are available for Reading businesses?",
-      a: "Reading SEO services include technical SEO audits from £495, local SEO for Google Business Profile and local pack visibility, topical map creation for long-term content architecture from £800, semantic content strategy, AI search optimisation for ChatGPT and Google AI Overviews, and ongoing retainers from £1,500/month covering strategy, implementation oversight, and reporting.",
-    },
-    {
-      q: "Which areas of Reading and Berkshire do you cover?",
-      a: "SEO services cover Reading town centre, Caversham, Earley, Woodley, Winnersh, Tilehurst, Calcot, Green Park, and Thames Valley Park. Services extend across Berkshire including Bracknell, Wokingham, Maidenhead, Slough, and Windsor. Remote consultations available UK-wide.",
-    },
-    {
-      q: "How long does SEO take for Reading businesses?",
-      a: "Technical SEO fixes show measurable improvements within 4–8 weeks. Local SEO results for Reading businesses typically appear within 3–6 months. Competitive organic authority building takes 6–12 months. These timelines are the same whether you use an SEO agency or consultant — they're set by Google's evaluation cycles, not headcount.",
-    },
-    {
-      q: "How much does an SEO consultant in Reading cost compared to an agency?",
-      a: "A Reading SEO consultant charges from £495 for technical audits, £800–£2,500 for topical maps, and £1,500–£5,000/month for retainers. Reading SEO agencies typically charge £2,000–£5,000/month for mid-tier, £3,000–£10,000+ for larger firms. The consultant model puts more budget into strategy rather than overhead. Free initial audits include a live site review and actionable recommendations.",
-    },
-    {
-      q: "What if previous SEO from an agency didn't work for my Reading business?",
-      a: "Most failed SEO for Reading businesses results from generic advice without local market knowledge, thin content without topical authority, or isolated keyword targeting without interconnected content networks. If an SEO company or agency didn't deliver, it was almost certainly a methodology problem. A data-led approach with Reading-specific competitive analysis typically resolves these issues within 6–12 months.",
-    },
-    {
-      q: "Can you recommend a good SEO provider for Reading and Berkshire?",
-      a: "I'm Sunny Patel, an independent SEO consultant working with businesses across Reading and the wider Berkshire area. I do the work myself, with no juniors and no fixed contracts. One Reading client grew from 180 to 620 organic visits in nine months, with enquiries tripling. Get in touch for a free audit and a tailored action plan covering your site, rankings, and competitors.",
-    },
-  ],
-  "seo-consulting": [
-    {
-      q: "What is SEO consulting?",
-      a: "SEO consulting provides expert strategic guidance for businesses wanting direction without full-service implementation. Sessions cover current performance analysis, opportunity identification, prioritised recommendations, and a 12-month strategic roadmap — ideal for in-house teams needing specialist input.",
-    },
-    {
-      q: "How much does SEO consulting cost?",
-      a: "SEO consulting costs from £200 for a single 90-minute session, £600 per month for a 4-hour monthly retainer, and £500 for a quarterly strategy review. Most clients start with a single session to establish value before committing to ongoing consulting.",
-    },
-    {
-      q: "Who benefits from SEO consulting?",
-      a: "SEO consulting suits in-house marketing teams needing specialist input, businesses transitioning between agencies, startups establishing SEO foundations before scaling content, and organisations evaluating whether SEO is the right investment for their growth goals.",
-    },
-    {
-      q: "How is SEO consulting different from a full-service retainer?",
-      a: "SEO consulting provides strategic direction — analysis, recommendations, and roadmaps — while your team handles implementation. Full-service retainers include strategy plus execution: content creation, technical fixes, and ongoing optimisation. Consulting is typically 60–70% cheaper for businesses with capable in-house teams.",
-    },
-    {
-      q: "What topics does an SEO consulting session cover?",
-      a: "SEO consulting sessions address technical SEO strategy, semantic content methodology and topical authority building, local SEO and Google Business Profile optimisation, keyword research and topical mapping, internal linking architecture, and performance analysis and algorithm update assessment.",
-    },
-  ],
-  "how-much-does-seo-cost": [
-    {
-      q: "How much does SEO cost in the UK?",
-      a: "UK SEO costs range from £495 for a standalone technical audit to £5,000+ monthly for a comprehensive retainer. Typical ranges: technical audits from £495, topical maps £800–£2,500, local SEO from £600 monthly, SEO consulting from £200 per session, and full-service retainers £1,500–£5,000+ monthly.",
-    },
-    {
-      q: "Why is cheap SEO risky?",
-      a: "SEO services under £300 monthly typically rely on automated link building, template content, and basic reporting that fails to build topical authority. These approaches often trigger algorithmic penalties or produce results that collapse when Google updates, costing significantly more to repair than quality SEO would have cost upfront.",
-    },
-    {
-      q: "How long before SEO delivers positive ROI?",
-      a: "SEO ROI develops progressively: months 1–3 require investment before results materialise; months 3–6 deliver initial 2–3x ROI from early ranking improvements; months 6–12 reach 5–10x ROI as topical authority compounds; mature SEO at 12+ months typically delivers 10–20x ROI through sustained organic visibility.",
-    },
-    {
-      q: "Should I hire an SEO consultant or an agency?",
-      a: "SEO consultants suit businesses wanting strategic direction with in-house implementation — typically £1,500–£3,500 monthly for senior strategy. Agencies provide full-service execution at higher cost. A hybrid model combining consultant strategy with freelance execution often delivers the best quality-to-cost ratio.",
-    },
-    {
-      q: "What SEO budget does my business need?",
-      a: "Small local businesses typically need £800–£1,500 initial setup plus £600+ monthly. B2B service businesses require £3,000–£8,000 initial strategy plus £1,000–£2,000 monthly. E-commerce businesses need £5,000–£15,000 initial investment plus £2,000–£5,000 monthly for sustained growth.",
-    },
-  ],
-  "seo-berkshire": [
-    {
-      q: "What makes Berkshire SEO different from national SEO?",
-      a: "Berkshire SEO combines local market knowledge across Reading, Bracknell, Maidenhead, Windsor, Slough, and Wokingham with advanced semantic methodology. The Thames Valley commercial corridor creates specific competitive dynamics — high business density, London proximity, and affluent demographics — that generic national SEO approaches ignore.",
-    },
-    {
-      q: "Which Berkshire areas do you cover?",
-      a: "SEO services cover all Berkshire areas: Reading and West Berkshire, Bracknell Forest, Wokingham Borough, Royal Borough of Windsor and Maidenhead, and Slough Borough. Remote consultations are also available for businesses wanting Berkshire-based expertise without geographic restrictions.",
-    },
-    {
-      q: "How much does Berkshire SEO cost?",
-      a: "Berkshire SEO pricing: technical audits from £495, topical maps £800–£2,500+, local SEO from £600 monthly, and full retainers £1,500–£5,000+ monthly. Initial investment depends on competition level and existing site authority. A free 20-minute SEO diagnosis helps establish the most useful next step.",
-    },
-    {
-      q: "How long does SEO take for Berkshire businesses?",
-      a: "Berkshire SEO timelines depend on competition and market. Local service businesses see initial results within 3–4 months. Professional services require 6–9 months building topical authority. Technology B2B companies in competitive Thames Valley markets should plan for 9–15 months for dominant positions.",
-    },
-    {
-      q: "Who provides the best SEO services in Berkshire?",
-      a: "I'm Sunny Patel, an independent SEO consultant based in Reading. I work with businesses across Berkshire, including Bracknell, Maidenhead, Windsor, Slough, and Wokingham. One Reading client went from 180 to 620 organic visits a month in 9 months. I cover technical SEO, local SEO, topical authority and AI search optimisation, and I do the work myself.",
-    },
-    {
-      q: "What does search engine optimisation in Berkshire involve?",
-      a: "Search engine optimisation in Berkshire combines local visibility across the Thames Valley towns with topical authority that ranks beyond purely local queries. The work covers technical audits, Google Business Profile optimisation, semantic content, and internal linking, tuned to the high business density and research-led search behaviour that define the Berkshire market.",
-    },
-    {
-      q: "Is Sunny Patel an SEO agency in Berkshire or an independent consultant?",
-      a: "Independent consultant, not an agency. Berkshire businesses searching for an 'SEO agency' or 'SEO company' typically want agency-level deliverables: technical audits, local SEO, topical authority content, and clear reporting. Working directly with a senior consultant gets you the same scope without an account manager between you and the strategist, and without the office overhead a traditional Berkshire SEO agency carries. The one honest trade-off is capacity for very high-volume, multi-team production, where an agency's staffing is the better fit.",
-    },
-  ],
-  "seo-consultant-london": [
-    {
-      q: "Why hire an independent SEO consultant instead of a London SEO agency?",
-      a: "Independent SEO consultants remove the agency overhead — office space, account managers, business development costs — that comprises 40–60% of a typical London agency retainer. You get direct access to a senior strategist on every call and decision, rather than a junior account executive relaying instructions. For London businesses wanting strategic expertise rather than volume execution, independent consultants consistently deliver better ROI.",
-    },
-    {
-      q: "How much does an SEO consultant in London cost?",
-      a: "London SEO consultant pricing: technical audits from £495, topical maps from £800–£2,500, and monthly retainers from £1,500–£5,000+ depending on scope and competition. Compared to London agency rates of £3,000–£10,000 monthly, independent consultant pricing delivers senior-level strategy at 40–60% lower cost. Initial consultations are free.",
-    },
-    {
-      q: "Do you work with London clients remotely?",
-      a: "All client work is conducted remotely — video calls, collaborative sessions, and direct communication without geographic limitation. Remote-first working means London businesses across all boroughs receive the same quality of engagement as any other client. Consultations are scheduled at times convenient to you.",
-    },
-    {
-      q: "How long does SEO take for London businesses?",
-      a: "London SEO timelines depend on competition and market. Technical improvements appear within 4–8 weeks. Initial ranking improvements for mid-competition queries develop within 3–6 months. Competitive London professional services, legal, and fintech queries require 9–15 months for dominant positions. The compound effect of topical authority building accelerates growth significantly after month 6.",
-    },
-    {
-      q: "What London industries do you specialise in?",
-      a: "London SEO engagements cover fintech and financial services, legal and professional services, technology and SaaS, luxury and premium brands, e-commerce, and startups and scale-ups. Each sector requires distinct SEO methodology — fintech E-E-A-T requirements differ fundamentally from luxury brand entity authority strategies.",
-    },
-    {
-      q: "What makes London SEO different from other UK markets?",
-      a: "London competitors typically have 5–10 years of content investment and strong authority profiles, making methodological precision essential. Intent complexity is higher — London search users are more researched and evaluate multiple providers. E-E-A-T signals matter more in London's regulated industries. AI search impact is accelerating fastest in London's B2B markets. Generic SEO approaches that work in smaller markets fail in London.",
-    },
-  ],
-  "seo-bracknell": [
-    {
-      q: "Why do Bracknell businesses need local SEO?",
-      a: "Bracknell's strong technology sector and professional services cluster create competitive local search markets. Businesses in The Lexicon, Doncastle Road, and Western Road business parks compete for local searches from an affluent commuter population. Local SEO ensures visibility when Bracknell buyers search for your services.",
-    },
-    {
-      q: "What SEO services work best for Bracknell businesses?",
-      a: "Bracknell businesses benefit most from local SEO for Google Business Profile and Map Pack visibility, technical SEO audits to fix indexation issues, topical map creation for industry authority beyond purely local searches, and content briefs for systematic semantic SEO content production.",
-    },
-    {
-      q: "How much does SEO cost for a Bracknell business?",
-      a: "Bracknell SEO investment ranges from £800–£2,500 initially for strategy and setup, followed by £600–£2,000+ monthly for ongoing implementation depending on service scope and competition. A free 20-minute SEO diagnosis helps establish the most useful next step.",
-    },
-    {
-      q: "How long does SEO take in Bracknell markets?",
-      a: "Local service businesses in Bracknell see initial results within 3–4 months. Professional services and B2B companies require 6–9 months building topical authority. Technology businesses with complex sales cycles should plan 9–15 months for competitive positions in saturated markets.",
-    },
-  ],
-  "seo-slough": [
-    {
-      q: "What makes Slough SEO different from other areas?",
-      a: "Slough's diverse economy — spanning the Trading Estate, manufacturing, logistics, technology, and professional services — creates varied SEO requirements. B2B businesses need topical authority for procurement research, while local service businesses need Google Maps visibility for residential catchments across Langley, Cippenham, and Burnham.",
-    },
-    {
-      q: "What SEO services suit Slough businesses?",
-      a: "Slough businesses benefit from B2B SEO strategies building topical authority for long sales cycles, local SEO for service businesses in residential areas, technical audits for complex e-commerce and business sites, and content architecture addressing diverse buyer journeys from quick local decisions to extended B2B evaluation processes.",
-    },
-    {
-      q: "How much does SEO cost for a Slough business?",
-      a: "Slough SEO costs range from £495 for a standalone technical audit to £1,500–£5,000+ monthly for comprehensive retainers. B2B content strategy typically requires £3,000–£8,000 initial investment. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
-    },
-    {
-      q: "How long does SEO take for Slough businesses?",
-      a: "Local service businesses in Slough see initial improvements within 3–4 months through Google Business Profile and on-page optimisation. B2B companies on the Trading Estate typically require 9–15 months to build the topical authority needed to compete for procurement research queries.",
-    },
-  ],
-  "seo-wokingham": [
-    {
-      q: "Why do Wokingham businesses need specialist SEO?",
-      a: "Wokingham Borough's affluent and educated population creates sophisticated search patterns requiring advanced content strategies beyond basic keyword targeting. Businesses compete against established local providers and Reading-based services targeting the same audience, demanding topical authority differentiation to rank and convert.",
-    },
-    {
-      q: "What SEO services work for Wokingham businesses?",
-      a: "Wokingham businesses benefit from semantic SEO building topical authority for sophisticated buyer research, local SEO for Google Business Profile and Map Pack visibility, technical audits ensuring fast mobile performance for a technically literate audience, and comprehensive content strategy addressing detailed pre-purchase research patterns.",
-    },
-    {
-      q: "How much does SEO cost for a Wokingham business?",
-      a: "Wokingham SEO investment ranges from £800–£2,500 initially for strategy and audit, followed by £800–£2,500+ monthly for ongoing implementation. Professional services in competitive niches require higher investment to overcome established competitors. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
-    },
-    {
-      q: "How long does SEO take in Wokingham?",
-      a: "Local service businesses in Wokingham see initial results within 3–4 months. Professional services (financial advisors, solicitors, consultancies) require 6–9 months building the topical authority needed to outrank established local competitors with multi-year authority advantages.",
-    },
-  ],
-  "seo-maidenhead": [
-    {
-      q: "What makes Maidenhead SEO unique?",
-      a: "Maidenhead's position in the Royal Borough creates dual SEO opportunities: local resident searches from affluent commuter demographics, and tourism-driven visitor searches from Windsor overflow. Effective Maidenhead SEO addresses both intents — local service relationships and immediate visitor needs — with different content strategies.",
-    },
-    {
-      q: "What SEO services benefit Maidenhead businesses?",
-      a: "Maidenhead businesses benefit from tourism-focused local SEO capturing visitor searches, residential market targeting for local service businesses, content strategy balancing visitor intent with long-term resident relationships, and technical optimisation for fast mobile performance supporting on-the-move visitor searches.",
-    },
-    {
-      q: "How much does SEO cost for a Maidenhead business?",
-      a: "Maidenhead SEO investment ranges from £600–£1,500 monthly for local SEO maintenance to £2,000–£5,000+ monthly for comprehensive strategy covering both tourism and residential markets. Initial strategy and setup typically requires £800–£2,500. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
-    },
-    {
-      q: "How long does SEO take for Maidenhead businesses?",
-      a: "Local service businesses and hospitality in Maidenhead typically see initial improvements within 3–4 months through Google Business Profile optimisation and local content. Businesses targeting both visitor and resident markets may require 6–9 months to build authority across both audience segments.",
-    },
-  ],
-  "seo-windsor": [
-    {
-      q: "What SEO opportunities exist for Windsor businesses?",
-      a: "Windsor's unique blend of international tourism, heritage-driven visitor searches, and established local business creates distinct SEO opportunities. Tourism-facing businesses capture high-volume visitor intent searches year-round, while local service businesses benefit from an affluent residential catchment across the Royal Borough.",
-    },
-    {
-      q: "How much does SEO cost for a Windsor business?",
-      a: "Windsor SEO costs range from £600+ monthly for local SEO to £1,500–£3,500+ monthly for comprehensive strategies covering both tourist and residential audiences. Initial audits start from £495. A free 20-minute SEO diagnosis helps establish the right next step before detailed scoping.",
-    },
-    {
-      q: "How long does SEO take for Windsor businesses?",
-      a: "Windsor hospitality and tourism businesses see initial Google Maps and local pack improvements within 3–4 months. Professional services and local businesses targeting residential audiences require 6–9 months to build the topical authority needed to rank competitively against established local providers.",
-    },
-  ],
-  "seo-consultant-kent": [
-    {
-      q: "How much does an SEO consultant in Kent cost?",
-      a: "Kent SEO consultant pricing: technical audits from £495, topical maps from £800–£2,500, and monthly retainers from £1,000–£4,000+ depending on competition level. Canterbury, Maidstone, and Tunbridge Wells are the most competitive Kent markets. A free 20-minute SEO diagnosis is available.",
-    },
-    {
-      q: "Which areas of Kent do you cover?",
-      a: "SEO services cover all of Kent including Canterbury, Maidstone, Tunbridge Wells, Folkestone, Ashford, Dartford, Gravesend, Sevenoaks, Tonbridge, and Herne Bay. All consultations conducted remotely with the same quality as in-person meetings.",
-    },
-    {
-      q: "How long does SEO take for Kent businesses?",
-      a: "Local service businesses in Kent see initial results within 3–4 months. Professional services in competitive markets like Canterbury and Tunbridge Wells require 6–9 months to build topical authority. E-commerce businesses should plan 9–12 months for sustained organic growth.",
-    },
-    {
-      q: "Why hire an independent SEO consultant instead of a Kent agency?",
-      a: "An independent consultant provides direct access to the senior strategist on every call — no account managers, no junior staff. Kent businesses get the same strategic depth as agency clients at 40–60% lower cost because there's no office overhead or management layers to fund.",
-    },
-  ],
+    "Get in touch for a free 20-minute diagnosis of your AI search goals. A measured citation baseline and full audit are separate paid work.",
 };
 
 type ConversionData = typeof GENERIC_DATA;
@@ -937,7 +564,7 @@ function buildSections(
     Markdoc.renderers.react(
       { ...(wrapper as object), children: g } as RenderableTreeNode,
       React,
-      { components: { ServiceMiniCta, GlowProcess, GlowProcessStep, MarkdocImage } }
+      { components: { ServiceMiniCta, GlowProcess, GlowProcessStep, MarkdocImage, MarkdocTable } }
     )
   );
 
@@ -1108,8 +735,7 @@ export default async function ServicePage({
                 name: service.title,
                 url: `https://sunnypatel.co.uk/services/${slug}/`,
               },
-            ]),
-            ...(SERVICE_FAQS[slug] ? [faqSchema(SERVICE_FAQS[slug])] : [])
+            ])
           ),
         }}
       />

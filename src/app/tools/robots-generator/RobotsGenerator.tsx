@@ -95,7 +95,7 @@ function applyPreset(key: PresetKey): { rules: RuleBlock[]; sitemaps: string[] }
 /* ------------------------------------------------------------------ */
 
 export default function RobotsGenerator() {
-  const [rules, setRules] = useState<RuleBlock[]>([makeBlock()]);
+  const [rules, setRules] = useState<RuleBlock[]>([makeBlock({ id: 'initial-rule' })]);
   const [sitemaps, setSitemaps] = useState<string[]>(['']);
   const [copied, setCopied] = useState(false);
 
@@ -314,12 +314,12 @@ export default function RobotsGenerator() {
               className="rounded-xl border border-hairline dark:border-white/[0.06] bg-wash dark:bg-white/[0.02] p-6"
             >
               <div className="mb-4 flex items-center justify-between">
-                <h3
+                <h2
                   className="text-sm font-semibold text-foreground"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   Rule Block {ruleIdx + 1}
-                </h3>
+                </h2>
                 {rules.length > 1 && (
                   <button
                     onClick={() => removeRule(rule.id)}
@@ -332,16 +332,20 @@ export default function RobotsGenerator() {
 
               {/* User-agent */}
               <div className="mb-4">
-                <label className="text-sm font-medium text-foreground">User-agent</label>
-                <div className="mt-1.5 flex gap-2">
+                <label htmlFor={`robots-${rule.id}-agent`} className="text-sm font-medium text-foreground">User-agent</label>
+                <div className="mt-1.5 flex items-end gap-2">
                   <input
+                    id={`robots-${rule.id}-agent`}
                     type="text"
                     value={rule.userAgent}
                     onChange={(e) => updateRule(rule.id, { userAgent: e.target.value })}
-                    className="flex-1 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+                    className="min-w-0 flex-1 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
                     placeholder="*"
                   />
+                  <label htmlFor={`robots-${rule.id}-preset`} className="flex max-w-[45%] min-w-0 flex-col gap-1 text-xs text-muted-foreground">
+                    Crawler preset
                   <select
+                    id={`robots-${rule.id}-preset`}
                     value=""
                     onChange={(e) => {
                       if (e.target.value) updateRule(rule.id, { userAgent: e.target.value });
@@ -355,13 +359,14 @@ export default function RobotsGenerator() {
                       </option>
                     ))}
                   </select>
+                  </label>
                 </div>
               </div>
 
               {/* Disallow paths */}
               <div className="mb-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium text-foreground">Disallow paths</label>
+                  <span className="text-sm font-medium text-foreground">Disallow paths</span>
                   <button
                     onClick={() => addPath(rule.id, 'disallowPaths')}
                     className="text-xs text-brand-ink hover:text-ink-strong dark:text-brand dark:hover:text-[#7BA3F7] transition-colors"
@@ -371,8 +376,10 @@ export default function RobotsGenerator() {
                 </div>
                 <div className="mt-1.5 flex flex-col gap-2">
                   {rule.disallowPaths.map((path, pi) => (
-                    <div key={pi} className="flex items-center gap-2">
+                    <div key={pi} className="flex flex-wrap items-center gap-2">
+                      <label htmlFor={`robots-${rule.id}-disallow-${pi}`} className="w-full text-xs text-muted-foreground">Disallow path {pi + 1}</label>
                       <input
+                        id={`robots-${rule.id}-disallow-${pi}`}
                         type="text"
                         value={path}
                         onChange={(e) =>
@@ -406,7 +413,7 @@ export default function RobotsGenerator() {
               {/* Allow paths */}
               <div className="mb-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium text-foreground">Allow paths</label>
+                  <span className="text-sm font-medium text-foreground">Allow paths</span>
                   <button
                     onClick={() => addPath(rule.id, 'allowPaths')}
                     className="text-xs text-brand-ink hover:text-ink-strong dark:text-brand dark:hover:text-[#7BA3F7] transition-colors"
@@ -416,8 +423,10 @@ export default function RobotsGenerator() {
                 </div>
                 <div className="mt-1.5 flex flex-col gap-2">
                   {rule.allowPaths.map((path, pi) => (
-                    <div key={pi} className="flex items-center gap-2">
+                    <div key={pi} className="flex flex-wrap items-center gap-2">
+                      <label htmlFor={`robots-${rule.id}-allow-${pi}`} className="w-full text-xs text-muted-foreground">Allow path {pi + 1}</label>
                       <input
+                        id={`robots-${rule.id}-allow-${pi}`}
                         type="text"
                         value={path}
                         onChange={(e) =>
@@ -450,11 +459,12 @@ export default function RobotsGenerator() {
 
               {/* Crawl-delay */}
               <div>
-                <label className="text-sm font-medium text-foreground">
+                <label htmlFor={`robots-${rule.id}-delay`} className="text-sm font-medium text-foreground">
                   Crawl-delay{' '}
                   <span className="text-muted-foreground font-normal">(seconds, optional)</span>
                 </label>
                 <input
+                  id={`robots-${rule.id}-delay`}
                   type="number"
                   min={0}
                   step={1}
@@ -478,12 +488,12 @@ export default function RobotsGenerator() {
           {/* Sitemaps */}
           <div className="rounded-xl border border-hairline dark:border-white/[0.06] bg-wash dark:bg-white/[0.02] p-6">
             <div className="mb-3 flex items-center justify-between">
-              <h3
+              <h2
                 className="text-sm font-semibold text-foreground"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 Sitemap URLs
-              </h3>
+              </h2>
               <button
                 onClick={addSitemap}
                 className="text-xs text-brand-ink hover:text-ink-strong dark:text-brand dark:hover:text-[#7BA3F7] transition-colors"
@@ -493,8 +503,10 @@ export default function RobotsGenerator() {
             </div>
             <div className="flex flex-col gap-2">
               {sitemaps.map((sm, si) => (
-                <div key={si} className="flex items-center gap-2">
+                <div key={si} className="flex flex-wrap items-center gap-2">
+                  <label htmlFor={`robots-sitemap-${si}`} className="w-full text-xs text-muted-foreground">Sitemap URL {si + 1}</label>
                   <input
+                    id={`robots-sitemap-${si}`}
                     type="text"
                     value={sm}
                     onChange={(e) => updateSitemap(si, e.target.value)}
@@ -528,12 +540,12 @@ export default function RobotsGenerator() {
         <div className="flex flex-col gap-4">
           <div className="sticky top-28">
             <div className="mb-3 flex items-center justify-between">
-              <h3
+              <h2
                 className="text-sm font-semibold text-foreground"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 Live Preview
-              </h3>
+              </h2>
               <div className="flex gap-2">
                 <button
                   onClick={handleCopy}

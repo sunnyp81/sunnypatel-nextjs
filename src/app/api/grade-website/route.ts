@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { safePublicFetch } from "@/lib/safe-public-fetch";
+
+export const runtime = "nodejs";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -403,23 +406,18 @@ export async function POST(req: NextRequest) {
 
     // Fetch the page
     let html = "";
-    let responseHeaders: Record<string, string> = {};
+    const responseHeaders: Record<string, string> = {};
 
     try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
-
-      const res = await fetch(finalUrl, {
+      const res = await safePublicFetch(finalUrl, {
         method: "GET",
         redirect: "follow",
-        signal: controller.signal,
+        timeoutMs: 10000,
         headers: {
           "User-Agent": "Mozilla/5.0 (compatible; WebsiteGrader/1.0; +https://sunnypatel.co.uk/tools/website-grader/)",
           Accept: "text/html,application/xhtml+xml",
         },
       });
-
-      clearTimeout(timeout);
 
       // Capture response headers (lowercase keys)
       res.headers.forEach((value, key) => {
@@ -435,7 +433,7 @@ export async function POST(req: NextRequest) {
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Unknown error";
       return NextResponse.json(
-        { error: message.includes("abort") ? "Request timed out (10s). The site may be slow or blocking requests." : `Could not fetch the page: ${message}` },
+        { error: /abort|timed out/i.test(message) ? "Request timed out (10s). The site may be slow or blocking requests." : `Could not fetch the page: ${message}` },
         { status: 502 }
       );
     }

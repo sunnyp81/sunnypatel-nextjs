@@ -184,7 +184,7 @@ function GooglePreviewCard({
         </div>
 
         {/* Title */}
-        <h3
+        <h2
           className="mt-1 cursor-pointer hover:underline"
           style={{
             fontFamily: 'Arial, sans-serif',
@@ -199,7 +199,7 @@ function GooglePreviewCard({
           title={isTruncated ? displayTitle : undefined}
         >
           {displayTitle}
-        </h3>
+        </h2>
 
         {/* Description */}
         <p
@@ -281,7 +281,7 @@ export default function SerpPreview() {
           {/* Title input */}
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-foreground">Title Tag</label>
+              <label htmlFor="serp-title" className="text-sm font-medium text-foreground">Title Tag</label>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-muted-foreground">
                   {title.length} chars / {titlePx}px of {maxTitlePx}px
@@ -289,7 +289,7 @@ export default function SerpPreview() {
                 <StatusBadge color={titleStatus} label={titleStatusLabel} />
               </div>
             </div>
-            <input
+            <input id="serp-title"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -302,7 +302,7 @@ export default function SerpPreview() {
           {/* Meta description input */}
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-foreground">Meta Description</label>
+              <label htmlFor="serp-description" className="text-sm font-medium text-foreground">Meta Description</label>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-muted-foreground">
                   {descLen} / 160 chars
@@ -310,7 +310,7 @@ export default function SerpPreview() {
                 <StatusBadge color={descStatus} label={descStatusLabel} />
               </div>
             </div>
-            <textarea
+            <textarea id="serp-description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
@@ -322,13 +322,13 @@ export default function SerpPreview() {
           {/* URL input */}
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-foreground">URL</label>
+              <label htmlFor="serp-url" className="text-sm font-medium text-foreground">URL</label>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-muted-foreground">{urlLen} chars</span>
                 <StatusBadge color={urlStatus} label={urlStatusLabel} />
               </div>
             </div>
-            <input
+            <input id="serp-url"
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}

@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { safePublicFetch } from "@/lib/safe-public-fetch";
+
+export const runtime = "nodejs";
 
 interface LinkResult {
   url: string;
@@ -10,12 +13,14 @@ interface LinkResult {
 
 async function checkLink(
   linkUrl: string,
-  baseHost: string
+  baseHost: string,
+  deadline: number
 ): Promise<LinkResult> {
   const start = Date.now();
   let internal = false;
 
   try {
+    if (Date.now() >= deadline) throw new Error("Request timed out");
     const parsed = new URL(linkUrl);
     internal = parsed.hostname === baseHost;
   } catch {
@@ -29,38 +34,30 @@ async function checkLink(
   }
 
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
-
-    const res = await fetch(linkUrl, {
+    const res = await safePublicFetch(linkUrl, {
       method: "HEAD",
       redirect: "follow",
-      signal: controller.signal,
+      timeoutMs: Math.min(5000, Math.max(1, deadline - Date.now())),
+      headersOnly: true,
       headers: {
         "User-Agent":
           "Mozilla/5.0 (compatible; BrokenLinkChecker/1.0; +https://sunnypatel.co.uk/tools/broken-links/)",
       },
     });
-
-    clearTimeout(timeout);
     const elapsed = Date.now() - start;
 
     // Some servers reject HEAD — fall back to GET
     if (res.status === 405 || res.status === 403) {
-      const controller2 = new AbortController();
-      const timeout2 = setTimeout(() => controller2.abort(), 5000);
-
-      const res2 = await fetch(linkUrl, {
+      const res2 = await safePublicFetch(linkUrl, {
         method: "GET",
         redirect: "follow",
-        signal: controller2.signal,
+        timeoutMs: Math.min(5000, Math.max(1, deadline - Date.now())),
+        headersOnly: true,
         headers: {
           "User-Agent":
             "Mozilla/5.0 (compatible; BrokenLinkChecker/1.0; +https://sunnypatel.co.uk/tools/broken-links/)",
         },
       });
-
-      clearTimeout(timeout2);
       const elapsed2 = Date.now() - start;
 
       return {
@@ -82,7 +79,7 @@ async function checkLink(
   } catch (err: unknown) {
     const elapsed = Date.now() - start;
     const message = err instanceof Error ? err.message : "";
-    const isTimeout = message.includes("abort");
+    const isTimeout = /abort|timed out/i.test(message);
 
     return {
       url: linkUrl,
@@ -95,6 +92,7 @@ async function checkLink(
 }
 
 export async function POST(req: NextRequest) {
+  const deadline = Date.now() + 25_000;
   try {
     const body = await req.json();
     const { url } = body;
@@ -128,21 +126,16 @@ export async function POST(req: NextRequest) {
     }
 
     try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
-
-      const pageRes = await fetch(url, {
+      const pageRes = await safePublicFetch(url, {
         method: "GET",
         redirect: "follow",
-        signal: controller.signal,
+        timeoutMs: Math.min(10000, Math.max(1, deadline - Date.now())),
         headers: {
           "User-Agent":
             "Mozilla/5.0 (compatible; BrokenLinkChecker/1.0; +https://sunnypatel.co.uk/tools/broken-links/)",
           Accept: "text/html,application/xhtml+xml",
         },
       });
-
-      clearTimeout(timeout);
 
       if (!pageRes.ok) {
         return NextResponse.json(
@@ -156,7 +149,7 @@ export async function POST(req: NextRequest) {
       const message = err instanceof Error ? err.message : "Unknown error";
       return NextResponse.json(
         {
-          error: message.includes("abort")
+          error: /abort|timed out/i.test(message)
             ? "Page fetch timed out (10s)"
             : `Failed to fetch page: ${message}`,
         },
@@ -217,9 +210,10 @@ export async function POST(req: NextRequest) {
     const BATCH_SIZE = 10;
 
     for (let i = 0; i < resolvedLinks.length; i += BATCH_SIZE) {
+      if (Date.now() >= deadline) break;
       const batch = resolvedLinks.slice(i, i + BATCH_SIZE);
       const batchResults = await Promise.all(
-        batch.map((link) => checkLink(link, baseHost))
+        batch.map((link) => checkLink(link, baseHost, deadline))
       );
       results.push(...batchResults);
     }
@@ -227,6 +221,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       pageUrl: url,
       totalLinks: results.length,
+      incomplete: results.length < resolvedLinks.length,
       results,
     });
   } catch {

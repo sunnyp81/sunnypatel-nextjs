@@ -337,8 +337,9 @@ export default function RedirectChecker() {
         </div>
 
         {!bulkMode ? (
-          <div className="flex gap-3">
-            <input
+          <div className="flex flex-wrap gap-3">
+            <label htmlFor="redirect-url" className="w-full text-sm font-medium text-foreground">URL to check</label>
+            <input id="redirect-url"
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
@@ -362,10 +363,10 @@ export default function RedirectChecker() {
           </div>
         ) : (
           <div>
-            <label className="text-sm font-medium text-foreground mb-1.5 block">
+            <label htmlFor="redirect-bulk-urls" className="text-sm font-medium text-foreground mb-1.5 block">
               Enter URLs (one per line)
             </label>
-            <textarea
+            <textarea id="redirect-bulk-urls"
               value={bulkUrls}
               onChange={(e) => setBulkUrls(e.target.value)}
               placeholder={"https://example.com/page-1\nhttps://example.com/page-2\nhttps://example.com/page-3"}

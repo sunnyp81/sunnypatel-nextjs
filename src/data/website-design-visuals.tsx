@@ -323,21 +323,22 @@ function Hierarchy({
   title,
   desc,
   root,
-  children,
+  branches,
+  labelColor = C.white,
 }: {
   titleId: string;
   descId: string;
   title: string;
   desc: string;
   root: string;
-  children: { label: string; sub?: string }[];
+  branches: { label: string; sub?: string }[];
+  labelColor?: string;
 }) {
   const w = 720;
   const h = 320;
   const boxW = 130;
   const boxH = 70;
-  const cols = Math.min(children.length, 4);
-  const rows = Math.ceil(children.length / cols);
+  const cols = Math.min(branches.length, 4);
   const totalGridW = cols * boxW + (cols - 1) * 16;
   const startX = (w - totalGridW) / 2;
   return (
@@ -370,11 +371,11 @@ function Hierarchy({
         fontFamily={FONT}
         fontSize="14"
         fontWeight="bold"
-        fill={C.white}
+        fill={labelColor}
       >
         {root}
       </text>
-      {children.map((c, i) => {
+      {branches.map((c, i) => {
         const col = i % cols;
         const row = Math.floor(i / cols);
         const x = startX + col * (boxW + 16);
@@ -397,7 +398,7 @@ function Hierarchy({
               fontFamily={FONT}
               fontSize="13"
               fontWeight="bold"
-              fill={C.white}
+              fill={labelColor}
             >
               {c.label}
             </text>
@@ -408,7 +409,7 @@ function Hierarchy({
                 textAnchor="middle"
                 fontFamily={FONT}
                 fontSize="11"
-                fill={C.white}
+                fill={labelColor}
               >
                 {c.sub}
               </text>
@@ -458,18 +459,18 @@ const ROOT_CLOSE = (
 );
 
 const WORDPRESS_INTRO = (
-  <Figure caption="WordPress runs over 40% of all UK business websites — the highest share of any CMS by a wide margin.">
-    <BarChart
+  <Figure caption="WordPress build decisions: agree what the site needs before choosing its theme, plugins and hosting.">
+    <Hierarchy
+      labelColor="#0A1024"
       titleId="wp-vis-1-title"
       descId="wp-vis-1-desc"
-      title="UK CMS market share, 2026"
-      desc="WordPress dominates the UK content management system market for business websites, with Shopify and Wix the next largest segments and custom builds remaining a niche choice."
-      bars={[
-        { label: "WordPress", value: 43, max: 50, colour: C.primary, suffix: "%" },
-        { label: "Shopify", value: 6, max: 50, colour: C.secondary, suffix: "%" },
-        { label: "Wix", value: 4, max: 50, colour: C.accent, suffix: "%" },
-        { label: "Squarespace", value: 3, max: 50, colour: C.accent, suffix: "%" },
-        { label: "Custom / other", value: 8, max: 50, colour: C.neutral, suffix: "%" },
+      title="What a WordPress build needs"
+      desc="Plan the customer journey, editing workflow and technical setup around the business. This is a project checklist, not a market-share estimate."
+      root="Business goals"
+      branches={[
+        { label: "Enquiries", sub: "Pages and forms" },
+        { label: "Editing", sub: "Team workflow" },
+        { label: "Technical", sub: "Hosting and plugins" },
       ]}
     />
   </Figure>
@@ -483,7 +484,7 @@ const WORDPRESS_CLOSE = (
       title="The default WordPress plugin stack"
       desc="Six plugins covering SEO, performance, security, forms and analytics. Every plugin earns its place; bloat-prone alternatives like Jetpack and unconfigured Elementor are deliberately excluded."
       root="WordPress build (£1,500)"
-      children={[
+      branches={[
         { label: "Rank Math", sub: "SEO + schema" },
         { label: "WP Rocket", sub: "Caching" },
         { label: "Imagify", sub: "Image opt." },
@@ -503,7 +504,7 @@ const SMALLBIZ_INTRO = (
       title="The 5-page UK small business website"
       desc="Five core pages cover the buyer journey for most UK service businesses, contractors and sole traders. Additional pages move the build into the Standard package at £2,000."
       root="Small business site (£1,500)"
-      children={[
+      branches={[
         { label: "Home", sub: "What you do" },
         { label: "About", sub: "Trust + team" },
         { label: "Services", sub: "Detail + price" },
@@ -566,7 +567,7 @@ const PACKAGES_CLOSE = (
       title="What every package includes as standard"
       desc="Twelve deliverables included in every package regardless of tier. Add-ons such as copywriting, WooCommerce and ongoing SEO retainers are stated separately and priced up front."
       root="Every package includes"
-      children={[
+      branches={[
         { label: "Custom design", sub: "Figma + sign-off" },
         { label: "Mobile-first", sub: "Real-device test" },
         { label: "Schema markup", sub: "JSON-LD" },
@@ -605,7 +606,7 @@ const SEO_CLOSE = (
       title="The schema graph at launch"
       desc="Schema markup deployed at the WordPress template level rather than added via plugin. Each schema type has a specific role in how Google interprets the site and earns rich results in the SERP."
       root="Schema graph (per page)"
-      children={[
+      branches={[
         { label: "Organization", sub: "Site-wide" },
         { label: "LocalBusiness", sub: "NAP + geo" },
         { label: "Person", sub: "Owner / pro" },
@@ -725,7 +726,7 @@ const INDUSTRIES_CLOSE = (
       title="Trust signals by sector"
       desc="The trust signals that drive enquiry conversion vary by sector. Regulated industries lead with credentials; service trades lead with photo proof and reviews; B2B leads with case studies."
       root="Trust signals that convert"
-      children={[
+      branches={[
         { label: "Trades", sub: "Photo, reviews" },
         { label: "Healthcare", sub: "GMC/GDC, before/after" },
         { label: "Legal", sub: "SRA, partner bios" },
@@ -806,7 +807,7 @@ const SEO_PERF_CLOSE = (
       title="SEO and performance launch checklist"
       desc="The eight technical foundations checked at launch on every SEO-led WordPress build. Each is template-level rather than plugin-driven so it scales with the site."
       root="Greens at launch"
-      children={[
+      branches={[
         { label: "URL hierarchy", sub: "Hyphens, lc" },
         { label: "Schema graph", sub: "JSON-LD" },
         { label: "Sitemap", sub: "Filtered" },
@@ -863,7 +864,7 @@ const PROOF_INTRO = (
       title="How I judge a website's success"
       desc="The three measures used to judge whether a UK business website has done its job. Enquiries are the only revenue-linked measure; the others are leading indicators."
       root="Did the site work?"
-      children={[
+      branches={[
         { label: "Enquiries", sub: "Phone + form" },
         { label: "Rankings", sub: "Commercial intent" },
         { label: "Tech floor", sub: "CWV + a11y" },
@@ -897,7 +898,7 @@ const PORTFOLIO_INTRO = (
       title="Portfolio curation criteria"
       desc="The four criteria a build must meet before it goes onto the public portfolio. The result is a smaller portfolio than most agencies show, and a higher signal-to-noise ratio."
       root="Published only if"
-      children={[
+      branches={[
         { label: "I led design", sub: "+ build" },
         { label: "Outcome measurable", sub: "Numbers" },
         { label: "Client named", sub: "Permission" },

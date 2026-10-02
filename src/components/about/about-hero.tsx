@@ -9,7 +9,7 @@ const stats = [
   { value: "15+", label: "Years experience" },
   { value: "45", label: "Sites in portfolio case study" },
   { value: "12+", label: "Testing verticals" },
-  { value: "+340%", label: "Published organic growth" },
+  { value: "+340%", label: "Aatma organic traffic YoY" },
 ];
 
 export function AboutHero() {

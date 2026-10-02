@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useId } from 'react';
 
 // Aggregated organic CTR by Google position (desktop + mobile blended).
 // Indices 1..20; positions beyond 20 use a small floor value.
@@ -141,7 +141,7 @@ export default function SeoRoiCalculator() {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[360px_minmax(0,1fr)]">
         {/* Inputs */}
         <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 space-y-5 h-fit">
           <NumberField
@@ -175,7 +175,7 @@ export default function SeoRoiCalculator() {
             hint="Share of visitors that become a lead or sale."
           />
           <NumberField
-            label="Average deal or order value (£)"
+            label="Average deal or order value (Â£)"
             value={dealValue}
             onChange={setDealValue}
             min={0}
@@ -183,7 +183,7 @@ export default function SeoRoiCalculator() {
             hint="Revenue per converted visitor."
           />
           <NumberField
-            label="Monthly SEO investment (£)"
+            label="Monthly SEO investment (Â£)"
             value={monthlyCost}
             onChange={setMonthlyCost}
             min={0}
@@ -369,10 +369,11 @@ function NumberField({
   step: number;
   hint?: string;
 }) {
+  const id = useId();
   return (
     <div>
-      <label className="text-sm font-medium text-foreground block mb-1.5">{label}</label>
-      <input
+      <label htmlFor={id} className="text-sm font-medium text-foreground block mb-1.5">{label}</label>
+      <input id={id}
         type="number"
         value={value}
         min={min}
@@ -398,13 +399,14 @@ function RangeField({
   min: number;
   max: number;
 }) {
+  const id = useId();
   return (
     <div>
       <div className="flex items-center justify-between mb-1.5">
-        <label className="text-sm font-medium text-foreground">{label}</label>
+        <label htmlFor={id} className="text-sm font-medium text-foreground">{label}</label>
         <span className="text-sm font-semibold text-brand-ink">{value}</span>
       </div>
-      <input
+      <input id={id}
         type="range"
         value={value}
         min={min}

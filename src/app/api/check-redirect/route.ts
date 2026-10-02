@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { safePublicFetch } from "@/lib/safe-public-fetch";
+
+export const runtime = "nodejs";
 
 interface RedirectStep {
   url: string;
@@ -8,6 +11,7 @@ interface RedirectStep {
 }
 
 export async function POST(req: NextRequest) {
+  const deadline = Date.now() + 15_000;
   try {
     const body = await req.json();
     const { url } = body;
@@ -33,6 +37,9 @@ export async function POST(req: NextRequest) {
     let loopDetected = false;
 
     for (let i = 0; i < MAX_REDIRECTS + 1; i++) {
+      if (Date.now() >= deadline) {
+        return NextResponse.json({ chain, loopDetected: false, error: "Redirect check timed out (15s)" });
+      }
       if (visitedUrls.has(currentUrl)) {
         loopDetected = true;
         break;
@@ -42,20 +49,16 @@ export async function POST(req: NextRequest) {
       const start = Date.now();
 
       try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 10000);
-
-        const res = await fetch(currentUrl, {
+        const res = await safePublicFetch(currentUrl, {
           method: "GET",
           redirect: "manual",
-          signal: controller.signal,
+          timeoutMs: Math.min(10000, Math.max(1, deadline - Date.now())),
+          headersOnly: true,
           headers: {
             "User-Agent":
               "Mozilla/5.0 (compatible; RedirectChecker/1.0; +https://sunnypatel.co.uk/tools/redirect-checker/)",
           },
         });
-
-        clearTimeout(timeout);
 
         const elapsed = Date.now() - start;
 
@@ -75,6 +78,9 @@ export async function POST(req: NextRequest) {
         if ([301, 302, 303, 307, 308].includes(res.status)) {
           const location = res.headers.get("location");
           if (!location) break;
+          if (i === MAX_REDIRECTS) {
+            return NextResponse.json({ chain, loopDetected: false, error: "Maximum of 10 redirects reached." });
+          }
 
           // Handle relative redirects
           try {
@@ -101,7 +107,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           chain,
           loopDetected: false,
-          error: message.includes("abort")
+          error: /abort|timed out/i.test(message)
             ? "Request timed out (10s)"
             : `Connection failed: ${message}`,
         });

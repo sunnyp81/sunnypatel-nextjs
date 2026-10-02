@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { safePublicFetch } from "@/lib/safe-public-fetch";
+
+export const runtime = "nodejs";
 
 function allowed(raw: string): URL | null {
   try {
@@ -43,9 +46,9 @@ export async function POST(request: NextRequest) {
       { status: 400 },
     );
   try {
-    const response = await fetch(url, {
+    const response = await safePublicFetch(url, {
       redirect: "manual",
-      signal: AbortSignal.timeout(8000),
+      timeoutMs: 8000,
       headers: {
         "User-Agent": "SunnyPatelTools/1.0 (+https://sunnypatel.co.uk/tools/)",
         Accept: "text/html,application/xml,text/xml,text/plain;q=0.9,*/*;q=0.5",
@@ -104,7 +107,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error:
-          error instanceof Error && error.name === "TimeoutError"
+          error instanceof Error && /TimeoutError|PublicFetchError/.test(error.name) && /timed out/i.test(error.message)
             ? "Remote request timed out after 8 seconds."
             : "Could not fetch the remote URL.",
       },

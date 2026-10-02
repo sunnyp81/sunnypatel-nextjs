@@ -153,7 +153,7 @@ export const tools: Tool[] = [
   {
     name: "AI Visibility Checker",
     description:
-      "Can ChatGPT, Perplexity and AI Overviews cite your site? Scored report across crawl access, schema, entities, and answerability.",
+      "Inspect crawler directives, schema and page structure. Technical heuristic checks, not observed AI retrieval or citations.",
     href: "/tools/ai-visibility-checker/",
     category: "Website Audit",
   },

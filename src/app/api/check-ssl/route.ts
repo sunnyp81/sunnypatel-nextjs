@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { safePublicFetch } from "@/lib/safe-public-fetch";
+
+export const runtime = "nodejs";
 
 interface SslResult {
   valid: boolean;
@@ -49,16 +52,16 @@ function coversDomain(entry: CtIssuance, domain: string): boolean {
   });
 }
 
-// Workers cannot read a live peer certificate, so details come from certificate
-// transparency logs and trust is proven by a real HTTPS handshake.
+// Certificate details come from transparency logs; trust is checked with
+// a verified HTTPS handshake through the public-only Node transport.
 async function checkSsl(domain: string): Promise<SslResult> {
   let chainValid = false;
   let handshakeError = "";
   try {
-    await fetch(`https://${domain}/`, {
+    await safePublicFetch(`https://${domain}/`, {
       method: "HEAD",
       redirect: "manual",
-      signal: AbortSignal.timeout(5000),
+      timeoutMs: 5000,
     });
     chainValid = true;
   } catch (err) {
@@ -67,9 +70,9 @@ async function checkSsl(domain: string): Promise<SslResult> {
 
   let entries: CtIssuance[] = [];
   try {
-    const res = await fetch(
+    const res = await safePublicFetch(
       `https://api.certspotter.com/v1/issuances?domain=${encodeURIComponent(domain)}&expand=dns_names&expand=issuer&expand=revocation`,
-      { signal: AbortSignal.timeout(8000) }
+      { timeoutMs: 8000 }
     );
     if (res.ok) entries = (await res.json()) as CtIssuance[];
   } catch {}

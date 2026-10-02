@@ -516,8 +516,8 @@ export default function ReviewLink() {
 
             <div className="space-y-4">
               <div>
-                <label className={labelClass}>Business Name (for templates)</label>
-                <input
+                <label htmlFor="review-business-name" className={labelClass}>Business Name (for templates)</label>
+                <input id="review-business-name"
                   type="text"
                   className={inputClass}
                   placeholder="e.g. Costa Coffee Reading"
@@ -527,8 +527,8 @@ export default function ReviewLink() {
               </div>
 
               <div>
-                <label className={labelClass}>Google Place ID</label>
-                <input
+                <label htmlFor="review-place-id" className={labelClass}>Google Place ID</label>
+                <input id="review-place-id"
                   type="text"
                   className={inputClass}
                   placeholder="e.g. ChIJN1t_tDeuEmsRUsoyG83frY4"
@@ -605,8 +605,8 @@ export default function ReviewLink() {
 
               <div className="space-y-4">
                 <div>
-                  <label className={labelClass}>Customer name (for templates)</label>
-                  <input
+                  <label htmlFor="review-customer-name" className={labelClass}>Customer name (for templates)</label>
+                  <input id="review-customer-name"
                     type="text"
                     className={inputClass}
                     placeholder="[Name]"

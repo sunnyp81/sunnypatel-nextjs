@@ -449,7 +449,7 @@ export default function SslChecker() {
 
       {/* Input form */}
       <form onSubmit={handleCheck} className="mb-8">
-        <label className="text-sm font-medium text-foreground mb-1.5 block">
+        <label htmlFor="ssl-domain" className="text-sm font-medium text-foreground mb-1.5 block">
           Domain
         </label>
         <div className="flex gap-3">
@@ -457,7 +457,7 @@ export default function SslChecker() {
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground select-none">
               https://
             </span>
-            <input
+            <input id="ssl-domain"
               type="text"
               value={domain}
               onChange={(e) => setDomain(e.target.value)}

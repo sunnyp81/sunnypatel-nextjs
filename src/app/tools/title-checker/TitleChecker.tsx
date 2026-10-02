@@ -143,10 +143,10 @@ export default function TitleChecker() {
 
       {/* Input area */}
       <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 mb-6 shadow-[var(--elev)]">
-        <label className="text-sm font-medium text-foreground block mb-2">
+        <label htmlFor="title-checker-titles" className="text-sm font-medium text-foreground block mb-2">
           Title Tags (one per line)
         </label>
-        <textarea
+        <textarea id="title-checker-titles"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={8}

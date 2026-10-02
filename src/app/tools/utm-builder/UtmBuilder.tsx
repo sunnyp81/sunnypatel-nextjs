@@ -134,10 +134,10 @@ export default function UtmBuilder() {
       <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)]">
         {/* Website URL — full width */}
         <div className="mb-5">
-          <label className="text-sm font-medium text-foreground">
+          <label htmlFor="utm-website" className="text-sm font-medium text-foreground">
             Website URL <span className="text-destructive dark:text-red-400">*</span>
           </label>
-          <input
+          <input id="utm-website"
             type="url"
             value={websiteUrl}
             onChange={(e) => { setWebsiteUrl(e.target.value); setTouched(true); }}
@@ -153,10 +153,10 @@ export default function UtmBuilder() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {/* Source */}
           <div>
-            <label className="text-sm font-medium text-foreground">
+            <label htmlFor="utm-source" className="text-sm font-medium text-foreground">
               utm_source <span className="text-destructive dark:text-red-400">*</span>
             </label>
-            <input
+            <input id="utm-source"
               type="text"
               value={source}
               onChange={(e) => { setSource(e.target.value); setTouched(true); }}
@@ -179,10 +179,10 @@ export default function UtmBuilder() {
 
           {/* Medium */}
           <div>
-            <label className="text-sm font-medium text-foreground">
+            <label htmlFor="utm-medium" className="text-sm font-medium text-foreground">
               utm_medium <span className="text-destructive dark:text-red-400">*</span>
             </label>
-            <input
+            <input id="utm-medium"
               type="text"
               value={medium}
               onChange={(e) => { setMedium(e.target.value); setTouched(true); }}
@@ -205,10 +205,10 @@ export default function UtmBuilder() {
 
           {/* Campaign */}
           <div>
-            <label className="text-sm font-medium text-foreground">
+            <label htmlFor="utm-campaign" className="text-sm font-medium text-foreground">
               utm_campaign <span className="text-destructive dark:text-red-400">*</span>
             </label>
-            <input
+            <input id="utm-campaign"
               type="text"
               value={campaign}
               onChange={(e) => { setCampaign(e.target.value); setTouched(true); }}
@@ -219,10 +219,10 @@ export default function UtmBuilder() {
 
           {/* Term (optional) */}
           <div>
-            <label className="text-sm font-medium text-foreground">
+            <label htmlFor="utm-term" className="text-sm font-medium text-foreground">
               utm_term <span className="text-muted-foreground text-xs">(optional)</span>
             </label>
-            <input
+            <input id="utm-term"
               type="text"
               value={term}
               onChange={(e) => setTerm(e.target.value)}
@@ -233,10 +233,10 @@ export default function UtmBuilder() {
 
           {/* Content (optional) */}
           <div className="md:col-span-2">
-            <label className="text-sm font-medium text-foreground">
+            <label htmlFor="utm-content" className="text-sm font-medium text-foreground">
               utm_content <span className="text-muted-foreground text-xs">(optional)</span>
             </label>
-            <input
+            <input id="utm-content"
               type="text"
               value={content}
               onChange={(e) => setContent(e.target.value)}

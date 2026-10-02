@@ -223,13 +223,14 @@ export default function WordCounter() {
         </button>
       </div>
 
-      <textarea
+      <label htmlFor="word-counter-content" className="mt-4 block text-sm font-medium text-foreground">Your text</label>
+      <textarea id="word-counter-content"
         ref={textareaRef}
         value={text}
         onChange={handleChange}
         rows={12}
         placeholder="Paste or type your text here..."
-        className="mt-4 w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 resize-none"
+        className="mt-2 w-full rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 resize-none"
       />
 
       {/* Bottom row: SEO Guide + Top Keywords */}

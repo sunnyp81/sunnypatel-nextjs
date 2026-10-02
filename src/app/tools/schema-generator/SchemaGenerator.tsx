@@ -314,7 +314,7 @@ function StarRating({ value, best = '5' }: { value: string; best?: string }) {
 
 // ── Component ──────────────────────────────────────────────────────────────────
 
-export default function SchemaGenerator({ initialType }: { initialType?: SchemaType } = {}) {
+export default function SchemaGenerator({ initialType, heading = "Schema Markup Generator", introduction }: { initialType?: SchemaType; heading?: string; introduction?: string } = {}) {
   const [activeType, setActiveType] = useState<SchemaType>(initialType ?? 'FAQ');
   const [format, setFormat] = useState<OutputFormat>('jsonld');
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
@@ -2517,10 +2517,10 @@ export default function SchemaGenerator({ initialType }: { initialType?: SchemaT
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
-          Schema Markup Generator
+          {heading}
         </h1>
         <p className="mt-3 max-w-2xl text-base text-muted-foreground">
-          Generate valid JSON-LD or Microdata structured data for 16 schema types. Select a schema type, fill in the fields, and copy the markup to your site. Not sure where the code goes once you have it? Read{' '}
+          {introduction ?? 'Generate JSON-LD or Microdata structured data for 16 schema types. Select a schema type, fill in the fields, and copy the markup to your site.'} Not sure where the code goes once you have it? Read{' '}
           <Link href="/blog/how-to-add-schema-markup/" className="text-brand underline underline-offset-2 hover:opacity-80">
             how to add schema markup to your website
           </Link>{' '}

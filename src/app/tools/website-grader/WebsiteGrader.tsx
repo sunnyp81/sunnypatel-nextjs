@@ -33,9 +33,9 @@ interface GradeResult {
 }
 
 interface FullResult extends GradeResult {
-  performanceScore: number;
-  overallScore: number;
-  grade: string;
+  performanceScore: number | null;
+  overallScore: number | null;
+  grade: string | null;
 }
 
 /* ------------------------------------------------------------------ */
@@ -383,7 +383,8 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
         }),
         // PageSpeed Insights (client-side, no API key needed for basic usage)
         fetch(
-          `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&strategy=mobile`
+          `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&strategy=mobile`,
+          { signal: AbortSignal.timeout(20000) }
         ).catch(() => null),
       ];
 
@@ -400,21 +401,21 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
       setLoadingPhase('Checking performance...');
 
       // Get PageSpeed score
-      let performanceScore = 0;
+      let performanceScore: number | null = null;
       try {
         const psiRes = await psiPromise;
         if (psiRes && psiRes.ok) {
           const psiData = await psiRes.json();
           const lighthouseScore = psiData?.lighthouseResult?.categories?.performance?.score;
-          if (typeof lighthouseScore === 'number') {
+          if (typeof lighthouseScore === 'number' && Number.isFinite(lighthouseScore) && lighthouseScore >= 0 && lighthouseScore <= 1) {
             performanceScore = Math.round(lighthouseScore * 100);
           }
         }
       } catch {
-        // PSI may fail for some sites; score stays 0
+        // Missing data is unknown, not a measured zero.
       }
 
-      const overallScore = computeOverall(
+      const overallScore = performanceScore === null ? null : computeOverall(
         gradeData.seoScore,
         performanceScore,
         gradeData.securityScore,
@@ -425,7 +426,7 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
         ...gradeData,
         performanceScore,
         overallScore,
-        grade: scoreToGrade(overallScore),
+        grade: overallScore === null ? null : scoreToGrade(overallScore),
       });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
@@ -463,7 +464,7 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
             Website Grader
           </h1>
           <p className="mt-2 text-base text-muted-foreground">
-            Get an instant A-F grade covering SEO, performance, security, and content quality. Enter any URL for a free audit with actionable recommendations.
+            Check on-page SEO, response headers and content structure, plus a mobile PageSpeed lab score when available. These automated checks flag possible issues; they do not replace a full audit.
           </p>
         </div>
       )}
@@ -477,12 +478,12 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className="flex-1 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
+            className="min-w-0 flex-1 rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30"
           />
           <button
             type="submit"
             disabled={loading || !url.trim()}
-            className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="rounded-lg bg-[#2a5bd7] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {loading ? (
               <span className="flex items-center gap-2">
@@ -527,17 +528,17 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
           {/* Overall grade + URL */}
           <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
-              <GradeBadge grade={result.grade} score={result.overallScore} />
+              {result.grade !== null && result.overallScore !== null && <GradeBadge grade={result.grade} score={result.overallScore} />}
               <div className="text-center sm:text-left">
                 <h2
                   className="text-xl font-bold text-foreground sm:text-2xl"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
-                  Overall Grade: <span style={{ color: gradeColor(result.grade, isDark) }}>{result.grade}</span>
+                  {result.grade === null ? 'Report incomplete' : <>Overall Grade: <span style={{ color: gradeColor(result.grade, isDark) }}>{result.grade}</span></>}
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground break-all">{result.url}</p>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  Score breakdown: SEO {result.seoScore} (40%) + Performance {result.performanceScore} (30%) + Security {result.securityScore} (20%) + Content {result.contentScore} (10%)
+                  {result.performanceScore === null ? 'PageSpeed data is unavailable. The other checks are shown below; an overall grade requires all four categories. Retry the check to request performance data again.' : <>Score breakdown: SEO {result.seoScore} (40%) + Performance {result.performanceScore} (30%) + Security {result.securityScore} (20%) + Content {result.contentScore} (10%)</>}
                 </p>
               </div>
             </div>
@@ -552,9 +553,9 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
               </p>
             </div>
             <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 flex flex-col items-center gap-2">
-              <DonutGauge score={result.performanceScore} label="Performance" />
+              {result.performanceScore === null ? <p className="text-sm font-medium text-muted-foreground">Performance: unavailable</p> : <DonutGauge score={result.performanceScore} label="Performance" />}
               <p className="text-xs text-muted-foreground">
-                {result.performanceScore > 0 ? 'PageSpeed Insights (mobile)' : 'Could not fetch PageSpeed data'}
+                {result.performanceScore === null ? 'No performance score was returned' : 'PageSpeed Insights (mobile lab score)'}
               </p>
             </div>
             <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 flex flex-col items-center gap-2">
@@ -598,7 +599,7 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
               </p>
               <Link
                 href="/contact/"
-                className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
+                className="rounded-lg bg-[#2a5bd7] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_var(--glow-brand)] dark:shadow-[0_0_20px_rgba(91,138,239,0.35)] transition-opacity hover:opacity-90"
               >
                 Make an Enquiry
               </Link>
@@ -626,7 +627,7 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
             <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
               <h3 className="text-sm font-semibold text-foreground mb-2">Performance (30% of grade)</h3>
               <p className="text-sm text-muted-foreground">
-                Google PageSpeed Insights score for mobile. Covers Core Web Vitals including LCP, CLS, and interaction responsiveness.
+                Google PageSpeed Insights mobile Lighthouse lab score. This is a simulated performance test, not proof of field Core Web Vitals. Missing data leaves the overall grade incomplete.
               </p>
             </div>
             <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">

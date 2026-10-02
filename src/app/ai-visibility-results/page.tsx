@@ -13,7 +13,7 @@ export function generateMetadata() {
   return buildMetadata({
     title: "AI Visibility Results: Real ChatGPT & AI Referral Data",
     description:
-      "Real AI-assistant referral traffic from my own portfolio of sites, sector labelled, pulled live from GA4 and cross checked against Search Console. No client claims, no invented stats.",
+      "Historical GA4 assistant-attributed sessions from six owned portfolio sites, 28 May to 26 August 2026. Referral visits and citations are measured separately.",
     path: "/ai-visibility-results",
   });
 }
@@ -24,12 +24,12 @@ const FAQS = [
     a: "My own portfolio, not client work. Most are sites I own and operate myself, which is why they are labelled by sector rather than by name, and it is also why I can show the raw data honestly instead of a client-approved summary.",
   },
   {
-    q: "Why does AI referral traffic keep going after a Google core update crashes clicks?",
-    a: "Google ranking and AI citation are measured differently. A core update changes where a page sits in Google's results, but it does not remove the page from the sources ChatGPT, Perplexity or Copilot already cite. Two sites in this data set kept their AI referral sessions through a Google demotion that took their organic clicks to near zero.",
+    q: "Does AI referral traffic prove that a page is cited?",
+    a: "No. These are recorded sessions with assistant-matched source labels. They do not count citations or identify why an assistant chose a page. Google clicks, assistant-attributed visits and observed citations need separate measurements.",
   },
   {
     q: "How current is this data?",
-    a: "The session figures are a live GA4 pull, 90 days to 26 August 2026, cross checked against Google Search Console over the same window. This page gets refreshed rather than replaced when the numbers move.",
+    a: "The six-site figures are the published historical extract for 28 May to 26 August 2026, 91 inclusive days. They are not a live dashboard. The linked referral study contains a later, different portfolio cohort and explains the overlapping windows and source-matching limitations.",
   },
   {
     q: "Can you get results like this for my business?",
@@ -43,13 +43,13 @@ const PAGE_SCHEMA = {
     {
       "@type": "Dataset",
       "@id": "https://sunnypatel.co.uk/ai-visibility-results/#dataset",
-      name: "AI Assistant Referral Sessions, Portfolio Sample, 90 Days to 26 August 2026",
+      name: "AI Assistant-Attributed Sessions, Six-Site Historical Sample, 28 May to 26 August 2026",
       description:
-        "Sector labelled ChatGPT, Claude, Perplexity, Copilot and OpenAI referral session counts for 6 sites in Sunny Patel's own portfolio, measured over a 90 day window via GA4 and cross checked against Google Search Console.",
+        "Published GA4 assistant-source session counts for six sites in Sunny Patel's own portfolio, 28 May to 26 August 2026, 91 inclusive days. These historical attributed visits are not citation counts or verified human visits.",
       url: "https://sunnypatel.co.uk/ai-visibility-results/",
       creator: { "@id": "https://sunnypatel.co.uk/#person" },
       temporalCoverage: "2026-05-28/2026-08-26",
-      variableMeasured: "AI assistant referral sessions per site, 90 day window",
+      variableMeasured: "Assistant-source attributed sessions per site, 91-day historical window",
       isAccessibleForFree: true,
     },
     ...JSON.parse(
@@ -65,10 +65,10 @@ const PAGE_SCHEMA = {
 };
 
 const TRUST_BADGES = [
-  { icon: Database, label: "Live GA4 pull" },
+  { icon: Database, label: "Historical GA4 extract" },
   { icon: Shield, label: "Own portfolio, not client claims" },
-  { icon: Sparkles, label: "Cross checked against GSC" },
-  { icon: CalendarDays, label: "Refreshed, not replaced" },
+  { icon: Sparkles, label: "Visits measured separately from citations" },
+  { icon: CalendarDays, label: "28 May to 26 August 2026" },
 ] as const;
 
 export default function AiVisibilityResultsPage() {
@@ -131,8 +131,8 @@ export default function AiVisibilityResultsPage() {
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Most AI visibility claims arrive without evidence. This page shows the raw
               ChatGPT, Claude, Perplexity and Copilot referral data from my own portfolio,
-              sector labelled, pulled live and checked against Search Console rather than
-              quoted from memory.
+              labelled by sector, for 28 May to 26 August 2026. The published figures are
+              historical attributed visits, not current citation counts.
             </p>
 
             {/* Trust badges */}
@@ -174,22 +174,22 @@ export default function AiVisibilityResultsPage() {
               className="mb-4 text-2xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
             >
-              Why Google ranking and AI citation move independently
+              Why referral visits, search clicks and citations need separate measurements
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                Two of the sites above lost most of their Google organic clicks to a core
-                update during this measurement window. Their AI referral sessions did not
-                fall with them. Google re-ranks a page against the current SERP. AI systems
-                cite from a source list built up over time. Losing the first does not
-                automatically remove a site from the second.
+                A GA4 assistant-source session records a visit attributed to a matching
+                source label. Search Console records Google search activity. A citation
+                test records whether a particular answer links to a URL. A site can show
+                different results across those measurements because they observe
+                different events. These totals do not establish a source-selection mechanism.
               </p>
               <p>
-                The reverse pattern shows up too: 2 sites in the data set earn steady AI
-                referral traffic while ranking on page 2 or 3 of Google for their core
-                terms, or with organic clicks flat at zero for months. Citation and ranking
-                are different signals. Treating them as one metric hides where the actual
-                opportunity is.
+                The six-site extract is a historical sample from my owned portfolio.
+                It does not represent all websites or forecast results for a client.
+                Source matching can miss lost referrers and cannot verify that each
+                session came from a person. The linked referral study provides the
+                wider cohort, dates and limitations for its later edition.
               </p>
               <p>
                 Full methodology, including how repeated-run variance is measured for

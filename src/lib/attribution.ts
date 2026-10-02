@@ -47,3 +47,35 @@ export function getAttribution(): Attribution {
     return {};
   }
 }
+
+
+// Last article CTA is client-reported journey context, separate from first touch.
+const ARTICLE_CTA_KEY = "sp_article_cta";
+const ARTICLE_CTA_TTL = 30 * 60 * 1000;
+export type ArticleCTA = { cta_article?: string; cta_offer?: string };
+
+export function captureArticleCTA(article: string, offer: string) {
+  if (typeof window === "undefined" || /[\r\n]/.test(article + offer) || !/^\/blog\/[a-z0-9-]{1,100}\/$/.test(article) || !/^[a-z0-9_]{1,80}$/.test(offer)) return;
+  try {
+    sessionStorage.setItem(ARTICLE_CTA_KEY, JSON.stringify({ article, offer, at: Date.now() }));
+  } catch { /* Storage must never block navigation. */ }
+}
+
+export function getArticleCTA(): ArticleCTA {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = sessionStorage.getItem(ARTICLE_CTA_KEY);
+    if (!raw || raw.length > 500) return {};
+    const value = JSON.parse(raw);
+    if (!value || typeof value !== "object" || Array.isArray(value) ||
+      typeof value.article !== "string" || /[\r\n]/.test(value.article) || !/^\/blog\/[a-z0-9-]{1,100}\/$/.test(value.article) ||
+      typeof value.offer !== "string" || /[\r\n]/.test(value.offer) || !/^[a-z0-9_]{1,80}$/.test(value.offer) ||
+      typeof value.at !== "number" || !Number.isFinite(value.at) ||
+      Date.now() - value.at < 0 || Date.now() - value.at >= ARTICLE_CTA_TTL) return {};
+    return { cta_article: value.article, cta_offer: value.offer };
+  } catch { return {}; }
+}
+
+export function clearArticleCTA() {
+  try { if (typeof window !== "undefined") sessionStorage.removeItem(ARTICLE_CTA_KEY); } catch {}
+}

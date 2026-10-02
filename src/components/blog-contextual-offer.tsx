@@ -13,7 +13,8 @@ type OfferVariant =
   | "ai-search"
   | "geo-evaluation"
   | "local-business"
-  | "benchmark-yourself";
+  | "benchmark-yourself"
+  | "website-health";
 
 type OfferCard = {
   href: string;
@@ -33,6 +34,31 @@ type Offer = {
 };
 
 const OFFERS: Record<OfferVariant, Offer> = {
+  "website-health": {
+    eyebrow: "Check your own website",
+    heading: "What should you check on your own site?",
+    body: "Global website counts do not diagnose your website. Start with the free website grader, or request the existing fixed-fee audit for a technical, content and AI-visibility review.",
+    cards: [
+      {
+        href: "/tools/website-grader/",
+        offerId: "website_counts_grader",
+        icon: Search,
+        title: "Free website grader",
+        body: "Enter your website URL to run the free check.",
+        cta: "Run Free Website Grader",
+        variant: "primary",
+      },
+      {
+        href: "/services/paid-seo-audit/#book",
+        offerId: "website_counts_audit",
+        icon: BarChart3,
+        title: "£495 SEO Audit",
+        body: "Technical SEO, content and AI-visibility review, a prioritised action plan and a 45-minute walkthrough. Delivered in 5 working days.",
+        cta: "Get the £495 Audit",
+        variant: "secondary",
+      },
+    ],
+  },
   "geo-evaluation": {
     eyebrow: "Choosing a GEO provider",
     heading:
@@ -137,6 +163,7 @@ const OFFERS: Record<OfferVariant, Offer> = {
 };
 
 const OFFER_SLUGS: Record<string, OfferVariant> = {
+  "how-many-websites-are-there": "website-health",
   "google-open-knowledge-format": "ai-search",
   "ai-search-statistics": "ai-search",
   "top-geo-agencies": "geo-evaluation",
@@ -176,6 +203,7 @@ export function BlogContextualOffer({ variant }: { variant: OfferVariant }) {
               <Link
                 key={card.offerId}
                 href={card.href}
+                data-cta-location="blog_contextual_offer"
                 data-cta-offer={card.offerId}
                 className={
                   isPrimary

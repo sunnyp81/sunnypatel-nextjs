@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
-import { captureAttribution } from "@/lib/attribution";
+import { captureAttribution, captureArticleCTA } from "@/lib/attribution";
 
 export function AnalyticsEvents() {
   useEffect(() => {
@@ -41,6 +41,10 @@ export function AnalyticsEvents() {
       const href = link.getAttribute("href") || "";
       const ctaLocation = link.getAttribute("data-cta-location") || undefined;
       const ctaOffer = link.getAttribute("data-cta-offer") || undefined;
+
+      if (ctaLocation && ["blog_contextual_offer", "seo_companies_guide", "local_seo_agencies_guide"].includes(ctaLocation) && ctaOffer) {
+        captureArticleCTA(window.location.pathname, ctaOffer);
+      }
 
       // Track CTA buttons
       if (

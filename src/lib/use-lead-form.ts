@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { getToolJourney, trackEvent } from "@/lib/analytics";
-import { getAttribution } from "@/lib/attribution";
+import { getAttribution, getArticleCTA, clearArticleCTA } from "@/lib/attribution";
 
 export type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -103,9 +103,11 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
     setErrorMsg("");
 
     try {
+      const articleCTA = getArticleCTA();
       const payload = {
         ...(opts.transform ? opts.transform(formData) : formData),
         ...getAttribution(),
+        ...articleCTA,
         turnstileToken: await getTurnstileToken(),
       };
       const res = await fetch("/api/contact", {
@@ -135,8 +137,10 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
           currency: "GBP",
           transport_type: "beacon",
           ...getToolJourney(),
+          ...(articleCTA.cta_article ? { article_cta_slug: articleCTA.cta_article.split("/")[2], article_cta_offer: articleCTA.cta_offer } : {}),
           ...("howHeard" in formData ? { how_heard: formData.howHeard } : {}),
         });
+        clearArticleCTA();
       }
     } catch {
       setErrorMsg("Network error. Please try again.");

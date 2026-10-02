@@ -80,7 +80,7 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
                     {company.disclosure && <p className={styles.relationship}><strong>Connection disclosed:</strong> {company.disclosure}</p>}
                     {company.owned && <>
                       <p className={styles.mention}>Also featured in Tom Riley&apos;s UK <a href="https://tom-riley.co.uk/best-geo-consultants-uk-2026/">GEO consultant guide</a> and <a href="https://tom-riley.co.uk/best-ai-seo-consultants-uk-2026/">AI SEO consultant guide</a>. These are practitioner roundups, not independent audits of my results.</p>
-                      <Link className={styles.primary} href="/contact/" data-cta-location="seo_companies_guide" data-cta-offer="free_20_minute_seo_diagnosis">Discuss your SEO brief</Link>
+                      <Link className={styles.primary} href="/contact/#contact" data-cta-location="seo_companies_guide" data-cta-offer="free_20_minute_seo_diagnosis">Discuss your SEO brief</Link>
                       <p className={styles.small}>Free 20-minute diagnosis. Send your website and the main problem through the enquiry form.</p>
                     </>}
                   </div>

@@ -1,4 +1,4 @@
-Edition 1 reported AI referral counts for 12 selected sites. Edition 2 adds total-session denominators across all 108 active properties in the authorised portfolio, so AI traffic can be read as a share of all sessions.
+Edition 1 reported AI referral counts for 12 selected sites. Edition 2 adds total-session denominators across a 108-property portfolio frame, of which 104 recorded sessions in the window. The findings describe this owned portfolio, not a representative sample of websites.
 
 **Across 104 portfolio sites with measurable sessions, sources matching the five-assistant matching rule described in the Method section accounted for 1.84% of all sessions, or 7.99 AI-attributed sessions for every 100 organic-search sessions, in the 90 days to 21 September 2026. ChatGPT-matched sources accounted for 86.8% of that traffic.**
 
@@ -123,11 +123,34 @@ A Python script applies the matching rule to the stored raw extracts and writes 
 
 Sunny Patel, "AI Referral Traffic Study," sunnypatel.co.uk, edition 2, 25 September 2026, GA4 data, 108-property portfolio frame (104 sites with sessions), 90 days to 21 September 2026. https://sunnypatel.co.uk/blog/ai-referral-traffic-study/
 
+### Reuse these findings with their denominators
+
+These figures all cover **24 June to 21 September 2026**, using each GA4 property's reporting time zone. The [edition-2 JSON download](/downloads/ai-referral-traffic-study-2026-09-21-v2.json) contains the anonymous property aggregates used below. Matched source labels describe recorded sessions; they are not counts of citations, people or verified human visits.
+
+| Finding | Numerator and denominator | Qualification to keep with the figure |
+|---|---|---|
+| Matched AI sources accounted for 1.84% of sessions | 6,165 matched sessions / 334,744 recorded sessions across 104 properties with traffic | Pooled share of this portfolio, not an industry benchmark. Four zero-session properties remain in the 108-property download frame. |
+| The median property's matched AI share was 0.65% | Median of 104 separate property-level ratios: each property's matched AI sessions / its own total sessions | This is a median across sites, not the pooled 1.84% ratio. |
+| ChatGPT accounted for 86.8% of matched AI sessions | 5,350 ChatGPT/openai-source sessions / 6,165 sessions matched to the five declared assistants | Share within the matching rule, not ChatGPT's share of all web traffic or all AI activity. |
+| The ten highest-AI-traffic properties accounted for 77.1% of matched sessions | 4,754 matched sessions on those ten properties / 6,165 matched sessions in the panel | Descriptive concentration; no content-format effect or cause was isolated. |
+| Excluding the largest property raises the pooled share to 2.28% | 5,429 matched sessions / 237,621 recorded sessions after removing that property's 736 matched and 97,123 total sessions | Sensitivity check, not a corrected headline. The anomalous property's totals are retained as extracted. |
+
+**Reusable summary:** In my owned portfolio, GA4 source labels matching five declared assistants accounted for 6,165 of 334,744 recorded sessions (1.84%) across 104 properties with traffic from 24 June to 21 September 2026. This convenience sample does not represent the web, and the extraction cannot identify every lost referrer or separate Google AI Overviews and AI Mode from ordinary Google organic sessions.
+
 ## Downloads
 
 - [Edition 2 data: CSV](/downloads/ai-referral-traffic-study-2026-09-21-v2.csv): one row per property (sector label and an anonymous site number, no site names), all 108 properties in the frame
 - [Edition 2 data: JSON](/downloads/ai-referral-traffic-study-2026-09-21-v2.json): the same per-property rows plus sector splits, panel totals and the sensitivity check
 - [Edition 1 data: CSV](/downloads/ai-referral-traffic-study-2026-08-26-v1.csv): the original 12-site panel, unchanged
+- [Edition 2 verification script: Python](/downloads/verify-ai-referral-study-v2.py): recomputes the table above from the public anonymous JSON, with no network requests or additional packages
+
+To check the arithmetic, save the edition-2 JSON and Python script in the same folder, then run:
+
+```text
+python verify-ai-referral-study-v2.py ai-referral-traffic-study-2026-09-21-v2.json
+```
+
+The script prints a JSON summary, including the input file's SHA-256 hash, the 108-property frame, the 104-property analysis panel and the sensitivity denominators. It uses unrounded property counts before rounding reported percentages. It does not pull fresh GA4 data, rerun source classification from raw session rows, authenticate human visits or verify the original extraction. The new reuse table and script were added on **2 October 2026**; the data and edition date remain unchanged.
 
 ## Related Articles
 

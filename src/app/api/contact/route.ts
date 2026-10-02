@@ -40,6 +40,24 @@ const LEAD_MAGNETS: Record<string, { subject: string; url: string; description: 
   },
 };
 
+const ARTICLE_CTA_PAIRS: Record<string, readonly string[]> = {
+  "best-seo-companies-uk": ["free_20_minute_seo_diagnosis"],
+  "best-local-seo-agencies": ["free_20_minute_seo_diagnosis"],
+  "how-many-websites-are-there": ["website_counts_grader", "website_counts_audit"],
+  "google-open-knowledge-format": ["ai_search_stats_audit", "ai_search_stats_deep_audit"],
+  "ai-search-statistics": ["ai_search_stats_audit", "ai_search_stats_deep_audit"],
+  "top-geo-agencies": ["geo_agency_evaluation_audit", "geo_agency_evaluation_proof"],
+  "local-seo-statistics": ["local_seo_diagnosis", "local_seo_service_page"],
+  "seo-statistics-uk": ["uk_benchmark_roi_calculator", "uk_benchmark_audit"],
+};
+
+function validatedArticleCTA(article: unknown, offer: unknown): { cta_article?: string; cta_offer?: string } {
+  if (typeof article !== "string" || typeof offer !== "string" || /[\r\n]/.test(article + offer)) return {};
+  const slug = /^\/blog\/([a-z0-9-]{1,100})\/$/.exec(article)?.[1];
+  if (!slug || !/^[a-z0-9_]{1,80}$/.test(offer) || !ARTICLE_CTA_PAIRS[slug]?.includes(offer)) return {};
+  return { cta_article: article, cta_offer: offer };
+}
+
 // Basic email shape check. Not RFC-perfect, but rejects the obvious junk.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -128,7 +146,10 @@ export async function POST(request: Request) {
       utm_campaign,
       referrer,
       landing_page,
+      cta_article,
+      cta_offer,
     } = body;
+    const articleCTA = validatedArticleCTA(cta_article, cta_offer);
 
     // Honeypot: real users never see or fill `company`. Bots fill every field.
     if (typeof company === "string" && company.trim() !== "") {
@@ -180,6 +201,7 @@ export async function POST(request: Request) {
       leadMagnet: typeof leadMagnet === "string" && /^[a-z0-9-]{1,60}$/.test(leadMagnet) ? leadMagnet : "",
       landing_page: typeof landing_page === "string" ? landing_page.slice(0, 300) : "",
       verified,
+      ...articleCTA,
     });
 
     const res = await fetch("https://api.emailit.com/v2/emails", {
@@ -199,6 +221,7 @@ export async function POST(request: Request) {
             : `New enquiry from ${name}`),
         text: [
           `Offer: ${typeof offer === "string" && offer.trim() ? offer.trim() : "General enquiry"}`,
+          ...(articleCTA.cta_article ? [`Last article CTA (client-reported, within 30 minutes): ${articleCTA.cta_article} / ${articleCTA.cta_offer}`] : []),
           `Name: ${name}`,
           `Email: ${email}`,
           `Phone: ${phone || "Not provided"}`,

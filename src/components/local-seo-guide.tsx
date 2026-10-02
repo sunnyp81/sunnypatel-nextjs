@@ -69,7 +69,7 @@ export function LocalSeoGuide({ title, image, faqs, children }: {
                   {provider.disclosure && <p className={styles.relationship}><strong>Connection disclosed:</strong> {provider.disclosure}</p>}
                   {provider.owned && <>
                     <p className={styles.mention}>Also included in Tom Riley&apos;s <a href="https://tom-riley.co.uk/best-geo-consultants-uk-2026/">GEO</a> and <a href="https://tom-riley.co.uk/best-ai-seo-consultants-uk-2026/">AI SEO consultant guides</a>. These are practitioner mentions, not independent audits of local SEO results.</p>
-                    <Link className={styles.primary} href="/contact/" data-cta-location="local_seo_agencies_guide" data-cta-offer="free_20_minute_seo_diagnosis">Discuss your local SEO brief</Link>
+                    <Link className={styles.primary} href="/contact/#contact" data-cta-location="local_seo_agencies_guide" data-cta-offer="free_20_minute_seo_diagnosis">Discuss your local SEO brief</Link>
                     <p className={styles.small}>Free 20-minute diagnosis. Send your website, business location and main local-search problem through the enquiry form.</p>
                   </>}
                 </div>

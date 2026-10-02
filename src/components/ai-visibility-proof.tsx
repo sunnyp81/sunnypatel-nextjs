@@ -1,47 +1,48 @@
+import Link from "next/link";
 import { TrendingUp } from "lucide-react";
 
 const PROOF_POINTS = [
   {
     sector: "Health & wellness",
     stat: "1,357",
-    unit: "AI sessions / 90 days",
+    unit: "AI-attributed sessions / May-Aug 2026",
     detail:
-      "Held steady through a Google core-update demotion that took organic clicks from around 40 a day to near zero. AI referral traffic did not move.",
+      "34.4% of the 3,948 published assistant-attributed sessions in this six-site historical sample, the largest count in the group.",
   },
   {
     sector: "Education & local services",
     stat: "993",
-    unit: "AI sessions / 90 days",
+    unit: "AI-attributed sessions / May-Aug 2026",
     detail:
-      "Same pattern: Google clicks fell from 100 to 400 a day down to 0 to 2 a day after a core update. ChatGPT kept citing it regardless.",
+      "25.2% of the published assistant-attributed sessions in this six-site historical sample, the second-largest count in the group.",
   },
   {
     sector: "Templates & productivity",
     stat: "593",
-    unit: "AI sessions / 90 days",
+    unit: "AI-attributed sessions / May-Aug 2026",
     detail:
-      "Google clicks stayed at 0 to 2 a day for the full 6 months measured. Every one of these sessions came from a channel classic rank tracking would show as zero.",
+      "15.0% of the published assistant-attributed sessions in this six-site historical sample came from this templates and productivity site.",
   },
   {
     sector: "EV charging directory",
     stat: "570",
-    unit: "AI sessions / 90 days",
+    unit: "AI-attributed sessions / May-Aug 2026",
     detail:
-      "Here AI referral grew alongside real Google growth, clicks scaled from 0 to roughly 90 a day over the same period. The two channels compounded together.",
+      "14.4% of the published assistant-attributed sessions in this six-site historical sample came from the EV charging directory.",
   },
   {
     sector: "Property investment tools",
     stat: "259",
-    unit: "AI sessions / 90 days",
+    unit: "AI-attributed sessions / May-Aug 2026",
     detail:
-      "Google ranks this one on page 2 to 3 for its core terms. ChatGPT cites it anyway. AI selection and SERP position are not the same signal.",
+      "6.6% of the published assistant-attributed sessions in this six-site historical sample came from the property investment tools site.",
   },
   {
     sector: "Utility checker tool",
     stat: "176",
-    unit: "AI sessions / 90 days",
+    unit: "AI-attributed sessions / May-Aug 2026",
     detail:
-      "Google referral has been flat at 0 clicks a day for 6 straight months on this one. AI referral is the only channel bringing anyone in.",
+      "4.5% of the published assistant-attributed sessions in this six-site historical sample came from the utility checker.",
   },
 ] as const;
 
@@ -56,10 +57,13 @@ export function AiVisibilityProof() {
       </h2>
       <p className="mb-6 text-base leading-relaxed text-muted-foreground">
         These are 6 of my own portfolio sites, labelled by sector rather than name since
-        most are not client work. Figures are ChatGPT, Claude, Perplexity, Copilot and
-        OpenAI referral sessions from a live GA4 pull, 90 days to 26 August 2026, cross
-        checked against Search Console over the same window. Results vary by niche and
-        starting point. This is what mine happen to show.
+        most are not client work. Figures are the historical GA4 assistant-source session counts published for
+        the 28 May to 26 August 2026 extract. They are attributed visits, not citation
+        counts or proof of a ranking mechanism. Source matching can miss referrers
+        and does not authenticate each visit as human. Shares are calculated from these published totals and rounded to one decimal place. See the{" "}
+        <Link className="underline underline-offset-4" href="/blog/ai-referral-traffic-study/">
+          referral study and its historical-window limitations
+        </Link>.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {PROOF_POINTS.map(({ sector, stat, unit, detail }) => (

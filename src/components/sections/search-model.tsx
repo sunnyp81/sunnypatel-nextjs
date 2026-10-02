@@ -46,8 +46,9 @@ export function SearchModel() {
             Search is a connected system
           </h2>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Optimising one layer in isolation just moves the constraint. Working
-            across all four, in order, gives the commercial outcome a foundation.
+            I use four stages to assess organic growth: findability,
+            clear site context, supporting evidence, and conversion. This working
+            model helps prioritise SEO tasks; it does not guarantee rankings or AI citations.
           </p>
         </motion.div>
 

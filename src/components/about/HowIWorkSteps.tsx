@@ -5,15 +5,15 @@ export function HowIWorkSteps() {
   const steps = [
     {
       title: 'Initial Consultation & Discovery',
-      description: 'We begin with a free, in-depth discussion to understand your business, goals, and current challenges. This helps identify key opportunities for organic growth.',
+      description: 'I start with a free 20-minute SEO diagnosis focused on your business, its main search problem and a useful next step.',
     },
     {
       title: 'Strategic Audit & Proposal',
-      description: 'I conduct a comprehensive technical, semantic, and competitive audit of your website. Based on these insights, a tailored, data-driven SEO strategy and proposal are developed.',
+      description: 'A scoped audit or proposal follows when deeper work is appropriate. I agree the technical, content and competitive analysis required before the work begins.',
     },
     {
       title: 'Implementation & Optimisation',
-      description: 'Once approved, the strategy is put into action, covering on-page, technical, and content SEO. This involves ongoing monitoring, analysis, and iterative adjustments for optimal performance.',
+      description: 'After you approve the scope, I implement the agreed technical and content changes. Ongoing analysis checks results and informs the next priorities.',
     },
     {
       title: 'Transparent Reporting & Communication',
@@ -28,7 +28,7 @@ export function HowIWorkSteps() {
         How My Process Works
       </h3>
       <div className="space-y-8">
-        {steps.map((step, index) => (
+        {steps.map((step) => (
           <div key={step.title} className="flex items-start gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand-ink">
               <CheckCircle className="h-5 w-5" />

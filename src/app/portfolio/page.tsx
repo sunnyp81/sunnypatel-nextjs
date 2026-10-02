@@ -68,6 +68,7 @@ export default async function PortfolioIndex() {
       </div>
 
       <div className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="sr-only">Portfolio case studies</h2>
         {sorted.length === 0 ? (
           <p className="text-center text-muted-foreground">
             Case studies coming soon.

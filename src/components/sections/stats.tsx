@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 const stats = [
   { value: 340, suffix: "%", label: "Aatma Organic Growth YoY", color: "dark:from-brand dark:to-gold", accent: "border-brand-ink" },
-  { value: 45, suffix: "", label: "SEO Test Sites", color: "dark:from-gold dark:to-success", accent: "border-gold-ink" },
+  { value: 45, suffix: "", label: "Sites in Portfolio Case Study", color: "dark:from-gold dark:to-success", accent: "border-gold-ink" },
   { value: 12, suffix: "+", label: "Testing Verticals", color: "dark:from-success dark:to-teal", accent: "border-success-ink" },
   { value: 15, suffix: "+", label: "Years Experience", color: "dark:from-teal dark:to-brand", accent: "border-teal-ink" },
 ];

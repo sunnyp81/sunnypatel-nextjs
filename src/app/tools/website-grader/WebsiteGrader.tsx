@@ -473,6 +473,7 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
         <div className="flex gap-3">
           <input
             type="text"
+            aria-label="Website URL"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"

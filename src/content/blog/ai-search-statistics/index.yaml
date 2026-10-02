@@ -7,7 +7,7 @@ description: >-
   rates for the US and UK, and the most cited websites in AI answers.
 ogImage: '/images/blog/hero-ai-search-statistics.webp'
 date: '2026-02-15'
-lastUpdated: '2026-09-10'
+lastUpdated: '2026-10-02'
 tags:
   - AI Search
   - Statistics
@@ -18,33 +18,56 @@ keyStats:
     label: Organic CTR on queries showing an AI Overview, June 2024 to September 2025
     source: Seer Interactive
   - value: '+120%'
-    label: More organic clicks per impression for brands cited in the AI Overview
-    source: Seer Interactive, April 2026
+    label: Higher organic CTR, cited vs uncited brands on informational AI Overview results
+    source: Seer, April 2026; 53 brands, Jan 2025-Feb 2026
   - value: '-38%'
     label: How far cited brands still trail a results page with no AI Overview
-    source: Seer Interactive, April 2026
+    source: Seer, April 2026; 53 brands, Jan 2025-Feb 2026
 faqs:
   - question: How many AI searches happen per day?
     answer: >-
-      ChatGPT handles about 2.5 billion prompts a day (OpenAI, July 2025), and Perplexity's last published figure was 30 million queries a day, or 780 million a month (Perplexity CEO, June 2025). Google has not published a daily query figure for AI Overviews, Gemini or AI Mode, only user counts: 2.5 billion monthly users for AI Overviews, 1 billion for AI Mode and 900 million for the Gemini app (Google I/O, May 2026). For comparison, Google handles more than 5 trillion searches a year, roughly 13.7 billion a day (Google, March 2025).
+      There is no comparable total for daily AI searches in the sources collected
+      here. OpenAI reported 2.5 billion ChatGPT prompts a day in July 2025;
+      Perplexity's June 2025 statement described about 30 million queries a
+      day. A ChatGPT prompt can be writing, coding or a follow-up rather than a
+      web search. Google's more than 5 trillion annual searches imply roughly
+      13.7 billion a day, an annual average rather than a measured day. These
+      dated figures answer different questions and should not be added into a
+      global AI-search total.
+
   - question: How many people use AI search in 2026?
     answer: >-
       ChatGPT reached 900 million weekly active users in February 2026 (OpenAI) and 1 billion monthly active app users in May 2026 (Sensor Tower estimate, reported by Reuters). The Gemini app passed 900 million monthly users and Google AI Overviews 2.5 billion (Google I/O, May 2026). In the UK, 54% of adults now use AI tools such as ChatGPT, Copilot or Gemini (Ofcom, April 2026). Despite this, AI platforms send only 0.32% to 1.08% of website traffic (SE Ranking, Conductor, 2026).
   - question: What is Google's search market share compared with AI search in 2026?
     answer: >-
-      Google holds 91.1% of the worldwide search engine market and Bing 4.5% as of August 2026 (Statcounter). AI platforms are not counted in that share because they are not search engines, but by volume ChatGPT's 2.5 billion daily prompts are about 18% of Google's roughly 13.7 billion daily searches. AI referral traffic to websites is 0.32% of the total across 101,574 sites (SE Ranking, June 2026).
+      Statcounter recorded Google at 91.1% and Bing at 4.5% of worldwide search engine page referrals in August 2026. That denominator excludes questions
+      asked inside ChatGPT and Perplexity, so it is not a share of all search and
+      AI activity. OpenAI's 2.5 billion daily ChatGPT prompts (July 2025) and
+      Google's more than 5 trillion annual searches (March 2025) use different
+      units and periods. The cited sources do not establish one comparable global
+      market-share figure for search engines and AI assistants.
+
   - question: How often do Google AI Overviews appear in 2026?
     answer: >-
       AI Overviews appeared on 25.11% of the 21.9 million US Google searches in Conductor's 2026 benchmark, on 48% of the queries BrightEdge tracks (February 2026), and on 20%+ of all US searches in SparkToro's January to April 2026 data. Health care queries trigger them most at 48.75%, real estate least at 4.48% (Conductor). The spread reflects different query samples rather than disagreement about the trend.
   - question: Do AI Overviews reduce organic clicks?
     answer: >-
-      Yes. Organic click-through rate fell from 1.76% to 0.61%, a 61% drop, when an AI Overview appeared, and paid CTR fell 68% (Seer Interactive, data to September 2025). Seer's April 2026 update found uncited brands lost 67% of organic CTR over 2025, while cited brands earned 120% more organic clicks per impression than uncited brands on the same page. Pew Research found users clicked a result on 8% of visits with an AI summary against 15% without (July 2025).
+      The cited studies found lower CTRs associated with AI Overview results. Seer tracked 3,119 informational/educational queries across 42 organisations from June 2024 to September 2025. Its separate April 2026 update tracked 53 brands from January 2025 to February 2026; cited brands had 120% higher organic CTR than uncited brands on informational results with an AI Overview. These observations do not isolate causation.
   - question: What percentage of Google searches end without a click?
     answer: >-
       68.01% of US Google searches ended with zero clicks in the first four months of 2026, up from 60.45% in 2024 (SparkToro, Similarweb data, June 2026). The UK is higher at 69.5%, the highest of the six countries SparkToro measured, with Germany lowest at 62.1%. Fewer than one in three Google searches now sends a click to any website.
   - question: Which websites are cited most often in AI answers?
     answer: >-
-      In Google AI Overviews, YouTube takes 22.9% of citations, Reddit 18.5%, Facebook 10.1%, Google's own properties 8.8% and Wikipedia 4.0% (Ahrefs, 3 million+ US queries, September 2026). Across eight AI platforms, though, 57% of all citations go to brand-owned websites rather than social or media sites (Profound, 11.84 billion citations, July 2026). Reddit was the most cited single domain across ChatGPT, AI Mode and Perplexity in Semrush's 2025 study.
+      Among the top Google AI Overview sources tracked by Ahrefs, YouTube accounts
+      for 22.9% of that top-source citation share and Reddit 18.5% (3 million+ US
+      queries; report updated 2 September 2026). This is not their share of every
+      AI Overview citation. Profound separately reports 57% of all citations on
+      brand-owned sites across eight platforms and 11.84 billion citations from 16
+      April to 16 July 2026. Semrush followed 230,000 prompts and more than 100
+      million citations over 13 weeks for its November 2025 report. These
+      platform, period and denominator differences prevent combining the studies
+      into one universal source ranking.
+
   - question: Do AI search engines cite the same pages that rank on Google?
     answer: >-
-      Largely no. Only 12% of URLs cited by ChatGPT, Gemini and Copilot rank in Google's top 10 for the same query, and about 80% do not rank in Google's top 100 at all (Ahrefs, 15,000 prompts, August 2025). Perplexity is the most Google-aligned at 28.6% overlap. AI systems weight directness, factual precision and freshness over backlink-based ranking signals, so a page buried on Google can still be the primary AI citation.
+      Not consistently in the sampled study. Ahrefs reported 12% overlap between ChatGPT, Gemini and Copilot citations and Google's top 10 for 15,000 original prompts, collected in early July 2025 and published in August. Perplexity overlap was 28.6%. Original-prompt overlap does not identify ranking signals or account for every related query an assistant may search.

@@ -1,4 +1,4 @@
-Google Search Console now splits Web search into two types: text-based and multimodal. Multimodal covers searches that start with an image, such as Google Lens, Circle to Search, image uploads and Chrome's "Search this image". I checked 46 properties the week it launched. In that sample, two ecommerce retailers are already getting real multimodal traffic, while my content, affiliate and service sites are getting almost none. Here is what the data shows and what I would do about it.
+In Google Search Console, **Web multimodal** is the Performance-report filter for results triggered by an image, photo or screenshot rather than a text-only query. Google announced it on [24 September 2026](https://developers.google.com/search/blog/2026/09/web-multimodal-in-sc), covering Lens, Circle to Search, image uploads and Chrome's "Search this image". My launch-week check covered 46 accessible properties: 37 of my own and 9 clients. The retailer results below are observations from that sample, not an estimate of how much traffic all ecommerce or content sites receive.
 
 ## What Google Added on 24 September 2026
 
@@ -19,7 +19,7 @@ Google added the same data to the report for generative AI features, so the mult
 
 ## What the Report Shows (and What It Leaves Out)
 
-You get clicks, impressions, CTR and average position, broken down by page, country, device, search appearance and date. You do not get queries. Click the Queries tab with the multimodal filter on and Search Console says "No query data for multimodal web search". Whatever the user searched with, the report keeps it out of view.
+The Search Console **Web multimodal** report shows clicks, impressions, CTR and average position by page, country, device, search appearance and date. It does not disclose the image query or text query: the Queries tab says "No query data for multimodal web search". Use the Pages tab to identify landing pages, but do not infer exactly what users photographed or whether two stockists appeared for the same search.
 
 Two more limits I found while pulling the data:
 
@@ -36,12 +36,12 @@ Two more limits I found while pulling the data:
 
 I ran the multimodal filter across every property I could access: 37 of my own sites (affiliate reviews, data tools, local service sites and this one) and 9 client properties. For the three client sites with meaningful volume, I pulled 10 to 25 September for both search types so the windows match exactly. Client names are left out.
 
-| Site | Multimodal impr. | Share of web impr. | CTR (multimodal / text) |
+| Site and observation window | Multimodal impressions | Share of Web impressions (text + multimodal) | CTR (multimodal / text) |
 |---|---|---|---|
-| Sports retailer | 3,303 | 4.5% | 1.7% / 3.6% |
-| Hobby retailer | 5,056 | 2.6% | 1.9% / 5.6% |
-| Wholesaler | 171 | 1.2% | 2.9% / 7.0% |
-| My 37 sites | 110 | n/a | 1.8% / n/a |
+| Sports retailer, 10-25 September 2026 | 3,303 | 4.5% | 1.7% / 3.6% |
+| Hobby retailer, 10-25 September 2026 | 5,056 | 2.6% | 1.9% / 5.6% |
+| Wholesaler, 10-25 September 2026 | 171 | 1.2% | 2.9% / 7.0% |
+| My 37 sites, three-month view checked 27 September 2026 | 110 | n/a | 1.8% / n/a |
 
 My own sites' figure is the 3-month view. Multimodal clicks were 56, 98 and 5 for the three client sites over 10 to 25 September, and 2 in total across my 37 sites.
 
@@ -101,7 +101,7 @@ Google's announcement does not include optimisation advice. The steps below come
 
 ### Record a baseline now
 
-For the two retailers I checked by date range, the multimodal series starts on 10 September 2026, and the API does not carry it today. Export the multimodal view by page and by date from the interface every month and keep the files, so you have your own record of how the channel grows. If you report to clients or a board, add a multimodal line by hand for as long as the API leaves it out.
+For ongoing **Web multimodal** reporting, export the Search Console interface by page and date with the selected period saved in the filename. My API check on **27 September 2026** found no multimodal search type; for one retailer, API Web rows matched the interface's text-based rows for 10-25 September. That test does not establish every API integration's behaviour indefinitely. Recheck API support before treating an automated Web total as complete, and keep interface exports while a separate multimodal total is unavailable.
 
 {% pullquote cite="From my Search Console page data" %}
 The two retailers' pages for the same item recorded 50 and 45 multimodal impressions. I cannot tell whether they appeared for the same searches.

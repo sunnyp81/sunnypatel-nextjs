@@ -11,7 +11,7 @@ const frameworks = [
     icon: <Globe className="h-5 w-5" />,
     title: "Entity SEO",
     description:
-      "Establishing your brand as a recognised entity in Google\u2019s Knowledge Graph, so search engines understand who you are and what you represent.",
+      "Entity SEO clarifies who your brand is through consistent names, profiles and verifiable facts. Knowledge Graph inclusion is not guaranteed.",
     href: "/blog/what-is-entity-seo/",
     color: "var(--brand-ink)",
     border: "border-brand/20",
@@ -21,7 +21,7 @@ const frameworks = [
     icon: <Network className="h-5 w-5" />,
     title: "Semantic SEO",
     description:
-      "Building comprehensive topic coverage through entity relationships, ensuring search engines see the full context of your expertise.",
+      "Semantic SEO connects related entities and questions in useful content, so each section explains its subject and relevant context.",
     href: "/services/semantic-seo/",
     color: "var(--teal-ink)",
     border: "border-teal/20",
@@ -31,7 +31,7 @@ const frameworks = [
     icon: <BookOpen className="h-5 w-5" />,
     title: "Topical Authority",
     description:
-      "Achieving authoritative status through systematic content architecture that covers every facet of your niche.",
+      "Topical authority planning maps the relevant questions in your niche and the evidence needed to answer them. Coverage alone does not establish authority.",
     href: "/services/topical-authority/",
     color: "var(--success-ink)",
     border: "border-success/20",
@@ -62,9 +62,10 @@ export function AboutMethodology() {
             My Methodology
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
-            My SEO methodology combines three interconnected frameworks. Each
-            reinforces the others, creating a compounding effect that builds
-            lasting search visibility.
+            I combine entity SEO, semantic SEO and topical authority
+            planning to organise an SEO campaign. Entity SEO clarifies the brand,
+            semantic SEO connects related information, and topical planning maps
+            the questions the site needs to answer.
           </p>
         </motion.div>
 
@@ -127,11 +128,9 @@ export function AboutMethodology() {
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Together these three frameworks form the{" "}
-          <span className="font-medium text-foreground">semantic triangle</span>{" "}
-          &mdash; a self-reinforcing system where entity recognition strengthens
-          topical authority, comprehensive coverage deepens semantic
-          understanding, and authoritative content builds entity trust.
+          I call this combination of entity SEO, semantic SEO and topical authority the{" "}
+          <span className="font-medium text-foreground">semantic triangle</span>
+          . It is a planning framework for connecting brand information, useful content and supporting evidence, not a published formula used by search engines.
         </motion.p>
       </div>
     </section>

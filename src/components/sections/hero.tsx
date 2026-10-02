@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 
 const PROOF = [
   { value: "15+ years", label: "Hands-on SEO experience", color: "#d79f1e", textClass: "text-gold-ink dark:text-[#d79f1e]", href: "/about/" },
-  { value: "45 sites", label: "Live SEO testing portfolio", color: "#7ba3f5", textClass: "text-brand-ink dark:text-[#7ba3f5]", href: "/portfolio/niche-affiliate-seo-portfolio-45-sites/" },
+  { value: "45 sites", label: "Documented portfolio case study", color: "#7ba3f5", textClass: "text-brand-ink dark:text-[#7ba3f5]", href: "/portfolio/niche-affiliate-seo-portfolio-45-sites/" },
   { value: "+340%", label: "Aatma organic traffic YoY", color: "#78b844", textClass: "text-success-ink dark:text-[#78b844]", href: "/portfolio/aatma-aesthetics-website-design-development-seo/" },
 ] as const;
 
@@ -61,11 +61,11 @@ export function Hero() {
   return (
     <HeroGeometric badge="SEO Consultant, Reading & UK-Wide" title1="SEO Run By the Person" title2="Doing the Actual Work">
       <p className="mx-auto mb-8 max-w-xl px-4 text-base font-normal leading-relaxed tracking-wide text-ink-soft dark:text-white/75 sm:text-lg md:text-xl">
-        No account managers, no juniors. An independent{" "}
+        I&apos;m Sunny Patel, an independent{" "}
         <Link href="/services/seo-consultant-reading/" className="text-foreground dark:text-white underline decoration-foreground/40 dark:decoration-white/40 underline-offset-2 transition-colors hover:text-brand">
           SEO consultant
         </Link>{" "}
-        with 15+ years getting UK businesses ranked on Google and cited in AI search.
+        serving UK businesses. With 15+ years of hands-on SEO experience, I handle your strategy and implementation directly, including work on AI search visibility.
       </p>
 
       <GlowCard className="mx-auto w-full max-w-2xl border-black/[0.08] bg-white/70 dark:border-white/[0.08] dark:bg-black/20 p-1.5 text-left backdrop-blur-sm" spread={55} proximity={90}>

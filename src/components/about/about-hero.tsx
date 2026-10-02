@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "motion/react";
+import Link from "next/link";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { ArrowRight } from "lucide-react";
 
 const stats = [
   { value: "15+", label: "Years experience" },
-  { value: "45", label: "SEO test sites" },
+  { value: "45", label: "Sites in portfolio case study" },
   { value: "12+", label: "Testing verticals" },
   { value: "+340%", label: "Published organic growth" },
 ];
@@ -55,8 +56,7 @@ export function AboutHero() {
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I enable businesses to achieve sustainable organic growth using advanced semantic SEO, topical
-            authority building, and AI-powered search strategies. Based in Reading, Berkshire, I offer over 15 years of hands-on experience, including expert web development strategy.
+            I&apos;m Sunny Patel, an independent SEO consultant and AI search strategist based in Reading, Berkshire. I work with UK businesses on technical SEO, semantic content strategy, AI search visibility and web development, drawing on over 15 years of hands-on SEO experience.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -67,7 +67,7 @@ export function AboutHero() {
               </a>
             </GradientButton>
             <GradientButton variant="variant" asChild>
-              <a href="/portfolio/">View My Work</a>
+              <Link href="/portfolio/">View My Work</Link>
             </GradientButton>
           </div>
         </motion.div>

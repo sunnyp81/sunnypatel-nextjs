@@ -13,7 +13,7 @@ export const faqs = [
   },
   {
     q: "Do you work with businesses outside Berkshire?",
-    a: "Yes — while I'm based in Reading and offer face-to-face sessions across the Thames Valley, I work with clients across the UK and internationally. All strategy sessions and reporting are available remotely.",
+    a: "Yes. I work with businesses across the UK and internationally. Based in Reading, I offer face-to-face sessions across the Thames Valley, with strategy sessions and reporting also available remotely.",
   },
   {
     q: "Can you help recover from a Google ranking drop?",
@@ -29,6 +29,6 @@ export const faqs = [
   },
   {
     q: "What makes your AI search optimisation approach unique?",
-    a: "My AI search optimisation leverages advanced semantic analysis and entity-based strategies to ensure your content is not just found by traditional search engines, but also accurately retrieved and cited by AI models like Google AI Overviews, Perplexity, and ChatGPT.",
+    a: "My AI search optimisation checks crawlability, entity clarity, answer coverage and supporting evidence. I monitor sampled AI answers and attributable visits where data is available. These checks can reveal visibility gaps, but they cannot guarantee retrieval or citations in Google AI Overviews, Perplexity or ChatGPT.",
   },
 ];

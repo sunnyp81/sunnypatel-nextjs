@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { HowIWorkSteps } from "./HowIWorkSteps";
 
@@ -29,17 +30,17 @@ export function AboutStory() {
             </h2>
             <div className="mb-8 space-y-4 leading-relaxed text-muted-foreground">
               <p>
-                My hands-on experience across 45 sites informs every consulting
-                engagement. I&apos;ve tested strategies on real businesses facing
-                competitive markets — not theoretical frameworks.
+                My documented <Link href="/portfolio/niche-affiliate-seo-portfolio-45-sites/" className="text-brand-ink underline underline-offset-4">45-site portfolio case study</Link> informs my consulting
+                work. It describes that portfolio cohort, not a current count of every site I manage.
+                I use the experience alongside the evidence and priorities for each client.
               </p>
               <p>
-                My approach combines a semantic SEO foundation with AI-enhanced
-                analysis tools, creating a methodology that balances algorithmic
-                understanding with authentic, trust-building content.
+                I combine semantic SEO with AI-assisted analysis to plan
+                content around entities, user questions and supporting evidence.
+                Human review checks the facts, business context and usefulness of the resulting recommendations.
               </p>
               <p>
-                This website focuses on B2B SEO consulting, AI search optimisation, strategic portfolio management, and web development services. It does not cover PPC management, generic content writing, email marketing, or CRO.
+                My services cover B2B SEO consulting, AI search optimisation, strategic portfolio management and web development.
               </p>
             </div>
 
@@ -48,24 +49,24 @@ export function AboutStory() {
                 See the real data
               </p>
               <div className="flex flex-wrap gap-3">
-                <a
+                <Link
                   href="/portfolio/"
                   className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand-ink"
                 >
                   Case studies
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/portfolio/ai-search-optimisation-copilot-citations/"
                   className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand-ink"
                 >
                   120K Bing Copilot citations study
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/blog/ai-referral-traffic-study/"
                   className="rounded-lg border border-hairline-strong dark:border-white/[0.08] bg-surface-2 dark:bg-white/[0.03] px-4 py-2 text-sm text-foreground transition-colors hover:border-brand/30 hover:text-brand-ink"
                 >
                   AI referral traffic study
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -79,6 +80,9 @@ export function AboutStory() {
                 </p>
               </div>
               <div className="p-6">
+                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                  My 60/40 framework illustrates the balance between semantic planning and human expertise. These percentages are a working philosophy, not measured ranking weights.
+                </p>
                 <div className="mb-6 flex h-3 overflow-hidden rounded-full">
                   <div
                     className="h-full bg-gradient-to-r from-brand to-teal transition-all duration-1000"

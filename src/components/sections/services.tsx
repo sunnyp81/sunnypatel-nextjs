@@ -16,7 +16,7 @@ const services = [
     icon: Globe,
     title: "Topical Authority",
     description:
-      "Build comprehensive content networks that establish your site as the definitive source in your niche through entity relationships.",
+      "Topical authority work maps relevant questions and builds connected content supported by evidence from your business.",
     color: "#5B8AEF",
     href: "/services/topical-authority/",
   },
@@ -32,7 +32,7 @@ const services = [
     icon: Map,
     title: "Topical Maps",
     description:
-      "Strategic content architecture using root, node, and seed page hierarchy to signal topical completeness to search engines.",
+      "A topical map organises topics into root, supporting and detailed pages, with a distinct purpose and question set for each URL.",
     color: "#5a922c",
     href: "/services/topical-maps/",
   },
@@ -48,7 +48,7 @@ const services = [
     icon: FileText,
     title: "Content Strategy",
     description:
-      "Semantic briefs, content calendars, and editorial workflows aligned with search intent.",
+      "Content strategy turns user questions and search data into semantic briefs, content calendars and editorial workflows.",
     color: "#5B8AEF",
     href: "/services/content-briefs/",
   },
@@ -56,7 +56,7 @@ const services = [
     icon: TrendingUp,
     title: "Revenue Recovery",
     description:
-      "Diagnose traffic drops, recover lost rankings, and rebuild organic revenue from algorithm updates.",
+      "Ranking-drop diagnosis checks technical faults, content changes and search data, then prioritises a recovery plan. Recovery is not guaranteed.",
     color: "#5a922c",
     href: "/services/google-algorithm-update-recovery/",
   },

@@ -7,7 +7,7 @@ description: >-
   domain data, every figure checked against its primary source.
 ogImage: /images/blog/hero-how-many-websites-are-there.webp
 date: '2026-09-11'
-lastUpdated: '2026-09-11'
+lastUpdated: '2026-10-02'
 tags:
   - Statistics
   - Domain Names
@@ -61,10 +61,8 @@ faqs:
       it as an order-of-magnitude figure rather than a precise current count.
   - question: Are most websites on the internet active or abandoned?
     answer: >-
-      Most are dormant. Netcraft's active-site benchmark suggests only around
-      15% of the 1.49 billion hostnames it detects each month are genuinely
-      active sites serving real content. The rest are parked domains,
-      unfinished hosting placeholders, redirect-only names or bulk-registered
-      domains nobody built on. Separate research from CSC's Domain Security
-      Report found roughly a third of third-party-registered domains lead to
-      inactive or broken sites.
+      Netcraft's July 2026 active-site benchmark is roughly 216.7 million, about
+      15% of its 1.49 billion detected hostnames. The remainder is outside that
+      benchmark, not a measured count of abandoned sites. Parked pages,
+      placeholders and redirects are possible reasons, but the headline totals do
+      not give a category breakdown or establish regular maintenance.

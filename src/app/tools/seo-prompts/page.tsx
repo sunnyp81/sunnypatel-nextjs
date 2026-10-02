@@ -71,6 +71,49 @@ export default function SeoPromptsPage() {
       <div className="pt-24 pb-16">
         <SeoPrompts />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <section aria-labelledby="seo-prompt-selection" className="mb-10 max-w-3xl">
+            <h2 id="seo-prompt-selection" className="text-xl font-bold tracking-tight text-foreground mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              Which SEO prompt template should you use?
+            </h2>
+            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                Choose an SEO prompt template for the decision you need to make and the evidence
+                you have. Each template is a reusable instruction for a specific task. Use keyword
+                classification for a supplied query list, a content brief for supplied search results,
+                or internal linking analysis for a list of real pages. The library prepares the
+                instruction; your chosen AI tool produces a draft that still needs review.
+              </p>
+              <p>
+                For example, a fictional bakery planning a location page could supply verified
+                opening hours, service area, available products and customer questions to the
+                location-page template. The resulting outline should distinguish supplied facts
+                from missing details. Do not publish invented delivery areas, reviews or local
+                credentials to fill the gaps. The bakery is an example, not a tested SEO result.
+              </p>
+            </div>
+          </section>
+          <section aria-labelledby="seo-prompt-evidence" className="mb-10 max-w-3xl">
+            <h2 id="seo-prompt-evidence" className="text-xl font-bold tracking-tight text-foreground mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              What makes an SEO prompt output usable?
+            </h2>
+            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                A usable SEO prompt output answers the requested task using evidence that you can
+                check. Supply the page URL and text, target audience, relevant query data and
+                constraints. If the AI tool cannot access a URL or report, paste the necessary
+                extract and include its source and date. Ask the model to label unavailable evidence
+                rather than assume it has inspected your site.
+              </p>
+              <p>
+                Check proposed facts against their sources, test suggested links, and compare
+                structured data with the visible page before publishing. For AI visibility work,
+                review each proposed answer on its own: does it name the subject, retain the source
+                and qualification, and make sense outside the full page? Clearer passages are an
+                editorial improvement; a prompt response does not demonstrate retrieval, an AI
+                citation or higher rankings. Measure those outcomes separately after publication.
+              </p>
+            </div>
+          </section>
           <div className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
             <h2
               className="text-xl font-bold tracking-tight text-foreground mb-4"

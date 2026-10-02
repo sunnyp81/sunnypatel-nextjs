@@ -18,7 +18,7 @@ const schemaTypes = [
   {
     name: "FAQ schema generator",
     href: "/tools/schema-generator/faq/",
-    body: "Builds an FAQPage block from question and answer pairs. Google removed the FAQ rich result from Search in May 2026, so this markup no longer changes how a listing looks. It still helps AI assistants and other search engines read your Q&A content directly.",
+    body: "Builds an FAQPage block from question and answer pairs visible on your page. FAQPage describes those answers in structured data; it does not establish that an AI assistant will retrieve or cite them. Check Google's current feature guidance before expecting a search enhancement.",
   },
   {
     name: "Article schema generator",
@@ -33,12 +33,12 @@ const schemaTypes = [
   {
     name: "Product schema generator",
     href: "/tools/schema-generator/product/",
-    body: "Outputs Product markup with price, currency, availability, brand, SKU, and aggregate rating. Valid Product markup with a genuine rating is what makes stars and prices eligible to appear under your listing.",
+    body: "Outputs Product markup with price, currency, availability, brand, SKU, and an optional aggregate rating. Product snippets can use offers, reviews or aggregate ratings under Google's requirements. Add ratings only when genuine, visible ratings exist; prices and stars are different enhancements, and neither is guaranteed.",
   },
   {
     name: "Breadcrumb schema generator",
     href: "/tools/schema-generator/breadcrumb/",
-    body: "Builds a BreadcrumbList so Google can replace the raw URL in your search snippet with a readable page trail. Breadcrumb rich results remain active and are among the simplest to earn.",
+    body: "Builds a BreadcrumbList describing the page's place in your site hierarchy. Google can use eligible breadcrumb markup for a readable page trail in search; adding the markup does not guarantee that presentation.",
   },
   {
     name: "HowTo schema generator",
@@ -53,7 +53,7 @@ const schemaTypes = [
   {
     name: "Person schema generator",
     href: "/tools/schema-generator/person/",
-    body: "Generates Person markup for a founder, author, or team member, with job title, employer, photo, and social profile links. It has no dedicated Google rich result but supports the entity and authorship signals behind E-E-A-T.",
+    body: "Generates Person markup for a founder, author, or team member, with job title, employer, photo, and social profile links. Describe verified identity and role details; Person markup alone is not proof of expertise or a promise of a Google rich result.",
   },
   {
     name: "Service schema generator",
@@ -112,7 +112,7 @@ const faqs = [
   },
   {
     q: "Does schema markup improve rankings?",
-    a: "No. Schema markup is not a direct ranking factor. Schema markup makes your page eligible for rich results such as stars, prices, and breadcrumbs. It also gives search engines and AI systems an unambiguous machine-readable statement of the page topic.",
+    a: "Schema markup describes page content in a machine-readable format. Eligible types that meet Google's requirements can qualify for rich results, but correct markup does not guarantee a rich result, higher rankings or an AI citation. Google does not require special schema for AI Overviews or AI Mode.",
   },
   {
     q: "How do I validate the generated schema?",
@@ -196,6 +196,43 @@ export default function SchemaGeneratorPage() {
             </div>
           </section>
 
+          <section aria-labelledby="schema-page-choice" className="max-w-3xl">
+            <h2 id="schema-page-choice" className="text-xl font-bold tracking-tight text-foreground mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              Which schema type belongs on your page?
+            </h2>
+            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                A schema markup generator turns facts from a page into structured data. Choose
+                the type that describes the page&apos;s actual subject: Article for an editorial
+                article, Product for a specific product, and LocalBusiness for a business with
+                relevant location details. Describe the content visitors can read; do not add
+                a product, review or rating just to pursue a search feature.
+              </p>
+              <p>
+                WebPage describes an individual page; WebSite describes the site as a whole.
+                This generator has a WebSite template but no dedicated WebPage template. Use
+                a matching specific template where appropriate, or build a WebPage block using
+                the <a href="https://schema.org/WebPage" className="text-brand underline underline-offset-2 hover:opacity-80">Schema.org WebPage reference</a>.
+                A generic WebPage declaration alone does not qualify a page for every Google rich result.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="schema-product-check" className="max-w-3xl">
+            <h2 id="schema-product-check" className="text-xl font-bold tracking-tight text-foreground mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              What should you check before publishing Product schema?
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Product schema should describe the specific product shown on the page. Check its
+              name, image, price, currency and availability against the visible product details.
+              If you include an aggregate rating, verify the rating value and count against
+              genuine ratings shown to visitors. This generator&apos;s field checks do not verify
+              those facts or assess every Google eligibility rule. Follow the
+              {" "}<a href="https://developers.google.com/search/docs/appearance/structured-data/product-snippet" className="text-brand underline underline-offset-2 hover:opacity-80">Google Product snippet requirements</a>,
+              then test both the generated code and the published URL.
+            </p>
+          </section>
+
           <section>
             <h2
               className="text-xl font-bold tracking-tight text-foreground mb-4"
@@ -246,6 +283,14 @@ export default function SchemaGeneratorPage() {
                 report available in Search Console.
               </li>
             </ol>
+            <p className="mt-4 max-w-3xl text-sm text-muted-foreground leading-relaxed">
+              Google&apos;s Rich Results Test checks supported Google search features; the Schema
+              Markup Validator checks the broader Schema.org vocabulary. Passing a validator is
+              a code check, not proof of search visibility. Google&apos;s
+              {" "}<a href="https://developers.google.com/search/docs/appearance/ai-features" className="text-brand underline underline-offset-2 hover:opacity-80">AI feature guidance</a>
+              {" "}requires no special schema for AI Overviews or AI Mode. Keep structured data
+              consistent with the visible page and retain useful explanations in the page text.
+            </p>
           </section>
 
           <section className="rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">

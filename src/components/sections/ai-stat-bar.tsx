@@ -12,7 +12,7 @@ export function AiStatBar() {
           <Sparkles className="h-3.5 w-3.5 shrink-0 text-brand" />
           <span>
             <strong className="font-semibold text-foreground">3,948 AI-assistant sessions</strong>{" "}
-            across 6 of my own portfolio sites in 90 days, real GA4 data, sector labelled
+            across 6 of my portfolio sites in the GA4 sample for 28 May to 26 August 2026. Attributed visits, not citation counts.
           </span>
           <ArrowRight className="h-3.5 w-3.5 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" />
         </Link>

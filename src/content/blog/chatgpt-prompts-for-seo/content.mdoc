@@ -1,30 +1,32 @@
-A prompt that says "write an SEO-friendly blog post about email marketing" produces generic output, because it gives ChatGPT no method to follow. A prompt that specifies search intent, entity coverage, heading structure, and answer-first formatting produces output that matches how search engines and AI systems actually evaluate content. The gap between those two prompts is the gap between a first draft you can use and a page you have to rewrite from scratch. I built a free library of 20 prompts that encode that method, organised by task, in the [SEO prompts tool](/tools/seo-prompts/). This guide explains how to use them and why the structure matters more than the model.
+_Content updated: 2 October 2026. Guide first published: 10 July 2026. Linked research retains its stated source dates._
+
+A useful ChatGPT SEO prompt names the task, supplies your source material and states what the output must contain. For example, give a page-rewrite prompt the current copy, intended audience, question to answer and verified evidence; ask it to preserve qualifications and flag missing facts. This produces a draft you can assess, not a guaranteed ranking or citation improvement. My free [SEO prompts tool](/tools/seo-prompts/) contains 20 templates organised by task; this guide explains the inputs and checks to use with them.
 
 ## Why Most ChatGPT SEO Prompts Fail
 
-Generic prompts fail because they ask the model to guess at a method instead of supplying one. Ask ChatGPT to "optimise this page for SEO" and it reaches for the same surface-level advice every time: add keywords, shorten sentences, include a meta description. None of that addresses why a page actually ranks.
+A generic request such as "optimise this page for SEO" can produce advice about keywords, sentences or metadata without identifying the page's actual problem. Give the model the page, user question and evidence, and ask it to explain each proposed change. Check those reasons before using the rewrite.
 
-[Semantic SEO](/services/semantic-seo/) ranks pages by measuring how completely they cover an entity and its attributes, not by keyword density. A prompt built on that method asks the model to extract entities, classify intent, and structure headings around distinct questions. That is the difference between a prompt that produces a usable first draft and one that produces filler.
+For a content-planning prompt, [semantic SEO](/services/semantic-seo/) provides a way to organise entities, attributes and user questions. Supply the actual page and query evidence, then ask for missing answers and a proposed structure. Review the output against the sources and existing URLs. This is an editorial workflow, not proof that search engines rank pages by a single entity-coverage formula.
 
-## The 8 Prompt Categories That Actually Move Rankings
+## Eight SEO tasks you can use prompts for
 
 The library covers eight stages of the content and technical SEO workflow. Each prompt is copy-paste ready with bracketed placeholders for your own keyword, URL, or content.
 
-**Keyword and demand research.** Before writing anything, classify what searchers actually want. One prompt sorts a raw keyword list by intent (informational, commercial, transactional, navigational) and funnel stage, then maps each keyword to the right page type. Another turns a single seed query into a full demand map: the entities, attributes, and user tasks connected to it, clustered so you can see which sub-topics deserve their own page.
+**Keyword and demand research.** Supply real queries from Search Console or a customer-question list. Ask the prompt to group them by intent and task, suggest page types and mark ambiguous rows. If you start from a seed query instead, treat generated related questions as hypotheses to verify, not measured search demand.
 
-**Topical maps and authority.** Individual blog posts rarely outrank sites with comprehensive topic coverage. A topical map prompt builds a ROOT and NODE structure for a central entity, so every page has a distinct query and nothing cannibalises anything else. A companion prompt finds the gaps between your coverage and a competitor's, ranked by commercial value and how winnable each gap is.
+**Topical maps and authority.** Supply your existing URLs, their topics and the queries each page serves. Ask for a proposed topic map and gaps, with a reason to update an existing page or create a new one. Check competing page assignments before writing; a ROOT/NODE label alone does not prevent cannibalisation or prove topical authority.
 
-**Content briefs.** A brief built from SERP analysis beats a brief built from guesswork. One prompt generates a semantic content brief for a target query: the entity and its attributes, the heading structure, the terms the page must mention, and the exact sentence the page should open with to answer the query immediately.
+**Content briefs.** Give the model the target question, audience, relevant source extracts and your own verified evidence. Ask for the direct answer, supporting sections, comparison criteria and facts still needing research. If the prompt needs SERP analysis, provide the actual results or use a browsing-capable workflow; the model should not invent what currently ranks.
 
-**Writing and optimisation.** This is where most drafts go wrong. A rewrite prompt enforces answer-first sentences and strips throat-clearing openers and hedge words. A separate prompt writes title tags and meta descriptions under the character limits that actually display, front-loaded with the target keyword instead of the brand name.
+**Writing and optimisation.** Supply the draft and its verified claims. Ask for clearer answers, meaningful headings and subject names where detached passages would be ambiguous, while retaining exceptions and sources. For titles and descriptions, request accurate alternatives within your chosen editorial limits; character count does not guarantee how Google displays a snippet.
 
-**Schema and technical.** One prompt generates valid JSON-LD for whichever schema type the page needs (Service, Article, FAQPage, LocalBusiness), referencing your author and organisation entities rather than leaving placeholder values. Read the full [semantic markup guide](/blog/seo-semantic-markup-guide/) for why structured data matters beyond rich results.
+**Schema and technical.** Supply the visible page facts, required schema type and confirmed author or organisation details. Ask for JSON-LD with missing values flagged, then validate the output and check it matches the page before publishing. Generated markup is a draft, not guaranteed valid code or eligibility for a rich result. The [semantic markup guide](/blog/seo-semantic-markup-guide/) explains the implementation.
 
-**Internal linking.** Two prompts here: one surfaces contextual linking opportunities across a list of your own pages, and one plans diversified anchor text so you never repeat an exact-match anchor into over-optimisation territory.
+**Internal linking.** Supply a list of existing URLs and a short description of each page. Ask for contextual link opportunities with a reason, destination and natural anchor text. Open each destination and check that it answers the promised question; reject invented URLs and links that duplicate an existing page's role.
 
-**AEO and GEO.** Getting cited inside AI Overviews, ChatGPT, and Perplexity answers now matters as much as ranking in the blue links. One prompt assesses and rewrites content specifically for citation odds: answer in the first two sentences, specific figures instead of vague claims, clear authorship. See [what LLM optimisation actually means](/blog/what-is-llm-optimisation/) for the mechanics behind why this works.
+**AEO and GEO.** Give the prompt a target buyer question, the current passage and its supporting sources. Ask whether the passage identifies its subject, answers the question and keeps its scope, date and exceptions with the claim. A clearer passage may be easier to interpret in isolation, but this library has not tested a citation uplift. Google says no special AI markup is required for AI Overviews or AI Mode; see [its AI-feature guidance](https://developers.google.com/search/docs/appearance/ai-features) and [the LLM optimisation guide](/blog/what-is-llm-optimisation/).
 
-**Local SEO.** A Google Business Profile prompt builds a category, description, and review-acquisition plan for a specific business type and town. A location-page prompt outlines a genuinely useful local page and flags anything that would read as a thin doorway page to Google.
+**Local SEO.** Supply the business's real services, address or service area and operating details. Ask for a draft profile description or location-page outline that reflects those facts. Confirm available Business Profile categories in the live product, and remove invented locations, reviews or claims of local experience before using the output.
 
 {% stats %}
 {% stat value="20" label="free prompts in the SEO prompts library" source="Sunny Patel, SEO prompts tool" /%}
@@ -33,45 +35,45 @@ The library covers eight stages of the content and technical SEO workflow. Each 
 
 ## How to Chain Prompts Into a Method
 
-Individual prompts help. Chaining them into a sequence is what actually builds topical authority. Run demand mapping first, so you know what you are building before you build it. Feed the resulting clusters into the topical map prompt, so pages divide the topic instead of competing for the same query. Take one page from that map and run the content brief prompt, then the answer-first rewrite prompt on your draft. Finish with the schema prompt and the internal linking prompt, so the new page is technically complete and connected to the rest of the site on day one.
+To chain SEO prompts, pass reviewed evidence forward rather than treating the model's first output as fact. First group your real queries and confirm the intent. Next assign questions to existing or proposed URLs. Then create one page brief, draft or revise the page, and check facts, links and any schema before publishing. Keep the source list and unresolved questions at each handoff; this is a planning method, not a measured ranking intervention.
 
-Each output becomes the input for the next prompt. That is the entire method: five steps, four handoffs, one connected content architecture instead of a stack of disconnected posts.
+Pass each reviewed output to the next prompt with its supporting sources and unresolved questions. The sequence helps organise a content project; it is not a complete SEO method or evidence that the resulting pages will rank.
 
 {% pullquote cite="From this guide's prompt-chaining method" %}
-Each output becomes the input for the next prompt. That is the entire method: five steps, four handoffs, one connected content architecture instead of a stack of disconnected posts.
+Pass each reviewed output to the next prompt with its supporting sources and unresolved questions.
 {% /pullquote %}
 
 ## Common Mistakes When Using AI for SEO
 
-**Treating output as finished copy.** AI accelerates research, structure, and first drafts. It does not replace the expertise, real data, and editing that make a page actually rank. Every output from these prompts is a starting point, not a publish-ready page.
+**Treating output as finished copy.** AI can help with research, structure and drafts, but the output may still contain errors or miss the user's need. Review its evidence and usefulness before publishing. Every output from this library is a starting point, not a tested ranking intervention.
 
 **Skipping fact verification.** Language models generate plausible-sounding claims that are sometimes wrong. Verify every statistic, date, and factual claim before publishing, especially in Your Money or Your Life topics such as health, finance, or legal content, where an unverified claim carries real risk to the reader and to your site's [E-E-A-T](/blog/what-is-eeat-seo/) signals.
 
-**Running prompts in isolation.** A single great content brief on a page with no topical support around it will struggle to rank. The prompts work best as a chained method feeding into a broader [topical authority](/services/topical-authority/) strategy, not as one-off requests.
+**Running prompts without the page context.** A brief can repeat content you already have or assign the same question to several URLs. Give the model the relevant existing pages, review page ownership and carry verified inputs between tasks. The [topical authority guide](/services/topical-authority/) explains the wider planning approach.
 
 {% pullquote cite="From this guide's common mistakes section" %}
-A single great content brief on a page with no topical support around it will struggle to rank.
+Give the model the relevant existing pages, review page ownership and carry verified inputs between tasks.
 {% /pullquote %}
 
-**Picking the model over the prompt.** Any capable model, ChatGPT, Claude, or Gemini, can run these prompts well. The output quality comes from what the prompt asks for, not which model answers it.
+**Skipping output checks when changing models.** The templates can be tried in ChatGPT, Claude or Gemini, but model capability, browsing access and supplied context can change the result. Compare outputs on the same task and verified sources; do not assume any model can see current search results or your analytics automatically.
 
 ## Frequently Asked Questions
 
 **Are ChatGPT prompts actually useful for SEO?**
 
-Only if the prompt encodes a method, not just a topic. A prompt that says "write an SEO-friendly blog post about X" produces generic output because it gives the model no framework to follow. A prompt that specifies intent classification, entity coverage, heading structure, and answer-first formatting produces output that matches how search engines and AI systems actually evaluate content. The prompt quality matters more than which model runs it.
+ChatGPT prompts can help draft keyword groups, briefs, rewrites and technical suggestions when you provide the task, source material and required output. Check facts, intent, links and code before using the result. The 20-template library has not been evaluated as a controlled ranking or AI-citation experiment, so a usable draft is the immediate outcome to assess.
 
 **Can I use these prompts with Claude or Gemini instead of ChatGPT?**
 
-Yes. None of these prompts depend on ChatGPT specifically. Each one is written as an instruction any capable model can follow. Claude and ChatGPT both handle long content briefs and rewrites well. Gemini is convenient when you want output tied to Google's own data. Pick whichever model you already have access to.
+Yes. The templates use general instructions rather than a ChatGPT-specific API. Try them in Claude or Gemini with the same source material and checks. Browsing, analytics access and output quality depend on the product, mode and permissions; selecting Gemini does not automatically connect a prompt to your Google data.
 
 **Is AI-generated SEO content ready to publish as-is?**
 
-No. Treat every output as a first draft. AI speeds up research, briefs, and structure, but rankings come from real expertise, accurate data, and editing. Verify every factual claim before publishing, particularly in Your Money or Your Life topics such as health, finance, or legal content, where an unverified claim carries real risk.
+No. Treat AI-generated SEO content as a draft. Check its facts, sources, usefulness, links and any code before publishing. Accurate data and editing support quality, but do not guarantee search rankings. Take particular care with health, finance and legal claims, where an incorrect answer can harm the reader.
 
 **What order should I run these prompts in?**
 
-Start with intent and demand mapping to understand what searchers actually want. Move to a topical map so individual pages don't compete with each other. Then build a content brief for the specific page, write the draft, and finish with schema and internal linking. Each output feeds the next step, which is how you build topical authority instead of a pile of disconnected posts.
+Start with verified queries and intent, assign the questions to existing or proposed URLs, then create a brief and draft. Review each output before passing it onward. Finish with fact, link and schema checks. This sequence organises the work; it does not establish that publishing the output will build authority or improve rankings.
 
 ## Related Articles
 

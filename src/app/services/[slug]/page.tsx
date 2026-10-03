@@ -326,98 +326,53 @@ const SEO_LONDON_DATA = {
 
 const AI_SEARCH_DATA = {
   accent: "var(--brand-ink)",
-  testimonials: [
-    {
-      quote:
-        "In 8 weeks we went from zero presence in Bing Copilot to being cited for 47 queries. Our sales team noticed new inbound leads specifically mentioning they found us through AI search.",
-      name: "Daniel R.",
-      role: "CMO, B2B SaaS platform",
-      location: "UK",
-    },
-    {
-      quote:
-        "By month 3 we were appearing in Google AI Overviews for 12 of our target queries. That\u2019s traffic we would have completely missed without this work.",
-      name: "Rachel T.",
-      role: "Head of Marketing, professional services firm",
-      location: "UK",
-    },
-    {
-      quote:
-        "The entity and schema work Sunny did in the first month alone generated our first AI citations within 6 weeks.",
-      name: "Mark L.",
-      role: "Founder, technology consultancy",
-      location: "UK",
-    },
-    {
-      quote:
-        "We\u2019d heard about AI search optimisation but didn\u2019t know where to start. Sunny\u2019s baseline audit immediately showed us the gaps \u2014 structured, practical, measurable.",
-      name: "Anna C.",
-      role: "Marketing Director, SaaS company",
-      location: "UK",
-    },
-  ],
-  caseStudies: [
-    {
-      industry: "B2B SaaS",
-      challenge: "Zero Copilot/ChatGPT citations despite ranking organically for target terms",
-      result: "47 Bing Copilot citations within 8 weeks through entity and schema optimisation",
-      metric: "0\u219247 citations",
-      timeline: "8 weeks",
-      accentColor: "var(--brand-ink)",
-    },
-    {
-      industry: "Professional Services",
-      challenge: "Not cited in Google AI Overviews for any target queries despite strong organic rankings",
-      result: "Cited in AI Overviews for 12 target queries through content restructure and FAQ architecture",
-      metric: "12 AI Overview citations",
-      timeline: "3 months",
-      accentColor: "var(--brand-ink)",
-    },
-  ],
+  // Removed pending verified source records and publication permission.
+  testimonials: [],
+  caseStudies: [],
   timeline: [
     {
       phase: "Week 1",
       label: "Citation baseline audit",
-      description: "Map current AI visibility across 4 platforms, identify entity gaps",
+      description: "Agree questions, markets and available platforms; collect baseline observations",
     },
     {
-      phase: "Weeks 2\u20133",
-      label: "Entity + schema",
-      description: "Structured data, Knowledge Panel signals, author entity markup",
+      phase: "After audit",
+      label: "Agree implementation",
+      description: "Prioritise access and business-information repairs; assign owners and allowance",
     },
     {
-      phase: "Weeks 4\u20136",
-      label: "Content restructure",
-      description: "FAQ architecture, factual density, source-citability improvements",
+      phase: "Agreed delivery period",
+      label: "Content improvements",
+      description: "Improve relevant answers, passage context and supporting evidence",
     },
     {
-      phase: "Weeks 6\u20138",
-      label: "First citations appear",
-      description: "Monitoring confirms initial citation wins across platforms",
+      phase: "Agreed repeat schedule",
+      label: "Repeat baseline measurement",
+      description: "Repeat agreed questions; report citations, omissions and variation",
     },
     {
-      phase: "Month 3+",
-      label: "Citation velocity",
+      phase: "Ongoing review",
+      label: "Review and prioritise",
       description: "Review observed citations and entity evidence across platforms",
     },
   ],
   riskPoints: [
-    "No minimum contract \u2014 monthly rolling, cancel with 30 days notice",
-    "You own everything \u2014 all structured data, schema, and content are yours",
-    "Monthly citation reporting \u2014 across ChatGPT, Copilot, AI Overviews, and Perplexity",
+    "No minimum contract: monthly rolling, cancel with 30 days notice",
+    "You own the structured data and content delivered for your engagement",
+    "Reporting scope agreed in writing: platforms, questions, repeat schedule and limitations",
   ],
   yesFor: [
     "B2B SaaS companies with product-led or content-led growth",
     "Professional services with complex buying journeys (consulting, finance, law)",
-    "Brands already ranking organically but invisible in AI results",
-    "Businesses with 20+ pages of existing content",
+    "Brands wanting to compare organic search activity with observed AI answers",
+    "Teams able to implement or commission a defined improvement plan",
   ],
   noFor: [
-    "Pure e-commerce sites (AI search cites informational sources, not product pages)",
-    "New sites with fewer than 10 content pages",
-    "Businesses wanting results in under 6 weeks",
+    "Projects needing a full production team across multiple markets",
+    "Businesses without access or capacity to approve changes",
+    "Businesses requiring guaranteed recommendations or citations",
   ],
-  ctaTitle: "Ready to appear in AI search results?",
+  ctaTitle: "Want to measure your AI search visibility?",
   ctaSubtitle:
     "Get in touch for a free 20-minute diagnosis of your AI search goals. A measured citation baseline and full audit are separate paid work.",
 };
@@ -603,15 +558,15 @@ function buildSections(
       </>
     ),
     [pos.testimonials]: (
-      <TestimonialGrid testimonials={convData.testimonials} />
+      convData.testimonials.length > 0 ? <TestimonialGrid testimonials={convData.testimonials} /> : null
     ),
-    [pos.caseStudies]: (
+    [pos.caseStudies]: convData.caseStudies.length > 0 ? (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {convData.caseStudies.map((cs) => (
           <CaseStudyCard key={cs.industry} {...cs} />
         ))}
       </div>
-    ),
+    ) : null,
     [pos.timeline]: (
       <ProcessTimeline steps={convData.timeline} accentColor={convData.accent} />
     ),
@@ -727,6 +682,7 @@ export default async function ServicePage({
               name: service.title,
               description: service.description,
               slug,
+              ...(slug === "ai-search-optimisation" && { dateModified: "2026-10-03" }),
             }),
             breadcrumbSchema([
               { name: "Home", url: "https://sunnypatel.co.uk/" },

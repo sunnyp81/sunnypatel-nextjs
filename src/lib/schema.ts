@@ -40,7 +40,7 @@ const TOPICS: Record<string, TopicDef> = {
   "ai-search-optimisation": {
     name: "AI Search Optimisation",
     description:
-      "Optimising content for visibility and citation in AI-powered search engines including ChatGPT, Perplexity, Bing Copilot, and Google AI Overviews",
+      "Improving search access, answer coverage and verifiable information so search-enabled AI assistants can find and interpret relevant pages",
     url: `${SITE_URL}/services/ai-search-optimisation/`,
   },
   "technical-seo": {

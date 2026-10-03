@@ -19,7 +19,7 @@ export function generateMetadata() {
   return buildMetadata({
     title: "Is Your Brand Visible in AI Search? Free Check",
     description:
-      "Find out in seconds whether ChatGPT, Perplexity and Google's AI Overviews can find, verify and cite your website. Free scored check, no signup required.",
+      "Inspect public crawl permissions, markup and content signals with a free heuristic check. It does not measure live AI citations or recommendations.",
     path: "/is-your-brand-visible-in-ai-search",
   });
 }
@@ -27,7 +27,7 @@ export function generateMetadata() {
 const FAQS = [
   {
     q: "What does the free AI visibility check actually test?",
-    a: "It checks four things: whether AI crawlers such as GPTBot, ClaudeBot and PerplexityBot can access your site, whether you have machine-readable identity data (structured data, entity markup), whether independent entity sources like Wikipedia or Wikidata recognise your brand, and whether your content is structured so an AI system can extract a clean answer from it.",
+    a: "It inspects public search-crawler directives, identity markup, entity references and content structure. These are heuristic checks, not actual crawler visits or live assistant queries. Wikipedia and Wikidata name matches are unverified candidates; absence is not a citation barrier. Training controls are not scored.",
   },
   {
     q: "Is the free check the same as the paid audit?",
@@ -35,7 +35,7 @@ const FAQS = [
   },
   {
     q: "Why would my business be invisible to AI search even if it ranks well on Google?",
-    a: "Ranking and being cited by AI systems are not the same thing. AI systems draw on a narrower set of sources than the full search results page, and lean heavily on structured data, entity signals and clean answer structure to decide what to cite. A site can rank on page one and still never appear in an AI answer if those signals are missing.",
+    a: "Retrieval, source citation and provider recommendation are different outcomes. A search result can be omitted from an answer. This checker cannot establish why a platform selected a source or omitted your business; that needs separately recorded live observations.",
   },
   {
     q: "What happens after I run the check?",
@@ -61,19 +61,19 @@ const WARNING_SIGNS = [
     icon: EyeOff,
     title: "Blocked by configuration",
     detail:
-      "robots.txt often blocks GPTBot, ClaudeBot or other AI crawlers by default configuration, not by anyone's decision. If that is you, AI assistants cannot read your site at all.",
+      "Inspect the relevant search crawler and CDN controls. OpenAI uses OAI-SearchBot for search and GPTBot for training. Blocking GPTBot alone does not opt your site out of ChatGPT search. A robots rule is not proof of a successful or failed live fetch.",
   },
   {
     icon: FileSearch,
-    title: "No entity signals",
+    title: "Inconsistent business information",
     detail:
-      "AI systems lean on structured data to confirm who a business is before citing it. Missing or broken schema usually means a missing or wrong answer.",
+      "Check that business descriptions and any structured data match visible facts. Google requires no special AI schema for AI Overviews or AI Mode. Missing markup alone does not establish the cause of an omitted answer.",
   },
   {
     icon: BarChart3,
     title: "Ranking but not cited",
     detail:
-      "Holding rankings while AI answers absorb the same queries is the clearest sign that being on page one no longer means being in the answer.",
+      "Ranking is not proof of citation. Falling clicks can reflect demand, query mix, seasonality and search-result changes. AI answers are a hypothesis to investigate with matched evidence, not a diagnosis from clicks alone.",
   },
 ] as const;
 
@@ -136,9 +136,9 @@ export default function IsYourBrandVisiblePage() {
               Is your brand visible in AI search?
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Enter your website below for a free, scored check of whether ChatGPT,
-              Perplexity and Google&apos;s AI Overviews can find, verify and cite it.
-              Results in seconds, no email required.
+              Enter your website for a free check of public crawl directives, markup
+              and content signals. The score is a heuristic diagnostic. It does not test
+              live AI citations or recommendations. No email required.
             </p>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline dark:via-white/[0.08] to-transparent" />
@@ -164,15 +164,14 @@ export default function IsYourBrandVisiblePage() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                A growing share of buying research starts inside AI assistants rather
-                than a page of blue links. Those systems answer with a small number of
-                cited sources, not the full results page you are used to competing on.
-                Ranking well on Google does not guarantee you are one of the sources an
-                AI system chooses to cite.
+                A page can appear in search without being cited in an answer or having
+                its business recommended. This checker inspects public technical and
+                content signals. Actual visibility needs separately captured answers
+                with the questions, dates and platform settings recorded.
               </p>
               <p className="font-medium text-foreground">
-                The check above tells you, in seconds, whether the basic technical and
-                entity signals AI systems rely on are actually in place.
+                Use the findings as prompts for inspection. A score does not establish
+                whether an assistant retrieved, trusted, cited or recommended your site.
               </p>
             </div>
           </section>
@@ -183,7 +182,7 @@ export default function IsYourBrandVisiblePage() {
               className="mb-6 text-2xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
             >
-              Three problems that show up again and again
+              Three checks before assigning a cause
             </h2>
             <div className="grid gap-4 sm:grid-cols-3">
               {WARNING_SIGNS.map(({ icon: Icon, title, detail }) => (
@@ -209,10 +208,10 @@ export default function IsYourBrandVisiblePage() {
             </h2>
             <ul className="space-y-3">
               {[
-                "AI crawler access: whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended can actually reach your pages",
+                "Search-crawler directives: public robots permissions for OAI-SearchBot, PerplexityBot and Googlebot; training controls are not scored",
                 "Machine-readable identity: structured data, entity markup and sameAs corroboration links",
-                "Entity presence: whether independent sources like Wikipedia or Wikidata recognise your brand",
-                "Answerability: whether your content is structured so an AI system can extract a clean answer",
+                "Entity references: declared identity links and optional unverified Wikipedia and Wikidata name-match candidates",
+                "Content structure: heuristic heading and text checks, not an observed retrieval or citation test",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" />

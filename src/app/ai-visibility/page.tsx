@@ -21,9 +21,9 @@ import {
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "AI Visibility Audit | Board-Ready, £1,500 Fixed Fee",
+    title: "AI Visibility Audit | £1,500 Fixed Fee",
     description:
-      "Find out exactly how your business appears to ChatGPT, Claude, Perplexity and Google's AI Overviews. Board-ready AI visibility audit with competitor benchmark and 90-day plan. Fixed fee £1,500, delivered in 2 weeks.",
+      "Measure your business in sampled AI answers. AI visibility audit with competitor benchmark and 90-day plan. Fixed fee £1,500, delivered in 2 weeks.",
     path: "/ai-visibility",
   });
 }
@@ -31,15 +31,15 @@ export function generateMetadata() {
 const FAQS = [
   {
     q: "What exactly do I receive?",
-    a: "A board-ready written report covering how your brand appears across ChatGPT, Claude, Perplexity, Copilot and Google's AI Overviews, a technical access audit (AI crawler permissions, structured data, entity signals), a benchmark against three competitors you choose, and a prioritised 90-day plan. It closes with a walkthrough call for you or your leadership team.",
+    a: "A written report covering agreed questions across available ChatGPT, Claude, Perplexity, Copilot and Google AI Overviews modes, a review of search access and business information, a benchmark against three agreed competitors, and a prioritised 90-day plan. Unavailable observations are labelled untested. A walkthrough call closes the audit.",
   },
   {
     q: "How is this different from the AI visibility tools we have seen?",
-    a: "Most tools quote a single-run score. AI answers change between runs, so a single-run number is noise. I measure across repeated runs and report the variance honestly, using measurement sources whose terms actually permit it. You get numbers you can defend in a board meeting.",
+    a: "AI answers can change between runs. I use repeated observations and report their variation with the prompt set, dates and testing conditions. The technical findings and prioritised plan explain what the observations can and cannot establish. Measurement uses sources whose terms permit the agreed collection method.",
   },
   {
     q: "Why does AI visibility matter now?",
-    a: "A growing share of buying research starts inside AI assistants and AI Overviews rather than a list of blue links. If your site blocks AI crawlers, lacks entity data, or is absent from cited sources, you are invisible in those answers while competitors are quoted. Many businesses are blocking AI systems by configuration without knowing it.",
+    a: "AI assistants can be part of a buyer's research. The audit checks whether your business is mentioned, whether a URL is cited and whether you are recommended for the agreed buyer questions. Those are separate observations. Search access problems can limit eligibility; a missing citation alone does not establish why a platform omitted you.",
   },
   {
     q: "Who is this for?",
@@ -47,7 +47,7 @@ const FAQS = [
   },
   {
     q: "What happens after the audit?",
-    a: "The plan is yours to implement with your own team. If you want ongoing help, I offer fractional support from £1,500 per month, and the audit fee is credited against your first month. No minimum contract.",
+    a: "The £1,500 audit delivers the report, prioritised plan and walkthrough; implementation is a separate scope. Your team can carry out the plan. Fractional support starts from £1,500 per month with the audit fee credited against your first month and no minimum contract. Before starting, we agree the monthly delivery allowance, named tasks, content and development responsibilities, tool costs and approval process in writing. External coverage depends on editors and is not guaranteed.",
   },
   {
     q: "Can you build AI agents or automation for us?",
@@ -63,7 +63,7 @@ const SERVICE_SCHEMA = {
       "@id": "https://sunnypatel.co.uk/ai-visibility/#service",
       name: "AI Visibility Audit",
       description:
-        "A board-ready audit of how a business appears to ChatGPT, Claude, Perplexity, Copilot and Google's AI Overviews, with a competitor benchmark and a prioritised 90-day plan. Fixed fee £1,500, delivered in 2 weeks.",
+        "An audit of agreed buyer questions across available AI search modes, with search-access and business-information review, competitor benchmark and prioritised 90-day plan. Untested observations are labelled. Fixed fee £1,500, delivered in 2 weeks.",
       url: "https://sunnypatel.co.uk/ai-visibility/",
       provider: { "@id": "https://sunnypatel.co.uk/#person" },
       areaServed: { "@type": "Country", name: "United Kingdom" },
@@ -74,7 +74,7 @@ const SERVICE_SCHEMA = {
         availability: "https://schema.org/InStock",
         url: "https://sunnypatel.co.uk/ai-visibility/",
         description:
-          "Fixed-fee AI visibility audit: engine-by-engine presence measurement, technical access audit, competitor benchmark and 90-day plan, delivered in 2 weeks with a leadership walkthrough call.",
+          "Fixed-fee AI visibility audit: agreed sampled observations across available AI search modes, search-access review, competitor benchmark and 90-day plan, delivered in 2 weeks with a walkthrough call.",
         seller: { "@id": "https://sunnypatel.co.uk/#person" },
       },
       serviceType: "AI Search Visibility Audit",
@@ -82,12 +82,12 @@ const SERVICE_SCHEMA = {
         "@type": "OfferCatalog",
         name: "AI Visibility Audit Deliverables",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Assistant Presence Measurement (repeated runs, variance reported)" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Crawler and Technical Access Audit" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entity and Structured Data Review" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Agreed AI Search Observations (available modes, repeats and variation reported)" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Search Access and Technical Review" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business Information and Matching Structured Data Review" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Competitor Benchmark (3 competitors)" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Prioritised 90-Day Plan" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Leadership Walkthrough Call" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Walkthrough Call" } },
         ],
       },
     },
@@ -111,13 +111,13 @@ const TRUST_BADGES = [
 ] as const;
 
 const WHAT_YOU_GET = [
-  "Engine-by-engine presence measurement: ChatGPT, Claude, Perplexity, Copilot and Google's AI Overviews, measured across repeated runs with variance reported",
-  "Technical access audit: whether your robots.txt, firewall or CDN is blocking AI crawlers, and what they can actually read",
-  "Entity and structured data review: Organization schema, sameAs, knowledge graph and citation signals",
+  "Agreed questions across available ChatGPT, Claude, Perplexity, Copilot and Google AI Overviews modes: repeated observations with dates and variation; unavailable observations labelled untested",
+  "Search access review: relevant search crawler directives, indexation, firewall and CDN controls; training permissions checked separately",
+  "Business information review: visible identity and supporting links, with any structured data checked against the page; no special AI schema required by Google",
   "Source analysis: which publications and pages AI assistants cite in your market, and whether you appear in them",
   "Benchmark against three competitors you choose",
   "Prioritised 90-day plan, scored by impact against effort, ready to hand to your team",
-  "Walkthrough call with you or your leadership team",
+  "Walkthrough call to discuss the findings and plan",
 ];
 
 const WARNING_SIGNS = [
@@ -125,19 +125,19 @@ const WARNING_SIGNS = [
     icon: EyeOff,
     title: "Blocked by configuration",
     detail:
-      "Many businesses block GPTBot, ClaudeBot and other AI crawlers in robots.txt without anyone deciding to. If that is you, AI assistants cannot read or cite your site at all.",
+      "Search access and training permissions are different. OpenAI uses OAI-SearchBot for search and GPTBot for training. Blocking GPTBot alone does not opt a site out of ChatGPT search. I check the relevant search crawler, CDN and indexation controls for each platform.",
   },
   {
     icon: FileSearch,
-    title: "No entity signals",
+    title: "Inconsistent business information",
     detail:
-      "AI systems lean on structured data and consistent entity signals to confirm who a business is before citing it. Missing or broken schema means a confused or absent answer.",
+      "Conflicting business descriptions make your offer harder to verify. Structured data should match visible information. Google requires no special AI schema for AI Overviews or AI Mode; missing schema alone does not establish why an answer omitted your business.",
   },
   {
     icon: BarChart3,
     title: "Falling organic clicks",
     detail:
-      "Rankings holding but clicks sliding is the classic sign that AI answers are absorbing your queries. The fix is being in the answer, not just under it.",
+      "Stable rankings with falling clicks are a reason to investigate. AI answers are one possible explanation alongside demand, seasonality, query mix and other search-result changes. I compare matched periods and available evidence before assigning a cause.",
   },
 ];
 
@@ -199,10 +199,10 @@ export default function AiVisibilityPage() {
               When AI answers questions in your market, is your business in the answer?
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Your buyers now ask ChatGPT, Claude and Google before they ever see your
-              website. The AI Visibility Audit shows you exactly how you appear in those
-              answers, why, and what to fix first. Board-ready, evidence-led, delivered in
-              2 weeks.
+              AI assistants can be part of your buyers&apos; research. The AI Visibility
+              Audit records how you appear in a defined sample of answers, investigates
+              gaps, and prioritises what to test first. Evidence-led,
+              delivered in 2 weeks.
             </p>
 
             {/* Trust badges */}
@@ -227,7 +227,7 @@ export default function AiVisibilityPage() {
                 </Link>
               </GradientButton>
               <span className="text-sm text-muted-foreground/70">
-                2 weeks · leadership walkthrough included
+                2 weeks · walkthrough included
               </span>
             </div>
           </div>
@@ -243,23 +243,22 @@ export default function AiVisibilityPage() {
               className="mb-4 text-2xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
             >
-              The visibility shift your board is already asking about
+              Questions to investigate before changing your strategy
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                A growing share of buying research now starts inside AI assistants and
-                Google&apos;s AI Overviews. Those systems answer with a handful of cited
-                sources. Either your business is one of them, or a competitor is.
+                A buyer may discover your page, see it cited as a source, or receive a
+                recommendation of your business. Each is a different outcome. The audit
+                records them separately for an agreed set of questions and markets.
               </p>
               <p>
-                Most businesses have never checked. Some are actively blocking AI systems
-                in their own configuration without anyone having decided to. Others rank
-                well in classic search yet never get cited, because the signals AI systems
-                rely on are missing.
+                Search access, useful answers and verifiable business information are
+                areas we can inspect. An assistant&apos;s selection process is not fully
+                observable, so an omission cannot always be explained from your page alone.
               </p>
               <p className="font-medium text-foreground">
-                This audit replaces guesswork with measured evidence: how you appear, why,
-                and the shortest path to appearing more.
+                The report separates observed results, technical findings and hypotheses
+                that need testing. It does not promise recommendations or citations.
               </p>
             </div>
           </section>
@@ -270,7 +269,7 @@ export default function AiVisibilityPage() {
               className="mb-6 text-2xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
             >
-              Three problems I find again and again
+              Three checks before assigning a cause
             </h2>
             <div className="grid gap-4 sm:grid-cols-3">
               {WARNING_SIGNS.map(({ icon: Icon, title, detail }) => (
@@ -284,6 +283,10 @@ export default function AiVisibilityPage() {
                 </div>
               ))}
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Access guidance: <a href="https://developers.openai.com/api/docs/bots" className="text-brand underline">OpenAI crawler controls</a> and{" "}
+              <a href="https://developers.google.com/search/docs/appearance/ai-features" className="text-brand underline">Google AI feature requirements</a>.
+            </p>
           </section>
 
           {/* What you get */}
@@ -312,13 +315,13 @@ export default function AiVisibilityPage() {
               className="mb-4 text-2xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
             >
-              Measurement you can defend in a board meeting
+              Measurement with clear methods and limitations
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 AI answers change between runs. Ask the same question twice and you can get
                 two different lists. That is why I measure across repeated runs and report
-                the variance, rather than quoting a single-run score the way most tools do.
+                the variance alongside the questions, dates and testing conditions.
               </p>
               <p>
                 I publish original research in this space, including an audit of 19 widely
@@ -328,8 +331,9 @@ export default function AiVisibilityPage() {
               </p>
               <p>
                 I also run this playbook on my own portfolio of sites, several of which
-                earn measurable referral traffic from AI assistants today. You are buying a
-                method that is already working, not a theory.
+                record assistant-attributed referral visits. The published research shows
+                the sample, dates and limitations. It demonstrates measurement work;
+                referral totals alone do not establish an intervention&apos;s effect on citations.
               </p>
             </div>
           </section>
@@ -356,6 +360,13 @@ export default function AiVisibilityPage() {
                   £495 SEO audit
                 </Link>{" "}
                 is probably the better fit.
+              </p>
+              <p>
+                The audit includes the report, plan and walkthrough. Website changes,
+                content production and external coverage are separate scopes. Before
+                fractional work starts, we agree the delivery allowance, tasks, owners,
+                additional costs and approval process in writing. Neither fee guarantees
+                that an assistant will cite or recommend your business.
               </p>
             </div>
           </section>

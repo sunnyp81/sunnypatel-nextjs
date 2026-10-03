@@ -61,7 +61,7 @@
 .heroGrid p:not(.eyebrow) { font-size: 17px; line-height: 1.65; color: var(--guide-muted); }
 .heroGrid .dek { font-size: 22px !important; line-height: 1.4 !important; color: var(--guide-ink) !important; margin-bottom: 16px; }
 .heroFigure { margin: 0; }
-.heroFigure img { display: block; width: 100%; height: auto; border: 1px solid var(--guide-rule); border-radius: 4px; }
+.heroFigure img { width: 100%; height: auto; border: 1px solid var(--guide-rule); border-radius: 4px; }
 .heroFigure figcaption { color: var(--guide-muted); font-size: 13px; line-height: 1.5; padding-top: 12px; }
 .hero a:not(.primary), .body a:not(.primary), .contents a { color: var(--guide-link); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .hero a:hover, .body a:hover, .contents a:hover { color: var(--guide-hover-ink); text-decoration-thickness: 2px; }

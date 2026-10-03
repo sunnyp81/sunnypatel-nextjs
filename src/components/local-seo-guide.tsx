@@ -37,7 +37,7 @@ export function LocalSeoGuide({ title, image, faqs, children }: {
             <div className={styles.actions}><a className={styles.primary} href="#compare">Find your local SEO shortlist <span aria-hidden="true">↓</span></a><a className={styles.textLink} href="/downloads/local-seo-provider-brief.txt" download>Download the local SEO brief</a></div>
           </div>
           <figure className={styles.heroFigure}>
-            <ThemedImage src={image} width={1600} height={900} sizes="(max-width: 800px) 100vw, 480px" alt="Three miniature high-street shops on a folded street map, with a blue location pin above the central shop." priority />
+            <ThemedImage src={image} width={1600} height={900} sizes="(max-width: 800px) 100vw, 480px" alt="Blue and gold location pin illustrating local search coverage." priority />
             <figcaption>Choose around your real premises, service area and customer journey.</figcaption>
           </figure>
         </div>

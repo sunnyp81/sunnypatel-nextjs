@@ -26,13 +26,23 @@ const shapes = {
   "ai-visibility": body => Array.isArray(body.pillars) && typeof body.incomplete === "boolean",
 };
 await Promise.all(Object.entries(shapes).map(async ([name, valid]) => {
-  const response = await fetch(`${origin}/api/${name}/`, {
+  // Cloudflare activation can briefly serve the previous version after deploy.
+  // Retry only a missing/old revision; matching-revision errors still fail.
+  for (let attempt = 0; attempt < (site ? 30 : 1); attempt++) {
+   const response = await fetch(`${origin}/api/${name}/`, {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify(name === "check-ssl" ? { domain: "example.com" } : { url: "https://example.com/" }),
     redirect: "manual", signal: AbortSignal.timeout(40_000),
   });
+   if (site && response.headers.get("X-Diagnostic-Revision") !== revision && attempt < 29) {
+    await response.body?.cancel();
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    continue;
+   }
   assert.equal(response.status, 200, `${name}: status`);
   assert.equal(response.headers.get("X-Diagnostic-Revision"), revision, `${name}: Node revision`);
   assert(valid(await response.json()), `${name}: result shape`);
   console.log(JSON.stringify({ origin, route: name, revision, status: "pass" }));
+  return;
+  }
 }));

@@ -42,7 +42,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       - run: node scripts/verify-diagnostic-release.mjs --site
       - name: Restore previous Worker after failed live checks
-        if: failure() && steps.deploy.outcome == 'success'
+        if: (failure() || cancelled()) && steps.deploy.outcome == 'success'
         run: npx wrangler rollback "$PREVIOUS_WORKER_VERSION" --name sunnypatel-nextjs --message "Restore previous version after live diagnostic checks failed" --yes
         env:
           PREVIOUS_WORKER_VERSION: ${{ steps.previous-worker.outputs.version }}

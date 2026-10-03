@@ -5,11 +5,17 @@ on:
     branches: [master]
   workflow_dispatch:
 
+concurrency:
+  group: cloudflare-deploy-master
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Reject superseded release
+        run: test "$(git ls-remote origin refs/heads/master | cut -f1)" = "$GITHUB_SHA"
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -19,8 +25,26 @@ jobs:
       # A master push builds both hosts. Do not switch the public Worker until
       # its fixed Node diagnostic origin serves this exact commit and all APIs.
       - run: node scripts/verify-diagnostic-release.mjs
-      - run: npx opennextjs-cloudflare deploy
+      - name: Recheck current master before deployment
+        run: test "$(git ls-remote origin refs/heads/master | cut -f1)" = "$GITHUB_SHA"
+      - id: previous-worker
+        name: Record rollback version
+        run: |
+          npx wrangler deployments status --name sunnypatel-nextjs --json > previous-worker-deployment.json
+          node scripts/record-worker-rollback.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - id: deploy
+        run: npx opennextjs-cloudflare deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       - run: node scripts/verify-diagnostic-release.mjs --site
+      - name: Restore previous Worker after failed live checks
+        if: failure() && steps.deploy.outcome == 'success'
+        run: npx wrangler rollback "$PREVIOUS_WORKER_VERSION" --name sunnypatel-nextjs --message "Restore previous version after live diagnostic checks failed" --yes
+        env:
+          PREVIOUS_WORKER_VERSION: ${{ steps.previous-worker.outputs.version }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

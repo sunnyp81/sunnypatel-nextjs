@@ -70,6 +70,7 @@ export function ContentPage({
   serviceHeaderCtaOffer = "free_20_minute_seo_diagnosis",
   ctaTitle,
   ctaSubtitle,
+  qualifyEnquiry = false,
   afterContent,
   breadcrumbItems,
   sections,
@@ -98,6 +99,7 @@ export function ContentPage({
   serviceHeaderCtaOffer?: string;
   ctaTitle?: string;
   ctaSubtitle?: string;
+  qualifyEnquiry?: boolean;
   afterContent?: React.ReactNode;
   breadcrumbItems?: Array<{ label: string; href?: string }>;
   sections?: Array<{ content: React.ReactNode; after?: React.ReactNode }>;
@@ -346,6 +348,7 @@ export function ContentPage({
       {showCta && (
         isService ? (
           <ServiceInlineForm
+            qualification={qualifyEnquiry}
             ctaTitle={ctaTitle}
             ctaSubtitle={ctaSubtitle}
           />

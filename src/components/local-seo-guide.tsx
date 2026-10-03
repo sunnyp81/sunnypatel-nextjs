@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { ThemedImage } from "@/components/themed-image";
-import { localSeoProviders, localSeoNeeds, localSeoReviewed, localProposalCriteria } from "@/data/local-seo-providers";
+import { localSeoProviders, localSeoNeeds, localSeoShortlistReviewed, localProposalCriteria } from "@/data/local-seo-providers";
 import { SeoCompanyFinder, SeoProposalScorecard } from "./seo-companies-tools";
 import styles from "./seo-companies-guide.module.css";
 import local from "./local-seo-guide.module.css";
@@ -15,6 +15,10 @@ const navigation = [
   ["profile-rules", "Profile rules and ownership"], ["agency-or-consultant", "Agency, consultant or DIY?"],
   ["methodology", "Research and disclosure"], ["proposal-scorecard", "Score your proposals"], ["faq", "Common questions"],
 ];
+
+const formatCheckedDate = (date: string) => new Intl.DateTimeFormat("en-GB", {
+  day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+}).format(new Date(`${date}T00:00:00Z`));
 
 export function LocalSeoGuide({ title, image, faqs, children }: {
   title: string; image: string; faqs: readonly { question: string; answer: string }[]; children: ReactNode;
@@ -37,7 +41,7 @@ export function LocalSeoGuide({ title, image, faqs, children }: {
             <figcaption>Choose around your real premises, service area and customer journey.</figcaption>
           </figure>
         </div>
-        <div className={styles.byline}><Link href="/author/sunny-patel/">By Sunny Patel, SEO consultant</Link><span>Published <time dateTime="2026-06-14">14 June 2026</time></span><span>Content and sources updated <time dateTime={localSeoReviewed}>12 September 2026</time></span></div>
+        <div className={styles.byline}><Link href="/author/sunny-patel/">By Sunny Patel, SEO consultant</Link><span>Published <time dateTime="2026-06-14">14 June 2026</time></span><span>Guide updated <time dateTime="2026-10-03">3 October 2026</time>; shortlist reviewed <time dateTime={localSeoShortlistReviewed}>12 September 2026</time>. Provider page-check dates appear in each profile.</span></div>
         <p className={styles.disclosure}><strong>How to use this guide:</strong> compare {localSeoProviders.length} providers, including my clearly labelled consultancy and {localSeoProviders.length - 1} external options. The list is alphabetical. Fit assessments are editorial judgements, not tested rankings. <a href="#methodology">Read the research method and disclosures.</a></p>
       </header>
 
@@ -58,12 +62,12 @@ export function LocalSeoGuide({ title, image, faqs, children }: {
             <p>Each profile links to current service information and relevant public work. Case studies are provider-reported. A published result is a starting point for questions, rather than an independent audit.</p>
             <div className={styles.profiles}>
               {localSeoProviders.map(provider => <article id={provider.id} key={provider.id} className={`${styles.profile}${provider.owned ? ` ${styles.owned}` : ""}`}>
-                <div>{provider.owned && <p className={styles.eyebrow}>The author&apos;s own consultancy</p>}<h3>{provider.name}</h3><p className={styles.fit}>{provider.fit}</p><p className={styles.checked}>Sources checked<br /><time dateTime={provider.checked}>12 September 2026</time></p></div>
+                <div>{provider.owned && <p className={styles.eyebrow}>The author&apos;s own consultancy</p>}<h3>{provider.name}</h3><p className={styles.fit}>{provider.fit}</p><p className={styles.checked}>Provider pages checked<br /><time dateTime={provider.checked}>{formatCheckedDate(provider.checked)}</time></p></div>
                 <div>
                   <p>{provider.summary}</p>
                   <p className={local.price}><strong>Pricing:</strong> {provider.price}</p>
                   <details><summary>Evidence, scope and what to ask</summary><div className={styles.profileDetail}>
-                    <p><strong>Published evidence:</strong> {provider.evidence}</p><p><strong>Ask before hiring:</strong> {provider.question}</p><p><strong>Scope to confirm:</strong> {provider.scope}</p>
+                    <p><strong>Published evidence:</strong> {provider.evidence}</p>{provider.serviceNote && <p><strong>Source note checked {formatCheckedDate(provider.checked)}:</strong> {provider.serviceNote}</p>}<p><strong>Ask before hiring:</strong> {provider.question}</p><p><strong>Scope to confirm:</strong> {provider.scope}</p>
                     <ul className={styles.sourceLinks}>{provider.sources.map(source => <li key={source.url}><a href={source.url}>{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul>
                   </div></details>
                   {provider.disclosure && <p className={styles.relationship}><strong>Connection disclosed:</strong> {provider.disclosure}</p>}

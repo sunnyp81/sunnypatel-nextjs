@@ -8,6 +8,7 @@ export function FormField({
   id,
   label,
   type = "text",
+  inputMode,
   placeholder,
   autoComplete,
   required = false,
@@ -22,6 +23,7 @@ export function FormField({
   id: string;
   label: string;
   type?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
   placeholder?: string;
   autoComplete?: string;
   required?: boolean;
@@ -56,6 +58,7 @@ export function FormField({
     onChange,
     placeholder,
     autoComplete,
+    inputMode,
     required,
     disabled,
     "aria-required": required || undefined,

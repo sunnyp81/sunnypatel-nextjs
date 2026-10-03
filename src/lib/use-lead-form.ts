@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { getToolJourney, trackEvent } from "@/lib/analytics";
 import { getAttribution, getArticleCTA, clearArticleCTA } from "@/lib/attribution";
+import { qualificationAnalyticsParams } from "@/lib/lead-qualification";
 
 export type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -139,6 +140,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
           ...getToolJourney(),
           ...(articleCTA.cta_article ? { article_cta_slug: articleCTA.cta_article.split("/")[2], article_cta_offer: articleCTA.cta_offer } : {}),
           ...("howHeard" in formData ? { how_heard: formData.howHeard } : {}),
+          ...qualificationAnalyticsParams(formData.supportType),
         });
         clearArticleCTA();
       }

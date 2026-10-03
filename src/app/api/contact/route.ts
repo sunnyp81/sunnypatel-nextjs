@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { formatQualificationDetails, getSupportOfferCopy, parseLeadQualification } from "@/lib/lead-qualification";
 
 const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
@@ -131,6 +132,9 @@ export async function POST(request: Request) {
       "unknown";
 
     const body = await request.json();
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json({ error: "Please check the enquiry details and try again." }, { status: 400 });
+    }
     const {
       name,
       email,
@@ -150,6 +154,16 @@ export async function POST(request: Request) {
       cta_offer,
     } = body;
     const articleCTA = validatedArticleCTA(cta_article, cta_offer);
+    const qualificationResult = parseLeadQualification(body);
+    if (!qualificationResult.ok) {
+      return NextResponse.json({ error: qualificationResult.error }, { status: 400 });
+    }
+    const qualification = qualificationResult.value;
+    const hasQualification = Object.values(qualification).some(Boolean);
+    const qualificationDetails = hasQualification ? formatQualificationDetails(qualification) : [];
+    const selectedOffer = getSupportOfferCopy(qualification.supportType);
+    const offerLabel = selectedOffer?.offerLabel
+      ?? (typeof offer === "string" ? cleanHeader(offer).trim() : "");
 
     // Honeypot: real users never see or fill `company`. Bots fill every field.
     if (typeof company === "string" && company.trim() !== "") {
@@ -196,9 +210,10 @@ export async function POST(request: Request) {
       email: String(email).slice(0, 200),
       phone: phone ? String(phone).slice(0, 50) : "",
       message: typeof message === "string" ? message.slice(0, 5000) : "",
-      offer: typeof offer === "string" ? offer.slice(0, 200) : "",
+      offer: offerLabel.slice(0, 200),
       howHeard: typeof howHeard === "string" && HOW_HEARD_LABELS[howHeard] ? howHeard : "",
       leadMagnet: typeof leadMagnet === "string" && /^[a-z0-9-]{1,60}$/.test(leadMagnet) ? leadMagnet : "",
+      ...qualification,
       landing_page: typeof landing_page === "string" ? landing_page.slice(0, 300) : "",
       verified,
       ...articleCTA,
@@ -216,11 +231,11 @@ export async function POST(request: Request) {
         reply_to: email,
         subject:
           subjectPrefix +
-          (typeof offer === "string" && offer.trim()
-            ? `${offer.trim()}: enquiry from ${name}`
-            : `New enquiry from ${name}`),
+          (offerLabel
+            ? `${cleanHeader(offerLabel)}: enquiry from ${cleanHeader(name)}`
+            : `New enquiry from ${cleanHeader(name)}`),
         text: [
-          `Offer: ${typeof offer === "string" && offer.trim() ? offer.trim() : "General enquiry"}`,
+          `Offer: ${offerLabel || "General enquiry"}`,
           ...(articleCTA.cta_article ? [`Last article CTA (client-reported, within 30 minutes): ${articleCTA.cta_article} / ${articleCTA.cta_offer}`] : []),
           `Name: ${name}`,
           `Email: ${email}`,
@@ -237,6 +252,7 @@ export async function POST(request: Request) {
             referrer,
             landing_page,
           })}`,
+      ...qualificationDetails,
           ``,
           `Message:`,
           message,
@@ -306,10 +322,13 @@ export async function POST(request: Request) {
     // so a slow Trafft call, or a client disconnect, can never delay or drop lead
     // capture. The enquiry email above does not depend on this call.
     if (process.env.AAA_INTAKE_SECRET && process.env.AAA_INTAKE_ENABLED === "1") {
+      const intakeMessage = hasQualification
+        ? `${typeof message === "string" ? message : ""}\n\n${formatQualificationDetails(qualification).join("\n")}`
+        : message;
       fetch("https://aaa-intake.sunnypat81.workers.dev", {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-intake-secret": process.env.AAA_INTAKE_SECRET },
-        body: JSON.stringify({ brand: "SP", name, email, phone: phone || null, message }),
+        body: JSON.stringify({ brand: "SP", name, email, phone: phone || null, message: intakeMessage }),
       }).catch(() => {});
     }
 
@@ -321,4 +340,8 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+}
+
+function cleanHeader(value: string) {
+  return value.replace(/[\r\n]+/g, " ").slice(0, 200);
 }

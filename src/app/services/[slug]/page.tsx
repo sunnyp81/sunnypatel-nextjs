@@ -380,6 +380,12 @@ const AI_SEARCH_DATA = {
 type ConversionData = typeof GENERIC_DATA;
 
 const SPECIFIC_DATA: Record<string, ConversionData> = {
+  "seo-consulting": {
+    ...GENERIC_DATA,
+    ctaTitle: "Discuss ongoing SEO support",
+    ctaSubtitle:
+      "Choose whether you need ongoing advice, implementation, a single session or an audit. We will agree the relevant scope and next step before work starts.",
+  },
   "seo-consultant-reading": SEO_READING_DATA,
   "seo-consultant-london": SEO_LONDON_DATA,
   "ai-search-optimisation": AI_SEARCH_DATA,
@@ -682,7 +688,7 @@ export default async function ServicePage({
               name: service.title,
               description: service.description,
               slug,
-              ...(slug === "ai-search-optimisation" && { dateModified: "2026-10-03" }),
+              ...(["ai-search-optimisation", "seo-consulting"].includes(slug) && { dateModified: "2026-10-03" }),
             }),
             breadcrumbSchema([
               { name: "Home", url: "https://sunnypatel.co.uk/" },
@@ -718,6 +724,7 @@ export default async function ServicePage({
         serviceHeaderCtaOffer={offerHeader?.ctaOffer}
         ctaTitle={convData.ctaTitle}
         ctaSubtitle={convData.ctaSubtitle}
+        qualifyEnquiry={slug === "seo-consulting"}
         sections={sections}
         afterContent={
           <>

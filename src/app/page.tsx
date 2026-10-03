@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { OngoingSupportSection } from "@/components/home/ongoing-support-section";
 import { PortfolioProof } from "@/components/sections/portfolio-proof";
 import { StatsChartsSection } from "@/components/home/stats-charts-section";
 import { FreeToolSection } from "@/components/home/free-tool-section";
@@ -55,6 +56,7 @@ export default async function Home() {
       <Navbar />
       <div id="main-content" tabIndex={-1} />
       <Hero />
+      <OngoingSupportSection />
       <PortfolioProof />
       <StatsChartsSection />
       <Services />

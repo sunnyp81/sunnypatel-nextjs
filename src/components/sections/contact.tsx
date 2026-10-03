@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Star, Loader2 } from "lucide-react";
 import { GlowCard } from "@/components/ui/glow-card";
 import { FormField, FormSelect, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
+import { LeadQualificationFields } from "@/components/lead-qualification-fields";
+import { getSupportOfferCopy, SUPPORT_OFFER_COPY } from "@/lib/lead-qualification";
 
 const HOW_HEARD_OPTIONS = [
   { value: "google", label: "Google search" },
@@ -42,13 +45,43 @@ const contactItems = [
   },
 ];
 
-export function Contact() {
-  const { status, setStatus, errorMsg, formData, handleChange, handleSubmit } =
+export function Contact({ supportParam = "" }: { supportParam?: string }) {
+  return <ContactForm supportParam={supportParam} />;
+}
+
+function ContactForm({ supportParam }: { supportParam: string }) {
+  const supportTypeTouched = useRef(false);
+  const initialSupportType = getSupportOfferCopy(supportParam) ? supportParam : "";
+  const { status, setStatus, errorMsg, formData, setFormData, handleChange, handleSubmit } =
     useLeadForm({
-      initial: { name: "", email: "", phone: "", message: "", howHeard: "" },
+      initial: {
+        name: "", email: "", phone: "", message: "", howHeard: "",
+        website: "", supportType: initialSupportType, budget: "", timing: "",
+      },
       eventCategory: "contact",
       eventLabel: "contact_form",
+      transform: (data) => ({
+        ...data,
+        offer: getSupportOfferCopy(data.supportType)?.offerLabel ?? SUPPORT_OFFER_COPY.not_sure.offerLabel,
+      }),
     });
+
+  useEffect(() => {
+    if (supportTypeTouched.current) return;
+    const requested = getSupportOfferCopy(supportParam) ? supportParam : "";
+    setFormData((previous) => previous.supportType === requested
+      ? previous
+      : { ...previous, supportType: requested });
+  }, [setFormData, supportParam]);
+
+  const handleQualificationChange = (
+    key: string,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
+    if (key === "supportType") supportTypeTouched.current = true;
+    setFormData((previous) => ({ ...previous, [key]: event.target.value }));
+  };
+  const supportCopy = getSupportOfferCopy(formData.supportType) ?? SUPPORT_OFFER_COPY.not_sure;
 
   return (
     <section id="contact" className="relative overflow-hidden bg-background py-24 md:py-32 dark:bg-transparent">
@@ -84,16 +117,16 @@ export function Contact() {
           {/* Left — info */}
           <div>
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-ink">
-              Free SEO Diagnosis
+              {supportCopy.eyebrow}
             </p>
             <h2
               className="mb-6 text-3xl font-bold text-foreground md:text-4xl"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
             >
-              Start with the biggest search problem
+              {supportCopy.heading}
             </h2>
             <p className="mb-10 leading-relaxed text-muted-foreground">
-              Request a free 20-minute diagnosis and I&apos;ll help identify the most useful next step. For a full documented review, choose the £495 SEO audit.
+              {supportCopy.intro}
             </p>
 
             <div className="overflow-hidden rounded-xl border border-hairline bg-surface-1 shadow-[var(--elev)] dark:border-white/[0.08] dark:bg-white/[0.03] dark:shadow-none">
@@ -141,8 +174,15 @@ export function Contact() {
             <div className="relative rounded-xl border-[0.75px] bg-surface-1 p-8 shadow-[var(--elev)] dark:bg-background dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
               {status === "success" ? (
                 <FormSuccess
-                  message="Your diagnosis request is with me. I'll reply personally within one working day."
-                  onReset={() => setStatus("idle")}
+                  message="Your enquiry has been sent. I'll reply personally within one working day."
+                  onReset={() => {
+                    supportTypeTouched.current = false;
+                    const requested = getSupportOfferCopy(supportParam) ? supportParam : "";
+                    setFormData((previous) => previous.supportType === requested
+                      ? previous
+                      : { ...previous, supportType: requested });
+                    setStatus("idle");
+                  }}
                 />
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -183,6 +223,12 @@ export function Contact() {
                     onChange={handleChange}
                     disabled={status === "loading"}
                   />
+                  <LeadQualificationFields
+                    idPrefix="contact"
+                    formData={formData}
+                    onChange={handleQualificationChange}
+                    disabled={status === "loading"}
+                  />
                   <FormField
                     id="message"
                     label="How can I help?"
@@ -202,7 +248,7 @@ export function Contact() {
                     disabled={status === "loading"}
                     aria-busy={status === "loading"}
                     data-cta-location="homepage_contact"
-                    data-cta-offer="free_20_minute_seo_diagnosis"
+                    data-cta-offer={supportCopy.offerId}
                     className="flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-4 text-sm font-semibold text-background transition-[transform,opacity] duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
@@ -212,7 +258,7 @@ export function Contact() {
                         Sending…
                       </>
                     ) : (
-                      "Request My Free Diagnosis"
+                      supportCopy.submitLabel
                     )}
                   </button>
                 </form>

@@ -13,6 +13,8 @@ import { GlowCard } from "@/components/ui/glow-card";
 import { Badge } from "@/components/ui/badge";
 import { FormField, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
+import { LeadQualificationFields } from "@/components/lead-qualification-fields";
+import { getSupportOfferCopy } from "@/lib/lead-qualification";
 
 /** Icon references can't cross the server/client boundary as props, so badge
  * callers pass a name key and this component resolves the actual component. */
@@ -36,6 +38,15 @@ const BADGES: readonly { icon: BadgeIconName; label: string }[] = [
   { icon: "sparkles", label: "Free 20-minute diagnosis" },
   { icon: "shield", label: "No contracts" },
 ];
+const QUALIFIED_TRUST_POINTS = [
+  "Choose ongoing advice or implementation",
+  "Share the website and priorities you want to discuss",
+  "Agree the work and responsibilities before it starts",
+] as const;
+const QUALIFIED_BADGES: readonly { icon: BadgeIconName; label: string }[] = [
+  { icon: "calendar", label: "Direct work with Sunny" },
+  { icon: "shield", label: "Scope agreed before work starts" },
+];
 
 const DEFAULT_SUCCESS_MESSAGE =
   "Your diagnosis request is with me. I'll reply personally within one working day.";
@@ -58,6 +69,7 @@ export function ServiceInlineForm({
   formFooterNote = "No obligation · Direct reply from Sunny · Reply within one working day",
   operationalNotes,
   leadValue,
+  qualification = false,
   id,
 }: {
   ctaTitle?: string;
@@ -86,17 +98,36 @@ export function ServiceInlineForm({
   operationalNotes?: readonly string[];
   /** Estimated GBP value of a lead from this form, passed through to GA4. */
   leadValue?: number;
+  /** Adds optional website, support type, budget and timing fields. */
+  qualification?: boolean;
   /** DOM id on the outer section, so a page can deep-link straight to the form. */
   id?: string;
 }) {
-  const { status, setStatus, errorMsg, formData, handleChange, handleSubmit } =
+  const { status, setStatus, errorMsg, formData, setFormData, handleChange, handleSubmit } =
     useLeadForm({
-      initial: { name: "", email: "", phone: "", message: "" },
+      initial: {
+        name: "", email: "", phone: "", message: "",
+        ...(qualification ? { website: "", supportType: "", budget: "", timing: "" } : {}),
+      },
       eventCategory: "contact",
       eventLabel,
       leadValue,
-      transform: (data) => ({ ...data, offer: offerLabel }),
+      transform: (data) => ({
+        ...data,
+        offer: getSupportOfferCopy(data.supportType)?.offerLabel
+          ?? (qualification ? "SEO consulting enquiry" : offerLabel),
+      }),
     });
+  const selectedOffer = qualification ? getSupportOfferCopy(formData.supportType) : null;
+  const effectiveOfferId = selectedOffer?.offerId ?? (qualification ? "seo_consulting_enquiry" : offerId);
+  const effectiveSubmitLabel = selectedOffer?.submitLabel ?? (qualification ? "Send SEO consulting enquiry" : submitLabel);
+  const effectiveSuccessMessage = qualification && successMessage === DEFAULT_SUCCESS_MESSAGE
+    ? "Your SEO consulting enquiry is with me. I'll reply personally within one working day."
+    : successMessage;
+  const handleQualificationChange = (
+    key: string,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => setFormData((previous) => ({ ...previous, [key]: event.target.value }));
 
   const formCard = (
     <GlowCard spread={50} proximity={80}>
@@ -113,7 +144,7 @@ export function ServiceInlineForm({
 
         {status === "success" ? (
           <FormSuccess
-            message={successMessage}
+            message={effectiveSuccessMessage}
             onReset={() => setStatus("idle")}
           />
         ) : (
@@ -161,6 +192,15 @@ export function ServiceInlineForm({
               />
             )}
 
+            {qualification && (
+              <LeadQualificationFields
+                idPrefix="service-inline"
+                formData={formData}
+                onChange={handleQualificationChange}
+                disabled={status === "loading"}
+              />
+            )}
+
             <FormField
               id="message"
               label="How can I help?"
@@ -180,7 +220,7 @@ export function ServiceInlineForm({
               disabled={status === "loading"}
               aria-busy={status === "loading"}
               data-cta-location={eventLabel}
-              data-cta-offer={offerId}
+              data-cta-offer={effectiveOfferId}
               className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-semibold text-white transition-[transform,box-shadow,opacity] duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
               style={{
                 fontFamily: "var(--font-heading)",
@@ -196,7 +236,7 @@ export function ServiceInlineForm({
                 </>
               ) : (
                 <>
-                  {submitLabel}
+                  {effectiveSubmitLabel}
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}
@@ -273,7 +313,7 @@ export function ServiceInlineForm({
 
             {/* What's included */}
             <ul className="mb-8 space-y-3">
-              {trustPoints.map((point) => (
+              {(qualification ? QUALIFIED_TRUST_POINTS : trustPoints).map((point) => (
                 <li
                   key={point}
                   className="flex items-start gap-2.5 text-sm text-muted-foreground"
@@ -289,7 +329,7 @@ export function ServiceInlineForm({
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-2">
-              {badges.map(({ icon, label }) => {
+              {(qualification ? QUALIFIED_BADGES : badges).map(({ icon, label }) => {
                 const Icon = BADGE_ICONS[icon];
                 return (
                   <Badge key={label} variant="brand">

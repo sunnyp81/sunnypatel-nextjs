@@ -11,7 +11,14 @@ export function generateMetadata() {
   });
 }
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ support?: string | string[] }>;
+}) {
+  // Resolve support on the server so this request's first HTML matches its selected offer.
+  const { support } = await searchParams;
+  const supportParam = Array.isArray(support) ? "" : support ?? "";
   return (
     <main className="relative min-h-screen bg-background">
       <Navbar />
@@ -43,16 +50,16 @@ export default function ContactPage() {
             className="mb-4 text-3xl font-bold text-foreground md:text-5xl"
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
-            Start With a Focused SEO Diagnosis
+            Discuss your SEO priorities
           </h1>
           <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-            Free for 20 minutes, no obligation, and a direct reply from Sunny within one working day.
+            Discuss ongoing support or start with a free 20-minute diagnosis. I&apos;ll reply personally within one working day.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong dark:via-white/[0.08] to-transparent" />
       </div>
 
-      <Contact />
+      <Contact supportParam={supportParam} />
       <Footer />
     </main>
   );

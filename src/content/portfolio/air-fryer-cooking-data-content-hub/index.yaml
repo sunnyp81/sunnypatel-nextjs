@@ -1,0 +1,54 @@
+title: 'The Fryer Guide: UK Air Fryer Cooking Data Hub'
+metaTitle: 'The Fryer Guide: UK Air Fryer Cooking Data Hub, Sunny Patel'
+description: >-
+  A newly launched UK content and data hub for air fryer cooking times,
+  sourcing every figure from manufacturers' own manuals and official guides
+  and publishing the full dataset as open data.
+ogImage: ''
+tags:
+- SEO
+- Content
+- Data
+featured: false
+client: In-House Portfolio
+industry: Consumer Content & Original Data Publishing
+services: 'Site Build, Original Data Research, Technical SEO, Content Architecture'
+year: '2026'
+problem: >-
+  Anyone trying to convert an oven recipe for an air fryer runs into
+  instructions that do not agree with each other. Ninja's own manuals say
+  drop the oven temperature by 10°C. Instant's official UK guide says drop
+  it by 20°C and cut the time by 20 to 25%. I could not find a UK site that
+  set those manufacturer figures side by side so a reader could see where
+  each one actually comes from.
+solution: >-
+  I built thefryerguide.com as a reconciled UK cooking data hub for air
+  fryers. Fourteen food pages (bacon, burgers, chicken breast, chicken
+  thighs, chicken wings, chips, fish fingers, jacket potato, pork chops,
+  roast potatoes, salmon, sausages, steak and whole chicken) plus an oven
+  to air fryer converter each state which manufacturer manual or official
+  guide a cooking time or conversion figure is sourced from, and a public
+  data page lists every sourced figure as open data under a CC BY 4.0
+  licence.
+result: >-
+  The site launched on 27 September 2026. This is a new content and data
+  hub, not a results case study yet: there is no traffic, ranking position
+  or affiliate revenue to report. What exists today is the build itself:
+  14 food pages, 5 UK air fryer brands' manuals and official guidance
+  compared (Ninja, Tower, Cosori, Salter and Instant), and 105
+  manufacturer-sourced cooking and conversion figures logged on the data
+  page, including three separate Ninja manuals that agree with each other
+  on a 10°C oven-conversion figure while Ninja's own cooking-times webpage
+  gives packaged food a different rule again (a 25% time cut).
+metrics:
+- value: '14'
+  label: UK food pages with reconciled cooking data
+- value: '105'
+  label: Manufacturer-sourced figures logged on the data page
+- value: '5'
+  label: UK air fryer brands' manuals and guides compared
+- value: '3'
+  label: Ninja manuals agreeing on one oven-conversion figure
+testimonialText: ''
+testimonialAuthor: ''
+testimonialRole: ''

@@ -22,7 +22,7 @@ export interface PublicFetchOptions {
 }
 
 export class PublicFetchError extends Error {
-  constructor(message: string) {
+  constructor(message: string, public readonly code?: string) {
     super(message);
     this.name = "PublicFetchError";
   }
@@ -173,7 +173,20 @@ export function createPublicFetcher(dependencies: Dependencies) {
             fail("Remote server returned an invalid response.");
           }
         });
-        request.on("error", () => reject(signal.aborted ? signal.reason : new PublicFetchError("Could not connect to the public URL.")));
+        request.on("error", (error: NodeJS.ErrnoException) => {
+          // Expose only fixed diagnostic codes, never upstream messages/addresses.
+          const safeCodes = new Set([
+            "CERT_HAS_EXPIRED", "CERT_NOT_YET_VALID", "CERT_REVOKED",
+            "ERR_TLS_CERT_ALTNAME_INVALID", "DEPTH_ZERO_SELF_SIGNED_CERT",
+            "SELF_SIGNED_CERT_IN_CHAIN", "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+            "UNABLE_TO_GET_ISSUER_CERT", "UNABLE_TO_GET_ISSUER_CERT_LOCALLY",
+            "ERR_TLS_CERT_SIGNATURE_ALGORITHM_UNSUPPORTED", "ECONNREFUSED", "ECONNRESET",
+          ]);
+          const code = error.code && safeCodes.has(error.code) ? error.code : undefined;
+          reject(signal.aborted ? signal.reason : new PublicFetchError(
+            code ? `Public HTTPS or network connection failed (${code}).` : "Could not connect to the public URL.", code,
+          ));
+        });
         request.end();
       });
     }
@@ -185,10 +198,11 @@ export function createPublicFetcher(dependencies: Dependencies) {
         const response = await requestOne(url, await resolvePublic(url));
         const location = response.headers.get("location");
         if (![301, 302, 303, 307, 308].includes(response.status) || !location) return response;
-        const next = parsePublicUrl(new URL(location, url));
-        // Even manual redirects must not expose an unchecked target to callers.
-        await resolvePublic(next);
+        // Manual callers inspect the received hop. No target connection or DNS
+        // lookup occurs; any later fetch independently validates its own URL.
         if (options.redirect === "manual") return response;
+        const next = parsePublicUrl(new URL(location, url));
+        await resolvePublic(next);
         if (hop >= maxRedirects) throw new PublicFetchError("Too many redirects.");
         url = next;
       }

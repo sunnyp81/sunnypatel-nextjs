@@ -61,7 +61,7 @@ function typesOf(blocks: Record<string, unknown>[]): string[] {
 // Evaluate the requested path, including grouped agents, wildcard fallback and
 // longest matching Allow/Disallow. This describes directives, not network access.
 function botRule(robots: string, bot: string, path: string): "allowed" | "blocked" | null {
-  if (robots.length > 65536 || path.length > 2048) return null;
+  if (robots.length > 512000 || path.length > 2048) return null;
   const groups: { agents: string[]; rules: { allow: boolean; path: string }[]; directivesSeen: boolean }[] = [];
   let group: typeof groups[number] | null = null;
   let directiveCount = 0;
@@ -70,6 +70,8 @@ function botRule(robots: string, bot: string, path: string): "allowed" | "blocke
     const colon = clean.indexOf(":");
     if (colon < 0) continue;
     const field = clean.slice(0, colon).trim().toLowerCase();
+    // Sitemap and unrelated extension fields do not affect crawler rules.
+    if (!["user-agent", "allow", "disallow"].includes(field)) continue;
     const value = clean.slice(colon + 1).trim();
     if (++directiveCount > 2000 || value.length > 512) return null;
     if (field === "user-agent") {
@@ -180,14 +182,14 @@ export async function POST(req: NextRequest) {
 
   const parsedUrl = new URL(finalUrl);
   const path = parsedUrl.pathname + parsedUrl.search;
-  const robotsKnown = robots.ok || robots.status === 404 || robots.status === 410;
+  const robotsKnown = robots.ok || (robots.status >= 400 && robots.status < 500 && robots.status !== 429);
   const bots = ["OAI-SearchBot", "PerplexityBot", "Googlebot"];
   const crawlChecks: Check[] = bots.map(bot => {
     const rule = robotsKnown ? botRule(robots.ok ? robots.text : "", bot, path) : null;
     return {
       check: `${bot} robots directive for this URL`,
       passed: rule === null ? null : rule === "allowed",
-      value: rule === null ? "unavailable" : robots.ok ? rule : "no robots file (no restriction found)",
+      value: rule === null ? "unavailable" : robots.ok ? rule : robots.status === 404 || robots.status === 410 ? `HTTP ${robots.status}: no robots file (no directive restriction found)` : `HTTP ${robots.status}: no directive restriction found; access may still be blocked`,
       recommendation: rule === "blocked" ? `Review this rule if you want ${bot} to crawl this URL. Robots permission alone does not prove access, indexing or inclusion.` : rule === null ? "Robots directives were unavailable or exceeded this diagnostic's complexity limits. Review the file manually before changing crawler settings." : "This checks robots directives only; firewalls and product source selection are not tested.",
     };
   });

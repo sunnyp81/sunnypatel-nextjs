@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/normalize-content.mjs && node scripts/validate-blog-images.mjs && node scripts/build-light-image-manifest.mjs && next build",
+    "build": "npm run test:tools && node scripts/normalize-content.mjs && node scripts/validate-blog-images.mjs && node scripts/build-light-image-manifest.mjs && next build",
+    "test:tools": "node --test scripts/test-safe-public-fetch.mjs && node scripts/test-tool-result-states.cjs",
     "start": "next start",
     "lint": "eslint",
     "normalize:content": "node scripts/normalize-content.mjs",

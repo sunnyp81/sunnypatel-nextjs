@@ -15,6 +15,15 @@ new Function("exports", "require", ts.transpileModule(source, {
 const { createPublicFetcher, isPublicAddress, parsePublicUrl } = exports;
 const publicDNS = [{ address: "93.184.215.14", family: 4 }];
 
+function route(name, fetch) {
+  const source = readFileSync(new URL(`../src/app/api/${name}/route.ts`, import.meta.url), "utf8");
+  const exports = {};
+  const dependencies = id => id === "next/server" ? { NextResponse: { json: (body, options) => ({ body, status: options?.status ?? 200 }) } }
+    : id === "@/lib/safe-public-fetch" ? { safePublicFetch: fetch } : require(id);
+  new Function("exports", "require", ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText)(exports, dependencies);
+  return exports;
+}
+
 function fixture(responses = [], resolve = async () => publicDNS) {
   const calls = [];
   const transport = (url, options, receive) => {
@@ -26,6 +35,7 @@ function fixture(responses = [], resolve = async () => publicDNS) {
     options.signal.addEventListener("abort", cancel, { once: true });
     req.end = () => queueMicrotask(() => {
       const next = responses.shift() ?? { body: "OK" };
+      if (next.error) { req.emit("error", next.error); return; }
       incoming = new PassThrough();
       incoming.statusCode = next.status ?? 200;
       incoming.headers = next.headers ?? {};
@@ -76,11 +86,62 @@ test("relative public redirects resolve and final URL is reported", async () => 
   const f = fixture([{ status: 302, headers: { location: "/next" } }, { body: "final" }]);
   const r = await f.fetch("https://example.com/start"); assert.equal(r.url, "https://example.com/next"); assert.equal(await r.text(), "final");
 });
-test("redirect to private DNS is rejected before target transport, also in manual mode", async () => {
-  for (const redirect of ["follow", "manual"]) {
+test("followed redirect to private DNS is rejected before target transport", async () => {
+  for (const redirect of ["follow"]) {
     const f = fixture([{ status: 302, headers: { location: "https://private.example.com/" } }], async (h) => h === "private.example.com" ? [{ address: "169.254.169.254", family: 4 }] : publicDNS);
     await assert.rejects(f.fetch("https://example.com", { redirect }), /only to public/); assert.equal(f.calls.length, 1);
   }
+});
+
+test("manual redirects preserve the received hop without contacting or resolving its target", async () => {
+  for (const location of ["https://private.example.com/", "http://127.0.0.1/", "https://dead.example.com/", "https://example.com:8443/"]) {
+    const resolved = [];
+    const f = fixture([{ status: 301, headers: { location } }], async host => { resolved.push(host); if (host !== "example.com") throw Error("unresolvable"); return publicDNS; });
+    const response = await f.fetch("https://example.com", { redirect: "manual", headersOnly: true });
+    assert.equal(response.status, 301); assert.equal(response.headers.get("location"), location);
+    assert.deepEqual(resolved, ["example.com"]); assert.equal(f.calls.length, 1);
+    await assert.rejects(f.fetch(location)); assert.equal(f.calls.length, 1);
+  }
+});
+
+test("connection failures retain allowlisted TLS/network codes without leaking upstream messages", async () => {
+  for (const code of ["CERT_HAS_EXPIRED", "ERR_TLS_CERT_ALTNAME_INVALID", "UNABLE_TO_VERIFY_LEAF_SIGNATURE", "ECONNREFUSED", "UNSAFE_ARBITRARY_CODE"]) {
+    const error = Object.assign(new Error("private address and confidential upstream text"), { code });
+    const f = fixture([{ error }]);
+    await assert.rejects(f.fetch("https://example.com"), failure => {
+      assert(!failure.message.includes("confidential"));
+      assert.equal(failure.code, code === "UNSAFE_ARBITRARY_CODE" ? undefined : code);
+      return true;
+    });
+  }
+});
+
+test("redirect route retains the 301 and attributes blocked/dead targets to their own hop", async () => {
+  for (const location of ["https://private.example.com/", "https://dead.example.com/", "http://127.0.0.1/"]) {
+    const f = fixture([{ status: 301, headers: { location } }], async host => {
+      if (host === "private.example.com") return [{ address: "10.0.0.1", family: 4 }];
+      if (host === "dead.example.com") throw Error("DNS failure");
+      return publicDNS;
+    });
+    const result = await route("check-redirect", f.fetch).POST({ json: async () => ({ url: "https://example.com/" }) });
+    assert.equal(result.body.chain[0].status, 301); assert.equal(result.body.chain[0].headers.location, location);
+    assert.equal(result.body.chain[1].url, location); assert.equal(result.body.chain[1].status, 0);
+    assert.equal(f.calls.length, 1); assert(result.body.error);
+  }
+});
+
+test("SSL route accepts a successful handshake even when its Location is private", async () => {
+  const f = fixture([{ status: 301, headers: { location: "http://127.0.0.1/" } }, { body: "[]" }]);
+  const result = await route("check-ssl", f.fetch).POST({ json: async () => ({ domain: "example.com" }) });
+  assert.equal(result.body.chainValid, true); assert(result.body.error.includes("Certificate details unavailable"));
+  assert.equal(f.calls.length, 2); assert(f.calls[1].url.startsWith("https://api.certspotter.com/"));
+});
+
+test("SSL route presents the safe certificate error code", async () => {
+  const f = fixture([{ error: Object.assign(new Error("sensitive upstream detail"), { code: "CERT_HAS_EXPIRED" }) }, { body: "[]" }]);
+  const result = await route("check-ssl", f.fetch).POST({ json: async () => ({ domain: "example.com" }) });
+  assert.equal(result.body.chainValid, false); assert(result.body.error.includes("CERT_HAS_EXPIRED"));
+  assert(!result.body.error.includes("sensitive"));
 });
 test("redirect IP literal is rejected before target transport", async () => {
   const f = fixture([{ status: 302, headers: { location: "http://127.0.0.1/" } }]);

@@ -208,3 +208,15 @@ test("all seven user-controlled API routes use only the Node safe transport", ()
     assert.match(code, /runtime = "nodejs"/); assert.match(code, /safePublicFetch\(/); assert.doesNotMatch(code, /\bawait fetch\(/);
   }
 });
+
+test("fetch-page rejects encoded JSON expansion before the hosting/bridge cap", async () => {
+  for (const [bytes, expected] of [[new Uint8Array(2_000_000).fill(255), 413],
+    [new Uint8Array(2_000_000).fill(34), 413], [new Uint8Array(2_000_000).fill(1), 413],
+    [new Uint8Array(2_000_000).fill(120), 200]]) {
+    const api = route("fetch-page", async () => new Response(bytes, { headers: { "Content-Type": "text/html" } }));
+    const result = await api.POST({ json: async () => ({ url: "https://example.com/" }) });
+    assert.equal(result.status, expected);
+    if (expected === 413) assert.match(result.body.error, /encoded text size limit/);
+    else assert.equal(result.body.text.length, 2_000_000);
+  }
+});

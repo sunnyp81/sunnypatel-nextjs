@@ -19,12 +19,13 @@ test("only seven diagnostic paths and slash variants reach fixed Node origin; in
       assert.deepEqual(init.headers, { "Content-Type": "application/json" });
       assert.deepEqual(JSON.parse(init.body), { [key]: "example.com" });
       assert.equal(init.redirect, "manual");
-      return Response.json({ success: true }, { headers: { "Set-Cookie": "private", Location: "https://attacker.invalid/" } });
+      return Response.json({ success: true }, { headers: { "Set-Cookie": "private", Location: "https://attacker.invalid/", "X-Diagnostic-Revision": "a".repeat(40) } });
     });
     assert.equal(result.status, 200);
     assert.equal(result.headers.get("Cache-Control"), "no-store");
     assert.equal(result.headers.get("Set-Cookie"), null);
     assert.equal(result.headers.get("Location"), null);
+    assert.equal(result.headers.get("X-Diagnostic-Revision"), "a".repeat(40));
   }
   for (const path of ["/api/keystatic/tree", "/api/contact", "/api/check-ssl/extra", "/api/other", "/"]) {
     assert.equal(await proxyDiagnosticRequest(request(path), () => { throw new Error("unexpected request"); }), null);
@@ -39,10 +40,11 @@ test("invalid methods, malformed input and oversized requests never reach upstre
 });
 
 test("upstream redirects, HTML and oversized responses fail closed; error JSON retains status", async () => {
-  for (const response of [new Response(null, { status: 307, headers: { Location: "http://127.0.0.1/" } }), new Response("HTML"),
-    new Response("x".repeat(4_000_001), { headers: { "Content-Type": "application/json" } })]) {
+  for (const response of [new Response(null, { status: 307, headers: { Location: "http://127.0.0.1/" } }), new Response("HTML")]) {
     assert.equal((await proxyDiagnosticRequest(request("/api/fetch-page"), async () => response)).status, 502);
   }
+  const large = new Response("x".repeat(4_000_001), { headers: { "Content-Type": "application/json" } });
+  assert.equal((await proxyDiagnosticRequest(request("/api/fetch-page"), async () => large)).status, 413);
   const result = await proxyDiagnosticRequest(request("/api/fetch-page"), async () => Response.json({ error: "Unavailable" }, { status: 422 }));
   assert.equal(result.status, 422); assert.deepEqual(await result.json(), { error: "Unavailable" });
 });

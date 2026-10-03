@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
   experimental: { prefetchInlining: false },
   async headers() {
     return [
+      ...(/^[a-f0-9]{40}$/.test(process.env.VERCEL_GIT_COMMIT_SHA || "")
+        ? ["fetch-page", "fetch-og", "grade-website", "check-links", "check-redirect", "check-ssl", "ai-visibility"].map(name => ({
+            source: `/api/${name}/`,
+            headers: [{ key: "X-Diagnostic-Revision", value: process.env.VERCEL_GIT_COMMIT_SHA! }],
+          })) : []),
       {
         source: "/(.*)",
         headers: [

@@ -97,12 +97,18 @@ export async function POST(request: NextRequest) {
       bytes.set(chunk, offset);
       offset += chunk.byteLength;
     }
-    return NextResponse.json({
+    const output = {
       url: url.href,
       text: new TextDecoder().decode(bytes),
       contentType: response.headers.get("content-type") || "",
       lastModified: response.headers.get("last-modified"),
-    });
+    };
+    // JSON escaping and replacement characters can expand a 2 MB text body.
+    // Stay below the Node hosting limit and the bridge's 4 MB response cap.
+    if (new TextEncoder().encode(JSON.stringify(output)).byteLength > 3_900_000) {
+      return NextResponse.json({ error: "Response exceeds the encoded text size limit." }, { status: 413 });
+    }
+    return NextResponse.json(output);
   } catch (error) {
     return NextResponse.json(
       {

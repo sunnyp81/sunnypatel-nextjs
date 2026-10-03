@@ -5,6 +5,7 @@ const paths = new Set([
   "check-redirect", "check-ssl", "ai-visibility",
 ].map(name => `/api/${name}`));
 const origin = "https://sunnypatel-nextjs.vercel.app";
+class BodyLimitError extends Error {}
 
 async function boundedBody(body: ReadableStream<Uint8Array> | null, limit: number, signal: AbortSignal) {
   if (!body) return new Uint8Array();
@@ -20,7 +21,7 @@ async function boundedBody(body: ReadableStream<Uint8Array> | null, limit: numbe
       if (signal.aborted) throw new Error("Cancelled");
       if (done) break;
       size += value.byteLength;
-      if (size > limit) { await reader.cancel(); throw new Error("Too large"); }
+      if (size > limit) { await reader.cancel(); throw new BodyLimitError("Too large"); }
       chunks.push(value);
     }
     const bytes = new Uint8Array(size);
@@ -33,6 +34,11 @@ async function boundedBody(body: ReadableStream<Uint8Array> | null, limit: numbe
 export async function proxyDiagnosticRequest(request: Request, send: typeof fetch = fetch): Promise<Response | null> {
   const path = new URL(request.url).pathname.replace(/\/$/, "");
   if (!paths.has(path)) return null;
+  const started = Date.now();
+  let upstreamStatus: number | undefined;
+  const failure = (reason: string) => console.warn(JSON.stringify({
+    event: "diagnostic_proxy_failure", path, reason, upstreamStatus, elapsedMs: Date.now() - started,
+  }));
   const headers = { "Content-Type": "application/json", "Cache-Control": "no-store" };
   const error = (message: string, status: number) => Response.json({ error: message }, { status, headers });
   if (request.method !== "POST") return error("Use POST for this diagnostic.", 405);
@@ -56,14 +62,24 @@ export async function proxyDiagnosticRequest(request: Request, send: typeof fetc
       body: JSON.stringify({ [key]: (input as Record<string, string>)[key] }),
       redirect: "manual", signal: controller.signal,
     });
+    upstreamStatus = upstream.status;
     if (upstream.status >= 300 && upstream.status < 400) {
-      await upstream.body?.cancel(); return error("Diagnostic service unavailable.", 502);
+      failure("redirect"); await upstream.body?.cancel(); return error("Diagnostic service unavailable.", 502);
     }
     if (!/^application\/json\b/i.test(upstream.headers.get("Content-Type") || "")) {
-      await upstream.body?.cancel(); return error("Diagnostic service unavailable.", 502);
+      failure("non_json"); await upstream.body?.cancel(); return error("Diagnostic service unavailable.", 502);
     }
     const bytes = await boundedBody(upstream.body, 4_000_000, controller.signal);
-    return new Response(bytes, { status: upstream.status, headers });
-  } catch { return error("Diagnostic service unavailable. Please try again.", 502); }
+    const outputHeaders = new Headers(headers);
+    const revision = upstream.headers.get("X-Diagnostic-Revision");
+    if (revision && /^[a-f0-9]{40}$/.test(revision)) outputHeaders.set("X-Diagnostic-Revision", revision);
+    return new Response(bytes, { status: upstream.status, headers: outputHeaders });
+  } catch (cause) {
+    if (cause instanceof BodyLimitError) {
+      failure("too_large"); return error("Response exceeds the diagnostic output size limit.", 413);
+    }
+    failure(request.signal.aborted ? "cancelled" : controller.signal.aborted ? "timeout" : "network");
+    return error("Diagnostic service unavailable. Please try again.", 502);
+  }
   finally { clearTimeout(timer); request.signal.removeEventListener("abort", abort); }
 }

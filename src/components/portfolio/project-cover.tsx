@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const tagColorMap: Array<{ test: RegExp; color: string; secondary: string }> = [
   { test: /health|medical|aesthet|care/i,          color: "var(--brand-ink)", secondary: "var(--teal-ink)" }, // Blue
   { test: /\bai\b|copilot|citation|generative/i,   color: "var(--teal-ink)", secondary: "var(--brand-ink)" }, // Purple
@@ -24,12 +26,29 @@ export function ProjectCover({
   title,
   tags,
   industry,
+  image,
 }: {
   title: string;
   tags?: readonly string[] | null;
   industry?: string | null;
+  image?: { src: string; alt: string } | null;
 }) {
   const { color, secondary } = getColors(tags ?? [], industry);
+
+  if (image) {
+    return (
+      <div className="relative w-full overflow-hidden rounded-t-xl bg-[#050507]" style={{ aspectRatio: "1200 / 630" }}>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 560px"
+          className="object-cover"
+        />
+        <h3 className="sr-only">{title}</h3>
+      </div>
+    );
+  }
 
   return (
     <div className="relative h-44 w-full overflow-hidden rounded-t-xl bg-surface-1 dark:bg-[#050507]">

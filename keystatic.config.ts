@@ -216,6 +216,8 @@ export default config({
         heroImageBeforeAlt: fields.text({ label: "Before Screenshot Alt Text" }),
         heroImage: fields.text({ label: "Featured Screenshot (replaces chart hero)" }),
         heroImageAlt: fields.text({ label: "Featured Screenshot Alt Text" }),
+        heroImageWidth: fields.integer({ label: "Featured Image Width px (blank = portrait screenshot 1370)" }),
+        heroImageHeight: fields.integer({ label: "Featured Image Height px (blank = portrait screenshot 1734)" }),
         tags: fields.array(fields.text({ label: "Tag" }), {
           label: "Tags",
           itemLabel: (props) => props.value,

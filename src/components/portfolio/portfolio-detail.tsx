@@ -15,6 +15,8 @@ type Project = {
   heroImageBeforeAlt?: string | null;
   heroImage?: string | null;
   heroImageAlt?: string | null;
+  heroImageWidth?: number | null;
+  heroImageHeight?: number | null;
   title: string;
   description?: string | null;
   tags?: readonly string[] | null;
@@ -136,7 +138,7 @@ export function PortfolioDetail({
       {/* Featured screenshot (optionally paired with a before shot), or the generic chart hero */}
       {project.heroImage ? (
         <div className="mx-auto max-w-5xl px-6 pb-2 pt-10">
-          <div className={project.heroImageBefore ? "grid gap-5 md:grid-cols-2" : "mx-auto max-w-[560px]"}>
+          <div className={project.heroImageBefore ? "grid gap-5 md:grid-cols-2" : project.heroImageWidth && project.heroImageHeight && project.heroImageWidth > project.heroImageHeight ? "mx-auto max-w-4xl" : "mx-auto max-w-[560px]"}>
             {[
               { src: project.heroImageBefore, alt: project.heroImageBeforeAlt },
               { src: project.heroImage, alt: project.heroImageAlt },
@@ -147,11 +149,11 @@ export function PortfolioDetail({
                   <Image
                     src={img.src}
                     alt={img.alt || project.title}
-                    width={1370}
-                    height={1734}
+                    width={project.heroImageWidth ?? 1370}
+                    height={project.heroImageHeight ?? 1734}
                     priority
                     fetchPriority="high"
-                    sizes="(max-width: 768px) 100vw, 480px"
+                    sizes={project.heroImageWidth && project.heroImageHeight && project.heroImageWidth > project.heroImageHeight ? "(max-width: 896px) 100vw, 896px" : "(max-width: 768px) 100vw, 480px"}
                     className="h-auto w-full rounded-2xl border border-hairline shadow-[var(--elev)] dark:border-white/[0.06]"
                   />
                   {img.alt && (

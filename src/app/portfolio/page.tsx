@@ -96,6 +96,14 @@ export default async function PortfolioIndex() {
                       title={project.entry.title}
                       tags={project.entry.tags}
                       industry={(project.entry as { industry?: string }).industry}
+                      image={
+                        project.entry.heroImage &&
+                        project.entry.heroImageWidth &&
+                        project.entry.heroImageHeight &&
+                        project.entry.heroImageWidth > project.entry.heroImageHeight
+                          ? { src: project.entry.heroImage, alt: project.entry.heroImageAlt || project.entry.title }
+                          : null
+                      }
                     />
 
                     {/* Card body */}

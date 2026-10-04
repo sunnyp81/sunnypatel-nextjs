@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="850" viewBox="0 0 720 850" role="img" aria-labelledby="title desc">
+  <title id="title">Four checks for main content quality</title>
+  <desc id="desc">Effort asks what work went in. Originality asks what is new. Skill asks whether it works well. Accuracy asks whether claims are correct.</desc>
+  <rect width="720" height="850" rx="24" fill="#080b12"/>
+  <g font-family="Arial,sans-serif">
+    <text x="38" y="67" fill="#f5f7fb" font-size="30" font-weight="700">Four questions about the work</text>
+    <rect x="38" y="103" width="644" height="151" rx="16" fill="#11263a" stroke="#5b8aef" stroke-width="2"/>
+    <text x="62" y="155" fill="#92b2ff" font-size="28" font-weight="700">01  EFFORT</text>
+    <text x="62" y="207" fill="#f5f7fb" font-size="27">What work went into it?</text>
+    <rect x="38" y="276" width="644" height="151" rx="16" fill="#172238" stroke="#819af0" stroke-width="2"/>
+    <text x="62" y="328" fill="#a3adff" font-size="28" font-weight="700">02  ORIGINALITY</text>
+    <text x="62" y="380" fill="#f5f7fb" font-size="27">What does this page add?</text>
+    <rect x="38" y="449" width="644" height="151" rx="16" fill="#242235" stroke="#ba9ad1" stroke-width="2"/>
+    <text x="62" y="501" fill="#d5b5ed" font-size="28" font-weight="700">03  TALENT OR SKILL</text>
+    <text x="62" y="553" fill="#f5f7fb" font-size="27">Does it work and communicate well?</text>
+    <rect x="38" y="622" width="644" height="151" rx="16" fill="#2c2319" stroke="#d79f1e" stroke-width="2"/>
+    <text x="62" y="674" fill="#f2c969" font-size="28" font-weight="700">04  ACCURACY</text>
+    <text x="62" y="726" fill="#f5f7fb" font-size="27">Are the important claims right?</text>
+    <text x="38" y="819" fill="#aebbd2" font-size="18">Questions adapted from Google's guidance.</text>
+  </g>
+</svg>

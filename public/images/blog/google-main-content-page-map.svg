@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="630" viewBox="0 0 720 630" role="img" aria-labelledby="title desc">
+  <title id="title">What is main content on a page?</title>
+  <desc id="desc">The central answer or working tool is main content. Navigation and related links support it. An advert is separate.</desc>
+  <rect width="720" height="630" rx="24" fill="#080b12"/>
+  <g font-family="Arial,sans-serif">
+    <text x="38" y="66" fill="#f5f7fb" font-size="29" font-weight="700">What does the page exist to do?</text>
+    <rect x="38" y="104" width="644" height="66" rx="12" fill="#182237"/>
+    <text x="62" y="146" fill="#d4deee" font-size="26">Title and navigation</text>
+    <rect x="38" y="194" width="644" height="215" rx="16" fill="#11263a" stroke="#5b8aef" stroke-width="3"/>
+    <text x="62" y="246" fill="#92b2ff" font-size="26" font-weight="700">MAIN CONTENT</text>
+    <text x="62" y="297" fill="#f5f7fb" font-size="32" font-weight="700">The answer or working tool</text>
+    <text x="62" y="343" fill="#d4deee" font-size="25">Calculator, recipe, service details,</text>
+    <text x="62" y="378" fill="#d4deee" font-size="25">review evidence</text>
+    <rect x="38" y="433" width="310" height="118" rx="14" fill="#1b2333" stroke="#9aacbf" stroke-width="2"/>
+    <text x="62" y="477" fill="#d4deee" font-size="24" font-weight="700">SUPPORTING</text>
+    <text x="62" y="517" fill="#b6c4d7" font-size="24">Related links</text>
+    <rect x="372" y="433" width="310" height="118" rx="14" fill="#2c2319" stroke="#d79f1e" stroke-width="2"/>
+    <text x="396" y="477" fill="#f2c969" font-size="24" font-weight="700">ADVERT</text>
+    <text x="396" y="517" fill="#e0c99c" font-size="24">Separate from the task</text>
+    <text x="38" y="594" fill="#aebbd2" font-size="18">An example layout. Pages vary.</text>
+  </g>
+</svg>

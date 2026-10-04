@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="690" viewBox="0 0 720 690" role="img" aria-labelledby="title desc">
+  <title id="title">A practical order for improving a page</title>
+  <desc id="desc">First fix errors and broken functions. Next improve the main task. Finally refine presentation.</desc>
+  <rect width="720" height="690" rx="24" fill="#080b12"/>
+  <g font-family="Arial,sans-serif">
+    <text x="38" y="65" fill="#f5f7fb" font-size="30" font-weight="700">My order for the first three fixes</text>
+    <rect x="38" y="104" width="644" height="145" rx="16" fill="#11263a" stroke="#5b8aef" stroke-width="2"/>
+    <text x="62" y="155" fill="#92b2ff" font-size="27" font-weight="700">1  FIX ERRORS</text>
+    <text x="62" y="207" fill="#f5f7fb" font-size="26">False claims and broken tools</text>
+    <path d="M360 255v24m-12-12 12 12 12-12" fill="none" stroke="#aebbd2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="292" width="644" height="145" rx="16" fill="#1b2333" stroke="#9aacbf" stroke-width="2"/>
+    <text x="62" y="343" fill="#d4deee" font-size="27" font-weight="700">2  IMPROVE THE TASK</text>
+    <text x="62" y="395" fill="#f5f7fb" font-size="26">Findable answer and useful evidence</text>
+    <path d="M360 443v24m-12-12 12 12 12-12" fill="none" stroke="#aebbd2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="480" width="644" height="145" rx="16" fill="#2c2319" stroke="#d79f1e" stroke-width="2"/>
+    <text x="62" y="531" fill="#f2c969" font-size="27" font-weight="700">3  REFINE PRESENTATION</text>
+    <text x="62" y="583" fill="#f5f7fb" font-size="26">Layout and polish</text>
+    <text x="38" y="662" fill="#aebbd2" font-size="18">An editorial priority, not a Google scoring system.</text>
+  </g>
+</svg>

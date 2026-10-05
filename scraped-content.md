@@ -54,6 +54,9 @@ Approach combines semantic SEO framework with AI-enhanced analysis tools, creati
 
 Helping businesses grow through intelligent digital strategies with deep understanding of how search algorithms and artificial intelligence shape the online world.
 
+**Mar 2024 – Present: SEO Growth Manager at Figment Agency**
+Managing 11+ client campaigns. Pioneered AI/LLM optimisation strategies and launched YouTube SEO service line for scalable growth.
+
 **2012 – Present: SEO / AI Specialist (Independent)**
 Built and ranked profitable content websites. Full-stack SEO from keyword research to link acquisition. Advanced prompt engineering and AI automation.
 

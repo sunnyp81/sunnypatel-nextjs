@@ -41,7 +41,7 @@ export function PortfolioDetail({
   renderedContent: React.ReactNode;
 }) {
   const meta = [
-    { label: "Client", value: project.client },
+    { label: /^own/i.test(project.client ?? "") ? "Ownership" : "Client", value: project.client },
     { label: "Industry", value: project.industry },
     { label: "Services", value: project.services },
     { label: "Year", value: project.year },

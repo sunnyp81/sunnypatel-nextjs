@@ -1,10 +1,10 @@
 title: 'Health Affiliate Site: Google Demotion, Then AI Referrals Fell Too'
 metaTitle: 'Health Affiliate Site: Google Demotion and AI Referrals'
 description: >-
-  A site in my own portfolio, not client work. Labelled by sector. Results vary by niche and starting point. Google impressions fell 96% from 20 July 2026.
+  A site in my own portfolio, not client work. Labelled by sector. Results vary by niche and starting point. Google impressions fell in July 2026 and AI referrals later.
 ogImage: /images/portfolio/health-affiliate-google-demotion-ai-referrals.webp
 heroImage: /images/portfolio/health-affiliate-google-demotion-ai-referrals.webp
-heroImageAlt: 'Daily Google impressions for a health affiliate site in my own portfolio, falling 96% after 20 July 2026.'
+heroImageAlt: 'Daily Google impressions for my health affiliate site from 15 July to 3 August 2026, with the decline beginning on 20 July.'
 heroImageWidth: 2400
 heroImageHeight: 1260
 tags:
@@ -18,10 +18,10 @@ services: 'Search diagnosis, Content remediation, AI referral measurement'
 year: '2026'
 metrics:
 - value: '-96%'
-  label: Google impressions a day, 15 to 19 July against 22 to 31 July
+  label: Google impressions a day, 15 to 19 July against 22 to 31 July 2026
 - value: 476 to 15
   label: Monthly Google clicks, June against August 2026
 - value: 553 to 98
-  label: Monthly AI assistant sessions, June against September 2026
+  label: Monthly GA4 assistant-attributed sessions, June against September 2026
 - value: '824'
-  label: AI assistant sessions, 3 July to 1 October
+  label: GA4 assistant-attributed sessions, 3 July to 1 October 2026

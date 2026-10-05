@@ -1,20 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Briefcase, Code2 } from "lucide-react";
+import { Code2 } from "lucide-react";
 
 const entries = [
-  {
-    icon: <Briefcase className="h-4 w-4" />,
-    period: "Mar 2024 – Present",
-    role: "SEO Growth Manager",
-    company: "Figment Agency",
-    description:
-      "Managing 13 active client campaigns across diverse industries. Pioneered AI/LLM optimisation strategies and launched a YouTube SEO service line for scalable content growth.",
-    color: "var(--brand-ink)",
-    border: "border-brand/20",
-    bg: "bg-brand/10",
-  },
   {
     icon: <Code2 className="h-4 w-4" />,
     period: "2012 – Present",

@@ -40,7 +40,7 @@ export function ProjectCover({
       <div className="relative w-full overflow-hidden rounded-t-xl bg-[#050507]" style={{ aspectRatio: "1200 / 630" }}>
         <Image
           src={image.src}
-          alt={image.alt}
+          alt=""
           fill
           sizes="(max-width: 768px) 100vw, 560px"
           className="object-cover"

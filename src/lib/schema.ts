@@ -424,11 +424,6 @@ export function personSchema() {
       // "https://www.yell.com/biz/...",          ← create at yell.com/add-your-business
       // "https://www.designrush.com/agency/...", ← check submission status
     ],
-    worksFor: {
-      "@type": "Organization",
-      name: "Figment Agency",
-      url: "https://figmentagency.co.uk",
-    },
     hasOccupation: {
       "@type": "Occupation",
       name: "SEO Consultant",

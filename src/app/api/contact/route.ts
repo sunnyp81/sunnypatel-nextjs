@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { formatQualificationDetails, getSupportOfferCopy, parseLeadQualification } from "@/lib/lead-qualification";
+import { spamScore, SPAM_THRESHOLD } from "@/lib/spam-score";
 
 const MAIL_FROM = process.env.MAIL_FROM ?? "SunnyPatel.co.uk <forms@sunnypatel.co.uk>";
 const MAIL_TO = process.env.MAIL_TO ?? "2012.infinite@gmail.com";
@@ -201,7 +202,8 @@ export async function POST(request: Request) {
     // Label mode: a failed or missing Turnstile check never drops a real lead
     // (privacy browsers can block the script); it marks the email instead.
     const verified = await turnstileOk(turnstileToken, ip);
-    const subjectPrefix = verified ? "" : "[Unverified] ";
+    const likelySpam = spamScore({ message, email, howHeard }) >= SPAM_THRESHOLD;
+    const subjectPrefix = (likelySpam ? "[Spam?] " : "") + (verified ? "" : "[Unverified] ");
 
     const leadKey = `lead:${new Date().toISOString()}:${crypto.randomUUID().slice(0, 8)}`;
     await storeLead(leadKey, {
@@ -217,6 +219,7 @@ export async function POST(request: Request) {
       landing_page: typeof landing_page === "string" ? landing_page.slice(0, 300) : "",
       verified,
       ...articleCTA,
+      likelySpam,
     });
 
     const res = await fetch("https://api.emailit.com/v2/emails", {
@@ -276,7 +279,7 @@ export async function POST(request: Request) {
     // Deliver the requested lead magnet straight to the lead, no manual step. Awaited
     // (not fire-and-forget) so a failure is logged, but it never fails the request:
     // the enquiry above already captured the lead regardless of this send's outcome.
-    const magnet = typeof leadMagnet === "string" ? LEAD_MAGNETS[leadMagnet] : undefined;
+    const magnet = typeof leadMagnet === "string" && !likelySpam ? LEAD_MAGNETS[leadMagnet] : undefined;
     if (magnet) {
       try {
         const magnetRes = await fetch("https://api.emailit.com/v2/emails", {

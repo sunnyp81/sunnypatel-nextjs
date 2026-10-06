@@ -12,6 +12,11 @@ const source = await readFile(routeUrl, "utf8");
 const compiled = ts.transpileModule(source, {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true },
 }).outputText;
+const spamSource = await readFile(new URL("src/lib/spam-score.ts", here), "utf8");
+const spamModule = { exports: {} };
+new Function("module", "exports", ts.transpileModule(spamSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+}).outputText)(spamModule, spamModule.exports);
 const requireFromRepo = createRequire(routeUrl);
 
 function createMockRoute() {
@@ -29,6 +34,7 @@ function createMockRoute() {
     if (specifier === "next/server") return { NextResponse: { json: (body, options = {}) => new Response(JSON.stringify(body), { status: options.status ?? 200, headers: { "Content-Type": "application/json" } }) } };
     if (specifier === "@opennextjs/cloudflare") return { getCloudflareContext: async () => ({ env: { LEADS: { put: async (key, value, options) => stored.push({ key, value: JSON.parse(value), options }) } } }) };
     if (specifier === "@/lib/lead-qualification") return qualification;
+    if (specifier === "@/lib/spam-score") return spamModule.exports;
     return requireFromRepo(specifier);
   };
   const cjsModule = { exports: {} };
@@ -142,4 +148,19 @@ test("legacy API payload still reaches mocked mail with no new intake details", 
   assert.equal(mock.delivered.length, 2);
   assert.equal(mock.workerCalls[0].body.message, "Hello");
   assert.doesNotMatch(mock.delivered[0].body.text, /Selected support:/);
+});
+
+test("vendor spam is labelled in the subject and still delivered", async () => {
+  const mock = createMockRoute();
+  const spam = await post(mock.POST, {
+    name: "Rahul", email: "rahul.backlinkserviceprovider@gmail.com",
+    message: "I have 10k+ sites, price starts from $25. Should I send you my site lists?",
+  }, randomUUID());
+  assert.equal(spam.status, 200);
+  assert.match(mock.delivered[0].body.subject, /^\[Spam\?\] /);
+  const real = await post(mock.POST, {
+    name: "Jo", email: "jo@smallbiz.co.uk", message: "My plumbing business needs more leads from Google. What do you charge?",
+  }, randomUUID());
+  assert.equal(real.status, 200);
+  assert.doesNotMatch(mock.delivered[1].body.subject, /Spam/);
 });

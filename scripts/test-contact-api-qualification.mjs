@@ -157,10 +157,12 @@ test("vendor spam is labelled in the subject and still delivered", async () => {
     message: "I have 10k+ sites, price starts from $25. Should I send you my site lists?",
   }, randomUUID());
   assert.equal(spam.status, 200);
-  assert.match(mock.delivered[0].body.subject, /^\[Spam\?\] /);
+  const subjects = () => mock.delivered.filter((d) => d.url.includes("emailit")).map((d) => d.body.subject);
+  assert.match(subjects()[0], /^\[Spam\?\] /);
   const real = await post(mock.POST, {
     name: "Jo", email: "jo@smallbiz.co.uk", message: "My plumbing business needs more leads from Google. What do you charge?",
   }, randomUUID());
   assert.equal(real.status, 200);
-  assert.doesNotMatch(mock.delivered[1].body.subject, /Spam/);
+  assert.doesNotMatch(subjects().at(-1), /Spam/);
+  assert.equal(subjects().length, 2);
 });

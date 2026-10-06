@@ -81,6 +81,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     changeFrequency: "monthly",
     priority: 0.8,
   },
+  {
+    url: `${SITE_URL}/book/sources/`,
+    lastModified: new Date("2026-10-05"),
+    changeFrequency: "monthly",
+    priority: 0.5,
+  },
   // Tools hub + individual tools
   {
     url: `${SITE_URL}/tools/`,

@@ -1,10 +1,11 @@
 title: 'Brand Not Appearing in ChatGPT: 7 Fixes'
 metaTitle: 'Brand Not Appearing in ChatGPT? 7 Fixes'
 description: >-
-  Brand not appearing in ChatGPT? Get 7 proven fixes to appear in AI responses
-  & capture AI referral traffic now. Free checklist included.
+  Brand not appearing in ChatGPT? Work through 7 checks for search access,
+  useful answers, source accuracy and the enquiry journey. No citation guarantees.
 ogImage: '/images/blog/hero-brand-not-appearing-in-chatgpt.webp'
 date: '2026-04-06'
+lastUpdated: '2026-10-10'
 tags:
   - AI Search
   - AI Visibility
@@ -12,31 +13,26 @@ tags:
 faqs:
   - question: How long does it take to appear in ChatGPT answers?
     answer: >-
-      It depends on the platform and mode. Perplexity crawls the live web, so
-      changes can surface within days. ChatGPT's search mode also crawls live
-      and can reflect new content quickly, but its base model's training data
-      updates on OpenAI's own undisclosed schedule, so there's no fixed
-      timetable for when new content enters its core knowledge. Google AI
-      Overviews sit somewhere in between, pulling from indexed pages within
-      weeks of publication.
+      There is no guaranteed timetable. Search answers may need a recrawl or
+      index update before they reflect a change. Answers based on training are
+      different, and editing a website does not schedule a model update.
+      Record the product, mode and dates when comparing sampled answers.
   - question: Does ranking number 1 on Google mean I'll appear in AI answers?
     answer: >-
-      No. Google rankings and AI citations use different signals. AI tools
-      prioritise content that gives direct, structured answers and is cited by
-      third-party sources. 85% of URLs cited in AI Overviews were published
-      within the last 2 years, so freshness matters more than legacy authority.
+      No. A ranking position does not guarantee a citation in a particular
+      generated answer. Check the actual answer and its sources. Clear,
+      supported information is useful for readers, but it does not establish
+      a fixed selection rule or a required content age.
   - question: What is an llms.txt file and do I need one?
     answer: >-
       An llms.txt file sits in your site's root directory and lists what your
       site is about, what topics you cover, and where to find key content.
-      It's a community convention, not an official standard from Google or any
-      major AI platform, and there's no confirmed evidence it improves
-      citation accuracy or frequency. It's low-effort and low-risk to add, but
-      treat it as experimental rather than a proven fix.
+      Google says it does not use these files for Search visibility. For
+      another product, check its documented use before investing time in the
+      file. It is not a substitute for accessible pages or supported answers.
   - question: Will AI search replace Google entirely?
     answer: >-
-      Not in 2026. In June 2025, Google sent 191 billion referrals in a
-      month to the world's top 1,000 websites, compared to 1.13 billion from
-      all AI platforms combined. But AI referral traffic to those same sites
-      grew 357% year on year to that point, and the trajectory matters.
-      Smart businesses optimise for both channels now rather than waiting.
+      This diagnostic cannot predict that. Measure the search exposure,
+      assistant referrals and actual enquiries your business receives, then
+      decide where an improvement is worth testing. A growing industry
+      trend is not a forecast of your own site's return.

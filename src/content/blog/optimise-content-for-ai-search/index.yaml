@@ -1,12 +1,11 @@
 title: Optimise Content for AI Search
 metaTitle: 'How to Optimise Content for AI Search'
 description: >-
-  How Google AI Overviews, ChatGPT, and Perplexity actually select and cite
-  sources in 2026, and the content structure, schema, and measurement changes
-  that follow from it.
+  Optimise content for AI search with clear answers, connected evidence,
+  platform access checks and honest measurement. Includes a real passage repair.
 ogImage: /images/blog/hero-optimise-content-for-ai-search.webp
 date: '2026-02-12'
-lastUpdated: '2026-08-26'
+lastUpdated: '2026-10-10'
 tags:
 - AI Search
 - Content Optimisation
@@ -15,30 +14,25 @@ tags:
 faqs:
   - question: What is the difference between GEO, AEO, and SEO?
     answer: >-
-      SEO earns ranking positions in traditional search results. AEO (Answer
-      Engine Optimisation) gets a specific passage extracted as a direct
-      answer, such as an AI Overview. GEO (Generative Engine Optimisation)
-      gets your brand or content cited inside AI-generated answers from
-      ChatGPT, Perplexity, and Gemini. They overlap but a page can succeed at
-      one and fail at the other two.
+      SEO covers discoverability and performance in search. AEO often
+      describes answering questions in search features and assistants. GEO
+      describes discovery and accurate use in generated answers. The labels
+      overlap; ranking, citation and recommendation remain separate outcomes.
   - question: Does llms.txt actually help you get cited by AI search?
     answer: >-
-      Not for citations. A 300,000-domain study found no correlation between
-      having an llms.txt file and AI citation frequency, and Google's John
-      Mueller has said no AI provider has confirmed using it for retrieval.
-      It does help AI coding tools such as Cursor navigate your
-      documentation, so add it for developers, not for search visibility.
+      Google says it ignores llms.txt for Search visibility. For another
+      product, check its documented use. Do not promise a citation improvement
+      from the file or prioritise it over accessible pages and supported answers.
   - question: Does Google Search Console show AI Overview data now?
     answer: >-
-      Partially. Google began rolling out a Generative AI performance report
-      under Performance in Search Console in June 2026, reaching UK site
-      owners first. It shows impressions for AI Overviews and AI Mode
-      separately from web results, but does not yet include click data.
+      The Generative AI report includes impressions for AI Overviews and
+      AI Mode. Google's help page dates worldwide rollout to 31 August 2026.
+      It does not provide an AI-click total. Page and property aggregation
+      differ, and exported zeros can represent unavailable values.
   - question: How do I measure whether my content gets cited by AI search?
     answer: >-
-      Use three sources together. Bing Webmaster Tools reports AI Copilot
-      citation counts per page. Search Console's Generative AI report shows
-      AI Overview impressions. GA4 referral sessions from sources like
-      chatgpt.com and perplexity.ai measure actual click-throughs, though
-      35 to 70% of genuine AI referral sessions arrive with no referrer and
-      get counted as Direct traffic instead.
+      Bing reports citations across supported AI surfaces. Search Console
+      reports AI Overview and AI Mode impressions. GA4 records identifiable
+      assistant referral sessions. Keep those metrics separate and add actual
+      answer captures. Missing referral information is an unmeasured gap,
+      not a reason to relabel Direct sessions as AI traffic.

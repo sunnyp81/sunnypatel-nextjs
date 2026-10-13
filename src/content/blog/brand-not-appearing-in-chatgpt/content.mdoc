@@ -1,178 +1,76 @@
-Ask ChatGPT to recommend a business in your industry. If your brand doesn't appear, you've got a problem that's costing you revenue right now.
+If your brand does not appear in a ChatGPT answer, first check what was asked and whether the answer used web search. One missing mention does not establish a technical fault or lost revenue. I work through access, content, sampled answers and the enquiry journey before recommending a change.
 
-ChatGPT processes around 2.5 billion prompts a day. Perplexity handles roughly 780 million queries a month. Google AI Overviews appear on around 25% of searches, up to 48% on some trackers. Your competitors are already using this channel to win business.
+These seven checks help separate a fault you can reproduce from a visibility hypothesis. They apply to existing pages: you do not need a new page for every variation of a prompt.
 
-I manage [44 websites](/blog/managing-44-websites-seo-data/) across different industries. AI referral traffic to the world's top 1,000 websites grew 357% year on year to June 2025 (Similarweb). That growth started from a small base, but the trajectory is steep. Brands that appear in AI answers are getting clicks. Brands that don't are losing them.
+## 1. Check access for the relevant search crawler
 
-Here's what's actually happening, why your brand is invisible to AI tools, and the specific fixes that work.
+Search access and permission to use content for training are separate decisions. [OpenAI's crawler documentation](https://developers.openai.com/api/docs/bots) assigns ChatGPT search to `OAI-SearchBot`, training to `GPTBot`, and user-triggered fetching to `ChatGPT-User`. Allowing a training crawler is not a prerequisite for search visibility.
 
-## The shift is real, but it needs context
+Other providers also distinguish roles. [Anthropic](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler) separates `Claude-SearchBot`, `Claude-User` and the training crawler `ClaudeBot`. [Perplexity](https://docs.perplexity.ai/docs/resources/perplexity-crawlers) uses `PerplexityBot` for search and `Perplexity-User` for user requests. Google Search uses `Googlebot`; `Google-Extended` does not control Search inclusion.
 
-{% chart type="bar" eyebrow="Referral volume, June 2025" title="Referrals to the top 1,000 websites: Google vs all AI platforms combined" data="Google:191|AI platforms combined:1.13" suffix="bn" highlight="Google" source="Similarweb" /%}
+Check robots.txt and the actual response to verified crawler requests. A robots allow rule does not establish that your CDN or firewall lets the request through. A logged block or challenge is an observed access fault. Without request logs or a reproducible fetch, crawler blocking remains a hypothesis. Review a specific verified rule rather than disabling security protection wholesale.
 
-AI referral traffic grew 357% year on year to June 2025 (Similarweb). That sounds massive. It is massive in percentage terms. But Google still drove 191 billion referrals in the same month, compared to 1.13 billion from all AI platforms combined.
+## 2. Check indexation and the content returned
 
-Total volume isn't the number that should worry you. Here's what happens when AI answers do appear:
+Confirm that the intended page returns successfully, its canonical points to the right owner and its indexing controls match your intention. Use Search Console's URL Inspection for Google, and inspect the content the server returns as well as the rendered page.
 
-- Organic CTR fell **61%** on queries where an AI Overview appears, between June 2024 and September 2025 ([Seer Interactive](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update))
-- Paid CTR fell **68%** over the same period ([Seer Interactive](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update))
-- Across Seer's Q3 2025 sample, **cited** brands had **35% higher** organic CTR and **91% higher** paid CTR than uncited brands ([Seer Interactive](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update))
+If the answer is missing from both, you have a content-delivery fault to investigate. If it appears only after interaction, check the behaviour of the particular search system rather than assuming all JavaScript is invisible. A successful fetch alone does not prove indexation or citation eligibility on every platform.
 
-That last point is critical: cited brands had higher average CTR than uncited brands in this sample. If you're cited, you win. If you're not, you lose harder than before.
+I include these checks in a [technical SEO audit](/services/technical-seo-audit/). I cannot diagnose an indexing problem from a missing brand mention alone.
 
-85% of URLs cited in AI Overviews were published within the last 2 years (Authoritas). Fresh, structured, direct-answer content gets cited. Legacy pages stuffed with marketing copy don't.
+## 3. Make the relevant answer clear and support it
 
-{% stats %}
-{% stat value="-61%" label="Organic CTR on queries showing an AI Overview, June 2024 to September 2025" source="Seer Interactive" /%}
-{% stat value="+35%" label="Higher organic CTR for brands cited in an AI Overview vs uncited brands" source="Seer Interactive" /%}
-{% stat value="85%" label="of URLs cited in AI Overviews were published within the last 2 years" source="Authoritas" /%}
-{% /stats %}
+Give a reader enough information to judge whether your business fits the question. For a local service, that might include the area you serve, what the work covers, who carries it out and the published price or pricing basis. Link evidence to the claim it supports, and explain any limits.
 
-## Why Google rank 1 doesn't mean AI visibility
+Read the section without the rest of the page. If the subject, condition or source disappears, repair that context. This is a useful editorial check, without a fixed opening word count or a requirement to rewrite everything as a FAQ.
 
-This is where most business owners get confused. They see their brand ranking well on Google and assume AI tools will pick them up too. That's not how it works.
-
-Google rankings reward backlinks, domain authority, and on-page optimisation. AI citation works on different signals:
-
-**What AI tools look for:**
-- Direct, factual answers in the first 200 words of a page
-- Structured content with clear headings and FAQ sections
-- Third-party mentions across authoritative sources (Wikipedia, Reddit, industry forums, news sites)
-- [Entity recognition](/blog/what-is-entity-seo/): whether your brand exists as a known entity with consistent information across the web
-- Schema markup that machines can parse without ambiguity
-
-**What AI tools ignore:**
-- Marketing copy that talks around the answer without giving it
-- Pages that require 800 words of preamble before reaching the point
-- Brand authority that exists only on your own website
-- Content behind login walls or heavy JavaScript rendering
-
-I've seen sites ranking position 1 for competitive terms that never appear in ChatGPT answers. The reason is almost always the same: their content is written for humans scrolling through a page, not for machines extracting answers.
-
-{% pullquote cite="From this post's ranking vs AI visibility section" %}
-I've seen sites ranking position 1 for competitive terms that never appear in ChatGPT answers. The reason is almost always the same: their content is written for humans scrolling through a page, not for machines extracting answers.
-{% /pullquote %}
-
-## Three technical blockers keeping you invisible
-
-Before worrying about content strategy, check whether your site is technically blocking AI crawlers. I run a [technical SEO audit](/services/technical-seo-audit/) on every client site, and these three issues appear constantly.
-
-### 1. Your robots.txt is blocking AI crawlers
-
-Open your robots.txt file right now. Search for these user agents:
-
-- `GPTBot` (ChatGPT's crawler)
-- `ClaudeBot` (Anthropic's crawler)
-- `PerplexityBot` (Perplexity's crawler)
-- `Googlebot` (controls whether your content can be crawled for Google Search, including eligibility for AI Overviews)
-- `Google-Extended` (a separate token that only controls whether Google can use your content to train Gemini and other Google AI products; it has no effect on Search crawling or AI Overview eligibility)
-
-If any of these are disallowed, the relevant tool literally cannot access your content, and if `Googlebot` is blocked, Google can't recrawl those pages for standard Search or AI Overviews either, not just for AI tools. Blocking crawling doesn't guarantee an already-indexed page gets removed from the index straight away, but it stops Google from seeing any updates to it, and new pages behind the block will never get indexed at all. I've found blocked bots on roughly 1 in 4 business sites I audit. Often it's a blanket `Disallow: /` for all unknown bots, added by a security plugin years ago.
-
-The fix takes 30 seconds. Remove the disallow rules for these specific user agents or add explicit allow rules. If you want to keep your content out of Gemini training without affecting Search or AI Overview visibility, disallow only `Google-Extended` and leave `Googlebot` untouched.
-
-### 2. No structured data
-
-AI tools are machines. They parse structured data faster and more accurately than freeform text. If your pages lack schema markup, such as Organization, FAQPage, HowTo, or Product, you're making it harder for AI to extract and cite your content.
-
-At minimum, every business site needs:
-- `Organization` schema on the homepage
-- `FAQPage` schema on service and product pages
-- `Article` schema on blog content
-- `LocalBusiness` schema if you serve a geographic area
-
-### 3. No direct-answer content format
-
-This is the biggest gap. Most business websites are built to persuade, not to inform. Every page opens with a brand story, follows with benefits, and buries the actual answer in paragraph 12.
-
-AI tools extract from the first 200 words. If your opening paragraph doesn't contain a direct, factual answer to the question the page targets, AI will skip you and cite a competitor who does.
-
-## How AI tools choose which brands to cite
+[Google's guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) requires no special AI schema or fixed chunk size. Keep standard markup consistent with visible facts. A missing FAQPage block is not, by itself, an explanation for missing AI visibility.
 
 {% panels %}
-{% panel eyebrow="How AI tools choose which brands to cite" title="Signals that get you cited" tone="good" %}
-- Third-party mentions: critical
-- Direct answer in first 200 words
-- Structured FAQ and schema
-- Content under 2 years old
-- Entity consistency
-- Reddit/forum presence
+{% panel eyebrow="Diagnosis" title="An observed fault" tone="good" %}
+A verified search request is blocked, a canonical points to the wrong page, or the published service information is incorrect. Record the evidence and fix that specific problem.
 {% /panel %}
-{% panel eyebrow="How AI tools choose which brands to cite" title="Signals AI tools ignore" tone="bad" %}
-- Marketing copy without facts
-- 800 words before the answer
-- Brand authority only on own site
-- Content behind JS rendering
-- Legacy pages older than 2 years
+{% panel eyebrow="Diagnosis" title="A hypothesis to test" tone="bad" %}
+The brand is absent from a sampled answer. Access may be fine, and the result may depend on the prompt or mode. Save the answer before deciding what needs changing.
 {% /panel %}
 {% /panels %}
 
-85% of URLs cited in AI Overviews were published within the last 2 years (Authoritas, Seer Interactive, SE Ranking, 2025-2026).
+## 4. Repeat the check with recorded prompts
 
-Understanding the citation mechanism matters. Each platform works slightly differently, but they share common patterns.
+Use realistic questions from customers or search data. Record the full prompt, product, mode, date and relevant locale. Repeat a small comparable set and save the returned answers. Label generated research prompts separately from observed customer questions.
 
-**ChatGPT** draws from its training data (updated periodically) and, in search mode, crawls the live web. It favours content that's been cited by multiple independent sources. If your brand appears on Wikipedia, in Reddit discussions, across industry news sites, and on your own structured pages, ChatGPT is far more likely to mention you.
+Record whether your URL was cited, your brand was mentioned and your brand was recommended. A citation supporting another provider's recommendation is still a citation, but it is not a recommendation for you. A failed or unavailable run is missing evidence, not a negative answer.
 
-**Perplexity** operates more like a search engine with AI synthesis. It crawls pages in real-time and assembles answers from multiple sources. Perplexity heavily weights pages that provide direct answers with supporting data. It also cites its sources visibly, which means structured, quotable content gets picked up faster.
+Repeated checks can show what happened in that sample. They cannot reveal a platform's complete selection logic or establish your share of all answers. Keep those limits attached to the result.
 
-**Google AI Overviews** pull from Google's index but apply a different ranking logic than organic results. They favour content freshness (85% of cited URLs are under 2 years old), FAQ structures, and pages that multiple other authoritative sources link to and reference.
+## 5. Check the cited sources and business facts
 
-The common thread: **third-party validation**. AI tools don't trust what you say about yourself. They trust what others say about you. A brand mentioned positively in 50 Reddit threads, 10 industry articles, and 3 news sites will get cited. A brand with a great website but zero external mentions won't.
+Open the sources an answer actually cites. Do they support the claims, describe the right business and contain current service details? An incorrect name, service area or price is a specific accuracy problem. The reason an assistant selected one provider over another may still be unknown.
 
-{% pullquote cite="From this post's citation mechanism section" %}
-The common thread: third-party validation. AI tools don't trust what you say about yourself. They trust what others say about you.
+Correct information you control and pursue genuine corrections on external listings where appropriate. Consistent [entity information](/blog/what-is-entity-seo/) helps people verify your business. It does not guarantee a citation, and a quantity of forum posts or mentions is not a proven threshold.
+
+Useful external coverage should reflect actual work, research or customer experience. Do not manufacture reviews or publish unsupported claims just to seed an answer.
+
+## 6. Measure exposure, visits and actual enquiries
+
+Use each report for what it measures. [Search Console's Generative AI report](https://support.google.com/webmasters/answer/16984139) includes AI Overview and AI Mode impressions. [Bing AI Performance](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/) reports citations across supported surfaces and sampled grounding queries. Neither number is a count of enquiries.
+
+In GA4, inspect session sources such as chatgpt.com and perplexity.ai. Visits without identifiable referral information cannot simply be relabelled as AI traffic. Ask enquirers how they found you, while keeping self-reported discovery separate from analytics attribution.
+
+{% pullquote cite="How I measure an AI visibility check" %}
+A missing brand mention needs investigation. A citation needs checking. A form success needs reconciliation with a real enquiry before it becomes evidence of commercial value.
 {% /pullquote %}
 
-## The practical fix checklist
+## 7. Check the journey to the intended offer
 
-Here's the exact process I use across my [AI search optimisation](/services/ai-search-optimisation/) work. Do these in order.
+Follow the action from the cited page on desktop and mobile. Check that the offer, deliverables and price are clear, controls work, and a successful submission produces a useful confirmation. Test error states with a mock backend, so the check does not send a real enquiry.
 
-### Week 1: Technical foundations
+Then review actual records for duplicates, tests and relevant prospective customers. A recorded form event is not evidence that the enquiry was qualified or became paid work. If records are unavailable, keep the commercial outcome unknown.
 
-- **Check robots.txt**: Allow GPTBot, ClaudeBot, and PerplexityBot for AI crawling, and make sure Googlebot is allowed for Search and AI Overview eligibility. Only disallow Google-Extended if you want to opt out of Gemini training specifically; it won't affect Search or AI Overviews either way
-- **Add an llms.txt file (optional, experimental)**: Place it at your domain root. List your brand name, what you do, your key topics, and links to your most important pages. It's a community convention, not an official Google or AI-platform standard, and no major platform has confirmed using it as a ranking or citation signal. There's no proven downside to adding one, but don't expect it to move the needle on its own
-- **Implement schema markup**: Organization, FAQPage, Article, LocalBusiness as relevant
-- **Check page rendering**: Load your key pages with JavaScript disabled. If the content disappears, AI crawlers can't see it either
+## How long does an improvement take?
 
-### Week 2-3: Content restructuring
+There is no guaranteed citation timetable. A corrected page may need to be recrawled or reindexed before a search answer reflects it. Answers based on training are a different case, and editing a website does not schedule a model update.
 
-- **Rewrite opening paragraphs**: Every key page should answer its target question directly in the first 2-3 sentences. No preamble
-- **Add FAQ sections**: 4-6 questions per page, with concise direct answers. Use FAQ schema markup
-- **Remove marketing fluff from informational pages**: Save the sales copy for landing pages. Informational content should inform, with data and specifics
-- **Publish fresh content**: 85% of AI-cited URLs are under 2 years old. If your best content is from 2021, it's effectively invisible to AI
+Record publication and any observed recrawl separately. Compare later answers with the original sample, and log other changes that could affect the result. Better information is worth keeping even if a small sample cannot show a visibility change.
 
-### Week 4+: Build third-party citations
-
-- **Audit your brand mentions**: Search your brand name on Reddit, industry forums, and news sites. If you find nothing, that's your biggest problem
-- **Earn mentions on discussion platforms**: Contribute genuinely to Reddit, Quora, and industry-specific forums. Not spam. Actual expertise
-- **Get cited in industry publications**: Guest articles, expert quotes, data contributions
-- **Update directory listings**: Consistent NAP (name, address, phone) data across directories reinforces entity recognition
-- **Encourage customer discussions**: Reviews, testimonials, and genuine user-generated content across platforms
-
-### Ongoing: Monitor and iterate
-
-- Ask ChatGPT and Perplexity about your industry weekly. Screenshot the results
-- Track AI referral traffic in Google Analytics (check the referral source report for chatgpt.com, perplexity.ai, and similar domains)
-- Keep an eye on overall Search performance in Search Console. Google doesn't provide a dedicated AI Overview filter there, so AI Overview clicks and impressions are folded into your general Web performance totals rather than broken out separately
-
-## Timeline expectations
-
-Don't expect overnight results. The timelines vary significantly by platform:
-
-**Perplexity:** Days to weeks. It crawls the live web, so technical fixes and content restructuring show results fastest here. I've seen new pages cited within 48 hours of publication.
-
-**Google AI Overviews:** Weeks to months. Once Google re-crawls and re-indexes your updated content, it can appear in AI Overviews relatively quickly. Structured FAQ content typically gets picked up within 2-4 weeks.
-
-**ChatGPT:** Months, if it reflects the change at all in the near term. ChatGPT's search mode crawls live and can reflect new content within days to weeks, but its base training data updates on OpenAI's own undisclosed schedule. There's no fixed timetable for when new content enters the core knowledge that standard, non-search responses draw on.
-
-The smart approach: optimise for Perplexity first (fastest feedback loop), then Google AI Overviews, then ChatGPT. The content changes that help one platform help all three.
-
-## This isn't optional anymore
-
-The data is clear. AI referral traffic to the world's top 1,000 websites grew 357% year on year to June 2025. Organic CTR on AI Overview queries fell 61% between June 2024 and September 2025, but brands cited in an AI Overview still earn 35% more organic clicks than brands left out of it. 85% of AI citations go to content published in the last 2 years.
-
-Your competitors are figuring this out. The businesses that adapt now will own the AI answer space in their industry. The ones that wait will find themselves invisible to a growing share of their potential customers.
-
-Want a fast answer first? Run the [free AI visibility check](/is-your-brand-visible-in-ai-search/) to see how your brand currently appears to AI assistants. If you want a detailed audit of your brand's AI visibility, including which platforms currently cite you, where the gaps are, and a prioritised fix plan, I offer this as part of my [AI search optimisation service](/services/ai-search-optimisation/). It covers [technical foundations](/services/technical-seo-audit/) and content strategy across all major AI platforms. If you would rather compare providers first, see the [best AEO agencies in the UK](/blog/best-aeo-agencies/).
-
-The fix isn't complicated. But it does need to happen now.
+For an initial diagnostic, try the [free AI visibility check](/is-your-brand-visible-in-ai-search/). Treat its output as that tool's observation rather than a substitute for repeated consumer-product checks. My [AI search optimisation service](/services/ai-search-optimisation/) combines access, evidence and measurement. If you want to compare providers first, see the [best AEO agencies in the UK](/blog/best-aeo-agencies/).

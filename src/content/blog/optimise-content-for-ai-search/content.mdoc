@@ -1,83 +1,90 @@
-AI search is the default experience for a growing share of queries: Google AI Overviews, ChatGPT Search, Perplexity, and Bing Copilot all generate answers directly from web content, often without sending a click. A portfolio-wide audit of my own sites found 120,409 Bing Copilot citations across 11 sites in one pull, a 57:1 ratio against organic clicks from the same pages. This post covers what actually earns those citations in August 2026, not what earned them a year ago. The mechanics keep changing underneath the same recycled advice.
+To optimise content for AI search, make the relevant answer accessible, clear and supported by evidence. Check what each platform actually reports before deciding whether a change worked. The practical work overlaps with ordinary SEO and useful writing; a heading pattern or schema block cannot guarantee a citation.
 
-## GEO, AEO, and SEO Are Three Different Jobs Now
+My historical [Bing Copilot portfolio case study](/portfolio/ai-search-optimisation-copilot-citations/) reports 120,409 citations across 11 sites and a 57:1 citation-to-organic-click ratio. The published case study does not give enough reporting-window detail to verify that ratio as a matched comparison. I would not use it to predict referral traffic or describe today's performance.
 
-**Generative Engine Optimisation (GEO)** is the practice of getting your brand or content cited inside AI-generated answers from ChatGPT, Perplexity, and Gemini. **Answer Engine Optimisation (AEO)** is the narrower practice of getting a specific passage extracted as a direct answer: an AI Overview, a featured snippet, a voice result. Traditional SEO earns ranking positions in a list of ten blue links.
+## How GEO, AEO and SEO Overlap
 
-These overlap but they are not the same job. Treating them as one strategy is where most sites lose ground. A page can rank position 3 on Google and never appear in an AI Overview. A page can sit at position 11, invisible to anyone scrolling results, and still earn dozens of ChatGPT citations a day. It answers the question directly, which is what the model rewards. The skill that spans all three is structuring content so a machine can lift out a correct, self-contained answer. Everything below is about that skill.
+**Generative Engine Optimisation (GEO)** describes work to improve discovery and accurate use of a business or its content in generated answers. **Answer Engine Optimisation (AEO)** often describes answering questions in search features and assistants. **SEO** covers discoverability and performance in search more broadly. The labels overlap and are not separate, fully specified ranking systems.
 
-{% stats %}
-{% stat value="120,409" label="Bing Copilot citations across 11 sites in one portfolio pull" source="Sunny Patel, portfolio audit" /%}
-{% stat value="57:1" label="Ratio of AI citations to organic clicks from the same pages" source="Sunny Patel, portfolio audit" /%}
-{% /stats %}
+A page's ranking, URL citations and brand recommendations can differ. Start with the question a reader needs answered and the evidence available, rather than assigning a different writing recipe to each label.
 
-## A Top-10 Ranking No Longer Guarantees an AI Citation
+{% panels %}
+{% panel eyebrow="Content review" title="A useful improvement" tone="good" %}
+Name the subject, answer the question, cite the relevant evidence and keep the main limitation with the claim.
+{% /panel %}
+{% panel eyebrow="Measurement" title="An outcome still to test" tone="bad" %}
+Whether an assistant cites the page, describes the business accurately or sends a relevant enquiry needs separate observation.
+{% /panel %}
+{% /panels %}
 
-One 2026 analysis of AI Overview citation patterns found that 76.1% of cited URLs still came from the traditional top 10 results. Ranking well remains the strongest single predictor for Google specifically. But a separate large-scale study by AI Mode Boost, covering over 15,000 AI Overview results across 63 industry verticals, found the correlation with traditional ranking position had fallen to r=0.18, close to no relationship. 47% of cited passages came from pages ranking below position 5.
+## A Ranking Position Does Not Guarantee a Citation
 
-Both can be true at once. Google mostly cites from its own top 10. Which page within that top 10 gets the citation has almost nothing to do with rank order. The same study found content scoring 8.5 out of 10 or higher on a semantic completeness measure was 4.2 times more likely to be cited than lower-scoring pages on the same topic. Rank gets you into the pool. Structure decides who gets pulled out of it.
+A ranking report cannot tell you what appeared in a particular generated answer. Inspect the answer itself and distinguish a URL citation from a mention or recommendation. If you quote a citation study, retain its platform, prompt sample, dates and metric; a correlation in one dataset does not reveal a universal selection rule.
 
-{% pullquote cite="On AI Overview citation selection, AI Mode Boost study" %}
-Rank gets you into the pool. Structure decides who gets pulled out of it.
-{% /pullquote %}
+I have observed reference and troubleshooting pages among the cited pages in my portfolio. That is an editorial observation, not a controlled test of structure. Topic, source demand, visibility and concurrent changes could also explain the difference.
 
-## How Google, ChatGPT, and Perplexity Actually Choose What to Cite
+## Check the Platform Before Prescribing a Fix
 
-Each system selects sources differently. Conflating them is the fastest way to waste effort.
+For Google, use its [current AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide). It calls for normal SEO and useful content, without special AI schema or a required chunk size. That is Google's guidance, rather than evidence of identical behaviour across every assistant.
 
-**Google AI Overviews** synthesise an answer in real time for each query: scanning indexed content, assessing structure and claim clarity, and assembling a response from multiple sources. Google has not published the exact selection logic. Its own Search Central guidance points back to standard helpful-content and E-E-A-T principles rather than a separate AI ranking system.
+For ChatGPT search, [OpenAI documents](https://developers.openai.com/api/docs/bots) `OAI-SearchBot` separately from its training crawler `GPTBot` and user-triggered fetcher `ChatGPT-User`. Inspect access for the relevant role. Training permission does not guarantee search selection.
 
-**ChatGPT** weighs content-answer fit heavily: how precisely a passage answers the exact question asked, not how many keywords or backlinks the domain has. Brand mentions across the open web (being named and described in other people's content, not just linked to) correlate roughly three times more strongly with ChatGPT citation than backlink counts do.
+For Perplexity, its [crawler documentation](https://docs.perplexity.ai/docs/resources/perplexity-crawlers) distinguishes search access from user-requested fetching. It does not establish a public formula for which retrieved page receives a citation. Check actual answers instead of prescribing a reverse-engineered ranking recipe as fact.
 
-**Perplexity** runs a retrieval pipeline with several distinct stages: a broad initial retrieval using keyword and semantic matching, a cross-encoder that scores query-document pairs together, then a final reranker weighing entity signals, domain authority, freshness, and source diversity. Of roughly ten pages it retrieves for a query, only three or four typically get cited in the answer. Perplexity also leans on Reddit far more than Google does: Reddit accounts for close to half of Perplexity's citations by some measures, against a low single-digit share of Google AI Overview citations. Optimise for one platform's citation logic, assume it transfers to the others, and effort gets misallocated fast.
+### Keep observations dated
 
-### What the Reddit-ChatGPT drop in August 2026 shows about how fast this moves
+An answer sample describes the product, mode and dates tested. Selection can vary between prompts and over time. Keep the original captures and record unavailable runs as missing; do not turn a change in a third-party sample into a confirmed explanation of a platform's internal behaviour.
 
-Reddit's share of ChatGPT Search citations fell from an average of 3.83% (18 July to 7 August) to 0.52% (14 to 17 August), an 86% relative decline. The drop coincided with a change to how ChatGPT generates its background search queries on 8 August. Nobody, including Reddit and OpenAI, has given a confirmed reason. Whatever caused it, a source that supplied roughly one in twenty-five ChatGPT citations dropped to roughly one in two hundred within a week, with no warning and no announcement.
+## Keep Answer, Evidence and Context Together
 
-That is the honest state of GEO in 2026: you are optimising against a system whose selection logic can shift materially inside a single week, for reasons the platform itself has not explained. Build on documented, current mechanics. Expect to revisit them.
+Read a section as if someone encountered it without the rest of the page. Can they identify its subject, understand the answer, check the source and see the main limitation? Repair what is missing without forcing every section to the same length. Keep a process with its prerequisites and a comparison with its criteria.
 
-## The Structural Unit AI Systems Extract: Self-Contained Answer Chunks
+Here is a real correction from my portfolio reporting. The earlier wording left a reader with the wrong conclusion about the health affiliate site's AI referrals.
 
-The content pattern that survives across all three platforms is the self-contained answer chunk: a passage of roughly 134 to 167 words that fully answers one specific question without requiring the reader to have read anything before or after it. Every model in this space extracts passages, not pages. A page built as one long argument that only makes sense read start to finish gives the model nothing clean to lift.
+**Before, from my earlier article:**
 
-Two formatting rules follow directly from that:
+> AI referral traffic did not replace the lost Google traffic in volume, but it did not disappear when Google visibility did.
 
-- **Answer first, context second.** State the direct answer in the first sentence of a section. Add the supporting detail, caveats, and method after it, not before.
-- **Bold question, plain-sentence answer.** A heading formatted as **What is [term]?** followed immediately by a one or two sentence definition is the clearest signal you can give a model about where an extractable answer starts and ends.
+That sentence left out the site, dates and later decline. A 90-day total could contain both a period of stability and a fall.
 
-The pattern holds in my own data. When I compared high-citation and low-citation pages across the portfolio behind that 120,409-citation figure, the winners were technical troubleshooting guides, specification pages, and research compilations with named sources, structured as one precise answer per section. The losers were opinion-led reviews and listicles with no supporting data. Specificity, structure, and cited authority, in that order, is still the shortest description I have of what gets lifted.
+**After, using the later check:**
 
-## Does Schema Markup Still Help You Get Cited
+> On my health affiliate site, Google impressions fell from 20 July 2026. Recorded AI-assistant sessions held until late July, then fell from the week starting 3 August. The weekly average was 127 across the complete weeks starting 1 June through 27 July, compared with 28 across the weeks starting 10 August through 21 September.
 
-Yes, with one important 2026 correction. Google and Microsoft have both confirmed their AI systems use structured data to understand and verify page content. Content with correctly implemented schema is associated with roughly 2.5 times higher odds of appearing in AI-generated answers, per one recent study. Schema tells a model what type of content it is looking at, who wrote it, and what it claims, without the model having to infer that from prose.
+> My [case study](/portfolio/health-affiliate-google-demotion-ai-referrals/) uses GSC and GA4 reports pulled on 4 October 2026. Its GA4 weeks use the property's America/Los_Angeles timezone and an eight-source assistant definition. The later decline overlapped my 2 and 3 August site changes; the data does not establish whether those changes or Google's decline caused it.
 
-The correction: Google removed FAQ rich results from standard search entirely on 7 May 2026. If you added FAQPage schema purely to win that rich snippet, that specific payoff is gone. FAQPage and QAPage schema still matter for AI citation. AI systems keep parsing the structured question-answer pairs for context even without a visible rich result attached. Add it for the AI layer, not for the SERP feature that no longer exists. Pair it with Organization and Person schema and consistent sameAs links across your other profiles. Entity credibility, the degree to which a system recognises your brand as a known, verifiable source, still measurably affects which of two similar pages gets the citation. My guide on [adding schema markup to any platform](/blog/how-to-add-schema-markup/) covers implementation.
+The repair makes the finding easier to understand and quote accurately. It is not evidence of a citation lift. My observed association between clear reference content and portfolio citations remains a correlation, with no isolated structure effect established.
 
-## Does llms.txt Actually Help You Get Cited
+## Does Schema Markup Help?
 
-Mostly no. llms.txt gets recommended reflexively, well ahead of what the data supports. llms.txt is a proposed text file, similar to robots.txt, that lists a site's key pages in a format meant to be easy for an LLM to read. Adoption reached roughly 10% of domains analysed in one 300,000-domain study by early 2026. The same study built a machine learning model to test whether having an llms.txt file predicted AI citation frequency. Removing the llms.txt variable from the model improved its prediction accuracy, meaning the file's presence had no positive correlation with citations. Google's John Mueller has said none of the AI providers have confirmed using it for retrieval.
+Use standard structured data when it describes the visible page accurately. Keep business identity and genuine profile links consistent. A schema validation pass does not establish that an assistant will cite or recommend you.
 
-Where it does earn its keep: AI-assisted coding tools such as Cursor and Continue do read llms.txt to navigate a site's documentation. If developers are a real audience for your site, add it for them. Do not add it expecting an AI search citation lift. The current data does not support one.
+Google's guidance does not require structured data for its AI search features. Its [8 May 2026 documentation update](https://developers.google.com/search/updates#may-2026) also confirms that FAQ rich results stopped appearing from 7 May. This does not establish an alternative FAQPage citation benefit. Add FAQs when they help readers, and use applicable markup for its documented purpose. My guide on [adding schema markup](/blog/how-to-add-schema-markup/) covers implementation.
 
-## How I Measure Whether Content Is Actually Getting Cited
+## Does llms.txt Help?
 
-Three sources, none of them complete on their own:
+An llms.txt file is a proposed guide to a site's content, rather than a search permission file like robots.txt. Google says it ignores these files for Search visibility. For a different service, check its documented support and intended use. I would not promise a citation improvement from adding the file, or make it a priority over correcting inaccessible or inaccurate pages.
 
-1. **Bing Webmaster Tools** still reports AI Copilot citation counts per page and per query, which is how I found the 120,409-citation figure above. It is the most direct citation-level data available from any platform.
-2. **Google Search Console** began rolling out a dedicated Generative AI performance report in June 2026, under Performance, showing impressions for AI Overviews and AI Mode separately from standard web results. It reached UK site owners first. Click data is not in it yet, only impressions. Treat it as visibility confirmation, not a full picture.
-3. **GA4 referral sessions** from chatgpt.com, perplexity.ai, and similar sources measure the traffic floor, the users who actually clicked through. Between roughly 35% and 70% of genuine AI referral sessions arrive with no referrer header and land in Direct traffic instead, depending on platform. GA4 will always undercount this channel as a result. I run this measurement quarterly across the portfolio with a documented method rather than quoting industry-wide averages. The full breakdown, click floor measured against citation volume for real sites rather than projected ones, is in my [AI referral traffic study](/blog/ai-referral-traffic-study/).
+## How I Measure AI Search Performance
 
-None of these three tools alone tells you whether AI search is working for a given page. Citations without clicks still put your brand in front of the person asking the question. Clicks without citation visibility mean you are flying blind on everything AI search does that never resolves into a session.
+Keep three reporting sources separate:
 
-## What To Do With a Page Like This One
+1. **Bing Webmaster Tools:** [AI Performance](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/) reports citations across supported AI surfaces. Page counts describe citation activity; sampled grounding queries are retrieval phrases, not a complete buyer-prompt list or a query-to-page attribution table.
+2. **Google Search Console:** the [Generative AI report](https://support.google.com/webmasters/answer/16984139) reports impressions for AI Overviews and AI Mode. Google's help page dates worldwide rollout to 31 August 2026. Property and page aggregation differ, and exported zeros can represent unavailable values. It does not provide an AI-click total.
+3. **GA4:** identifiable assistant session sources record attributed visits. Missing referral information leaves an unmeasured attribution gap; do not assign Direct sessions to AI without evidence. My [AI referral traffic study](/blog/ai-referral-traffic-study/) explains why exposure and recorded visits need separate treatment.
 
-Check whether your highest-value pages answer their target question inside the first sentence of the relevant section. Check whether each section stands alone as roughly 150 words of self-contained answer. Check whether Organization and Person schema is current and consistent across your other profiles. Then check Bing Webmaster Tools for citation data you are probably not looking at yet. I cover all of this as part of every [technical SEO audit](/services/technical-seo-audit/) I run, plus dedicated AI search optimisation work for sites where citations, not rankings, are the target. [Get in touch](/contact/) if you want a second pair of eyes on where your pages are losing AI visibility.
+Add sampled answer captures and actual enquiry records. A citation can support another brand's recommendation, and a form event can be a test or duplicate. None of these reports alone establishes qualified leads, revenue or the effect of a content edit.
+
+## What To Do With an Existing Page
+
+Start with a valuable existing page. Check access and the answer a reader needs, repair unsupported claims, and keep the evidence and limitations connected. Save the original and revised section, the source date and the actual publication date. After an observed recrawl where available, compare later results with the baseline and record other changes.
+
+I cover these checks in a [technical SEO audit](/services/technical-seo-audit/) and dedicated AI search optimisation work. [Get in touch](/contact/) if you want a second pair of eyes on the evidence and next step.
 
 ## Related Articles
 
 - [What is LLM Optimisation?](/blog/what-is-llm-optimisation/) - the broader discipline behind AI content visibility
-- [AI Referral Traffic Study](/blog/ai-referral-traffic-study/) - real GA4 data on which AI assistants send clicks and to what kind of content
-- [What is Entity SEO?](/blog/what-is-entity-seo/) - why entity credibility affects which source an AI system picks
+- [AI Referral Traffic Study](/blog/ai-referral-traffic-study/) - recorded assistant visits and their measurement limits
+- [What is Entity SEO?](/blog/what-is-entity-seo/) - keeping business identity verifiable
 - [How to Add Schema Markup](/blog/how-to-add-schema-markup/) - implementation steps for any platform
-- [120K Bing Copilot Citations: Portfolio Case Study](/portfolio/ai-search-optimisation-copilot-citations/) - the full data behind the citation-to-click figures above
+- [120K Bing Copilot Citations: Portfolio Case Study](/portfolio/ai-search-optimisation-copilot-citations/) - the historical citation figures, with matched-window verification still needed

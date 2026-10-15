@@ -1,28 +1,87 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowRight, ChevronDown, Menu, Phone, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 
-const links = [
+const primaryLinks = [
   { href: "/services/", label: "Services" },
-  { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
   { href: "/about/", label: "About" },
   { href: "/portfolio/", label: "Portfolio" },
-  { href: "/tools/", label: "Tools" },
   { href: "/blog/", label: "Blog" },
+];
+
+const moreLinks = [
+  { href: "/services/seo-consultant-reading/", label: "SEO Reading" },
+  { href: "/tools/", label: "Tools" },
   { href: "/contact/", label: "Contact" },
 ];
 
+const allLinks = [...primaryLinks, ...moreLinks];
+
+const linkBase =
+  "group relative rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60";
+const underline =
+  "pointer-events-none absolute inset-x-3 -bottom-px h-0.5 origin-left rounded-full bg-gradient-to-r from-[#5B8AEF] to-[#D79F1E] shadow-[0_0_8px_rgba(91,138,239,0.6)]";
+
+function isCurrent(pathname: string, href: string) {
+  if (!pathname.startsWith(href)) return false;
+  return !allLinks.some((l) => l.href.length > href.length && pathname.startsWith(l.href));
+}
+
+function NavLink({ href, label, current }: { href: string; label: string; current: boolean }) {
+  return (
+    <a href={href} aria-current={current ? "page" : undefined} className={`${linkBase} ${current ? "text-foreground" : ""}`}>
+      {label}
+      <span className={`${underline} transition-transform duration-300 ${current ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} aria-hidden="true" />
+    </a>
+  );
+}
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
+  const moreRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname() ?? "";
+  const moreHasCurrent = moreLinks.some((l) => isCurrent(pathname, l.href));
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [moreOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-hairline bg-background/70 backdrop-blur-xl backdrop-saturate-[1.8]"
       onKeyDown={(event) => {
+        if (event.key === "Escape" && moreOpen) {
+          setMoreOpen(false);
+          event.stopPropagation();
+          return;
+        }
         if (event.key === "Escape" && open) {
           setOpen(false);
           menuButton.current?.focus();
@@ -30,10 +89,13 @@ export function Navbar() {
         }
       }}
       onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setOpen(false);
+          setMoreOpen(false);
+        }
       }}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className={`mx-auto flex max-w-6xl items-center justify-between px-6 transition-[padding] duration-300 ${scrolled ? "py-2.5" : "py-4"}`}>
         <Link
           href="/"
           className="flex items-center gap-2.5 text-xl font-[450] tracking-tight text-foreground"
@@ -60,17 +122,43 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           <div className="flex items-center gap-1">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="rounded-lg border border-hairline px-3 py-1.5 text-sm text-muted-foreground shadow-[0_0_8px_rgba(42,91,215,0.10)] transition-[border-color,background-color,color,box-shadow,transform] duration-300 hover:scale-[1.04] hover:border-brand/30 hover:bg-brand/[0.06] hover:text-foreground hover:shadow-[0_0_20px_var(--glow-brand)] dark:shadow-[0_0_8px_rgba(91,138,239,0.07)]"
-              >
-                {link.label}
-              </a>
+            {primaryLinks.map((link) => (
+              <NavLink key={link.href} {...link} current={isCurrent(pathname, link.href)} />
             ))}
+            <div className="relative" ref={moreRef}>
+              <button
+                type="button"
+                onClick={() => setMoreOpen(!moreOpen)}
+                aria-expanded={moreOpen}
+                aria-controls="nav-more"
+                className={`${linkBase} inline-flex items-center gap-1 ${moreHasCurrent ? "text-foreground" : ""}`}
+              >
+                More
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                <span className={`${underline} transition-transform duration-300 ${moreHasCurrent ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} aria-hidden="true" />
+              </button>
+              {moreOpen && (
+                <div id="nav-more" className="absolute right-0 top-full mt-3 w-52 rounded-xl border border-hairline-strong bg-surface-1/95 p-1.5 shadow-[var(--elev)] backdrop-blur-xl dark:bg-[#08080d]/95">
+                  {moreLinks.map((link) => {
+                    const current = isCurrent(pathname, link.href);
+                    return (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        aria-current={current ? "page" : undefined}
+                        onClick={() => setMoreOpen(false)}
+                        className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-brand/[0.08] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60"
+                      >
+                        {link.label}
+                        {current && <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#5B8AEF] to-[#D79F1E]" aria-hidden="true" />}
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
 
           <ThemeToggle />
@@ -85,8 +173,8 @@ export function Navbar() {
           <button
             ref={menuButton}
             onClick={() => setOpen(!open)}
-            className="flex h-11 w-11 items-center justify-center p-2 text-muted-foreground hover:text-foreground"
-            aria-label="Toggle menu"
+            className="flex h-11 w-11 items-center justify-center p-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60"
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
           >
@@ -96,25 +184,49 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-hairline bg-background/95 backdrop-blur-xl px-6 py-5 md:hidden">
-          <div className="flex flex-col gap-1 mb-5">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg border border-black/[0.04] px-3 py-2.5 text-sm text-muted-foreground transition-[border-color,background-color,color,box-shadow] duration-200 hover:border-brand/25 hover:bg-brand/[0.05] hover:text-foreground hover:shadow-[0_0_16px_rgba(42,91,215,0.14)] dark:border-white/[0.04] dark:hover:shadow-[0_0_16px_rgba(91,138,239,0.2)]"
-              >
-                {link.label}
+        <div id="mobile-menu" className="absolute inset-x-0 top-full flex h-[calc(100dvh-4rem)] flex-col overflow-y-auto border-t border-hairline bg-background px-6 pt-4 md:hidden" style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}>
+          <ul className="flex flex-col">
+            {allLinks.map((link) => {
+              const current = isCurrent(pathname, link.href);
+              return (
+                <li key={link.href} className="border-b border-hairline">
+                  <a
+                    href={link.href}
+                    aria-current={current ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={`flex min-h-14 items-center justify-between text-2xl tracking-tight transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 ${current ? "text-foreground" : "text-muted-foreground"}`}
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {link.label}
+                    {current ? (
+                      <span className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-gold-ink">
+                        <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#5B8AEF] to-[#D79F1E]" aria-hidden="true" />
+                        Current page
+                      </span>
+                    ) : (
+                      <ArrowRight className="h-4 w-4 text-muted-foreground/60" aria-hidden="true" />
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="mt-auto flex flex-col gap-3 pt-8">
+            <GradientButton asChild className="min-w-0 w-full text-sm leading-none">
+              <a href="/contact/" data-cta-location="mobile_nav" data-cta-offer="free_20_minute_seo_diagnosis" onClick={() => setOpen(false)}>
+                Free SEO Diagnosis
               </a>
-            ))}
+            </GradientButton>
+            <div className="grid grid-cols-2 gap-3">
+              <a href="tel:07305523333" data-cta-location="mobile_nav" data-cta-offer="direct_call" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-hairline-strong text-sm font-semibold text-foreground transition-colors hover:bg-wash focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
+                <Phone className="h-4 w-4" aria-hidden="true" /> Call
+              </a>
+              <a href="https://wa.me/447305523333" target="_blank" rel="noopener noreferrer" data-cta-location="mobile_nav" data-cta-offer="whatsapp_chat" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-[#128C7E] text-sm font-semibold text-foreground transition-colors hover:bg-[#25D366] hover:text-[#04210f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] dark:border-[#25D366]">
+                <FaWhatsapp className="h-4 w-4" aria-hidden="true" /> WhatsApp
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            </div>
           </div>
-          <div className="mb-5 h-px bg-gradient-to-r from-transparent via-black/[0.07] to-transparent dark:via-white/[0.07]" />
-          <GradientButton asChild className="min-w-0 w-full text-sm leading-none">
-            <a href="/contact/" data-cta-location="mobile_nav" data-cta-offer="free_20_minute_seo_diagnosis" onClick={() => setOpen(false)}>
-              Free SEO Diagnosis
-            </a>
-          </GradientButton>
         </div>
       )}
     </nav>

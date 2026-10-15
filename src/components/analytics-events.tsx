@@ -78,6 +78,15 @@ export function AnalyticsEvents() {
         });
       }
 
+      if (href.startsWith("https://wa.me/")) {
+        trackEvent("whatsapp_click", {
+          event_category: "contact",
+          event_label: ctaLocation || "whatsapp",
+          cta_location: ctaLocation,
+          transport_type: "beacon",
+        });
+      }
+
       // Track email clicks
       if (href.startsWith("mailto:")) {
         trackEvent("email_click", {

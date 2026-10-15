@@ -11,6 +11,7 @@ import {
   schemaGraph,
 } from "@/lib/schema";
 import { AnalyticsEvents } from "@/components/analytics-events";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 import { ExitIntent } from "@/components/exit-intent";
 import { ThemeSync } from "@/components/theme/theme-toggle";
 
@@ -73,6 +74,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <WhatsAppButton />
         <ThemeSync />
         <ExitIntent />
         <AnalyticsEvents />

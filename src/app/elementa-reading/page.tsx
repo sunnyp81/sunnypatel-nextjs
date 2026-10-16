@@ -179,14 +179,6 @@ export default function ElementaReadingPage() {
         </section>
       </div>
 
-      <div aria-hidden="true" className="mx-auto max-w-6xl px-6">
-        <div className="flex items-center gap-3 text-xs text-muted-foreground">
-          <span className="h-px flex-1 border-t border-dashed border-muted-foreground/40" />
-          <span>Take one</span>
-          <span className="h-px flex-1 border-t border-dashed border-muted-foreground/40" />
-        </div>
-      </div>
-
       <ServiceInlineForm
         id="claim"
         ctaTitle="Claim your free SEO audit"

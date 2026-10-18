@@ -13,7 +13,7 @@ export function generateMetadata() {
     ...buildMetadata({
       title: "Search and AI Visibility Help for Agencies | Sunny Patel",
       description:
-        "A senior SEO and AI visibility specialist for web design and digital marketing agencies. White label if you want it, and a free quick call to bring me your SEO questions.",
+        "A senior SEO and AI visibility specialist for web design and digital marketing agencies. White label if you want it, and a free 20-minute call to start.",
       path: "/agencies",
     }),
     robots: { index: false, follow: true },
@@ -23,7 +23,7 @@ export function generateMetadata() {
 const CLIENT_QUESTIONS = [
   {
     q: "We launched the new site months ago. Why isn't it on Google?",
-    a: "I find out what is holding it back and write it up so you can answer in your next meeting.",
+    a: "I find out what's holding it back and write it up so you can answer in your next meeting.",
   },
   {
     q: "Can we show up when people ask ChatGPT?",
@@ -38,7 +38,7 @@ const CLIENT_QUESTIONS = [
 const WORKING_TOGETHER = [
   {
     title: "You keep the client",
-    body: "Contract, invoice and every conversation stay with you. I don't contact your clients and I don't pitch them now or later.",
+    body: "The contract, the invoicing and all the client conversations stay with you, and I won't contact or pitch your clients, now or later.",
   },
   {
     title: "Your name on the work",
@@ -46,11 +46,11 @@ const WORKING_TOGETHER = [
   },
   {
     title: "You set the margin",
-    body: "I quote you a wholesale price for the scope. What your client pays is your decision.",
+    body: "I'll quote you a trade price for the work and you decide what to charge your client.",
   },
   {
     title: "One person does the work",
-    body: "You brief me and I do the analysis and the strategy. There is no account handler in between and no offshore team behind me.",
+    body: "You brief me directly and I do the analysis and strategy myself, so you're always talking to the person doing the work.",
   },
 ] as const;
 
@@ -66,7 +66,7 @@ const FAQS = [
     a: "It's about 20 minutes and you bring whatever is on your desk: a client site that isn't ranking, an SEO section in a proposal, a question about AI search. I'll give you a straight answer, including when your team can handle it themselves.",
   },
   {
-    q: "Do I have to be white label?",
+    q: "Does the work have to be white label?",
     a: "No. Some agencies want the work under my name and some want it under theirs. We can talk through which suits you on the call.",
   },
   {
@@ -75,7 +75,7 @@ const FAQS = [
   },
   {
     q: "How many agencies do you take on?",
-    a: "A small number. I work alone so I limit how much any one agency can send me to keep the work senior. That also means availability varies.",
+    a: "Only a few at a time. It's just me doing the work, so I keep each agency's workload to what I can do properly, and that means availability changes from month to month.",
   },
 ] as const;
 
@@ -100,8 +100,8 @@ export default function AgenciesPage() {
             SEO and AI visibility help your agency can lean on
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I&apos;m Sunny, an SEO consultant in Reading with over 15 years in search. Agencies bring me
-            in when a client asks a search question and nobody in-house is the specialist. I can work
+            I&apos;m Sunny, an SEO consultant in Reading with over 15 years in search. I help agencies
+            when a client asks a search question and there&apos;s no SEO specialist in-house. I can work
             under your name or mine, and the first step is a free call.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
@@ -128,7 +128,7 @@ export default function AgenciesPage() {
             The questions your clients ask
           </h2>
           <p className="mb-8 text-base leading-relaxed text-muted-foreground">
-            You probably hear these already. This is how I help you answer them.
+            You&apos;ve probably heard most of these already, so here&apos;s how I&apos;d help you answer them.
           </p>
           <dl className="space-y-8">
             {CLIENT_QUESTIONS.map(({ q, a }) => (
@@ -173,7 +173,7 @@ export default function AgenciesPage() {
             ))}
           </ol>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-            Want evidence first? My own Search Console numbers are on the{" "}
+            If you&apos;d like to see results first, my own Search Console numbers are on the{" "}
             <Link href="/proof/" className="font-medium text-brand hover:underline">
               proof page
             </Link>
@@ -190,7 +190,7 @@ export default function AgenciesPage() {
           "Free 20-minute call",
           "Bring any SEO or AI visibility question",
           "A straight answer, including when you don't need me",
-          "No obligation and nothing to prepare",
+          "No obligation, and no need to prepare anything",
         ]}
         badges={[
           { icon: "calendar", label: "15+ years in search" },

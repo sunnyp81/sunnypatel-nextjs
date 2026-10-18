@@ -67,7 +67,7 @@ const FAQS = [
   },
   {
     q: "Does the work have to be white label?",
-    a: "No. Some agencies want the work under my name and some want it under theirs. We can talk through which suits you on the call.",
+    a: "No. I can work under your name or mine, whichever suits you and your client, and we can talk it through on the call.",
   },
   {
     q: "What does it cost?",

@@ -23,15 +23,15 @@ export function generateMetadata() {
 const CLIENT_QUESTIONS = [
   {
     q: "We launched the new site months ago. Why isn't it on Google?",
-    a: "I find out what is holding it back. Then I write it up so you can answer in the next meeting.",
+    a: "I find out what is holding it back and write it up so you can answer in your next meeting.",
   },
   {
     q: "Can we show up when people ask ChatGPT?",
-    a: "I check where your client is cited in AI answers and where it is missing. Then I say what would change that.",
+    a: "I check where your client gets cited in AI answers and where it's missing, then tell you what would change that.",
   },
   {
     q: "What exactly are we paying for each month?",
-    a: "A fixed monthly scope with named deliverables. The report is written for your client to read.",
+    a: "A fixed monthly scope with named deliverables, and a report written for your client to read.",
   },
 ] as const;
 
@@ -42,7 +42,7 @@ const WORKING_TOGETHER = [
   },
   {
     title: "Your name on the work",
-    body: "Audits, strategy and reports arrive unbranded or in your template. They are ready to forward.",
+    body: "Audits, strategy and reports arrive unbranded or in your template, ready to forward.",
   },
   {
     title: "You set the margin",
@@ -57,25 +57,25 @@ const WORKING_TOGETHER = [
 const STEPS = [
   "Book a quick call and bring a client site or a question.",
   "We agree one scope for one client if it makes sense to work together.",
-  "I deliver it. You present it as yours.",
+  "I deliver it and you present it as yours.",
 ] as const;
 
 const FAQS = [
   {
     q: "What happens on the call?",
-    a: "About 20 minutes. You bring whatever is on your desk: a client site that isn't ranking, an SEO section in a proposal, a question about AI search. I give you a straight answer. That includes telling you when your team can handle it.",
+    a: "It's about 20 minutes and you bring whatever is on your desk: a client site that isn't ranking, an SEO section in a proposal, a question about AI search. I'll give you a straight answer, including when your team can handle it themselves.",
   },
   {
     q: "Do I have to be white label?",
-    a: "No. Some agencies want the work under my name and some want it under theirs. We can talk through which suits you on the call.",
+    a: "No, some agencies want the work under my name and some want it under theirs. We can talk through which suits you on the call.",
   },
   {
     q: "What does it cost?",
-    a: "The call is free. Work is priced per scope as a fixed monthly retainer or a fixed price per deliverable. I'll quote before anything starts. More detail is on the white label SEO page.",
+    a: "The call is free. Work is priced per scope, either as a fixed monthly retainer or a fixed price per deliverable, and I'll quote before anything starts. More detail is on the white label SEO page.",
   },
   {
     q: "How many agencies do you take on?",
-    a: "A small number. I work alone so I cap how much any one agency can send me. That is how the work stays senior. It also means availability varies.",
+    a: "A small number. I work alone, so I limit how much any one agency can send me to keep the work senior, which also means availability varies.",
   },
 ] as const;
 
@@ -100,9 +100,9 @@ export default function AgenciesPage() {
             SEO and AI visibility help your agency can lean on
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I&apos;m Sunny. I&apos;m an SEO consultant in Reading with over 15 years in search. Agencies bring me
+            I&apos;m Sunny, an SEO consultant in Reading with over 15 years in search. Agencies bring me
             in when a client asks a search question and nobody in-house is the specialist. I can work
-            under your name or mine. The first step is a free call.
+            under your name or mine, and the first step is a free call.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <GradientButton asChild>

@@ -23,9 +23,9 @@ export const SCHEMA_TYPE_ENTRIES: SchemaTypeEntry[] = [
     slug: 'faq',
     schemaType: 'FAQ',
     label: 'FAQ',
-    title: 'Free FAQ Schema Generator (JSON-LD and Microdata)',
+    title: 'FAQ Schema Generator: Free FAQPage JSON-LD',
     metaDescription:
-      "Generate valid FAQPage JSON-LD or Microdata from question and answer pairs. Google removed the FAQ rich result from Search in May 2026, and this page explains what that means for your markup.",
+      "Free FAQ schema generator. Turn question and answer pairs into FAQPage JSON-LD or Microdata, and see what FAQ markup still does in Google.",
     h1: 'FAQ Schema Generator',
     intro: [
       "FAQPage schema marks up a list of questions and their answers using the mainEntity, Question, and acceptedAnswer properties from schema.org. Fill in your Q&A pairs below and this tool builds a valid JSON-LD block, or a Microdata version if you prefer itemprop attributes in your HTML.",
@@ -85,9 +85,9 @@ export const SCHEMA_TYPE_ENTRIES: SchemaTypeEntry[] = [
     slug: 'local-business',
     schemaType: 'LocalBusiness',
     label: 'LocalBusiness',
-    title: 'Free LocalBusiness Schema Generator (JSON-LD and Microdata)',
+    title: 'Free Local Business Schema Generator (JSON-LD)',
     metaDescription:
-      'Generate valid LocalBusiness JSON-LD or Microdata with address, opening hours, geo coordinates, and 29 business types. Free, no signup.',
+      'Free local business schema generator: LocalBusiness JSON-LD or Microdata with 29 business types, address, opening hours, geo coordinates and price range.',
     h1: 'LocalBusiness Schema Generator',
     intro: [
       'LocalBusiness schema states your business name, type, address, phone number, opening hours, and geographic coordinates in a machine-readable format. Google lists a local business feature that can show hours, ratings, directions, and booking options, but for most businesses the local pack and Maps listing are driven primarily by your Google Business Profile, not by page markup.',
@@ -116,9 +116,9 @@ export const SCHEMA_TYPE_ENTRIES: SchemaTypeEntry[] = [
     slug: 'product',
     schemaType: 'Product',
     label: 'Product',
-    title: 'Free Product Schema Generator (JSON-LD and Microdata)',
+    title: 'Free Product Schema Generator (JSON-LD)',
     metaDescription:
-      'Generate valid Product JSON-LD or Microdata with price, availability, brand, and rating. Free tool for ecommerce and affiliate pages.',
+      'Free product schema generator for individual product pages: price, currency, availability, brand, SKU and genuine ratings as JSON-LD or Microdata.',
     h1: 'Product Schema Generator',
     intro: [
       'Product schema describes an item for sale, its price, currency, availability, brand, and SKU, plus an optional aggregate rating built from a real ratingValue and reviewCount. Google lists a dedicated Product rich result that can show price, availability, and review ratings directly in search, which is one of the clearer commercial wins available from structured data.',
@@ -209,9 +209,9 @@ export const SCHEMA_TYPE_ENTRIES: SchemaTypeEntry[] = [
     slug: 'organization',
     schemaType: 'Organization',
     label: 'Organization',
-    title: 'Free Organization Schema Generator (JSON-LD and Microdata)',
+    title: 'Free Organization Schema Generator (JSON-LD)',
     metaDescription:
-      "Generate valid Organization JSON-LD or Microdata with logo, address, and social profiles. Free tool, helps Google choose your knowledge panel logo.",
+      "Free organisation schema generator for Organization JSON-LD or Microdata: name, logo, address, contact details and sameAs social profile links.",
     h1: 'Organization Schema Generator',
     intro: [
       "Organization schema identifies your business as an entity, with a name, logo, address, contact details, and sameAs links to your social profiles and other authoritative pages about you. Google's own documentation says there are no strictly required properties for Organization markup, and recommends adding as many relevant ones as you can.",
@@ -240,9 +240,9 @@ export const SCHEMA_TYPE_ENTRIES: SchemaTypeEntry[] = [
     slug: 'person',
     schemaType: 'Person',
     label: 'Person',
-    title: 'Free Person Schema Generator (JSON-LD and Microdata)',
+    title: 'Free Person Schema Generator (JSON-LD)',
     metaDescription:
-      'Generate valid Person JSON-LD or Microdata for an author, founder, or team member bio. Free tool for E-E-A-T and author markup.',
+      'Free person schema generator for author, founder and team bios. Builds Person markup with job title, employer, photo and sameAs links.',
     h1: 'Person Schema Generator',
     intro: [
       "Person schema describes an individual, typically an author, founder, or team member, with a name, job title, employer, photo, and sameAs links to their social and professional profiles. There is no dedicated Google rich result that Person markup alone produces, unlike Product schema, which still can be.",

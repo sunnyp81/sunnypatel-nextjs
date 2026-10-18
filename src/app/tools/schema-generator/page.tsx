@@ -209,6 +209,14 @@ export default function SchemaGeneratorPage() {
                 a product, review or rating just to pursue a search feature.
               </p>
               <p>
+                Each type also has its own page with the form already set to that type, including the{" "}
+                <Link href="/tools/schema-generator/faq/" className="text-brand underline underline-offset-2 hover:opacity-80">FAQ schema generator</Link>,{" "}
+                <Link href="/tools/schema-generator/product/" className="text-brand underline underline-offset-2 hover:opacity-80">product schema generator</Link>,{" "}
+                <Link href="/tools/schema-generator/local-business/" className="text-brand underline underline-offset-2 hover:opacity-80">local business schema generator</Link>,{" "}
+                <Link href="/tools/schema-generator/organization/" className="text-brand underline underline-offset-2 hover:opacity-80">organisation schema generator</Link> and{" "}
+                <Link href="/tools/schema-generator/person/" className="text-brand underline underline-offset-2 hover:opacity-80">person schema generator</Link>.
+              </p>
+              <p>
                 WebPage describes an individual page; WebSite describes the site as a whole.
                 This generator has a WebSite template but no dedicated WebPage template. Use
                 a matching specific template where appropriate, or build a WebPage block using

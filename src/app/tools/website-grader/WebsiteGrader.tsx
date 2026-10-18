@@ -461,10 +461,10 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
             className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Website Grader
+            Website Grader: Free SEO Page Grader
           </h1>
           <p className="mt-2 text-base text-muted-foreground">
-            Check on-page SEO, response headers and content structure, plus a mobile PageSpeed lab score when available. These automated checks flag possible issues; they do not replace a full audit.
+            Check on-page SEO, response headers and content structure, plus a mobile PageSpeed lab score when available. The grader checks the single URL you enter, not every page on the site. These automated checks flag possible issues; they do not replace a full audit.
           </p>
         </div>
       )}
@@ -615,7 +615,7 @@ export default function WebsiteGrader({ compact = false }: { compact?: boolean }
             className="text-xl font-bold tracking-tight text-foreground mb-4"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            What This Tool Checks
+            What This SEO Grader Checks
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">

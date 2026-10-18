@@ -54,9 +54,9 @@ export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
       "Analyse keyword density and frequency in your content. See word counts, 1-word, 2-word, and 3-word phrase frequency. Free on-page SEO tool.",
   },
   "keyword-scraper": {
-    headline: "Free Keyword Suggestions Tool",
+    headline: "Free Keyword Scraper",
     description:
-      "Collect Google Autocomplete keyword suggestions across the UK, US, France, and five other regions. Free SEO research tool with CSV export.",
+      "Free keyword scraper that collects Google Autocomplete suggestions from up to eight regions, with a-z expansion, intent filters and CSV download.",
   },
   "og-preview": {
     headline: "Open Graph Preview Tool",
@@ -131,7 +131,7 @@ export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
   "website-grader": {
     headline: "Free Website Grader",
     description:
-      "Get an instant A-F grade for your website with this free SEO page grader covering page speed, mobile-friendliness, and security. Actionable recommendations included.",
+      "Free website grader for one URL: 10 SEO checks, 5 security checks, content stats and a mobile PageSpeed lab score, graded A to F when PageSpeed responds.",
   },
   "word-counter": {
     headline: "Free Word Counter",

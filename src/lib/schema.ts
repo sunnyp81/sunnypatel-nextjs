@@ -967,7 +967,7 @@ export function websiteGraderPageSchema() {
     "@type": "WebPage",
     "@id": `${SITE_URL}/tools/website-grader/#webpage`,
     url: `${SITE_URL}/tools/website-grader/`,
-    name: "Free Website Grader | SEO Page Grader, Speed & Security",
+    name: "Free Website Grader | SEO Page Grader, A to F",
     isPartOf: { "@id": `${SITE_URL}/#website` },
     mainEntity: { "@id": WEBSITE_GRADER_ID },
     inLanguage: "en-GB",

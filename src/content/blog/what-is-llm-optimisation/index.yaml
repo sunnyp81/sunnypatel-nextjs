@@ -1,7 +1,7 @@
 title: What is LLM Optimisation
-metaTitle: 'What Is LLM Optimisation? How to Get Cited by ChatGPT'
+metaTitle: 'LLM Optimisation: Get Cited in AI Answers, Not Model Tuning'
 description: >-
-  LLM optimisation is the practice of making your content visible in AI-generated answers from ChatGPT, Bing Copilot, and Perplexity. What it involves and how to start.
+  LLM optimisation in SEO helps ChatGPT, Gemini and AI Overviews find and cite your pages accurately. What it covers, how to measure it and what it costs.
 ogImage: /images/blog/what-is-llm-optimisation.png
 date: '2026-02-05'
 lastUpdated: '2026-10-10'
@@ -9,3 +9,15 @@ tags:
 - LLM
 - AI Search
 - SEO
+faqs:
+  - question: Is LLM optimisation the same as model optimisation?
+    answer: >-
+      No. The phrase has two meanings and search results mix them. Engineers
+      use "LLM optimisation" for changes to a model or how it runs. Marketers
+      use it for changes to the websites and content that a model reads.
+  - question: What do LLM optimisation services include?
+    answer: >-
+      An LLM optimisation service should start with measurement and a written
+      scope. Ask for a prompt set, an access review, specific content fixes and
+      repeat measurement of citations, brand mentions, referral visits and
+      enquiries.

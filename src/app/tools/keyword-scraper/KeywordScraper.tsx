@@ -393,11 +393,13 @@ export default function KeywordScraper() {
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
       <div className="mb-8 max-w-3xl">
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
-          Keyword Suggestions Tool
+          Keyword Scraper for Google Autocomplete Suggestions
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Collect Google Autocomplete suggestions from up to eight regions. Results show the regions
-          where each suggestion appeared; they do not include search volume or competition data.
+          This keyword scraper collects Google Autocomplete suggestions from up to eight regions and
+          runs in your browser, so there is nothing to download or install. Export the results as a
+          CSV. Results show the regions where each suggestion appeared; they do not include search
+          volume or competition data, and the tool does not extract keywords from a website&apos;s pages.
         </p>
       </div>
 
@@ -546,13 +548,14 @@ export default function KeywordScraper() {
       )}
 
       <div className="mt-10 rounded-xl border border-hairline bg-wash dark:bg-white/[0.02] p-6">
-        <h2 className="mb-3 text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>How it works</h2>
+        <h2 className="mb-3 text-lg font-semibold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>How the keyword scraper works</h2>
         <ul className="space-y-2 text-sm text-muted-foreground">
           <li><span className="font-medium text-foreground">Seed keywords:</span> enter one or more starting topics, one per line.</li>
           <li><span className="font-medium text-foreground">Query starters:</span> add words such as “how” or “best” before each seed. Leave this field blank to query the seeds directly.</li>
           <li><span className="font-medium text-foreground">Alphabet expansion:</span> the tool checks each starting combination, then adds a–z until it reaches your chosen request limit.</li>
           <li><span className="font-medium text-foreground">Regional matches:</span> a suggestion found in several selected regions appears once with every matching region listed.</li>
           <li><span className="font-medium text-foreground">Excluded words:</span> matching suggestions are removed without changing the queries sent to Google.</li>
+          <li><span className="font-medium text-foreground">CSV download:</span> export every row, or only the rows left after an intent or modifier filter, as keyword_suggestions.csv.</li>
         </ul>
       </div>
     </div>

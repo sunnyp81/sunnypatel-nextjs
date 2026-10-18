@@ -1,8 +1,9 @@
 title: 46 Local SEO Statistics 2026
-metaTitle: 'Local SEO Statistics 2026: Local Search Stats & Benchmarks'
+metaTitle: 'Local SEO Statistics 2026 and What Changed Since 2016'
 description: >-
-  Benchmark data for local businesses, not a traffic tool: 2026 local search
-  stats on Google Maps clicks, reviews, mobile search and conversion rates.
+  Local search statistics for 2026 with sources linked: Local Pack CTR,
+  reviews, Google Business Profile and AI Overviews, and which 2016 figures
+  still hold.
 ogImage: '/images/blog/hero-local-seo-statistics.webp'
 date: '2026-01-28'
 lastUpdated: '2026-09-11'
@@ -39,7 +40,7 @@ faqs:
       Two things usually explain the gap. Repeated searches of your own business without clicking through can train Google to treat competitors as more relevant to you personally, and a phone's location (blending GPS, wifi, cell-tower triangulation, and IP address) is far less precise than the fixed coordinates a grid-based rank tracker uses. Check rankings with a grid tool or a clean logged-out browser, not your own phone. (Source: Local Search Forum, 2026)
   - question: Are AI Overviews reducing clicks from local searches?
     answer: >-
-      Yes. AI Overviews now appear on roughly 40% of local business searches, and Ahrefs' ongoing study found click-through to the top organic result fell 34.5% in an initial 300,000-keyword sample, widening to 58% by December 2025 data. A Local Pack listing sits outside the AI Overview snippet, which is one reason Google Business Profile visibility matters more now, not less. (Sources: Shopify, Ahrefs, 2026)
+      The sources do not show a local-specific click reduction. Ahrefs found lower organic CTR in its informational-keyword samples (the top result fell 34.5% in an initial 300,000-keyword sample, widening to 58% by December 2025 data); that does not establish a local-search-specific reduction. AI Overviews appear on roughly 40% of local business searches, and a Local Pack listing sits outside the AI Overview snippet, which is one reason Google Business Profile visibility matters more now, not less. (Sources: Shopify, Ahrefs, 2026)
   - question: What percentage of "near me" searches lead to a store visit?
     answer: >-
       76% of people who search for something "near me" on a mobile phone visit a related business within 24 hours, and 78% of local mobile searches convert to an offline purchase. Published estimates for total monthly "near me" search volume vary widely by source and methodology, so the growth trend matters more than any single volume figure. (Sources: Backlinko, Shopify, Searchlab, 2026)

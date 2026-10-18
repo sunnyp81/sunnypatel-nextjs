@@ -6,8 +6,8 @@ import { schemaGraph, websiteGraderPageSchema, websiteGraderSchema } from "@/lib
 
 export function generateMetadata() {
   return {
-    title: "Free Website Grader | SEO Page Grader, Speed & Security",
-    description: "Get an instant A-F grade for your website with this free SEO page grader covering page speed, mobile-friendliness, and security. Actionable recommendations included.",
+    title: "Free Website Grader | SEO Page Grader, A to F",
+    description: "Free website grader for one URL: 10 SEO checks, 5 security checks, content stats and a mobile PageSpeed lab score, graded A to F when PageSpeed responds.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/website-grader/" },
   };
 }

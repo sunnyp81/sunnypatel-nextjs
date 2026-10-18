@@ -5,9 +5,9 @@ import KeywordScraper from "./KeywordScraper";
 
 export function generateMetadata() {
   return {
-    title: "Free Keyword Suggestions Tool | Google Autocomplete",
+    title: "Free Keyword Scraper for Google Autocomplete",
     description:
-      "Collect Google Autocomplete keyword suggestions across the UK, US, France, and five other regions. Free SEO research tool with CSV export.",
+      "Free keyword scraper that collects Google Autocomplete suggestions from up to eight regions, with a-z expansion, intent filters and CSV download.",
     alternates: { canonical: "https://sunnypatel.co.uk/tools/keyword-scraper/" },
   };
 }

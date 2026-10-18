@@ -46,7 +46,7 @@ export const tools: Tool[] = [
     category: "On-Page SEO",
   },
   {
-    name: "Keyword Suggestions",
+    name: "Keyword Scraper",
     description:
       "Scrape Google Autocomplete suggestions across 8 regions with a-z expansion.",
     href: "/tools/keyword-scraper/",

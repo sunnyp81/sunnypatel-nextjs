@@ -23,26 +23,26 @@ export function generateMetadata() {
 const CLIENT_QUESTIONS = [
   {
     q: "We launched the new site months ago. Why isn't it on Google?",
-    a: "I find out what is holding it back and write it up so you can answer in a meeting, not a week later.",
+    a: "I find out what is holding it back. Then I write it up so you can answer in the next meeting.",
   },
   {
     q: "Can we show up when people ask ChatGPT?",
-    a: "I check where your client is and isn't being cited, and what would change that. It sits alongside the SEO, not on top of it.",
+    a: "I check where your client is cited in AI answers and where it is missing. Then I say what would change that.",
   },
   {
     q: "What exactly are we paying for each month?",
-    a: "A fixed monthly scope with named deliverables, in a report written for the client to read.",
+    a: "A fixed monthly scope with named deliverables. The report is written for your client to read.",
   },
 ] as const;
 
 const WORKING_TOGETHER = [
   {
     title: "You keep the client",
-    body: "Contract, invoice and every conversation stay with you. I don't contact your clients, and I don't pitch them now or later.",
+    body: "Contract, invoice and every conversation stay with you. I don't contact your clients and I don't pitch them now or later.",
   },
   {
     title: "Your name on the work",
-    body: "Audits, strategy and reports arrive unbranded or in your template, ready to forward.",
+    body: "Audits, strategy and reports arrive unbranded or in your template. They are ready to forward.",
   },
   {
     title: "You set the margin",
@@ -56,14 +56,14 @@ const WORKING_TOGETHER = [
 
 const STEPS = [
   "Book a quick call and bring a client site or a question.",
-  "If it makes sense to work together, we agree one scope for one client.",
+  "We agree one scope for one client if it makes sense to work together.",
   "I deliver it. You present it as yours.",
 ] as const;
 
 const FAQS = [
   {
     q: "What happens on the call?",
-    a: "About 20 minutes. You bring whatever is on your desk: a client site that isn't ranking, an SEO section in a proposal, a question about AI search. I give you a straight answer, including when the answer is that your team can handle it.",
+    a: "About 20 minutes. You bring whatever is on your desk: a client site that isn't ranking, an SEO section in a proposal, a question about AI search. I give you a straight answer. That includes telling you when your team can handle it.",
   },
   {
     q: "Do I have to be white label?",
@@ -71,11 +71,11 @@ const FAQS = [
   },
   {
     q: "What does it cost?",
-    a: "The call is free. Work is priced per scope, as a fixed monthly retainer or a fixed price per deliverable, and I'll quote before anything starts. More detail is on the white label SEO page.",
+    a: "The call is free. Work is priced per scope as a fixed monthly retainer or a fixed price per deliverable. I'll quote before anything starts. More detail is on the white label SEO page.",
   },
   {
     q: "How many agencies do you take on?",
-    a: "A small number. I work alone, so I cap how much any one agency can send me. That is how the work stays senior, and it also means availability varies.",
+    a: "A small number. I work alone so I cap how much any one agency can send me. That is how the work stays senior. It also means availability varies.",
   },
 ] as const;
 
@@ -100,9 +100,9 @@ export default function AgenciesPage() {
             SEO and AI visibility help your agency can lean on
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I&apos;m Sunny, an SEO consultant in Reading with over 15 years in search. Agencies bring me
+            I&apos;m Sunny. I&apos;m an SEO consultant in Reading with over 15 years in search. Agencies bring me
             in when a client asks a search question and nobody in-house is the specialist. I can work
-            under your name or mine, and the first step is a free call.
+            under your name or mine. The first step is a free call.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <GradientButton asChild>
@@ -159,10 +159,6 @@ export default function AgenciesPage() {
             <Link href="/services/white-label-seo/" className="font-medium text-brand hover:underline">
               white label SEO page
             </Link>
-            . For evidence of how I work, I publish the Search Console numbers from my own sites on the{" "}
-            <Link href="/proof/" className="font-medium text-brand hover:underline">
-              proof page
-            </Link>
             .
           </p>
         </section>
@@ -176,13 +172,20 @@ export default function AgenciesPage() {
               <li key={step}>{step}</li>
             ))}
           </ol>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+            Want evidence first? My own Search Console numbers are on the{" "}
+            <Link href="/proof/" className="font-medium text-brand hover:underline">
+              proof page
+            </Link>
+            .
+          </p>
         </section>
       </div>
 
       <ServiceInlineForm
         id="call"
         ctaTitle="Book a quick call"
-        ctaSubtitle="Tell me who you are and what you'd like to ask. A client site that isn't ranking, a proposal, a question about AI search. I'll reply within one working day to fix a time."
+        ctaSubtitle="Tell me who you are and what you'd like to ask. It can be a client site that isn't ranking, a proposal or a question about AI search. I'll reply within one working day to fix a time."
         trustPoints={[
           "Free 20-minute call",
           "Bring any SEO or AI visibility question",

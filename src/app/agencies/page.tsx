@@ -31,7 +31,7 @@ const CLIENT_QUESTIONS = [
   },
   {
     q: "What exactly are we paying for each month?",
-    a: "A fixed monthly scope with named deliverables, and a report written for your client to read.",
+    a: "A fixed monthly scope with named deliverables and a report written for your client to read.",
   },
 ] as const;
 
@@ -42,7 +42,7 @@ const WORKING_TOGETHER = [
   },
   {
     title: "Your name on the work",
-    body: "Audits, strategy and reports arrive unbranded or in your template, ready to forward.",
+    body: "Audits, strategy and reports arrive unbranded or in your template and ready to forward.",
   },
   {
     title: "You set the margin",
@@ -67,15 +67,15 @@ const FAQS = [
   },
   {
     q: "Do I have to be white label?",
-    a: "No, some agencies want the work under my name and some want it under theirs. We can talk through which suits you on the call.",
+    a: "No. Some agencies want the work under my name and some want it under theirs. We can talk through which suits you on the call.",
   },
   {
     q: "What does it cost?",
-    a: "The call is free. Work is priced per scope, either as a fixed monthly retainer or a fixed price per deliverable, and I'll quote before anything starts. More detail is on the white label SEO page.",
+    a: "The call is free. Work is priced per scope as either a fixed monthly retainer or a fixed price per deliverable and I'll quote before anything starts. More detail is on the white label SEO page.",
   },
   {
     q: "How many agencies do you take on?",
-    a: "A small number. I work alone, so I limit how much any one agency can send me to keep the work senior, which also means availability varies.",
+    a: "A small number. I work alone so I limit how much any one agency can send me to keep the work senior. That also means availability varies.",
   },
 ] as const;
 

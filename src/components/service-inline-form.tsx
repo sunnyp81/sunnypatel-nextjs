@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import {
   Loader2,
   CalendarDays,
@@ -103,7 +104,8 @@ export function ServiceInlineForm({
   /** DOM id on the outer section, so a page can deep-link straight to the form. */
   id?: string;
 }) {
-  const { status, setStatus, errorMsg, formData, setFormData, handleChange, handleSubmit } =
+  const uid = useId();
+  const { status, setStatus, errorMsg, formData, setFormData, handleSubmit } =
     useLeadForm({
       initial: {
         name: "", email: "", phone: "", message: "",
@@ -118,6 +120,12 @@ export function ServiceInlineForm({
           ?? (qualification ? "SEO consulting enquiry" : offerLabel),
       }),
     });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const key = e.target.id.startsWith(`${uid}-`) ? e.target.id.slice(uid.length + 1) : e.target.id;
+    setFormData((prev) => ({ ...prev, [key]: e.target.value }));
+  };
   const selectedOffer = qualification ? getSupportOfferCopy(formData.supportType) : null;
   const effectiveOfferId = selectedOffer?.offerId ?? (qualification ? "seo_consulting_enquiry" : offerId);
   const effectiveSubmitLabel = selectedOffer?.submitLabel ?? (qualification ? "Send SEO consulting enquiry" : submitLabel);
@@ -159,7 +167,7 @@ export function ServiceInlineForm({
             {/* Name + Email row */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <FormField
-                id="name"
+                id={`${uid}-name`}
                 label="Name"
                 placeholder="Your name"
                 required
@@ -168,7 +176,7 @@ export function ServiceInlineForm({
                 disabled={status === "loading"}
               />
               <FormField
-                id="email"
+                id={`${uid}-email`}
                 label="Email"
                 type="email"
                 placeholder="you@company.com"
@@ -181,7 +189,7 @@ export function ServiceInlineForm({
 
             {!compact && (
               <FormField
-                id="phone"
+                id={`${uid}-phone`}
                 label="Phone"
                 type="tel"
                 placeholder="07xxx xxx xxx"
@@ -202,7 +210,7 @@ export function ServiceInlineForm({
             )}
 
             <FormField
-              id="message"
+              id={`${uid}-message`}
               label="How can I help?"
               placeholder={messagePlaceholder}
               optional

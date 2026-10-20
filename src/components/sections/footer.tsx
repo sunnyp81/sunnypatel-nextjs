@@ -172,6 +172,7 @@ export function Footer() {
           <div className="flex gap-4">
             <a href="/privacy-policy/" className="text-xs text-ink-faint dark:text-muted-foreground transition-colors hover:text-brand-ink dark:hover:text-foreground">Privacy Policy</a>
             <a href="/terms-of-use/" className="text-xs text-ink-faint dark:text-muted-foreground transition-colors hover:text-brand-ink dark:hover:text-foreground">Terms of Use</a>
+            <a href="/entitymap.html" className="text-xs text-ink-faint dark:text-muted-foreground transition-colors hover:text-brand-ink dark:hover:text-foreground">EntityMap</a>
           </div>
         </div>
       </div>

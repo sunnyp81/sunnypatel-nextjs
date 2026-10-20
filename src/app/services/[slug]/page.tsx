@@ -392,6 +392,8 @@ const SPECIFIC_DATA: Record<string, ConversionData> = {
 };
 
 const DEFAULT_COVERAGE_MAP_CAPTION = "Towns I cover across Berkshire. Positions approximate.";
+
+const MID_FORM_SLUGS = new Set(["freelance-seo-consultant", "technical-seo-services", "seo-berkshire", "seo-wokingham", "seo-consultant-reading"]);
 const COVERAGE_MAP_CAPTIONS: Record<string, string> = {
   "seo-berkshire": DEFAULT_COVERAGE_MAP_CAPTION,
   "seo-consultant-reading": "Towns I cover across Berkshire. Positions approximate. Remote work available UK-wide.",
@@ -561,6 +563,9 @@ function buildSections(
         {coverageMap && (
           <CoverageMap caption={COVERAGE_MAP_CAPTIONS[slug] ?? DEFAULT_COVERAGE_MAP_CAPTION} />
         )}
+        {MID_FORM_SLUGS.has(slug) && (
+          <div className="mt-10"><ServiceInlineForm compact eventLabel="service_mid_form" /></div>
+        )}
       </>
     ),
     [pos.testimonials]: (
@@ -718,7 +723,7 @@ export default async function ServicePage({
         showStickyCta={!usesServiceSpecificOffer}
         isService={true}
         serviceHeaderBadges={offerHeader?.badges}
-        serviceHeaderCtaHref={offerHeader?.ctaHref}
+        serviceHeaderCtaHref={offerHeader?.ctaHref ?? (usesServiceSpecificOffer ? undefined : "#enquire")}
         serviceHeaderCtaLabel={offerHeader?.ctaLabel}
         serviceHeaderCtaMeta={offerHeader?.ctaMeta}
         serviceHeaderCtaOffer={offerHeader?.ctaOffer}

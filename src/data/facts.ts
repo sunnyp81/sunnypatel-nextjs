@@ -52,7 +52,7 @@ export const FACT_GROUPS: FactGroup[] = [
       {
         id: "F06",
         label: "Works with",
-        value: "UK businesses, remotely and in Berkshire",
+        value: "UK businesses, including local clients in Berkshire",
         source: "/services/",
         sourceLabel: "Services",
       },

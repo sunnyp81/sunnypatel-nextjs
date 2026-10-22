@@ -8,7 +8,7 @@ mkdirSync(new URL("downloads/", publicDir), { recursive: true });
 
 const cell = (value) => `"${String(value ?? "").replaceAll('"', '""')}"`;
 
-const nationalColumns = ["soc", "title", "jobsThousand", "jobsCvPct", "median", "medianChangePct", "medianCvPct", "mean", "meanChangePct", "meanCvPct", "p10", "p25", "p75", "p75CvPct", "p75Quality", "p90"];
+const nationalColumns = ["soc", "title", "jobsThousand", "jobsCvPct", "median", "medianChangePct", "medianCvPct", "mean", "meanChangePct", "meanCvPct", "p10", "p10CvPct", "p10Quality", "p25", "p75", "p75CvPct", "p75Quality", "p90"];
 const regionalColumns = ["region", "soc2432Median", "soc2432MedianCvPct", "soc2432Quality", "soc3554Median", "soc3554MedianCvPct", "soc3554Quality"];
 
 const nationalRows = [nationalColumns, ...data.national.map((row) => nationalColumns.map((key) => row[key]))];
@@ -17,20 +17,22 @@ const regionalRows = [regionalColumns, ...data.regional.map((row) => regionalCol
 const metaRows = [
   ["Reference period", data.referencePeriod],
   ["Annual pay period", data.annualPayPeriodNote],
+  ["Year-on-year change basis", data.changeBasis],
   ["Published", data.publishedDate],
   ["Next release", data.nextReleaseDate],
+  ["Regional table source", data.regionalSource],
 ].map((row) => row.map(cell).join(","));
 
 const csv =
-  [`"UK Marketing Salary Statistics 2026 - ONS ASHE 2025 provisional, full-time employees, gross annual pay"`, ""].join("\r\n") +
+  [`"UK Marketing Salary Statistics 2026 - ONS ASHE 2026 provisional, full-time employees, gross annual pay"`, ""].join("\r\n") +
   "\r\n" +
   metaRows.join("\r\n") +
   "\r\n\r\n" +
-  [`"National, by SOC 2020 unit group (UK)"`].join("\r\n") +
+  [`"National, by SOC 2020 unit group (UK), ASHE 2026 provisional"`].join("\r\n") +
   "\r\n" +
   nationalRows.map((row) => row.map(cell).join(",")).join("\r\n") +
   "\r\n\r\n" +
-  [`"Regional median, SOC 2432 and 3554 (Great Britain, Table 15 excludes Northern Ireland)"`].join("\r\n") +
+  [`"Regional median, SOC 2432 and 3554, ASHE 2025 provisional (Great Britain, Table 15 excludes Northern Ireland; 2026 Table 15 not yet published)"`].join("\r\n") +
   "\r\n" +
   regionalRows.map((row) => row.map(cell).join(",")).join("\r\n") +
   "\r\n";

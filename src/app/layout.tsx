@@ -55,6 +55,7 @@ export default function RootLayout({
     <html lang="en-GB" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="entitymap" type="application/json" href="/entitymap.json" />
+        <link rel="alternate" type="application/rss+xml" title="Sunny Patel blog" href="/feed.xml" />
         <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("theme")==="light"){var d=document.documentElement;d.classList.remove("dark");d.classList.add("light")}}catch(e){}` }} />
         <style dangerouslySetInnerHTML={{ __html: `html{color-scheme:dark}html.light{color-scheme:light}.dark{--background:#050507;--foreground:oklch(0.95 0 0)}body{background-color:var(--background,#050507);color:var(--foreground);-webkit-font-smoothing:antialiased}` }} />
       </head>

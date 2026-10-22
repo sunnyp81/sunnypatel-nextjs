@@ -57,11 +57,11 @@ const PAGE_SCHEMA = schemaGraph(
     dateModified: LINKS_LAST_CHECKED,
     author: { "@id": `${SITE_URL}/#person` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
-    about: { "@id": `${PAGE_URL}#book` },
+    about: { "@id": `${SITE_URL}/book/#book` },
   },
   {
     "@type": "Book",
-    "@id": `${PAGE_URL}#book`,
+    "@id": `${SITE_URL}/book/#book`,
     name: BOOK.title,
     alternativeHeadline: BOOK.subtitle,
     author: { "@id": `${SITE_URL}/#person` },

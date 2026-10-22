@@ -1,11 +1,18 @@
 import type { MetadataRoute } from "next";
 import { reader } from "@/lib/content";
+import lastmod from "@/data/lastmod.json";
 
 const SITE_URL = "https://sunnypatel.co.uk";
 
 // Static routes: use a fixed date rather than new Date() to avoid
 // telling Google every page changed on every build
 const LAST_DEPLOY = new Date("2026-04-09");
+
+// Dates come from src/data/lastmod.json (npm run gen:lastmod); folders without an entry fall back to LAST_DEPLOY.
+const lastModOf = (kind: keyof typeof lastmod, slug: string) => {
+  const d = (lastmod[kind] as Record<string, string>)[slug];
+  return d ? new Date(d) : LAST_DEPLOY;
+};
 
 const staticRoutes: MetadataRoute.Sitemap = [
   {
@@ -80,6 +87,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
     lastModified: new Date("2026-08-26"),
     changeFrequency: "monthly",
     priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/book/`,
+    lastModified: new Date("2026-10-22"),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/facts/`,
+    lastModified: new Date("2026-10-22"),
+    changeFrequency: "monthly",
+    priority: 0.7,
   },
   {
     url: `${SITE_URL}/book/sources/`,
@@ -391,7 +410,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
     .map((slug) => ({
       url: `${SITE_URL}/services/${slug}/`,
-      lastModified: LAST_DEPLOY,
+      lastModified: lastModOf("services", slug),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     }));
@@ -400,7 +419,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const portfolioSlugs = await reader.collections.portfolio.list();
   const portfolioEntries = portfolioSlugs.map((slug) => ({
     url: `${SITE_URL}/portfolio/${slug}/`,
-    lastModified: LAST_DEPLOY,
+    lastModified: lastModOf("portfolio", slug),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
@@ -412,7 +431,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       slug === "website-design"
         ? `${SITE_URL}/website-design/`
         : `${SITE_URL}/website-design/${slug}/`,
-    lastModified: LAST_DEPLOY,
+    lastModified: lastModOf("website-design", slug),
     changeFrequency: "monthly" as const,
     priority: slug === "website-design" ? 0.9 : 0.8,
   }));

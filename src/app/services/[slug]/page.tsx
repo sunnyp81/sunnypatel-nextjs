@@ -267,14 +267,6 @@ const SEO_LONDON_DATA = {
       timeline: "9 months",
       accentColor: "var(--brand-ink)",
     },
-    {
-      industry: "Professional Services",
-      challenge: "Invisible in competitive London search results despite good content",
-      result: "Page-one positions across core service queries, sustained month-on-month growth",
-      metric: "3\u00d7 monthly enquiries",
-      timeline: "7 months",
-      accentColor: "var(--brand-ink)",
-    },
   ],
   timeline: [
     {

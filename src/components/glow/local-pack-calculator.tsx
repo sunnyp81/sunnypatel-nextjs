@@ -6,7 +6,8 @@ import { GlowCard } from "@/components/ui/glow-card";
 import { trackEvent } from "@/lib/analytics";
 import styles from "./local-pack-calculator.module.css";
 
-const CTR: Record<string, number> = { "1": 17.8, "2": 13.6, "3": 10.4, out: 0 };
+// Share of all results-page clicks by Local Pack position, BrightLocal Local Services Ads click study (2018, no LSAs shown).
+const CTR: Record<string, number> = { "1": 17.3, "2": 12.0, "3": 2.9, out: 0 };
 const PROFILE_ITEMS = [
   { id: "cat", label: "Primary and secondary categories set", short: "categories" },
   { id: "svc", label: "Services listed", short: "services" },
@@ -100,19 +101,19 @@ export function LocalPackCalculator({ variant }: { variant?: "dental" }) {
     if (missing.length) {
       actions.push({
         title: `Finish your Business Profile: ${missing.length} of ${PROFILE_ITEMS.length} items missing`,
-        body: `Missing: ${missing.map((m) => m.short).join(", ")}. Google says a complete profile earns 7x more clicks than an incomplete one, and only 44% of profiles are fully optimised (SOCi). This is the cheapest fix on the list.`,
+        body: `Missing: ${missing.map((m) => m.short).join(", ")}. Google says customers are 70% more likely to visit, and 50% more likely to consider buying from, a business with a complete profile. This is the cheapest fix on the list.`,
       });
     }
     if (reviews !== null && reviews < REVIEW_THRESHOLD) {
       actions.push({
         title: `Get to ${REVIEW_THRESHOLD} reviews: ${fmt(REVIEW_THRESHOLD - reviews)} to go`,
-        body: `Businesses with 50 or more reviews are 266% more likely to appear in the Local Pack (BrightLocal). Recency counts too, so a steady trickle beats a one-off push.`,
+        body: `No published study sets a fixed review threshold for the Local Pack, so treat 50 as a working target. Recency counts too, so a steady trickle beats a one-off push.`,
       });
     }
     if (reviews !== null && rival !== null && rival > reviews) {
       actions.push({
         title: `Close the review gap: ${fmt(rival - reviews)} behind the business in position 1`,
-        body: `Top-three pack listings average ${TOP3_AVG_REVIEWS} reviews each. You don't need to match that overnight, but a gap this size is visible to anyone comparing you side by side.`,
+        body: `Businesses in the top three local results average ${TOP3_AVG_REVIEWS} Google reviews (Semrush, 2025). You don't need to match that overnight, but a gap this size is visible to anyone comparing you side by side.`,
       });
     }
     if (s.position && s.position !== "1" && gap !== null && gap > 0) {
@@ -349,9 +350,10 @@ export function LocalPackCalculator({ variant }: { variant?: "dental" }) {
         </div>
 
         <p className={styles.note}>
-          Estimates use the benchmarks on this page: Local Pack click-through rates of 17.8%, 13.6% and 10.4% for positions
-          1 to 3 (BrightLocal, 2026){dental ? ", which are general local-business figures, not dental-specific" : ""}. They
-          are averages, not a forecast for your {dental ? "practice" : "business"}. Pack clicks outside the top three
+          Estimates apply BrightLocal&apos;s 2018 click study (San Francisco, no Local Services Ads shown), where Local Pack
+          positions 1 to 3 took 17.3%, 12.0% and 2.9% of all results-page clicks, to your monthly searches
+          {dental ? ", using general local-business figures, not dental-specific ones" : ""}. They are a rough guide from
+          one older study, not a forecast for your {dental ? "practice" : "business"}. Pack clicks outside the top three
           aren&apos;t covered by the data, so they count as zero here.
         </p>
       </section>

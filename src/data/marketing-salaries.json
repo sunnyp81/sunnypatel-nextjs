@@ -1,7 +1,7 @@
 {
-  "version": "2026-10-22",
+  "version": "2026-10-23",
   "pageUrl": "https://sunnypatel.co.uk/blog/uk-marketing-salary-statistics/",
-  "source": "Office for National Statistics, Annual Survey of Hours and Earnings (ASHE) 2026 provisional, Table 14.7a/14.7b (annual gross pay by occupation, UK, full-time employees). Regional rows: ASHE 2025 provisional, Table 15 (4).7a/15 (4).7b (region by occupation, full-time employees), because the 2026 Table 15 had not been published as of 22 October 2026",
+  "source": "Office for National Statistics, Annual Survey of Hours and Earnings (ASHE) 2026 provisional, Table 14.7a/14.7b (annual gross pay by occupation, UK, full-time employees). Regional rows: ASHE 2025 provisional, Table 15 (4).7a/15 (4).7b (region by occupation, full-time employees), because the 2026 Table 15 had not been published as of 23 October 2026",
   "sourceUrl": "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2026",
   "publishedDate": "2026-10-22",
   "nextReleaseDate": "To be announced by ONS",
@@ -11,8 +11,8 @@
   "basis": "Gross annual pay, full-time employees only, rounded to the nearest pound",
   "qualityKey": "ONS coefficient of variation (CV) bands: clean = CV up to 10%, caveat_10_20 = CV over 10% and up to 20% (less precise, shown with a note), suppressed = CV over 20% or an ONS confidentiality flag (ONS withholds the figure), unavailable = ONS published the estimate without publishing a CV for it.",
   "annualPayPeriodNote": "Annual pay estimates cover the tax year ending 5 April 2026 for employees who have been in the same job for more than a year, a separate window from the pay period reference date above.",
-  "regionalSource": "ONS ASHE 2025 provisional, Table 15 (4).7a and 15 (4).7b, published 23 October 2025. Reference period: the pay period that included 30 April 2025. Not yet updated to 2026 because ONS had not published the 2026 Table 15 as of 22 October 2026.",
-  "checked": "2026-10-22",
+  "regionalSource": "ONS ASHE 2025 provisional, Table 15 (4).7a and 15 (4).7b, published 23 October 2025. Reference period: the pay period that included 30 April 2025. Not yet updated to 2026 because ONS had not published the 2026 Table 15 as of 23 October 2026.",
+  "checked": "2026-10-23",
   "national": [
     {
       "soc": "1132",

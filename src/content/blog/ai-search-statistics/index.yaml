@@ -2,12 +2,12 @@ title: 120 AI Search Statistics 2026
 metaTitle: '120 AI Search Statistics 2026 (ChatGPT, AI Overviews, Zero-Click)'
 description: >-
   120 AI search statistics for 2026, every one checked against its primary
-  source in September 2026: ChatGPT and Gemini usage, how many AI searches
+  source in October 2026: ChatGPT and Gemini usage, how many AI searches
   happen per day, Google market share vs AI, AI Overview CTR impact, zero-click
   rates for the US and UK, and the most cited websites in AI answers.
 ogImage: '/images/blog/hero-ai-search-statistics.webp'
 date: '2026-02-15'
-lastUpdated: '2026-10-02'
+lastUpdated: '2026-10-23'
 tags:
   - AI Search
   - Statistics
@@ -37,7 +37,7 @@ faqs:
 
   - question: How many people use AI search in 2026?
     answer: >-
-      ChatGPT reached 900 million weekly active users in February 2026 (OpenAI) and 1 billion monthly active app users in May 2026 (Sensor Tower estimate, reported by Reuters). The Gemini app passed 900 million monthly users and Google AI Overviews 2.5 billion (Google I/O, May 2026). In the UK, 54% of adults now use AI tools such as ChatGPT, Copilot or Gemini (Ofcom, April 2026). Despite this, AI platforms send only 0.32% to 1.08% of website traffic (SE Ranking, Conductor, 2026).
+      More than 1.2 billion people use ChatGPT each week (OpenAI, October 2026), up from 900 million weekly active users in February 2026, and the ChatGPT mobile app reached 1 billion monthly active users in May 2026 (Sensor Tower estimate). The Gemini app passed 900 million monthly users and Google AI Overviews 2.5 billion (Google I/O, May 2026). In the UK, 54% of adults now use AI tools such as ChatGPT, Copilot or Gemini (Ofcom, April 2026). Despite this, AI platforms send only 0.32% to 1.08% of website traffic (SE Ranking, Conductor, 2026).
   - question: What is Google's search market share compared with AI search in 2026?
     answer: >-
       Statcounter recorded Google at 89.94% and Bing at 5.29% of worldwide search engine page referrals in September 2026. That denominator excludes questions
@@ -49,7 +49,7 @@ faqs:
 
   - question: How often do Google AI Overviews appear in 2026?
     answer: >-
-      AI Overviews appeared on 25.11% of the 21.9 million US Google searches in Conductor's 2026 benchmark, on 48% of the queries BrightEdge tracks (February 2026), and on 20%+ of all US searches in SparkToro's January to April 2026 data. Health care queries trigger them most at 48.75%, real estate least at 4.48% (Conductor). The spread reflects different query samples rather than disagreement about the trend.
+      AI Overviews appeared on 25.11% of the 21.9 million US Google searches in Conductor's 2026 benchmark, on 48% of the queries BrightEdge tracks (February 2026), and on 20%+ of all Google searches according to the Ahrefs figure SparkToro cited in June 2026. Health care queries trigger them most at 48.75%, real estate least at 4.48% (Conductor). The spread reflects different query samples rather than disagreement about the trend.
   - question: Do AI Overviews reduce organic clicks?
     answer: >-
       The cited studies found lower CTRs associated with AI Overview results. Seer tracked 3,119 informational/educational queries across 42 organisations from June 2024 to September 2025. Its separate April 2026 update tracked 53 brands from January 2025 to February 2026; cited brands had 120% higher organic CTR than uncited brands on informational results with an AI Overview. These observations do not isolate causation.

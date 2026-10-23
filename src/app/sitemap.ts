@@ -101,6 +101,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.7,
   },
   {
+    url: `${SITE_URL}/statistics/`,
+    lastModified: new Date("2026-10-23"),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
     url: `${SITE_URL}/book/sources/`,
     lastModified: new Date("2026-10-05"),
     changeFrequency: "monthly",

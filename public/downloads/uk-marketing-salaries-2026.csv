@@ -5,7 +5,7 @@
 "Year-on-year change basis","medianChangePct and meanChangePct are the ONS published annual percentage changes, comparing 2026 provisional with 2025 revised. A null or empty value means ONS published no change; for SOC 1133 that is because its 2025 revised median was suppressed."
 "Published","2026-10-22"
 "Next release","To be announced by ONS"
-"Regional table source","ONS ASHE 2025 provisional, Table 15 (4).7a and 15 (4).7b, published 23 October 2025. Reference period: the pay period that included 30 April 2025. Not yet updated to 2026 because ONS had not published the 2026 Table 15 as of 22 October 2026."
+"Regional table source","ONS ASHE 2025 provisional, Table 15 (4).7a and 15 (4).7b, published 23 October 2025. Reference period: the pay period that included 30 April 2025. Not yet updated to 2026 because ONS had not published the 2026 Table 15 as of 23 October 2026."
 
 "National, by SOC 2020 unit group (UK), ASHE 2026 provisional"
 "soc","title","jobsThousand","jobsCvPct","median","medianChangePct","medianCvPct","mean","meanChangePct","meanCvPct","p10","p10CvPct","p10Quality","p25","p75","p75CvPct","p75Quality","p90"

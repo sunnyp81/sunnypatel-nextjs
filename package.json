@@ -11,6 +11,7 @@
     "lint": "eslint",
     "normalize:content": "node scripts/normalize-content.mjs",
     "gen:lastmod": "node scripts/gen-lastmod.mjs",
+    "freshness": "node scripts/freshness-report.mjs",
     "validate:content": "node scripts/normalize-content.mjs --check",
     "validate:blog-images": "node scripts/validate-blog-images.mjs",
     "cf:build": "opennextjs-cloudflare build && node scripts/cf-strip-og.mjs",

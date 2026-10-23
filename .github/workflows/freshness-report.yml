@@ -1,0 +1,34 @@
+name: Freshness Report
+
+# Weekly list of content pages whose review date is older than 25 days, posted to one
+# rolling issue. Dates must only change after a real review of the page.
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/freshness-report.mjs > freshness-report.md
+      - name: Open or update the review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: Freshness review due
+        run: |
+          number=$(gh issue list --state open --limit 200 --json number,title --jq ".[] | select(.title == \"$TITLE\") | .number" | head -n 1)
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file freshness-report.md
+          else
+            gh issue create --title "$TITLE" --body-file freshness-report.md
+          fi

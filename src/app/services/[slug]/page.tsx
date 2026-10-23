@@ -64,8 +64,8 @@ const GENERIC_DATA = {
   ],
   caseStudies: [
     {
-      industry: "SaaS",
-      challenge: "180 organic visits/mo, no topical authority in a competitive market",
+      industry: "Professional Services, Reading",
+      challenge: "Organic traffic stuck at about 180 visits a month, with only occasional enquiries",
       result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
@@ -162,8 +162,8 @@ const SEO_READING_DATA = {
   ],
   caseStudies: [
     {
-      industry: "SaaS",
-      challenge: "180 organic visits/mo, no topical authority in a competitive Reading market",
+      industry: "Professional Services, Reading",
+      challenge: "Organic traffic stuck at about 180 visits a month, with only occasional enquiries",
       result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
@@ -234,14 +234,14 @@ const SEO_LONDON_DATA = {
         "Before working with Sunny, we were getting around 180 organic visits a month. Nine months later we\u2019re at 620 and enquiries from organic have tripled.",
       name: "James W.",
       role: "Director",
-      location: "London",
+      location: "Reading",
     },
     {
       quote:
         "Sunny\u2019s topical map approach was unlike any other SEO work we\u2019d had before. Within 6 months we were ranking for terms we\u2019d never appeared for.",
       name: "Tom B.",
       role: "MD, SaaS company",
-      location: "London",
+      location: "Thames Valley",
     },
     {
       quote:
@@ -255,13 +255,13 @@ const SEO_LONDON_DATA = {
         "The monthly reporting is clear, honest and always tied to actual business outcomes \u2014 not just vanity metrics.",
       name: "Claire H.",
       role: "Director, e-commerce brand",
-      location: "London",
+      location: "Reading",
     },
   ],
   caseStudies: [
     {
-      industry: "SaaS",
-      challenge: "180 organic visits/mo, no topical authority in a competitive London market",
+      industry: "Professional Services, Reading",
+      challenge: "Organic traffic stuck at about 180 visits a month, with only occasional enquiries",
       result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",

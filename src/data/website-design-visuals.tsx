@@ -565,7 +565,7 @@ const PACKAGES_CLOSE = (
       titleId="pkg-vis-2-title"
       descId="pkg-vis-2-desc"
       title="What every package includes as standard"
-      desc="Twelve deliverables included in every package regardless of tier. Add-ons such as copywriting, WooCommerce and ongoing SEO retainers are stated separately and priced up front."
+      desc="Twelve deliverables included in every package regardless of tier. Add-ons such as copywriting, WooCommerce and website SEO support are stated separately and priced up front."
       root="Every package includes"
       branches={[
         { label: "Custom design", sub: "Figma + sign-off" },

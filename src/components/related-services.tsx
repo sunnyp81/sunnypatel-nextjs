@@ -38,7 +38,7 @@ const STATIC_SERVICES = [
   {
     icon: BarChart3,
     title: "SEO Consulting",
-    description: "Strategic guidance for in-house teams with monthly retainers and priority support.",
+    description: "Strategic guidance for in-house teams with monthly advisory hours and priority support.",
     href: "/services/seo-consulting/",
     color: "#d79f1e",
     keywords: ["consulting", "strategy", "retainer", "in-house", "team", "guidance"],

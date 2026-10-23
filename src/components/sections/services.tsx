@@ -40,7 +40,7 @@ const services = [
     icon: BarChart3,
     title: "SEO Consulting",
     description:
-      "Strategic guidance for in-house teams. Monthly retainers with priority support and quarterly strategy reviews.",
+      "Strategic guidance for in-house teams. Monthly advisory hours with priority support and quarterly strategy reviews.",
     color: "#d79f1e",
     href: "/services/seo-consulting/",
   },

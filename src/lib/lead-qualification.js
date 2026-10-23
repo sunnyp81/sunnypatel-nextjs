@@ -23,7 +23,7 @@ export const SUPPORT_OFFER_COPY = Object.freeze({
     offerLabel: "Ongoing SEO advice (£600/month for four hours)",
     eyebrow: "Ongoing advice",
     heading: "Discuss ongoing SEO advice",
-    intro: "£600/month for four hours. Before a retainer starts, we’ll agree the tasks, allowance, owners, costs and approvals. Share your priorities; I’ll reply within one working day.",
+    intro: "£600/month for four hours. Before advisory support starts, we’ll agree the tasks, allowance, owners, costs and approvals. Share your priorities; I’ll reply within one working day.",
     submitLabel: "Send advisory enquiry",
   },
   one_off_audit: {

@@ -66,7 +66,7 @@ const GENERIC_DATA = {
     {
       industry: "Professional Services, Reading",
       challenge: "Organic traffic stuck at about 180 visits a month, with only occasional enquiries",
-      result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
+      result: "620 visits/mo and 3\u00d7 monthly enquiries through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
       accentColor: "var(--brand-ink)",
@@ -164,7 +164,7 @@ const SEO_READING_DATA = {
     {
       industry: "Professional Services, Reading",
       challenge: "Organic traffic stuck at about 180 visits a month, with only occasional enquiries",
-      result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
+      result: "620 visits/mo and 3\u00d7 monthly enquiries through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
       accentColor: "var(--brand-ink)",
@@ -262,7 +262,7 @@ const SEO_LONDON_DATA = {
     {
       industry: "Professional Services, Reading",
       challenge: "Organic traffic stuck at about 180 visits a month, with only occasional enquiries",
-      result: "620 visits/mo with 3\u00d7 enquiry rate through topical map and content strategy",
+      result: "620 visits/mo and 3\u00d7 monthly enquiries through topical map and content strategy",
       metric: "+244% organic traffic",
       timeline: "9 months",
       accentColor: "var(--brand-ink)",

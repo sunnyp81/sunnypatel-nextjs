@@ -10,7 +10,8 @@ type Result = {
   visible: Totals;
   totals: Totals;
   remainder: Totals;
-  capReached: 1000 | 25000 | 0;
+  rowLimitMatch: 1000 | 25000 | 0;
+  duplicates: number;
   filtered: boolean;
   top10: number;
   zeroRows: number;
@@ -31,6 +32,11 @@ sample crawl budget,0,260,0%,18.9`;
 const SAMPLE_TOTALS = { clicks: "160", impressions: "9800" };
 
 function csvRows(input: string): string[][] {
+  const firstLine = input.replace(/^\uFEFF/, "").split(/\r?\n/, 1)[0] || "";
+  const delimiter =
+    (firstLine.match(/\t/g) || []).length > (firstLine.match(/,/g) || []).length
+      ? "\t"
+      : ",";
   const rows: string[][] = [];
   let row: string[] = [];
   let field = "";
@@ -45,7 +51,7 @@ function csvRows(input: string): string[][] {
       } else if (char === '"') quoted = false;
       else field += char;
     } else if (char === '"' && !field) quoted = true;
-    else if (char === "," || char === "\t") {
+    else if (char === delimiter) {
       row.push(field.trim());
       field = "";
     } else if (char === "\n" || char === "\r") {
@@ -67,10 +73,7 @@ const num = (value: string | undefined) =>
 type Kind = "queries" | "dates" | "pages" | "unknown";
 
 function detect(text: string): Kind {
-  const header = csvRows(text)
-    .slice(0, 3)
-    .flat()
-    .map((cell) => cell.toLowerCase());
+  const header = (csvRows(text)[0] || []).map((cell) => cell.toLowerCase());
   if (header.some((cell) => /^(top pages|page|pages|landing page)$/.test(cell)))
     return "pages";
   if (header.some((cell) => /^(top queries|query|queries|search query)$/.test(cell)))
@@ -81,10 +84,9 @@ function detect(text: string): Kind {
 
 function table(text: string, firstColumn: RegExp) {
   const all = csvRows(text);
-  const at = all.findIndex((row) =>
-    row.some((cell) => firstColumn.test(cell.toLowerCase())),
-  );
-  if (at < 0) return null;
+  const at = 0;
+  if (!all.length || !all[0].some((cell) => firstColumn.test(cell.toLowerCase())))
+    return null;
   const head = all[at].map((cell) => cell.toLowerCase());
   const first = head.findIndex((cell) => firstColumn.test(cell));
   const clicks = head.indexOf("clicks");
@@ -99,14 +101,17 @@ function parseQueries(text: string): QueryRow[] {
     throw new Error(
       "The Queries rows need a query column plus Clicks and Impressions columns.",
     );
-  const rows = t.body.flatMap((cells) => {
+  const rows: QueryRow[] = [];
+  t.body.forEach((cells, index) => {
     const query = cells[t.first]?.trim();
     const clicks = num(cells[t.clicks]);
     const impressions = num(cells[t.impressions]);
-    return query && Number.isFinite(clicks) && Number.isFinite(impressions) &&
-      clicks >= 0 && impressions >= 0
-      ? [{ query, clicks, impressions }]
-      : [];
+    if (!query || !(cells[t.clicks] || "").trim() || !(cells[t.impressions] || "").trim() ||
+      !Number.isFinite(clicks) || !Number.isFinite(impressions) || clicks < 0 || impressions < 0)
+      throw new Error(
+        `Row ${index + 2} of the Queries data has no usable query, clicks or impressions. Fix or remove it so the totals are not changed silently.`,
+      );
+    rows.push({ query, clicks, impressions });
   });
   if (!rows.length) throw new Error("No query rows with clicks and impressions were found.");
   return rows;
@@ -122,11 +127,11 @@ function parseDates(text: string): Totals {
   for (const cells of t.body) {
     const c = num(cells[t.clicks]);
     const i = num(cells[t.impressions]);
-    if (cells[t.first] && Number.isFinite(c) && Number.isFinite(i)) {
-      clicks += c;
-      impressions += i;
-      count++;
-    }
+    if (!cells[t.first] || !Number.isFinite(c) || !Number.isFinite(i) || c < 0 || i < 0)
+      throw new Error("A row in the Dates file has no usable date, clicks or impressions.");
+    clicks += c;
+    impressions += i;
+    count++;
   }
   if (!count) throw new Error("No dated rows were found in the Dates file.");
   return { clicks, impressions };
@@ -153,10 +158,7 @@ function analyse(
     }),
     { clicks: 0, impressions: 0 },
   );
-  if (
-    visible.clicks > totals.clicks * 1.01 ||
-    visible.impressions > totals.impressions * 1.01
-  )
+  if (visible.clicks > totals.clicks || visible.impressions > totals.impressions)
     throw new Error(
       "Rows add up to more than the chart totals. Check both files come from the same report, date range, search type and filters.",
     );
@@ -174,15 +176,23 @@ function analyse(
   const byClicks = [...rows].sort((a, b) => b.clicks - a.clicks);
   const top10 = byClicks.slice(0, 10).reduce((sum, row) => sum + row.clicks, 0);
   const zero = rows.filter((row) => row.clicks === 0);
+  const seen = new Set<string>();
+  let duplicates = 0;
+  for (const row of rows) {
+    const key = row.query.toLowerCase();
+    if (seen.has(key)) duplicates++;
+    else seen.add(key);
+  }
   return {
     rows,
     visible,
     totals,
     remainder: {
-      clicks: Math.max(totals.clicks - visible.clicks, 0),
-      impressions: Math.max(totals.impressions - visible.impressions, 0),
+      clicks: totals.clicks - visible.clicks,
+      impressions: totals.impressions - visible.impressions,
     },
-    capReached: rows.length === 1000 ? 1000 : rows.length === 25000 ? 25000 : 0,
+    rowLimitMatch: rows.length === 1000 ? 1000 : rows.length === 25000 ? 25000 : 0,
+    duplicates,
     filtered,
     top10,
     zeroRows: zero.length,
@@ -197,25 +207,23 @@ const pct = (part: number, whole: number) =>
   whole > 0 ? `${((100 * part) / whole).toFixed(1)}%` : "n/a";
 
 function attribution(r: Result): string {
-  const remPct = Math.max(
-    (100 * r.remainder.clicks) / Math.max(r.totals.clicks, 1),
-    (100 * r.remainder.impressions) / Math.max(r.totals.impressions, 1),
-  );
-  const capped = r.capReached > 0;
-  if (!r.filtered && capped)
-    return `The export reached the ${fmt(r.capReached)}-row limit and no query filter was applied, so this gap cannot be split between anonymised queries and the row limit.`;
+  if (r.remainder.clicks === 0 && r.remainder.impressions === 0)
+    return "The exported rows add up to the chart totals you supplied.";
+  const atInterfaceLimit = r.rowLimitMatch === 1000;
+  if (!r.filtered && atInterfaceLimit)
+    return "This file has 1,000 rows, which is the interface export maximum, and no query filter was applied. The gap could come from anonymised queries, omitted rows or both, and these inputs cannot separate them.";
   if (!r.filtered)
-    return "The export is under the row limit with no query filter, so the gap is consistent with anonymised queries, which Google leaves out of the table but includes in the chart totals.";
-  if (capped)
-    return `The export reached the ${fmt(r.capReached)}-row limit with a query filter applied. Anonymised queries are already excluded from the totals when you filter by query, so the gap is attributable to the row limit.`;
-  if (remPct > 1)
-    return "The export is under the row limit and a query filter was applied, so a gap this size is unexpected. Check that both files come from the same report.";
-  return "Your rows cover the chart totals to within 1%.";
+    return "The gap is consistent with anonymised queries, which Google leaves out of the tables but includes in the chart totals. These inputs cannot rule out other causes, such as an incomplete export.";
+  if (atInterfaceLimit)
+    return "You reported a query filter, so anonymised queries should already be excluded from the chart totals. This file has 1,000 rows, the interface export maximum, so omitted rows may contribute, but these inputs cannot establish the cause.";
+  return "You reported a query filter, so anonymised queries should already be excluded from the chart totals, yet a gap remains. Check that both files come from the same report, date range, search type and filters, and that the export is complete.";
 }
 
 function headline(r: Result): string {
+  if (r.remainder.clicks === 0 && r.remainder.impressions === 0)
+    return "The exported query rows add up to the chart totals you supplied.";
   if (r.remainder.clicks === 0)
-    return "Every click in the chart totals appears in your exported query rows.";
+    return `The exported click sum matches the chart total, but ${fmt(r.remainder.impressions)} of ${fmt(r.totals.impressions)} impressions (${pct(r.remainder.impressions, r.totals.impressions)}) are not in any query row.`;
   return `${fmt(r.remainder.clicks)} of ${fmt(r.totals.clicks)} clicks (${pct(r.remainder.clicks, r.totals.clicks)}) are not in any query row you exported.`;
 }
 
@@ -272,7 +280,7 @@ function drawPng(r: Result) {
     ctx.font = "26px sans-serif";
     ctx.fillText(`${label}: ${fmt(visible)} in query rows, ${fmt(remainder)} not in any row`, 70, top - 14);
     const width = 1060;
-    const vw = total > 0 ? (visible / total) * width : 0;
+    const vw = total > 0 ? Math.min(visible / total, 1) * width : 0;
     ctx.fillStyle = "#4f8cff";
     ctx.fillRect(70, top, vw, 48);
     ctx.save();
@@ -349,14 +357,16 @@ export default function GscExportCoverage() {
   const [totals, setTotals] = useState({ clicks: "", impressions: "" });
   const [filtered, setFiltered] = useState<boolean | null>(null);
   const [brand, setBrand] = useState("");
-  const [result, setResult] = useState<Result | null>(null);
+  const [ran, setRan] = useState<{ key: string; result: Result } | null>(null);
   const [error, setError] = useState("");
+  const inputKey = JSON.stringify([queriesText, totals, filtered, brand]);
+  const result = ran && ran.key === inputKey ? ran.result : null;
   const [notes, setNotes] = useState<string[]>([]);
 
   async function readFiles(files: FileList | null) {
     if (!files?.length) return;
     setError("");
-    setResult(null);
+    setRan(null);
     const next: string[] = [];
     for (const file of Array.from(files)) {
       const text = await file.text();
@@ -384,14 +394,14 @@ export default function GscExportCoverage() {
   function run() {
     setError("");
     if (filtered === null) {
-      setResult(null);
+      setRan(null);
       setError("Say whether you applied a query filter before exporting.");
       return;
     }
     try {
-      setResult(analyse(queriesText, totals, filtered, brand));
+      setRan({ key: inputKey, result: analyse(queriesText, totals, filtered, brand) });
     } catch (cause) {
-      setResult(null);
+      setRan(null);
       setError(cause instanceof Error ? cause.message : "Could not read the data.");
     }
   }
@@ -477,7 +487,7 @@ export default function GscExportCoverage() {
             setTotals(SAMPLE_TOTALS);
             setFiltered(false);
             setBrand("sample brand");
-            setResult(null);
+            setRan(null);
             setError("");
             setNotes(["Sample data is invented for illustration."]);
           }}
@@ -498,11 +508,16 @@ export default function GscExportCoverage() {
         <div className="mt-8" aria-live="polite">
           <h2 className="text-2xl font-bold text-foreground">{headline(result)}</h2>
           <p className="mt-3 text-sm text-muted-foreground">{attribution(result)}</p>
-          {result.capReached > 0 && (
+          {result.rowLimitMatch > 0 && (
             <p className="mt-3 rounded-lg border border-hairline bg-background p-3 text-sm text-foreground">
-              {result.capReached === 1000
-                ? "This export reached the 1,000-row limit of the Search Console interface."
-                : "This export reached the 25,000-row API request limit; page through with startRow."}
+              {result.rowLimitMatch === 1000
+                ? "This file contains 1,000 rows, matching the Search Console interface export maximum. That does not establish whether rows were omitted."
+                : "This file contains 25,000 rows, matching the API per-request maximum. It may be one page of a longer result; page through with startRow."}
+            </p>
+          )}
+          {result.duplicates > 0 && (
+            <p className="mt-3 rounded-lg border border-hairline bg-background p-3 text-sm text-foreground">
+              {fmt(result.duplicates)} {result.duplicates === 1 ? "query row repeats a query" : "query rows repeat queries"} that appear{result.duplicates === 1 ? "s" : ""} earlier in the file. Their clicks and impressions are all counted, so check the export for duplicates.
             </p>
           )}
           <div className="mt-6 space-y-5">

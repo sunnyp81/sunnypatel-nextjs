@@ -48,8 +48,12 @@ function csvRows(input: string): string[][] {
       if (char === '"' && text[index + 1] === '"') {
         field += '"';
         index++;
-      } else if (char === '"') quoted = false;
-      else field += char;
+      } else if (char === '"') {
+        const next = text[index + 1];
+        if (next !== undefined && next !== delimiter && next !== String.fromCharCode(10) && next !== String.fromCharCode(13))
+          throw new Error("A quoted value is followed by extra text. Check the file is a clean Search Console export.");
+        quoted = false;
+      } else field += char;
     } else if (char === '"' && !field) quoted = true;
     else if (char === delimiter) {
       row.push(field.trim());
@@ -72,10 +76,11 @@ function csvRows(input: string): string[][] {
 }
 
 const COUNT = /^(\d{1,3}(,\d{3})+|\d+)$/;
-const num = (value: string | undefined) =>
-  COUNT.test((value || "").trim())
-    ? Number((value || "").trim().replace(/,/g, ""))
-    : NaN;
+const num = (value: string | undefined) => {
+  if (!COUNT.test((value || "").trim())) return NaN;
+  const n = Number((value || "").trim().replace(/,/g, ""));
+  return Number.isSafeInteger(n) ? n : NaN;
+};
 const DATE = /^\d{1,4}[-/.]\d{1,2}[-/.]\d{1,4}$/;
 
 type Kind = "queries" | "dates" | "pages" | "unknown";
@@ -293,6 +298,10 @@ function drawPng(r: Result) {
     const top = 300 + index * 120;
     ctx.fillStyle = "#c9d1e3";
     ctx.font = "26px sans-serif";
+    if (total <= 0) {
+      ctx.fillText(`${label}: the chart total is zero, so there is no share to show.`, 70, top + 20);
+      return;
+    }
     ctx.fillText(`${label}: ${fmt(visible)} in query rows, ${fmt(remainder)} not in any row`, 70, top - 14);
     const width = 1060;
     const vw = total > 0 ? Math.min(visible / total, 1) * width : 0;
@@ -395,28 +404,37 @@ export default function GscExportCoverage() {
     );
     if (generation !== importGeneration.current) return;
     const next: string[] = [];
+    const apply: (() => void)[] = [];
+    let failed = false;
     for (const { name, text } of texts) {
       try {
         const kind = detect(text);
         if (kind === "queries") {
           parseQueries(text);
-          setQueriesText(text);
+          apply.push(() => setQueriesText(text));
           next.push(`${name}: read as the Queries table.`);
         } else if (kind === "dates") {
           const sum = parseDates(text);
-          setTotals({ clicks: String(sum.clicks), impressions: String(sum.impressions) });
+          apply.push(() =>
+            setTotals({ clicks: String(sum.clicks), impressions: String(sum.impressions) }),
+          );
           next.push(`${name}: read as the Dates table, totals filled in.`);
         } else if (kind === "pages") {
           next.push(`${name}: a Pages table is not needed for this check.`);
         } else {
+          failed = true;
           next.push(`${name}: not recognised. Use the Queries or Dates file from an English-language Performance export.`);
         }
       } catch (cause) {
-        if (detect(text) === "dates") setTotals({ clicks: "", impressions: "" });
-        if (detect(text) === "queries") setQueriesText("");
-        next.push(`${name}: ${cause instanceof Error ? cause.message : "could not be read."} Nothing from this file was used.`);
+        failed = true;
+        next.push(`${name}: ${cause instanceof Error ? cause.message : "could not be read."}`);
       }
     }
+    if (failed) {
+      setQueriesText("");
+      setTotals({ clicks: "", impressions: "" });
+      next.push("A file could not be used, so nothing from this selection was loaded and earlier data was cleared. Fix the file and select the files again.");
+    } else apply.forEach((fn) => fn());
     setNotes(next);
   }
 
@@ -450,13 +468,15 @@ export default function GscExportCoverage() {
           className="mt-2 block w-full text-sm text-muted-foreground file:mr-4 file:rounded-lg file:border-0 file:bg-brand file:px-4 file:py-2 file:font-semibold file:text-background"
         />
       </label>
-      {notes.length > 0 && (
-        <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-          {notes.map((note) => (
-            <li key={note}>{note}</li>
-          ))}
-        </ul>
-      )}
+      <div role="status">
+        {notes.length > 0 && (
+          <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
+            {notes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+        )}
+      </div>
       <label className="mt-5 block text-sm font-semibold text-foreground">
         Or paste the Queries rows
         <textarea
@@ -475,7 +495,10 @@ export default function GscExportCoverage() {
           <input
             inputMode="numeric"
             value={totals.clicks}
-            onChange={(event) => setTotals({ ...totals, clicks: event.target.value })}
+            onChange={(event) => {
+              importGeneration.current++;
+              setTotals({ ...totals, clicks: event.target.value });
+            }}
             className={field}
           />
         </label>
@@ -484,7 +507,10 @@ export default function GscExportCoverage() {
           <input
             inputMode="numeric"
             value={totals.impressions}
-            onChange={(event) => setTotals({ ...totals, impressions: event.target.value })}
+            onChange={(event) => {
+              importGeneration.current++;
+              setTotals({ ...totals, impressions: event.target.value });
+            }}
             className={field}
           />
         </label>
@@ -515,6 +541,7 @@ export default function GscExportCoverage() {
         <button
           type="button"
           onClick={() => {
+            importGeneration.current++;
             setQueriesText(SAMPLE_QUERIES);
             setTotals(SAMPLE_TOTALS);
             setFiltered(false);

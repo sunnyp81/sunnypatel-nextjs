@@ -50,15 +50,15 @@ export const newToolPages: Record<string, ToolPageInfo> = {
   "gsc-export-coverage": {
     slug: "gsc-export-coverage",
     title: "GSC Export Coverage Checker",
-    description: "Compare your Search Console Queries export with the chart totals and measure the difference in clicks and impressions. Free, in your browser.",
-    intro: "A Search Console Queries export may hold fewer clicks and impressions than the Performance chart totals. Google leaves anonymised queries out of the tables but counts them in the chart totals unless you filter by query, and the interface exports at most 1,000 rows. This checker adds up your exported rows, compares them with the chart totals for the same report, and measures the difference in your browser.",
+    description: "Compare your Search Console Queries export with the chart totals and measure the difference in clicks and impressions. Free to use in your browser.",
+    intro: "A Search Console Queries export may contain fewer clicks and impressions than the Performance chart totals. Google leaves anonymised queries out of the tables but counts them in the chart totals unless you filter by query, and the interface exports at most 1,000 rows. This checker adds up your exported rows, compares them with the chart totals for the same report, and measures the difference in your browser.",
     explanation: [
       "Google's October 2022 post on performance data limits names privacy filtering and row limits as the two main limitations. It defines anonymised queries as those not issued by more than a few dozen users over a two-to-three month period, and says they are always omitted from the tables but included in the chart totals, unless you filter by query. It also says the maximum you can export through the Search Console interface is 1,000 rows. These limits can leave a difference between the exported query sums and the chart totals.",
       "Export the Queries table and the Dates table from the same Performance report, with the same date range, search type and filters. Upload both files, or paste the Queries rows and type the chart totals. Then say whether you applied a query filter before exporting, because that changes what the gap can mean. The result shows the exported sums, their share of the supplied totals and the difference, and says which possible causes the inputs can and cannot separate.",
-      "The API and the Looker Studio connector can provide more rows than an interface export, up to 50,000 rows per day per site per search type. The API returns up to 25,000 rows per request, and startRow pages through the rest. Read the checker's wording as a description of the gap, not a diagnosis. It cannot name the omitted queries, count them or say whether any came from AI features.",
+      "The API and the Looker Studio connector can provide more rows than an interface export, up to 50,000 rows per day per site per search type. The API returns up to 25,000 rows per request, and startRow pages through the rest. The checker measures the difference but cannot establish its cause. It cannot name the omitted queries, count them or say whether any came from AI features.",
     ],
     steps: [
-      "In Search Console, open Performance, then Search results. Select Clicks and Impressions, choose a date range and export the report. Note the search type and any filters.",
+      "In Search Console, set the language to English, open Performance, then Search results. Select Clicks and Impressions, choose a date range and export the report. Note the search type and any filters.",
       "Use the downloaded Queries and Dates files. Alternatively, paste the Queries table with its column headings and enter the chart totals.",
       "Upload the files or paste the table and enter the totals. Add brand terms if useful, answer the query filter question and run the check.",
     ],

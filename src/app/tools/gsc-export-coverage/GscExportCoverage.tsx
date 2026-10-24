@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { downloadText } from "@/lib/fetch-page-client";
 
 type QueryRow = { query: string; clicks: number; impressions: number };
@@ -62,13 +62,21 @@ function csvRows(input: string): string[][] {
       field = "";
     } else field += char;
   }
+  if (quoted)
+    throw new Error(
+      "A quoted value in the file is never closed. Check the export is complete.",
+    );
   row.push(field.trim());
   if (row.some(Boolean)) rows.push(row);
   return rows;
 }
 
+const COUNT = /^(\d{1,3}(,\d{3})+|\d+)$/;
 const num = (value: string | undefined) =>
-  Number((value || "").replace(/[,\s]/g, ""));
+  COUNT.test((value || "").trim())
+    ? Number((value || "").trim().replace(/,/g, ""))
+    : NaN;
+const DATE = /^\d{1,4}[-/.]\d{1,2}[-/.]\d{1,4}$/;
 
 type Kind = "queries" | "dates" | "pages" | "unknown";
 
@@ -92,7 +100,13 @@ function table(text: string, firstColumn: RegExp) {
   const clicks = head.indexOf("clicks");
   const impressions = head.indexOf("impressions");
   if (clicks < 0 || impressions < 0) return null;
-  return { body: all.slice(at + 1), first, clicks, impressions };
+  const body = all.slice(at + 1);
+  const bad = body.findIndex((row) => row.length !== head.length);
+  if (bad >= 0)
+    throw new Error(
+      `Row ${bad + 2} has ${body[bad].length} columns but the header has ${head.length}. Quote any query that contains a comma.`,
+    );
+  return { body, first, clicks, impressions };
 }
 
 function parseQueries(text: string): QueryRow[] {
@@ -106,10 +120,9 @@ function parseQueries(text: string): QueryRow[] {
     const query = cells[t.first]?.trim();
     const clicks = num(cells[t.clicks]);
     const impressions = num(cells[t.impressions]);
-    if (!query || !(cells[t.clicks] || "").trim() || !(cells[t.impressions] || "").trim() ||
-      !Number.isFinite(clicks) || !Number.isFinite(impressions) || clicks < 0 || impressions < 0)
+    if (!query || !Number.isFinite(clicks) || !Number.isFinite(impressions))
       throw new Error(
-        `Row ${index + 2} of the Queries data has no usable query, clicks or impressions. Fix or remove it so the totals are not changed silently.`,
+        `Row ${index + 2} of the Queries data has no usable query, clicks or impressions. Use whole numbers from the English-language export, and fix or remove the row so the totals are not changed silently.`,
       );
     rows.push({ query, clicks, impressions });
   });
@@ -127,8 +140,10 @@ function parseDates(text: string): Totals {
   for (const cells of t.body) {
     const c = num(cells[t.clicks]);
     const i = num(cells[t.impressions]);
-    if (!cells[t.first] || !Number.isFinite(c) || !Number.isFinite(i) || c < 0 || i < 0)
-      throw new Error("A row in the Dates file has no usable date, clicks or impressions.");
+    if (!DATE.test(cells[t.first] || "") || !Number.isFinite(c) || !Number.isFinite(i))
+      throw new Error(
+        "A row in the Dates file has no usable date, clicks or impressions. Use the English-language export with whole numbers.",
+      );
     clicks += c;
     impressions += i;
     count++;
@@ -327,7 +342,13 @@ function CoverageBar({
   remainder: number;
   total: number;
 }) {
-  const share = total > 0 ? Math.min((100 * visible) / total, 100) : 0;
+  if (total <= 0)
+    return (
+      <p className="text-sm text-foreground">
+        <span className="font-semibold">{label}:</span> the chart total is zero, so there is no share to show.
+      </p>
+    );
+  const share = Math.min((100 * visible) / total, 100);
   return (
     <div>
       <p className="text-sm text-foreground">
@@ -362,30 +383,38 @@ export default function GscExportCoverage() {
   const inputKey = JSON.stringify([queriesText, totals, filtered, brand]);
   const result = ran && ran.key === inputKey ? ran.result : null;
   const [notes, setNotes] = useState<string[]>([]);
+  const importGeneration = useRef(0);
 
   async function readFiles(files: FileList | null) {
     if (!files?.length) return;
+    const generation = ++importGeneration.current;
     setError("");
     setRan(null);
+    const texts = await Promise.all(
+      Array.from(files).map(async (file) => ({ name: file.name, text: await file.text() })),
+    );
+    if (generation !== importGeneration.current) return;
     const next: string[] = [];
-    for (const file of Array.from(files)) {
-      const text = await file.text();
-      const kind = detect(text);
+    for (const { name, text } of texts) {
       try {
+        const kind = detect(text);
         if (kind === "queries") {
+          parseQueries(text);
           setQueriesText(text);
-          next.push(`${file.name}: read as the Queries table.`);
+          next.push(`${name}: read as the Queries table.`);
         } else if (kind === "dates") {
           const sum = parseDates(text);
           setTotals({ clicks: String(sum.clicks), impressions: String(sum.impressions) });
-          next.push(`${file.name}: read as the Dates table, totals filled in.`);
+          next.push(`${name}: read as the Dates table, totals filled in.`);
         } else if (kind === "pages") {
-          next.push(`${file.name}: a Pages table is not needed for this check.`);
+          next.push(`${name}: a Pages table is not needed for this check.`);
         } else {
-          next.push(`${file.name}: not recognised. Use the Queries or Dates file from a Performance export.`);
+          next.push(`${name}: not recognised. Use the Queries or Dates file from an English-language Performance export.`);
         }
       } catch (cause) {
-        next.push(`${file.name}: ${cause instanceof Error ? cause.message : "could not be read."}`);
+        if (detect(text) === "dates") setTotals({ clicks: "", impressions: "" });
+        if (detect(text) === "queries") setQueriesText("");
+        next.push(`${name}: ${cause instanceof Error ? cause.message : "could not be read."} Nothing from this file was used.`);
       }
     }
     setNotes(next);
@@ -422,7 +451,7 @@ export default function GscExportCoverage() {
         />
       </label>
       {notes.length > 0 && (
-        <ul className="mt-3 space-y-1 text-sm text-muted-foreground" aria-live="polite">
+        <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
           {notes.map((note) => (
             <li key={note}>{note}</li>
           ))}
@@ -432,7 +461,10 @@ export default function GscExportCoverage() {
         Or paste the Queries rows
         <textarea
           value={queriesText}
-          onChange={(event) => setQueriesText(event.target.value)}
+          onChange={(event) => {
+            importGeneration.current++;
+            setQueriesText(event.target.value);
+          }}
           rows={7}
           className={`${field} font-mono text-xs`}
         />
@@ -504,8 +536,11 @@ export default function GscExportCoverage() {
           {error}
         </p>
       )}
+      <div role="status" className="sr-only">
+        {result ? headline(result) : ""}
+      </div>
       {result && (
-        <div className="mt-8" aria-live="polite">
+        <div className="mt-8">
           <h2 className="text-2xl font-bold text-foreground">{headline(result)}</h2>
           <p className="mt-3 text-sm text-muted-foreground">{attribution(result)}</p>
           {result.rowLimitMatch > 0 && (

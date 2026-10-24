@@ -16,7 +16,7 @@ export function generateMetadata() {
   return buildMetadata({
     title: "UK SEO, AI Search and Marketing Statistics | Sunny Patel",
     description:
-      "Nine statistics pages on UK search, AI answers, local SEO, ecommerce and marketing pay. Every figure names its source, and each page shows when it was last re-checked.",
+      "Thirteen statistics pages on UK search, AI answers, local SEO, ecommerce, SEO pricing and marketing pay. Every figure names its source, and each page shows when it was last re-checked.",
     path: "/statistics",
   });
 }

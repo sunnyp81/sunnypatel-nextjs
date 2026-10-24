@@ -45,6 +45,36 @@ export const STAT_GROUPS: StatGroup[] = [
         },
       },
       {
+        slug: "ai-referral-traffic-study",
+        shortTitle: "AI referral traffic study",
+        summary: "First-party GA4 data: how much traffic AI assistants send across 104 sites, by assistant and sector.",
+        figure: {
+          value: "1.84%",
+          label: "of sessions came from AI assistants across 104 sites",
+          source: "Author's own portfolio data, GA4, 90 days to 21 September 2026",
+        },
+      },
+      {
+        slug: "uk-ai-overviews-by-industry",
+        shortTitle: "UK AI Overviews by industry",
+        summary: "How often Google shows an AI Overview across 10 UK sectors, and which kinds of source it cites.",
+        figure: {
+          value: "47.8%",
+          label: "of 393 usable UK queries showed an AI Overview",
+          source: "Ahrefs GB SERP data, 25 September 2026",
+        },
+      },
+      {
+        slug: "google-ctr-study",
+        shortTitle: "Google CTR by position",
+        summary: "What published studies report for click-through rate by position, with this site's own benchmark withdrawn and explained.",
+        figure: {
+          value: "7.1% to 28.5%",
+          label: "range of position-one organic CTR across three published studies",
+          source: "First Page Sage, Advanced Web Ranking and Sistrix, 2026",
+        },
+      },
+      {
         slug: "content-marketing-statistics",
         shortTitle: "Content marketing statistics",
         summary: "What content programmes cost, where they pay back, and what being cited in AI answers is worth.",
@@ -113,7 +143,7 @@ export const STAT_GROUPS: StatGroup[] = [
   {
     id: "pay-links",
     title: "Pay and links",
-    blurb: "What marketing roles pay, and which pages earn links.",
+    blurb: "What marketing roles and SEO consultants cost, and which pages earn links.",
     pages: [
       {
         slug: "uk-marketing-salary-statistics",
@@ -128,6 +158,16 @@ export const STAT_GROUPS: StatGroup[] = [
           { label: "CSV", href: "/downloads/uk-marketing-salaries-2026.csv" },
           { label: "JSON", href: "/downloads/uk-marketing-salaries-2026.json" },
         ],
+      },
+      {
+        slug: "how-much-does-an-seo-consultant-charge-uk",
+        shortTitle: "UK SEO consultant pricing",
+        summary: "Published monthly prices from UK agencies and freelancers, with the inclusion rules for each.",
+        figure: {
+          value: "£497",
+          label: "median entry-level monthly retainer across 61 UK providers with a published price",
+          source: "Provider websites checked 24 to 25 September 2026",
+        },
       },
       {
         slug: "link-building-statistics",

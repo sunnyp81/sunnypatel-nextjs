@@ -5,6 +5,10 @@ export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
     headline: "Free Local SEO Audit Tool",
     description: "Check business details, local page signals and structured data.",
   },
+  "gsc-export-coverage": {
+    headline: "GSC Export Coverage Checker",
+    description: "See what share of clicks your Queries export does not explain.",
+  },
   "keyword-cannibalisation-checker": {
     headline: "Keyword Cannibalisation Checker",
     description: "Find queries shared by pages in your Search Console export.",

@@ -16,6 +16,11 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
       "/tools/schema-validator/",
       "/tools/website-grader/",
     ],
+    "/tools/gsc-export-coverage/": [
+      "/tools/keyword-cannibalisation-checker/",
+      "/tools/keyword-scraper/",
+      "/tools/serp-preview/",
+    ],
     "/tools/keyword-cannibalisation-checker/": [
       "/tools/keyword-scraper/",
       "/tools/internal-links/",

@@ -13,6 +13,12 @@ export const tools: Tool[] = [
     category: "Local SEO",
   },
   {
+    name: "GSC Export Coverage Checker",
+    description: "Compare a Queries export with chart totals and see the clicks no row explains.",
+    href: "/tools/gsc-export-coverage/",
+    category: "Keyword Research",
+  },
+  {
     name: "Keyword Cannibalisation Checker",
     description: "Find queries shared by several pages in a Search Console export.",
     href: "/tools/keyword-cannibalisation-checker/",

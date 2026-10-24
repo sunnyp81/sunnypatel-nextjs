@@ -122,6 +122,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   ...[
     "local-seo-audit",
     "keyword-cannibalisation-checker",
+    "gsc-export-coverage",
     "schema-validator",
     "sitemap-generator",
     "llms-txt-generator",

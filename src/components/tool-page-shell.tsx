@@ -47,6 +47,35 @@ export const newToolPages: Record<string, ToolPageInfo> = {
     ],
     service: { href: "/services/local-seo/", label: "local SEO service", lead: "For a wider local search review, see my" },
   },
+  "gsc-export-coverage": {
+    slug: "gsc-export-coverage",
+    title: "GSC Export Coverage Checker",
+    description: "Compare your Search Console Queries export with the chart totals and see what share of clicks no query row explains. Free, runs in your browser.",
+    intro: "A Search Console Queries export rarely accounts for every click in the Performance chart. Google leaves anonymised queries out of the table while counting them in the chart totals, and the interface exports at most 1,000 rows. This checker adds up your exported rows, compares them with the chart totals for the same report, and shows the clicks and impressions no visible row explains, entirely in your browser.",
+    explanation: [
+      "Google describes two reasons a query table can fall short of the chart. Anonymised queries are those not issued by more than a few dozen users over a two-to-three month period, and Google's October 2022 post on performance data limits says they are always omitted from the tables but included in the chart totals, unless you filter by query. The same post says the maximum you can export through the Search Console interface is 1,000 rows. Either can leave clicks and impressions in the totals that no exported row explains.",
+      "Export the Queries table and the Dates table from the same Performance report, with the same date range, search type and filters. Upload both files, or paste the Queries rows and type the chart totals. Then say whether you applied a query filter before exporting, because that changes what the gap can mean. The result shows the clicks and impressions covered by your query rows, the remainder, and a sentence describing what the remainder is consistent with.",
+      "The API route returns more rows. The Search Analytics API and the Looker Studio connector are limited to 50,000 rows per day per site per search type, with 25,000 rows per request and startRow for paging. Read the checker's wording as a description of the gap, not a diagnosis. It cannot name the omitted queries, count them or say whether any came from AI features.",
+    ],
+    steps: [
+      "In Search Console, open Performance, then Search results, choose a date range and export the report. Note whether a query filter is applied.",
+      "Open the downloaded Queries and Dates files, or copy the Queries rows and the total clicks and impressions from the chart.",
+      "Upload the files or paste the rows, enter any brand terms, answer the filter question and run the check.",
+    ],
+    checks: [
+      "Clicks and impressions in your query rows against the chart totals",
+      "Whether the export reached the 1,000-row interface limit",
+      "Top 10 concentration, zero-click rows and a brand term split, labelled as a heuristic",
+    ],
+    limits: "This compares two tables from one export. It cannot name the omitted queries, count them, or tell whether any came from AI features. Brand matching is a term-match heuristic and is never applied to the remainder.",
+    faqs: [
+      { q: "Why don't my query rows add up to the chart totals?", a: "Google says anonymised queries are omitted from the tables but included in the chart totals, and the interface exports at most 1,000 rows. Both can leave a remainder in the totals." },
+      { q: "Can the checker split the remainder between anonymised queries and the row cap?", a: "Only in some cases. If you filtered by query, or the export is under 1,000 rows, the checker says what the gap is consistent with. If the export reached the cap with no filter, the two cannot be separated." },
+      { q: "How do I get more than 1,000 rows?", a: "Use the Search Analytics API or the Looker Studio connector. Both allow up to 50,000 rows per day per site per search type, and the API returns up to 25,000 rows per request with startRow for paging." },
+      { q: "Is my export uploaded?", a: "No. The files are parsed in your browser and nothing from them is sent anywhere." },
+    ],
+    service: { href: "/services/technical-seo-audit/", label: "technical SEO audit", lead: "For a full review of what your Search Console data does and does not show, see my" },
+  },
   "keyword-cannibalisation-checker": {
     slug: "keyword-cannibalisation-checker",
     title: "Keyword Cannibalisation Checker",

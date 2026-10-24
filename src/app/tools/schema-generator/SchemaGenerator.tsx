@@ -2504,6 +2504,10 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
           <Link href="/contact/" className="text-brand underline underline-offset-2 hover:opacity-80">
             Request a free SEO diagnosis
           </Link>
+          , or book the{' '}
+          <Link href="/services/technical-seo-audit/" className="text-brand underline underline-offset-2 hover:opacity-80">
+            fixed-fee £495 technical audit
+          </Link>
           .
         </p>
       </div>

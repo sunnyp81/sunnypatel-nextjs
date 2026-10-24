@@ -228,15 +228,15 @@ const pct = (part: number, whole: number) =>
 
 function attribution(r: Result): string {
   if (r.remainder.clicks === 0 && r.remainder.impressions === 0)
-    return "The exported rows add up to the chart totals you supplied.";
+    return "Every click and impression in the chart totals is in an exported row.";
   const atInterfaceLimit = r.rowLimitMatch === 1000;
   if (!r.filtered && atInterfaceLimit)
-    return "This file has 1,000 rows, which is the interface export maximum, and no query filter was applied. The gap could come from anonymised queries, omitted rows or both, and these inputs cannot separate them.";
+    return "The export has 1,000 rows. That is the interface export maximum. No query filter was applied. The gap could come from anonymised queries, from rows cut by the 1,000-row limit or from both. These inputs cannot separate them.";
   if (!r.filtered)
-    return "The gap is consistent with anonymised queries, which Google leaves out of the tables but includes in the chart totals. These inputs cannot rule out other causes, such as an incomplete export.";
+    return "The gap is consistent with anonymised queries. Google leaves them out of the tables but includes them in the chart totals. These inputs cannot rule out other causes. An incomplete export is one example.";
   if (atInterfaceLimit)
-    return "You reported a query filter, so anonymised queries should already be excluded from the chart totals. This file has 1,000 rows, the interface export maximum, so omitted rows may contribute, but these inputs cannot establish the cause.";
-  return "You reported a query filter, so anonymised queries should already be excluded from the chart totals, yet a gap remains. Check that both files come from the same report, date range, search type and filters, and that the export is complete.";
+    return "Rows cut by the 1,000-row export limit may explain this gap. The export has 1,000 rows. That is the interface export maximum. Anonymised queries should already be excluded from the chart totals because you reported a query filter. These inputs cannot establish the cause.";
+  return "A gap remains even though anonymised queries should already be excluded from the chart totals under your query filter. Check that both files come from the same report, date range, search type and filters. Check that the export is complete.";
 }
 
 function headline(r: Result): string {

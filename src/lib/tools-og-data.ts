@@ -6,8 +6,8 @@ export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
     description: "Check business details, local page signals and structured data.",
   },
   "gsc-export-coverage": {
-    headline: "GSC Export Coverage Checker",
-    description: "See what share of clicks your Queries export does not explain.",
+    headline: "Search Console Export Action Finder",
+    description: "Drop in your Search Console zip for a ranked list of actions.",
   },
   "keyword-cannibalisation-checker": {
     headline: "Keyword Cannibalisation Checker",

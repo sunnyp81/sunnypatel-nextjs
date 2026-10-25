@@ -207,6 +207,7 @@ export default function GscExportCoverage() {
       setRevision((n) => n + 1);
       setBaselineNote(`Baseline loaded: ${parsed.start} to ${parsed.end}, ${parsed.flagged.length} flagged rows.`);
     } catch {
+      if (gen !== baselineGen.current) return;
       setBaseline(null);
       setRevision((n) => n + 1);
       setBaselineNote("That file is not a usable baseline downloaded from this tool.");
@@ -403,7 +404,7 @@ export default function GscExportCoverage() {
 
           {a.brand && (
             <p className="mt-6 text-sm text-foreground">
-              Rows matching your brand terms: {fmt(a.brand.clicks)} clicks ({pct(a.brand.share)} of exported clicks, a term-match heuristic).
+              Rows matching your brand terms: {fmt(a.brand.clicks)} clicks ({pct(a.brand.share)} of clicks in rows with 30 or more impressions, a term-match heuristic).
               {a.brand.share >= 0.6 &&
                 " Most clicks come from queries matching your brand terms. The query actions above leave those rows out."}
             </p>

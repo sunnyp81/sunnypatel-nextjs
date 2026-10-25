@@ -51,11 +51,11 @@ export const newToolPages: Record<string, ToolPageInfo> = {
     slug: "gsc-export-coverage",
     title: "Search Console Export Action Finder",
     description: "Drop in your Search Console Performance zip for a ranked action list judged against your own CTR, a scenario figure and a baseline to re-check in 28 days.",
-    intro: "Drop in the zip Search Console downloads and get a ranked list of queries and pages to fix, judged against your own site's CTR at the same positions. Every action has a next step and a scenario figure with its formula shown. Download the baseline, re-export in 28 days and the tool measures what changed.",
+    intro: "Drop in the zip Search Console downloads and get a ranked list of queries and pages to fix, judged against your own site's CTR in the same position bands. Every action has a next step, and the flagged queries add up to a scenario figure with its formula shown. Download the baseline, re-export in 28 days and the tool compares what changed.",
     explanation: [
-      "Search Console exports the Performance report as one zip of CSV files. This tool opens that zip in your browser and reads the Queries, Pages, Dates, Devices and Filters tables. It compares each query and page with your own site's median click-through rate at the same position, so the benchmark is your own data and not an industry curve. Rows that sit well below that median, or sit within reach of page one, become a ranked action list.",
+      "Search Console exports the Performance report as one zip of CSV files. This tool opens that zip in your browser and reads the Queries, Pages, Dates, Devices and Filters tables. It compares each query and page with your own site's median click-through rate in the same position band, so the benchmark is your own data and not an industry curve. Rows that sit well below that median, or sit within reach of page one, become a ranked action list.",
       "The scenario figure shows what the flagged queries would add over the same period if each matched your site's median CTR at its position. It is a scenario from your own data, not a forecast, and the formula is shown beside it. The tool also shows how much of the chart total is missing from your query rows. Google's October 2022 Search Central post says anonymised queries are left out of the tables but included in the chart totals unless you filter by query. It also says the interface exports at most 1,000 rows.",
-      "Download the baseline file, work the list, then export the same report for the same number of days in 28 days. Drop the new zip in with the baseline and the tool compares the flagged rows with an unflagged control set. If both moved together, the change is consistent with a broad shift and not your edits. The export holds separate query and page tables, so the tool cannot say which page ranks for a query. It cannot attribute anything to AI features.",
+      "Download the baseline file, work the list, then export the same report for the same number of days in 28 days. Drop the new zip in with the baseline and the tool compares the flagged rows with the unflagged rows. If both moved by similar amounts, a change is as likely to be broad as caused by your edits. The export holds separate query and page tables, so the tool cannot say which page ranks for a query. It cannot attribute anything to AI features.",
     ],
     steps: [
       "In Search Console, set the language to English and open Performance, then Search results. Tick Clicks, Impressions, CTR and Average position, pick a 28-day range and choose Export.",
@@ -63,14 +63,14 @@ export const newToolPages: Record<string, ToolPageInfo> = {
       "Work the list from the top, download the baseline, then come back in 28 days with a new export and compare.",
     ],
     checks: [
-      "Queries and pages judged against your site's own CTR at the same position",
+      "Queries and pages judged against your site's own CTR in the same position band",
       "Striking-distance and zero-click queries, each with a next step",
       "A scenario figure, a baseline file and a 28-day comparison",
     ],
     limits: "The export holds separate query and page tables, so this tool cannot say which page ranks for a query. Scenario figures use your own median CTR and are not forecasts. Rows under 30 impressions are never actioned. Brand matching uses the terms you enter.",
     faqs: [
       { q: "Do I need to unzip the file?", a: "No. The tool opens the zip in your browser using its built-in decompression. If your browser cannot, it asks for the CSV files instead." },
-      { q: "How is the scenario figure calculated?", a: "For each flagged query, impressions are multiplied by the gap between your site's median CTR at that position band and the query's current CTR, then summed. It is a scenario from your own data, not a forecast." },
+      { q: "How is the scenario figure calculated?", a: "For each flagged query with a band median, impressions are multiplied by the gap between your site's median CTR in that position band and the query's current CTR, then summed. It is a scenario from your own data, not a forecast." },
       { q: "Why are some queries missing?", a: "Google omits anonymised queries from the tables and the interface exports at most 1,000 rows. The coverage line shows how much of the chart total is in your rows." },
       { q: "Can it tell me which page ranks for a query?", a: "No. The export gives separate query and page tables. Use the query filter in Search Console to see the page." },
     ],

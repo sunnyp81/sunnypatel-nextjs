@@ -27,6 +27,7 @@ export type Analysis = {
   queryRows: Metric[];
   pageRows: Metric[];
   queryFilter: "yes" | "no" | "unsure";
+  filterSignature: string;
   coverage: { visible: Totals; remainder: Totals } | null;
   hasPosition: boolean;
   queryBands: BandStat[];
@@ -43,6 +44,7 @@ export type Baseline = {
   end: string;
   days: number;
   queryFilter: "yes" | "no" | "unsure";
+  filterSignature: string;
   totals: Totals | null;
   queryBands: BandStat[];
   flagged: { itemType: string; item: string; type: string; clicks: number; impressions: number; position: number | null }[];
@@ -208,8 +210,10 @@ export function analyse(input: {
     d.rows.forEach((cells, index) => {
       const cc = toCount(cells[ci]);
       const ic = toCount(cells[ii]);
-      if (!cells[0] || !Number.isFinite(cc) || !Number.isFinite(ic))
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(cells[0] || "") || !Number.isFinite(cc) || !Number.isFinite(ic))
         throw new Error(`Row ${index + 2} of the Dates table has no usable date, clicks or impressions.`);
+      if (dates.includes(cells[0]))
+        throw new Error(`The Dates table repeats the date ${cells[0]}. Export one report for one period.`);
       c += cc;
       i += ic;
       dates.push(cells[0]);
@@ -293,7 +297,7 @@ export function analyse(input: {
       notices.push("The Devices table could not be read, so the device check was skipped.");
     }
   }
-  const order = { D: 0, B: 1, C: 2, A: 3, F: 4 } as const;
+  const order = { D: 0, C: 1, B: 2, A: 3, F: 4 } as const;
   actions.sort((a, b) => order[a.type] - order[b.type] || b.impressions - a.impressions);
 
   let brandInfo: Analysis["brand"] = null;
@@ -304,13 +308,14 @@ export function analyse(input: {
 
   const filt = by("filters");
   let queryFilter = input.queryFilter;
+  let filterSignature = "";
   if (filt) {
-    const hit = filt.rows.some((r) => r.some((c) => /quer/i.test(c))) || filt.headers.some((h) => /quer/i.test(h));
-    queryFilter = hit ? "yes" : "no";
+    filterSignature = filt.rows.map((r) => r.join("=")).join("|").toLowerCase();
+    queryFilter = filt.rows.some((r) => /^quer/i.test(r[0] || "")) ? "yes" : "no";
   }
 
   return {
-    start, end, days, totals, queryRows: qm.rows, pageRows: pm ? pm.rows : [], queryFilter, coverage, hasPosition,
+    start, end, days, totals, queryRows: qm.rows, pageRows: pm ? pm.rows : [], queryFilter, filterSignature, coverage, hasPosition,
     queryBands, pageBands, actions,
     scenarioQueries: actions.filter((a) => a.itemType === "query" && (a.type === "B" || a.type === "C")).reduce((s, a) => s + a.scenario, 0),
     scenarioPages: actions.filter((a) => a.type === "D").reduce((s, a) => s + a.scenario, 0),
@@ -319,14 +324,15 @@ export function analyse(input: {
 }
 
 export function makeBaseline(a: Analysis): Baseline {
-  const flaggedKeys = new Set(a.actions.map((x) => `${x.itemType}:${x.item.toLowerCase()}`));
+  const flaggedKeys = new Set(a.actions.map((x) => `${x.itemType}:${x.itemType === "query" ? x.item.toLowerCase() : x.item}`));
   const row = (itemType: string, r: Metric) => ({ itemType, item: r.key, clicks: r.clicks, impressions: r.impressions, position: r.position });
   const control = [
     ...a.queryRows.filter((r) => r.impressions >= 100 && !flaggedKeys.has(`query:${r.key.toLowerCase()}`)).map((r) => row("query", r)),
-    ...a.pageRows.filter((r) => r.impressions >= 200 && !flaggedKeys.has(`page:${r.key.toLowerCase()}`)).map((r) => row("page", r)),
+    ...a.pageRows.filter((r) => r.impressions >= 200 && !flaggedKeys.has(`page:${r.key}`)).map((r) => row("page", r)),
   ];
   return {
-    version: 1, start: a.start, end: a.end, days: a.days, queryFilter: a.queryFilter, totals: a.totals, queryBands: a.queryBands,
+    version: 1, start: a.start, end: a.end, days: a.days, queryFilter: a.queryFilter, filterSignature: a.filterSignature,
+    totals: a.totals, queryBands: a.queryBands,
     flagged: a.actions.filter((x) => x.itemType !== "device").map((x) => ({
       itemType: x.itemType, item: x.item, type: x.type, clicks: x.clicks, impressions: x.impressions, position: x.position,
     })),
@@ -334,50 +340,57 @@ export function makeBaseline(a: Analysis): Baseline {
   };
 }
 
-export type Compare = {
-  flagged: { n: number; matched: number; clicksBefore: number; clicksAfter: number; impressionsBefore: number; impressionsAfter: number };
-  control: { n: number; matched: number; clicksBefore: number; clicksAfter: number; impressionsBefore: number; impressionsAfter: number };
-  flaggedChange: number | null;
-  controlChange: number | null;
-  verdict: string;
-};
+export type Group = { n: number; matched: number; clicksBefore: number; clicksAfter: number };
+export type DimCompare = { flagged: Group; unflagged: Group; flaggedChange: number | null; unflaggedChange: number | null; verdict: string };
+export type Compare = { queries: DimCompare; pages: DimCompare | null };
 
-export function compare(base: Baseline, now: Analysis): Compare {
-  if (base.version !== 1 || !Array.isArray(base.flagged) || !Array.isArray(base.control))
-    throw new Error("That file is not a baseline from this tool.");
-  if (Math.abs(base.days - now.days) > 2)
-    throw new Error(`The periods differ in length (${base.days} days then, ${now.days} days now). Re-export the same number of days.`);
-  if (base.queryFilter !== now.queryFilter)
-    throw new Error("The query filter state differs between the two exports, so the figures are not comparable.");
-  const nowQ = new Map(now.queryRows.map((r) => [r.key.toLowerCase(), r]));
-  const nowP = new Map(now.pageRows.map((r) => [r.key.toLowerCase(), r]));
-  const sum = (items: Baseline["flagged"] | Baseline["control"]) => {
+function dimCompare(
+  base: Baseline,
+  itemType: "query" | "page",
+  now: Map<string, Metric>,
+): DimCompare {
+  const norm = (s: string) => (itemType === "query" ? s.toLowerCase() : s);
+  const sum = (items: { itemType: string; item: string; clicks: number; impressions: number }[]): Group => {
+    const mine = items.filter((x) => x.itemType === itemType);
     let matched = 0;
     let cb = 0;
     let ca = 0;
-    let ib = 0;
-    let ia = 0;
-    for (const it of items) {
-      const hit = (it.itemType === "page" ? nowP : nowQ).get(it.item.toLowerCase());
-      if (!hit) continue;
+    for (const it of mine) {
+      const hit = now.get(norm(it.item));
+      if (!hit || it.impressions < MIN_IMPRESSIONS || hit.impressions < MIN_IMPRESSIONS) continue;
       matched++;
-      cb += it.clicks; ca += hit.clicks; ib += it.impressions; ia += hit.impressions;
+      cb += it.clicks;
+      ca += hit.clicks;
     }
-    return { n: items.length, matched, clicksBefore: cb, clicksAfter: ca, impressionsBefore: ib, impressionsAfter: ia };
+    return { n: mine.length, matched, clicksBefore: cb, clicksAfter: ca };
   };
   const f = sum(base.flagged);
-  const c = sum(base.control);
-  const change = (x: { clicksBefore: number; clicksAfter: number }) =>
-    x.clicksBefore >= MIN_IMPRESSIONS ? ((x.clicksAfter - x.clicksBefore) / x.clicksBefore) * 100 : null;
+  const u = sum(base.control);
+  const change = (g: Group) => (g.clicksBefore >= MIN_IMPRESSIONS ? ((g.clicksAfter - g.clicksBefore) / g.clicksBefore) * 100 : null);
   const fc = change(f);
-  const cc = change(c);
+  const uc = change(u);
   let verdict = "Not enough clicks in the matched rows to compare. Re-check after a longer period.";
-  if (fc !== null && cc !== null)
+  if (fc !== null && uc !== null)
     verdict =
-      Math.abs(fc - cc) <= 10
-        ? "Both sets moved together. The change is consistent with a broad shift, not with your edits."
-        : fc > cc
-          ? "The flagged rows moved more than the unflagged control rows. That is consistent with your edits helping, but it does not prove it."
-          : "The flagged rows moved less than the unflagged control rows. Review whether the edits were made and indexed.";
-  return { flagged: f, control: c, flaggedChange: fc, controlChange: cc, verdict };
+      Math.abs(fc - uc) <= 10
+        ? "The flagged and unflagged rows moved by similar amounts, so any change is as likely to be broad as caused by your edits."
+        : fc > uc
+          ? "The flagged rows moved more than the unflagged rows. That is consistent with your edits helping, but it does not prove it."
+          : "The flagged rows moved less than the unflagged rows. Check that the edits were made and have been recrawled.";
+  return { flagged: f, unflagged: u, flaggedChange: fc, unflaggedChange: uc, verdict };
+}
+
+export function compare(base: Baseline, now: Analysis): Compare {
+  if (base.version !== 1 || !Array.isArray(base.flagged) || !Array.isArray(base.control) || !Number.isFinite(base.days) || base.days <= 0)
+    throw new Error("That file is not a baseline from this tool.");
+  if (base.days !== now.days)
+    throw new Error(`The periods differ in length (${base.days} days then, ${now.days} days now). Re-export the same number of days.`);
+  if (base.queryFilter !== now.queryFilter || (base.filterSignature || "") !== now.filterSignature)
+    throw new Error("The filters differ between the two exports, or cannot be confirmed to match, so the figures are not comparable.");
+  const q = new Map(now.queryRows.map((r) => [r.key.toLowerCase(), r]));
+  const p = new Map(now.pageRows.map((r) => [r.key, r]));
+  return {
+    queries: dimCompare(base, "query", q),
+    pages: now.pageRows.length ? dimCompare(base, "page", p) : null,
+  };
 }

@@ -16,7 +16,12 @@ import {
 
 const fmt = (n: number) => Math.round(n).toLocaleString("en-GB");
 const pct = (n: number, digits = 1) => `${(100 * n).toFixed(digits)}%`;
-const csvCell = (value: string | number) => `"${String(value).replace(/"/g, '""')}"`;
+const csvCell = (value: string | number) => {
+  const text = String(value);
+  const safe = /^[=+\-@\t\r]/.test(text) && Number.isNaN(Number(text)) ? `'${text}` : text;
+  return `"${safe.replace(/"/g, '""')}"`;
+};
+const MAX_FILE_BYTES = 20_000_000;
 const TYPE_LABEL: Record<string, string> = {
   A: "Striking distance",
   B: "Low CTR for its position",
@@ -30,7 +35,7 @@ function headline(a: Analysis): string {
   const noun = n === 1 ? "action" : "actions";
   if (!n) return "No actions met the thresholds in this export.";
   if (a.scenarioQueries >= 1)
-    return `${n} ${noun} found. Scenario: ${fmt(a.scenarioQueries)} extra clicks over these ${a.days || "same"} days.`;
+    return `${n} ${noun} found. Scenario: ${fmt(a.scenarioQueries)} extra query clicks over these ${a.days || "same"} days.`;
   return `${n} ${noun} found.`;
 }
 
@@ -107,7 +112,8 @@ function drawPng(a: Analysis) {
   });
   ctx.fillStyle = "#8a94ab";
   ctx.font = "22px sans-serif";
-  ctx.fillText("Your site's own median CTR by position band. Scenario, not a forecast.", 70, 548);
+  ctx.fillText("Your site's own median CTR by position band. Scenario, not a forecast.", 70, 520);
+  ctx.fillText("Scenario formula: impressions x (band median CTR minus current CTR), summed.", 70, 550);
   ctx.fillText("sunnypatel.co.uk/tools/gsc-export-coverage/", 70, 590);
   canvas.toBlob((blob) => {
     if (!blob) return;
@@ -132,8 +138,10 @@ export default function GscExportCoverage() {
   const [ran, setRan] = useState<{ key: string; analysis: Analysis; cmp: Compare | null } | null>(null);
   const [error, setError] = useState("");
   const generation = useRef(0);
+  const [loading, setLoading] = useState(false);
+  const [revision, setRevision] = useState(0);
 
-  const inputKey = JSON.stringify([tables.map((t) => [t.kind, t.rows.length, t.rows[0]]), brand, filter, baseline?.start]);
+  const inputKey = JSON.stringify([revision, brand, filter]);
   const result = ran && ran.key === inputKey ? ran : null;
 
   async function readFiles(files: FileList | null) {
@@ -141,11 +149,13 @@ export default function GscExportCoverage() {
     const gen = ++generation.current;
     setError("");
     setRan(null);
+    setLoading(true);
     const notes: string[] = [];
     const found: Table[] = [];
     let failed = false;
     for (const file of Array.from(files)) {
       try {
+        if (file.size > MAX_FILE_BYTES * 2) throw new Error("This file is larger than this tool accepts.");
         const isZip = /\.zip$/i.test(file.name) || file.type === "application/zip" || file.type === "application/x-zip-compressed";
         const texts: { name: string; text: string }[] = isZip
           ? await readZip(file)
@@ -176,7 +186,9 @@ export default function GscExportCoverage() {
       setTables([]);
       notes.push("A file could not be used, so nothing from this selection was loaded. Fix the file and drop it again.");
     } else setTables(found);
+    setRevision((n) => n + 1);
     setFileNotes(notes);
+    setLoading(false);
   }
 
   async function readBaseline(files: FileList | null) {
@@ -184,13 +196,16 @@ export default function GscExportCoverage() {
     if (!file) return;
     setRan(null);
     try {
+      if (file.size > MAX_FILE_BYTES) throw new Error("too large");
       const parsed = JSON.parse(await file.text()) as Baseline;
-      if (parsed.version !== 1 || !Array.isArray(parsed.flagged)) throw new Error("not a baseline");
+      if (parsed.version !== 1 || !Array.isArray(parsed.flagged) || !Array.isArray(parsed.control) || !Number.isFinite(parsed.days)) throw new Error("not a baseline");
       setBaseline(parsed);
+      setRevision((n) => n + 1);
       setBaselineNote(`Baseline loaded: ${parsed.start} to ${parsed.end}, ${parsed.flagged.length} flagged rows.`);
     } catch {
       setBaseline(null);
-      setBaselineNote("That file is not a baseline downloaded from this tool.");
+      setRevision((n) => n + 1);
+      setBaselineNote("That file is not a usable baseline downloaded from this tool.");
     }
   }
 
@@ -276,11 +291,11 @@ export default function GscExportCoverage() {
             className="mt-2 block w-full text-sm text-muted-foreground file:mr-4 file:rounded-lg file:border-0 file:bg-brand file:px-4 file:py-2 file:font-semibold file:text-background"
           />
         </label>
-        {baselineNote && <p className="mt-2 text-sm text-muted-foreground">{baselineNote}</p>}
+        <div role="status">{baselineNote && <p className="mt-2 text-sm text-muted-foreground">{baselineNote}</p>}</div>
       </details>
       <div className="mt-5 flex flex-wrap gap-3">
-        <button type="button" onClick={run} className="rounded-lg bg-brand px-5 py-3 font-semibold text-background">
-          Find actions
+        <button type="button" onClick={run} disabled={loading} className="rounded-lg bg-brand px-5 py-3 font-semibold text-background disabled:opacity-60">
+          {loading ? "Reading files" : "Find actions"}
         </button>
       </div>
       <p className="mt-3 text-sm text-muted-foreground">
@@ -297,12 +312,14 @@ export default function GscExportCoverage() {
       {a && result && (
         <div className="mt-8">
           <h2 className="text-2xl font-bold text-foreground">{headline(a)}</h2>
-          {a.scenarioQueries >= 1 && (
+          {(a.scenarioQueries >= 1 || a.scenarioPages >= 1) && (
             <p className="mt-3 text-sm text-muted-foreground">
-              Scenario, not a forecast: {fmt(a.scenarioQueries)} extra clicks over this same period if the flagged queries
-              matched your site&apos;s own median CTR at their position. Formula: impressions × (band median CTR − current CTR), summed.
+              Scenario, not a forecast.
+              {a.scenarioQueries >= 1 &&
+                ` ${fmt(a.scenarioQueries)} extra query clicks over this same period if the flagged queries matched your site's own median CTR in their position band.`}
               {a.scenarioPages >= 1 &&
-                ` Pages scenario, shown separately: ${fmt(a.scenarioPages)} extra clicks. Do not add it to the query figure; the two tables overlap.`}
+                ` ${fmt(a.scenarioPages)} extra page clicks on the same basis for the flagged pages. Do not add the query and page figures together; the two tables overlap.`}
+              {" "}Formula: impressions × (band median CTR − current CTR), summed. Zero-click and striking-distance rows without a band median add nothing to it.
             </p>
           )}
           {coverageLine(a) && <p className="mt-3 text-sm text-muted-foreground">{coverageLine(a)}</p>}
@@ -384,7 +401,7 @@ export default function GscExportCoverage() {
             <p className="mt-6 text-sm text-foreground">
               Rows matching your brand terms: {fmt(a.brand.clicks)} clicks ({pct(a.brand.share)} of exported clicks, a term-match heuristic).
               {a.brand.share >= 0.6 &&
-                " Most clicks come from people already searching your name. The actions above are the non-brand growth list."}
+                " Most clicks come from queries matching your brand terms. The query actions above leave those rows out."}
             </p>
           )}
 
@@ -414,17 +431,22 @@ export default function GscExportCoverage() {
           {result.cmp && (
             <div className="mt-6 rounded-lg border border-hairline bg-background p-4 text-sm text-foreground" aria-live="polite">
               <p className="font-semibold">Change since your baseline</p>
-              <p className="mt-2">
-                Flagged rows: {fmt(result.cmp.flagged.clicksBefore)} clicks then, {fmt(result.cmp.flagged.clicksAfter)} now
-                {result.cmp.flaggedChange !== null && ` (${result.cmp.flaggedChange >= 0 ? "+" : ""}${result.cmp.flaggedChange.toFixed(0)}%)`};
-                {" "}{result.cmp.flagged.matched} of {result.cmp.flagged.n} found in the new export. Rows missing from the new export are not counted as a loss.
+              {([["Queries", result.cmp.queries], ["Pages", result.cmp.pages]] as const).map(([label, d]) =>
+                d ? (
+                  <div key={label} className="mt-3">
+                    <p>
+                      <span className="font-semibold">{label}.</span> Flagged rows: {fmt(d.flagged.clicksBefore)} clicks then, {fmt(d.flagged.clicksAfter)} now
+                      {d.flaggedChange !== null && ` (${d.flaggedChange >= 0 ? "+" : ""}${d.flaggedChange.toFixed(0)}%)`}, from {d.flagged.matched} of {d.flagged.n} rows with 30 or more impressions in both periods.
+                      {" "}Unflagged rows: {fmt(d.unflagged.clicksBefore)} then, {fmt(d.unflagged.clicksAfter)} now
+                      {d.unflaggedChange !== null && ` (${d.unflaggedChange >= 0 ? "+" : ""}${d.unflaggedChange.toFixed(0)}%)`}, from {d.unflagged.matched} of {d.unflagged.n} rows.
+                    </p>
+                    <p className="mt-1 text-muted-foreground">{d.verdict}</p>
+                  </div>
+                ) : null,
+              )}
+              <p className="mt-3 text-xs text-muted-foreground">
+                Rows missing from the new export, or under 30 impressions in either period, are left out and are not counted as a loss. Queries and pages overlap, so the two comparisons are not added together.
               </p>
-              <p className="mt-2">
-                Unflagged control rows: {fmt(result.cmp.control.clicksBefore)} clicks then, {fmt(result.cmp.control.clicksAfter)} now
-                {result.cmp.controlChange !== null && ` (${result.cmp.controlChange >= 0 ? "+" : ""}${result.cmp.controlChange.toFixed(0)}%)`};
-                {" "}{result.cmp.control.matched} of {result.cmp.control.n} found.
-              </p>
-              <p className="mt-2 text-muted-foreground">{result.cmp.verdict}</p>
             </div>
           )}
         </div>

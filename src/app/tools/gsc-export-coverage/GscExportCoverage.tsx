@@ -139,6 +139,7 @@ export default function GscExportCoverage() {
   const [error, setError] = useState("");
   const generation = useRef(0);
   const [loading, setLoading] = useState(false);
+  const baselineGen = useRef(0);
   const [revision, setRevision] = useState(0);
 
   const inputKey = JSON.stringify([revision, brand, filter]);
@@ -194,10 +195,13 @@ export default function GscExportCoverage() {
   async function readBaseline(files: FileList | null) {
     const file = files?.[0];
     if (!file) return;
+    const gen = ++baselineGen.current;
     setRan(null);
     try {
       if (file.size > MAX_FILE_BYTES) throw new Error("too large");
-      const parsed = JSON.parse(await file.text()) as Baseline;
+      const text = await file.text();
+      if (gen !== baselineGen.current) return;
+      const parsed = JSON.parse(text) as Baseline;
       if (parsed.version !== 1 || !Array.isArray(parsed.flagged) || !Array.isArray(parsed.control) || !Number.isFinite(parsed.days)) throw new Error("not a baseline");
       setBaseline(parsed);
       setRevision((n) => n + 1);

@@ -219,6 +219,14 @@ export function analyse(input: {
       dates.push(cells[0]);
     });
     dates.sort();
+    const valid = (s: string) => {
+      const [y, m, dd] = s.split("-").map(Number);
+      const dt = new Date(Date.UTC(y, m - 1, dd));
+      return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === dd;
+    };
+    if (dates.some((s) => !valid(s))) throw new Error("The Dates table holds a date that does not exist.");
+    const span = Math.round((Date.parse(dates[dates.length - 1]) - Date.parse(dates[0])) / 86_400_000) + 1;
+    if (span !== dates.length) throw new Error("The Dates table has gaps. Export one continuous period.");
     start = dates[0] || "";
     end = dates[dates.length - 1] || "";
     days = dates.length;
@@ -302,15 +310,20 @@ export function analyse(input: {
 
   let brandInfo: Analysis["brand"] = null;
   if (input.brandTerms.length) {
-    const bc = qm.rows.filter((r) => brand(r.key)).reduce((s, r) => s + r.clicks, 0);
-    if (visible.clicks >= 30) brandInfo = { terms: input.brandTerms, clicks: bc, share: bc / visible.clicks };
+    const eligible = qm.rows.filter((r) => r.impressions >= MIN_IMPRESSIONS);
+    const total = eligible.reduce((s, r) => s + r.clicks, 0);
+    const bc = eligible.filter((r) => brand(r.key)).reduce((s, r) => s + r.clicks, 0);
+    if (total >= 30) brandInfo = { terms: input.brandTerms, clicks: bc, share: bc / total };
   }
 
   const filt = by("filters");
   let queryFilter = input.queryFilter;
   let filterSignature = "";
   if (filt) {
-    filterSignature = filt.rows.map((r) => r.join("=")).join("|").toLowerCase();
+    filterSignature = filt.rows
+      .filter((r) => !/^(date|period)/i.test(r[0] || ""))
+      .map((r) => r.join("="))
+      .join("|");
     queryFilter = filt.rows.some((r) => /^quer/i.test(r[0] || "")) ? "yes" : "no";
   }
 
@@ -373,7 +386,7 @@ function dimCompare(
   if (fc !== null && uc !== null)
     verdict =
       Math.abs(fc - uc) <= 10
-        ? "The flagged and unflagged rows moved by similar amounts, so any change is as likely to be broad as caused by your edits."
+        ? "The flagged and unflagged rows moved by similar amounts. This comparison cannot separate your edits from broader changes."
         : fc > uc
           ? "The flagged rows moved more than the unflagged rows. That is consistent with your edits helping, but it does not prove it."
           : "The flagged rows moved less than the unflagged rows. Check that the edits were made and have been recrawled.";
@@ -385,6 +398,8 @@ export function compare(base: Baseline, now: Analysis): Compare {
     throw new Error("That file is not a baseline from this tool.");
   if (base.days !== now.days)
     throw new Error(`The periods differ in length (${base.days} days then, ${now.days} days now). Re-export the same number of days.`);
+  if (base.queryFilter === "unsure" || now.queryFilter === "unsure")
+    throw new Error("Say whether each export used a query filter, or include the Filters file in the zip, so the two exports can be matched.");
   if (base.queryFilter !== now.queryFilter || (base.filterSignature || "") !== now.filterSignature)
     throw new Error("The filters differ between the two exports, or cannot be confirmed to match, so the figures are not comparable.");
   const q = new Map(now.queryRows.map((r) => [r.key.toLowerCase(), r]));

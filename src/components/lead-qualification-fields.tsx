@@ -75,23 +75,22 @@ export function LeadQualificationFields({
         </select>
       </div>
 
-      <FormField
-        id={`${idPrefix}-website`}
-        label="Website"
-        type="text"
-        inputMode="url"
-        placeholder="https://example.com"
-        optional
-        value={formData.website ?? ""}
-        onChange={(event) => onChange("website", event)}
-        disabled={disabled}
-      />
-
       <details className="group rounded-lg">
         <summary className="min-h-11 cursor-pointer py-2 text-sm font-medium text-brand-ink underline decoration-brand/50 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ink/50">
-          Add budget and timing (optional)
+          Add website, budget and timing (optional)
         </summary>
         <div className="space-y-5 pt-4">
+          <FormField
+            id={`${idPrefix}-website`}
+            label="Website"
+            type="text"
+            inputMode="url"
+            placeholder="https://example.com"
+            optional
+            value={formData.website ?? ""}
+            onChange={(event) => onChange("website", event)}
+            disabled={disabled}
+          />
           <OptionalSelect id={`${idPrefix}-budget`} field="budget" label="Monthly budget range" value={formData.budget ?? ""} options={BUDGET_OPTIONS} onChange={onChange} disabled={disabled} />
           <OptionalSelect id={`${idPrefix}-timing`} field="timing" label="When are you looking to start?" value={formData.timing ?? ""} options={TIMING_OPTIONS} onChange={onChange} disabled={disabled} />
         </div>

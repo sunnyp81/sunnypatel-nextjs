@@ -205,8 +205,10 @@ export async function POST(request: Request) {
     const likelySpam = spamScore({ message, email, howHeard }) >= SPAM_THRESHOLD;
     const subjectPrefix = (likelySpam ? "[Spam?] " : "") + (verified ? "" : "[Unverified] ");
 
-    const leadKey = `lead:${new Date().toISOString()}:${crypto.randomUUID().slice(0, 8)}`;
+    const ref = crypto.randomUUID().slice(0, 8);
+    const leadKey = `lead:${new Date().toISOString()}:${ref}`;
     await storeLead(leadKey, {
+      ref,
       at: new Date().toISOString(),
       name: String(name).slice(0, 200),
       email: String(email).slice(0, 200),
@@ -238,6 +240,7 @@ export async function POST(request: Request) {
             ? `${cleanHeader(offerLabel)}: enquiry from ${cleanHeader(name)}`
             : `New enquiry from ${cleanHeader(name)}`),
         text: [
+          `Reference: ${ref}`,
           `Offer: ${offerLabel || "General enquiry"}`,
           ...(articleCTA.cta_article ? [`Last article CTA (client-reported, within 30 minutes): ${articleCTA.cta_article} / ${articleCTA.cta_offer}`] : []),
           `Name: ${name}`,
@@ -335,7 +338,7 @@ export async function POST(request: Request) {
       }).catch(() => {});
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, ref, track: likelySpam ? "filtered" : "lead" });
   } catch (err) {
     console.error("Contact API error:", err);
     return NextResponse.json(

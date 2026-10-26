@@ -130,10 +130,13 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
       } else {
         setStatus("success");
         setFormData(opts.initial);
-        trackEvent("generate_lead", {
+        // Submissions the server scores as likely spam are still delivered, but they must not
+        // count as leads in GA4: they get their own event so the lead count stays a real-enquiry count.
+        trackEvent(data.track === "filtered" ? "spam_submission" : "generate_lead", {
           event_category: opts.eventCategory,
           event_label: opts.eventLabel,
           form_location: opts.eventLabel,
+          ...(typeof data.ref === "string" ? { submission_ref: data.ref } : {}),
           value: opts.leadValue ?? 50,
           currency: "GBP",
           transport_type: "beacon",

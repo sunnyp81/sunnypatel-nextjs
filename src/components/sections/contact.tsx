@@ -216,9 +216,8 @@ function ContactForm({ supportParam }: { supportParam: string }) {
                   />
                   <FormSelect
                     id="howHeard"
-                    label="How did you hear about me?"
+                    label="How did you hear about me? (optional)"
                     options={HOW_HEARD_OPTIONS}
-                    required
                     value={formData.howHeard}
                     onChange={handleChange}
                     disabled={status === "loading"}

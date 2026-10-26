@@ -385,7 +385,17 @@ const SPECIFIC_DATA: Record<string, ConversionData> = {
 
 const DEFAULT_COVERAGE_MAP_CAPTION = "Towns I cover across Berkshire. Positions approximate.";
 
-const MID_FORM_SLUGS = new Set(["freelance-seo-consultant", "technical-seo-services", "seo-berkshire", "seo-wokingham", "seo-consultant-reading"]);
+const MID_FORM_SLUGS = new Set([
+  "freelance-seo-consultant",
+  "technical-seo-services",
+  "seo-berkshire",
+  "seo-wokingham",
+  "seo-consultant-reading",
+  "seo-bracknell",
+  "seo-maidenhead",
+  "seo-windsor",
+  "seo-slough",
+]);
 const COVERAGE_MAP_CAPTIONS: Record<string, string> = {
   "seo-berkshire": DEFAULT_COVERAGE_MAP_CAPTION,
   "seo-consultant-reading": "Towns I cover across Berkshire. Positions approximate. Remote work available UK-wide.",

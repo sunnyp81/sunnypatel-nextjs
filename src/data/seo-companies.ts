@@ -32,10 +32,10 @@ export const seoCompanies: SeoCompany[] = [
     id: "blue-array", name: "Blue Array", url: "https://www.bluearray.co.uk/", needs: ["technical", "international"],
     fit: "Specialist organic strategy alongside an in-house team",
     summary: "Blue Array offers organic search consultancy, technical support, content, digital PR and GEO. It publishes separate services for growing and established businesses, so ask which engagement matches your resources.",
-    evidence: "Its organic search service describes working with clients' developers, copywriters and PR teams. Its published UK offices are in Reading and London.",
+    evidence: "Blue Array's own iwoca case study describes 12 months of SEO for a UK business lender moving away from government loan scheme traffic: optimising for business loan queries, a finance education hub, hub-based internal linking and stronger authorship signals on YMYL content. It reports non-branded click growth as its own claim. Its organic search service page also describes working with clients' developers, copywriters and PR teams.",
     question: "Which recommendations will your team implement, and which need our developers or writers?",
     scope: "A strategy-led engagement needs a named owner and capacity for implementation.",
-    sources: [{ label: "Blue Array organic search services", url: "https://www.bluearray.co.uk/services/organic-search/" }], checked: seoCompaniesReviewed,
+    sources: [{ label: "Blue Array case study: iwoca", url: "https://www.bluearray.co.uk/success-stories/iwoca/" }, { label: "Blue Array organic search services", url: "https://www.bluearray.co.uk/services/organic-search/" }], checked: "2026-10-30",
   },
   {
     id: "builtvisible", name: "Builtvisible", url: "https://builtvisible.com/", needs: ["pr", "technical", "international"],

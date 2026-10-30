@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { load } from "cheerio";
 import {
+  buildAggregateRating,
   countSchemaItems,
   createJsonLdScript,
   serializeJsonLdForHtml,
@@ -34,3 +35,18 @@ test("schema item counts include nested typed entities", () => {
 
   assert.equal(countSchemaItems(schema), 3);
 });
+
+for (const [label, key] of [["Product", "reviewCount"], ["SoftwareApplication", "ratingCount"]]) {
+  test(`${label} aggregateRating needs both value and count`, () => {
+    assert.deepEqual(buildAggregateRating("", "", key), {});
+    const valueOnly = buildAggregateRating("4.5", "", key);
+    assert.equal(valueOnly.aggregateRating, undefined);
+    assert.match(valueOnly.issue, /^Add a (review|rating) count to include the rating/);
+    const countOnly = buildAggregateRating("", "12", key);
+    assert.equal(countOnly.aggregateRating, undefined);
+    assert.match(countOnly.issue, /^Add a rating value/);
+    assert.deepEqual(buildAggregateRating("4.5", "12", key), {
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.5", [key]: "12" },
+    });
+  });
+}

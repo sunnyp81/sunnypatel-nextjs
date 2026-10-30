@@ -15,6 +15,8 @@ const navigation = [
   ["methodology", "Research and disclosure"], ["proposal-scorecard", "Score your proposals"], ["faq", "Common questions"],
 ];
 
+const formatChecked = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+
 export function SeoCompaniesGuide({ title, image, faqs, children }: {
   title: string; image: string;
   faqs: readonly { question: string; answer: string }[];
@@ -42,7 +44,8 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
           <div className={styles.byline}>
             <Link href="/author/sunny-patel/">By Sunny Patel, SEO consultant</Link>
             <span>Published <time dateTime="2026-02-05">5 February 2026</time></span>
-            <span>Content and sources updated <time dateTime={seoCompaniesReviewed}>12 September 2026</time></span>
+            <span>Sources checked <time dateTime={seoCompaniesReviewed}>12 September</time> and <time dateTime="2026-10-30">30 October 2026</time></span>
+            <span>Content updated <time dateTime="2026-10-30">30 October 2026</time></span>
           </div>
           <p className={styles.disclosure}><strong>How to use this guide:</strong> compare 16 providers, including <a href="#sunny-patel">my own consultancy</a>, clearly labelled in the table and profiles. The other 15 are external providers. This is an editorial shortlist, not a tested ranking. <a href="#methodology">Read the research method and disclosures.</a></p>
         </header>
@@ -66,7 +69,7 @@ export function SeoCompaniesGuide({ title, image, faqs, children }: {
               <p>Each profile links to the provider&apos;s own evidence. Public case studies are self-reported, not independently audited results. The question in each profile helps you test suitability for your business.</p>
               <div className={styles.profiles}>
                 {seoCompanies.map((company) => <article key={company.id} id={company.id} className={`${styles.profile}${company.owned ? ` ${styles.owned}` : ""}`}>
-                  <div>{company.owned && <p className={styles.eyebrow}>The author&apos;s own consultancy</p>}<h3>{company.name}</h3><p className={styles.fit}>{company.fit}</p><p className={styles.checked}>Sources checked<br /><time dateTime={company.checked}>12 September 2026</time></p></div>
+                  <div>{company.owned && <p className={styles.eyebrow}>The author&apos;s own consultancy</p>}<h3>{company.name}</h3><p className={styles.fit}>{company.fit}</p><p className={styles.checked}>Sources checked<br /><time dateTime={company.checked}>{formatChecked(company.checked)}</time></p></div>
                   <div>
                     <p>{company.summary}</p>
                     <details><summary>Evidence, scope and what to ask</summary>

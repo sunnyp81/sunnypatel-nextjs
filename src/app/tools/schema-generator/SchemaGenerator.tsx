@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo, useId, isValidElement, cloneElement } from 'react';
 import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
-import { countSchemaItems, createJsonLdScript } from '@/lib/schema-generator';
+import { buildAggregateRating, countSchemaItems, createJsonLdScript } from '@/lib/schema-generator';
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -668,6 +668,10 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
       case 'Product':
         if (!product.name) w.push('Product name is required');
         if (!product.price) w.push('Price is required');
+        {
+          const { issue } = buildAggregateRating(product.ratingValue, product.reviewCount, 'reviewCount');
+          if (issue) w.push(issue);
+        }
         break;
       case 'BreadcrumbList':
         if (breadcrumbs.filter(b => b.name && b.url).length < 2) w.push('At least 2 breadcrumb items needed');
@@ -719,6 +723,10 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
       case 'SoftwareApplication':
         if (!app.name) w.push('App name is required');
         if (!app.price) w.push('Price is required (use 0 for free)');
+        {
+          const { issue } = buildAggregateRating(app.ratingValue, app.ratingCount, 'ratingCount');
+          if (issue) w.push(issue);
+        }
         break;
     }
     return w;
@@ -810,6 +818,7 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
         };
       }
       case 'Product': {
+        const { aggregateRating: productRating } = buildAggregateRating(product.ratingValue, product.reviewCount, 'reviewCount');
         return {
           '@context': 'https://schema.org',
           '@type': 'Product',
@@ -825,13 +834,7 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
             priceCurrency: product.currency,
             availability: `https://schema.org/${product.availability}`,
           },
-          ...((product.ratingValue || product.reviewCount) && {
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ...(product.ratingValue && { ratingValue: product.ratingValue }),
-              ...(product.reviewCount && { reviewCount: product.reviewCount }),
-            },
-          }),
+          ...(productRating && { aggregateRating: productRating }),
         };
       }
       case 'BreadcrumbList': {
@@ -1085,6 +1088,7 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
         };
       }
       case 'SoftwareApplication': {
+        const { aggregateRating: appRating } = buildAggregateRating(app.ratingValue, app.ratingCount, 'ratingCount');
         return {
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
@@ -1094,13 +1098,7 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
           ...(app.url && { url: app.url }),
           ...(app.description && { description: app.description }),
           offers: { '@type': 'Offer', price: app.price, priceCurrency: app.currency },
-          ...((app.ratingValue || app.ratingCount) && {
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ...(app.ratingValue && { ratingValue: app.ratingValue }),
-              ...(app.ratingCount && { ratingCount: app.ratingCount }),
-            },
-          }),
+          ...(appRating && { aggregateRating: appRating }),
         };
       }
       default:
@@ -1385,7 +1383,7 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
           ratingCount: ratingCount.display,
           price: app.price,
           currency: app.currency,
-          usingExample: name.isExample || description.isExample || ratingValue.isExample,
+          usingExample: name.isExample || description.isExample || ratingValue.isExample || ratingCount.isExample,
         };
       }
       default:
@@ -2604,7 +2602,7 @@ export default function SchemaGenerator({ initialType, heading = "Schema Markup 
               </div>
             ) : (
               <div className="rounded-lg border border-emerald-600/30 dark:border-emerald-500/20 bg-emerald-50 dark:bg-emerald-500/5 px-4 py-3">
-                <p className="text-sm font-medium text-emerald-800 dark:text-emerald-300">Template fields complete</p>
+                <p className="text-sm font-medium text-emerald-800 dark:text-emerald-300">Required template fields filled</p>
                 <p className="mt-1 text-xs leading-relaxed text-emerald-700 dark:text-emerald-100/70">
                   The generator&apos;s basic field checks pass. This is separate from Google eligibility and page-level validation.
                 </p>

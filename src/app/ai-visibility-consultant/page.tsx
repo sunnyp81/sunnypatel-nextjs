@@ -339,7 +339,7 @@ export default function AiVisibilityConsultantPage() {
                   free AI visibility check
                 </Link>{" "}
                 is a lower-commitment starting point, and running a smaller business, the{" "}
-                <Link href="/services/paid-seo-audit/" className="text-brand hover:underline">
+                <Link href="/services/technical-seo-audit/" className="text-brand hover:underline">
                   £495 SEO audit
                 </Link>{" "}
                 is usually the better fit than a full AI visibility engagement.

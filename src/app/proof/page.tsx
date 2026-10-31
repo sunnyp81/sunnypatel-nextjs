@@ -179,7 +179,7 @@ export default function ProofPage() {
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
-            href="/services/paid-seo-audit/"
+            href="/services/technical-seo-audit/"
             className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
             style={{
               fontFamily: "var(--font-heading)",

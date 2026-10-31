@@ -31,8 +31,13 @@ const nextConfig: NextConfig = {
       // Image compressor retired 2026-09-30: 4 impressions and 0 clicks in 90 days, off-topic for SEO leads.
       { source: "/tools/image-compressor", destination: "/tools/", permanent: true },
       { source: "/tools/image-compressor/:path*", destination: "/tools/", permanent: true },
-      { source: "/services/ai-visibility-audit", destination: "/services/paid-seo-audit/", permanent: true },
-      { source: "/services/ai-visibility-audit/", destination: "/services/paid-seo-audit/", permanent: true },
+      // Single owner for the £495 audit (Sunny approved 31 Oct 2026). paid-seo-audit folded into
+      // technical-seo-audit; ai-visibility-audit points straight at the owner to avoid a chain.
+      { source: "/services/ai-visibility-audit", destination: "/services/technical-seo-audit/", permanent: true },
+      { source: "/services/ai-visibility-audit/", destination: "/services/technical-seo-audit/", permanent: true },
+      { source: "/services/paid-seo-audit", destination: "/services/technical-seo-audit/", permanent: true },
+      { source: "/services/paid-seo-audit/", destination: "/services/technical-seo-audit/", permanent: true },
+      { source: "/services/paid-seo-audit/:path*", destination: "/services/technical-seo-audit/", permanent: true },
       {
         source: "/services/generative-engine-optimisation",
         destination: "/services/ai-search-optimisation/",

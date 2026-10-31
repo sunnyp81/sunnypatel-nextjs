@@ -356,7 +356,7 @@ export default function AiVisibilityPage() {
                 The plan is yours to implement independently. If you want ongoing help,
                 fractional support starts from £1,500 per month and the audit fee is
                 credited against your first month. Running a smaller site? The{" "}
-                <Link href="/services/paid-seo-audit/" className="text-brand hover:underline">
+                <Link href="/services/technical-seo-audit/" className="text-brand hover:underline">
                   £495 SEO audit
                 </Link>{" "}
                 is probably the better fit.
@@ -402,7 +402,7 @@ export default function AiVisibilityPage() {
                 { label: "AI Visibility Results", href: "/ai-visibility-results/" },
                 { label: "Free AI Visibility Checker", href: "/tools/ai-visibility-checker/" },
                 { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },
-                { label: "Paid SEO Audit (£495)", href: "/services/paid-seo-audit/" },
+                { label: "Technical SEO Audit (£495)", href: "/services/technical-seo-audit/" },
               ].map((link) => (
                 <Link
                   key={link.href}

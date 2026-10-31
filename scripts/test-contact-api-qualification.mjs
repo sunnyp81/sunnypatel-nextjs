@@ -118,7 +118,7 @@ test("API stores normalised qualification, includes readable mocked delivery det
 
 test("API email offer follows allowlisted one-off audit and session selections", async () => {
   const cases = [
-    ["one_off_audit", "Paid SEO Audit (£495)"],
+    ["one_off_audit", "SEO Audit (£495)"],
     ["single_session", "Single SEO consulting session (£200)"],
     ["quarterly_strategy_review", "Quarterly strategy review (£500)"],
     ["not_sure", "Free 20-minute SEO diagnosis"],

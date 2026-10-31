@@ -28,10 +28,10 @@ export const SUPPORT_OFFER_COPY = Object.freeze({
   },
   one_off_audit: {
     offerId: "paid_seo_audit_495",
-    offerLabel: "Paid SEO Audit (£495)",
+    offerLabel: "SEO Audit (£495)",
     eyebrow: "One-off audit",
     heading: "Discuss the £495 SEO audit",
-    intro: "The £495 audit covers technical SEO, content and AI-search visibility, with a written report, prioritised spreadsheet and 45-minute walkthrough, delivered in five working days. For sites over 500 indexed pages or complex enterprise architectures, contact me to discuss scope before booking.",
+    intro: "The £495 audit covers technical SEO, content and AI-search visibility, with a written report, prioritised spreadsheet and 60-minute walkthrough, delivered in five working days. For sites over 500 indexed pages or complex enterprise architectures, contact me to discuss scope before booking.",
     submitLabel: "Send SEO audit enquiry",
   },
   single_session: {

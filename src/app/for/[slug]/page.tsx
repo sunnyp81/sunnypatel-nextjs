@@ -133,11 +133,11 @@ export default async function ProspectPage({ params }: { params: Promise<{ slug:
           There are more issues like these on your site
         </h2>
         <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-          The full audit covers every technical, content and AI-visibility issue, prioritised by revenue impact, delivered in 5 working days with a 45-minute walkthrough call. Fixed fee £495, no retainer required. Or reply to my email and I will answer questions for free.
+          The full audit covers every technical, content and AI-visibility issue, prioritised by revenue impact, delivered in 5 working days with a 60-minute walkthrough call. Fixed fee £495, no retainer required. Or reply to my email and I will answer questions for free.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
-            href="/services/paid-seo-audit/"
+            href="/services/technical-seo-audit/"
             className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
             style={{
               fontFamily: "var(--font-heading)",

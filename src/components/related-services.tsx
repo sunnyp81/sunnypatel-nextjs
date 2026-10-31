@@ -96,7 +96,6 @@ const RELATED_SERVICE_SLUGS: Record<string, readonly string[]> = {
   "seo-maidenhead": ["local-seo", "technical-seo-audit", "seo-berkshire"],
   "seo-bracknell": ["local-seo", "technical-seo-audit", "seo-berkshire"],
   "technical-seo-audit": ["technical-seo-services", "content-briefs", "seo-consulting"],
-  "paid-seo-audit": ["technical-seo-audit", "content-briefs", "seo-consulting"],
   "topical-authority": ["topical-maps", "content-briefs", "semantic-seo"],
   "semantic-seo": ["topical-maps", "content-briefs", "technical-seo-audit"],
   "content-briefs": ["topical-maps", "topical-authority", "seo-consulting"],

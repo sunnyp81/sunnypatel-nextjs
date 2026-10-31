@@ -74,7 +74,7 @@ test("qualification still rejects invalid enums and non-string enum inputs", () 
 test("selected support maps to the existing offer label for contact and service forms", () => {
   assert.equal(getSupportOfferCopy("ongoing_implementation").offerLabel, "Ongoing SEO implementation (from £1,500/month)");
   assert.equal(getSupportOfferCopy("ongoing_advice").offerLabel, "Ongoing SEO advice (£600/month for four hours)");
-  assert.equal(getSupportOfferCopy("one_off_audit").offerLabel, "Paid SEO Audit (£495)");
+  assert.equal(getSupportOfferCopy("one_off_audit").offerLabel, "SEO Audit (£495)");
   assert.equal(getSupportOfferCopy("single_session").offerLabel, "Single SEO consulting session (£200)");
   assert.equal(getSupportOfferCopy("quarterly_strategy_review").offerLabel, "Quarterly strategy review (£500)");
   assert.equal(getSupportOfferCopy("not_sure").offerLabel, "Free 20-minute SEO diagnosis");

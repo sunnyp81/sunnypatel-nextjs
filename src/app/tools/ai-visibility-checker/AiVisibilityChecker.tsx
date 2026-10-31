@@ -234,11 +234,11 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
               Want a review of the issues behind these checks?
             </h2>
             <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              The £495 paid audit covers technical SEO, content and AI-search visibility, with a prioritised action plan and 45-minute walkthrough. Any sampled AI answers are observations that can vary, not a promise of inclusion or a complete view of an engine.
+              The £495 audit covers technical SEO, content and AI-search visibility, with a prioritised action plan and 60-minute walkthrough. Any sampled AI answers are observations that can vary, not a promise of inclusion or a complete view of an engine.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/services/paid-seo-audit/"
+                href="/services/technical-seo-audit/"
                 className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
                 style={{
                   fontFamily: 'var(--font-heading)',

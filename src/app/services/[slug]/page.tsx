@@ -414,8 +414,9 @@ const OFFER_FORM_DATA = {
       "Share the website and the main technical problem. I’ll confirm whether the standard scope fits before paid work starts.",
     trustPoints: [
       "£495 for a standard site of up to around 500 pages",
+      "Technical, content and AI-search checks in one audit",
       "Delivery within 5 working days after access",
-      "60-minute findings walkthrough included",
+      "Written report, prioritised spreadsheet and 60-minute walkthrough",
       "Implementation scoped separately if needed",
     ],
     badges: [

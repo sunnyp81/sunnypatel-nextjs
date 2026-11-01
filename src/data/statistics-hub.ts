@@ -55,6 +55,16 @@ export const STAT_GROUPS: StatGroup[] = [
         },
       },
       {
+        slug: "small-site-seo-benchmarks",
+        shortTitle: "Small-site SEO benchmarks",
+        summary: "First-party Search Console data: zero-click pages, click concentration and new-page timings on sites I own.",
+        figure: {
+          value: "87.9%",
+          label: "median share of a site's pages with impressions that got zero clicks in 12 months",
+          source: "Author's own portfolio data, Google Search Console API, to 29 October 2026",
+        },
+      },
+      {
         slug: "uk-ai-overviews-by-industry",
         shortTitle: "UK AI Overviews by industry",
         summary: "How often Google shows an AI Overview across 10 UK sectors, and which kinds of source it cites.",

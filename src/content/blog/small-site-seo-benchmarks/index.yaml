@@ -1,0 +1,39 @@
+title: 'Small-Site SEO Benchmarks: Zero-Click Pages and New-Page Timings on 100 Sites'
+metaTitle: 'Small-Site SEO Benchmarks: Zero-Click Pages on 100 Sites'
+ogImage: '/images/blog/hero-small-site-seo-benchmarks.webp'
+description: >-
+  Zero-click share, click concentration and time to first click for new pages
+  from 100 websites I own that have Google Search Console data.
+date: '2026-11-01'
+lastUpdated: '2026-11-01'
+tags:
+  - Original Research
+  - SEO Data
+  - Google Search Console
+  - Benchmarks
+faqs:
+  - question: What share of pages on a small site get no clicks from Google?
+    answer: >-
+      87.9% of pages with impressions recorded zero clicks in 12 months for the
+      median site (p25 to p75: 78.5% to 96.3%). That covers 84 of the 100
+      websites I own that have Google Search Console data. These are the sites
+      with 10 or more pages with impressions. This describes my own sites and
+      not the web.
+  - question: How long does a new page take to get its first click?
+    answer: >-
+      11 days was the median time to a first click among new pages that
+      clicked within 90 days of their first impression (p25 to p75: 0 to 40
+      days, n = 1,336). Only 8.3% of eligible new pages (1,336 of 16,046) got a
+      click within 90 days. The new-page measure is a rough proxy. Treat the
+      timings as a guide.
+  - question: Do a few pages really bring in most of a site's clicks?
+    answer: >-
+      96.1% is the median share of 12-month clicks coming from the top 10% of
+      pages (p25 to p75: 83.5% to 100%, n = 76 sites with any clicks). That is
+      a yes on my sites.
+  - question: Can I use these figures as a benchmark for my own site?
+    answer: >-
+      100 websites I own that have Google Search Console data make up the
+      sample. It is mostly UK affiliate and programmatic sites and leaves out
+      dead and sold sites. Use the figures as a reference point. The page
+      explains how to compute the same two shares from your own Pages export.

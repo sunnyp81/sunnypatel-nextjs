@@ -220,14 +220,51 @@ Monitor these in Google Search Console every day:
 
 **Escalate if:** traffic dropped 40%+, indexed page count is falling beyond what your retired-page count explains, unintended new 404 errors are appearing daily, or Core Web Vitals scores regressed significantly. These need immediate fixes, not patience.
 
+## Free Migration Kit: Download the Spreadsheet
+
+The migration kit is one free spreadsheet that turns this checklist into tabs you fill in. Nothing in it needs a purchase.
+
+The kit has seven tabs:
+
+- **Read Me** explains the order of work.
+- **URL Map** lists old URL, new URL, expected status code, owner query and a checked column. It holds 27 real rows from my own redirects.
+- **Practice** and **Answer Key** hold the redirect rehearsal below.
+- **Before-After Baseline** records clicks, impressions, indexed pages, top 20 pages and top queries. Each row says where to export the number.
+- **Launch Day Checks** and **30-60-90 Day Watch** are tick lists. Each check has a normal rule and an escalate rule.
+
+Download the [migration kit spreadsheet](/downloads/migration-kit.xlsx) and save a copy before you start the URL map.
+
+### Worked Example: My Own Move From WordPress to Next.js
+
+My own site moved from WordPress to Next.js in February 2026. Google Search Console shows the search visibility before and after that move.
+
+| Period | Platform | Clicks | Impressions |
+|---|---|---|---|
+| 1 Jul 2025 to 19 Feb 2026 | WordPress | 18 | 12,998 |
+| 20 Feb to 28 Oct 2026 | Next.js | 506 | 397,107 |
+
+Source: Google Search Console, property sc-domain:sunnypatel.co.uk, checked 31 Oct 2026.
+
+The rebuild also added new services pages and studies. The gain is platform plus content, not the platform alone. The two periods also differ in length. Read the table as a before and after record rather than a controlled test.
+
+My WordPress to Astro move on a separate affiliate site cut duplicate H1s from 55 to 0. Schema coverage on that site rose from 34% to 100%. Source: my post-migration audit of that site, May 2026. The baseline tab is built to capture before and after counts like these.
+
+### How to Use the Practice Tab
+
+Mark each of the 14 redirects on the Practice tab as ok or error before you open the Answer Key. The redirects belong to a made-up shop. Eight of them hold a deliberate error. Each row has an Observed column with the recorded test result. Judge each row the way you would judge a crawl export.
+
+1. Read each row and mark it ok or error in the last column.
+2. Aim to find all 8 before you open the Answer Key tab.
+3. Check yourself against the key. The key names each error and gives the fix.
+
+The 8 errors are a chain, a loop, a redirect to the homepage, a 302, a trailing slash mismatch, a missing mapping, a mapping to an irrelevant page and a redirect to a 404. I look for the same faults in every real redirect map I review. Missing them on a live site costs far more than an hour of practice.
+
 ## The Real Cost of Getting This Wrong
 
-A B2B SaaS company I audited redesigned their marketing site without URL mapping. They changed 180 URLs. Only 40 got redirects. The other 140, including 12 pages that drove 65% of their organic demo requests, returned 404s for 6 weeks before anyone noticed.
+Every old URL without a redirect returns a 404 on launch day. Google drops pages that keep returning 404 from its index. The rankings those pages held go with them. Links from other sites to those URLs stop sending visitors and value to your site.
 
-{% chart type="bar" eyebrow="Case study" title="Redirect coverage in a 180-URL redesign that skipped mapping" data="Redirected:40|Broke as 404s:140" highlight="Broke as 404s" /%}
-
-Organic demo requests dropped 73%. Recovery took 4 months after implementing redirects. The redesign that was supposed to "modernise the brand" cost them an estimated £180,000 in pipeline.
+My own move went the other way. My old URLs still redirect to their new pages. Twenty-seven of those redirects fill the URL Map tab. The worked example above shows clicks and impressions growing after the switch.
 
 The checklist above takes 2-3 days of preparation. Skipping it risks months of lost revenue. That's the trade-off.
 
-If you want a second pair of eyes before your redesign launches, I work as an [SEO migration consultant](/services/seo-migration-consultant/) for pre-launch reviews. I'll crawl both versions, map every redirect, and flag every risk before you push to production.
+A [migration audit from £495](/services/seo-migration-consultant/) gives your redesign a second pair of eyes before launch. I'll crawl both versions, map every redirect, and flag every risk before you push to production.

@@ -31,6 +31,13 @@ faqs:
       96.1% is the median share of 12-month clicks coming from the top 10% of
       pages (p25 to p75: 83.5% to 100%, n = 76 sites with any clicks). That is
       a yes on my sites.
+  - question: How many top-3 queries get no clicks?
+    answer: >-
+      344 of 421 queries (81.7%) with 10 or more impressions and an average
+      position of 3 or better got no click in 12 months, 30 October 2025 to 29
+      October 2026. That covers the 32 of my 100 sites that had such queries.
+      Google hides anonymised queries and position is a 12-month average, so
+      treat it as a guide.
   - question: Can I use these figures as a benchmark for my own site?
     answer: >-
       100 websites I own that have Google Search Console data make up the

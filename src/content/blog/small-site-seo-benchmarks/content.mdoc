@@ -4,6 +4,7 @@ This study looks at how pages perform on 100 websites I own that have Google Sea
 {% stat value="87.9%" label="Median share of a site's pages with impressions that got zero clicks in 12 months (p25 to p75: 78.5% to 96.3%), n = 84 sites" source="Author's own portfolio data, Google Search Console API" /%}
 {% stat value="96.1%" label="Median share of a site's 12-month clicks that came from its top 10% of pages (p25 to p75: 83.5% to 100%), n = 76 sites" source="Author's own portfolio data, Google Search Console API" /%}
 {% stat value="8.3%" label="New pages that got a click within 90 days, pooled (1,336 of 16,046)" source="Author's own portfolio data, Google Search Console API" /%}
+{% stat value="81.7%" label="Queries with 10 or more impressions and an average position of 3 or better that got zero clicks in 12 months (344 of 421, 32 sites)" source="Author's own portfolio data, Google Search Console API" /%}
 {% /stats %}
 
 ## How big were the sites in this sample?
@@ -71,6 +72,18 @@ Sites with more pages did not show a lower zero-click share in this sample. I sp
 
 **What this means if you run your own site:** compare yourself with your own size band first. The under-50 sites had very few clicks in total. Their shares rest on small counts. The over-200 sites were the most concentrated of the three.
 
+## Finding 8: most low-volume top-3 queries got no click
+
+Most low-volume queries that averaged a top-3 position got no click. 344 of 421 queries (81.7%) with 10 or more impressions and an average position of 3 or better recorded zero clicks from 30 October 2025 to 29 October 2026. They come from the 32 sites that had any such queries. The 421 queries drew 733 clicks from 24,704 impressions. That is a 3.0% click-through rate.
+
+At an average position of 1.5 or better the share was 166 of 178 queries (93.3%). With a 50-impression threshold and position 3 or better it was 47 of 74 queries (63.5%).
+
+{% chart type="bar" eyebrow="Top-3 queries with zero clicks" title="Share of queries with zero clicks in 12 months, by threshold, pooled across sites with qualifying queries" data="10+ impressions and position 3 or better (421 queries):81.7|10+ impressions and position 1.5 or better (178 queries):93.3|50+ impressions and position 3 or better (74 queries):63.5" suffix="%" highlight="10+ impressions and position 3 or better (421 queries)" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026" /%}
+
+Google hides anonymised long-tail queries so rare searches are missing from this count. Position is a 12-month average and can hide a query that moved in and out of the top 3. Only 32 of the 100 sites had qualifying queries and the counts are small. I do not report per-site medians because they rest on too few sites. The data cannot say why these queries got no click.
+
+**What this means if you run your own site:** filter your own Queries report for 10 or more impressions and position 3 or better. Sort by clicks and look at the zero-click rows first. Search each one in Google and see what sits above your result. Then decide whether the title or the intent needs work.
+
 ## How to compare your own site
 
 You can compute both shares for your own site in a spreadsheet from a Search Console Pages export.
@@ -87,13 +100,13 @@ A zero-click share far above the upper end of the range points to a pruning job.
 
 ## Method
 
-The data comes from the Google Search Console API. I pulled data for 1 June 2025 to 29 October 2026. "12 months" means 30 October 2025 to 29 October 2026. The sample is 100 websites I own that have Google Search Console data. It comes from 183 property rows. I left out clients, leads, family sites, duplicate properties, properties whose ownership I could not confirm and my own consultancy site. Its migration distorts the new-page proxy. I checked the included list for client domains and found none.
+The data comes from the Google Search Console API. I pulled data for 1 June 2025 to 29 October 2026. Finding 8 uses the query-level pull for 30 October 2025 to 29 October 2026 (223,218 query rows). "12 months" means 30 October 2025 to 29 October 2026. The sample is 100 websites I own that have Google Search Console data. It comes from 183 property rows. I left out clients, leads, family sites, duplicate properties, properties whose ownership I could not confirm and my own consultancy site. Its migration distorts the new-page proxy. I checked the included list for client domains and found none.
 
 I have built over 300 websites over the years. Forty-four of them are active tests right now. This study covers every site I still own that has Search Console data. That includes dormant sites and brings the sample to 100.
 
 A new page is any page whose first appearance in the data comes at least 60 days after its property's first data. That is a proxy because Search Console cannot tell me when a page was published. It gave 20,517 pages on 77 sites. The 90-day and 180-day measures use only the new pages old enough to be measured at those ages. Timings run from a page's first appearance in the data. The top 10% of pages is the page count multiplied by 0.1 and rounded up.
 
-An independent second script with separate data pulls recomputed the five headline numbers and matched all five exactly. Both scripts use the same API. This checks my arithmetic. It cannot check Google's sampling.
+An independent second script with separate data pulls recomputed the five headline numbers and matched all five exactly. A second script also recomputed the Finding 8 counts and matched them. Both scripts use the same API. This checks my arithmetic. It cannot check Google's sampling.
 
 ## Caveats
 
@@ -102,6 +115,7 @@ An independent second script with separate data pulls recomputed the five headli
 - **New-page proxy:** 32 properties start in March 2026. That date reflects when I set up the property and not when the site launched. The new-page timings are rough.
 - **Established-page cohort:** only 11 sites qualify for the established-page measure.
 - **Search Console limits:** the API holds about 16 months of history, caps rows at 50,000 a day and revises recent days.
+- **Query data:** Finding 8 covers only queries Google reports. Anonymised queries are withheld. Only 32 of 100 sites have a qualifying query. Position is a 12-month average.
 - **Scope:** these are sites I own and not the web. I draw no conclusion about websites in general.
 
 ## Next step

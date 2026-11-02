@@ -62,6 +62,9 @@ export const markdocConfig: Config = {
       attributes: {
         heading: { type: String },
         text: { type: String },
+        label: { type: String },
+        href: { type: String },
+        offer: { type: String },
       },
     },
     pullquote: {

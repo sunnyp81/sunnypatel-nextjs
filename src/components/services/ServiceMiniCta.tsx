@@ -4,9 +4,15 @@ import { ArrowRight, CalendarDays, Shield } from "lucide-react";
 export function ServiceMiniCta({
   heading = "Ready to Improve Your Rankings?",
   text = "Request a free 20-minute SEO diagnosis: focus on the biggest issue and the most useful next step.",
+  label = "Request Free Diagnosis",
+  href = "/contact/",
+  offer = "free_20_minute_seo_diagnosis",
 }: {
   heading?: string;
   text?: string;
+  label?: string;
+  href?: string;
+  offer?: string;
 }) {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-brand/15 bg-surface-2 dark:bg-[#0c0c14] shadow-[var(--elev)] dark:shadow-none">
@@ -40,9 +46,9 @@ export function ServiceMiniCta({
         <p className="max-w-md text-sm text-muted-foreground">{text}</p>
 
         <Link
-          href="/contact/"
+          href={href}
           data-cta-location="service_mini_cta"
-          data-cta-offer="free_20_minute_seo_diagnosis"
+          data-cta-offer={offer}
           className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white transition-[transform,box-shadow] duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(91,138,239,0.45)] active:scale-[0.98]"
           style={{
             fontFamily: "var(--font-heading)",
@@ -50,7 +56,7 @@ export function ServiceMiniCta({
             boxShadow: "0 0 20px rgba(91,138,239,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
           }}
         >
-          Request Free Diagnosis
+          {label}
           <ArrowRight className="h-4 w-4" />
         </Link>
 

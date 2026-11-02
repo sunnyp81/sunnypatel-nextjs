@@ -136,6 +136,8 @@ const nextConfig: NextConfig = {
       ]),
       // Consolidate duplicate service pages with real redirects. Canonical tags
       // alone were being ignored by Google and both URLs remained crawlable.
+      { source: "/services/seo-training-consultant", destination: "/services/seo-training/", permanent: true },
+      { source: "/services/seo-training-consultant/", destination: "/services/seo-training/", permanent: true },
       { source: "/services/local-seo-agency", destination: "/services/local-seo/", permanent: true },
       { source: "/services/local-seo-agency/", destination: "/services/local-seo/", permanent: true },
       {

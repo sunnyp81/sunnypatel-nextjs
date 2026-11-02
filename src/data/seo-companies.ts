@@ -162,7 +162,7 @@ export const seoCompanies: SeoCompany[] = [
     evidence: "His site publishes case studies including Zego and explains work on commercial search journeys, entity signals and content architecture. Client results are self-reported and haven't been independently audited for this guide.",
     question: "Which comparable project can you show, and how did the work change qualified enquiries?",
     scope: "Confirm delivery capacity and whether work happens in your CMS or through briefs for your team.",
-    disclosure: "Tom has also included me in his GEO and AI SEO consultant roundups. That relationship is disclosed here so you can weigh this recommendation.",
+    disclosure: "Tom and I agreed a reciprocal listing. He added me to his GEO and AI SEO consultant guides and I include him here. That arrangement is disclosed so you can weigh this recommendation.",
     sources: [{ label: "Tom Riley services and case studies", url: "https://tom-riley.co.uk/" }, { label: "Tom's GEO consultant roundup", url: "https://tom-riley.co.uk/best-geo-consultants-uk-2026/" }, { label: "Tom's AI SEO consultant roundup", url: "https://tom-riley.co.uk/best-ai-seo-consultants-uk-2026/" }], checked: seoCompaniesReviewed,
   },
 ];

@@ -87,7 +87,7 @@ export default function EditorialPolicyPage() {
         </Section>
 
         <Section id="payment" title="Do I take payment for a place in my guides?">
-          <p>No provider has paid to be listed in a guide on this site. One listing came from a reciprocal arrangement. Tom Riley lists me in his consultant guides and I list him in mine. Each guide that includes him says so in his profile.</p>
+          <p>No provider has paid to be listed in a guide on this site. One provider is listed through a reciprocal arrangement. Tom Riley lists me in his consultant guides and I list him in three of mine. Each of those guides says so in his profile.</p>
           <p>
             If one ever did, the listing would read Paid inclusion and its links would be marked sponsored. My AI search
             agencies guide already supports that label. I would not publish a paid place without it.

@@ -122,7 +122,7 @@ export const localSeoProviders: LocalSeoProvider[] = [
     question: "Which comparable local business can you show, and what changed in its qualified enquiries?",
     scope: "Confirm GBP maintenance, website implementation and capacity for your service area.",
     price: "Quote required. No fixed local SEO fee was published on the reviewed service page.",
-    disclosure: "Tom has also included me in his GEO and AI SEO consultant roundups. That connection is disclosed so you can weigh this inclusion.",
+    disclosure: "Tom and I agreed a reciprocal listing. He added me to his GEO and AI SEO consultant guides and I include him here. That arrangement is disclosed so you can weigh this inclusion.",
     sources: [{ label: "Tom Riley local SEO service", url: "https://tom-riley.co.uk/services/seo-consultant-local-services/" }, { label: "Local AI-search service", url: "https://tom-riley.co.uk/services/ai-seo-consultant-local-services/" }], checked: "2026-10-03",
   },
 ];

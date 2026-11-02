@@ -56,6 +56,7 @@ export default function EditorialPolicyPage() {
       >
         <Section id="who" title="Who writes the research?">
           <p>I do. I pull the data, write up the findings and publish them.</p>
+          <p>I use AI tools to help with data processing, research and first drafts. I check each figure against its source and edit every page myself before it goes live.</p>
           <p>
             I sell SEO services, so I gain when readers trust SEO data. Where a guide lists my own business, it says so
             next to the listing. The commercial disclosure in my{" "}
@@ -86,7 +87,7 @@ export default function EditorialPolicyPage() {
         </Section>
 
         <Section id="payment" title="Do I take payment for a place in my guides?">
-          <p>No provider has paid to be listed in a guide on this site. Where a listing came from a swap or a relationship, the guide says so.</p>
+          <p>No provider has paid to be listed in a guide on this site. One listing came from a reciprocal arrangement. Tom Riley lists me in his consultant guides and I list him in mine. Each guide that includes him says so in his profile.</p>
           <p>
             If one ever did, the listing would read Paid inclusion and its links would be marked sponsored. My AI search
             agencies guide already supports that label. I would not publish a paid place without it.

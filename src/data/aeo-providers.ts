@@ -105,7 +105,7 @@ export const aeoProviders: AeoProvider[] = [
     question: "Can you show the prompt set, repeated observations and enquiry evidence behind a comparable case?",
     scope: "Confirm direct delivery capacity, implementation responsibilities and measurement access.",
     price: "Quote required. No fixed consultancy fee was published on the reviewed pages.",
-    disclosure: "Tom has included me in his GEO and AI SEO consultant guides. That connection is disclosed so you can weigh this inclusion.",
+    disclosure: "Tom and I agreed a reciprocal listing. He added me to his GEO and AI SEO consultant guides and I include him here. That arrangement is disclosed so you can weigh this inclusion.",
     sources: [{ label: "Tom Riley consultancy", url: "https://tom-riley.co.uk/" }, { label: "Background and experience", url: "https://tom-riley.co.uk/about/" }, { label: "AI SEO consultant guide and disclosure", url: "https://tom-riley.co.uk/best-ai-seo-consultants-uk-2026/" }, { label: "GEO consultant guide", url: "https://tom-riley.co.uk/best-geo-consultants-uk-2026/" }], checked: aeoReviewed,
   },
 ];

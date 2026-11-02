@@ -113,6 +113,30 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.8,
   },
   {
+    url: `${SITE_URL}/research/`,
+    lastModified: new Date("2026-11-02"),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/research/data/`,
+    lastModified: new Date("2026-11-02"),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/research/methodology/`,
+    lastModified: new Date("2026-11-02"),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${SITE_URL}/research/editorial-policy/`,
+    lastModified: new Date("2026-11-02"),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  },
+  {
     url: `${SITE_URL}/book/sources/`,
     lastModified: new Date("2026-10-05"),
     changeFrequency: "monthly",

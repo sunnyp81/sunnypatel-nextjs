@@ -69,6 +69,7 @@ const PAGE_SCHEMA = schemaGraph(
   },
   breadcrumbSchema([
     { name: "Home", url: `${SITE_URL}/` },
+    { name: "Research", url: `${SITE_URL}/research/` },
     { name: "SEO experiments", url: PAGE_URL },
   ])
 );
@@ -221,7 +222,7 @@ export default function ExperimentsPage() {
 
         <div className="relative pb-10 pt-32">
           <div className="mx-auto max-w-3xl px-6">
-            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "SEO experiments" }]} />
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Research", href: "/research/" }, { label: "SEO experiments" }]} />
 
             <p className="mb-3 mt-4 text-xs font-semibold uppercase tracking-widest text-brand-ink">Research</p>
             <h1

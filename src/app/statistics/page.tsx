@@ -268,6 +268,13 @@ export default async function StatisticsHub() {
                 <li>A page&apos;s date moves only after its figures have been re-checked at the source. Anything not re-checked is said on that page.</li>
                 <li>Figures I cannot trace to a source are removed, not rounded or softened.</li>
                 <li>A weekly review lists any page not updated for 25 days, so none goes quiet unnoticed.</li>
+                <li>
+                  My own studies, as opposed to these roundups, are on the{" "}
+                  <Link href="/research/" className="font-semibold text-foreground underline decoration-hairline-strong underline-offset-4 hover:text-brand-ink">
+                    research hub
+                  </Link>
+                  .
+                </li>
               </ul>
             </div>
             <div>
@@ -279,7 +286,7 @@ export default async function StatisticsHub() {
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 Link to the original source behind a figure, and to the page here if it helped you find it.
-                The figures belong to the organisations named beside them, not to me.
+                Figures from other organisations belong to them. My own studies are licensed on my research data page.
               </p>
               <p className="mt-4 text-sm text-muted-foreground">
                 Spotted something out of date?{" "}

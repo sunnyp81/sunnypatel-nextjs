@@ -180,6 +180,14 @@ export default function FactsPage() {
             .
           </p>
 
+          <p className="mb-12 text-sm leading-relaxed text-muted-foreground">
+            My original studies, with their data files and methods, are on the{" "}
+            <Link href="/research/" className="underline decoration-hairline-strong underline-offset-4 hover:text-brand-ink">
+              research hub
+            </Link>
+            .
+          </p>
+
           <section aria-labelledby="facts-contact" className="mb-8">
             <h2
               id="facts-contact"

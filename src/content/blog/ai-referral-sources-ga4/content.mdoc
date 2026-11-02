@@ -1,0 +1,172 @@
+I count 15 sources as AI assistant referrals in GA4. This page holds the exact list, a regex you can paste, and what each definition does to a real total. It is version 1.0, dated 2 November 2026.
+
+The list matters because GA4 and I do not always agree. On my own site the two totals were one session apart in one window and eight apart in another. Use the list as a starting point and keep its version with every number you report.
+
+## At a glance
+
+1. **15 sources counted, 6 watched.** I count a source only when its host is an assistant's own address. Watch values are logged but not added to the total.
+2. **The regex is in the section below.** Paste it into a GA4 filter set to matches regex on Session source.
+3. **106 vs 107 vs 109.** On my site from 27 July to 18 October 2026, my exact list counted 106 sessions, GA4's AI Assistant channel 107 and a substring match 109.
+4. **The count is a floor, not a total.** Visits with no referrer, copied links and Google AI features sit outside it.
+5. **Under 30 sessions gets no trend call.** My earlier window had 21, so I make no trend claim for my own site.
+
+## Which AI referrer sources do I count?
+
+I count 15 `sessionSource` values in version 1.0. I match each one exactly after lowercasing the value and removing a leading `www.`.
+
+| Source | Product | Note |
+|---|---|---|
+| chatgpt.com | ChatGPT | Carries most of the visits |
+| chat.openai.com | ChatGPT | Older host |
+| perplexity.ai | Perplexity | |
+| claude.ai | Claude | |
+| gemini.google.com | Gemini | |
+| bard.google.com | Bard | Retired product, kept for old data |
+| copilot.microsoft.com | Microsoft Copilot | |
+| copilot.cloud.microsoft | Microsoft Copilot | Microsoft 365 host |
+| copilot.com | Microsoft Copilot | Copilot's own host. 0 sessions on my site in both windows |
+| chat.mistral.ai | Le Chat from Mistral | |
+| chat.deepseek.com | DeepSeek | |
+| grok.com | Grok | |
+| meta.ai | Meta AI | Product referral |
+| you.com | You.com | Product referral |
+| poe.com | Poe | Product referral |
+
+I added copilot.com in this version because it is Microsoft Copilot's own host. My portfolio study counts Copilot, and its 458 sessions across 42 sites used that host. Adding it changes none of my own totals, because it sent my site 0 sessions in either window.
+
+A visit from meta.ai, you.com or poe.com does not prove that an AI answer came first. I count them and label them as product referrals.
+
+I watch six more values without counting them:
+
+- **openai.com:** mostly corporate and documentation pages.
+- **edgeservices.bing.com:** ambiguous until I can inspect the referral path.
+- **m365.cloud.microsoft:** Microsoft notice MC1129706 consolidated copilot.cloud.microsoft into m365.cloud.microsoft/chat. The host also serves other Microsoft 365 pages, so I watch it. I keep the old host in the counted list.
+- **chatgpt, gemini and perplexity:** bare source values with no domain. They appeared 3 times on my own site in the latest window below.
+
+The matching rules are short:
+
+1. Match on `sessionSource` only. Ignore the medium and keep it for inspection.
+2. Count a matching session even when GA4 files it as Unassigned or Referral.
+3. Count production hostnames only. Exclude your own testing.
+4. Never move Direct sessions into the AI count by guesswork.
+
+The same list is available as a [JSON file](/downloads/ai-referral-sources-v1.json) with the host, assistant, status (counted or watch) and the date I added each one.
+
+## What is the copy-paste GA4 regex?
+
+Paste this into any GA4 filter that offers "matches regex" on Session source:
+
+```text
+(?i)^(www\.)?(chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|bard\.google\.com|copilot\.microsoft\.com|copilot\.cloud\.microsoft|copilot\.com|chat\.mistral\.ai|chat\.deepseek\.com|grok\.com|meta\.ai|you\.com|poe\.com)$
+```
+
+GA4 regex is a full match, so the anchors are optional. The `(?i)` makes it ignore case. I keep it in so the same pattern works wherever case handling differs.
+
+I tested it against RE2 semantics with the google-re2 Python package. It matched all 15 hosts with and without `www.` and in upper case. It rejected openai.com, edgeservices.bing.com, google.com, bing.com, x.com, t.co and lookalike hosts such as `notchatgpt.com`.
+
+To see the watch values as well, use this wider version for exploring only:
+
+```text
+(?i)^(www\.)?(chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|bard\.google\.com|copilot\.microsoft\.com|copilot\.cloud\.microsoft|copilot\.com|chat\.mistral\.ai|chat\.deepseek\.com|grok\.com|meta\.ai|you\.com|poe\.com|openai\.com|edgeservices\.bing\.com|m365\.cloud\.microsoft|chatgpt|gemini|perplexity)$
+```
+
+### How do I apply it in a GA4 Exploration?
+
+Build a blank Exploration with a regex filter. This takes about five minutes.
+
+1. Open GA4 and pick your property.
+2. Click **Explore** in the left menu.
+3. Click **Blank** under "Start a new exploration".
+4. Name it "AI referrals v1.0" at the top of the Variables column.
+5. Next to **Dimensions** click the plus sign. Tick **Session source** and **Session default channel group**. Click **Import**.
+6. Next to **Metrics** click the plus sign. Tick **Sessions**, **Engaged sessions** and **Key events**. Click **Import**.
+7. Drag **Session source** into **Rows**. Drag **Session default channel group** under it.
+8. Drag the three metrics into **Values**.
+9. Drag **Session source** into **Filters** in the Tab Settings column. Choose **matches regex**. Paste the regex. Click **Apply**.
+10. In the Tab Settings column, set **Show rows** to 50 so no matching source is cut off. The default is 10.
+11. Set the date range in the Variables column. Use dates that match the window you want to compare.
+
+The channel column shows how GA4 labelled each matching session. Any row outside "AI Assistant" is a session my list counts and GA4 does not.
+
+### How do I apply it as a custom channel group?
+
+Create a custom channel group when you want the list inside your standard reports.
+
+1. Click **Admin** at the bottom left.
+2. Under **Data display** click **Channel groups**.
+3. Click **Create new channel group**. A new group starts as a copy of the default channel group.
+4. Name the group "Default plus AI list v1.0".
+5. Click **Add new channel**. Name it "AI list v1.0".
+6. Set the condition dimension to **Source**, then **matches regex**. Paste the regex.
+7. Click **Save channel**.
+8. Click **Reorder**. Drag the new channel above **AI Assistant** and **Referral**. GA4 applies channel rules from the top down. Click **Apply**.
+9. Click **Save group**.
+
+Custom channel groups apply retroactively in reports, so history is relabelled too. Standard properties get two custom channel groups. Menu names move, so check Google's help page for custom channel groups if a label differs. If you use the Data API, put the regex in a `sessionSource` filter with `FULL_REGEXP`.
+
+## How much do the totals differ under each definition?
+
+My exact list counted 106 sessions and GA4's AI Assistant channel counted 107 in the latest window. The gap widened to 8 sessions in the window before it.
+
+I pulled these from the GA4 Data API on 2 November 2026. The property is sunnypatel.co.uk, filtered to the exact production hostname. Both windows are 84 days. I re-ran the pull with copilot.com in the list and the totals did not change.
+
+| Definition | 27 Jul to 18 Oct 2026 (1,805 sessions) | 4 May to 26 Jul 2026 (972 sessions) |
+|---|---|---|
+| My exact list, v1.0 | 106 | 21 |
+| Substring match on assistant names | 109 | 21 |
+| GA4 AI Assistant channel | 107 | 13 |
+
+{% chart type="bar" eyebrow="Latest window" title="AI sessions on sunnypatel.co.uk by definition, 27 July to 18 October 2026" data="My exact list v1.0:106|GA4 AI Assistant channel:107|Substring match:109" suffix=" sessions" highlight="My exact list v1.0" source="Author's own GA4 data, sunnypatel.co.uk, 1,805 sessions, pulled 2 November 2026" /%}
+
+Three things explain the differences:
+
+- **Substring against exact:** 3 extra sessions came from the bare source values `gemini` (2) and `perplexity` (1). They are on my watch list.
+- **My list against GA4:** the channel counted 1 more than my list, which gives 107 against 106. Net of everything else, the extra session had the bare source `gemini`, and GA4 filed it as AI Assistant.
+- **Channel labels:** in the earlier window 8 of my 21 sessions sat under Referral or Unassigned. They came from chatgpt.com (6), claude.ai (1) and gemini.google.com (1). The channel counted 13.
+
+{% chart type="bar" eyebrow="Earlier window" title="AI sessions on sunnypatel.co.uk by definition, 4 May to 26 July 2026" data="My exact list v1.0:21|Substring match:21|GA4 AI Assistant channel:13" suffix=" sessions" highlight="GA4 AI Assistant channel" source="Author's own GA4 data, sunnypatel.co.uk, 972 sessions, pulled 2 November 2026" /%}
+
+{% chart type="bar" eyebrow="How GA4 labelled my 21 sessions" title="Channel label on the 21 sessions my list counted, 4 May to 26 July 2026" data="AI Assistant:13|Referral:7|Unassigned:1" suffix=" sessions" highlight="Referral" source="Author's own GA4 data, sunnypatel.co.uk, pulled 2 November 2026" /%}
+
+My share of sessions was 5.9% of 1,805 sessions in the latest window and 2.2% of 972 sessions in the earlier one. My rule is that a window with under 30 AI sessions gets no trend call. The earlier window had 21, so I make no trend call and I do not quote the rise as a percentage.
+
+The same gap shows at portfolio scale in my [AI referral traffic study](/blog/ai-referral-traffic-study/). Across 104 sites over 90 days to 21 September 2026 my source rule matched 6,165 sessions out of 334,744. GA4 had already labelled 5,770 of them as AI Assistant. The other 395 (6.4%) sat under other channels, mostly Unassigned. That study used a substring rule on five assistants. This page uses an exact list on 15 sources, so the two sets of numbers are not comparable.
+
+## What can this method not see?
+
+A referral count is a floor. It misses every visit that arrives without a referrer and every answer nobody clicks.
+
+The blind spots I know of:
+
+- **Stripped referrers:** some assistant apps and in-app browsers send no referrer. Their visits land in Direct or "(not set)".
+- **Copy and paste:** a visitor who copies a link from an answer and pastes it into a browser arrives as Direct.
+- **Google AI features:** clicks from AI Overviews and AI Mode are recorded as Google organic. I cannot separate them in GA4.
+- **Copilot and Bing:** a plain `bing` source cannot be split into Copilot and ordinary Bing search.
+- **Grok inside X:** visits from Grok in X can arrive as x.com or t.co, which GA4 files as social. t.co sent my site 6 sessions in the latest window and I cannot tell which, if any, came from Grok. I do not count either host.
+- **Unlisted products:** a new assistant sends visits under a source I have not listed yet. The monthly source review exists for this.
+- **Unclicked answers:** a citation that nobody follows leaves no session. Exposure and visits are different events. I report them separately and never add them together.
+- **Product referrals:** meta.ai, you.com and poe.com sessions may not follow an AI answer.
+
+A count under 30 sessions gets "not enough data for a trend". That rule keeps small numbers from reading as growth.
+
+## What is the changelog for the list?
+
+The list is on version 1.0. Any change creates a new version and I recompute both comparison windows.
+
+- **v1.0, 2 November 2026:** published. 15 counted sources and 6 watch values. This is the list I have used for my own site since 24 October 2026, except that copilot.com joined the counted list on publication. It sent my site 0 sessions in either window, so no total moved.
+- **Before v1.0, 2 August to 25 September 2026:** the portfolio study matched five assistant names as case-insensitive substrings. It did not use a versioned list.
+- **Next review, due 2 December 2026:** candidates are the bare values `gemini` and `perplexity` and the m365.cloud.microsoft host. I move a watch value into the counted list only after I have inspected its sessions and shown they follow an assistant.
+
+## How do I cite this page?
+
+Cite the version and the date. The list changes and old totals are recomputed when it does.
+
+Sunny Patel, "AI Referral Sources in GA4: The Versioned List and Regex I Use," sunnypatel.co.uk, list v1.0, 2 November 2026. https://sunnypatel.co.uk/blog/ai-referral-sources-ga4/
+
+The comparison table covers one site, one hostname and two 84-day windows to 18 October 2026. Quote it as that. It does not describe other sites.
+
+## What is the next step?
+
+I check your AI source list against your own GA4 data and tell you what your channel groups hide.
+
+The [free 20-minute diagnosis](/contact/) covers the setup and what your own count would look like.

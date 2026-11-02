@@ -378,6 +378,10 @@ const BLOG_TOPICS: Record<string, TopicMapping> = {
     about: ["technical-seo", "content-strategy"],
     mentions: ["on-page-seo", "internal-linking"],
   },
+  "ai-referral-sources-ga4": {
+    about: ["ai-search-optimisation"],
+    mentions: ["llm-optimisation", "content-strategy"],
+  },
   "search-query-length-study": {
     about: ["keyword-research", "on-page-seo"],
     mentions: ["ai-search-optimisation", "content-strategy"],

@@ -1,0 +1,54 @@
+title: 'AI Referral Sources in GA4: The Versioned List and Regex I Use'
+metaTitle: 'AI Referral Sources in GA4: List and Regex (v1.0)'
+description: >-
+  The 15 AI assistant referrer sources I count in GA4, a copy-paste regex, and
+  how my total compares with GA4's AI Assistant channel. Version 1.0, 2 Nov 2026.
+ogImage: /images/blog/hero-ai-referral-sources-ga4.webp
+date: '2026-11-02'
+lastUpdated: '2026-11-02'
+tags:
+  - AI Search
+  - GA4
+  - SEO Data
+  - Measurement
+faqs:
+  - question: Which sessionSource values should I count as AI assistant traffic in GA4?
+    answer: >-
+      In version 1.0 of my list I count 15 sources by exact match after
+      lowercasing and removing a leading www: chatgpt.com, chat.openai.com,
+      perplexity.ai, claude.ai, gemini.google.com, bard.google.com,
+      copilot.microsoft.com, copilot.cloud.microsoft, copilot.com, chat.mistral.ai,
+      chat.deepseek.com, grok.com, meta.ai, you.com and poe.com. I watch
+      openai.com, edgeservices.bing.com, m365.cloud.microsoft and the bare
+      values chatgpt, gemini and perplexity without counting them.
+  - question: What is the GA4 regex for AI traffic?
+    answer: >-
+      Use (?i)^(www\.)?(chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|bard\.google\.com|copilot\.microsoft\.com|copilot\.cloud\.microsoft|copilot\.com|chat\.mistral\.ai|chat\.deepseek\.com|grok\.com|meta\.ai|you\.com|poe\.com)$
+      in a Session source filter set to matches regex. GA4 regex matching is
+      a full match, so the anchors are optional but harmless. Explorations are
+      case-sensitive by default, so keep the (?i).
+  - question: Is GA4's AI Assistant channel the same as an exact source list?
+    answer: >-
+      No. On sunnypatel.co.uk from 27 July to 18 October 2026 (1,805
+      sessions) my exact list counted 106 sessions and GA4's AI Assistant
+      channel counted 107. In the 84 days before that (972 sessions) my list
+      counted 21 and the channel counted 13, because GA4 had filed 8 of the
+      matching sessions under Referral or Unassigned.
+  - question: Why does a GA4 referral count undercount AI traffic?
+    answer: >-
+      Some assistants and apps send no referrer, so their visits land in
+      Direct. Copied links also arrive as Direct. Clicks from Google AI
+      Overviews and AI Mode sit inside Google organic. A referral count is a
+      floor, and I label it as recorded assistant-attributed sessions.
+  - question: Can I trust a trend from a small number of AI sessions?
+    answer: >-
+      Not without a check. I only call a direction when both windows have at
+      least 30 AI sessions and the gap is more than twice the square root of
+      the two counts added together. My earlier window had 21 sessions, so I
+      make no trend call for my own site.
+  - question: How do I cite this list?
+    answer: >-
+      Cite the version and the date, for example Sunny Patel, AI Referral
+      Sources in GA4, list v1.0, 2 November 2026, with the page address. Cite
+      the version because the list changes and old totals are recomputed
+      when it does.

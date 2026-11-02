@@ -1,0 +1,135 @@
+{
+  "name": "AI referral sources for GA4",
+  "version": "1.0",
+  "date": "2026-11-02",
+  "source": "https://sunnypatel.co.uk/blog/ai-referral-sources-ga4/",
+  "match": "exact match on sessionSource after lowercasing and removing a leading www.",
+  "sources": [
+    {
+      "host": "chatgpt.com",
+      "assistant": "ChatGPT",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "chat.openai.com",
+      "assistant": "ChatGPT",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "perplexity.ai",
+      "assistant": "Perplexity",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "claude.ai",
+      "assistant": "Claude",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "gemini.google.com",
+      "assistant": "Gemini",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "bard.google.com",
+      "assistant": "Bard",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "copilot.microsoft.com",
+      "assistant": "Microsoft Copilot",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "copilot.cloud.microsoft",
+      "assistant": "Microsoft Copilot",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "copilot.com",
+      "assistant": "Microsoft Copilot",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "chat.mistral.ai",
+      "assistant": "Le Chat from Mistral",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "chat.deepseek.com",
+      "assistant": "DeepSeek",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "grok.com",
+      "assistant": "Grok",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "meta.ai",
+      "assistant": "Meta AI",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "you.com",
+      "assistant": "You.com",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "poe.com",
+      "assistant": "Poe",
+      "status": "counted",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "openai.com",
+      "assistant": "OpenAI",
+      "status": "watch",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "edgeservices.bing.com",
+      "assistant": "Microsoft Edge and Bing",
+      "status": "watch",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "m365.cloud.microsoft",
+      "assistant": "Microsoft Copilot",
+      "status": "watch",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "chatgpt",
+      "assistant": "ChatGPT",
+      "status": "watch",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "gemini",
+      "assistant": "Gemini",
+      "status": "watch",
+      "added": "2026-11-02"
+    },
+    {
+      "host": "perplexity",
+      "assistant": "Perplexity",
+      "status": "watch",
+      "added": "2026-11-02"
+    }
+  ]
+}

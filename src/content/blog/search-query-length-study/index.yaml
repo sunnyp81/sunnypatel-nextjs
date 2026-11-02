@@ -1,0 +1,42 @@
+title: 'Search Query Length on 97 Small Sites: Clicks, CTR and Question Queries'
+metaTitle: 'Search Query Length on 97 Small Sites: Clicks and CTR'
+ogImage: '/images/blog/hero-search-query-length-study.webp'
+description: >-
+  Share of impressions and clicks by query word count, CTR, top-3 zero-click
+  share and question queries across 97 websites I own with Search Console data.
+date: '2026-11-02'
+lastUpdated: '2026-11-02'
+tags:
+  - Original Research
+  - SEO Data
+  - Google Search Console
+  - Search Queries
+faqs:
+  - question: How long are the search queries that bring small sites their clicks?
+    answer: >-
+      Queries of 4 words or more brought 69.8% of the clicks Google
+      attributes to a visible query on my sites, and 61.0% of impressions. Queries of 5 words or more brought 48.2% of
+      clicks. The window is 30 October 2025 to 29 October 2026 and the data
+      covers visible queries only, because Google withholds rare ones.
+  - question: Do question queries get fewer clicks?
+    answer: >-
+      Queries that start with a question word had a CTR of 0.40%, against 0.47%
+      for all other queries. They made up 14.3% of impressions and 12.5% of
+      clicks. The gap is small and I did not control for position.
+  - question: Are long queries more likely to be zero-click at the top of Google?
+    answer: >-
+      No. In my data 77.4% of top-3 queries with 4 or more words got no
+      click (195 of 252), against 88.2% for queries of 1 to 3 words (149 of
+      169). These are queries with 10 or more impressions and an average
+      position of 3 or better. The counts are small.
+  - question: Are search queries getting longer over time?
+    answer: >-
+      I cannot say from this data. Sites joined my Search Console set at
+      different times, so the pooled monthly average moves with the mix of
+      sites. A fixed panel of 6 sites went from 4.81 to 4.34 words between
+      November 2025 and October 2026. That is too few sites to draw a trend.
+  - question: Does this show how everyone's queries look?
+    answer: >-
+      No. It covers 97 websites I own that returned query data, mostly UK
+      affiliate and programmatic sites. Google hides rare queries, which tend to
+      be long. Use the figures as a reference point for your own Queries report.

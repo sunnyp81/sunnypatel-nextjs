@@ -65,6 +65,16 @@ export const STAT_GROUPS: StatGroup[] = [
         },
       },
       {
+        slug: "search-query-length-study",
+        shortTitle: "Search query length",
+        summary: "First-party Search Console data: share of impressions, clicks and CTR by query word count, and question queries, on sites I own.",
+        figure: {
+          value: "69.8%",
+          label: "of clicks came from queries of 4 or more words",
+          source: "Author's own portfolio data, Google Search Console API, 30 October 2025 to 29 October 2026",
+        },
+      },
+      {
         slug: "uk-ai-overviews-by-industry",
         shortTitle: "UK AI Overviews by industry",
         summary: "How often Google shows an AI Overview across 10 UK sectors, and which kinds of source it cites.",

@@ -1,0 +1,116 @@
+Visible queries of 4 words or more brought 69.8% of the clicks Google attributes to a visible query on my sites and 61.0% of the impressions. Queries of 1 or 2 words brought only 8.9% of the clicks. This study covers 223,218 query rows from websites I own that have Google Search Console data, for 30 October 2025 to 29 October 2026. It is written for owners and marketers who do their own SEO and want to see where the clicks on a small site come from. The data covers visible queries only. Google withholds rare and anonymised queries, and those skew long.
+
+## At a glance
+
+1. Queries of 4 or more words brought 69.8% of the clicks Google attributes to a visible query.
+2. Queries of 5 or more words brought 48.2% of those clicks.
+3. Among top-3 queries, 77.4% of those with 4 or more words got no click, against 88.2% for 1 to 3 words.
+4. Question queries had a CTR of 0.40%, against 0.47% for all other queries.
+
+{% stats %}
+{% stat value="69.8%" label="Share of clicks from queries of 4 or more words (61.0% of impressions), 97 sites, 12,551 clicks" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026" /%}
+{% stat value="48.2%" label="Share of clicks from queries of 5 or more words (33.0% of impressions), 97 sites, 12,551 clicks" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026" /%}
+{% stat value="0.40%" label="CTR of question queries, against 0.47% for all other queries (27,675 question rows)" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026" /%}
+{% stat value="77.4%" label="Top-3 queries of 4 or more words with zero clicks (195 of 252), against 88.2% for 1 to 3 words (149 of 169)" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026" /%}
+{% /stats %}
+
+## What does the sample cover?
+
+The sample is 97 of the 100 websites I own that have Google Search Console data. Three returned no query rows. Together the sites had 2,717,358 impressions and 12,551 clicks in the 12 months to 29 October 2026, a CTR of 0.46%. These are small sites and the click counts are low.
+
+I counted words as the number of space-separated words in the query. The last bucket holds queries of 7 words or more. A 3-word query is "best cheap kettle".
+
+## Which query lengths bring the impressions and clicks?
+
+Queries of 3 and 4 words bring the most impressions, and queries of 4 to 7 words bring most of the clicks. 4 words alone gave 28.0% of impressions and 21.6% of clicks. 1-word and 2-word queries gave 12.6% of impressions and 8.9% of clicks.
+
+{% chart type="bar" eyebrow="Share of impressions" title="Share of impressions by query word count, pooled across 97 sites" data="1 word:1.6|2 words:11.0|3 words:26.3|4 words:28.0|5 words:13.4|6 words:9.0|7+ words:10.6" suffix="%" highlight="4 words" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026, 2,717,358 impressions" /%}
+
+{% chart type="bar" eyebrow="Share of clicks" title="Share of clicks by query word count, pooled across 97 sites" data="1 word:2.4|2 words:6.5|3 words:21.3|4 words:21.6|5 words:20.1|6 words:14.3|7+ words:13.9" suffix="%" highlight="4 words" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026, 12,551 clicks" /%}
+
+One site brought 39.3% of the clicks and two sites brought 59.0%. Without the largest site, queries of 4 or more words brought 64.0% of clicks. Without the largest five, they brought 55.5%. The impression share stays near 60% either way, so I also looked at the median site. Across the 78 sites with 100 or more query rows, the median site got 51.5% of its impressions from queries of 4 or more words. 40 of those 78 sites were above 50%. Only 15 sites had 30 or more clicks, so I treat the per-site click shares as rough. For those 15 sites the median click share was 27.5% at 4 words and 21.2% at 3 words.
+
+**What this means if you run your own site:** open your Queries report and count words for your top 50 clicking queries. If most are 4 words or more, check that your titles and headings contain those longer phrases. Queries of 1 and 2 words collected a small part of the clicks on these sites.
+
+## What was the CTR by query length?
+
+CTR was highest at 6 words (0.73%), with 1 word and 5 words tied at 0.69% (the 1-word group has only 304 clicks). It was lowest at 2 words (0.27%) and 4 words (0.36%). The CTR figures are all low. Most of the impressions sit at an average position of 24.7 or worse.
+
+{% chart type="bar" eyebrow="CTR by word count" title="Pooled click-through rate by query word count" data="1 word:0.69|2 words:0.27|3 words:0.37|4 words:0.36|5 words:0.69|6 words:0.73|7+ words:0.61" suffix="%" highlight="6 words" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026" /%}
+
+Position moves with length in this data. The impression-weighted average position was 43.5 for 3-word queries and 29.2 for queries of 7 or more words. A better average position goes with a higher CTR, so I cannot separate length from position here. The 1-word group sits at position 24.7, the best of any length, so I would not lean on it.
+
+**What this means if you run your own site:** compare CTR by word count in your own Queries report alongside average position. Judge a title only against queries at a similar position. A low CTR on a 2-word query at position 40 says little about the title.
+
+## How many top-3 queries got no click, by length?
+
+Short top-3 queries were more often zero-click than long ones. 88.2% of queries of 1 to 3 words (149 of 169) got no click, against 77.4% of queries of 4 or more words (195 of 252). The filter is 10 or more impressions and an average position of 3 or better. In total 344 of 421 queries (81.7%) got no click.
+
+{% chart type="bar" eyebrow="Top-3 queries with zero clicks" title="Share of top-3 queries (10+ impressions) with zero clicks in 12 months, by query word count" data="1 word (27 queries):92.6|2 words (58):87.9|3 words (84):86.9|4 words (63):79.4|5 words (60):85.0|6 words (43):65.1|7+ words (86):76.7" suffix="%" highlight="6 words (43)" source="Author's own portfolio data, Google Search Console API, 30 Oct 2025 to 29 Oct 2026, 421 queries" /%}
+
+Each group holds between 27 and 86 queries. The 6-word figure comes from 43 queries, so a handful of queries could move it. Position is a 12-month average and can hide a query that moved in and out of the top 3.
+
+The 81.7% total also appears in my [small-site benchmarks study](/blog/small-site-seo-benchmarks/), which uses the same sample.
+
+**What this means if you run your own site:** filter for position 3 or better and 10 or more impressions, then group by word count. Check the 1-word to 3-word rows with zero clicks first. Search each one and look at what sits above your result.
+
+## How do question queries perform?
+
+Question queries had a CTR of 0.40%, against 0.47% for all other queries. They were 12.4% of query rows, 14.3% of impressions and 12.5% of clicks. I counted a query as a question when its first word was how, what, why, when, where, which, who, can, does, is, are, should or do. That gave 27,675 question rows. The other queries had 10,977 clicks from 2,328,373 impressions.
+
+{% chart type="bar" eyebrow="Question queries" title="CTR for question queries and all other queries, 30 Oct 2025 to 29 Oct 2026, 97 sites" data="Question queries:0.40|All other queries:0.47" suffix="%" highlight="Question queries" source="Author's own portfolio data, Google Search Console API" /%}
+
+The gap of 0.07 percentage points is small and I did not control for position. The first-word rule misses questions that start another way. It also counts phrases that start with "is" or "do" that are not questions.
+
+**What this means if you run your own site:** question queries were about one in seven impressions on my sites. If you write answer pages, check the question share of your own impressions with a regex filter on those starting words. My [AI search optimisation service](/services/ai-search-optimisation/) covers how I structure pages to answer them.
+
+## Are queries getting longer?
+
+I cannot tell from this data. I pulled each calendar month from November 2025 to October 2026 (October runs to the 29th). The impression-weighted average fell from 4.76 words in November to 3.92 in October. The number of sites with query data rose from 12 to 92 in the same period, because many of my properties start in March 2026. The change in the average may reflect the change in the mix of sites. Each month is its own pull, so Google's anonymisation cut differs from the 12-month data.
+
+A fixed panel of the 6 sites with 50 or more impressions in every month went from 4.81 words in November 2025 to 4.34 in October 2026. Six sites is too few for a trend. I make no claim about whether queries are lengthening. Do not cite the panel as evidence of shortening either.
+
+**What this means if you run your own site:** compare your own average query length month by month from your own export. Keep the same set of pages in each month so the mix stays fixed.
+
+## How to compare your own site
+
+You can check the share of impressions by word count for your own site in a spreadsheet from a Search Console Queries export.
+
+1. Open Performance in Search Console and set the date range to the last 12 months.
+2. Open the Queries tab and export the table to Google Sheets. The export holds up to 1,000 rows.
+3. Put the queries in column A, clicks in column B and impressions in column C, with headers in row 1.
+4. Enter `=LEN(TRIM(A2))-LEN(SUBSTITUTE(TRIM(A2)," ",""))+1` in D2 and fill it down to count words.
+5. Enter `=SUMIF(D2:D,">=4",C2:C)/SUM(C2:C)` in an empty cell for the share of impressions from queries of 4 or more words.
+6. Enter `=SUMIF(D2:D,">=4",B2:B)/SUM(B2:B)` in another cell for the share of clicks. Use explicit ranges such as `D2:D1001` in Excel.
+7. Compare both results with 61.0% of impressions and 69.8% of clicks. A different result is not a fault. My sites are mostly UK affiliate and programmatic sites.
+
+## Method
+
+The data comes from the Google Search Console API, web search type, query dimension, for 30 October 2025 to 29 October 2026. Each row is one query with its clicks, impressions and average position for the whole window. The sample is the 100 websites I own that have Search Console data, the same sample as my benchmarks study. Three returned no query rows, which leaves 97 sites and 223,218 rows. I left out clients, leads, family sites and my own consultancy site.
+
+Per-site medians use sites with 100 or more query rows for impression share and sites with 30 or more clicks for click share. For the monthly trend I pulled each calendar month separately. A second script, written separately from the first, recomputed the shares, CTR, top-3 counts and question figures and matched all of them. Both scripts use the same API data. The second script checks my arithmetic and cannot check Google's sampling.
+
+## Caveats
+
+- **Visible queries only:** Google withholds rare and anonymised queries, and those skew long. Every share here covers the queries Google reports.
+- **Niche mix:** the sample is mostly UK affiliate and programmatic sites. A few larger sites dominate the pooled figures. I show per-site medians alongside them.
+- **Low click counts:** 12,551 clicks across 97 sites. Only 15 sites had 30 or more clicks. One site brought 39.3% of them.
+- **Position:** CTR by word count is mixed with position. I did not control for it.
+- **Question rule:** first-word matching only.
+- **Trend:** the monthly data mixes in new properties. The 6-site panel is too small for a conclusion.
+- **AI Mode:** Search Console does not separate AI Mode or AI Overviews from other web search. This data says nothing about query length in AI Mode.
+- **Scope:** these are sites I own and not the web. I draw no conclusion about websites in general.
+
+## Next step
+
+Your own Queries report is the quickest way to test these figures.
+
+{% panel eyebrow="Next step" title="See which queries your site gets and which it misses" %}
+I can go through your own Queries report with you in a [free 20-minute diagnosis](/contact/). Bring your export and I will show you which of your queries bring the clicks.
+{% /panel %}
+
+## How to cite
+
+Sunny Patel, "Search Query Length on 97 Small Sites: Clicks, CTR and Question Queries," sunnypatel.co.uk, 2 November 2026, Google Search Console API, 97 websites I own with query data, 30 October 2025 to 29 October 2026. https://sunnypatel.co.uk/blog/search-query-length-study/
+
+More sourced figures from this site are collected in the [statistics hub](/statistics/).

@@ -371,7 +371,59 @@ const AI_SEARCH_DATA = {
 
 type ConversionData = typeof GENERIC_DATA;
 
+const SEO_TRAINING_DATA: ConversionData = {
+  ...GENERIC_DATA,
+  testimonials: [],
+  caseStudies: [],
+  timeline: [
+    {
+      "phase": "Step 1",
+      "label": "Free scoping call",
+      "description": "A free 20-minute call starts every engagement"
+    },
+    {
+      "phase": "Step 2",
+      "label": "Fixed price agreed",
+      "description": "One format, the modules and the price confirmed before any work starts"
+    },
+    {
+      "phase": "Step 3",
+      "label": "Tailored preparation",
+      "description": "Exercises built from your site and your Search Console data"
+    },
+    {
+      "phase": "Step 4",
+      "label": "Live training",
+      "description": "Online or on site. The team works on its own pages during the session"
+    },
+    {
+      "phase": "Step 5",
+      "label": "Follow-up",
+      "description": "A Q&A after a workshop. Set work and feedback across the six-week programme"
+    }
+  ],
+  riskPoints: [
+    "Fixed price per team of up to 8 people agreed before any work starts",
+    "Free 20-minute scoping call before you commit",
+    "Attendees keep the materials and exercise templates"
+  ],
+  yesFor: [
+    "In-house marketing and content teams who will do the SEO work themselves",
+    "Developers who work on crawl, indexation and rendering in their own templates",
+    "Founders who want one-to-one training on their own site",
+    "Teams on WordPress or Shopify who want training inside their own platform"
+  ],
+  noFor: [
+    "Anyone who needs an accredited SEO certificate",
+    "People looking for a free or self-paced SEO course",
+    "Businesses that want the SEO work done for them"
+  ],
+  ctaTitle: "Book SEO training for your team",
+  ctaSubtitle: "Start with a free 20-minute scoping call. I will recommend one format and confirm the fixed price.",
+};
+
 const SPECIFIC_DATA: Record<string, ConversionData> = {
+  "seo-training": SEO_TRAINING_DATA,
   "seo-consulting": {
     ...GENERIC_DATA,
     ctaTitle: "Discuss ongoing SEO support",
@@ -407,6 +459,36 @@ const OFFER_EXAMPLE_KIND = {
 } as const;
 
 const OFFER_FORM_DATA = {
+  "seo-training": {
+    id: "enquire",
+    ctaTitle: "Book SEO training for your team",
+    ctaSubtitle:
+      "Start with a free 20-minute scoping call. I will recommend one format and confirm the fixed price.",
+    trustPoints: [
+      "Half-day workshop £750 or full-day workshop £1,250",
+      "Six-week team programme £2,500",
+      "Fixed price per team of up to 8 people",
+      "Online anywhere in the UK or on site",
+      "Attendees keep the materials and exercise templates",
+    ],
+    badges: [
+      { icon: "clock" as const, label: "Free 20-minute scoping call" },
+      { icon: "shield" as const, label: "Fixed price agreed first" },
+    ],
+    submitLabel: "Book a scoping call",
+    successMessage:
+      "Your SEO training enquiry has been received. The next step is a free 20-minute scoping call.",
+    offerId: "seo_training_scoping_call",
+    offerLabel: "SEO training scoping call",
+    eventLabel: "seo_training_form",
+    messagePlaceholder:
+      "Share your website, how many people will attend and which format you are considering.",
+    formFooterNote: "No payment is taken through this form · The price is agreed before any work starts",
+    operationalNotes: [
+      "The next step is a free 20-minute scoping call",
+      "Format and price are confirmed before work starts",
+    ],
+  },
   "technical-seo-audit": {
     id: "enquire",
     ctaTitle: "Request the £495 technical SEO audit",
@@ -469,6 +551,13 @@ const OFFER_FORM_DATA = {
 } as const;
 
 const OFFER_HEADER_DATA = {
+  "seo-training": {
+    badges: ["Half day £750", "Full day £1,250", "Six weeks £2,500"],
+    ctaHref: "#enquire",
+    ctaLabel: "Book a scoping call",
+    ctaMeta: "Free 20-minute call · Teams of up to 8 · Online or on site",
+    ctaOffer: "seo_training_scoping_call",
+  },
   "technical-seo-audit": {
     badges: ["£495 fixed fee", "5 working days after access", "60-minute walkthrough"],
     ctaHref: "#enquire",
@@ -562,7 +651,7 @@ function buildSections(
   const injections: Record<number, React.ReactNode> = {
     [pos.statsBar]: (
       <>
-        <StatsBar />
+        {slug !== "seo-training" && <StatsBar />}
         {coverageMap && (
           <CoverageMap caption={COVERAGE_MAP_CAPTIONS[slug] ?? DEFAULT_COVERAGE_MAP_CAPTION} />
         )}
@@ -682,7 +771,7 @@ export default async function ServicePage({
 
   const convData = SPECIFIC_DATA[slug] ?? GENERIC_DATA;
   const sections = buildSections(rawContent, convData, slug, service.coverageMap);
-  const usesServiceSpecificOffer = slug in OFFER_EXAMPLE_KIND;
+  const usesServiceSpecificOffer = slug in OFFER_EXAMPLE_KIND || slug in OFFER_FORM_DATA;
   const offerForm = OFFER_FORM_DATA[slug as keyof typeof OFFER_FORM_DATA];
   const offerHeader = OFFER_HEADER_DATA[slug as keyof typeof OFFER_HEADER_DATA];
 
@@ -697,6 +786,7 @@ export default async function ServicePage({
               description: service.description,
               slug,
               ...(["ai-search-optimisation", "seo-consulting"].includes(slug) && { dateModified: "2026-10-03" }),
+              ...(slug === "seo-training" && { dateModified: "2026-11-02" }),
             }),
             breadcrumbSchema([
               { name: "Home", url: "https://sunnypatel.co.uk/" },

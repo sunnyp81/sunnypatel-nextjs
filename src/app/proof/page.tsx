@@ -62,6 +62,26 @@ function WeeklyClicksChart() {
   );
 }
 
+const seoConsultantReading = proof.rankings.find((r) => r.query === "seo consultant reading");
+
+const LIVE_DATA = [
+  {
+    href: "/blog/ai-referral-traffic-study/#live-tracker",
+    title: "Live AI referral tracker",
+    text: "Weekly sessions attributed to AI assistants across my owned sites, with the denominator and a dated CSV snapshot.",
+  },
+  {
+    href: "/blog/google-update-portfolio-impact/#update-tracker",
+    title: "Google update tracker",
+    text: "How many of my sites rose or fell after each confirmed core and spam update, with the method and data files.",
+  },
+  {
+    href: "/research/experiments/",
+    title: "SEO experiment register",
+    text: "Every dated test on my own sites with its status, including the ones that failed or told me nothing.",
+  },
+];
+
 export default function ProofPage() {
   const updated = new Date(proof.updatedAt).toLocaleDateString("en-GB", {
     day: "numeric",
@@ -86,7 +106,10 @@ export default function ProofPage() {
 
       <div className="mb-12 grid gap-4 sm:grid-cols-3">
         {[
-          { value: "#2", label: 'Google rank, "seo consultant reading"' },
+          {
+            value: seoConsultantReading ? seoConsultantReading.position.toFixed(1) : String(proof.summary28d.avgPosition),
+            label: seoConsultantReading ? 'Average Google position, "seo consultant reading"' : "Average Google position, last 28 days",
+          },
           { value: proof.summary28d.impressions.toLocaleString("en-GB"), label: "Impressions, last 28 days" },
           { value: String(proof.summary28d.clicks), label: "Clicks, last 28 days" },
         ].map((s) => (
@@ -167,6 +190,21 @@ export default function ProofPage() {
               Prediction: {it.prediction}
             </p>
           </div>
+        ))}
+      </div>
+
+      <h2 className="mb-4 text-xl font-bold text-foreground" style={{ fontFamily: "var(--font-heading)" }}>
+        Live portfolio data you can cite
+      </h2>
+      <p className="mb-5 text-sm text-muted-foreground">
+        Each one has its own link, a method, a licence and files to download. All of it comes from sites I own.
+      </p>
+      <div className="mb-12 space-y-4">
+        {LIVE_DATA.map((item) => (
+          <Link key={item.href} href={item.href} className="block rounded-2xl border border-border p-5 transition-colors hover:border-brand/40">
+            <p className="font-semibold text-foreground">{item.title}</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+          </Link>
         ))}
       </div>
 

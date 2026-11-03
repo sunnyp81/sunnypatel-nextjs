@@ -62,6 +62,10 @@ export const STUDIES: Study[] = [
       value: "35 of 57",
       label: "eligible sites rose by 20% or more after the September 2026 spam update",
     },
+    downloads: [
+      { label: "Tracker CSV", href: "/downloads/live/google-update-tracker-latest.csv" },
+      { label: "Tracker JSON", href: "/downloads/live/google-update-tracker-latest.json" },
+    ],
     note: "I add a row about four weeks after Google marks an update complete. The same page holds a 21-site table of four unexplained drops between 20 June and 15 September 2026.",
   },
   {
@@ -102,6 +106,7 @@ export const STUDIES: Study[] = [
       label: "of sessions came from five AI assistants (6,165 of 334,744)",
     },
     downloads: [
+      { label: "Live tracker CSV", href: "/downloads/live/ai-referrals-latest.csv" },
       { label: "Edition 2 CSV", href: "/downloads/ai-referral-traffic-study-2026-09-21-v2.csv" },
       { label: "Edition 2 JSON", href: "/downloads/ai-referral-traffic-study-2026-09-21-v2.json" },
       { label: "Edition 1 CSV", href: "/downloads/ai-referral-traffic-study-2026-08-26-v1.csv" },
@@ -269,6 +274,46 @@ const BY = `${LICENCE_NAME}. Use it, share it and adapt it with credit.`;
 const BY_COMPILED = `${LICENCE_NAME} for my selection and wording. Each figure belongs to the source named on its row.`;
 
 export const CATALOGUE: CatalogueEntry[] = [
+  {
+    id: "ai-referral-live",
+    group: "own",
+    title: "Live AI referral tracker",
+    studyHref: "/blog/ai-referral-traffic-study/#live-tracker",
+    studyTitle: "AI referral traffic study",
+    date: "2026-11-03",
+    files: [csv("live/ai-referrals-latest.csv"), json("live/ai-referrals-latest.json")],
+    contains:
+      "One row per finished week: total sessions, sessions matching AI referral source list version 1.0, the AI share and sessions per assistant. Each refresh also writes a dated CSV snapshot of the series, named with the week's end date.",
+    window: "From 29 June 2026, refreshed weekly, in each property's own GA4 time zone",
+    sample: "The 108 owned GA4 properties from edition 2, frozen on 24 September 2026.",
+    exclusions: "Client sites and properties with unconfirmed ownership. Sites added after the freeze.",
+    anonymisation: "Portfolio totals, plus one sensitivity figure with the largest property removed. No per-site rows and no site names.",
+    siteNames: "None.",
+    verification:
+      "The refresh stops without publishing if under 90% of properties respond, if a published week moves by more than 25%, or if a window has no AI sessions.",
+    licence: BY,
+    doi: "pending",
+    schema: false,
+  },
+  {
+    id: "experiment-register",
+    group: "own",
+    title: "SEO experiment register",
+    studyHref: "/research/experiments/",
+    studyTitle: "SEO experiment register",
+    date: "2026-11-02",
+    files: [],
+    contains: "Status, change date, readback date, metric, window, comparison and outcome for each dated test. The CSV is at /research/experiments.csv and the page links to it.",
+    window: "From the earliest logged test. Updated at each readback.",
+    sample: "Tests on my own sites only.",
+    exclusions: "Client sites.",
+    anonymisation: "Sector labels, unless a site is already named in a public post.",
+    siteNames: "Only sites already named in my public posts.",
+    verification: "The CSV is generated from the same record as the page. The page shows some fields the CSV leaves out.",
+    licence: BY,
+    doi: "pending",
+    schema: false,
+  },
   {
     id: "ai-referral-edition-2",
     group: "own",
@@ -474,12 +519,12 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     id: "embedded-update-tracker",
-    group: "embedded",
+    group: "own",
     title: "Google update tracker table",
     studyHref: "/blog/google-update-portfolio-impact/#update-tracker",
     studyTitle: "How my sites changed after each Google update",
     date: "2026-11-02",
-    files: [],
+    files: [csv("live/google-update-tracker-latest.csv"), json("live/google-update-tracker-latest.json")],
     contains: "For each confirmed core and spam update: eligible sites, the number up or down by 20% and 50%, the median change and the pooled change.",
     window: "June 2025 to October 2026",
     sample: "100 owned Search Console properties. Eligible sites per update run from 0 to 66.",

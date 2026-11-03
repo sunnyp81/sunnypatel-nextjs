@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { aiSummary } from "@/components/live/live-stats";
 
 export function AiStatBar() {
   return (
     <section className="relative py-6">
       <div className="mx-auto max-w-3xl px-6">
         <Link
-          href="/ai-visibility-results/"
+          href="/blog/ai-referral-traffic-study/#live-tracker"
           className="group flex flex-wrap items-center justify-center gap-2 rounded-full border border-brand/15 bg-brand/[0.04] px-5 py-2.5 text-center text-sm text-muted-foreground transition-colors hover:border-brand/30 hover:bg-brand/[0.08]"
         >
           <Sparkles className="h-3.5 w-3.5 shrink-0 text-brand" />
           <span>
-            <strong className="font-semibold text-foreground">3,948 AI-assistant sessions</strong>{" "}
-            across 6 of my portfolio sites in the GA4 sample for 28 May to 26 August 2026. Attributed visits, not citation counts.
+            <strong className="font-semibold text-foreground">{aiSummary.ai} AI-assistant sessions</strong>{" "}
+            across {aiSummary.sites} of my portfolio sites in the 28 days to {aiSummary.end}. Attributed visits, not citation counts.
           </span>
           <ArrowRight className="h-3.5 w-3.5 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" />
         </Link>

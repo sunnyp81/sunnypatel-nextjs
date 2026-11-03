@@ -6,6 +6,7 @@ import { Footer } from "@/components/sections/footer";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { breadcrumbSchema, schemaGraph } from "@/lib/schema";
+import { CiteBlock } from "@/components/live/live-stats";
 import {
   EXPERIMENTS,
   EXPERIMENTS_LAST_UPDATED,
@@ -38,6 +39,7 @@ function formatDate(iso: string) {
 
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 const counts = statusCounts();
+const CSV_URL = "/research/experiments.csv";
 const total = EXPERIMENTS.length;
 
 const PAGE_SCHEMA = schemaGraph(
@@ -53,6 +55,18 @@ const PAGE_SCHEMA = schemaGraph(
     isPartOf: { "@id": `${SITE_URL}/#website` },
     author: { "@id": `${SITE_URL}/#person` },
     mainEntity: { "@id": `${PAGE_URL}#entries` },
+  },
+  {
+    "@type": "Dataset",
+    "@id": `${PAGE_URL}#dataset`,
+    name: "SEO experiment register",
+    description: "Status, dates, metric, window, comparison and outcome for each dated SEO test on Sunny Patel's own sites.",
+    url: PAGE_URL,
+    creator: { "@id": `${SITE_URL}/#person` },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    isAccessibleForFree: true,
+    dateModified: EXPERIMENTS_LAST_UPDATED,
+    distribution: [{ "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${SITE_URL}${CSV_URL}` }],
   },
   {
     "@type": "ItemList",
@@ -261,6 +275,14 @@ export default function ExperimentsPage() {
             </dl>
 
             <ReadbackTimeline />
+
+            <CiteBlock
+              citation={`Sunny Patel, "SEO experiment register", sunnypatel.co.uk, updated ${formatDate(EXPERIMENTS_LAST_UPDATED)}. ${PAGE_URL}`}
+            >
+              <a className="inline-flex min-h-11 items-center text-brand-ink underline underline-offset-4" href={CSV_URL} download>
+                Download the register as CSV
+              </a>
+            </CiteBlock>
 
             <nav aria-label="Jump to an entry" className="mt-8">
               <ol className="flex flex-wrap gap-2">

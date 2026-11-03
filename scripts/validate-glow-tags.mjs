@@ -3,6 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const tags = {
+  "live-ai-tracker": { selfClosing: true },
+  "live-update-tracker": { selfClosing: true },
   cta: { attributes: { heading: { type: String }, text: { type: String } } },
   pullquote: { attributes: { cite: { type: String } } },
   stat: { selfClosing: true, attributes: { value: { type: String, required: true }, label: { type: String, required: true }, source: { type: String } } },

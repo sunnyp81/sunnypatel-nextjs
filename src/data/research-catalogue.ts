@@ -290,7 +290,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     anonymisation: "Portfolio totals, plus one sensitivity figure with the largest property removed. No per-site rows and no site names.",
     siteNames: "None.",
     verification:
-      "The refresh stops without publishing if under 90% of properties respond, if a published week with 30 or more AI sessions moves by more than 25%, if total sessions fall by over 70% in a week, or if a window has no AI sessions.",
+      "Once a dataset exists, the refresh stops without publishing if under 90% of properties respond, if a published week with 30 or more AI sessions moves by more than 25%, if total sessions fall by over 70% between the last two weeks, or if the window has no sessions or no AI sessions.",
     licence: BY,
     doi: "pending",
     schema: false,

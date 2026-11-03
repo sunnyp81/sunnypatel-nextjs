@@ -1,45 +1,62 @@
-import { PORTFOLIO_PROOF, type ProofSeries } from "@/data/portfolio-proof-data";
+import portfolioProof from "@/data/portfolio-proof.json";
 
-function MonthlyChart({ series }: { series: ProofSeries }) {
-  const max = Math.max(...series.months.map((month) => month.clicks));
+const CHART_MONTHS = 6;
+
+type MonthlyClicks = { ym: string; clicks: number };
+
+const monthName = (ym: string, options: Intl.DateTimeFormatOptions) =>
+  new Date(`${ym}-01T12:00:00Z`).toLocaleDateString("en-GB", { timeZone: "UTC", ...options });
+const shortMonth = (ym: string) => monthName(ym, { month: "short" }).slice(0, 3);
+const longMonth = (ym: string) => monthName(ym, { month: "long" });
+const monthYear = (ym: string) => monthName(ym, { month: "long", year: "numeric" });
+const count = (n: number) => n.toLocaleString("en-GB");
+
+function takeaway(months: MonthlyClicks[]) {
+  const first = months[0];
+  const latest = months[months.length - 1];
+  const peak = months.reduce((best, month) => (month.clicks > best.clicks ? month : best), first);
+
+  if (peak.ym === latest.ym) {
+    return `${count(first.clicks)} clicks in ${monthYear(first.ym)} to ${count(latest.clicks)} in ${longMonth(latest.ym)}, the highest month so far.`;
+  }
+  return `${count(first.clicks)} clicks in ${monthYear(first.ym)} to a ${count(peak.clicks)} peak in ${longMonth(peak.ym)}, then ${count(latest.clicks)} in ${longMonth(latest.ym)}.`;
+}
+
+function MonthlyChart({ months }: { months: MonthlyClicks[] }) {
+  const max = Math.max(...months.map((month) => month.clicks));
 
   return (
     <figure className="mt-6">
       <figcaption className="mb-3 text-xs text-muted-foreground dark:text-white/70">Clicks per month</figcaption>
       <div className="grid grid-cols-6 gap-1 border-b border-hairline pt-8 dark:border-transparent" aria-hidden="true">
-        {series.months.map((month) => {
+        {months.map((month) => {
           const height = `${(month.clicks / max) * 100}%`;
 
           return (
-            <div key={month.label} className="min-w-0 text-center">
+            <div key={month.ym} className="min-w-0 text-center">
               <div className="relative h-44">
                 <span
                   className="absolute inset-x-0 text-xs font-semibold tabular-nums text-foreground dark:text-white"
                   style={{ bottom: `calc(${height} + 0.5rem)` }}
                 >
-                  {month.clicks.toLocaleString("en-GB")}
+                  {count(month.clicks)}
                 </span>
                 <div
-                  className={`absolute bottom-0 left-1/2 w-3/4 max-w-10 -translate-x-1/2 ${
-                    month.partial
-                      ? "border-2 border-dashed border-gold"
-                      : "bg-brand"
-                  }`}
+                  className="absolute bottom-0 left-1/2 w-3/4 max-w-10 -translate-x-1/2 bg-brand"
                   style={{ height }}
                 />
               </div>
               <p className="mt-3 min-h-12 text-xs leading-4 text-muted-foreground dark:text-white/70">
-                {month.label}
+                {shortMonth(month.ym)}
               </p>
             </div>
           );
         })}
       </div>
       <ul className="sr-only">
-        {series.months.map((month) => (
-          <li key={month.label}>
-            {month.label}: {month.clicks.toLocaleString("en-GB")} clicks
-            {month.partial ? " (partial month)" : ""}.
+        {months.map((month) => (
+          <li key={month.ym}>
+            {monthYear(month.ym)}: {count(month.clicks)} clicks.
           </li>
         ))}
       </ul>
@@ -48,6 +65,14 @@ function MonthlyChart({ series }: { series: ProofSeries }) {
 }
 
 export function PortfolioProof() {
+  const lastMonth = portfolioProof.series[0].months.at(-1)!.ym;
+  const checked = new Date(`${portfolioProof.updatedAt}T12:00:00Z`).toLocaleDateString("en-GB", {
+    timeZone: "UTC",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <section
       aria-labelledby="portfolio-proof-heading"
@@ -68,27 +93,27 @@ export function PortfolioProof() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
-          {PORTFOLIO_PROOF.map((series) => (
+          {portfolioProof.series.map((series) => (
             <article
               key={series.sector}
               className="min-w-0 rounded-2xl border border-hairline bg-surface-2 p-6 shadow-[var(--elev)] sm:p-8 dark:border-white/[0.08] dark:bg-black/20 dark:shadow-none"
             >
               <h3 className="text-sm font-semibold leading-6 text-foreground md:min-h-18">
                 {series.sector}
-                {series.sector === "EV charging directory" && (
+                {series.note && (
                   <span className="font-normal text-muted-foreground dark:text-white/70">
-                    {" (new site, first search impressions late March 2026)"}
+                    {` (${series.note})`}
                   </span>
                 )}
               </h3>
-              <MonthlyChart series={series} />
-              <p className="mt-4 text-sm leading-6 text-muted-foreground dark:text-white/70">{series.takeaway}</p>
+              <MonthlyChart months={series.months.slice(-CHART_MONTHS)} />
+              <p className="mt-4 text-sm leading-6 text-muted-foreground dark:text-white/70">{takeaway(series.months)}</p>
             </article>
           ))}
         </div>
 
         <p className="mt-6 text-xs leading-5 text-muted-foreground dark:text-white/70">
-          Source: Google Search Console, clicks per month, April to 22 September 2026. Sites I own and run, labelled by sector. Not client results. Results vary by niche and starting point.
+          Source: Google Search Console, clicks per completed month, to {monthYear(lastMonth)}. Last checked {checked}. Sites I own and run, labelled by sector. Not client results. Results vary by niche and starting point.
         </p>
       </div>
     </section>

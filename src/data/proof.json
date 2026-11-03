@@ -1,65 +1,73 @@
 {
-  "updatedAt": "2026-09-10",
+  "updatedAt": "2026-11-03",
   "source": "Google Search Console API, sc-domain:sunnypatel.co.uk",
   "summary28d": {
-    "clicks": 68,
-    "impressions": 52145,
-    "avgPosition": 30
+    "clicks": 70,
+    "impressions": 50193,
+    "avgPosition": 21.8
   },
   "summary12mo": {
-    "clicks": 350,
-    "impressions": 279451,
-    "avgPosition": 32.6
+    "clicks": 527,
+    "impressions": 413822,
+    "avgPosition": 28.7
   },
   "rankings": [
     {
       "query": "seo consultant reading",
-      "position": 6.7
+      "position": 6
+    },
+    {
+      "query": "best geo agency uk",
+      "position": 7.9
+    },
+    {
+      "query": "best geo agencies uk",
+      "position": 10.1
     },
     {
       "query": "technical seo services reading",
       "position": 10.1
     },
     {
-      "query": "keyword scraper",
-      "position": 13.6
+      "query": "aeo consultant",
+      "position": 11.3
     },
     {
-      "query": "best geo agencies",
-      "position": 14.4
+      "query": "keyword scraper",
+      "position": 11.5
     }
   ],
   "weeklyClicks": [
     {
-      "weekStart": "2026-07-11",
-      "clicks": 20
+      "weekStart": "2026-09-06",
+      "clicks": 23
     },
     {
-      "weekStart": "2026-07-18",
-      "clicks": 17
-    },
-    {
-      "weekStart": "2026-07-25",
-      "clicks": 11
-    },
-    {
-      "weekStart": "2026-08-01",
-      "clicks": 17
-    },
-    {
-      "weekStart": "2026-08-08",
-      "clicks": 18
-    },
-    {
-      "weekStart": "2026-08-15",
-      "clicks": 18
-    },
-    {
-      "weekStart": "2026-08-22",
+      "weekStart": "2026-09-13",
       "clicks": 19
     },
     {
-      "weekStart": "2026-08-29",
+      "weekStart": "2026-09-20",
+      "clicks": 37
+    },
+    {
+      "weekStart": "2026-09-27",
+      "clicks": 33
+    },
+    {
+      "weekStart": "2026-10-04",
+      "clicks": 23
+    },
+    {
+      "weekStart": "2026-10-11",
+      "clicks": 21
+    },
+    {
+      "weekStart": "2026-10-18",
+      "clicks": 13
+    },
+    {
+      "weekStart": "2026-10-25",
       "clicks": 13
     }
   ],

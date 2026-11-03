@@ -1,4 +1,4 @@
-// Refreshes src/data/proof.json from the GSC API. Run on the VPS:
+// Refreshes src/data/proof.json and src/data/portfolio-proof.json from the GSC API. Run on the VPS:
 //   GOOGLE_APPLICATION_CREDENTIALS=/root/.hermes/gsc-service-account.json node scripts/update-proof-data.mjs
 // Then commit + push + deploy. No npm deps: JWT is signed with node:crypto.
 import { createSign } from "node:crypto";
@@ -6,6 +6,16 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const SITE = "sc-domain:sunnypatel.co.uk";
 const OUT = new URL("../src/data/proof.json", import.meta.url).pathname;
+const PORTFOLIO_OUT = new URL("../src/data/portfolio-proof.json", import.meta.url).pathname;
+const PORTFOLIO_START = "2026-04-01";
+const PORTFOLIO_SITES = [
+  {
+    site: "sc-domain:chargefinder.uk",
+    sector: "EV charging directory",
+    note: "new site, first search impressions late March 2026",
+  },
+  { site: "sc-domain:waterhard.uk", sector: "Home and water information site" },
+];
 const KEY_PATH = process.env.GOOGLE_APPLICATION_CREDENTIALS || "/root/.hermes/gsc-service-account.json";
 
 async function getToken() {
@@ -32,9 +42,9 @@ async function getToken() {
   return (await res.json()).access_token;
 }
 
-async function query(token, body) {
+async function query(token, body, site = SITE) {
   const res = await fetch(
-    `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`,
+    `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`,
     {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
@@ -87,6 +97,44 @@ for (let w = 7; w >= 0; w--) {
     .reduce((sum, r) => sum + r.clicks, 0);
   weekly.push({ weekStart: iso(wStart), clicks });
 }
+
+// Completed months only: a month counts once GSC has final data for its last day.
+const monthEnd = (ym) => {
+  const [y, m] = ym.split("-").map(Number);
+  return iso(new Date(Date.UTC(y, m, 0)));
+};
+const portfolioSeries = await Promise.all(
+  PORTFOLIO_SITES.map(async ({ site, sector, note }) => {
+    const rows = await query(
+      token,
+      { startDate: PORTFOLIO_START, endDate: iso(today), dimensions: ["date"], rowLimit: 25000 },
+      site
+    );
+    if (!rows.length) throw new Error(`portfolio: no rows for ${site}`);
+    const lastDay = rows.reduce((max, r) => (r.keys[0] > max ? r.keys[0] : max), "");
+    const totals = new Map();
+    for (const r of rows) {
+      const ym = r.keys[0].slice(0, 7);
+      totals.set(ym, (totals.get(ym) || 0) + r.clicks);
+    }
+    const months = [...totals]
+      .filter(([ym]) => monthEnd(ym) <= lastDay)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([ym, clicks]) => ({ ym, clicks }));
+    return { sector, ...(note ? { note } : {}), months };
+  })
+);
+const prevPortfolio = JSON.parse(readFileSync(PORTFOLIO_OUT, "utf8"));
+for (const series of portfolioSeries) {
+  const before = prevPortfolio.series.find((s) => s.sector === series.sector);
+  if (before && series.months.length < before.months.length) {
+    throw new Error(`portfolio: ${series.sector} lost months (${before.months.length} to ${series.months.length})`);
+  }
+}
+writeFileSync(
+  PORTFOLIO_OUT,
+  JSON.stringify({ updatedAt: iso(today), source: "Google Search Console API", series: portfolioSeries }, null, 2) + "\n"
+);
 
 const prev = JSON.parse(readFileSync(OUT, "utf8"));
 writeFileSync(

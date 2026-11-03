@@ -89,10 +89,10 @@ export function LiveAiTracker() {
         }}
       />
       <p>
-        In the 28 days to {longDate(w.end)}, my {frame.properties}-property frame recorded{" "}
-        <strong>{count(w.ai)} sessions attributed to AI assistants</strong>, {w.share}% of {count(w.sessions)} sessions. The previous 28
-        days recorded {count(prior.ai)} of {count(prior.sessions)}, or {prior.share}%. {w.sitesWithAi} of the {w.sitesWithSessions}{" "}
-        properties with sessions had at least one. I refresh this every Monday. Last refreshed {longDate(updatedAt)}.
+        My {frame.properties}-property frame recorded <strong>{count(w.ai)} sessions attributed to AI assistants</strong> in the 28
+        days to {longDate(w.end)}. That is {w.share}% of {count(w.sessions)} sessions. The previous 28 days recorded {count(prior.ai)} of{" "}
+        {count(prior.sessions)} sessions or {prior.share}%. {w.sitesWithAi} of the {w.sitesWithSessions} properties with sessions had at
+        least one. I refresh this every Monday and last refreshed it on {longDate(updatedAt)}.
       </p>
 
       <figure className="not-prose mt-6 rounded-xl border border-hairline-strong p-4 sm:p-6">
@@ -167,21 +167,24 @@ export function LiveAiTracker() {
       <h3>How to read these numbers</h3>
       <ul>
         <li>
-          I count sessions whose source exactly matches my{" "}
-          <Link href="/blog/ai-referral-sources-ga4/">AI referral source list, version {sourceRule.version}</Link>. Edition 2 below
-          uses a different five-assistant rule, so do not join the two into one trend.
+          I count sessions whose source exactly matches my source list version {sourceRule.version}. Edition 2 below uses a different
+          five-assistant rule. Keep the two apart when you describe a trend. The full list is in my{" "}
+          <Link href="/blog/ai-referral-sources-ga4/">AI referral sources guide</Link>.
         </li>
         <li>
-          The frame is the {frame.properties} owned properties from edition 2, frozen on {longDate(frame.frozen)}. New sites stay out
-          so the denominator does not drift. {frame.responded} of {frame.properties} responded in this refresh.
+          The frame holds the {frame.properties} owned properties from edition 2 and was frozen on {longDate(frame.frozen)}. New sites stay
+          out so the denominator does not drift. {frame.responded} of {frame.properties} responded in this refresh.
         </li>
         <li>
-          AI share moves with total sessions as well as AI sessions, and one week can carry unusual Direct traffic. The largest
-          property holds {w.largestSiteSessionShare}% of sessions in this window. Without it, the share is {w.excludingLargest.share}%.
+          AI share moves with total sessions as well as AI sessions. One week can carry unusual Direct traffic. The largest property holds{" "}
+          {w.largestSiteSessionShare}% of sessions in this window. The share without it is {w.excludingLargest.share}%.
         </li>
         <li>
-          Weeks run Monday to Sunday, and only finished weeks appear. A count under {MIN_COUNT} shows no percentage. This is my own
-          portfolio, not a sample of the web, and a referral visit is not a citation count. I have not measured why a number moved.
+          Weeks run Monday to Sunday and only finished weeks appear. A count under {MIN_COUNT} shows no percentage.
+        </li>
+        <li>
+          This is my own portfolio and not a sample of the web. A referral visit is not a citation count. I have not measured why a number
+          moved.
         </li>
       </ul>
 

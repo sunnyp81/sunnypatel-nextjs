@@ -1,0 +1,73 @@
+{
+  "updatedAt": "2026-11-03",
+  "source": "Google Search Console API",
+  "series": [
+    {
+      "sector": "EV charging directory",
+      "note": "new site, first search impressions late March 2026",
+      "months": [
+        {
+          "ym": "2026-04",
+          "clicks": 8
+        },
+        {
+          "ym": "2026-05",
+          "clicks": 188
+        },
+        {
+          "ym": "2026-06",
+          "clicks": 622
+        },
+        {
+          "ym": "2026-07",
+          "clicks": 1495
+        },
+        {
+          "ym": "2026-08",
+          "clicks": 2236
+        },
+        {
+          "ym": "2026-09",
+          "clicks": 2835
+        },
+        {
+          "ym": "2026-10",
+          "clicks": 3510
+        }
+      ]
+    },
+    {
+      "sector": "Home and water information site",
+      "months": [
+        {
+          "ym": "2026-04",
+          "clicks": 1045
+        },
+        {
+          "ym": "2026-05",
+          "clicks": 981
+        },
+        {
+          "ym": "2026-06",
+          "clicks": 1405
+        },
+        {
+          "ym": "2026-07",
+          "clicks": 2336
+        },
+        {
+          "ym": "2026-08",
+          "clicks": 1868
+        },
+        {
+          "ym": "2026-09",
+          "clicks": 1774
+        },
+        {
+          "ym": "2026-10",
+          "clicks": 1807
+        }
+      ]
+    }
+  ]
+}

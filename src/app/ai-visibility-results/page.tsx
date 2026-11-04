@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: "How current is this data?",
-    a: "The six-site figures are the published historical extract for 28 May to 26 August 2026, 91 inclusive days. They are not a live dashboard. The linked referral study contains a later, different portfolio cohort and explains the overlapping windows and source-matching limitations.",
+    a: "The six-site figures are the published historical extract for 28 May to 26 August 2026, 91 inclusive days. They do not change. Current weekly figures are in the live tracker on the referral study. The linked referral study contains a later, different portfolio cohort and explains the overlapping windows and source-matching limitations.",
   },
   {
     q: "Can you get results like this for my business?",
@@ -141,7 +141,11 @@ export default function AiVisibilityResultsPage() {
               <Link href="/portfolio/health-affiliate-google-demotion-ai-referrals/" className="text-brand hover:underline">
                 health affiliate site case study
               </Link>
-              .
+              . Current numbers are in the{" "}
+              <Link href="/blog/ai-referral-traffic-study/#live-tracker" className="text-brand hover:underline">
+                live AI referral tracker
+              </Link>
+              , refreshed weekly.
             </p>
 
             {/* Trust badges */}

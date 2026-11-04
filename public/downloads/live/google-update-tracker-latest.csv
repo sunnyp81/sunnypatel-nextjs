@@ -1,0 +1,10 @@
+﻿update,type,start,end,status_url,before_start,before_end,after_start,after_end,eligible_sites,up_50,down_50,up_20,down_20,median_change_pct,pooled_change_pct,sum_before,sum_after
+June 2025 core update,core,2025-06-30,2025-07-17,https://status.search.google.com/incidents/riq1AuqETW46NfBCe5NT,2025-06-16,2025-06-29,2025-07-24,2025-08-06,0,,,,,,,,
+August 2025 spam update,spam,2025-08-26,2025-09-22,https://status.search.google.com/incidents/a7Aainy6E9rZsmfq82xt,2025-08-12,2025-08-25,2025-09-29,2025-10-12,9,0,6,0,8,,,,
+December 2025 core update,core,2025-12-11,2025-12-29,https://status.search.google.com/incidents/DsirqJ1gpPRgVQeccPRv,2025-11-27,2025-12-10,2026-01-05,2026-01-18,10,2,2,4,4,,,,
+March 2026 spam update,spam,2026-03-24,2026-03-25,https://status.search.google.com/incidents/VbnSXAH4SmEcxPtx4YSD,2026-03-10,2026-03-23,2026-04-01,2026-04-14,14,1,5,2,7,,,,
+March 2026 core update,core,2026-03-27,2026-04-08,https://status.search.google.com/incidents/7eTbAa2jWdToLkraZj5y,2026-03-13,2026-03-26,2026-04-15,2026-04-28,16,2,6,3,7,,,,
+May 2026 core update,core,2026-05-21,2026-06-02,https://status.search.google.com/incidents/wdAXJk6LRRihEjpzEeWE,2026-05-07,2026-05-20,2026-06-09,2026-06-22,44,18,7,22,16,18.86,-18.55,274466,223546
+June 2026 spam update,spam,2026-06-24,2026-06-26,https://status.search.google.com/incidents/YUX1peHev5a4fkxLDiUQ,2026-06-10,2026-06-23,2026-07-03,2026-07-16,54,8,3,19,13,0.22,14.26,249417,284990
+August 2026 spam update,spam,2026-08-18,2026-08-21,https://status.search.google.com/incidents/LEubPCm2octf2uMqCFKE,2026-08-04,2026-08-17,2026-08-28,2026-09-10,66,9,11,22,21,-1.0,8.51,354276,384410
+September 2026 spam update,spam,2026-09-24,2026-10-08,https://status.search.google.com/incidents/XhUDXP7A67iHCD2kmbVu,2026-09-10,2026-09-23,2026-10-15,2026-10-28,57,22,6,35,9,38.77,1.94,379307,386658

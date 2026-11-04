@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { aiSummary } from "@/components/live/live-stats";
 
 export function AiStatBar() {
   return (
@@ -11,8 +12,8 @@ export function AiStatBar() {
         >
           <Sparkles className="h-3.5 w-3.5 shrink-0 text-brand" />
           <span>
-            <strong className="font-semibold text-foreground">3,948 AI-assistant sessions</strong>{" "}
-            across 6 of my portfolio sites in the GA4 sample for 28 May to 26 August 2026. Attributed visits, not citation counts.
+            <strong className="font-semibold text-foreground">{aiSummary.ai} AI-assistant sessions</strong>{" "}
+            across {aiSummary.sites} of my portfolio sites in the 28 days to {aiSummary.end}. Attributed visits, not citation counts.
           </span>
           <ArrowRight className="h-3.5 w-3.5 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" />
         </Link>

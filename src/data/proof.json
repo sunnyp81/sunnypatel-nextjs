@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-04",
   "source": "Google Search Console API, sc-domain:sunnypatel.co.uk",
   "summary28d": {
-    "clicks": 70,
-    "impressions": 50193,
-    "avgPosition": 21.8
+    "clicks": 71,
+    "impressions": 49909,
+    "avgPosition": 22.1
   },
   "summary12mo": {
-    "clicks": 527,
-    "impressions": 413822,
-    "avgPosition": 28.7
+    "clicks": 530,
+    "impressions": 416068,
+    "avgPosition": 28.6
   },
   "rankings": [
     {
@@ -39,36 +39,36 @@
   ],
   "weeklyClicks": [
     {
-      "weekStart": "2026-09-06",
-      "clicks": 23
+      "weekStart": "2026-09-07",
+      "clicks": 24
     },
     {
-      "weekStart": "2026-09-13",
-      "clicks": 19
+      "weekStart": "2026-09-14",
+      "clicks": 20
     },
     {
-      "weekStart": "2026-09-20",
-      "clicks": 37
+      "weekStart": "2026-09-21",
+      "clicks": 40
     },
     {
-      "weekStart": "2026-09-27",
-      "clicks": 33
+      "weekStart": "2026-09-28",
+      "clicks": 30
     },
     {
-      "weekStart": "2026-10-04",
-      "clicks": 23
+      "weekStart": "2026-10-05",
+      "clicks": 22
     },
     {
-      "weekStart": "2026-10-11",
+      "weekStart": "2026-10-12",
       "clicks": 21
     },
     {
-      "weekStart": "2026-10-18",
-      "clicks": 13
+      "weekStart": "2026-10-19",
+      "clicks": 12
     },
     {
-      "weekStart": "2026-10-25",
-      "clicks": 13
+      "weekStart": "2026-10-26",
+      "clicks": 16
     }
   ],
   "caseStudy": {

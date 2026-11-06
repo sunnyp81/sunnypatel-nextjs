@@ -388,6 +388,87 @@ html:not(.dark) .prose blockquote::before {
 .animate-aurora-3 { animation: aurora-3 18s ease-in-out infinite; }
 
 
+/* ── Labels: a short lit length of neon tube replaces pill badges.
+   .lit-label: facts, categories, status. .tag-lit: linked tags, unlit until hover.
+   .tag-plain: unlinked tags. .link-quiet: cross-links. Glow is dark theme only. */
+.lit-label {
+  --lit: var(--brand-ink);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  color: var(--foreground);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.lit-label::after,
+.tag-lit::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  border-radius: 2px;
+}
+.lit-label::after {
+  height: 2px;
+  background: var(--lit);
+}
+.dark .lit-label::after,
+.dark .tag-lit:hover::after,
+.dark .tag-lit:focus-visible::after {
+  box-shadow: 0 0 5px var(--lit), 0 0 14px color-mix(in srgb, var(--lit) 75%, transparent);
+}
+.lit-label--sm { font-size: 13.5px; }
+.lit-label--gold { --lit: var(--gold-ink); color: var(--gold-ink); }
+.tag-lit {
+  --lit: var(--brand-ink);
+  position: relative;
+  display: inline-block;
+  min-height: 24px;
+  padding: 1px 0 5px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: color 150ms ease;
+}
+.tag-lit::after {
+  height: 1px;
+  background: var(--hairline-strong);
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+.tag-lit:hover,
+.tag-lit:focus-visible { color: var(--foreground); }
+.tag-lit:hover::after,
+.tag-lit:focus-visible::after {
+  height: 2px;
+  background: var(--lit);
+}
+.tag-plain {
+  display: inline-block;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.link-quiet {
+  display: inline-block;
+  min-height: 24px;
+  color: var(--foreground);
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--hairline-strong);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 150ms ease;
+}
+.tag-lit:focus-visible,
+.link-quiet:focus-visible {
+  outline: 2px solid var(--brand-ink);
+  outline-offset: 3px;
+}
+.link-quiet:hover,
+.link-quiet:focus-visible { text-decoration-color: var(--brand-ink); }
+
 /* ── Buttons — brand-aligned primary & secondary ──────────────
    Replaces the previous multicolour radial-gradient button (which
    animated through pink/orange/teal/lime tones, off-brand) with a

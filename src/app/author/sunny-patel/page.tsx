@@ -73,19 +73,14 @@ export default async function AuthorPage() {
           {/* E-E-A-T credentials */}
           <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
             {[
-              { label: "15+ Years SEO", color: "var(--brand-ink)" },
-              { label: "15+ Years Hands-On", color: "var(--gold-ink)" },
-              { label: "45-Site Test Portfolio", color: "var(--success-ink)" },
-              { label: "44 Managed Sites", color: "var(--teal-ink)" },
+              { label: "15+ Years SEO" },
+              { label: "15+ Years Hands-On" },
+              { label: "45-Site Test Portfolio" },
+              { label: "44 Managed Sites" },
             ].map((badge) => (
               <span
                 key={badge.label}
-                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium"
-                style={{
-                  borderColor: `color-mix(in srgb, ${badge.color} 20%, transparent)`,
-                  backgroundColor: `color-mix(in srgb, ${badge.color} 10%, transparent)`,
-                  color: badge.color,
-                }}
+                className="lit-label"
               >
                 {badge.label}
               </span>
@@ -97,7 +92,7 @@ export default async function AuthorPage() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/70">
               Specialisations
             </p>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1">
               {[
                 "Topical Authority",
                 "Entity SEO",
@@ -110,7 +105,7 @@ export default async function AuthorPage() {
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full border border-hairline bg-wash px-2.5 py-1 text-xs text-muted-foreground dark:border-white/[0.06] dark:bg-white/[0.02]"
+                  className="tag-plain"
                 >
                   {skill}
                 </span>

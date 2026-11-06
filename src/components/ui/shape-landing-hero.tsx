@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function ElegantShape({
@@ -150,11 +149,8 @@ function HeroGeometric({
 
             <div className="relative z-10 container mx-auto px-4 pt-24 pb-24 md:px-6 md:pt-28 md:pb-32">
                 <div className="max-w-3xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/[0.06] border border-brand/[0.18] dark:bg-white/[0.03] dark:border-white/[0.08] mb-8 md:mb-12">
-                        <Circle className="h-2 w-2 fill-brand/80" />
-                        <span className="text-sm text-ink-soft dark:text-white/60 tracking-wide">
-                            {badge}
-                        </span>
+                    <div className="mb-8 md:mb-12">
+                        <span className="lit-label">{badge}</span>
                     </div>
 
                     <div>

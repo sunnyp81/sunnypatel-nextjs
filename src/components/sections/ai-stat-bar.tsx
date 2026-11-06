@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { aiSummary } from "@/components/live/live-stats";
 
 export function AiStatBar() {
@@ -8,9 +8,8 @@ export function AiStatBar() {
       <div className="mx-auto max-w-3xl px-6">
         <Link
           href="/ai-visibility-results/"
-          className="group flex flex-wrap items-center justify-center gap-2 rounded-full border border-brand/15 bg-brand/[0.04] px-5 py-2.5 text-center text-sm text-muted-foreground transition-colors hover:border-brand/30 hover:bg-brand/[0.08]"
+          className="group flex flex-wrap items-center justify-center gap-2 text-center text-sm text-muted-foreground"
         >
-          <Sparkles className="h-3.5 w-3.5 shrink-0 text-brand" />
           <span>
             <strong className="font-semibold text-foreground">{aiSummary.ai} AI-assistant sessions</strong>{" "}
             across {aiSummary.sites} of my portfolio sites in the 28 days to {aiSummary.end}. Attributed visits, not citation counts.

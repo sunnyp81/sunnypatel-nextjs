@@ -7,7 +7,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { faqSchema, schemaGraph, breadcrumbSchema } from "@/lib/schema";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Shield, CalendarDays, Database } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function generateMetadata() {
   return buildMetadata({
@@ -65,10 +65,10 @@ const PAGE_SCHEMA = {
 };
 
 const TRUST_BADGES = [
-  { icon: Database, label: "Historical GA4 extract" },
-  { icon: Shield, label: "Own portfolio, not client claims" },
-  { icon: Sparkles, label: "Visits measured separately from citations" },
-  { icon: CalendarDays, label: "28 May to 26 August 2026" },
+  { label: "Historical GA4 extract" },
+  { label: "Own portfolio, not client claims" },
+  { label: "Visits measured separately from citations" },
+  { label: "28 May to 26 August 2026" },
 ] as const;
 
 export default function AiVisibilityResultsPage() {
@@ -149,13 +149,9 @@ export default function AiVisibilityResultsPage() {
             </p>
 
             {/* Trust badges */}
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {TRUST_BADGES.map(({ icon: Icon, label }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
-                >
-                  <Icon className="h-3 w-3 shrink-0" />
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-3">
+              {TRUST_BADGES.map(({ label }) => (
+                <span key={label} className="lit-label">
                   {label}
                 </span>
               ))}
@@ -251,7 +247,7 @@ export default function AiVisibilityResultsPage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
+                  className="link-quiet"
                 >
                   {link.label}
                   <ArrowRight className="h-3 w-3" />

@@ -89,7 +89,7 @@ export function Cta() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs text-white/70 transition-all duration-200 hover:border-white/40 hover:text-white dark:border-white/[0.06] dark:bg-white/[0.02] dark:text-muted-foreground/60 dark:hover:border-brand/20 dark:hover:text-brand"
+              className="text-sm text-white/85 underline decoration-white/35 underline-offset-4 transition-colors duration-200 hover:text-white hover:decoration-white dark:text-muted-foreground dark:decoration-white/25 dark:hover:text-foreground dark:hover:decoration-brand"
             >
               {link.label}
             </a>

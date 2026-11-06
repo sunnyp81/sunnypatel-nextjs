@@ -48,9 +48,9 @@ export function PortfolioDetail({
   ].filter((m) => m.value);
 
   const psr = [
-    { label: "The Problem", text: project.problem, textClass: "text-red-700 dark:text-red-400", borderClass: "border-red-500/30", accent: "border-red-500/20 bg-red-500/5" },
-    { label: "The Solution", text: project.solution, textClass: "text-brand-ink", borderClass: "border-brand/30", accent: "border-brand/20 bg-brand/5" },
-    { label: "The Result", text: project.result, textClass: "text-success-ink", borderClass: "border-success/30", accent: "border-success/20 bg-success/5" },
+    { label: "The Problem", text: project.problem },
+    { label: "The Solution", text: project.solution },
+    { label: "The Result", text: project.result },
   ].filter((s) => s.text);
 
   return (
@@ -82,11 +82,11 @@ export function PortfolioDetail({
             </Link>
 
             {project.tags && project.tags.length > 0 && (
-              <div className="mb-4 flex flex-wrap gap-2">
+              <div className="mb-4 flex flex-wrap gap-x-5 gap-y-1">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-ink"
+                    className="tag-plain"
                   >
                     {tag}
                   </span>
@@ -221,7 +221,7 @@ export function PortfolioDetail({
                 <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="relative h-full rounded-xl border-[0.75px] bg-background p-6">
                   <span
-                    className={`mb-3 inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest ${s.accent} ${s.textClass} ${s.borderClass}`}
+                    className={`lit-label lit-label--sm mb-3 ${s.label === "The Result" ? "lit-label--gold" : ""}`}
                   >
                     {s.label}
                   </span>

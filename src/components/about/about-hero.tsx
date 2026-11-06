@@ -40,7 +40,7 @@ export function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-ink">
+          <span className="lit-label mb-6">
             SEO & AI Consultant
           </span>
 

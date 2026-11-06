@@ -75,14 +75,14 @@ export function FreeToolSection() {
             <Link
               key={tool.href}
               href={tool.href}
-              className="rounded-full border border-hairline bg-wash px-4 py-1.5 text-sm text-ink-faint transition-colors hover:border-hairline-strong hover:text-ink-soft dark:border-white/[0.08] dark:bg-white/[0.02] dark:text-white/65 dark:hover:border-white/[0.16] dark:hover:text-white/80"
+              className="link-quiet"
             >
               {tool.name}
             </Link>
           ))}
           <Link
             href="/tools/"
-            className="rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-medium text-brand-ink transition-colors hover:border-brand/40 hover:bg-brand/10"
+            className="link-quiet"
           >
             Browse all free tools
           </Link>

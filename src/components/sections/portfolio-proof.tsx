@@ -80,8 +80,8 @@ export function PortfolioProof() {
     >
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-10">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">
-            PROOF FROM MY OWN PORTFOLIO
+          <p className="mb-2 text-[13.5px] font-semibold text-brand-ink">
+            Proof from my own portfolio
           </p>
           <h2
             id="portfolio-proof-heading"

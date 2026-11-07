@@ -116,9 +116,6 @@ function ContactForm({ supportParam }: { supportParam: string }) {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left — info */}
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-teal-ink">
-              {supportCopy.eyebrow}
-            </p>
             <h2
               className="mb-6 text-3xl font-bold text-foreground md:text-4xl"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}

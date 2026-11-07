@@ -92,7 +92,7 @@ export function Hero() {
             <form id="hero-diagnosis-form" name="hero_diagnosis_form" onSubmit={handleSubmit} onFocusCapture={trackFormStart} className="relative" aria-label="Request a free 20-minute SEO diagnosis">
               <div className="mb-4 flex flex-col justify-between gap-1 sm:flex-row sm:items-end">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink">Free 20-Minute SEO Diagnosis</p>
+                  <p className="text-[13.5px] font-semibold text-brand-ink">Free 20-minute SEO diagnosis</p>
                   <p className="mt-1 text-sm text-ink-soft dark:text-white/75">Tell me where search is getting stuck. I&apos;ll reply personally.</p>
                 </div>
                 <p className="text-xs text-ink-faint dark:text-white/65">No sales team · No obligation</p>
@@ -117,12 +117,12 @@ export function Hero() {
         </div>
       </GlowCard>
 
-      <p className="mt-9 text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint dark:text-white/65">Evidence, not promises</p>
+      <p className="mt-9 text-[13.5px] font-semibold text-brand-ink">Evidence, not promises</p>
       <div className="mx-auto mt-4 grid max-w-2xl gap-3 sm:grid-cols-3">
         {PROOF.map((stat) => (
-          <Link key={stat.label} href={stat.href} className="group relative rounded-xl border border-black/[0.08] bg-white shadow-[var(--elev)] dark:border-white/[0.09] dark:bg-white/[0.035] dark:shadow-none px-4 py-4 text-center transition-[border-color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-brand/30 dark:hover:border-white/[0.18] hover:bg-brand/[0.04] dark:hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
+          <Link key={stat.label} href={stat.href} className="stat-tile group relative rounded-xl border border-black/[0.08] bg-white shadow-[var(--elev)] dark:border-white/[0.09] dark:bg-white/[0.035] dark:shadow-none px-4 py-4 text-center hover:border-brand/30 dark:hover:border-white/[0.18] hover:bg-brand/[0.04] dark:hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-16 rounded-full opacity-15 blur-2xl transition-opacity duration-300 group-hover:opacity-35" style={{ background: stat.color }} aria-hidden="true" />
-            <div className={cn("relative whitespace-nowrap text-xl font-bold md:text-2xl", stat.textClass)} style={{ fontFamily: "var(--font-heading)" }}>{stat.value}</div>
+            <div className={cn("stat-num relative whitespace-nowrap text-xl font-bold md:text-2xl", stat.textClass)} style={{ fontFamily: "var(--font-heading)" }}>{stat.value}</div>
             <div className="mt-1 text-xs leading-snug text-ink-soft dark:text-white/75 transition-colors duration-300 group-hover:text-foreground dark:group-hover:text-white">{stat.label}</div>
           </Link>
         ))}

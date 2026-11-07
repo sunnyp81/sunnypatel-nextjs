@@ -81,7 +81,7 @@ export default async function PortfolioIndex() {
                 href={`/portfolio/${project.slug}`}
                 className="group"
               >
-                <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 transition-transform duration-200 group-hover:scale-[1.01]">
+                <div className="relative h-full glow-shell rounded-[1.25rem] border-[0.75px] border-border p-2 transition-transform duration-200 group-hover:scale-[1.01]">
                   <GlowingEffect
                     spread={60}
                     glow={true}
@@ -96,6 +96,7 @@ export default async function PortfolioIndex() {
                       title={project.entry.title}
                       tags={project.entry.tags}
                       industry={(project.entry as { industry?: string }).industry}
+                      result={project.entry.metrics?.[0] ?? null}
                       image={
                         project.entry.heroImage &&
                         project.entry.heroImageWidth &&

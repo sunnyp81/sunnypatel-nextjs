@@ -8,9 +8,6 @@ export function CoverageSection() {
       className="border-t border-hairline bg-surface-1 py-24 md:py-32 dark:border-white/[0.05] dark:bg-transparent"
     >
       <div className="mx-auto max-w-4xl px-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">
-          Where I work
-        </p>
         <h2
           id="coverage-heading"
           className="text-2xl font-bold text-foreground md:text-3xl"

@@ -264,7 +264,7 @@ function ServiceCard({
 }) {
   return (
     <Link href={`/services/${slug}`} className="group">
-      <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 transition-transform duration-200 group-hover:scale-[1.01]">
+      <div className="relative h-full glow-shell rounded-[1.25rem] border-[0.75px] border-border p-2 transition-transform duration-200 group-hover:scale-[1.01]">
         <GlowingEffect
           spread={40}
           glow={true}

@@ -39,9 +39,6 @@ export function FreeToolSection() {
     >
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-10 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand-ink">
-            Free Tool
-          </p>
           <h2
             id="free-tool-heading"
             className="text-3xl font-bold tracking-tight text-foreground md:text-4xl"

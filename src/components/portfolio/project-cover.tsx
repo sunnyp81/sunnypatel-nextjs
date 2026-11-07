@@ -2,39 +2,18 @@
 
 import Image from "next/image";
 
-const tagColorMap: Array<{ test: RegExp; color: string; secondary: string }> = [
-  { test: /health|medical|aesthet|care/i,          color: "var(--brand-ink)", secondary: "var(--teal-ink)" }, // Blue
-  { test: /\bai\b|copilot|citation|generative/i,   color: "var(--teal-ink)", secondary: "var(--brand-ink)" }, // Purple
-  { test: /analytics|cross.platform|audit/i,       color: "var(--gold-ink)", secondary: "var(--brand-ink)" }, // Gold
-  { test: /edtech|education|tutor/i,               color: "var(--gold-ink)", secondary: "var(--success-ink)" }, // Gold
-  { test: /affiliate|conversion|e-commerce/i,      color: "var(--teal-ink)", secondary: "var(--success-ink)" }, // Teal
-  { test: /design|brand|creative/i,                color: "var(--gold-ink)", secondary: "var(--brand-ink)" }, // Gold
-  { test: /dev|code|tech|software/i,               color: "var(--teal-ink)", secondary: "var(--success-ink)" }, // Teal
-  { test: /seo|content|search|organic/i,           color: "var(--success-ink)", secondary: "var(--teal-ink)" }, // Green
-  { test: /legal|law|finance/i,                    color: "var(--teal-ink)", secondary: "var(--brand-ink)" }, // Purple
-];
-
-function getColors(tags: readonly string[], industry?: string | null) {
-  const haystack = [...(tags ?? []), industry ?? ""].join(" ");
-  for (const entry of tagColorMap) {
-    if (entry.test.test(haystack)) return entry;
-  }
-  return { color: "var(--brand-ink)", secondary: "var(--teal-ink)" };
-}
-
 export function ProjectCover({
   title,
-  tags,
   industry,
   image,
+  result,
 }: {
   title: string;
   tags?: readonly string[] | null;
   industry?: string | null;
   image?: { src: string; alt: string } | null;
+  result?: { value: string; label: string } | null;
 }) {
-  const { color, secondary } = getColors(tags ?? [], industry);
-
   if (image) {
     return (
       <div className="relative w-full overflow-hidden rounded-t-xl bg-[#050507]" style={{ aspectRatio: "1200 / 630" }}>
@@ -51,48 +30,14 @@ export function ProjectCover({
   }
 
   return (
-    <div className="relative h-44 w-full overflow-hidden rounded-t-xl bg-surface-1 dark:bg-[#050507]">
-      {/* Primary blob */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `radial-gradient(ellipse at 30% 65%, color-mix(in srgb, ${color} 38%, transparent), transparent 55%)`,
-        }}
-      />
-      {/* Secondary blob */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `radial-gradient(ellipse at 75% 30%, color-mix(in srgb, ${secondary} 25%, transparent), transparent 50%)`,
-        }}
-      />
-      {/* Top-right accent */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `radial-gradient(ellipse at 85% 15%, color-mix(in srgb, ${color} 15%, transparent), transparent 40%)`,
-        }}
-      />
-      {/* Dot grid */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, var(--grid-line) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-      {/* Faint horizontal lines */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: "linear-gradient(transparent calc(100% - 1px), var(--ink-faint) 1px)",
-          backgroundSize: "100% 40px",
-        }}
-      />
-
-      {/* Content overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-surface-1 dark:from-[#050507] via-surface-1/60 dark:via-[#050507]/60 to-transparent p-5">
+    <div className="relative w-full rounded-t-xl">
+      <div className="flex flex-col px-5 pb-1 pt-6">
+        {result && (
+          <>
+            <span className="cover-num">{result.value}</span>
+            <span className="cover-num-label">{result.label}</span>
+          </>
+        )}
         {industry && (
           <span
             className="lit-label lit-label--sm mb-2 w-fit"
@@ -101,7 +46,7 @@ export function ProjectCover({
           </span>
         )}
         <h3
-          className="text-base font-bold leading-snug text-ink-strong dark:text-white/90"
+          className="text-[17px] font-bold leading-snug text-ink-strong dark:text-white/90"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {title}

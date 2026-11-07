@@ -78,8 +78,8 @@ export function LiveProof({ proof }: { proof: ProofData }) {
           className="mb-10 flex flex-wrap items-center justify-between gap-3"
         >
           <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">
-              This Website · Google Search Console
+            <p className="mb-2 text-[13.5px] font-semibold text-brand-ink">
+              This website · Google Search Console
             </p>
             <h2
               className="text-2xl font-bold text-foreground md:text-3xl"

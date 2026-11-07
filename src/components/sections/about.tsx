@@ -78,15 +78,12 @@ export function About() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-success-ink">
-            Why Work With Sunny
-          </p>
           <h2
             className="text-3xl font-bold tracking-tight text-foreground md:text-5xl"
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
-            Results-driven SEO that
-            <br className="hidden md:block" /> compounds over time
+            One consultant in Reading,
+            <br className="hidden md:block" /> with 15+ years of hands-on SEO
           </h2>
         </motion.div>
 
@@ -99,7 +96,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.01 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3"
+                className="relative h-full glow-shell rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3"
               >
                 <GlowingEffect
                   spread={40}

@@ -28,9 +28,6 @@ export function Portfolio({ featuredItems }: { featuredItems: FeaturedProject[] 
           viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-gold-ink">
-            Portfolio
-          </p>
           <h2
             className="text-3xl font-bold tracking-tight text-foreground md:text-5xl"
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}

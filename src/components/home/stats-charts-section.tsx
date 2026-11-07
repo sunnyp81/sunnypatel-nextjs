@@ -23,8 +23,8 @@ export function StatsChartsSection() {
     >
       <div className="mx-auto max-w-5xl px-6">
         <div className="mb-10">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">
-            AI SEARCH DATA I TRACK FOR CLIENTS
+          <p className="mb-2 text-[13.5px] font-semibold text-brand-ink">
+            AI search data I track for clients
           </p>
           <h2
             id="stats-charts-heading"

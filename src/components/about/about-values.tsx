@@ -67,7 +67,7 @@ export function AboutValues() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.01 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative rounded-[1.25rem] border-[0.75px] border-border p-2"
+              className="relative glow-shell rounded-[1.25rem] border-[0.75px] border-border p-2"
             >
               <GlowingEffect
                 spread={40}

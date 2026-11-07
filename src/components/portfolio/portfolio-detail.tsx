@@ -212,7 +212,7 @@ export function PortfolioDetail({
             {psr.map((s, i) => (
               <motion.div
                 key={s.label}
-                className="relative rounded-[1.25rem] border-[0.75px] border-border p-2"
+                className="relative glow-shell rounded-[1.25rem] border-[0.75px] border-border p-2"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.01 }}

@@ -93,7 +93,7 @@ export const FACT_GROUPS: FactGroup[] = [
       {
         id: "F10",
         label: "Technical SEO audit",
-        value: "£495 for a standard site of up to around 500 pages; implementation is scoped separately",
+        value: "£495 for a standard site of up to around 500 pages, no VAT added (not VAT-registered); implementation is scoped separately",
         source: "/services/technical-seo-audit/",
         sourceLabel: "Technical SEO audit",
       },

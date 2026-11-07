@@ -16,7 +16,7 @@ Common reasons a UK business is invisible to AI assistants: robots.txt blocking 
 
 - [Topical Authority](https://sunnypatel.co.uk/services/topical-authority/): Build comprehensive content architecture that establishes expertise in your niche
 - [Technical SEO Audit](https://sunnypatel.co.uk/services/technical-seo-audit/): Full site audit covering crawlability, indexation, Core Web Vitals, and structured data
-- [Paid SEO Audit](https://sunnypatel.co.uk/services/paid-seo-audit/): Fixed-fee £495 audit covering technical SEO, content and AI visibility, delivered in 5 working days
+- [Technical SEO Audit](https://sunnypatel.co.uk/services/technical-seo-audit/): Fixed-fee £495 audit (no VAT added) covering technical SEO, content and AI visibility, delivered in 5 working days; pre-launch structure reviews included
 - [Topical Maps](https://sunnypatel.co.uk/services/topical-maps/): Content planning frameworks mapping every topic and subtopic in your domain
 - [SEO Consulting](https://sunnypatel.co.uk/services/seo-consulting/): Strategic SEO guidance for in-house teams and agencies
 - [SEO Training](https://sunnypatel.co.uk/services/seo-training/): Live SEO training for in-house teams on their own site and data: half-day workshop £750, full day £1,250, six-week programme £2,500, up to 8 people, online or on site

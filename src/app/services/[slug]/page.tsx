@@ -108,9 +108,9 @@ const GENERIC_DATA = {
     },
   ],
   riskPoints: [
-    "No minimum contract \u2014 monthly rolling, cancel with 30 days notice",
-    "You own everything \u2014 all content, data, and account access are yours from day one",
-    "Monthly reporting \u2014 traffic, rankings, and milestone progress every month",
+    "No minimum contract: monthly rolling, cancel with 30 days notice",
+    "You own everything: all content, data, and account access are yours from day one",
+    "Monthly reporting: traffic, rankings, and milestone progress every month",
   ],
   yesFor: [
     "Businesses wanting sustainable organic traffic and enquiry growth",
@@ -125,7 +125,7 @@ const GENERIC_DATA = {
   ],
   ctaTitle: "Ready to grow your organic traffic?",
   ctaSubtitle:
-    "Get in touch for a free assessment of where your SEO stands and what to prioritise — no obligation.",
+    "Get in touch for a free assessment of where your SEO stands and what to prioritise, with no obligation.",
 };
 
 const SEO_READING_DATA = {
@@ -206,9 +206,9 @@ const SEO_READING_DATA = {
     },
   ],
   riskPoints: [
-    "No minimum contract \u2014 monthly rolling, cancel with 30 days notice",
-    "You own everything \u2014 all content, data, and account access are yours from day one",
-    "Monthly reporting \u2014 traffic, rankings, local visibility, and milestone progress",
+    "No minimum contract: monthly rolling, cancel with 30 days notice",
+    "You own everything: all content, data, and account access are yours from day one",
+    "Monthly reporting: traffic, rankings, local visibility, and milestone progress",
   ],
   yesFor: [
     "Berkshire and Reading local businesses wanting more enquiries",
@@ -296,9 +296,9 @@ const SEO_LONDON_DATA = {
     },
   ],
   riskPoints: [
-    "No minimum contract \u2014 monthly rolling, cancel with 30 days notice",
-    "You own everything \u2014 all content, data, and account access are yours from day one",
-    "Monthly reporting \u2014 traffic, rankings, and milestone progress every month",
+    "No minimum contract: monthly rolling, cancel with 30 days notice",
+    "You own everything: all content, data, and account access are yours from day one",
+    "Monthly reporting: traffic, rankings, and milestone progress every month",
   ],
   yesFor: [
     "London businesses wanting sustainable organic traffic and enquiry growth",

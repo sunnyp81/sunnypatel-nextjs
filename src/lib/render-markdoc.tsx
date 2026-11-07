@@ -49,8 +49,25 @@ export function MarkdocTable({ children }: { children: React.ReactNode }) {
   );
 }
 
+const OWN_SITE = /^https?:\/\/(www\.)?sunnypatel\.co\.uk(\/|$)/i;
+
 export const markdocConfig: Config = {
   nodes: {
+    // Outbound links open in a new tab (site-wide rule); internal, tel: and mailto: links are untouched.
+    link: {
+      ...Markdoc.nodes.link,
+      transform(node, config) {
+        const attributes = node.transformAttributes(config);
+        const children = node.transformChildren(config);
+        const href = String(attributes.href ?? "");
+        const external = /^https?:\/\//i.test(href) && !OWN_SITE.test(href);
+        return new Markdoc.Tag(
+          "a",
+          external ? { ...attributes, target: "_blank", rel: "noopener noreferrer" } : attributes,
+          children
+        );
+      },
+    },
     table: { ...Markdoc.nodes.table, render: "MarkdocTable" },
     image: {
       ...Markdoc.nodes.image,

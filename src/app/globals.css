@@ -388,61 +388,112 @@ html:not(.dark) .prose blockquote::before {
 .animate-aurora-3 { animation: aurora-3 18s ease-in-out infinite; }
 
 
-/* ── Labels: a short lit length of neon tube replaces pill badges.
-   .lit-label: facts, categories, status. .tag-lit: linked tags, unlit until hover.
+/* ── Labels: start and finish bends of neon tube replace pill badges.
+   Blue bends in at the top left, gold out at the bottom right, never blended.
+   .lit-label: facts, categories, status. .tag-lit: linked tags, bends on hover.
    .tag-plain: unlinked tags. .link-quiet: cross-links. Glow is dark theme only. */
 .lit-label {
-  --lit: var(--brand-ink);
+  --lit-start: var(--brand-ink);
+  --lit-end: var(--gold-ink);
   position: relative;
   display: inline-block;
-  padding-bottom: 8px;
+  margin-inline: -9px 0;
+  padding: 5px 9px 6px;
   color: var(--foreground);
   font-size: 15px;
   font-weight: 600;
   line-height: 1.35;
 }
+.lit-label::before,
 .lit-label::after,
+.tag-lit::before,
 .tag-lit::after {
   content: "";
   position: absolute;
-  inset: auto 0 0;
-  border-radius: 2px;
+  border-style: solid;
+  pointer-events: none;
+}
+.lit-label::before,
+.lit-label::after {
+  width: 40%;
+  min-width: 14px;
+  height: 11px;
+}
+.lit-label::before {
+  left: 0;
+  top: 0;
+  border-color: var(--lit-start);
+  border-width: 2px 0 0 2px;
+  border-radius: 6px 0 0 0;
 }
 .lit-label::after {
-  height: 2px;
-  background: var(--lit);
+  right: 0;
+  bottom: 0;
+  border-color: var(--lit-end);
+  border-width: 0 2px 2px 0;
+  border-radius: 0 0 6px 0;
+}
+.dark .lit-label::before,
+.dark .tag-lit:hover::before,
+.dark .tag-lit:focus-visible::before {
+  filter: drop-shadow(0 0 3px var(--lit-start)) drop-shadow(0 0 7px color-mix(in srgb, var(--lit-start) 60%, transparent));
 }
 .dark .lit-label::after,
 .dark .tag-lit:hover::after,
 .dark .tag-lit:focus-visible::after {
-  box-shadow: 0 0 5px var(--lit), 0 0 14px color-mix(in srgb, var(--lit) 75%, transparent);
+  filter: drop-shadow(0 0 3px var(--lit-end)) drop-shadow(0 0 7px color-mix(in srgb, var(--lit-end) 60%, transparent));
 }
-.lit-label--sm { font-size: 13.5px; }
-.lit-label--gold { --lit: var(--gold-ink); color: var(--gold-ink); }
+/* Small labels (cards, status, categories) stay plain colour; bends are for hero labels only. */
+.lit-label--sm {
+  margin-inline: 0;
+  padding: 0;
+  color: var(--brand-ink);
+  font-size: 13.5px;
+}
+.lit-label--sm::before,
+.lit-label--sm::after { display: none; }
+.lit-label--gold { --lit-start: var(--gold-ink); color: var(--gold-ink); }
 .tag-lit {
-  --lit: var(--brand-ink);
+  --lit-start: var(--brand-ink);
+  --lit-end: var(--gold-ink);
   position: relative;
   display: inline-block;
   min-height: 24px;
-  padding: 1px 0 5px;
+  padding: 3px 0;
   color: var(--ink-soft);
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.35;
   transition: color 150ms ease;
 }
+.tag-lit::before,
 .tag-lit::after {
-  height: 1px;
-  background: var(--hairline-strong);
-  transition: background-color 150ms ease, box-shadow 150ms ease;
+  width: 40%;
+  min-width: 10px;
+  height: 7px;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+.tag-lit::before {
+  left: -5px;
+  top: -1px;
+  border-color: var(--lit-start);
+  border-width: 2px 0 0 2px;
+  border-radius: 4px 0 0 0;
+}
+.tag-lit::after {
+  right: -5px;
+  bottom: -1px;
+  border-color: var(--lit-end);
+  border-width: 0 2px 2px 0;
+  border-radius: 0 0 4px 0;
 }
 .tag-lit:hover,
 .tag-lit:focus-visible { color: var(--foreground); }
+.tag-lit:hover::before,
 .tag-lit:hover::after,
-.tag-lit:focus-visible::after {
-  height: 2px;
-  background: var(--lit);
-}
+.tag-lit:focus-visible::before,
+.tag-lit:focus-visible::after { opacity: 1; }
 .tag-plain {
   display: inline-block;
   color: var(--ink-soft);
@@ -466,6 +517,7 @@ html:not(.dark) .prose blockquote::before {
   outline: 2px solid var(--brand-ink);
   outline-offset: 3px;
 }
+.tag-lit:focus-visible { outline-offset: 7px; }
 .link-quiet:hover,
 .link-quiet:focus-visible { text-decoration-color: var(--brand-ink); }
 

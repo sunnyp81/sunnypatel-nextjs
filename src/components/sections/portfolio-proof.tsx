@@ -1,4 +1,5 @@
 import portfolioProof from "@/data/portfolio-proof.json";
+import { GlowCard } from "@/components/ui/glow-card";
 
 const CHART_MONTHS = 6;
 
@@ -42,7 +43,7 @@ function MonthlyChart({ months }: { months: MonthlyClicks[] }) {
                   {count(month.clicks)}
                 </span>
                 <div
-                  className="absolute bottom-0 left-1/2 w-3/4 max-w-10 -translate-x-1/2 bg-brand"
+                  className="absolute bottom-0 left-1/2 w-3/4 max-w-10 -translate-x-1/2 rounded-t-[3px] bg-brand dark:shadow-[0_0_10px_rgba(91,138,239,0.55),0_0_22px_rgba(91,138,239,0.25)]"
                   style={{ height }}
                 />
               </div>
@@ -94,9 +95,9 @@ export function PortfolioProof() {
 
         <div className="grid gap-8 md:grid-cols-2">
           {portfolioProof.series.map((series) => (
+            <GlowCard key={series.sector} className="h-full min-w-0">
             <article
-              key={series.sector}
-              className="min-w-0 rounded-2xl border border-hairline bg-surface-2 p-6 shadow-[var(--elev)] sm:p-8 dark:border-white/[0.08] dark:bg-black/20 dark:shadow-none"
+              className="h-full min-w-0 rounded-xl border border-hairline bg-surface-2 p-6 shadow-[var(--elev)] sm:p-8 dark:border-white/[0.08] dark:bg-black/20 dark:shadow-none"
             >
               <h3 className="text-sm font-semibold leading-6 text-foreground md:min-h-18">
                 {series.sector}
@@ -109,6 +110,7 @@ export function PortfolioProof() {
               <MonthlyChart months={series.months.slice(-CHART_MONTHS)} />
               <p className="mt-4 text-sm leading-6 text-muted-foreground dark:text-white/70">{takeaway(series.months)}</p>
             </article>
+            </GlowCard>
           ))}
         </div>
 

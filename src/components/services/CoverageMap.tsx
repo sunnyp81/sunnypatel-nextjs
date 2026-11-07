@@ -6,6 +6,8 @@ interface CoverageMapProps {
   caption: string;
   /** Heading for the accessible town navigation. */
   listHeading?: string;
+  /** Hide the town list when the page shows its own list. */
+  hideList?: boolean;
 }
 
 const WIDTH = 360;
@@ -39,9 +41,9 @@ const labels: Record<string, { x: number; y: number; anchor: "start" | "middle" 
   Slough: { x: 348, y: 80, anchor: "end" },
 };
 
-export function CoverageMap({ caption, listHeading = "Towns covered" }: CoverageMapProps) {
+export function CoverageMap({ caption, listHeading = "Towns covered", hideList = false }: CoverageMapProps) {
   return (
-    <figure className={styles.figure}>
+    <figure className={hideList ? `${styles.figure} ${styles.bare}` : styles.figure}>
       <svg
         className={styles.map}
         role="img"
@@ -62,23 +64,12 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          {towns.filter((town) => !town.isBase).map((town) => (
-            <linearGradient
-              key={town.name}
-              id={`coverage-map-line-${town.name}`}
-              gradientUnits="userSpaceOnUse"
-              x1={town.x} y1={town.y} x2={base.x} y2={base.y}
-            >
-              <stop offset="0%" stopColor="#5B8AEF" />
-              <stop offset="100%" stopColor="#D79F1E" />
-            </linearGradient>
-          ))}
         </defs>
         <rect className={styles.ground} width={WIDTH} height={HEIGHT} />
         <g className={styles.connections} aria-hidden="true" filter="url(#coverage-map-glow)">
           {towns.filter((town) => !town.isBase).map((town) => (
             <line key={town.name} x1={town.x} y1={town.y} x2={base.x} y2={base.y}
-              stroke={`url(#coverage-map-line-${town.name})`} strokeWidth="1.5" />
+              stroke="var(--brand-ink)" strokeWidth="1.5" strokeLinecap="round" />
           ))}
         </g>
         {towns.map((town) => {
@@ -94,11 +85,12 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
                 pointerEvents="none"
               />
               <circle className={styles.focusRing} cx={town.x} cy={town.y} r="10" fill="none" />
+              {town.isBase && <circle className={styles.basePulse} cx={town.x} cy={town.y} r="6" fill="none" />}
               <circle cx={town.x} cy={town.y} r={town.isBase ? 6 : 4.5}
                 fill={town.isBase ? "var(--gold-ink)" : "var(--brand-ink)"}
                 filter="url(#coverage-map-glow)" />
               <text x={label.x} y={label.y} textAnchor={label.anchor}
-                fill="var(--ink-strong)" fontSize="16" className={styles.label}>
+                fill="var(--ink-strong)" fontSize={town.isBase ? 14 : 13} fontWeight={town.isBase ? 600 : 500} className={styles.label}>
                 {town.isBase ? "Reading (base)" : town.name}
               </text>
             </>
@@ -110,6 +102,7 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
           ) : <g key={town.name}>{node}</g>;
         })}
       </svg>
+      {!hideList && (
       <div className={styles.navigation}>
         <p id="coverage-towns-label" className={styles.heading}>{listHeading}</p>
         <ul className={styles.townList} aria-labelledby="coverage-towns-label">
@@ -120,6 +113,7 @@ export function CoverageMap({ caption, listHeading = "Towns covered" }: Coverage
           ))}
         </ul>
       </div>
+      )}
       <figcaption className={styles.caption}>{caption}</figcaption>
     </figure>
   );

@@ -7,7 +7,7 @@ export function Testimonials() {
     <section className="relative overflow-hidden border-t border-hairline bg-surface-1 dark:border-white/[0.05] dark:bg-[#050507]">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-brand opacity-[0.04] blur-[100px]" aria-hidden="true" />
       <div className="relative mx-auto max-w-4xl px-6 py-20">
-        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-brand-ink">Verified Client Result</p>
+        <p className="mb-3 text-center text-[13.5px] font-semibold text-brand-ink">Verified client result</p>
         <h2 className="mb-10 text-center text-2xl font-bold text-foreground md:text-3xl" style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}>
           Real work, in the client&apos;s words
         </h2>

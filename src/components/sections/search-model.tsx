@@ -36,9 +36,6 @@ export function SearchModel() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand-ink">
-            The Model
-          </p>
           <h2
             className="text-3xl font-bold tracking-tight text-foreground md:text-5xl"
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
@@ -52,7 +49,7 @@ export function SearchModel() {
           </p>
         </motion.div>
 
-        <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="model-tube grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STAGES.map((stage, i) => (
             <motion.li
               key={stage.name}
@@ -60,11 +57,8 @@ export function SearchModel() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative flex flex-col gap-3 border-t-2 border-brand/50 dark:border-brand/40 pt-5"
+              className="relative flex flex-col gap-3"
             >
-              <span className="text-xs font-medium text-muted-foreground">
-                {String(i + 1).padStart(2, "0")}
-              </span>
               <h3
                 className="text-xl font-semibold text-foreground"
                 style={{ fontFamily: "var(--font-heading)" }}

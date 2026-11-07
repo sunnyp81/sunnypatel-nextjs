@@ -50,7 +50,7 @@ export function AboutHero() {
           >
             Sunny Patel
             <br />
-            <span className="bg-gradient-to-r from-brand-ink via-teal-ink to-success-ink bg-clip-text text-transparent">
+            <span className="text-[#2F5FD6] dark:bg-gradient-to-r dark:from-brand-ink dark:via-teal-ink dark:to-success-ink dark:bg-clip-text dark:text-transparent">
               SEO Consultant & AI Strategist
             </span>
           </h1>
@@ -82,10 +82,10 @@ export function AboutHero() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="flex flex-col items-center justify-center bg-background px-6 py-6"
+              className="stat-tile flex flex-col items-center justify-center bg-white px-6 py-6 dark:bg-background"
             >
               <span
-                className="text-2xl font-bold text-foreground md:text-3xl"
+                className="stat-num text-2xl font-bold text-foreground md:text-3xl"
                 style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
               >
                 {s.value}

@@ -54,7 +54,7 @@ export function Cta() {
             textShadow: "0 0 60px rgba(91,138,239,0.15)",
           }}
         >
-          Find What&apos;s Blocking Your Organic Growth
+          Tell me your biggest search problem
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-lg text-white/75 dark:text-muted-foreground">
           In a free 20-minute SEO diagnosis, we&apos;ll focus on your biggest search problem and the best next move. Need a documented full-site review? The <Link href="/services/technical-seo-audit/" className="text-white underline decoration-white/40 underline-offset-4 transition-colors hover:text-white/80 dark:text-foreground dark:decoration-white/30 dark:hover:text-brand">£495 audit</Link> is the deeper option.

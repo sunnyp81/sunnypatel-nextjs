@@ -33,9 +33,6 @@ export function OngoingSupportSection() {
     >
       <div className="mx-auto max-w-5xl px-6">
         <div className="max-w-3xl">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">
-            Ongoing SEO support
-          </p>
           <h2
             id="ongoing-support-heading"
             className="text-2xl font-bold text-foreground md:text-3xl"
@@ -51,7 +48,7 @@ export function OngoingSupportSection() {
 
         <div className="mt-9 grid gap-8 border-y border-hairline py-7 md:grid-cols-2 md:gap-12 dark:border-white/[0.08]">
           <article>
-            <p className="text-xs font-semibold uppercase tracking-widest text-brand-ink">
+            <p className="text-[13.5px] font-semibold text-brand-ink">
               Implementation
             </p>
             <p className="mt-2 text-xl font-semibold text-foreground">From £1,500 per month</p>
@@ -69,7 +66,7 @@ export function OngoingSupportSection() {
           </article>
 
           <article className="border-t border-hairline pt-7 md:border-l md:border-t-0 md:pl-12 md:pt-0 dark:border-white/[0.08]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground dark:text-white/70">
+            <p className="text-[13.5px] font-semibold text-brand-ink">
               Advisory
             </p>
             <p className="mt-2 text-xl font-semibold text-foreground">£600 per month, 4 hours</p>
@@ -109,7 +106,7 @@ export function OngoingSupportSection() {
           </div>
 
           <div className="border-t border-hairline pt-7 md:border-l md:border-t-0 md:pl-8 md:pt-0 dark:border-white/[0.08]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-brand-ink">
+            <p className="text-[13.5px] font-semibold text-brand-ink">
               Sunny Patel&apos;s own site, 2 to 3 October 2026
             </p>
             <h3 className="mt-2 text-lg font-semibold text-foreground">

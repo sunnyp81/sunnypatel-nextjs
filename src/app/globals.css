@@ -388,6 +388,69 @@ html:not(.dark) .prose blockquote::before {
 .animate-aurora-3 { animation: aurora-3 18s ease-in-out infinite; }
 
 
+/* ── Hero tubes: two hollow lit tubes, blue on the left, gold on the right. */
+.hero-tube {
+  --tube: var(--brand-ink);
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2.5px solid var(--tube);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tube) 18%, transparent), 0 6px 18px -6px color-mix(in srgb, var(--tube) 45%, transparent);
+}
+.hero-tube--gold { --tube: var(--gold-ink); }
+.dark .hero-tube {
+  border-width: 1.5px;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--tube) 70%, transparent), 0 0 22px color-mix(in srgb, var(--tube) 35%, transparent), inset 0 0 6px color-mix(in srgb, var(--tube) 40%, transparent);
+}
+
+/* ── Stat tiles: lift and number grows on hover. */
+.stat-tile { transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s, background-color .3s; }
+.stat-tile .stat-num { transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.stat-tile:hover, .stat-tile:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--brand-ink) 55%, transparent); }
+.stat-tile:hover .stat-num, .stat-tile:focus-visible .stat-num { transform: scale(1.08); }
+@media (prefers-reduced-motion: reduce) {
+  .stat-tile, .stat-tile .stat-num { transition: none; }
+  .stat-tile:hover, .stat-tile:focus-visible, .stat-tile:hover .stat-num, .stat-tile:focus-visible .stat-num { transform: none; }
+}
+
+/* ── Search model: one tube over the four stages, blue into the first half, gold out of the second.
+   Hovering a stage lights its segment. */
+.model-tube { position: relative; padding-top: 44px; }
+.model-tube::before, .model-tube::after { content: ""; position: absolute; top: 0; height: 26px; border-style: solid; pointer-events: none; }
+.model-tube::before { left: 0; width: calc(50% - 6px); border-color: var(--brand-ink); border-width: 2px 0 0 2px; border-radius: 14px 0 0 0; }
+.model-tube::after { right: 0; width: calc(50% - 6px); border-color: var(--gold-ink); border-width: 2px 2px 0 0; border-radius: 0 14px 0 0; }
+.dark .model-tube::before { filter: drop-shadow(0 0 3px var(--brand-ink)) drop-shadow(0 0 8px color-mix(in srgb, var(--brand-ink) 60%, transparent)); }
+.dark .model-tube::after { filter: drop-shadow(0 0 3px var(--gold-ink)) drop-shadow(0 0 8px color-mix(in srgb, var(--gold-ink) 60%, transparent)); }
+.model-tube > li { transition: translate .3s cubic-bezier(.2,.8,.2,1); }
+.model-tube > li::before { display: none; content: ""; position: absolute; top: -45px; left: 0; right: 0; height: 2px; background: var(--seg, var(--brand-ink)); opacity: 0; transition: opacity .3s; }
+.model-tube > li:nth-child(n+3) { --seg: var(--gold-ink); }
+@media (min-width: 1024px) { .model-tube > li::before { display: block; } }
+.dark .model-tube > li::before { box-shadow: 0 0 6px var(--seg, var(--brand-ink)), 0 0 16px color-mix(in srgb, var(--seg, var(--brand-ink)) 70%, transparent); }
+.model-tube > li:hover { translate: 0 -3px; }
+.model-tube > li:hover::before { opacity: 1; }
+.model-tube > li:hover > h3 { color: var(--seg, var(--brand-ink)); }
+.model-tube > li > h3 { transition: color .3s; }
+@media (max-width: 639px) {
+  .model-tube { padding-top: 0; padding-left: 30px; }
+  .model-tube::before, .model-tube::after { width: 22px; height: calc(50% - 6px); }
+  .model-tube::after { top: auto; bottom: 0; left: 0; right: auto; border-width: 0 0 2px 2px; border-radius: 0 0 0 14px; }
+  .model-tube > li::before { display: block; top: 0; bottom: 0; left: -31px; right: auto; width: 2px; height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .model-tube > li { transition: none; }
+  .model-tube > li:hover { translate: none; }
+}
+
+/* ── Card shell: one edge with the hover glow on it, one corner size (12px card, 8px inside). */
+.glow-shell { padding: 0 !important; border-color: transparent !important; border-radius: 12px !important; box-shadow: none !important; }
+.glow-shell > .rounded-xl, .glow-shell > div > .rounded-xl { border-radius: 12px; }
+.glow-shell .rounded-2xl, .glow-shell .rounded-lg { border-radius: 8px; }
+
+/* ── Portfolio covers: the headline result leads the card. */
+.cover-num { display: block; font-family: var(--font-heading); font-weight: 600; font-size: 44px; line-height: 1; letter-spacing: -0.035em; color: var(--foreground); }
+.cover-num-label { display: block; margin: 8px 0 16px; color: var(--ink-soft); font-size: 13.5px; line-height: 1.4; max-width: 30rem; }
+@media (max-width: 639px) { .cover-num { font-size: 38px; } }
+
 /* ── Labels: start and finish bends of neon tube replace pill badges.
    Blue bends in at the top left, gold out at the bottom right, never blended.
    .lit-label: facts, categories, status. .tag-lit: linked tags, bends on hover.

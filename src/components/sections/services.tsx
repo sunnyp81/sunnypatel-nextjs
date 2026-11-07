@@ -94,15 +94,12 @@ export function Services() {
           viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand-ink">
-            Specialist Services
-          </p>
           <h2
             className="text-3xl font-bold tracking-tight text-foreground md:text-5xl"
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
-            Everything you need to
-            <br className="hidden md:block" /> dominate organic search
+            The SEO work I do, from a £495 audit
+            <br className="hidden md:block" /> to monthly support
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
             Starting point for most clients: a fixed-fee{" "}

@@ -38,9 +38,9 @@ function StatItem({ value, suffix, label, color, accent, started }: typeof stats
   const count = useCountUp(value, 1800, started);
 
   return (
-    <div className={cn("rounded-2xl border-t-2 bg-white px-4 py-6 text-center shadow-[var(--elev)]", "dark:border-t-0 dark:bg-transparent dark:px-0 dark:py-0 dark:shadow-none", accent)}>
+    <div className={cn("stat-tile rounded-2xl border-t-2 bg-white px-4 py-6 text-center shadow-[var(--elev)]", "dark:border-t-0 dark:bg-transparent dark:px-0 dark:py-0 dark:shadow-none", accent)}>
       <div
-        className={cn("text-3xl font-bold md:text-5xl text-foreground dark:bg-gradient-to-r dark:bg-clip-text dark:text-transparent", color)}
+        className={cn("stat-num text-3xl font-bold md:text-5xl text-foreground dark:bg-gradient-to-r dark:bg-clip-text dark:text-transparent", color)}
         style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
       >
         {count}{suffix}

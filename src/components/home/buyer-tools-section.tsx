@@ -75,7 +75,7 @@ export function BuyerToolsSection() {
     >
       <div className="mx-auto max-w-4xl px-6">
         <div className="mb-10 text-center">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-ink">
+          <p className="mb-2 text-[13.5px] font-semibold text-brand-ink">
             Free tools, no email required
           </p>
           <h2

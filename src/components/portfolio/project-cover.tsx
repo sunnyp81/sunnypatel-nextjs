@@ -95,12 +95,7 @@ export function ProjectCover({
       <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-surface-1 dark:from-[#050507] via-surface-1/60 dark:via-[#050507]/60 to-transparent p-5">
         {industry && (
           <span
-            className="mb-2 w-fit rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest"
-            style={{
-              borderColor: `color-mix(in srgb, ${color} 25%, transparent)`,
-              backgroundColor: `color-mix(in srgb, ${color} 8%, transparent)`,
-              color,
-            }}
+            className="lit-label lit-label--sm mb-2 w-fit"
           >
             {industry}
           </span>

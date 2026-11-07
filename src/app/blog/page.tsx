@@ -111,8 +111,8 @@ export default async function BlogIndex() {
                       </div>
                     )}
                     <div className="flex flex-1 flex-col justify-center p-8 md:p-10">
-                      <div className="mb-3 flex items-center gap-3">
-                        <span className="rounded-full border border-brand/20 bg-brand/10 px-2.5 py-0.5 text-xs font-medium text-brand-ink">
+                      <div className="mb-3 flex items-baseline gap-3">
+                        <span className="lit-label lit-label--gold lit-label--sm">
                           Latest
                         </span>
                         {featured.entry.date && (
@@ -137,12 +137,12 @@ export default async function BlogIndex() {
                         </p>
                       )}
                       {featured.entry.tags && featured.entry.tags.length > 0 && (
-                        <div className="mt-4 flex flex-wrap gap-1.5">
+                        <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
                           {featured.entry.tags.slice(0, 4).map((tag) => (
                             <TagLink
                               key={tag}
                               href={`/blog/tag/${slugifyTag(tag)}`}
-                              className="rounded-full bg-wash px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand-ink"
+                              className="tag-lit"
                             >
                               {tag}
                             </TagLink>
@@ -201,12 +201,12 @@ export default async function BlogIndex() {
                         </p>
                       )}
                       {post.entry.tags && post.entry.tags.length > 0 && (
-                        <div className="mb-4 flex flex-wrap gap-1.5">
+                        <div className="mb-4 flex flex-wrap gap-x-3 gap-y-1">
                           {post.entry.tags.slice(0, 3).map((tag) => (
                             <TagLink
                               key={tag}
                               href={`/blog/tag/${slugifyTag(tag)}`}
-                              className="rounded-full bg-wash px-2 py-0.5 text-[10px] text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-brand-ink"
+                              className="tag-lit"
                             >
                               {tag}
                             </TagLink>

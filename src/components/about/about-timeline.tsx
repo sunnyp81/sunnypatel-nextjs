@@ -101,12 +101,7 @@ export function AboutTimeline() {
                       {entry.icon}
                     </div>
                     <span
-                      className="rounded-full border px-2.5 py-0.5 text-xs font-medium"
-                      style={{
-                        borderColor: `color-mix(in srgb, ${entry.color} 20%, transparent)`,
-                        backgroundColor: `color-mix(in srgb, ${entry.color} 7%, transparent)`,
-                        color: entry.color,
-                      }}
+                      className="lit-label lit-label--sm"
                     >
                       {entry.period}
                     </span>

@@ -284,7 +284,7 @@ export default function IsYourBrandVisiblePage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
+                  className="link-quiet"
                 >
                   {link.label}
                   <ArrowRight className="h-3 w-3" />

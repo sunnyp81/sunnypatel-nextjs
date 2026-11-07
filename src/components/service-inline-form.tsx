@@ -3,15 +3,11 @@
 import { useId } from "react";
 import {
   Loader2,
-  CalendarDays,
-  Shield,
-  Sparkles,
   ArrowRight,
   Clock,
   Star,
 } from "lucide-react";
 import { GlowCard } from "@/components/ui/glow-card";
-import { Badge } from "@/components/ui/badge";
 import { FormField, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
 import { LeadQualificationFields } from "@/components/lead-qualification-fields";
@@ -19,13 +15,7 @@ import { getSupportOfferCopy } from "@/lib/lead-qualification";
 
 /** Icon references can't cross the server/client boundary as props, so badge
  * callers pass a name key and this component resolves the actual component. */
-const BADGE_ICONS = {
-  calendar: CalendarDays,
-  sparkles: Sparkles,
-  shield: Shield,
-  clock: Clock,
-} as const;
-type BadgeIconName = keyof typeof BADGE_ICONS;
+type BadgeIconName = "calendar" | "sparkles" | "shield" | "clock";
 
 const TRUST_POINTS = [
   "Focus on your biggest search problem",
@@ -336,16 +326,10 @@ export function ServiceInlineForm({
             </ul>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-2">
-              {(qualification ? QUALIFIED_BADGES : badges).map(({ icon, label }) => {
-                const Icon = BADGE_ICONS[icon];
-                return (
-                  <Badge key={label} variant="brand">
-                    <Icon className="h-3 w-3 shrink-0" />
-                    {label}
-                  </Badge>
-                );
-              })}
+            <div className="flex flex-wrap gap-x-4 gap-y-3">
+              {(qualification ? QUALIFIED_BADGES : badges).map(({ label }) => (
+                <span key={label} className="lit-label lit-label--sm">{label}</span>
+              ))}
             </div>
 
             {/* Availability + response time */}

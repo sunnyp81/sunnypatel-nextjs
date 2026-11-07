@@ -10,10 +10,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle2,
-  CalendarDays,
-  Shield,
-  Sparkles,
-  Clock,
   HelpCircle,
   Building2,
   UserCheck,
@@ -82,10 +78,10 @@ const PAGE_SCHEMA = {
 };
 
 const TRUST_BADGES = [
-  { icon: Sparkles, label: "Evidence-led methodology" },
-  { icon: Shield, label: "No invented stats" },
-  { icon: CalendarDays, label: "15+ years in search" },
-  { icon: Clock, label: "Fixed-fee audit in 2 weeks" },
+  { label: "Evidence-led methodology" },
+  { label: "No invented stats" },
+  { label: "15+ years in search" },
+  { label: "Fixed-fee audit in 2 weeks" },
 ] as const;
 
 const QUESTIONS_TO_ASK = [
@@ -177,13 +173,9 @@ export default function GeoAgencyPage() {
             </p>
 
             {/* Trust badges */}
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {TRUST_BADGES.map(({ icon: Icon, label }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand"
-                >
-                  <Icon className="h-3 w-3 shrink-0" />
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-3">
+              {TRUST_BADGES.map(({ label }) => (
+                <span key={label} className="lit-label">
                   {label}
                 </span>
               ))}
@@ -405,7 +397,7 @@ export default function GeoAgencyPage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-wash dark:border-white/[0.08] dark:bg-white/[0.02] px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/20 hover:text-brand"
+                  className="link-quiet"
                 >
                   {link.label}
                   <ArrowRight className="h-3 w-3" />

@@ -176,11 +176,7 @@ export default function ProofPage() {
               </span>
               <span className="text-xs text-muted-foreground">{it.date}</span>
               <span
-                className={`rounded-full border px-2.5 py-0.5 text-[11px] font-medium ${
-                  it.verdict === "pending"
-                    ? "border-border text-muted-foreground"
-                    : "border-success/30 bg-success/10 text-success"
-                }`}
+                className={it.verdict === "pending" ? "tag-plain" : "lit-label lit-label--gold lit-label--sm"}
               >
                 {it.verdict}
               </span>

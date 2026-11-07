@@ -142,19 +142,12 @@ export function ContentPage({
       {/* ── Service page: trust badges + header CTA ── */}
       {isService && (
         <>
-          <div className="mt-6 flex flex-wrap gap-2.5">
+          <div className="mt-6 flex flex-wrap gap-x-4 gap-y-3">
             {(serviceHeaderBadges
-              ? serviceHeaderBadges.map((label, i) => ({
-                  label,
-                  icon: TRUST_BADGES[i % TRUST_BADGES.length].icon,
-                }))
+              ? serviceHeaderBadges.map((label) => ({ label }))
               : TRUST_BADGES
-            ).map(({ icon: Icon, label }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/[0.07] px-3 py-1.5 text-xs font-medium text-brand-ink"
-              >
-                <Icon className="h-3 w-3 shrink-0" />
+            ).map(({ label }) => (
+              <span key={label} className="lit-label">
                 {label}
               </span>
             ))}
@@ -175,7 +168,7 @@ export function ContentPage({
       )}
 
       {(dateLine || (tags && tags.length > 0)) && (
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-4 flex flex-wrap items-baseline gap-3">
           {dateLine && (
             <span className="text-sm text-muted-foreground">{dateLine}</span>
           )}
@@ -186,7 +179,7 @@ export function ContentPage({
             <Link
               key={tag}
               href={`/blog/tag/${slugifyTag(tag)}`}
-              className="rounded-full border border-hairline bg-wash px-2.5 py-0.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-brand/20 hover:text-brand-ink"
+              className="tag-lit"
             >
               {tag}
             </Link>

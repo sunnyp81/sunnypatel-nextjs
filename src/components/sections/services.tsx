@@ -76,6 +76,9 @@ const localServices = [
   { label: "SEO Wokingham", href: "/services/seo-wokingham/" },
   { label: "SEO Bracknell", href: "/services/seo-bracknell/" },
   { label: "SEO Maidenhead", href: "/services/seo-maidenhead/" },
+  { label: "SEO Windsor", href: "/services/seo-windsor/" },
+  { label: "SEO Slough", href: "/services/seo-slough/" },
+  { label: "SEO Newbury", href: "/services/seo-newbury/" },
 ];
 
 export function Services() {

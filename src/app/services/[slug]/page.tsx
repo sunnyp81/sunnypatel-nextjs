@@ -447,6 +447,7 @@ const MID_FORM_SLUGS = new Set([
   "seo-maidenhead",
   "seo-windsor",
   "seo-slough",
+  "seo-newbury",
 ]);
 const COVERAGE_MAP_CAPTIONS: Record<string, string> = {
   "seo-berkshire": DEFAULT_COVERAGE_MAP_CAPTION,

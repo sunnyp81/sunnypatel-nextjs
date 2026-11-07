@@ -161,6 +161,8 @@ const nextConfig: NextConfig = {
       { source: "/seo-slough/", destination: "/services/seo-slough/", permanent: true },
       { source: "/seo-maidenhead", destination: "/services/seo-maidenhead/", permanent: true },
       { source: "/seo-maidenhead/", destination: "/services/seo-maidenhead/", permanent: true },
+      { source: "/seo-newbury", destination: "/services/seo-newbury/", permanent: true },
+      { source: "/seo-newbury/", destination: "/services/seo-newbury/", permanent: true },
       { source: "/seo-wokingham", destination: "/services/seo-wokingham/", permanent: true },
       { source: "/seo-wokingham/", destination: "/services/seo-wokingham/", permanent: true },
       { source: "/seo-windsor", destination: "/services/seo-windsor/", permanent: true },

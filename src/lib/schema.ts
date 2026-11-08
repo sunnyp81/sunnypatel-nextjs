@@ -435,6 +435,7 @@ export function personSchema() {
       "https://github.com/sunnyp81",
       "https://theorg.com/org/sunnypatel-co-uk",
       "https://www.facebook.com/profile.php?id=61594791483419",
+      "https://www.wikidata.org/wiki/Q142085163",
       // Add these when live:
       // "https://www.bark.com/en/gb/...",        ← create at bark.com
       // "https://www.yell.com/biz/...",          ← create at yell.com/add-your-business

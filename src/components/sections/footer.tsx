@@ -97,6 +97,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-sm text-muted-foreground transition-colors duration-200 hover:text-brand-ink dark:hover:text-foreground/80"
                   >
                     {link.label}

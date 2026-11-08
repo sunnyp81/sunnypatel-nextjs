@@ -19,6 +19,7 @@ import { GlowProcess, GlowProcessStep } from "@/components/glow/glow-blocks";
 import { markdocConfig, MarkdocImage, MarkdocTable } from "@/lib/render-markdoc";
 import { ServiceOfferExamples } from "@/components/service-offer-examples";
 import { ServiceInlineForm } from "@/components/service-inline-form";
+import { NOINDEX_SLUGS, REDIRECTED_SLUGS, hasMarkdownTwin } from "@/lib/service-slugs";
 
 
 /* ── Conversion data ──────────────────────────────────────── */
@@ -698,35 +699,6 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-const NOINDEX_SLUGS = new Set([
-  "seo-consultant-birmingham",
-  "seo-consultant-bradford",
-  "seo-consultant-brighton",
-  "seo-consultant-cardiff",
-  "seo-consultant-devon",
-  "seo-consultant-edinburgh",
-  "seo-consultant-essex",
-  "seo-consultant-glasgow",
-  "seo-consultant-harrogate",
-  "seo-consultant-leeds",
-  "seo-consultant-manchester",
-  "seo-consultant-nottingham",
-  "seo-consultant-oxford",
-  "seo-consultant-preston",
-  "seo-consultant-sheffield",
-  "seo-consultant-southampton",
-  "seo-consultant-surrey",
-  "seo-consultant-york",
-]);
-
-const REDIRECTED_SLUGS = new Set([
-  "local-seo-agency",
-  "seo-strategy-consulting-expert-guidance-for-in-house-teams",
-  "seo-consultant-london",
-  "seo-consultant-kent",
-  ...NOINDEX_SLUGS,
-]);
-
 export async function generateMetadata({
   params,
 }: {
@@ -741,8 +713,15 @@ export async function generateMetadata({
     ogImage: service.ogImage,
     path: service.canonicalOverride || `/services/${slug}`,
   });
+  const markdown = !service.canonicalOverride && hasMarkdownTwin(slug);
   return {
     ...meta,
+    ...(markdown && {
+      alternates: {
+        ...meta.alternates,
+        types: { "text/markdown": `https://sunnypatel.co.uk/services/${slug}/index.md` },
+      },
+    }),
     ...(NOINDEX_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
   };
 }

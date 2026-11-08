@@ -2,6 +2,8 @@
 
 > Sunny Patel is an independent SEO and AI visibility consultant based in Reading, Berkshire, UK. He helps UK businesses find out whether AI assistants (ChatGPT, Claude, Perplexity, Copilot, Google AI Overviews) can read, verify and cite their website, and fixes it when they cannot. 15+ years experience, 150-280% average organic traffic growth.
 
+Every service page has a plain Markdown copy at its URL plus `index.md`, for example https://sunnypatel.co.uk/services/technical-seo-audit/index.md. The people, services, places and topics on this site, with the passage that supports each, are listed in https://sunnypatel.co.uk/entitymap.json (EntityMap v1.0) and https://sunnypatel.co.uk/entitymap.html.
+
 ## AI Visibility
 
 - [Free AI Visibility Checker](https://sunnypatel.co.uk/tools/ai-visibility-checker/): Free tool. Enter a URL and get a scored report in 20 seconds on whether AI search engines can crawl, verify and cite the site. No sign-up.

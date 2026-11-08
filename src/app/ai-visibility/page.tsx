@@ -202,9 +202,9 @@ export default function AiVisibilityPage() {
             </p>
 
             {/* Trust badges */}
-            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-3">
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
               {TRUST_BADGES.map(({ label }) => (
-                <span key={label} className="lit-label">
+                <span key={label} className="trust-item">
                   {label}
                 </span>
               ))}

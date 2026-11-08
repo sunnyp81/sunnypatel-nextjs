@@ -80,7 +80,7 @@ export default async function AuthorPage() {
             ].map((badge) => (
               <span
                 key={badge.label}
-                className="lit-label"
+                className="trust-item"
               >
                 {badge.label}
               </span>

@@ -328,7 +328,7 @@ export function ServiceInlineForm({
             {/* Trust badges */}
             <div className="flex flex-wrap gap-x-4 gap-y-3">
               {(qualification ? QUALIFIED_BADGES : badges).map(({ label }) => (
-                <span key={label} className="lit-label lit-label--sm">{label}</span>
+                <span key={label} className="trust-item">{label}</span>
               ))}
             </div>
 

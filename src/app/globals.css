@@ -516,6 +516,25 @@ html:not(.dark) .prose blockquote::before {
 .lit-label--sm::before,
 .lit-label--sm::after { display: none; }
 .lit-label--gold { --lit-start: var(--gold-ink); color: var(--gold-ink); }
+/* Trust facts in a row: plain text with a small tick, no bends, so the row reads as one line. */
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.trust-item::before {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: var(--brand-ink);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .tag-lit {
   --lit-start: var(--brand-ink);
   --lit-end: var(--gold-ink);

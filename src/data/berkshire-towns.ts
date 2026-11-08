@@ -10,9 +10,10 @@ export interface BerkshireTown {
 
 // West to east by longitude; Maidenhead and Slough are north of Bracknell.
 export const BERKSHIRE_TOWNS: BerkshireTown[] = [
-  { name: "Hungerford", lat: 51.4144, lon: -1.5164, slug: null },
-  { name: "Newbury", lat: 51.4014, lon: -1.3230, slug: null },
-  { name: "Thatcham", lat: 51.4020, lon: -1.2540, slug: null },
+  // Hungerford and Thatcham are sections on the Newbury page.
+  { name: "Hungerford", lat: 51.4144, lon: -1.5164, slug: "seo-newbury" },
+  { name: "Newbury", lat: 51.4014, lon: -1.3230, slug: "seo-newbury" },
+  { name: "Thatcham", lat: 51.4020, lon: -1.2540, slug: "seo-newbury" },
   { name: "Reading", lat: 51.4543, lon: -0.9781, slug: "seo-consultant-reading", isBase: true },
   { name: "Wokingham", lat: 51.4109, lon: -0.8347, slug: "seo-wokingham" },
   { name: "Bracknell", lat: 51.4142, lon: -0.7526, slug: "seo-bracknell" },

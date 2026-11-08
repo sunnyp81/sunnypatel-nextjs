@@ -235,6 +235,10 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["local-seo"],
     mentions: ["semantic-seo"],
   },
+  "seo-newbury": {
+    about: ["local-seo"],
+    mentions: ["semantic-seo"],
+  },
   "seo-maidenhead": {
     about: ["local-seo"],
     mentions: ["semantic-seo"],
@@ -788,6 +792,13 @@ const LOCAL_SERVICE_AREA: Record<string, Record<string, unknown>[]> = {
   ],
   "seo-slough": [
     { "@type": "City", name: "Slough" },
+    { "@type": "AdministrativeArea", name: "Berkshire" },
+  ],
+  "seo-newbury": [
+    { "@type": "City", name: "Newbury" },
+    { "@type": "City", name: "Thatcham" },
+    { "@type": "City", name: "Hungerford" },
+    { "@type": "AdministrativeArea", name: "West Berkshire" },
     { "@type": "AdministrativeArea", name: "Berkshire" },
   ],
   "seo-maidenhead": [

@@ -56,7 +56,7 @@ export function ServiceInlineForm({
   offerId = DEFAULT_OFFER_ID,
   offerLabel = DEFAULT_OFFER_LABEL,
   eventLabel = "service_inline_form",
-  messagePlaceholder = "Your website URL and what you're trying to achieve — or just say hi, I'll ask the right questions.",
+  messagePlaceholder = "Your website URL and what you're trying to achieve. Or just say hi, and I'll ask the right questions.",
   formFooterNote = "No obligation · Direct reply from Sunny · Reply within one working day",
   operationalNotes,
   leadValue,

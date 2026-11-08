@@ -72,6 +72,7 @@ const locationSlugs = [
   "seo-bracknell",
   "seo-consultant-reading",
   "seo-maidenhead",
+  "seo-newbury",
   "seo-slough",
   "seo-wokingham",
   "seo-windsor",

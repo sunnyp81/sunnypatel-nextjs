@@ -27,6 +27,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
     changeFrequency: "monthly",
     priority: 0.8,
   },
+  // EntityMap v1.0 discovery: the HTML view belongs in the sitemap.
+  {
+    url: `${SITE_URL}/entitymap.html`,
+    lastModified: new Date("2026-11-08"),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
   {
     url: `${SITE_URL}/services/`,
     lastModified: LAST_DEPLOY,

@@ -461,6 +461,65 @@ const OFFER_EXAMPLE_KIND = {
 } as const;
 
 const OFFER_FORM_DATA = {
+  "seo-agency-review": {
+    id: "enquire",
+    ctaTitle: "Request an independent review of your SEO agency",
+    ctaSubtitle:
+      "Share the website, your renewal date and the reports your agency sends. I’ll confirm the scope before paid work starts.",
+    trustPoints: [
+      "£495 fixed fee for a standard site of up to around 500 pages",
+      "Agency reports checked against Search Console and the live site",
+      "Delivery within 5 working days after read-only access",
+      "Ranked findings, questions for your agency and a 60-minute walkthrough",
+      "No obligation to switch or start a retainer",
+    ],
+    badges: [
+      { icon: "clock" as const, label: "5 working days" },
+      { icon: "shield" as const, label: "Independent, read-only" },
+    ],
+    submitLabel: "Request the agency review",
+    successMessage:
+      "Your agency review enquiry has been received. The next step is to confirm scope and read-only access.",
+    offerId: "seo_agency_review_495",
+    offerLabel: "£495 independent SEO agency review",
+    eventLabel: "seo_agency_review_form",
+    messagePlaceholder:
+      "Share your website URL, the contract renewal date and what your agency reports each month.",
+    formFooterNote: "No payment is taken through this form · Your agency is not contacted",
+    operationalNotes: [
+      "The next step is scope and read-only access confirmation",
+      "Your agency is not told unless you tell them",
+    ],
+  },
+  "white-label-seo": {
+    id: "enquire",
+    ctaTitle: "Book a white label SEO partner call",
+    ctaSubtitle:
+      "Tell me about your agency and the clients you want SEO for. Partner pricing is agreed per project before any work starts.",
+    trustPoints: [
+      "Audits, local SEO, content briefs and technical fixes under your brand",
+      "Unbranded reports you can send as your own",
+      "Your agency keeps the client relationship",
+      "Partner pricing agreed per project",
+    ],
+    badges: [
+      { icon: "clock" as const, label: "Free partner call" },
+      { icon: "shield" as const, label: "Unbranded delivery" },
+    ],
+    submitLabel: "Book a partner call",
+    successMessage:
+      "Your white label enquiry has been received. The next step is a free partner call.",
+    offerId: "white_label_partner_call",
+    offerLabel: "White label SEO partner call",
+    eventLabel: "white_label_seo_form",
+    messagePlaceholder:
+      "Share your agency website, the services you offer and the SEO work your clients ask for.",
+    formFooterNote: "No payment is taken through this form · Pricing is agreed per project",
+    operationalNotes: [
+      "The next step is a free partner call",
+      "Pricing and scope are agreed before any work starts",
+    ],
+  },
   "seo-training": {
     id: "enquire",
     ctaTitle: "Book SEO training for your team",
@@ -553,6 +612,20 @@ const OFFER_FORM_DATA = {
 } as const;
 
 const OFFER_HEADER_DATA = {
+  "seo-agency-review": {
+    badges: ["£495 fixed fee", "5 working days after access", "60-minute walkthrough"],
+    ctaHref: "#enquire",
+    ctaLabel: "Request the agency review",
+    ctaMeta: "Read-only access · Your agency is not contacted",
+    ctaOffer: "seo_agency_review_495",
+  },
+  "white-label-seo": {
+    badges: ["Unbranded delivery", "You keep the client", "Partner pricing per project"],
+    ctaHref: "#enquire",
+    ctaLabel: "Book a partner call",
+    ctaMeta: "Free call · Audits, local SEO, briefs and fixes",
+    ctaOffer: "white_label_partner_call",
+  },
   "seo-training": {
     badges: ["Half day £750", "Full day £1,250", "Six weeks £2,500"],
     ctaHref: "#enquire",

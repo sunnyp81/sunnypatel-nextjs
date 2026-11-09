@@ -1,11 +1,12 @@
-**I am an independent UK SEO consultant. I help recruitment agencies and in-house talent teams get jobs indexed, rank for sector and location searches and win employer enquiries.
- The usual starting point is a £495 fixed technical SEO audit. A monthly retainer can follow. Start with a free 20-minute SEO diagnosis.**
+**Recruitment SEO is search work for recruitment agencies and in-house talent teams: getting jobs indexed, ranking for sector and location searches and winning employer enquiries. I run it as an independent consultant from Reading in Berkshire and work UK-wide online. The usual starting point is a £495 fixed technical SEO audit. A monthly retainer can follow. Start with a free 20-minute SEO diagnosis.**
 
 Recruitment sites have two audiences and one fast-moving inventory. Candidates search for jobs. Employers search for a firm that can fill roles. Jobs open and close every week. Indexing problems build up quickly when the site is not set up for them.
 
 {% cta heading="Are your jobs showing in Google for Jobs?" text="Send me your website and one live job URL. In 20 minutes I will show you whether Google can read it and what to fix first." /%}
 
 ## What does recruitment SEO cost?
+
+Recruitment SEO with me starts at £495 for a fixed technical audit. Retainers run from £1,500 per month and advice-only consulting from £200 per session.
 
 | Service | Price | What you get |
 |---|---|---|
@@ -16,16 +17,16 @@ Recruitment sites have two audiences and one fast-moving inventory. Candidates s
 
 I am not VAT-registered. These are the full prices. The £495 audit is credited against your first retainer month when you start within 60 days. Full details sit on the [technical SEO audit](/services/technical-seo-audit/) page.
 
-## How to choose a recruitment SEO consultant or agency: 8 criteria
+## How to choose a recruitment SEO agency or consultant in the UK: 8 criteria
 
-Use these criteria when you compare providers. They apply whether you hire a consultant like me or a larger firm.
+Choose a recruitment SEO agency or consultant in the UK against these eight criteria. They apply whether you hire an independent consultant like me or a larger firm.
 
 1. **They ask about your revenue model first.** Permanent, contract and executive search firms need different pages. A good provider asks which desks and sectors make you money before suggesting keywords.
 2. **They understand job-page indexing.** Ask how they would handle expired jobs, duplicate jobs and Google for Jobs markup. Vague answers are a warning sign.
 3. **They check your job board platform's output.** Many recruitment sites publish jobs through a CRM or job feed. The provider should test what that platform actually produces.
 4. **They separate candidate and employer work.** One plan should cover both. Each side needs its own pages and measures.
 5. **They avoid doorway pages.** Hundreds of near-identical "jobs in [town]" pages are a risk. Ask how they would make each location page useful.
-6. **They measure enquiries, not just rankings.** Applications, CV uploads and employer briefs should be tracked separately.
+6. **They measure enquiries as well as rankings.** Applications, CV uploads and employer briefs should be tracked separately.
 7. **They are honest about AI search.** Nobody can guarantee your firm appears in ChatGPT or Google's AI Overviews. A provider who promises it is overselling.
 8. **Prices and scope are written down.** You should know the fee, what is included and what you need to supply before work starts.
 
@@ -37,51 +38,62 @@ Job pages get into Google for Jobs when they carry valid JobPosting structured d
 
 Google documents the fields in its [JobPosting structured data](https://developers.google.com/search/docs/appearance/structured-data/job-posting) guide. The markup describes the title, location, salary, employment type and closing date. It must match what the visible page says.
 
-Expired jobs are where many recruitment sites go wrong. Google's guidance is to remove expired listings from the feature. Practical options:
+Expired jobs are where many recruitment sites go wrong. Google's guidance is to remove expired listings from the feature. This is the sequence I set up on a recruitment site:
 
-- **Return a 404 or 410** when a job is permanently removed.
-- **Set validThrough** to the closing date so the listing ends on time.
-- **Remove the markup** from a page that stays live after the role closes.
+{% process %}
+{% step title="Set validThrough at publish" detail="Every live job carries its closing date in the markup so the listing ends on time even if nobody touches the page." /%}
+{% step title="Expire the page on close" detail="The day a role is filled or withdrawn the page returns 404 or 410. A page that must stay live loses its JobPosting markup instead." /%}
+{% step title="Update the sitemap" detail="Closed jobs leave the XML sitemap so crawling goes to live roles rather than to pages nobody needs." /%}
+{% step title="Check a sample monthly" detail="Expired URLs are tested for soft 404s and stale markup. Problems usually point to the job feed or the CMS template." /%}
+{% /process %}
 
-Avoid leaving thousands of closed jobs live with a "this role has been filled" message. Google may treat them as soft 404s. They also waste crawling on pages nobody needs. The [technical SEO audit](/services/technical-seo-audit/) checks a sample of live and expired jobs for these problems.
+Avoid leaving thousands of closed jobs live with a "this role has been filled" message. Google may treat them as soft 404s. They also waste crawling on pages nobody needs. The technical SEO audit checks a sample of live and expired jobs for these problems.
 
 ## How do you build sector and location pages without doorway pages?
 
 Build each sector and location page around real jobs, real consultants and real local knowledge. Sector and location pages are how recruiters rank for searches like "accountancy recruitment Reading" or "IT contract jobs Manchester". They work when each page has a real reason to exist.
 
-A useful page includes live jobs filtered to that sector or place, the consultants who cover it, salary or rate guidance you can support, and local employer context. A page that only swaps the town name in a template is a doorway page. Google's [spam policies on doorway abuse](https://developers.google.com/search/docs/essentials/spam-policies#doorways) cover this pattern.
+A useful page includes live jobs filtered to that sector or place, the consultants who cover it, salary or rate guidance you can support and local employer context. A page that only swaps the town name in a template is a doorway page. Google's [spam policies on doorway abuse](https://developers.google.com/search/docs/essentials/spam-policies#doorways) cover this pattern.
 
 Start with the sectors and areas where you already place people. Add more pages only when you have the jobs and the knowledge to fill them.
 
 ## Why split candidate and employer intent?
 
-Candidates and employers search in different ways and want different outcomes.
+Split candidate and employer intent because the two audiences search differently and want different outcomes from a recruitment site. Candidates want live roles. Employers want proof you can fill one.
 
-| | Candidate searches | Employer searches |
-|---|---|---|
-| Example query | "marketing jobs Reading" | "marketing recruitment agency Reading" |
-| What they want | Live roles and an easy way to apply | Proof you can fill a role, fees and process |
-| Best page type | Job listings, sector job pages | Sector service pages, "hire staff" pages, fees and process pages |
-| What to measure | Applications and CV uploads | Employer briefs and calls |
+{% panels %}
+{% panel eyebrow="Candidate intent" title="Example: marketing jobs Reading" %}
+- **What they want:** live roles and an easy way to apply
+- **Best page type:** job listings and sector job pages
+- **What to measure:** applications and CV uploads
+- **Who builds it:** the job feed builds these pages automatically
+{% /panel %}
+{% panel eyebrow="Employer intent" title="Example: marketing recruitment agency Reading" %}
+- **What they want:** proof you can fill a role, fees and process
+- **Best page type:** sector service pages, hire-staff pages, fees and process pages
+- **What to measure:** employer briefs and calls
+- **Who builds it:** you have to build these pages deliberately
+{% /panel %}
+{% /panels %}
 
 Many recruitment sites put most of their effort into candidate pages because the job feed creates them automatically. Employer pages bring in the revenue. They need deliberate content.
 
 ## Do AI assistants recommend recruitment agencies?
 
-Sometimes. Some hiring managers now ask ChatGPT, Copilot and Perplexity for recruiter shortlists. These tools draw on pages they can read. Those pages include your site, directories, trade press and review platforms.
+Yes. AI assistants sometimes recommend recruitment agencies. Some hiring managers now ask ChatGPT, Copilot and Perplexity for recruiter shortlists. These tools draw on pages they can read. Those pages include your site, directories, trade press and review platforms.
 
-I am cautious here. AI answers change from one run to the next. No one can guarantee a mention. What you can do is make your firm's sectors, locations and specialisms clear and consistent everywhere they appear. The [AI visibility audit](/ai-visibility/) checks agreed employer questions across the available AI search tools and benchmarks your firm against three agreed competitors. That gives you a baseline. My comparison of [AEO agencies](/blog/best-aeo-agencies/) explains how this work is usually sold.
+I am cautious here. AI answers change from one run to the next. No one can guarantee a mention. What you can do is make your firm's sectors, locations and specialisms clear and consistent everywhere they appear. AEO for a recruitment or staffing agency should start with a measured baseline. My [AI visibility audit](/ai-visibility/) checks agreed employer questions across the available AI search tools and benchmarks your firm against three agreed competitors for £1,500 fixed.
 
 ## What about job board platforms and recruitment CRMs?
 
-Recruitment platforms often decide how job pages are built. Examples include Bullhorn, Vincere and Broadbean, or a website plugin that pulls jobs from them. Their output sets URLs, page titles, structured data and what happens when a job closes.
+Recruitment platforms and CRMs often decide how a recruitment site's job pages are built. Examples include Bullhorn, Vincere and Broadbean or a website plugin that pulls jobs from them. Their output sets URLs, page titles, structured data and what happens when a job closes.
 
 I do not assume any platform gets this right or wrong. I check the actual output on your site: the HTML Google receives, the markup, the status codes on expired jobs and the sitemap. Fixes may sit with your web developer or the platform's support team.
 
 ## How does the work start?
 
 1. **Free 20-minute diagnosis:** I look at your site and your main goal with you.
-2. **£495 audit:** a written report on job-page indexing, site structure, content and AI visibility.
+2. **£495 audit:** a written report on job-page indexing, site structure, content and AI visibility within 5 working days after access.
 3. **Walkthrough:** 60 minutes to agree priorities and owners.
 4. **Retainer or self-implementation:** you choose whether I carry on or your team runs the plan.
 
@@ -91,19 +103,23 @@ I do not assume any platform gets this right or wrong. I check the actual output
 
 ### How long does it take for recruitment agencies to see SEO results?
 
-Indexing fixes can show within weeks of being deployed. Rankings for sector and location pages usually take several months.
+Recruitment agencies usually see SEO results within weeks for indexing fixes and within several months for sector and location rankings.
 
 My guide on [how long SEO takes](/blog/how-long-does-seo-take/) explains why.
 
 ### How much does AEO cost for a recruitment agency?
 
-The AI visibility audit costs £1,500 fixed. Any ongoing work after the audit is scoped separately.
+AEO for a recruitment agency costs £1,500 fixed for my AI visibility audit. Any ongoing work after the audit is scoped separately.
 
 The [SEO retainer](/services/seo-retainer/) starts at £1,500 per month.
 
 ### Do you work with in-house talent teams?
 
-Yes. Careers sites face the same job-page and indexing issues. The audit works the same way.
+Yes. Recruitment SEO with me works for in-house talent teams and careers sites as well as agencies. Careers sites face the same job-page and indexing issues and the audit works the same way.
+
+### Where are you based and do you work with recruiters outside Berkshire?
+
+Yes. I am based in Reading in Berkshire and work with recruitment agencies anywhere in the UK online.
 
 ## Related guides
 

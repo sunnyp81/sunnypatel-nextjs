@@ -134,6 +134,12 @@ const SERVICES: ServiceSpec[] = [
   { id: "e_031", name: "SEO Consulting", description: "Independent SEO advice and strategy for business owners and in-house teams, delivered directly by Sunny Patel.", slug: "seo-consulting", topics: ["Semantic SEO", "Topical Authority", "Content Strategy"] },
   { id: "e_032", name: "SEO Retainer", description: "Ongoing monthly SEO support with agreed priorities, implementation and reporting.", slug: "seo-retainer", topics: ["Technical SEO", "Content Strategy", "Internal Linking"] },
   { id: "e_033", name: "SEO Training", description: "Live SEO training for in-house teams, run on the team's own website and data.", slug: "seo-training", topics: ["Keyword Research", "On-Page SEO", "Technical SEO"] },
+  { id: "e_035", name: "Independent SEO Agency Review", description: "Fixed-fee second opinion on an SEO agency's work before contract renewal, checking agency reports against Search Console and the live site.", slug: "seo-agency-review", topics: ["Technical SEO", "Content Strategy", "AI Search Optimisation"] },
+  { id: "e_036", name: "White Label SEO", description: "Unbranded SEO audits, local SEO, content briefs and technical fixes delivered for agencies to resell under their own brand.", slug: "white-label-seo", topics: ["Technical SEO", "Local SEO", "Content Strategy"] },
+  { id: "e_037", name: "Google Penalty and Traffic Drop Recovery", description: "Diagnosis and recovery planning for sites that lost search traffic after a core update, manual action or migration.", slug: "google-algorithm-update-recovery", topics: ["Technical SEO", "E-E-A-T", "Topical Authority"] },
+  { id: "e_038", name: "National SEO", description: "SEO for UK-wide and multi-location brands: site architecture, location pages and Google Business Profile at scale.", slug: "national-seo-consultant", topics: ["Topical Authority", "Technical SEO", "Local SEO"] },
+  { id: "e_039", name: "SEO for Financial Advisers", description: "SEO for IFAs, wealth managers and mortgage brokers, built around the firm's own compliance sign-off.", slug: "financial-adviser-seo", topics: ["E-E-A-T", "Local SEO", "Content Strategy"] },
+  { id: "e_040", name: "SEO for Recruitment Agencies", description: "SEO for recruitment agencies: job pages, Google for Jobs, sector and location pages and AI search visibility.", slug: "recruitment-seo-consultant", topics: ["Technical SEO", "Content Strategy", "AI Search Optimisation"] },
   {
     id: "e_034",
     name: "Local SEO for Berkshire businesses",

@@ -182,7 +182,7 @@ export function buildEntityMap() {
     hasChunks: [
       verbatimChunk(
         "c_001",
-        "I help businesses grow organic traffic through semantic SEO, topical authority, and AI-powered search strategies. Based in Berkshire, I combine 15+ years of SEO expertise with advanced AI tools to deliver measurable, sustainable results.",
+        "I help businesses grow organic traffic through semantic SEO, topical authority, and AI-powered search strategies. Based in Berkshire, I combine 16+ years of SEO expertise with advanced AI tools to deliver measurable, sustainable results.",
         pageUrl("/about/"),
         pageTitle(join(CONTENT, "pages", "about")),
         join(CONTENT, "pages", "about", "content.mdoc"),

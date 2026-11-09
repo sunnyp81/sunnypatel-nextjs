@@ -103,7 +103,7 @@ const TRUST_BADGES = [
   { label: "£1,500 fixed fee" },
   { label: "Delivered in 2 weeks" },
   { label: "Fee credited to retainer" },
-  { label: "15+ years in search" },
+  { label: "16+ years in search" },
 ] as const;
 
 const WHAT_YOU_GET = [

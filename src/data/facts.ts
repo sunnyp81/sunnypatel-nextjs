@@ -45,7 +45,7 @@ export const FACT_GROUPS: FactGroup[] = [
       {
         id: "F05",
         label: "Experience",
-        value: "More than 15 years in SEO",
+        value: "More than 16 years in SEO",
         source: "/about/",
         sourceLabel: "About",
       },

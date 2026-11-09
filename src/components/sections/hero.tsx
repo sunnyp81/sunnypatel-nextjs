@@ -12,7 +12,7 @@ import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const PROOF = [
-  { value: "15+ years", label: "Hands-on SEO experience", color: "#d79f1e", textClass: "text-gold-ink dark:text-[#d79f1e]", href: "/about/" },
+  { value: "16+ years", label: "Hands-on SEO experience", color: "#d79f1e", textClass: "text-gold-ink dark:text-[#d79f1e]", href: "/about/" },
   { value: "45 sites", label: "Documented portfolio case study", color: "#7ba3f5", textClass: "text-brand-ink dark:text-[#7ba3f5]", href: "/portfolio/niche-affiliate-seo-portfolio-45-sites/" },
   { value: "+340%", label: "Aatma organic traffic YoY", color: "#78b844", textClass: "text-success-ink dark:text-[#78b844]", href: "/portfolio/aatma-aesthetics-website-design-development-seo/" },
 ] as const;
@@ -65,7 +65,7 @@ export function Hero() {
         <Link href="/services/seo-consultant-reading/" className="text-foreground dark:text-white underline decoration-foreground/40 dark:decoration-white/40 underline-offset-2 transition-colors hover:text-brand">
           SEO consultant
         </Link>{" "}
-        serving UK businesses. With 15+ years of hands-on SEO experience, I handle your strategy and implementation directly, including work on AI search visibility.
+        serving UK businesses. With 16+ years of hands-on SEO experience, I handle your strategy and implementation directly, including work on AI search visibility.
       </p>
 
       <GlowCard className="mx-auto w-full max-w-2xl border-black/[0.08] bg-white/70 dark:border-white/[0.08] dark:bg-black/20 p-1.5 text-left backdrop-blur-sm" spread={55} proximity={90}>

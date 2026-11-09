@@ -100,7 +100,7 @@ export default function AgenciesPage() {
             SEO and AI visibility help your agency can lean on
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I&apos;m Sunny, an SEO consultant in Reading with over 15 years in search. I help agencies
+            I&apos;m Sunny, an SEO consultant in Reading with over 16 years in search. I help agencies
             when a client asks a search question and there&apos;s no SEO specialist in-house. I can work
             under your name or mine, and the first step is a free call.
           </p>
@@ -193,7 +193,7 @@ export default function AgenciesPage() {
           "No obligation, and no need to prepare anything",
         ]}
         badges={[
-          { icon: "calendar", label: "15+ years in search" },
+          { icon: "calendar", label: "16+ years in search" },
           { icon: "clock", label: "20 minutes" },
           { icon: "shield", label: "No obligation" },
         ]}

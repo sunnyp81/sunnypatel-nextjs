@@ -11,7 +11,7 @@ export function generateMetadata() {
   return buildMetadata({
     title: "Sunny Patel | SEO Consultant & AI Strategist | Author",
     description:
-      "Articles and guides by Sunny Patel, SEO consultant and AI strategist based in Reading, Berkshire. 15+ years helping UK businesses grow organic traffic.",
+      "Articles and guides by Sunny Patel, SEO consultant and AI strategist based in Reading, Berkshire. 16+ years helping UK businesses grow organic traffic.",
     path: "/author/sunny-patel",
   });
 }
@@ -65,7 +65,7 @@ export default async function AuthorPage() {
             Sunny Patel
           </h1>
           <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-            SEO consultant and AI strategist based in Reading, Berkshire. 15+ years
+            SEO consultant and AI strategist based in Reading, Berkshire. 16+ years
             building and ranking content sites through semantic SEO, topical authority,
             and entity optimisation.
           </p>
@@ -73,8 +73,8 @@ export default async function AuthorPage() {
           {/* E-E-A-T credentials */}
           <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3">
             {[
-              { label: "15+ Years SEO" },
-              { label: "15+ Years Hands-On" },
+              { label: "16+ Years SEO" },
+              { label: "16+ Years Hands-On" },
               { label: "45-Site Test Portfolio" },
               { label: "44 Managed Sites" },
             ].map((badge) => (

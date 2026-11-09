@@ -72,7 +72,7 @@ export default function OGImage() {
               letterSpacing: -0.5,
             }}
           >
-            Reading · Berkshire · 15+ years · 180→620 visits in 9 months
+            Reading · Berkshire · 16+ years · 180→620 visits in 9 months
           </div>
         </div>
 

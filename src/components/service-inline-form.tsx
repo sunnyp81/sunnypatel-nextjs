@@ -25,7 +25,7 @@ const TRUST_POINTS = [
 ] as const;
 
 const BADGES: readonly { icon: BadgeIconName; label: string }[] = [
-  { icon: "calendar", label: "15+ years experience" },
+  { icon: "calendar", label: "16+ years experience" },
   { icon: "sparkles", label: "Free 20-minute diagnosis" },
   { icon: "shield", label: "No contracts" },
 ];

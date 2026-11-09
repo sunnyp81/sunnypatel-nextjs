@@ -57,7 +57,7 @@ The voice sits at a specific point on each of these axes:
 |------|----------|-------|
 | Formal ← → Casual | **65% toward casual** | Professional but not corporate. No slang, no "mate", no exclamation marks. Contractions are always used (it's, you're, don't). |
 | Technical ← → Accessible | **60% toward technical** | Technical terms are used without apology when they're the right word. But jargon is never used to impress — only to be precise. A founder should understand every sentence; an SEO should find it credible. |
-| Confident ← → Humble | **70% toward confident** | Sunny owns his expertise. 15+ years, 44 sites, real results. But confidence is shown through specifics, never through superlatives ("best", "leading", "world-class"). |
+| Confident ← → Humble | **70% toward confident** | Sunny owns his expertise. 16+ years, 44 sites, real results. But confidence is shown through specifics, never through superlatives ("best", "leading", "world-class"). |
 | Warm ← → Detached | **55% toward warm** | Not cold or clinical. There is a human behind the writing. But warmth comes from honesty and usefulness, not from friendliness or humour. |
 
 ---
@@ -214,7 +214,7 @@ If you're unsure whether something fits, check it against these. If it sounds li
 These are the facts that establish authority. Use them where relevant, not as a preamble to every piece of content:
 
 - **44 websites managed simultaneously** — real portfolio, not client sites
-- **15+ years in SEO** — since before Panda, Penguin, or AI Overviews existed
+- **16+ years in SEO** — since before Panda, Penguin, or AI Overviews existed
 - **200,000+ pages across the portfolio** — programmatic SEO at scale
 - **Real GSC data published** — not anonymised agency case studies
 - **Multiple tech stacks** — Astro, Next.js, WordPress, static HTML

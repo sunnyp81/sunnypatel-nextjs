@@ -163,7 +163,7 @@ export default function ElementaReadingPage() {
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
             <p>
-              I&apos;ve worked in search for over 15 years and I&apos;m based in Reading, so you deal
+              I&apos;ve worked in search for over 16 years and I&apos;m based in Reading, so you deal
               with me directly, not an account manager. I also run my own portfolio of websites, which
               means the advice comes from sites I test things on myself.{" "}
               <Link href="/proof/" className="font-medium text-brand hover:underline">
@@ -191,7 +191,7 @@ export default function ElementaReadingPage() {
         ]}
         badges={[
           { icon: "sparkles", label: "Free SEO audit" },
-          { icon: "calendar", label: "15+ years in search" },
+          { icon: "calendar", label: "16+ years in search" },
           { icon: "shield", label: "No obligation" },
         ]}
         submitLabel="Claim free audit"

@@ -22,6 +22,12 @@ Common reasons a UK business is invisible to AI assistants: robots.txt blocking 
 - [Topical Maps](https://sunnypatel.co.uk/services/topical-maps/): Content planning frameworks mapping every topic and subtopic in your domain
 - [SEO Consulting](https://sunnypatel.co.uk/services/seo-consulting/): Strategic SEO guidance for in-house teams and agencies
 - [SEO Training](https://sunnypatel.co.uk/services/seo-training/): Live SEO training for in-house teams on their own site and data: half-day workshop £750, full day £1,250, six-week programme £2,500, up to 8 people, online or on site
+- [Independent SEO Agency Review](https://sunnypatel.co.uk/services/seo-agency-review/): £495 fixed second opinion on an SEO agency's work before contract renewal: site audit, agency reports checked against Search Console, questions to ask and a 60-minute walkthrough
+- [White Label SEO and SEO Reseller](https://sunnypatel.co.uk/services/white-label-seo/): unbranded audits, local SEO, content briefs and technical fixes for agencies to resell; partner pricing agreed per project
+- [Google Penalty and Traffic Drop Recovery](https://sunnypatel.co.uk/services/google-algorithm-update-recovery/): diagnosis of drops after core updates, manual actions or migrations; free 20-minute diagnosis, £495 audit
+- [National SEO](https://sunnypatel.co.uk/services/national-seo-consultant/): SEO for UK-wide and multi-location brands; retainers from £1,500 per month
+- [SEO for Financial Advisers](https://sunnypatel.co.uk/services/financial-adviser-seo/): SEO for IFAs, wealth managers and mortgage brokers, built around the firm's compliance sign-off
+- [SEO for Recruitment Agencies](https://sunnypatel.co.uk/services/recruitment-seo-consultant/): job pages, Google for Jobs, sector and location pages and AI search visibility
 - [Content Briefs](https://sunnypatel.co.uk/services/content-briefs/): Research-backed briefs that writers can execute without SEO knowledge
 - [Local SEO](https://sunnypatel.co.uk/services/local-seo/): Google Business Profile optimisation, local pack visibility, and geo-targeted content
 - [Semantic SEO](https://sunnypatel.co.uk/services/semantic-seo/): Entity-based optimisation aligning content with how search engines understand topics

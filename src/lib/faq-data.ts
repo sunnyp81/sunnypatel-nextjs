@@ -5,7 +5,7 @@ export const faqs = [
   },
   {
     q: "How long does it take to see SEO results?",
-    a: "Most of my clients start seeing measurable improvements within 3–6 months, and significant results typically appear between 6–12 months. The timeline depends on your current site health, your competition and the scope of work, so I agree review points before the work starts instead of promising a ranking date.",
+    a: "Measurable improvements take time and the larger gains come later, so I do not promise a ranking date. The timeline depends on your current site health, your competition and the scope of work, so I agree review points before the work starts.",
   },
   {
     q: "What is semantic SEO?",

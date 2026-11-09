@@ -15,7 +15,16 @@ import { CaseStudyCard } from "@/components/services/CaseStudyCard";
 import { StatsBar } from "@/components/services/StatsBar";
 import { CoverageMap } from "@/components/services/CoverageMap";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
-import { GlowProcess, GlowProcessStep } from "@/components/glow/glow-blocks";
+import {
+  GlowProcess,
+  GlowProcessStep,
+  GlowStat,
+  GlowStatRow,
+  GlowPanel,
+  GlowPanelRow,
+  GlowChartFigure,
+} from "@/components/glow/glow-blocks";
+import { AgencyRedFlagScorer, ResourcingPicker } from "@/components/glow/buyer-tools";
 import { markdocConfig, MarkdocImage, MarkdocTable } from "@/lib/render-markdoc";
 import { ServiceOfferExamples } from "@/components/service-offer-examples";
 import { ServiceInlineForm } from "@/components/service-inline-form";
@@ -694,7 +703,22 @@ function buildSections(
     Markdoc.renderers.react(
       { ...(wrapper as object), children: g } as RenderableTreeNode,
       React,
-      { components: { ServiceMiniCta, GlowProcess, GlowProcessStep, MarkdocImage, MarkdocTable } }
+      {
+        components: {
+          ServiceMiniCta,
+          GlowProcess,
+          GlowProcessStep,
+          GlowStat,
+          GlowStatRow,
+          GlowPanel,
+          GlowPanelRow,
+          GlowChartFigure,
+          AgencyRedFlagScorer,
+          ResourcingPicker,
+          MarkdocImage,
+          MarkdocTable,
+        },
+      }
     )
   );
 

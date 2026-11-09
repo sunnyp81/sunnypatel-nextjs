@@ -43,6 +43,16 @@ export function LocalSeoGuide({ title, image, faqs, children }: {
         </div>
         <div className={styles.byline}><Link href="/author/sunny-patel/">By Sunny Patel, SEO consultant</Link><span>Published <time dateTime="2026-06-14">14 June 2026</time></span><span>Guide updated <time dateTime="2026-10-03">3 October 2026</time>; shortlist reviewed <time dateTime={localSeoShortlistReviewed}>12 September 2026</time>. Provider page-check dates appear in each profile.</span></div>
         <p className={styles.disclosure}><strong>How to use this guide:</strong> compare {localSeoProviders.length} providers, including my clearly labelled consultancy and {localSeoProviders.length - 1} external options. The list is alphabetical. Fit assessments are editorial judgements, not tested rankings. <a href="#methodology">Read the research method and disclosures.</a></p>
+        <aside className={local.glance} aria-labelledby="local-at-a-glance">
+          <h2 id="local-at-a-glance">At a glance</h2>
+          <ol>
+            <li><strong>Start with your business model.</strong> One premises, a business that visits customers and several branches need different local SEO support.</li>
+            <li><strong>Ten providers, listed alphabetically.</strong> They include my labelled consultancy. Fit labels are editorial judgements, not a ranking.</li>
+            <li><strong>Prices cover different scopes.</strong> Click Intelligence lists four tiers from £200 to £800 plus a £200 setup fee, my service starts at £600 a month, and the rest quote.</li>
+            <li><strong>Ask for qualified enquiries.</strong> A Business Profile call count measures clicks on the call button, not connected calls or won work.</li>
+            <li><strong>Judge the first 90 days.</strong> Expect a baseline, implemented changes and early evidence, not a promised ranking.</li>
+          </ol>
+        </aside>
       </header>
 
       <div className={styles.layout}>

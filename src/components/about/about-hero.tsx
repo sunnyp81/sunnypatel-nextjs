@@ -56,7 +56,7 @@ export function AboutHero() {
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I&apos;m Sunny Patel, an independent SEO consultant and AI search strategist based in Reading, Berkshire. I work with UK businesses on technical SEO, semantic content strategy, AI search visibility and web development, drawing on over 15 years of hands-on SEO experience.
+            I&apos;m Sunny Patel, an independent SEO consultant and AI search strategist based in Reading, Berkshire. I work with UK businesses on technical SEO, semantic content strategy, AI search visibility and web development, drawing on over 16 years of hands-on SEO experience.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

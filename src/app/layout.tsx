@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Sunny Patel",
   },
   description:
-    "Independent SEO consultant. 15+ years helping UK businesses grow organic traffic with semantic SEO, topical authority, and AI search. Free 20-minute SEO diagnosis.",
+    "Independent SEO consultant. 16+ years helping UK businesses grow organic traffic with semantic SEO, topical authority, and AI search. Free 20-minute SEO diagnosis.",
   openGraph: {
     type: "website",
     siteName: "Sunny Patel, SEO Consultant",

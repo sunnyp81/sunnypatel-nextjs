@@ -425,7 +425,7 @@ export function personSchema() {
     "@id": `${SITE_URL}/#person`,
     name: "Sunny Patel",
     description:
-      "Sunny Patel is an SEO consultant and AI strategist based in Reading, Berkshire, specialising in semantic SEO, topical authority, and AI search optimisation for UK businesses. 15+ years of experience building and ranking content sites.",
+      "Sunny Patel is an SEO consultant and AI strategist based in Reading, Berkshire, specialising in semantic SEO, topical authority, and AI search optimisation for UK businesses. 16+ years of experience building and ranking content sites.",
     jobTitle: "SEO Consultant & AI Strategist",
     url: SITE_URL,
     sameAs: [

@@ -41,7 +41,7 @@ const PROSE_CLASS =
   "prose dark:prose-invert prose-lg max-w-none prose-headings:font-[var(--font-heading)] prose-headings:tracking-tight prose-a:text-brand-ink prose-a:underline prose-a:decoration-brand-ink/30 prose-a:underline-offset-2 hover:prose-a:decoration-brand-ink dark:prose-a:no-underline dark:hover:prose-a:underline prose-strong:text-foreground prose-code:rounded prose-code:bg-wash prose-code:px-1.5 prose-code:py-0.5 prose-code:text-brand-ink prose-blockquote:border-l-gold/40 prose-blockquote:text-muted-foreground prose-hr:border-hairline";
 
 const TRUST_BADGES = [
-  { icon: CalendarDays, label: "15+ years experience" },
+  { icon: CalendarDays, label: "16+ years experience" },
   { icon: Sparkles,     label: "Free 20-minute diagnosis" },
   { icon: Shield,       label: "No contracts"         },
 ] as const;

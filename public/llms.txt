@@ -1,6 +1,6 @@
 # Sunny Patel: Independent SEO and AI Visibility Consultant
 
-> Sunny Patel is an independent SEO and AI visibility consultant based in Reading, Berkshire, UK. He helps UK businesses find out whether AI assistants (ChatGPT, Claude, Perplexity, Copilot, Google AI Overviews) can read, verify and cite their website, and fixes it when they cannot. 15+ years experience, 150-280% average organic traffic growth.
+> Sunny Patel is an independent SEO and AI visibility consultant based in Reading, Berkshire, UK. He helps UK businesses find out whether AI assistants (ChatGPT, Claude, Perplexity, Copilot, Google AI Overviews) can read, verify and cite their website, and fixes it when they cannot. 16+ years experience, 150-280% average organic traffic growth.
 
 Every service page has a plain Markdown copy at its URL plus `index.md`, for example https://sunnypatel.co.uk/services/technical-seo-audit/index.md. The people, services, places and topics on this site, with the passage that supports each, are listed in https://sunnypatel.co.uk/entitymap.json (EntityMap v1.0) and https://sunnypatel.co.uk/entitymap.html.
 
@@ -44,7 +44,7 @@ Sunny publishes 20 free SEO tools with no sign-up, including the [AI Visibility 
 
 ## About
 
-Sunny Patel has 15+ years of hands-on SEO experience. Based in Reading, Berkshire, he works directly with clients: no juniors, no account managers, no agency overhead. His approach combines topical authority building, technical SEO excellence, entity-based optimisation, and measurement of AI search visibility. He publishes original research on AI search citation accuracy, including an audit of 19 widely repeated AI-search statistics against their primary sources.
+Sunny Patel has 16+ years of hands-on SEO experience. Based in Reading, Berkshire, he works directly with clients: no juniors, no account managers, no agency overhead. His approach combines topical authority building, technical SEO excellence, entity-based optimisation, and measurement of AI search visibility. He publishes original research on AI search citation accuracy, including an audit of 19 widely repeated AI-search statistics against their primary sources.
 
 - Website: https://sunnypatel.co.uk
 - Contact: https://sunnypatel.co.uk/contact/

@@ -13,7 +13,7 @@ const highlights: {
 }[] = [
   {
     icon: <Sparkles className="h-5 w-5" />,
-    title: "15+ Years Hands-On SEO",
+    title: "16+ Years Hands-On SEO",
     description:
       "Entity-based content networks built from real data, tested across 45 sites in competitive niches.",
   },
@@ -83,7 +83,7 @@ export function About() {
             style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
           >
             One consultant in Reading,
-            <br className="hidden md:block" /> with 15+ years of hands-on SEO
+            <br className="hidden md:block" /> with 16+ years of hands-on SEO
           </h2>
         </motion.div>
 

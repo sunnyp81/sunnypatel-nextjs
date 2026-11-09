@@ -80,7 +80,7 @@ const PAGE_SCHEMA = {
 const TRUST_BADGES = [
   { label: "Evidence-led methodology" },
   { label: "No invented stats" },
-  { label: "15+ years in search" },
+  { label: "16+ years in search" },
   { label: "Fixed-fee audit in 2 weeks" },
 ] as const;
 

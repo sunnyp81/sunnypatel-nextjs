@@ -17,7 +17,7 @@ export function generateMetadata() {
   return buildMetadata({
     title: "About Sunny Patel | SEO Consultant & AI Strategist | Berkshire",
     description:
-      "Sunny Patel is a Berkshire-based SEO consultant specialising in semantic SEO, topical authority, and AI search optimisation. 15+ years delivering measurable traffic growth.",
+      "Sunny Patel is a Berkshire-based SEO consultant specialising in semantic SEO, topical authority, and AI search optimisation. 16+ years delivering measurable traffic growth.",
     path: "/about",
   });
 }

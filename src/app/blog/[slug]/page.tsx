@@ -21,7 +21,7 @@ import styles from "@/components/seo-companies-guide.module.css";
 
 // Match DynamicIslandTOC's heading IDs, using each post's first H2.
 const KEY_STATS_JUMP_HREF: Record<string, string> = {
-  "ai-search-statistics": "#ai-search-statistics-2026-quick-answer",
+  "ai-search-statistics": "#at-a-glance",
   "content-marketing-statistics": "#content-marketing-industry-overview",
   "local-seo-statistics": "#local-seo-statistics-2026-quick-answer",
 };

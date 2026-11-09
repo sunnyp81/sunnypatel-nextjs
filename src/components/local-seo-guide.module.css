@@ -6,3 +6,7 @@
 .pathway span { display: block; color: var(--ink-faint); font-size: 14px; line-height: 1.6; }
 @media (max-width: 1050px) { .pathway ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .pathway ol { grid-template-columns: 1fr; gap: 20px; } }
+
+.glance { margin-top: 24px; padding: 20px 24px; border: 1px solid var(--hairline-strong); border-radius: 8px; max-width: 960px; }
+.glance h2 { font-size: 18px; margin: 0 0 12px; }
+.glance ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; font-size: 15px; line-height: 1.6; }

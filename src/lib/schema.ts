@@ -219,6 +219,22 @@ export const SERVICE_TOPICS: Record<string, TopicMapping> = {
     about: ["local-seo", "semantic-seo"],
     mentions: ["entity-seo", "technical-seo", "ai-search-optimisation"],
   },
+  "seo-agency-review": {
+    about: ["technical-seo", "content-strategy"],
+    mentions: ["ai-search-optimisation"],
+  },
+  "financial-adviser-seo": {
+    about: ["local-seo", "eeat"],
+    mentions: ["technical-seo", "ai-search-optimisation"],
+  },
+  "recruitment-seo-consultant": {
+    about: ["technical-seo", "content-strategy"],
+    mentions: ["ai-search-optimisation"],
+  },
+  "national-seo-consultant": {
+    about: ["topical-authority", "technical-seo"],
+    mentions: ["local-seo"],
+  },
   "seo-consultant-reading": {
     about: ["local-seo", "semantic-seo"],
     mentions: ["entity-seo"],

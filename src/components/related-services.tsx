@@ -109,6 +109,10 @@ const RELATED_SERVICE_SLUGS: Record<string, readonly string[]> = {
   "igaming-seo-consultant": ["technical-seo-audit", "topical-authority", "content-briefs"],
   "seo": ["technical-seo-audit", "seo-consulting", "topical-authority"],
   "b2b-seo": ["technical-seo-audit", "content-briefs", "topical-authority"],
+  "seo-agency-review": ["technical-seo-audit", "seo-consulting", "seo-retainer"],
+  "financial-adviser-seo": ["professional-services-seo", "technical-seo-audit", "local-seo"],
+  "recruitment-seo-consultant": ["technical-seo-audit", "b2b-seo", "content-briefs"],
+  "national-seo-consultant": ["seo-retainer", "technical-seo-audit", "topical-authority"],
 };
 
 function scoreService(service: { keywords: readonly string[] }, tags: readonly string[], title: string) {

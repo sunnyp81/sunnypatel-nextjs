@@ -72,6 +72,7 @@ export function ContentPage({
   ctaSubtitle,
   qualifyEnquiry = false,
   afterContent,
+  headerAside,
   breadcrumbItems,
   sections,
   children,
@@ -101,6 +102,8 @@ export function ContentPage({
   ctaSubtitle?: string;
   qualifyEnquiry?: boolean;
   afterContent?: React.ReactNode;
+  /** Optional first-screen block beside the header (service pages only), e.g. a short enquiry form. */
+  headerAside?: React.ReactNode;
   breadcrumbItems?: Array<{ label: string; href?: string }>;
   sections?: Array<{ content: React.ReactNode; after?: React.ReactNode }>;
   children?: React.ReactNode;
@@ -236,7 +239,7 @@ export function ContentPage({
           }}
         />
 
-        <div className={`relative z-10 mx-auto ${isService && serviceHeroImage ? "max-w-6xl" : "max-w-3xl"} px-6`}>
+        <div className={`relative z-10 mx-auto ${isService && (serviceHeroImage || headerAside) ? "max-w-6xl" : "max-w-3xl"} px-6`}>
           {isService && serviceHeroImage ? (
             <div className="grid gap-8 md:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] md:items-center md:gap-10">
               <div>{headerContent}</div>
@@ -251,6 +254,11 @@ export function ContentPage({
                   sizes="(max-width: 768px) 100vw, 45vw"
                 />
               </div>
+            </div>
+          ) : isService && headerAside ? (
+            <div className="grid gap-8 md:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] md:items-start md:gap-10">
+              <div className="min-w-0">{headerContent}</div>
+              <div className="min-w-0">{headerAside}</div>
             </div>
           ) : headerContent}
         </div>

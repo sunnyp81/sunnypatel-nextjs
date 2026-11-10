@@ -6,7 +6,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { ArrowRight } from "lucide-react";
 
 const stats = [
-  { value: "15+", label: "Years experience" },
+  { value: "16+", label: "Years experience" },
   { value: "45", label: "Sites in portfolio case study" },
   { value: "12+", label: "Testing verticals" },
   { value: "+340%", label: "Aatma organic traffic YoY" },

@@ -115,6 +115,9 @@ const redirectedServiceSlugs = new Set([
   "seo-consultant-brighton",
   "seo-consultant-harrogate",
   "seo-consultant-essex",
+  "seo-consultant-devon",
+  "seo-consultant-edinburgh",
+  "seo-consultant-leeds",
 ]);
 
 export async function generateMetadata() {

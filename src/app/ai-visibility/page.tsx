@@ -194,7 +194,11 @@ export default function AiVisibilityPage() {
             >
               When AI answers questions in your market, is your business in the answer?
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-2xl text-lg font-medium leading-relaxed text-foreground">
+              I&apos;m Sunny Patel, an independent SEO consultant in Berkshire. The AI
+              Visibility Audit is a fixed £1,500.
+            </p>
+            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               AI assistants can be part of your buyers&apos; research. The AI Visibility
               Audit records how you appear in a defined sample of answers, investigates
               gaps, and prioritises what to test first. Evidence-led,

@@ -66,7 +66,7 @@ const services = [
     description:
       "Full technical, content, and AI-visibility audit with a prioritised action plan. Fixed fee £495, delivered in 5 working days. Fee credited to first retainer month.",
     color: "#d79f1e",
-    href: "/services/paid-seo-audit/",
+    href: "/services/technical-seo-audit/",
   },
 ];
 

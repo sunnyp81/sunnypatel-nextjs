@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import WebsiteGrader from "./WebsiteGrader";
 import { schemaGraph, websiteGraderPageSchema, websiteGraderSchema } from "@/lib/schema";
@@ -23,6 +24,7 @@ export default function WebsiteGraderPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <WebsiteGrader />
+        <ToolNextStep lead="Want a second pair of eyes on your grade? Book a" href="/contact/" label="free 20-minute diagnosis" />
       </div>
       <RelatedTools currentHref="/tools/website-grader/" />
       <Footer />

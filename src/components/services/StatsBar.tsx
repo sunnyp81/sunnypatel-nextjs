@@ -2,7 +2,7 @@ import Link from "next/link";
 import { TrendingUp, Users, Clock, Award } from "lucide-react";
 
 const STATS = [
-  { icon: Clock, value: "15+", label: "Years Experience", color: "var(--brand-ink)" },
+  { icon: Clock, value: "16+", label: "Years Experience", color: "var(--brand-ink)" },
   { icon: TrendingUp, value: "+340%", label: "Aatma Organic Traffic YoY (Case Study)", color: "var(--teal-ink)" },
   { icon: Users, value: "45", label: "Historical Portfolio Case Study", color: "var(--brand-ink)" },
   { icon: Award, value: "Free", label: "20-Minute Diagnosis", color: "var(--teal-ink)" },

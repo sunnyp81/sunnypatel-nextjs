@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import UtmBuilder from "./UtmBuilder";
 
@@ -18,6 +19,7 @@ export default function UtmBuilderPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <UtmBuilder />
+        <ToolNextStep lead="Want help making sense of your campaign tracking? Book a" href="/contact/" label="free 20-minute diagnosis" />
       </div>
       <RelatedTools currentHref="/tools/utm-builder/" />
       <Footer />

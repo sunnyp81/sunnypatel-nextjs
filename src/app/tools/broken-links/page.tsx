@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import BrokenLinks from "./BrokenLinks";
 
@@ -18,6 +19,7 @@ export default function BrokenLinksPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <BrokenLinks />
+        <ToolNextStep lead="If broken links point to a wider linking problem, see my" href="/services/internal-linking/" label="internal linking service" />
       </div>
       <RelatedTools currentHref="/tools/broken-links/" />
       <Footer />

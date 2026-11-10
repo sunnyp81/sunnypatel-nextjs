@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { breadcrumbSchema, schemaGraph } from "@/lib/schema";
 import { getWebsiteDesignVisuals } from "@/data/website-design-visuals";
 import Link from "next/link";
+import { ServiceInlineForm } from "@/components/service-inline-form";
 
 const SITE_URL = "https://sunnypatel.co.uk";
 
@@ -139,6 +140,11 @@ export default async function WebsiteDesignPage({
         breadcrumbItems={breadcrumbItems}
         showCta={true}
         isService={true}
+        headerAside={
+          slugStr === "pricing" ? (
+            <ServiceInlineForm compact eventLabel="website_design_pricing_header" />
+          ) : undefined
+        }
         ctaTitle="Want a price for your project?"
         ctaSubtitle="Tell me whether this is a new site or a redesign, your current URL, your preferred CMS and what the website needs to do. I can then discuss the scope, quote and timeline. You can also email Hello@SunnyPatel.co.uk or call 07305 523333."
       >

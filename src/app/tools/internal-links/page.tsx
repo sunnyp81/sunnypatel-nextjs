@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import InternalLinks from "./InternalLinks";
 
@@ -18,6 +19,7 @@ export default function InternalLinksPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <InternalLinks />
+        <ToolNextStep lead="If you want help improving how your pages link together, see my" href="/services/internal-linking/" label="internal linking service" />
       </div>
       <RelatedTools currentHref="/tools/internal-links/" />
       <Footer />

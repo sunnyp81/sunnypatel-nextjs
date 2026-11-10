@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import OgPreview from "./OgPreview";
 
@@ -18,6 +19,7 @@ export default function OgPreviewPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <OgPreview />
+        <ToolNextStep lead="Want a second pair of eyes on how your pages look when shared? Book a" href="/contact/" label="free 20-minute diagnosis" />
       </div>
       <RelatedTools currentHref="/tools/og-preview/" />
       <Footer />

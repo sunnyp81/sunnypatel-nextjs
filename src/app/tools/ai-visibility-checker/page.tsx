@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import AiVisibilityChecker from "./AiVisibilityChecker";
 
@@ -19,6 +20,7 @@ export default function AiVisibilityCheckerPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <AiVisibilityChecker />
+        <ToolNextStep lead="Want help reading the result? Book a" href="/contact/" label="free 20-minute diagnosis" />
       </div>
       <RelatedTools currentHref="/tools/ai-visibility-checker/" />
       <Footer />

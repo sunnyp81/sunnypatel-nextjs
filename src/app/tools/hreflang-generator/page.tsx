@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import HreflangGenerator from "./HreflangGenerator";
 
@@ -18,6 +19,7 @@ export default function HreflangGeneratorPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <HreflangGenerator />
+        <ToolNextStep lead="Want someone to check your hreflang setup before it goes live? Book a" href="/contact/" label="free 20-minute diagnosis" />
       </div>
       <RelatedTools currentHref="/tools/hreflang-generator/" />
       <Footer />

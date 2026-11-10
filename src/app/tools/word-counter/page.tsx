@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import WordCounter from "./WordCounter";
 
@@ -18,6 +19,7 @@ export default function WordCounterPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <WordCounter />
+        <ToolNextStep lead="Planning a page and unsure what it should cover? See my" href="/services/content-briefs/" label="content briefs service" />
       </div>
       <RelatedTools currentHref="/tools/word-counter/" />
       <Footer />

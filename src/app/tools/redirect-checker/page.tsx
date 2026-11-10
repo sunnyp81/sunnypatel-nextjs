@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import RedirectChecker from "./RedirectChecker";
 
@@ -18,6 +19,7 @@ export default function RedirectCheckerPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <RedirectChecker />
+        <ToolNextStep lead="Want a second pair of eyes on your redirects? Book a" href="/contact/" label="free 20-minute diagnosis" />
       </div>
       <RelatedTools currentHref="/tools/redirect-checker/" />
       <Footer />

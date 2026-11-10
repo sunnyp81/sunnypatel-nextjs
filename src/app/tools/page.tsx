@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import Link from "next/link";
 import { tools, categories } from "@/lib/tools-data";
 
 export function generateMetadata() {
@@ -26,6 +27,10 @@ export default function ToolsPage() {
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
             Practical tools for keyword research, technical SEO, content analysis, and campaign tracking. Everything runs in your browser: no sign-up, no data stored.
+          </p>
+          <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            Not sure what a result means for your site? Book a{" "}
+            <Link className="text-brand underline underline-offset-2" href="/contact/">free 20-minute diagnosis</Link>.
           </p>
 
           {categories.map((category) => (

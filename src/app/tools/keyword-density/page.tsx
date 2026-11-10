@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import KeywordDensity from "./KeywordDensity";
 
@@ -18,6 +19,7 @@ export default function KeywordDensityPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <KeywordDensity />
+        <ToolNextStep lead="If you want a page written around the right terms, see my" href="/services/content-briefs/" label="content briefs service" />
       </div>
       <RelatedTools currentHref="/tools/keyword-density/" />
       <Footer />

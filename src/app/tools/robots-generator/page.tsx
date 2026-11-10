@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import RobotsGenerator from "./RobotsGenerator";
 
@@ -18,6 +19,7 @@ export default function RobotsGeneratorPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <RobotsGenerator />
+        <ToolNextStep lead="Not sure your robots.txt is doing what you intend? Book a" href="/contact/" label="free 20-minute diagnosis" />
       </div>
       <RelatedTools currentHref="/tools/robots-generator/" />
       <Footer />

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ToolNextStep } from "@/components/tool-next-step";
 import { RelatedTools } from "@/components/related-tools";
 import SeoRoiCalculator from "./SeoRoiCalculator";
 
@@ -69,6 +70,7 @@ export default function SeoRoiCalculatorPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <SeoRoiCalculator />
+        <ToolNextStep lead="Want to talk through what these numbers could mean for your business? Book a" href="/contact/" label="free 20-minute diagnosis" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6">
             <h2

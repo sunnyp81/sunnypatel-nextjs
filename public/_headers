@@ -1,0 +1,4 @@
+# Client design concepts: keep out of every search index
+/concepts/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  Cache-Control: private, no-store

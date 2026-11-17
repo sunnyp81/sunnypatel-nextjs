@@ -17,6 +17,7 @@ import { LocalSeoGuide } from "@/components/local-seo-guide";
 import { AeoGuide } from "@/components/aeo-guide";
 import { SeoStatisticsGuide } from "@/components/seo-statistics-guide";
 import { ReportHero } from "@/components/report-hero";
+import { UpdateMonitorLead, UpdateMonitorBody } from "@/components/live/update-monitor";
 import styles from "@/components/seo-companies-guide.module.css";
 
 // Match DynamicIslandTOC's heading IDs, using each post's first H2.
@@ -31,9 +32,9 @@ const REPORT_HERO_CONFIG: Record<
   {
     eyebrow: string;
     dek: string;
-    primaryCta: { label: string; href: string };
-    heroImage: string;
-    heroImageAlt: string;
+    primaryCta?: { label: string; href: string };
+    heroImage?: string;
+    heroImageAlt?: string;
     disclosure: string;
   }
 > = {
@@ -56,13 +57,10 @@ const REPORT_HERO_CONFIG: Record<
       "The launch-cohort data is my own portfolio data, not independently audited by a third party.",
   },
   "google-update-portfolio-impact": {
-    eyebrow: "2026 Google update data",
-    dek: "Two unrelated sites dropped 87% and 91% of impressions within 24 hours. Full Search Console data, no confirmed cause.",
-    primaryCta: { label: "See the drop data", href: "#headline-drops" },
-    heroImage: "/images/blog/hero-google-update-impact.webp",
-    heroImageAlt: "A row of papercraft browser-window cards where two at either end are toppled with a jagged blue crack torn through the screen, while the cards between them stand upright and glowing",
+    eyebrow: "",
+    dek: "Live status from Google's own dashboard, plus what SEOs are seeing.",
     disclosure:
-      "This is my own owned-site data, not independently audited. A client property was checked during research and excluded from the published sample.",
+      "Status and dates come from Google. Coverage is collected automatically from a fixed list of SEO news sites and practitioners. The site data is my own, not independently audited, and includes no client sites.",
   },
   "ai-search-traffic-portfolio-data": {
     eyebrow: "2026 AI search traffic data",
@@ -196,13 +194,15 @@ export default async function BlogPost({
           eyebrow={REPORT_HERO_CONFIG[slug].eyebrow}
           dek={REPORT_HERO_CONFIG[slug].dek}
           primaryCta={REPORT_HERO_CONFIG[slug].primaryCta}
-          secondaryCta={{ label: "Back to all posts", href: "/blog/" }}
+          secondaryCta={slug === "google-update-portfolio-impact" ? undefined : { label: "Back to all posts", href: "/blog/" }}
           heroImage={REPORT_HERO_CONFIG[slug].heroImage}
           heroImageAlt={REPORT_HERO_CONFIG[slug].heroImageAlt}
           publishedDate={post.date || undefined}
           updatedDate={post.lastUpdated || undefined}
           disclosure={REPORT_HERO_CONFIG[slug].disclosure}
+          lead={slug === "google-update-portfolio-impact" ? <UpdateMonitorLead /> : undefined}
         >
+          {slug === "google-update-portfolio-impact" ? <UpdateMonitorBody /> : null}
           {rendered}
           {post.faqs && post.faqs.length > 0 ? (
             <section id="faq" className={`${styles.section} ${styles.faq}`} aria-labelledby="faq-title">

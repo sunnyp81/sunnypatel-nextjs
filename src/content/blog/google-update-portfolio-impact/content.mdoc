@@ -1,10 +1,43 @@
+## How did my sites change after each Google update? {% #update-tracker %}
+
+In the September 2026 spam update window, 35 of 57 eligible sites rose by 20% or more and 9 fell by 20% or more. In the May 2026 core update window, 22 of 44 rose by 20% or more and 16 fell by 20% or more. In May the median was up and pooled impressions were down. In September both were up, by very different amounts. A few large sites moved differently from most of the panel. I run the same test on every confirmed core and spam update since June 2025. The June 2025 core update cannot be measured, as the note under the table explains.
+
+{% live-update-tracker /%}
+
+"Up 20%+" includes the sites in "Up 50%+", and "Down 20%+" includes "Down 50%+". Median is the middle site's change. Pooled is total impressions after against total impressions before, summed across the n sites. * means n is under 30, so only counts are shown. † means the two March 2026 updates sit 3 days apart, so each window picks up the other update. The June 2025 core update cannot be measured: Search Console only holds 16 months, and the earliest data I can pull starts on 20 June 2025, after the 16 June start of its before window.
+
+{% chart type="bar" eyebrow="September 2026 spam update" title="Number of sites by change in impressions, 10 to 23 Sep vs 15 to 28 Oct 2026, 57 sites" data="Rose 50% or more:22|Rose 20% to 49%:13|Moved less than 20%:13|Fell 20% to 49%:3|Fell 50% or more:6" suffix=" sites" highlight="Rose 50% or more" source="Author's own portfolio data, Google Search Console API" /%}
+
+### How I measure each update {% #update-method %}
+
+I compare 14 days of impressions before the start with 14 days that begin 7 days after the rollout finishes. The before window ends the day before Google's start date. The after window skips the first week after completion so the rollout has settled. Start and completion dates come from Google's own incident pages, in US Pacific time. I count spam and core updates only.
+
+A site is eligible if Search Console holds data from before the before window starts and it had 100 or more impressions in the before window. Impressions are whole-property daily totals, web search only. A second script, written separately, recomputes every row and matches all nine. The rollout dates in the table come from [Google's Search Status Dashboard](https://status.search.google.com/).
+
+### What the tracker cannot tell you {% #update-caveats %}
+
+These are before and after windows, and I claim no cause. Four limits apply.
+
+- **Survivorship:** the panel is my own owned sites, so it says nothing about Google's index as a whole.
+- **Seasonality:** I have not removed it. A 14-day window in late October is not the same as one in early September.
+- **Young properties:** about 33 of the 100 properties first show impressions in March 2026. I use that as a proxy for property age. That is why n runs from 9 to 66 and why early updates have so few sites. Young sites that are still growing may inflate the "up" counts. I did not test this.
+- **Overlap:** a site can be hit by an unrelated change inside the same window, such as a redesign, a redirect or an indexing problem.
+
+I add each new row about four weeks after Google marks an update complete. The after window closes 20 days after completion and Search Console data takes a few days to finalise.
+
+### May 2026 core update, restated {% #may-core-update %}
+
+The May 2026 result changed because the method changed. My first cut used 28-day windows (23 April to 20 May against 3 to 30 June) and 46 sites. It showed 21 sites up 50% or more, 9 down 50% or more, a median of +30.2% and flat pooled impressions (+0.3%). The tracker uses 14-day windows (7 to 20 May against 9 to 22 June) and 44 sites. It shows 18 up 50% or more, 7 down 50% or more, a median of +18.9% and pooled impressions down 18.6%. The direction of the median is the same. The pooled figure flipped because the data source changed. The first cut summed page-level impressions, which count a site once for every page it shows on a results page. The tracker uses whole-property totals, which count it once. On one large site the two differ threefold for 9 to 22 June 2026 (100,189 against 33,513). That one site contributed to the positive old pooled figure. The old 28-day windows on whole-property data (47 sites) give a median of +28.1% and pooled -15.6%. Where median and pooled disagree, most sites moved one way and the biggest sites moved the other. Neither cut isolates the update.
+
+## Case study: two of my sites dropped within 24 hours {% #drop-study %}
+
 **I checked Search Console data across 21 of my own sites, 20 June to 15 September 2026. Two of them, in unrelated niches, dropped 87% and 91% of daily impressions within 24 hours of each other. Neither has recovered.**
 
 > Updated 5 October 2026: the later [health affiliate site case study](/portfolio/health-affiliate-google-demotion-ai-referrals/) measures the redlighttherapy.expert drop differently. It compares average daily Google impressions on 15 to 19 July with 22 to 31 July, a 96% fall, and uses its own search-engine windows of 6 to 19 July against 20 July to 2 August, so its figures differ from the 91% drop and 14-day windows below. The [EV charging directory case study](/portfolio/ev-charging-directory-seo-growth/) covers the monthly clicks of the growing EV site.
 
 This is data from sites I own. No client sites are included.
 
-## Which two sites dropped 24 hours apart? {% #headline-drops %}
+### Which two sites dropped 24 hours apart? {% #headline-drops %}
 
 **tradecost.uk** (an import-cost checker) and **redlighttherapy.expert** (a health/wellness niche site) share no niche, content structure or backlink profile. Both were performing normally through 18 July.
 
@@ -21,7 +54,7 @@ For redlighttherapy.expert specifically, the drop is Google-only. GA4 sessions f
 
 {% chart type="bar" eyebrow="Search engine sessions" title="GA4 sessions by search engine, 14 days before and after the redlighttherapy.expert drop" data="Google (before):344|Google (after):40|Bing (before):308|Bing (after):396|DuckDuckGo (before):464|DuckDuckGo (after):602" source="GA4, own data, 14-day window" /%}
 
-## Did a named Google update cause the drops? {% #named-update %}
+### Did a named Google update cause the drops? {% #named-update %}
 
 I have not matched either drop to a named, publicly confirmed Google update. Two drops 24 hours apart out of four drop dates in this sample could still be chance. It's worth reporting because the two sites share no niche or content, and because the remediation that normally fixes a content-quality problem didn't move the needle on one of them.
 
@@ -36,7 +69,7 @@ Four sites, four confirmed drop dates, no single explanation that covers all of 
 Four sites, four confirmed drop dates, no single explanation that covers all of them.
 {% /pullquote %}
 
-## What was growing at the same time? {% #growers %}
+### What was growing at the same time? {% #growers %}
 
 Three sites were growing steadily across the same period:
 
@@ -46,7 +79,7 @@ Three sites were growing steadily across the same period:
 
 deadhangs.com and noisecheck.uk both dipped in mid-August, the week template.how reversed, and both recovered within two weeks.
 
-## The full 21-site table {% #full-table %}
+### The full 21-site table {% #full-table %}
 
 | Site | Niche | Clicks (90d) | Impressions (90d) | Avg position | Trend |
 |---|---|---|---|---|---|
@@ -82,40 +115,9 @@ Six more owned properties were checked and left out because the data is too thin
 
 This sample is 21 of the 100 properties in my panel. The update tracker below uses a separate cut of the same panel. Neither includes client data.
 
-## How did my sites change after each Google update? {% #update-tracker %}
-
-In the September 2026 spam update window, 35 of 57 eligible sites rose by 20% or more and 9 fell by 20% or more. In the May 2026 core update window, 22 of 44 rose by 20% or more and 16 fell by 20% or more. In May the median was up and pooled impressions were down. In September both were up, by very different amounts. A few large sites moved differently from most of the panel. I run the same test on every confirmed core and spam update since June 2025. The June 2025 core update cannot be measured, as the note under the table explains.
-
-{% live-update-tracker /%}
-
-"Up 20%+" includes the sites in "Up 50%+", and "Down 20%+" includes "Down 50%+". Median is the middle site's change. Pooled is total impressions after against total impressions before, summed across the n sites. * means n is under 30, so only counts are shown. † means the two March 2026 updates sit 3 days apart, so each window picks up the other update. The June 2025 core update cannot be measured: Search Console only holds 16 months, and the earliest data I can pull starts on 20 June 2025, after the 16 June start of its before window.
-
-{% chart type="bar" eyebrow="September 2026 spam update" title="Number of sites by change in impressions, 10 to 23 Sep vs 15 to 28 Oct 2026, 57 sites" data="Rose 50% or more:22|Rose 20% to 49%:13|Moved less than 20%:13|Fell 20% to 49%:3|Fell 50% or more:6" suffix=" sites" highlight="Rose 50% or more" source="Author's own portfolio data, Google Search Console API" /%}
-
-### How I measure each update {% #update-method %}
-
-I compare 14 days of impressions before the start with 14 days that begin 7 days after the rollout finishes. The before window ends the day before Google's start date. The after window skips the first week after completion so the rollout has settled. Start and completion dates come from Google's own incident pages, in US Pacific time. I count spam and core updates only.
-
-A site is eligible if Search Console holds data from before the before window starts and it had 100 or more impressions in the before window. Impressions are whole-property daily totals, web search only. A second script, written separately, recomputes every row and matches all nine. The rollout dates in the table come from [Google's Search Status Dashboard](https://status.search.google.com/).
-
-### What the tracker cannot tell you {% #update-caveats %}
-
-These are before and after windows, and I claim no cause. Four limits apply.
-
-- **Survivorship:** the panel is my own owned sites, so it says nothing about Google's index as a whole.
-- **Seasonality:** I have not removed it. A 14-day window in late October is not the same as one in early September.
-- **Young properties:** about 33 of the 100 properties first show impressions in March 2026. I use that as a proxy for property age. That is why n runs from 9 to 66 and why early updates have so few sites. Young sites that are still growing may inflate the "up" counts. I did not test this.
-- **Overlap:** a site can be hit by an unrelated change inside the same window, such as a redesign, a redirect or an indexing problem.
-
-I add each new row about four weeks after Google marks an update complete. The after window closes 20 days after completion and Search Console data takes a few days to finalise.
-
-### May 2026 core update, restated {% #may-core-update %}
-
-The May 2026 result changed because the method changed. My first cut used 28-day windows (23 April to 20 May against 3 to 30 June) and 46 sites. It showed 21 sites up 50% or more, 9 down 50% or more, a median of +30.2% and flat pooled impressions (+0.3%). The tracker uses 14-day windows (7 to 20 May against 9 to 22 June) and 44 sites. It shows 18 up 50% or more, 7 down 50% or more, a median of +18.9% and pooled impressions down 18.6%. The direction of the median is the same. The pooled figure flipped because the data source changed. The first cut summed page-level impressions, which count a site once for every page it shows on a results page. The tracker uses whole-property totals, which count it once. On one large site the two differ threefold for 9 to 22 June 2026 (100,189 against 33,513). That one site contributed to the positive old pooled figure. The old 28-day windows on whole-property data (47 sites) give a median of +28.1% and pooled -15.6%. Where median and pooled disagree, most sites moved one way and the biggest sites moved the other. Neither cut isolates the update.
-
 ## How do I check if my own site was hit? {% #check-your-site %}
 
-Every casualty in the 21-site table broke inside a 24-48 hour window. A slow drift is a different problem with a different fix. Pull your own Search Console impressions by day, not just the 28-day summary, and look for a step change rather than a gradual slope.
+Every casualty in the 21-site table broke inside a 24-48 hour window. A slow drift is a different problem with a different fix. Pull your own Search Console impressions by day, not just the 28-day summary, and look for a step change rather than a gradual slope. If the drop still holds a week after Google marks the update complete, my [guide to algorithm hits, manual actions and indexing problems](/blog/google-penalty-recovery/) covers what to check next.
 
 ## How was this data put together? {% #methodology %}
 

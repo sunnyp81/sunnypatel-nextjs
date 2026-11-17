@@ -16,18 +16,11 @@
       ],
       "news": [
         {
-          "source": "Search Engine Journal",
-          "title": "Date: Confirmed, Rating: Meets Expectations, Comments: None",
-          "url": "https://www.searchenginejournal.com/date-confirmed-rating-meets-expectations-comments-none/597709/",
-          "date": "2026-11-17",
-          "summary": "What did the core update change for your site? Nobody outside Google can say. Here’s the question worth asking instead."
-        },
-        {
           "source": "Search Engine Roundtable",
           "title": "Google November 2026 Core Update Ranking Flux - What We're Seeing",
           "url": "https://www.seroundtable.com/google-november-2026-core-update-ranking-volatility-42543.html",
           "date": "2026-11-16",
-          "summary": "The Google November 2026 Core Update started to roll out last Tuesday, November 10th, at around 1 pm ET, and honestly, the chatter around this update has been more muted than most. I suspect that has…"
+          "summary": "The Google November 2026 Core Update started to roll out last Tuesday, November 10th, at around 1 pm ET, and honestly, the chatter around this update has been more muted than most."
         }
       ],
       "community": [
@@ -37,44 +30,8 @@
           "handle": "glenngabe.bsky.social",
           "url": "https://bsky.app/profile/glenngabe.bsky.social/post/3n2j6ywnomk2u",
           "date": "2026-11-17",
-          "text": "Good Morning Google Land! This is the 11/17 edition of \"Core Update Notes\". I explained the other day that based on the visibility tools being all over the place that GSC data would be the source of truth. Well, now we…",
+          "text": "Good Morning Google Land! This is the 11/17 edition of \"Core Update Notes\". I explained the other day that based on the visibility tools being all over the place that GSC data would be the source of truth.",
           "likes": 1
-        },
-        {
-          "source": "Bluesky",
-          "author": "Barry Schwartz",
-          "handle": "rustybrick.com",
-          "url": "https://bsky.app/profile/rustybrick.com/post/3n2gl6uvwdt2r",
-          "date": "2026-11-16",
-          "text": "Google November 2026 Core update ranking flux and chatter is more muted for a typical core update",
-          "likes": 2
-        },
-        {
-          "source": "Bluesky",
-          "author": "Barry Schwartz",
-          "handle": "rustybrick.com",
-          "url": "https://bsky.app/profile/rustybrick.com/post/3n272vloxasdj",
-          "date": "2026-11-13",
-          "text": "SEO Video Recap covering Google’s November 2026 core update, click data in ChatGPT business hub, Yahoo Pivot search, Google Ads invalid traffic, Bing and so much more Sponsored by @ahrefs.bsky.social",
-          "likes": 2
-        },
-        {
-          "source": "Bluesky",
-          "author": "Glenn Gabe",
-          "handle": "glenngabe.bsky.social",
-          "url": "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
-          "date": "2026-11-12",
-          "text": "Hydrogen rolls out in Search today -> Google Search gets a major upgrade with Gemini 4 Hydrogen (AI Mode + some answers in AIOs) DURING A BROAD CORE UPDATE :) \"Today, Google Search is bringing cutting-edge intel to…",
-          "likes": 2
-        },
-        {
-          "source": "Bluesky",
-          "author": "Lily Ray",
-          "handle": "lilyray.nyc",
-          "url": "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a",
-          "date": "2026-11-10",
-          "text": "A Google core update and the launch of an OpenAI business dashboard (with click data) rolling out at the same time, COOL.",
-          "likes": 6
         }
       ]
     },
@@ -271,8 +228,11 @@
       "community": []
     }
   ],
-  "blocked": [],
-  "checkedAt": "2026-11-17T22:34:20.545Z",
-  "changedAt": "2026-11-17T22:34:20.545Z",
-  "statusChangedAt": "2026-11-17T22:34:20.545Z"
+  "blocked": [
+    "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
+    "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
+  ],
+  "checkedAt": "2026-11-17T22:38:27.938Z",
+  "changedAt": "2026-11-17T22:38:27.938Z",
+  "statusChangedAt": "2026-11-17T22:38:27.938Z"
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import monitor from "@/data/live/update-monitor.json";
 import tracker from "@/data/live/update-tracker.json";
 import styles from "./update-monitor.module.css";
+import { RolloutProgress } from "./rollout-progress";
 
 type NewsItem = { source: string; title: string; url: string; date: string; summary: string };
 type CommunityItem = { source: string; author: string; handle: string; url: string; date: string; text: string; likes: number };
@@ -72,10 +73,10 @@ export function UpdateMonitorLead() {
             <dd><time dateTime={u.start}>{stamp(u.start)}</time></dd>
           </div>
           <div>
-            <dt>{live ? "Google's estimate" : "Finished"}</dt>
+            <dt>{live ? "Google says" : "Finished"}</dt>
             <dd>
               {live ? (
-                <>Up to 2 weeks, so about <time dateTime={expectedEnd(u)}>{day(expectedEnd(u))}</time></>
+                <>Up to 2 weeks (my estimate: about <time dateTime={expectedEnd(u)}>{day(expectedEnd(u), false)}</time>)</>
               ) : (
                 <><time dateTime={u.end!}>{day(u.end!)}</time> ({lengthDays(u)} days)</>
               )}
@@ -86,6 +87,7 @@ export function UpdateMonitorLead() {
             <dd>{coreLengths.join(", ")} days</dd>
           </div>
         </dl>
+        {live ? <RolloutProgress start={u.start} /> : null}
         {note ? (
           <blockquote className={styles.google}>
             <p>&ldquo;{note.text}&rdquo;</p>
@@ -125,7 +127,7 @@ function Ribbon() {
   const bars = shown.map((u) => {
     const s = Math.max(Date.parse(u.start), from);
     const e = Date.parse(u.end ?? expectedEnd(u));
-    let lane = lanes.findIndex((end) => end < s - 4 * DAY);
+    let lane = lanes.findIndex((end) => end < s);
     if (lane === -1) lane = lanes.length;
     lanes[lane] = e;
     return { u, lane, left: ((s - from) / span) * 100, width: Math.max(((e - s) / span) * 100, 1.2) };
@@ -141,7 +143,7 @@ function Ribbon() {
   return (
     <figure className={styles.ribbon}>
       <figcaption>Confirmed Google ranking updates, last 12 months. Select a bar to jump to its entry.</figcaption>
-      <div className={styles.track} style={{ height: `${lanes.length * 34 + 30}px` }}>
+      <div className={styles.track} style={{ height: `${lanes.length * 30 + 34}px` }}>
         {months.map((mo) => (
           <span key={`${mo.label}-${mo.left}`} className={styles.month} style={{ left: `${mo.left}%` }}>{mo.label}</span>
         ))}
@@ -150,10 +152,10 @@ function Ribbon() {
             key={u.id}
             href={`#u-${u.id}`}
             className={`${styles.bar} ${styles[`bar_${u.type}`] ?? styles.bar_other} ${u.status === "rolling-out" ? styles.barLive : ""}`}
-            style={{ left: `${left}%`, width: `${width}%`, top: `${lane * 34}px` }}
+            style={{ left: `${left}%`, width: `${width}%`, bottom: `${lane * 30 + 6}px` }}
             aria-label={`${u.name}: ${day(u.start)} to ${u.end ? day(u.end) : "still rolling out"}`}
           >
-            <span className={`${styles.barLabel} ${left > 55 ? styles.barLabelEnd : ""}`}>{u.name.replace(/ update$/, "").replace(/ 20\d\d/, "")}</span>
+            <span className={`${styles.barLabel} ${left > 55 ? styles.barLabelEnd : ""} ${u.type === "core" ? styles.barLabelOn : ""}`}>{u.name.replace(/ update$/, "").replace(/ 20\d\d/, "").replace(/^(\w{3})\w*/, "$1")}</span>
           </a>
         ))}
       </div>
@@ -168,40 +170,31 @@ function Ribbon() {
 }
 
 function Coverage({ u }: { u: Update }) {
-  if (!u.news.length && !u.community.length) return null;
+  const items = [
+    ...u.news.map((n) => ({ key: n.url, date: n.date, kind: "news" as const, n })),
+    ...u.community.map((c) => ({ key: c.url, date: c.date, kind: "post" as const, c })),
+  ].sort((x, y) => y.date.localeCompare(x.date)).slice(0, 6);
+  if (!items.length) return <p className={styles.summary}>Nothing collected yet. New items appear here within about 12 hours of publication.</p>;
   return (
-    <div className={styles.coverage}>
-      <div>
-        <h3>In the SEO press</h3>
-        {u.news.length ? (
-          <ul className={styles.items}>
-            {u.news.slice(0, 5).map((n) => (
-              <li key={n.url}>
-                <p className={styles.meta}>{n.source} · <time dateTime={n.date}>{day(n.date, false)}</time></p>
-                <a href={n.url} {...ext} className={styles.itemTitle}>{n.title}</a>
-                {n.summary ? <p className={styles.summary}>{n.summary}</p> : null}
-              </li>
-            ))}
-          </ul>
-        ) : <p className={styles.summary}>No articles collected yet.</p>}
-      </div>
-      <div>
-        <h3>What SEO practitioners are posting</h3>
-        {u.community.length ? (
-          <ul className={styles.items}>
-            {u.community.slice(0, 5).map((c) => (
-              <li key={c.url}>
-                <p className={styles.meta}>{c.author} on {c.source} · <time dateTime={c.date}>{day(c.date, false)}</time></p>
-                <p className={styles.post}>{c.text}</p>
-                <a href={c.url} target="_blank" rel="nofollow ugc noopener noreferrer" className={styles.postLink}>
-                  Read the post<span className="sr-only"> by {c.author}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : <p className={styles.summary}>No posts collected yet.</p>}
-      </div>
-    </div>
+    <ul className={styles.items}>
+      {items.map((i) =>
+        i.kind === "news" ? (
+          <li key={i.key}>
+            <p className={styles.meta}><span className={styles.kind}>SEO press</span> {i.n.source} · <time dateTime={i.date}>{day(i.date, false)}</time></p>
+            <a href={i.n.url} {...ext} className={styles.itemTitle}>{i.n.title}</a>
+            {i.n.summary ? <p className={styles.summary}>{i.n.summary}</p> : null}
+          </li>
+        ) : (
+          <li key={i.key}>
+            <p className={styles.meta}><span className={styles.kind}>Practitioner</span> {i.c.author} on {i.c.source} · <time dateTime={i.date}>{day(i.date, false)}</time></p>
+            <p className={styles.post}>{i.c.text}</p>
+            <a href={i.c.url} target="_blank" rel="nofollow ugc noopener noreferrer" className={styles.postLink}>
+              Read {i.c.author.split(" ")[0]}&rsquo;s post on {i.c.source}
+            </a>
+          </li>
+        ),
+      )}
+    </ul>
   );
 }
 
@@ -216,9 +209,8 @@ export function UpdateMonitorBody() {
       <section id="whats-being-reported" aria-labelledby="reported-title">
         <h2 id="reported-title">What SEOs are reporting about the {u.name}</h2>
         <p>
-          Short extracts from SEO news sites and from SEO practitioners on Bluesky, each linked to the original. I collect them
-          automatically twice a day, only from a fixed list of sources, and only when they name the update. Quoting someone is
-          not agreeing with them.
+          Short extracts from SEO news sites and from named SEO practitioners on Bluesky, each linked to the original. They are
+          collected twice a day from a fixed list of sources, only when they name the update.
           {changed ? <> Last new item: <time dateTime={changed}>{stamp(changed)}</time>.</> : null}
         </p>
         <Coverage u={u} />
@@ -257,10 +249,10 @@ export function UpdateMonitorBody() {
                       <a href={x.url} {...ext}>{x.name.replace(/^./, (c) => c.toUpperCase())}</a>
                       <span className={styles.rowType}>{TYPE_LABEL[x.type] ?? "Other"}</span>
                     </th>
-                    <td><time dateTime={x.start}>{day(x.start)}</time></td>
-                    <td>{x.end ? <time dateTime={x.end}>{day(x.end)}</time> : <StatusBadge u={x} />}</td>
-                    <td>{x.end ? `${lengthDays(x)} day${lengthDays(x) === 1 ? "" : "s"}` : "Ongoing"}</td>
-                    <td>
+                    <td data-label="Started"><time dateTime={x.start}>{day(x.start)}</time></td>
+                    <td data-label="Finished">{x.end ? <time dateTime={x.end}>{day(x.end)}</time> : <StatusBadge u={x} />}</td>
+                    <td data-label="Length">{x.end ? `${lengthDays(x)} day${lengthDays(x) === 1 ? "" : "s"}` : "Ongoing"}</td>
+                    <td data-label="My sites">
                       {t && t.n > 0 ? (
                         <a href="#update-tracker">{t.n} sites: {t.up20} up, {t.down20} down</a>
                       ) : t ? "Too early in my data" : x.type === "core" || x.type === "spam" ? (x.end ? "Row added about 4 weeks after it ends" : "After rollout ends") : "Not tracked"}

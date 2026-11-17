@@ -54,7 +54,7 @@ export function ReportHero({
           </nav>
           <div className={styles.heroGrid} style={heroImage ? undefined : { gridTemplateColumns: "minmax(0, 1fr)" }}>
             <div>
-              <p className={styles.eyebrow}>{eyebrow}</p>
+              {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
               <h1>{title}</h1>
               <p className={styles.dek}>{dek}</p>
               {intro ? <p>{intro}</p> : null}

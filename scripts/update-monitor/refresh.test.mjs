@@ -17,7 +17,7 @@ test("excerpt cuts on a word and adds an ellipsis", () => {
 });
 
 test("matches items that name the update inside its window", () => {
-  assert.equal(matchUpdate({ kind: "community", date: "2026-11-12T10:00:00Z", text: "Google's core update is moving things" }, [nov, sep], now), "nov");
+  assert.equal(matchUpdate({ kind: "community", date: "2026-11-12T10:00:00Z", text: "Google's core update is moving things on several of the sites I track, mostly recipe and review pages, since Tuesday." }, [nov, sep], now), "nov");
   assert.equal(matchUpdate({ kind: "news", date: "2026-11-16T10:00:00Z", title: "Google Ranking Volatility Continues" }, [nov], now), "nov");
 });
 
@@ -27,6 +27,15 @@ test("rejects off-topic, out-of-window and loose community matches", () => {
   assert.equal(matchUpdate({ kind: "news", date: "2026-07-01T10:00:00Z", title: "Google core update rumours" }, [nov, sep], now), null);
 });
 
+test("drops sponsored and very short posts", () => {
+  assert.equal(matchUpdate({ kind: "community", date: "2026-11-13T10:00:00Z", text: "SEO video recap covering the Google core update and much more this week. Sponsored by a tools company, watch now." }, [nov], now), null);
+  assert.equal(matchUpdate({ kind: "community", date: "2026-11-13T10:00:00Z", text: "Google core update, COOL." }, [nov], now), null);
+});
+
+test("excerpt prefers a sentence end", () => {
+  assert.equal(excerpt("First sentence is long enough to count as a real observation about how the core update moved my pages this week. Second one runs on and on past the limit of the cut " + "x ".repeat(60), 200), "First sentence is long enough to count as a real observation about how the core update moved my pages this week.");
+});
+
 test("normalises a Google incident and strips the docs link", () => {
   const i = normaliseIncident({ id: "x", begin: nov.start, external_desc: "November 2026 core update", uri: "incidents/x", updates: [{ when: nov.start, text: "Released the November 2026 core update <https://developers.google.com/x>, which applies globally." }] });
   assert.equal(i.status, "rolling-out");
@@ -34,7 +43,7 @@ test("normalises a Google incident and strips the docs link", () => {
 });
 
 test("validator rejects bad links and replacement characters", () => {
-  const bad = { updates: [{ ...nov, url: "https://status.search.google.com/incidents/x", news: [{ url: "https://news.google.com/x", date: "2026-11-11", title: "a�" }], community: [] }] };
+  const bad = { updates: [{ ...nov, url: "https://status.search.google.com/incidents/x", news: [{ url: "https://news.google.com/x", date: "2026-11-11", title: "a\uFFFD" }], community: [] }] };
   assert.equal(validate(bad).length, 2);
 });
 

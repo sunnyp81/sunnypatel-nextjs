@@ -57,8 +57,8 @@ const REPORT_HERO_CONFIG: Record<
       "The launch-cohort data is my own portfolio data, not independently audited by a third party.",
   },
   "google-update-portfolio-impact": {
-    eyebrow: "Live Google update tracker",
-    dek: "Live status of Google ranking updates from Google's own dashboard, checked twice a day, with what SEOs are seeing and data from my sites.",
+    eyebrow: "",
+    dek: "Live status from Google's own dashboard, plus what SEOs are seeing.",
     disclosure:
       "Status and dates come from Google. Coverage is collected automatically from a fixed list of SEO news sites and practitioners. The site data is my own, not independently audited, and includes no client sites.",
   },

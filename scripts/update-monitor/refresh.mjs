@@ -52,6 +52,8 @@ export function excerpt(s, max = 200) {
   const t = clean(s);
   if (t.length <= max) return t;
   const cut = t.slice(0, max);
+  const sentence = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("! "), cut.lastIndexOf("? "));
+  if (sentence > 100) return cut.slice(0, sentence + 1);
   return `${cut.slice(0, cut.lastIndexOf(" ") > 120 ? cut.lastIndexOf(" ") : max).replace(/[,;:.\s]+$/, "")}…`;
 }
 
@@ -103,6 +105,9 @@ export function matchUpdate(item, updates, now = Date.now()) {
   const title = item.title ?? "";
   const hay = `${title} ${clean(item.text ?? "")}`;
   if (!/google/i.test(hay)) return null;
+  // Quality gate: headlines must be about an update; posts must be substantive and not sponsored.
+  if (item.kind === "news" && !/\bupdate\b|volatil|ranking/i.test(title)) return null;
+  if (item.kind === "community" && (clean(item.text ?? "").length < 100 || /\bsponsored\b|#ad\b/i.test(hay))) return null;
   const inWindow = updates.filter((u) => {
     const s = Date.parse(u.start) - PRE_DAYS * DAY;
     const e = (u.end ? Date.parse(u.end) : now) + POST_DAYS * DAY;

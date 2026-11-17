@@ -1,0 +1,48 @@
+name: Google Update Monitor
+
+# Twice a day: refresh src/data/live/update-monitor.json from Google's Search Status
+# Dashboard, SEO news feeds and allowlisted practitioners. Commits only when something
+# changed, then dispatches the deploy (pushes made with GITHUB_TOKEN do not trigger it).
+
+on:
+  schedule:
+    - cron: "23 6,18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-monitor
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test scripts/update-monitor/refresh.test.mjs
+      - run: node scripts/update-monitor/refresh.mjs
+      - name: Commit and deploy if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- src/data/live/update-monitor.json; then
+            echo "No change"; exit 0
+          fi
+          git config user.name "update-monitor[bot]"
+          git config user.email "update-monitor@users.noreply.github.com"
+          git add src/data/live/update-monitor.json
+          git commit -m "chore: Google update monitor refresh"
+          for i in 1 2 3; do
+            git pull --rebase origin master && git push origin HEAD:master && pushed=1 && break
+            sleep 10
+          done
+          test "${pushed:-}" = 1
+          gh workflow run cloudflare-deploy.yml --ref master

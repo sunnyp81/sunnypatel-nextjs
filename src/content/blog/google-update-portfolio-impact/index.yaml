@@ -1,18 +1,28 @@
-title: 'Two of My 21 Sites Dropped 87% and 91% Within 24 Hours: Search Console Data, No Confirmed Cause'
-metaTitle: 'Google Update Impact 2026: Search Console Data From 21 Owned Sites'
+title: 'Google Algorithm Update Tracker'
+metaTitle: 'Google Algorithm Update Tracker 2026: Live Core Update Status'
 description: >-
-  Two unrelated sites lost 87% and 91% of daily impressions within 24 hours
-  of each other, 19-20 July. Full site table, four drop dates, no confirmed
-  update. Plus a tracker of every confirmed core and spam update since June
-  2025 across up to 66 of my sites.
+  Live status of every confirmed Google ranking update, from Google's own
+  dashboard and checked twice a day, with what SEOs are reporting and
+  Search Console data from my own sites.
 ogImage: /images/blog/hero-google-update-impact.webp
 date: '2026-09-18'
-lastUpdated: '2026-11-02'
+lastUpdated: '2026-11-17'
 tags:
 - Google Updates
 - SEO Data
 - Core Updates
 faqs:
+  - question: How long does a Google core update take to roll out?
+    answer: >-
+      Google usually says a core update may take up to two weeks. On Google's
+      Search Status Dashboard, the last three finished core updates took 12,
+      12 and 18 days (May 2026, March 2026 and December 2025).
+  - question: What should I do while a Google update is rolling out?
+    answer: >-
+      Avoid big changes while it rolls out, because rankings move for days and
+      a fix made mid-rollout is hard to judge. Wait about a week after Google
+      marks it complete, then compare daily Search Console impressions before
+      the start with the period after.
   - question: Did two sites drop because of the same Google update?
     answer: >-
       Unconfirmed. tradecost.uk and redlighttherapy.expert both lost the bulk

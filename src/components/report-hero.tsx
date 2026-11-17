@@ -20,6 +20,7 @@ export function ReportHero({
   updatedDate,
   updatedLabel,
   disclosure,
+  lead,
   children,
 }: {
   title: string;
@@ -36,6 +37,7 @@ export function ReportHero({
   updatedDate?: string;
   updatedLabel?: string;
   disclosure?: ReactNode;
+  lead?: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -50,7 +52,7 @@ export function ReportHero({
             <span>/</span>
             <span aria-current="page">{title}</span>
           </nav>
-          <div className={styles.heroGrid}>
+          <div className={styles.heroGrid} style={heroImage ? undefined : { gridTemplateColumns: "minmax(0, 1fr)" }}>
             <div>
               <p className={styles.eyebrow}>{eyebrow}</p>
               <h1>{title}</h1>
@@ -85,6 +87,7 @@ export function ReportHero({
               </figure>
             ) : null}
           </div>
+          {lead}
           {publishedDate || updatedDate ? (
             <div className={styles.byline}>
               <Link href="/author/sunny-patel/">By Sunny Patel, SEO consultant</Link>

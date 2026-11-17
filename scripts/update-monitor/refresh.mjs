@@ -161,7 +161,17 @@ async function fetchBluesky(log) {
 const shape = (i) =>
   i.kind === "news"
     ? { source: i.source, title: excerpt(i.title, 160), url: i.url, date: isoDate(i.date), summary: excerpt(clean(i.text).replace(/\s*The post .* appeared first on .*$/, ""), 200) }
-    : { source: i.source, author: i.author, handle: i.handle, url: i.url, date: isoDate(i.date), text: excerpt(clean(i.text).replace(/(https?:\/\/)?\b[\w-]+(\.[\w-]+)+\/\S*/g, "").replace(/\*\*/g, ""), 220), likes: i.likes };
+    : { source: i.source, author: i.author, handle: i.handle, url: i.url, date: isoDate(i.date), text: excerpt(skipPreamble(clean(i.text).replace(/(https?:\/\/)?\b[\w-]+(\.[\w-]+)+\/\S*/g, "").replace(/\*\*/g, "")), 220), likes: i.likes };
+
+// Start a post's extract at its first sentence that says something about search, not at a greeting.
+const OBSERVES = /\b(update|ranking|rankings|traffic|visibility|gsc|search console|sites?|pages?|serps?|impressions|clicks)\b/i;
+const PREAMBLE = /^(good (morning|afternoon|evening)|gm\b|hello|hi\b|hey\b|happy\b)|\bedition of\b/i;
+export function skipPreamble(text) {
+  const sentences = text.match(/[^.!?]+[.!?]+["')\]]*\s*|[^.!?]+$/g) ?? [text];
+  let i = 0;
+  while (i < sentences.length - 1 && (PREAMBLE.test(sentences[i].trim()) || !OBSERVES.test(sentences[i]))) i++;
+  return sentences.slice(i).join("").trim();
+}
 
 export function validate(data) {
   const errors = [];

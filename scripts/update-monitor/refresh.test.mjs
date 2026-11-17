@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { clean, excerpt, matchUpdate, normaliseIncident, validate } from "./refresh.mjs";
+import { skipPreamble, clean, excerpt, matchUpdate, normaliseIncident, validate } from "./refresh.mjs";
 
 const nov = { id: "nov", name: "November 2026 core update", type: "core", start: "2026-11-10T18:06:00+00:00", end: null };
 const sep = { id: "sep", name: "September 2026 spam update", type: "spam", start: "2026-09-24T16:15:00+00:00", end: "2026-10-08T08:00:00+00:00" };
@@ -50,4 +50,9 @@ test("validator rejects bad links and replacement characters", () => {
 test("committed data validates", () => {
   const data = JSON.parse(readFileSync(new URL("../../src/data/live/update-monitor.json", import.meta.url), "utf8"));
   assert.deepEqual(validate(data), []);
+});
+
+test("skips greetings and newsletter preambles in posts", () => {
+  assert.equal(skipPreamble("Good Morning Google Land! This is the 11/17 edition of Core Update Notes. GSC data shows recipe sites dropping."), "GSC data shows recipe sites dropping.");
+  assert.equal(skipPreamble("Rankings are moving a lot today."), "Rankings are moving a lot today.");
 });

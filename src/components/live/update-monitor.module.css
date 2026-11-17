@@ -73,6 +73,7 @@
 .log tbody th { font-weight: 600; }
 .log tbody tr:target { background: var(--guide-owned); outline: 2px solid var(--guide-owned-border); outline-offset: -2px; }
 .log tbody tr { scroll-margin-top: 120px; }
+.log td[data-label="My sites"] a { white-space: nowrap; }
 .rowType { display: block; font-size: 12px; font-weight: 400; color: var(--guide-muted); margin-top: 2px; }
 .note { font-size: 14px !important; color: var(--guide-muted); margin-top: 14px; }
 

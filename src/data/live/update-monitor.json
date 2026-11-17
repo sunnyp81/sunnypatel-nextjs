@@ -30,7 +30,7 @@
           "handle": "glenngabe.bsky.social",
           "url": "https://bsky.app/profile/glenngabe.bsky.social/post/3n2j6ywnomk2u",
           "date": "2026-11-17",
-          "text": "Good Morning Google Land! This is the 11/17 edition of \"Core Update Notes\". I explained the other day that based on the visibility tools being all over the place that GSC data would be the source of truth.",
+          "text": "I explained the other day that based on the visibility tools being all over the place that GSC data would be the source of truth. Well, now we finally have enough data in GSC to see some clear surges and drops.",
           "likes": 1
         }
       ]
@@ -232,7 +232,7 @@
     "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
     "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
   ],
-  "checkedAt": "2026-11-17T22:38:27.938Z",
-  "changedAt": "2026-11-17T22:38:27.938Z",
-  "statusChangedAt": "2026-11-17T22:38:27.938Z"
+  "checkedAt": "2026-11-17T22:42:54.251Z",
+  "changedAt": "2026-11-17T22:42:54.251Z",
+  "statusChangedAt": "2026-11-17T22:42:54.251Z"
 }

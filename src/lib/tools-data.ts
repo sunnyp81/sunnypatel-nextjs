@@ -13,8 +13,8 @@ export const tools: Tool[] = [
     category: "Local SEO",
   },
   {
-    name: "GSC Export Coverage Checker",
-    description: "Compare a Queries export with chart totals and see the clicks no row explains.",
+    name: "Search Console Export Action Finder",
+    description: "Drop in your Search Console zip for a ranked action list and a 28-day check.",
     href: "/tools/gsc-export-coverage/",
     category: "Keyword Research",
   },

@@ -4,7 +4,7 @@ import GscExportCoverage from "./GscExportCoverage";
 export function generateMetadata() {
   const info = newToolPages["gsc-export-coverage"];
   return {
-    title: "GSC Export Coverage Checker: Rows vs Totals",
+    title: "Search Console Export Action Finder",
     description: info.description,
     alternates: { canonical: `https://sunnypatel.co.uk/tools/${info.slug}/` },
   };

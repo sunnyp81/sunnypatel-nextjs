@@ -143,6 +143,41 @@ export const FACT_GROUPS: FactGroup[] = [
     ],
   },
   {
+    id: "results",
+    title: "Client results",
+    note: "Client names stay private. Totals count only the sites where that measure grew, and a few sites use shorter windows; the proof page shows the caveats.",
+    facts: [
+      {
+        id: "F24",
+        label: "Agency client work",
+        value: "Led SEO for 16 client sites at a UK agency, working with a team, May 2024 to October 2026",
+        source: "/proof/#agency-results",
+        sourceLabel: "Proof",
+      },
+      {
+        id: "F25",
+        label: "AI assistant visits",
+        value: "492 to 6,240 across those 16 sites (Google Analytics 4, May to October 2024 vs 2026)",
+        source: "/proof/#agency-results",
+        sourceLabel: "Proof",
+      },
+      {
+        id: "F26",
+        label: "Page one of Google",
+        value: "109,502 to 179,497 search terms across the 12 sites where it grew (Search Console, July to September 2025 vs 2026)",
+        source: "/proof/#agency-results",
+        sourceLabel: "Proof",
+      },
+      {
+        id: "F27",
+        label: "Clicks from Google",
+        value: "23,275 to 30,574 across the 5 sites where clicks grew (Search Console, July to September 2025 vs 2026)",
+        source: "/proof/#agency-results",
+        sourceLabel: "Proof",
+      },
+    ],
+  },
+  {
     id: "profiles",
     title: "Profiles that are mine",
     note: "These are the only third-party profiles linked from this site's structured data as belonging to Sunny Patel or the business.",

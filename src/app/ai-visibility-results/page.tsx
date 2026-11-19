@@ -132,14 +132,10 @@ export default function AiVisibilityResultsPage() {
               Most AI visibility claims arrive without evidence. This page shows the raw
               ChatGPT, Claude, Perplexity and Copilot referral data from my own portfolio,
               labelled by sector, for 28 May to 26 August 2026. The published figures are
-              historical attributed visits, not current citation counts. Two of the
-              sites have their own write-ups, with monthly data and limits: the{" "}
+              historical attributed visits, not current citation counts. One of the
+              sites has its own write-up with monthly data and limits: the{" "}
               <Link href="/portfolio/ev-charging-directory-seo-growth/" className="text-brand hover:underline">
                 EV charging directory case study
-              </Link>{" "}
-              and the{" "}
-              <Link href="/portfolio/health-affiliate-google-demotion-ai-referrals/" className="text-brand hover:underline">
-                health affiliate site case study
               </Link>
               . Current numbers are in the{" "}
               <Link href="/blog/ai-referral-traffic-study/#live-tracker" className="text-brand hover:underline">

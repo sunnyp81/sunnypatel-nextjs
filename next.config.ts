@@ -31,6 +31,8 @@ const nextConfig: NextConfig = {
       { source: "/services/how-much-does-seo-cost-fixed-price-vs-retainers/", destination: "/services/how-much-does-seo-cost/", permanent: true },
       { source: "/how-much-does-seo-cost", destination: "/services/how-much-does-seo-cost/", permanent: true },
       { source: "/how-much-does-seo-cost/", destination: "/services/how-much-does-seo-cost/", permanent: true },
+      { source: "/portfolio/health-affiliate-google-demotion-ai-referrals", destination: "/ai-visibility-results/", permanent: true },
+      { source: "/portfolio/health-affiliate-google-demotion-ai-referrals/", destination: "/ai-visibility-results/", permanent: true },
       { source: "/keyword-research", destination: "/services/keyword-research/", permanent: true },
       { source: "/keyword-research/", destination: "/services/keyword-research/", permanent: true },
       { source: "/wordpress-vs-webflow", destination: "/blog/wordpress-vs-webflow/", permanent: true },

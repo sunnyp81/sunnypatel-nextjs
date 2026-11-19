@@ -48,7 +48,7 @@ export const AGENCY_EXAMPLES = [
   {
     sector: "Hotel",
     lines: [
-      "Visits from AI assistants: 2 to about 1,500, mostly from ChatGPT (May to October 2024 vs 2026)",
+      "Visits from AI assistants: 2 to about 1,500 mostly from ChatGPT (May to October 2024 vs 2026)",
       "Search terms in Google's top three: about 500 to 740 (July to September 2025 vs 2026)",
       "Organic search visits: up 12% (May to October 2024 vs 2026)",
     ],

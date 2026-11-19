@@ -145,12 +145,12 @@ export const FACT_GROUPS: FactGroup[] = [
   {
     id: "results",
     title: "Client results",
-    note: "Client names stay private. Totals count only the sites where that measure grew, and a few sites use shorter windows; the proof page shows the caveats.",
+    note: "Client names stay private. Totals count only the sites where that measure grew. A few sites use shorter windows. The proof page shows the caveats.",
     facts: [
       {
         id: "F24",
         label: "Agency client work",
-        value: "Led SEO for 16 client sites at a UK agency, working with a team, May 2024 to October 2026",
+        value: "Led SEO for 16 client sites at a UK agency with a team from May 2024 to October 2026",
         source: "/proof/#agency-results",
         sourceLabel: "Proof",
       },

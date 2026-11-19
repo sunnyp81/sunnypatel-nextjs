@@ -195,7 +195,7 @@ export default function ProofPage() {
           Client work I led at an agency, 2024 to 2026
         </h2>
         <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-          From May 2024 to October 2026 I led SEO for 16 client sites at a UK agency, working with a team. The clients stay unnamed. Numbers come from each site&apos;s Google Analytics 4 and Search Console, pulled on{" "}
+          I led SEO for 16 client sites at a UK agency with a team from May 2024 to October 2026. The clients stay unnamed. Numbers come from each site&apos;s Google Analytics 4 and Search Console data pulled on{" "}
           {new Date(`${AGENCY_RESULTS_PULLED}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}.
         </p>
         <div className="mb-5 grid gap-4 sm:grid-cols-3">
@@ -210,7 +210,7 @@ export default function ProofPage() {
           ))}
         </div>
         <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-          Each total adds up only the sites where that measure grew, and the number of sites is shown. Several sites fell on clicks or organic visits over the same period, so this is not a claim that every client grew. AI assistant visits started near zero in 2024, so I show the counts, not a percentage. A few sites have shorter windows because tracking started later or the contract ended.
+          Each total adds up only the sites where that measure grew. Each card shows the number of sites. Several sites fell on clicks or organic visits over the same period. These totals do not claim that every client grew. AI assistant visits started near zero in 2024. The cards show counts instead of a percentage. A few sites have shorter windows because tracking started later or the contract ended.
         </p>
         <div className="space-y-4">
           {AGENCY_EXAMPLES.map((ex) => (

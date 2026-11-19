@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import proof from "@/data/proof.json";
 import iterations from "@/data/proof-iterations.json";
+import { AGENCY_EXAMPLES, AGENCY_RESULTS_PULLED, AGENCY_TOTALS } from "@/data/agency-results";
 
 export const metadata = buildMetadata({
   title: "Proof: My Live SEO Numbers | Sunny Patel",
@@ -188,6 +189,42 @@ export default function ProofPage() {
           </div>
         ))}
       </div>
+
+      <section id="agency-results" aria-labelledby="agency-results-title" className="mb-12 scroll-mt-28">
+        <h2 id="agency-results-title" className="mb-4 text-xl font-bold text-foreground" style={{ fontFamily: "var(--font-heading)" }}>
+          Client work I led at an agency, 2024 to 2026
+        </h2>
+        <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+          From May 2024 to October 2026 I led SEO for 16 client sites at a UK agency, working with a team. The clients stay unnamed. Numbers come from each site&apos;s Google Analytics 4 and Search Console, pulled on{" "}
+          {new Date(`${AGENCY_RESULTS_PULLED}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}.
+        </p>
+        <div className="mb-5 grid gap-4 sm:grid-cols-3">
+          {AGENCY_TOTALS.map((t) => (
+            <div key={t.label} className="rounded-2xl border border-border p-5">
+              <div className="text-2xl font-bold text-brand" style={{ fontFamily: "var(--font-heading)" }}>
+                {t.before.toLocaleString("en-GB")} <span className="text-muted-foreground">to</span> {t.after.toLocaleString("en-GB")}
+              </div>
+              <div className="mt-1 text-xs font-semibold leading-snug text-foreground">{t.label}, {t.sites}</div>
+              <div className="mt-1 text-xs leading-snug text-muted-foreground">{t.window}</div>
+            </div>
+          ))}
+        </div>
+        <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+          Each total adds up only the sites where that measure grew, and the number of sites is shown. Several sites fell on clicks or organic visits over the same period, so this is not a claim that every client grew. AI assistant visits started near zero in 2024, so I show the counts, not a percentage. A few sites have shorter windows because tracking started later or the contract ended.
+        </p>
+        <div className="space-y-4">
+          {AGENCY_EXAMPLES.map((ex) => (
+            <div key={ex.sector} className="rounded-2xl border border-border p-5">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand">{ex.sector}</p>
+              <ul className="space-y-1 text-sm leading-relaxed text-foreground">
+                {ex.lines.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <h2 className="mb-4 text-xl font-bold text-foreground" style={{ fontFamily: "var(--font-heading)" }}>
         Live portfolio data you can cite

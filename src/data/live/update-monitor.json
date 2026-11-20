@@ -17,6 +17,13 @@
       "news": [
         {
           "source": "Search Engine Roundtable",
+          "title": "Search News Buzz Video Recap: Google November Core Update Status, FBI Alert On SEO Poisoning, Bing & ChatGPT Web Only Links, Microsoft Ads Bid Upgrade",
+          "url": "https://www.seroundtable.com/video-11-20-2026-42577.html",
+          "date": "2026-11-20",
+          "summary": "This week, we covered an update on the Google November 2026 core update. The FBI issued an alert on SEO poisoning and how it infected many with malware."
+        },
+        {
+          "source": "Search Engine Roundtable",
           "title": "Google November 2026 Core Update Ranking Flux - What We're Seeing",
           "url": "https://www.seroundtable.com/google-november-2026-core-update-ranking-volatility-42543.html",
           "date": "2026-11-16",
@@ -24,6 +31,15 @@
         }
       ],
       "community": [
+        {
+          "source": "Bluesky",
+          "author": "Glenn Gabe",
+          "handle": "glenngabe.bsky.social",
+          "url": "https://bsky.app/profile/glenngabe.bsky.social/post/3n2qqpp6ev22b",
+          "date": "2026-11-20",
+          "text": "The core update continues to do its thing... and there have been some big surges and drops so far starting on 11/13. Although it's been harder to track via the SEO visibility tools, GSC remains the source of truth.",
+          "likes": 0
+        },
         {
           "source": "Bluesky",
           "author": "Glenn Gabe",
@@ -232,7 +248,7 @@
     "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
     "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
   ],
-  "checkedAt": "2026-11-17T22:42:54.251Z",
-  "changedAt": "2026-11-17T22:42:54.251Z",
+  "checkedAt": "2026-11-20T15:38:15.432Z",
+  "changedAt": "2026-11-20T15:38:15.432Z",
   "statusChangedAt": "2026-11-17T22:42:54.251Z"
 }

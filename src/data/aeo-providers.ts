@@ -29,7 +29,7 @@ export const aeoProviders: AeoProvider[] = [
   {
     id: "sunny-patel", name: "Sunny Patel", url: "https://sunnypatel.co.uk/", needs: ["audit", "consultant"], owned: true,
     fit: "A fixed-fee AI visibility audit with direct consultant access",
-    summary: "My AI Visibility Audit covers repeated prompt runs, technical access, entity information, source analysis, three competitors and a prioritised 90-day plan. It is intended for mid-size and large UK businesses with considered buying journeys and includes a walkthrough.",
+    summary: "My AI Visibility Audit covers 60 ChatGPT answers (20 buyer questions, three runs each), source analysis, two competitors and a ranked list of the top ten fixes. It is intended for mid-size and large UK businesses with considered buying journeys and includes a walkthrough.",
     evidence: "I publish selected portfolio AI-referral observations and report that a healthcare client found my practice through Bing Copilot before hiring me. The acquisition account is mine. It is not an independently audited result or a basis for claiming exclusivity over other providers.",
     question: "Which prompts and competitors will you measure, and who will implement the resulting plan?",
     scope: "An audit delivers a plan. Agree implementation separately and confirm my capacity.",

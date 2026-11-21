@@ -344,9 +344,9 @@ export default function GeoAgencyPage() {
                 <Link href="/ai-visibility/" className="text-brand hover:underline">
                   AI Visibility Audit
                 </Link>
-                : fixed fee, measured across ChatGPT, Claude, Perplexity, Copilot and
-                Google&apos;s AI Overviews, delivered in 2 weeks with a competitor
-                benchmark and a plan you can implement yourself or hand to a fractional
+                : £795 fixed fee, 60 ChatGPT answers to your buyers&apos; questions,
+                delivered in 2 weeks with a two-competitor
+                benchmark and a fix list you can implement yourself or hand to a fractional
                 engagement. Read more about the consulting approach on the{" "}
                 <Link href="/ai-visibility-consultant/" className="text-brand hover:underline">
                   AI visibility consultant

@@ -82,6 +82,8 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
   eventLabel: string;
   /** Estimated GBP value of a lead from this form (defaults to 50). */
   leadValue?: number;
+  /** Machine-readable offer id sent with generate_lead as lead_offer. */
+  offerId?: string;
   /** Optionally reshape the payload before sending (e.g. inject a message). */
   transform?: (data: T) => Record<string, unknown>;
 }) {
@@ -138,6 +140,7 @@ export function useLeadForm<T extends Record<string, string>>(opts: {
           form_location: opts.eventLabel,
           ...(typeof data.ref === "string" ? { submission_ref: data.ref } : {}),
           value: opts.leadValue ?? 50,
+          ...(opts.offerId ? { lead_offer: opts.offerId } : {}),
           currency: "GBP",
           transport_type: "beacon",
           ...getToolJourney(),

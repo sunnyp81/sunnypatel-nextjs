@@ -231,14 +231,16 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
           {/* CTA */}
           <div className="rounded-2xl border border-brand/25 bg-gradient-to-br from-brand/[0.08] to-brand-deep/[0.04] p-6 md:p-8">
             <h2 className="mb-3 text-xl font-bold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
-              Want a review of the issues behind these checks?
+              Want to see what ChatGPT actually says about you?
             </h2>
             <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              The £495 audit covers technical SEO, content and AI-search visibility, with a prioritised action plan and 60-minute walkthrough. Any sampled AI answers are observations that can vary, not a promise of inclusion or a complete view of an engine.
+              This checker reads your site only. The £795 AI Visibility Audit asks ChatGPT 20 of your buyers&apos; questions three times each. It shows where you appear beside two competitors and ranks the ten fixes most likely to help.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/services/technical-seo-audit/"
+                href="/ai-visibility/#book"
+                data-cta-location="ai_visibility_checker_result"
+                data-cta-offer="ai_visibility_audit"
                 className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
                 style={{
                   fontFamily: 'var(--font-heading)',
@@ -246,15 +248,17 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
                   boxShadow: '0 0 20px rgba(91,138,239,0.25)',
                 }}
               >
-                Get the £495 Audit
+                Get the £795 AI Visibility Audit
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/services/ai-search-optimisation/"
+                href="/services/technical-seo-audit/"
+                data-cta-location="ai_visibility_checker_result"
+                data-cta-offer="technical_seo_audit"
                 className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-brand/40"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
-                AI search optimisation service
+                Get the £495 SEO Audit
               </Link>
             </div>
           </div>

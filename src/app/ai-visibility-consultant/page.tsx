@@ -367,7 +367,7 @@ export default function AiVisibilityConsultantPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "AI Visibility Audit (£1,500)", href: "/ai-visibility/" },
+                { label: "AI Visibility Audit (£795)", href: "/ai-visibility/" },
                 { label: "AI Visibility Results", href: "/ai-visibility-results/" },
                 { label: "Free AI Visibility Check", href: "/is-your-brand-visible-in-ai-search/" },
                 { label: "What Is a GEO Agency?", href: "/geo-agency/" },

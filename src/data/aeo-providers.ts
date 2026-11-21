@@ -33,7 +33,7 @@ export const aeoProviders: AeoProvider[] = [
     evidence: "I publish selected portfolio AI-referral observations and report that a healthcare client found my practice through Bing Copilot before hiring me. The acquisition account is mine. It is not an independently audited result or a basis for claiming exclusivity over other providers.",
     question: "Which prompts and competitors will you measure, and who will implement the resulting plan?",
     scope: "An audit delivers a plan. Agree implementation separately and confirm my capacity.",
-    price: "£1,500 fixed audit, advertised for delivery in two weeks. Fractional support starts at £1,500 per month. Confirm scope, availability and VAT before booking.",
+    price: "£795 fixed audit, advertised for delivery in two weeks. Fractional support starts at £1,500 per month. Confirm scope, availability and VAT before booking.",
     disclosure: "This is my consultancy and I wrote this guide. My inclusion is a commercial interest, not an independent recommendation.",
     sources: [{ label: "My AI visibility audit and pricing", url: "https://sunnypatel.co.uk/ai-visibility/" }, { label: "Portfolio AI referral observations", url: "https://sunnypatel.co.uk/ai-visibility-results/" }, { label: "Referral study and my acquisition account", url: "https://sunnypatel.co.uk/blog/ai-referral-traffic-study/" }], checked: aeoReviewed,
   },

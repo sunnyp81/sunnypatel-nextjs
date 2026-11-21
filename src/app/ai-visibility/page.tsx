@@ -19,7 +19,7 @@ export function generateMetadata() {
   return buildMetadata({
     title: "AI Visibility Audit | £795 Fixed Fee",
     description:
-      "Measure your business in sampled AI answers. AI visibility audit with competitor benchmark and 90-day plan. Fixed fee £795, delivered in 2 weeks.",
+      "See where your business appears in ChatGPT answers: 20 buyer questions, 3 runs each, 2 competitors and a ranked fix list. Fixed fee £795, delivered in 2 weeks.",
     path: "/ai-visibility",
   });
 }
@@ -27,7 +27,7 @@ export function generateMetadata() {
 const FAQS = [
   {
     q: "What exactly do I receive?",
-    a: "A written report covering agreed questions across available ChatGPT, Claude, Perplexity, Copilot and Google AI Overviews modes, a review of search access and business information, a benchmark against three agreed competitors, and a prioritised 90-day plan. Unavailable observations are labelled untested. A walkthrough call closes the audit.",
+    a: "A written report on 20 agreed buyer questions asked in ChatGPT, signed out, three times each on separate days: 60 answers. For each answer I record whether your business is mentioned, whether your page is cited and whether you are recommended, beside two competitors you choose. You also get the sources ChatGPT cites, any wrong facts about your business, a ranked list of the ten fixes most likely to help, and a sheet with every raw answer. A walkthrough call closes the audit. Other AI tools are not included.",
   },
   {
     q: "How is this different from the AI visibility tools we have seen?",
@@ -59,7 +59,7 @@ const SERVICE_SCHEMA = {
       "@id": "https://sunnypatel.co.uk/ai-visibility/#service",
       name: "AI Visibility Audit",
       description:
-        "An audit of agreed buyer questions across available AI search modes, with search-access and business-information review, competitor benchmark and prioritised 90-day plan. Untested observations are labelled. Fixed fee £795, delivered in 2 weeks.",
+        "A ChatGPT audit of 20 agreed buyer questions, three runs each (60 answers), with a two-competitor benchmark, cited-source map and ranked fix list. Fixed fee £795, delivered in 2 weeks.",
       url: "https://sunnypatel.co.uk/ai-visibility/",
       provider: { "@id": "https://sunnypatel.co.uk/#person" },
       areaServed: { "@type": "Country", name: "United Kingdom" },
@@ -70,7 +70,7 @@ const SERVICE_SCHEMA = {
         availability: "https://schema.org/InStock",
         url: "https://sunnypatel.co.uk/ai-visibility/",
         description:
-          "Fixed-fee AI visibility audit: agreed sampled observations across available AI search modes, search-access review, competitor benchmark and 90-day plan, delivered in 2 weeks with a walkthrough call.",
+          "Fixed-fee AI visibility audit: 60 ChatGPT answers to 20 agreed buyer questions, two-competitor benchmark, cited-source map and ranked fix list, delivered in 2 weeks with a walkthrough call.",
         seller: { "@id": "https://sunnypatel.co.uk/#person" },
       },
       serviceType: "AI Search Visibility Audit",
@@ -78,11 +78,10 @@ const SERVICE_SCHEMA = {
         "@type": "OfferCatalog",
         name: "AI Visibility Audit Deliverables",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Agreed AI Search Observations (available modes, repeats and variation reported)" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Search Access and Technical Review" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business Information and Matching Structured Data Review" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Competitor Benchmark (3 competitors)" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Prioritised 90-Day Plan" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "60 ChatGPT Answers (20 Buyer Questions, 3 Runs Each)" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cited-Source Map" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Competitor Benchmark (2 competitors)" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ranked Top Ten Fixes" } },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Walkthrough Call" } },
         ],
       },
@@ -107,12 +106,13 @@ const TRUST_BADGES = [
 ] as const;
 
 const WHAT_YOU_GET = [
-  "Agreed questions across available ChatGPT, Claude, Perplexity, Copilot and Google AI Overviews modes: repeated observations with dates and variation; unavailable observations labelled untested",
-  "Search access review: relevant search crawler directives, indexation, firewall and CDN controls; training permissions checked separately",
-  "Business information review: visible identity and supporting links, with any structured data checked against the page; no special AI schema required by Google",
-  "Source analysis: which publications and pages AI assistants cite in your market, and whether you appear in them",
-  "Benchmark against three competitors you choose",
-  "Prioritised 90-day plan, scored by impact against effort, ready to hand to your team",
+  "20 buyer questions agreed with you, asked in ChatGPT signed out, three times each on separate days: 60 answers, with dates and variation reported",
+  "Mention, page citation and recommendation counted separately, each out of the valid answers",
+  "Benchmark against two competitors you choose, coded from the same answers",
+  "Source map: which pages and publications ChatGPT cites for your questions, and whether you appear in them",
+  "Wrong or out-of-date facts about your business, checked against your site",
+  "Ranked list of the ten fixes most likely to help, ready to hand to your team",
+  "A sheet with every raw answer, so you can see exactly what was counted",
   "Walkthrough call to discuss the findings and plan",
 ];
 
@@ -200,8 +200,8 @@ export default function AiVisibilityPage() {
             </p>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               AI assistants can be part of your buyers&apos; research. The AI Visibility
-              Audit records how you appear in a defined sample of answers, investigates
-              gaps, and prioritises what to test first. Evidence-led,
+              Audit asks ChatGPT 20 of your buyers&apos; questions, three times each, and
+              shows where you appear beside two competitors and what to fix first. Evidence-led,
               delivered in 2 weeks.
             </p>
 
@@ -316,7 +316,7 @@ export default function AiVisibilityPage() {
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 AI answers change between runs. Ask the same question twice and you can get
-                two different lists. That is why I measure across repeated runs and report
+                two different lists. That is why I ask each question three times on separate days and report
                 the variance alongside the questions, dates and testing conditions.
               </p>
               <p>
@@ -349,7 +349,7 @@ export default function AiVisibilityPage() {
                 AI Visibility Audit: £795 fixed fee, delivered in 2 weeks.
               </p>
               <p>
-                The plan is yours to implement independently. If you want ongoing help,
+                The fix list is yours to implement independently. If you want ongoing help,
                 fractional support starts from £1,500 per month and the audit fee is
                 credited against your first month. Running a smaller site? The{" "}
                 <Link href="/services/technical-seo-audit/" className="text-brand hover:underline">
@@ -358,7 +358,7 @@ export default function AiVisibilityPage() {
                 is probably the better fit.
               </p>
               <p>
-                The audit includes the report, plan and walkthrough. Website changes,
+                The audit includes the report, answer sheet, fix list and walkthrough. It covers ChatGPT only. Website changes,
                 content production and external coverage are separate scopes. Before
                 fractional work starts, we agree the delivery allowance, tasks, owners,
                 additional costs and approval process in writing. Neither fee guarantees

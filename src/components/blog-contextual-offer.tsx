@@ -138,7 +138,7 @@ const OFFERS: Record<OfferVariant, Offer> = {
   "ai-search": {
     eyebrow: "AI Visibility",
     heading: "Is AI search sending customers to you, or your competitors?",
-    body: "The £495 SEO audit includes an AI-visibility assessment as one of its core sections, alongside technical SEO and content. The £795 AI Visibility Audit is the deeper standalone product, measuring citation presence and entity coverage across ChatGPT, Copilot, AI Overviews and Perplexity in detail.",
+    body: "The £495 SEO audit includes an AI-visibility assessment as one of its core sections, alongside technical SEO and content. The £795 AI Visibility Audit is the deeper standalone product, asking ChatGPT 20 of your buyers' questions three times each and benchmarking you against two competitors.",
     cards: [
       {
         href: "/services/technical-seo-audit/#enquire",
@@ -154,7 +154,7 @@ const OFFERS: Record<OfferVariant, Offer> = {
         offerId: "ai_search_stats_deep_audit",
         icon: Sparkles,
         title: "Need the deeper AI Visibility Audit?",
-        body: "A standalone £795 fixed-fee audit measuring citation presence, entity coverage and schema quality across ChatGPT, Copilot, AI Overviews and Perplexity.",
+        body: "A standalone £795 fixed-fee audit: 60 ChatGPT answers to your buyers' questions, two competitors benchmarked and a ranked fix list.",
         cta: "See the AI Visibility Audit",
         variant: "secondary",
       },

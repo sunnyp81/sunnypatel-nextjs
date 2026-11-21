@@ -62,7 +62,7 @@ export function AeoGuide({ title, image, faqs, children }: {
                   <ul className={styles.sourceLinks}>{provider.sources.map(source => <li key={source.url}><a href={source.url} rel={provider.sponsored ? "sponsored noopener" : undefined}>{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul>
                 </div></details>
                 {provider.disclosure && <p className={styles.relationship}><strong>{provider.sponsored ? "Paid inclusion:" : "Connection disclosed:"}</strong> {provider.disclosure}</p>}
-                {provider.owned && <><Link className={styles.primary} href="/ai-visibility/" data-cta-location="aeo_agencies_guide" data-cta-offer="ai_visibility_audit">See my AI visibility audit</Link><p className={styles.small}>£1,500 fixed fee. Review the scope and enquire about your market before booking.</p></>}
+                {provider.owned && <><Link className={styles.primary} href="/ai-visibility/" data-cta-location="aeo_agencies_guide" data-cta-offer="ai_visibility_audit">See my AI visibility audit</Link><p className={styles.small}>£795 fixed fee. Review the scope and enquire about your market before booking.</p></>}
               </div>
             </article>)}</div>
           </section>

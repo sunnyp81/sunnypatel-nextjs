@@ -17,9 +17,9 @@ import {
 
 export function generateMetadata() {
   return buildMetadata({
-    title: "AI Visibility Audit | £1,500 Fixed Fee",
+    title: "AI Visibility Audit | £795 Fixed Fee",
     description:
-      "Measure your business in sampled AI answers. AI visibility audit with competitor benchmark and 90-day plan. Fixed fee £1,500, delivered in 2 weeks.",
+      "Measure your business in sampled AI answers. AI visibility audit with competitor benchmark and 90-day plan. Fixed fee £795, delivered in 2 weeks.",
     path: "/ai-visibility",
   });
 }
@@ -43,7 +43,7 @@ const FAQS = [
   },
   {
     q: "What happens after the audit?",
-    a: "The £1,500 audit delivers the report, prioritised plan and walkthrough; implementation is a separate scope. Your team can carry out the plan. Fractional support starts from £1,500 per month with the audit fee credited against your first month and no minimum contract. Before starting, we agree the monthly delivery allowance, named tasks, content and development responsibilities, tool costs and approval process in writing. External coverage depends on editors and is not guaranteed.",
+    a: "The £795 audit delivers the report, prioritised plan and walkthrough; implementation is a separate scope. Your team can carry out the plan. Fractional support starts from £1,500 per month with the audit fee credited against your first month and no minimum contract. Before starting, we agree the monthly delivery allowance, named tasks, content and development responsibilities, tool costs and approval process in writing. External coverage depends on editors and is not guaranteed.",
   },
   {
     q: "Can you build AI agents or automation for us?",
@@ -59,13 +59,13 @@ const SERVICE_SCHEMA = {
       "@id": "https://sunnypatel.co.uk/ai-visibility/#service",
       name: "AI Visibility Audit",
       description:
-        "An audit of agreed buyer questions across available AI search modes, with search-access and business-information review, competitor benchmark and prioritised 90-day plan. Untested observations are labelled. Fixed fee £1,500, delivered in 2 weeks.",
+        "An audit of agreed buyer questions across available AI search modes, with search-access and business-information review, competitor benchmark and prioritised 90-day plan. Untested observations are labelled. Fixed fee £795, delivered in 2 weeks.",
       url: "https://sunnypatel.co.uk/ai-visibility/",
       provider: { "@id": "https://sunnypatel.co.uk/#person" },
       areaServed: { "@type": "Country", name: "United Kingdom" },
       offers: {
         "@type": "Offer",
-        price: "1500",
+        price: "795",
         priceCurrency: "GBP",
         availability: "https://schema.org/InStock",
         url: "https://sunnypatel.co.uk/ai-visibility/",
@@ -100,7 +100,7 @@ const SERVICE_SCHEMA = {
 };
 
 const TRUST_BADGES = [
-  { label: "£1,500 fixed fee" },
+  { label: "£795 fixed fee" },
   { label: "Delivered in 2 weeks" },
   { label: "Fee credited to retainer" },
   { label: "16+ years in search" },
@@ -196,7 +196,7 @@ export default function AiVisibilityPage() {
             </h1>
             <p className="mt-5 max-w-2xl text-lg font-medium leading-relaxed text-foreground">
               I&apos;m Sunny Patel, an independent SEO consultant in Berkshire. The AI
-              Visibility Audit is a fixed £1,500.
+              Visibility Audit is a fixed £795.
             </p>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               AI assistants can be part of your buyers&apos; research. The AI Visibility
@@ -218,7 +218,7 @@ export default function AiVisibilityPage() {
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <GradientButton asChild>
                 <Link href="#book" className="gap-2">
-                  Book the Audit: £1,500
+                  Book the Audit: £795
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </GradientButton>
@@ -346,7 +346,7 @@ export default function AiVisibilityPage() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p className="font-medium text-foreground">
-                AI Visibility Audit: £1,500 fixed fee, delivered in 2 weeks.
+                AI Visibility Audit: £795 fixed fee, delivered in 2 weeks.
               </p>
               <p>
                 The plan is yours to implement independently. If you want ongoing help,

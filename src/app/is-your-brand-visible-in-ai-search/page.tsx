@@ -276,7 +276,7 @@ export default function IsYourBrandVisiblePage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "AI Visibility Audit (£1,500)", href: "/ai-visibility/" },
+                { label: "AI Visibility Audit (£795)", href: "/ai-visibility/" },
                 { label: "AI Visibility Consultant", href: "/ai-visibility-consultant/" },
                 { label: "What Is a GEO Agency?", href: "/geo-agency/" },
                 { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },

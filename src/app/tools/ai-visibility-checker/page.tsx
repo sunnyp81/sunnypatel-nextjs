@@ -20,7 +20,7 @@ export default function AiVisibilityCheckerPage() {
       <div id="main-content" tabIndex={-1} />
       <div className="pt-24 pb-16">
         <AiVisibilityChecker />
-        <ToolNextStep lead="Want help reading the result? Book a" href="/contact/" label="free 20-minute diagnosis" />
+        <ToolNextStep lead="Want to see what ChatGPT says about you? Get a" href="/tools/chatgpt-visibility-check/" label="free ChatGPT check" />
       </div>
       <RelatedTools currentHref="/tools/ai-visibility-checker/" />
       <Footer />

@@ -1,8 +1,8 @@
-// A glass-tube trace in the site blue-to-gold grammar. The line is decoration; the labelled nodes are a jump menu to each statistic.
+// A glass-tube trace in the site blue-to-gold grammar. The line is decoration; the grid below is the jump menu to each statistic.
 export type TraceItem = { href: string; value: string; name: string };
 
 export function NeonTrace({ items }: { items: TraceItem[] }) {
-  const nodes = items.length;
+  const nodes = Math.min(items.length, 9);
   const w = 1200;
   const h = 200;
   const pts = Array.from({ length: nodes }, (_, i) => {
@@ -55,28 +55,25 @@ export function NeonTrace({ items }: { items: TraceItem[] }) {
           />
         ))}
       </svg>
-      <nav aria-label="Jump to a statistic" className="hidden md:block">
-        <ol>
-          {pts.map(([x, y], i) => {
-            const above = i % 2 === 0;
-            return (
-              <li
-                key={items[i].href}
-                className="absolute w-32"
-                style={{ left: `${(x / w) * 100}%`, top: `${(y / h) * 100}%`, transform: `translate(-50%, ${above ? "calc(-100% - 16px)" : "16px"})` }}
+      <nav aria-label="Jump to a statistic" className="mt-6 hidden md:block">
+        <ol className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+          {items.map((item, i) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="stat-chip group flex h-full flex-col rounded-xl border border-hairline bg-surface-2/60 px-3.5 py-3 transition-[border-color,background-color,box-shadow] duration-200 hover:border-brand-ink/50 hover:bg-brand-wash focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-ink dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-brand/50"
+                style={{ ["--t" as string]: `${(i / Math.max(items.length - 1, 1)) * 100}%` }}
               >
-                <a
-                  href={items[i].href}
-                  className="group block rounded-sm text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-ink"
+                <span
+                  className="block text-lg font-bold tabular-nums leading-tight text-foreground"
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
-                  <span className="block text-sm font-bold tabular-nums text-foreground transition-colors group-hover:text-brand-ink" style={{ fontFamily: "var(--font-heading)" }}>
-                    {items[i].value}
-                  </span>
-                  <span className="block text-[11px] leading-tight text-muted-foreground">{items[i].name}</span>
-                </a>
-              </li>
-            );
-          })}
+                  {item.value}
+                </span>
+                <span className="mt-1 block text-xs leading-snug text-muted-foreground">{item.name}</span>
+              </a>
+            </li>
+          ))}
         </ol>
       </nav>
     </div>

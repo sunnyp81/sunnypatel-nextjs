@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import proof from "@/data/proof.json";
+import { ProofWeeklyPeak } from "@/components/sections/proof-weekly-peak";
 import iterations from "@/data/proof-iterations.json";
 import { AGENCY_EXAMPLES, AGENCY_RESULTS_PULLED, AGENCY_TOTALS } from "@/data/agency-results";
 
@@ -12,56 +13,6 @@ export const metadata = buildMetadata({
   path: "/proof",
 });
 
-function WeeklyClicksChart() {
-  const weeks = proof.weeklyClicks;
-  const max = Math.max(...weeks.map((w) => w.clicks));
-  const chartH = 140;
-  const barW = 28;
-  const gap = 14;
-  const width = weeks.length * (barW + gap) - gap;
-
-  return (
-    <svg
-      viewBox={`0 0 ${width} ${chartH + 24}`}
-      className="w-full max-w-lg"
-      role="img"
-      aria-label={`Weekly clicks from Google, last ${weeks.length} weeks: ${weeks.map((w) => w.clicks).join(", ")}`}
-    >
-      {weeks.map((w, i) => {
-        const h = Math.max(4, Math.round((w.clicks / max) * chartH));
-        const x = i * (barW + gap);
-        const y = chartH - h;
-        const isLast = i === weeks.length - 1;
-        return (
-          <g key={w.weekStart} className="transition-opacity hover:opacity-80">
-            <title>{`Week of ${new Date(w.weekStart).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}: ${w.clicks} clicks`}</title>
-            <rect
-              x={x}
-              y={y}
-              width={barW}
-              height={h}
-              rx={4}
-              fill="#5B8AEF"
-              opacity={isLast ? 1 : 0.55}
-            />
-            {(isLast || i === 0) && (
-              <text
-                x={x + barW / 2}
-                y={y - 6}
-                textAnchor="middle"
-                className="fill-foreground"
-                fontSize="12"
-                fontWeight="600"
-              >
-                {w.clicks}
-              </text>
-            )}
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
 
 const seoConsultantReading = proof.rankings.find((r) => r.query === "seo consultant reading");
 
@@ -132,8 +83,8 @@ export default function ProofPage() {
       <p className="mb-5 text-sm text-muted-foreground">
         Honest scale: this is a consultant portfolio site in a 200-searches-a-month niche, not an e-commerce store. The direction is what matters.
       </p>
-      <div className="mb-12 rounded-2xl border border-border p-6">
-        <WeeklyClicksChart />
+      <div className="mb-12 overflow-x-clip py-8">
+        <ProofWeeklyPeak weeks={proof.weeklyClicks} />
       </div>
 
       <h2 className="mb-4 text-xl font-bold text-foreground" style={{ fontFamily: "var(--font-heading)" }}>

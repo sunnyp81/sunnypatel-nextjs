@@ -27,7 +27,7 @@ export function generateMetadata() {
 const FAQS = [
   {
     q: "What exactly do I receive?",
-    a: "A written report on 20 agreed buyer questions asked in ChatGPT, signed out, three times each on separate days: 60 answers. For each answer I record whether your business is mentioned, whether your page is cited and whether you are recommended, beside two competitors you choose. You also get the sources ChatGPT cites, any wrong facts about your business, a ranked list of the ten fixes most likely to help, and a sheet with every raw answer. A walkthrough call closes the audit. Other AI tools are not included.",
+    a: "You receive a written report on 60 ChatGPT answers: 20 agreed buyer questions asked signed out three times each on separate days. I record for each answer whether your business is mentioned, whether your page is cited and whether you are recommended. I code two competitors you choose from the same answers. You also get the sources ChatGPT cites, any wrong facts about your business, a ranked list of the ten fixes most likely to help, and a sheet with every raw answer. A walkthrough call closes the audit. Other AI tools are not included.",
   },
   {
     q: "How is this different from the AI visibility tools we have seen?",
@@ -106,13 +106,13 @@ const TRUST_BADGES = [
 ] as const;
 
 const WHAT_YOU_GET = [
-  "20 buyer questions agreed with you, asked in ChatGPT signed out, three times each on separate days: 60 answers, with dates and variation reported",
-  "Mention, page citation and recommendation counted separately, each out of the valid answers",
-  "Benchmark against two competitors you choose, coded from the same answers",
-  "Source map: which pages and publications ChatGPT cites for your questions, and whether you appear in them",
-  "Wrong or out-of-date facts about your business, checked against your site",
+  "60 signed-out ChatGPT answers: 20 buyer questions agreed with you and asked three times each on separate days",
+  "Mention, page citation and recommendation counted separately out of the valid answers",
+  "Benchmark against two competitors you choose from the same answers",
+  "Source map of the pages and publications ChatGPT cites for your questions and whether you appear in them",
+  "Wrong or out-of-date facts about your business checked against your site",
   "Ranked list of the ten fixes most likely to help, ready to hand to your team",
-  "A sheet with every raw answer, so you can see exactly what was counted",
+  "A sheet with every raw answer that shows exactly what was counted",
   "Walkthrough call to discuss the findings and plan",
 ];
 
@@ -200,7 +200,7 @@ export default function AiVisibilityPage() {
             </p>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               AI assistants can be part of your buyers&apos; research. The AI Visibility
-              Audit asks ChatGPT 20 of your buyers&apos; questions, three times each, and
+              Audit asks ChatGPT 20 of your buyers&apos; questions three times each. It
               shows where you appear beside two competitors and what to fix first. Evidence-led,
               delivered in 2 weeks.
             </p>

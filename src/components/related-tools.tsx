@@ -36,6 +36,11 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
       "/tools/schema-validator/",
       "/tools/broken-links/",
     ],
+    "/tools/chatgpt-visibility-check/": [
+      "/tools/ai-visibility-checker/",
+      "/tools/llms-txt-generator/",
+      "/tools/schema-validator/",
+    ],
     "/tools/llms-txt-generator/": [
       "/tools/ai-visibility-checker/",
       "/tools/sitemap-generator/",

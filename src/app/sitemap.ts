@@ -363,6 +363,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.8,
   },
   {
+    url: `${SITE_URL}/tools/chatgpt-visibility-check/`,
+    lastModified: LAST_DEPLOY,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
     url: `${SITE_URL}/tools/ai-visibility-checker/`,
     lastModified: LAST_DEPLOY,
     changeFrequency: "monthly",

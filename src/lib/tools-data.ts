@@ -157,6 +157,13 @@ export const tools: Tool[] = [
     category: "Content",
   },
   {
+    name: "Free ChatGPT Check",
+    description:
+      "I ask ChatGPT three of your buyers' questions and email you who it names and cites, within one working day.",
+    href: "/tools/chatgpt-visibility-check/",
+    category: "Website Audit",
+  },
+  {
     name: "AI Visibility Checker",
     description:
       "Inspect crawler directives, schema and page structure. Technical heuristic checks, not observed AI retrieval or citations.",

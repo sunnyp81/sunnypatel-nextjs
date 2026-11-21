@@ -18,6 +18,7 @@ import { AeoGuide } from "@/components/aeo-guide";
 import { SeoStatisticsGuide } from "@/components/seo-statistics-guide";
 import { ReportHero } from "@/components/report-hero";
 import { UpdateMonitorLead, UpdateMonitorBody } from "@/components/live/update-monitor";
+import { trackerLastUpdated } from "@/lib/update-monitor-meta";
 import styles from "@/components/seo-companies-guide.module.css";
 
 // Match DynamicIslandTOC's heading IDs, using each post's first H2.
@@ -153,7 +154,7 @@ export default async function BlogPost({
               description: post.description,
               slug,
               date: post.date || undefined,
-              lastUpdated: post.lastUpdated || undefined,
+              lastUpdated: trackerLastUpdated(slug, post.lastUpdated),
               image: post.ogImage || undefined,
             }),
             personSchema(),
@@ -198,7 +199,7 @@ export default async function BlogPost({
           heroImage={REPORT_HERO_CONFIG[slug].heroImage}
           heroImageAlt={REPORT_HERO_CONFIG[slug].heroImageAlt}
           publishedDate={post.date || undefined}
-          updatedDate={post.lastUpdated || undefined}
+          updatedDate={trackerLastUpdated(slug, post.lastUpdated)}
           disclosure={REPORT_HERO_CONFIG[slug].disclosure}
           lead={slug === "google-update-portfolio-impact" ? <UpdateMonitorLead /> : undefined}
         >

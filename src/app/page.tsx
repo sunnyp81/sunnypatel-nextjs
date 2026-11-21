@@ -8,6 +8,7 @@ import { CoverageSection } from "@/components/home/coverage-section";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
 import { AiStatBar } from "@/components/sections/ai-stat-bar";
+import { UpdateAlert } from "@/components/live/update-alert";
 import { About } from "@/components/sections/about";
 import { SearchModel } from "@/components/sections/search-model";
 import { LiveProof } from "@/components/sections/live-proof";
@@ -56,6 +57,7 @@ export default async function Home() {
       <Navbar />
       <div id="main-content" tabIndex={-1} />
       <Hero />
+      <UpdateAlert className="mx-auto max-w-3xl px-6 py-6" />
       <OngoingSupportSection />
       <PortfolioProof />
       <StatsChartsSection />

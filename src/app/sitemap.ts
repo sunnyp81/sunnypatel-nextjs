@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { reader } from "@/lib/content";
 import lastmod from "@/data/lastmod.json";
+import { trackerLastUpdated } from "@/lib/update-monitor-meta";
 
 const SITE_URL = "https://sunnypatel.co.uk";
 
@@ -413,7 +414,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogEntries = await Promise.all(
     blogSlugs.map(async (slug) => {
       const post = await reader.collections.blog.read(slug);
-      const date = post?.lastUpdated || post?.date;
+      const date = trackerLastUpdated(slug, post?.lastUpdated) || post?.date;
       return {
         url: `${SITE_URL}/blog/${slug}/`,
         lastModified: date ? new Date(date) : LAST_DEPLOY,

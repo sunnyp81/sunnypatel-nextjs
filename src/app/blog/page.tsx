@@ -7,6 +7,7 @@ import { ThemedImage } from "@/components/themed-image";
 import { ArrowRight } from "lucide-react";
 import { slugifyTag } from "@/lib/utils";
 import { TagLink } from "@/components/tag-link";
+import { UpdateAlert } from "@/components/live/update-alert";
 
 export async function generateMetadata() {
   const page = await reader.singletons.blogIndex.read();
@@ -84,6 +85,7 @@ export default async function BlogIndex() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-hairline-strong to-transparent" />
       </div>
 
+      <UpdateAlert className="mx-auto max-w-6xl px-6 pt-10" />
       <div className="mx-auto max-w-6xl px-6 py-16">
         {sorted.length === 0 ? (
           <p className="text-center text-muted-foreground">No posts yet.</p>

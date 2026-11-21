@@ -8,7 +8,7 @@ import {
   Star,
 } from "lucide-react";
 import { GlowCard } from "@/components/ui/glow-card";
-import { FormField, FormError, FormSuccess } from "@/components/ui/form-field";
+import { FormField, FormSelect, FormError, FormSuccess } from "@/components/ui/form-field";
 import { useLeadForm } from "@/lib/use-lead-form";
 import { LeadQualificationFields } from "@/components/lead-qualification-fields";
 import { getSupportOfferCopy } from "@/lib/lead-qualification";
@@ -39,6 +39,16 @@ const QUALIFIED_BADGES: readonly { icon: BadgeIconName; label: string }[] = [
   { icon: "shield", label: "Scope agreed before work starts" },
 ];
 
+const HOW_HEARD_OPTIONS = [
+  { value: "google", label: "Google search" },
+  { value: "ai_assistant", label: "ChatGPT, Perplexity, or another AI assistant" },
+  { value: "linkedin", label: "LinkedIn" },
+  { value: "referral", label: "Referral or word of mouth" },
+  { value: "directory", label: "A directory listing (Clutch, The Manifest, etc.)" },
+  { value: "existing_client", label: "I'm an existing client" },
+  { value: "other", label: "Other" },
+];
+
 const DEFAULT_SUCCESS_MESSAGE =
   "Your diagnosis request is with me. I'll reply personally within one working day.";
 const DEFAULT_SUBMIT_LABEL = "Request Free Diagnosis";
@@ -61,6 +71,7 @@ export function ServiceInlineForm({
   operationalNotes,
   leadValue,
   qualification = false,
+  askHowHeard = false,
   id,
 }: {
   ctaTitle?: string;
@@ -91,6 +102,8 @@ export function ServiceInlineForm({
   leadValue?: number;
   /** Adds optional website, support type, budget and timing fields. */
   qualification?: boolean;
+  /** Adds the optional "How did you hear about me?" select (how_heard in GA4 and the email). */
+  askHowHeard?: boolean;
   /** DOM id on the outer section, so a page can deep-link straight to the form. */
   id?: string;
 }) {
@@ -100,10 +113,12 @@ export function ServiceInlineForm({
       initial: {
         name: "", email: "", phone: "", message: "",
         ...(qualification ? { website: "", supportType: "", budget: "", timing: "" } : {}),
+        ...(askHowHeard ? { howHeard: "" } : {}),
       },
       eventCategory: "contact",
       eventLabel,
       leadValue,
+      offerId: qualification ? undefined : offerId,
       transform: (data) => ({
         ...data,
         offer: getSupportOfferCopy(data.supportType)?.offerLabel
@@ -185,6 +200,17 @@ export function ServiceInlineForm({
                 placeholder="07xxx xxx xxx"
                 optional
                 value={formData.phone}
+                onChange={handleChange}
+                disabled={status === "loading"}
+              />
+            )}
+
+            {askHowHeard && (
+              <FormSelect
+                id={`${uid}-howHeard`}
+                label="How did you hear about me? (optional)"
+                options={HOW_HEARD_OPTIONS}
+                value={formData.howHeard ?? ""}
                 onChange={handleChange}
                 disabled={status === "loading"}
               />

@@ -39,7 +39,7 @@ const FAQS = [
   },
   {
     q: "Who is this for?",
-    a: "Mid-size and large UK businesses in markets where buyers research before purchase: professional services, healthcare, finance, B2B and considered purchases. For smaller sites, the £495 SEO audit is usually the better fit.",
+    a: "UK service businesses where one new client is worth more than the fee: professional services, healthcare, trades, B2B and considered purchases. For a general site health check the £495 SEO audit is usually the better fit.",
   },
   {
     q: "What happens after the audit?",
@@ -121,7 +121,7 @@ const WARNING_SIGNS = [
     icon: EyeOff,
     title: "Blocked by configuration",
     detail:
-      "Search access and training permissions are different. OpenAI uses OAI-SearchBot for search and GPTBot for training. Blocking GPTBot alone does not opt a site out of ChatGPT search. I check the relevant search crawler, CDN and indexation controls for each platform.",
+      "Search access and training permissions are different. OpenAI uses OAI-SearchBot for search and GPTBot for training. Blocking GPTBot alone does not opt a site out of ChatGPT search. The audit notes whether OAI-SearchBot can reach the pages ChatGPT should cite.",
   },
   {
     icon: FileSearch,
@@ -133,7 +133,7 @@ const WARNING_SIGNS = [
     icon: BarChart3,
     title: "Falling organic clicks",
     detail:
-      "Stable rankings with falling clicks are a reason to investigate. AI answers are one possible explanation alongside demand, seasonality, query mix and other search-result changes. I compare matched periods and available evidence before assigning a cause.",
+      "Stable rankings with falling clicks are a reason to investigate. AI answers are one possible explanation alongside demand, seasonality, query mix and other search-result changes. Compare matched periods before assigning a cause.",
   },
 ];
 
@@ -217,7 +217,7 @@ export default function AiVisibilityPage() {
             {/* CTA buttons */}
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <GradientButton asChild>
-                <Link href="#book" className="gap-2">
+                <Link href="#book" className="gap-2" data-cta-location="ai_visibility_hero" data-cta-offer="ai_visibility_audit">
                   Book the Audit: £795
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -417,7 +417,26 @@ export default function AiVisibilityPage() {
         <div id="book">
           <ServiceInlineForm
             ctaTitle="Book Your AI Visibility Audit"
-            ctaSubtitle="Tell me your company website and the market you compete in. I will come prepared with an initial view of how you currently appear to AI assistants."
+            ctaSubtitle="Tell me your website, your area and the services buyers ask about. I reply within one working day with the 20 questions I suggest and a start date."
+            offerId="ai_visibility_audit"
+            offerLabel="AI Visibility Audit (£795)"
+            eventLabel="ai_visibility_audit_form"
+            leadValue={795}
+            askHowHeard
+            submitLabel="Request my AI visibility audit"
+            successMessage="Your AI visibility audit request is with me. I'll reply personally within one working day."
+            trustPoints={[
+              "60 ChatGPT answers to 20 of your buyers' questions",
+              "Two competitors you choose, coded from the same answers",
+              "Ranked list of the ten fixes most likely to help",
+              "£795 fixed fee, delivered in 2 weeks",
+            ]}
+            badges={[
+              { icon: "calendar", label: "16+ years experience" },
+              { icon: "shield", label: "Fixed fee" },
+              { icon: "clock", label: "Delivered in 2 weeks" },
+            ]}
+            messagePlaceholder="Your website, your area and the services buyers ask about."
           />
         </div>
 

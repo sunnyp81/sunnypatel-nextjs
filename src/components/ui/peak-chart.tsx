@@ -374,8 +374,8 @@ function buildCurve(data: number[], anchor: "peak" | "last" = "peak", zeroBased 
   const ys = new Float32Array(CW + 1)
   for (let x = 0; x <= CW; x++) {
     let y: number
-    if (x <= PLOT_X0) y = yv[0] + (x - PLOT_X0) * m[0]
-    else if (x >= PLOT_X1) y = yv[n - 1] + (x - PLOT_X1) * m[n - 1]
+    if (x <= PLOT_X0) y = yv[0]
+    else if (x >= PLOT_X1) y = yv[n - 1]
     else {
       const t = (x - PLOT_X0) / h
       const i = Math.min(n - 2, Math.floor(t))

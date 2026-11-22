@@ -64,9 +64,9 @@ export function LiveAiFigure() {
   const share = w.ai < MIN_COUNT ? "" : ` (${w.share}%)`;
   return (
     <p>
-      <strong>Live figure from my own portfolio:</strong> in the 28 days to {longDate(w.end)}, AI assistants sent {count(w.ai)} of{" "}
-      {count(w.sessions)} sessions{share} across the {frame.properties} properties I own and track, with ChatGPT sending {count(chatgpt)} of
-      them. This is my own portfolio and not a sample of the web. I refresh it every Monday in my{" "}
+      <strong>Live figure from my own portfolio:</strong> AI assistants sent {count(w.ai)} of {count(w.sessions)} sessions{share} across
+      the {frame.properties} properties I own and track in the 28 days to {longDate(w.end)}. ChatGPT sent {count(chatgpt)} of those
+      sessions. This is my own portfolio and not a sample of the web. I refresh it every Monday in my{" "}
       <Link href={`${AI_URL.replace(SITE, "")}#live-tracker`} className="text-brand-ink underline underline-offset-4">
         live AI referral tracker with weekly data and downloads
       </Link>

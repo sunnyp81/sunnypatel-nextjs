@@ -14,7 +14,7 @@ const routes = [
   {
     href: "/services/shopify-seo-consultant/",
     anchor: "Shopify SEO",
-    text: "For UK Shopify and Shopify Plus merchants, and stores about to move onto Shopify.",
+    text: "For UK Shopify and Shopify Plus merchants and for stores about to move onto Shopify.",
   },
   {
     href: "/services/local-seo/",

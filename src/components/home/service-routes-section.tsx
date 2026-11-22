@@ -24,7 +24,7 @@ const routes = [
   {
     href: "/services/ai-search-optimisation/",
     anchor: "AI search optimisation",
-    text: "For founders and marketing teams whose customers research a considered purchase and ask AI assistants about it.",
+    text: "For founders and marketing teams whose customers research a considered purchase.",
   },
 ] as const;
 

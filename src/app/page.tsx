@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { ServiceRoutesSection } from "@/components/home/service-routes-section";
 import { OngoingSupportSection } from "@/components/home/ongoing-support-section";
 import { PortfolioProof } from "@/components/sections/portfolio-proof";
 import { StatsChartsSection } from "@/components/home/stats-charts-section";
@@ -58,6 +59,7 @@ export default async function Home() {
       <div id="main-content" tabIndex={-1} />
       <Hero />
       <UpdateAlert className="mx-auto max-w-3xl px-6 py-6" />
+      <ServiceRoutesSection />
       <OngoingSupportSection />
       <PortfolioProof />
       <StatsChartsSection />

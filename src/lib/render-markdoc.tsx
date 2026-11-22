@@ -1,7 +1,7 @@
 import Markdoc, { type Config } from "@markdoc/markdoc";
 import React from "react";
 import { hasLightVariant, lightVariantPath } from "@/lib/light-image";
-import { LiveAiTracker, LiveUpdateTracker } from "@/components/live/live-stats";
+import { LiveAiFigure, LiveAiTracker, LiveUpdateTracker } from "@/components/live/live-stats";
 import { ServiceMiniCta } from "@/components/services/ServiceMiniCta";
 import { LocalPackCalculator } from "@/components/glow/local-pack-calculator";
 import { AgencyRedFlagScorer, ResourcingPicker, SeoQuoteChecker } from "@/components/glow/buyer-tools";
@@ -75,6 +75,7 @@ export const markdocConfig: Config = {
     },
   },
   tags: {
+    "live-ai-figure": { render: "LiveAiFigure", selfClosing: true },
     "live-ai-tracker": { render: "LiveAiTracker", selfClosing: true },
     "live-update-tracker": { render: "LiveUpdateTracker", selfClosing: true },
     cta: {
@@ -168,6 +169,7 @@ export function renderMarkdoc(content: any) {
       GlowPullquote,
       GlowStat,
       GlowStatRow,
+      LiveAiFigure,
       LiveAiTracker,
       LiveUpdateTracker,
       GlowChartFigure,

@@ -57,6 +57,24 @@ export const aiSummary = {
   end: longDate(aiReferrals.window.end),
 };
 
+/** One-sentence live figure for the AI statistics page. Every number is read from the JSON. */
+export function LiveAiFigure() {
+  const { window: w, frame } = aiReferrals;
+  const chatgpt = (w.assistants as Record<string, number>).ChatGPT ?? 0;
+  const share = w.ai < MIN_COUNT ? "" : ` (${w.share}%)`;
+  return (
+    <p>
+      <strong>Live figure from my own portfolio:</strong> in the 28 days to {longDate(w.end)}, AI assistants sent {count(w.ai)} of{" "}
+      {count(w.sessions)} sessions{share} across the {frame.properties} properties I own and track, with ChatGPT sending {count(chatgpt)} of
+      them. This is my own portfolio and not a sample of the web. I refresh it every Monday in my{" "}
+      <Link href={`${AI_URL.replace(SITE, "")}#live-tracker`} className="text-brand-ink underline underline-offset-4">
+        live AI referral tracker with weekly data and downloads
+      </Link>
+      .
+    </p>
+  );
+}
+
 export function LiveAiTracker() {
   const { window: w, prior, frame, sourceRule, updatedAt } = aiReferrals;
   const weeks = aiReferrals.weekly.slice(-CHART_WEEKS);

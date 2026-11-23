@@ -424,7 +424,7 @@ function Hierarchy({
 // ── Page-specific visuals ───────────────────────────────────────────────
 
 const ROOT_INTRO = (
-  <Figure caption="UK web design package pricing — fixed quotes from £1,500. Source: Sunny Patel current 2026 rate card.">
+  <Figure caption="UK web design package pricing: fixed quotes from £1,500. Source: Sunny Patel current 2026 rate card.">
     <BarChart
       titleId="root-vis-1-title"
       descId="root-vis-1-desc"
@@ -442,7 +442,7 @@ const ROOT_INTRO = (
 );
 
 const ROOT_CLOSE = (
-  <Figure caption="The four-stage UK website design build process — discovery, build, launch, handover. Typical 2-6 weeks end-to-end.">
+  <Figure caption="The four-stage UK website design build process: discovery, build, launch, handover. Typical 2-6 weeks end-to-end.">
     <ProcessFlow
       titleId="root-vis-2-title"
       descId="root-vis-2-desc"
@@ -477,7 +477,7 @@ const WORDPRESS_INTRO = (
 );
 
 const WORDPRESS_CLOSE = (
-  <Figure caption="The WordPress plugin stack I install on every UK service business build — six plugins, no bloat.">
+  <Figure caption="The WordPress plugin stack I install on every UK service business build: six plugins, no bloat.">
     <Hierarchy
       titleId="wp-vis-2-title"
       descId="wp-vis-2-desc"
@@ -497,7 +497,7 @@ const WORDPRESS_CLOSE = (
 );
 
 const SMALLBIZ_INTRO = (
-  <Figure caption="The 5-page structure that converts for most UK small business websites — Starter package at £1,500.">
+  <Figure caption="The 5-page structure that converts for most UK small business websites, Starter package at £1,500.">
     <Hierarchy
       titleId="sb-vis-1-title"
       descId="sb-vis-1-desc"
@@ -516,7 +516,7 @@ const SMALLBIZ_INTRO = (
 );
 
 const SMALLBIZ_CLOSE = (
-  <Figure caption="UK small business web traffic by device — mobile dominates, which is why every build is mobile-first.">
+  <Figure caption="UK small business web traffic by device: mobile dominates, which is why every build is mobile-first.">
     <BarChart
       titleId="sb-vis-2-title"
       descId="sb-vis-2-desc"
@@ -532,11 +532,11 @@ const SMALLBIZ_CLOSE = (
 );
 
 const PACKAGES_INTRO = (
-  <Figure caption="Three fixed-quote UK web design packages compared side by side — Starter, Standard, Growth.">
+  <Figure caption="Three fixed-quote UK web design packages compared side by side: Starter, Standard, Growth.">
     <ComparisonMatrix
       titleId="pkg-vis-1-title"
       descId="pkg-vis-1-desc"
-      title="Web design packages — what's in each tier"
+      title="Web design packages: what's in each tier"
       desc="Three fixed-quote packages compared across pages, on-page SEO depth, schema markup, and post-launch refinement. Standard is the default for most UK service businesses."
       cols={["Starter", "Standard", "Growth"]}
       rows={[
@@ -553,14 +553,14 @@ const PACKAGES_INTRO = (
         ["Basic", "Full topical", "Topical map"],
         ["Org + Local", "+ Service, FAQ", "Full graph"],
         ["No", "No", "Yes"],
-        ["—", "30 days", "90 days"],
+        ["No", "30 days", "90 days"],
       ]}
     />
   </Figure>
 );
 
 const PACKAGES_CLOSE = (
-  <Figure caption="What's included as standard in every UK web design package — twelve baseline deliverables before any add-ons.">
+  <Figure caption="What's included as standard in every UK web design package: twelve baseline deliverables before any add-ons.">
     <Hierarchy
       titleId="pkg-vis-2-title"
       descId="pkg-vis-2-desc"
@@ -580,7 +580,7 @@ const PACKAGES_CLOSE = (
 );
 
 const SEO_INTRO = (
-  <Figure caption="Core Web Vitals targets I won't ship a UK business website below — measured on mobile, in field data.">
+  <Figure caption="Core Web Vitals targets I won't ship a UK business website below, measured on mobile, in field data.">
     <BarChart
       titleId="seo-vis-1-title"
       descId="seo-vis-1-desc"
@@ -599,7 +599,7 @@ const SEO_INTRO = (
 );
 
 const SEO_CLOSE = (
-  <Figure caption="The schema graph baked into every SEO-led WordPress build — eight schema types covering Organisation, Service, FAQ and more.">
+  <Figure caption="The schema graph baked into every SEO-led WordPress build: eight schema types covering Organisation, Service, FAQ and more.">
     <Hierarchy
       titleId="seo-vis-2-title"
       descId="seo-vis-2-desc"
@@ -621,7 +621,7 @@ const SEO_CLOSE = (
 );
 
 const REDESIGN_INTRO = (
-  <Figure caption="Three UK website redesign scopes at three price points — diagnose first, then pick the right level.">
+  <Figure caption="Three UK website redesign scopes at three price points: diagnose first, then pick the right level.">
     <ComparisonMatrix
       titleId="rd-vis-1-title"
       descId="rd-vis-1-desc"
@@ -639,17 +639,17 @@ const REDESIGN_INTRO = (
       cells={[
         ["£1,500", "£2,000+", "£3,500+"],
         ["Yes", "Yes", "Yes"],
-        ["—", "Yes", "Yes"],
-        ["—", "Yes", "Yes"],
-        ["—", "Yes", "Yes"],
-        ["—", "—", "Yes"],
+        ["No", "Yes", "Yes"],
+        ["No", "Yes", "Yes"],
+        ["No", "Yes", "Yes"],
+        ["No", "No", "Yes"],
       ]}
     />
   </Figure>
 );
 
 const REDESIGN_CLOSE = (
-  <Figure caption="Why ranking equity drops post-redesign — the four migration mistakes I clean up most often on UK business websites.">
+  <Figure caption="Why ranking equity drops post-redesign: the four migration mistakes I clean up most often on UK business websites.">
     <BarChart
       titleId="rd-vis-2-title"
       descId="rd-vis-2-desc"
@@ -666,7 +666,7 @@ const REDESIGN_CLOSE = (
 );
 
 const PLATFORMS_INTRO = (
-  <Figure caption="Choosing a UK business website platform — five-question decision framework before you brief a designer.">
+  <Figure caption="Choosing a UK business website platform: five-question decision framework before you brief a designer.">
     <ProcessFlow
       titleId="pf-vis-1-title"
       descId="pf-vis-1-desc"
@@ -683,7 +683,7 @@ const PLATFORMS_INTRO = (
 );
 
 const PLATFORMS_CLOSE = (
-  <Figure caption="UK web design platform pricing compared — typical build cost from launch to launch, ex-VAT.">
+  <Figure caption="UK web design platform pricing compared: typical build cost from launch to launch, ex-VAT.">
     <BarChart
       titleId="pf-vis-2-title"
       descId="pf-vis-2-desc"
@@ -701,7 +701,7 @@ const PLATFORMS_CLOSE = (
 );
 
 const INDUSTRIES_INTRO = (
-  <Figure caption="UK web design budget by industry vertical — trust-sensitive sectors carry higher floor prices.">
+  <Figure caption="UK web design budget by industry vertical: trust-sensitive sectors carry higher floor prices.">
     <BarChart
       titleId="ind-vis-1-title"
       descId="ind-vis-1-desc"
@@ -719,7 +719,7 @@ const INDUSTRIES_INTRO = (
 );
 
 const INDUSTRIES_CLOSE = (
-  <Figure caption="Trust signals by industry — healthcare and legal need credentials early; trades need photo proof and reviews.">
+  <Figure caption="Trust signals by industry: healthcare and legal need credentials early; trades need photo proof and reviews.">
     <Hierarchy
       titleId="ind-vis-2-title"
       descId="ind-vis-2-desc"
@@ -737,12 +737,12 @@ const INDUSTRIES_CLOSE = (
 );
 
 const PRICING_INTRO = (
-  <Figure caption="What a £499 UK web design quote really costs — line items the headline price hides.">
+  <Figure caption="What a £499 UK web design quote really costs: line items the headline price hides.">
     <BarChart
       titleId="pr-vis-1-title"
       descId="pr-vis-1-desc"
-      title="The 'from £499' web design quote — real cost breakdown"
-      desc="Common line items added to a £499 starter quote that bring the final invoice closer to £2,500. Each is included as standard in my Starter package at £1,500 — not billed separately."
+      title="The 'from £499' web design quote: real cost breakdown"
+      desc="Common line items added to a £499 starter quote that bring the final invoice closer to £2,500. Each is included as standard in my Starter package at £1,500, not billed separately."
       bars={[
         { label: "Headline", value: 499, max: 3000, colour: C.neutral, suffix: " £" },
         { label: "+ Custom design", value: 800, max: 3000, colour: C.accent, suffix: " £" },
@@ -756,7 +756,7 @@ const PRICING_INTRO = (
 );
 
 const PRICING_CLOSE = (
-  <Figure caption="UK web design package and add-on pricing — fixed quotes, no surprise invoices.">
+  <Figure caption="UK web design package and add-on pricing: fixed quotes, no surprise invoices.">
     <ComparisonMatrix
       titleId="pr-vis-2-title"
       descId="pr-vis-2-desc"
@@ -782,7 +782,7 @@ const PRICING_CLOSE = (
 );
 
 const SEO_PERF_INTRO = (
-  <Figure caption="The five SEO retrofit problems on existing UK business websites — fixable post-launch but cheaper to build right.">
+  <Figure caption="The five SEO retrofit problems on existing UK business websites, fixable post-launch but cheaper to build right.">
     <BarChart
       titleId="sp-vis-1-title"
       descId="sp-vis-1-desc"
@@ -800,7 +800,7 @@ const SEO_PERF_INTRO = (
 );
 
 const SEO_PERF_CLOSE = (
-  <Figure caption="The SEO and performance build checklist — what greens-on-launch means in practice.">
+  <Figure caption="The SEO and performance build checklist: what greens-on-launch means in practice.">
     <Hierarchy
       titleId="sp-vis-2-title"
       descId="sp-vis-2-desc"
@@ -826,7 +826,7 @@ const REDESIGN_UX_INTRO = (
     <ProcessFlow
       titleId="rdux-vis-1-title"
       descId="rdux-vis-1-desc"
-      title="Redesign decision tree — four options at four price points"
+      title="Redesign decision tree: four options at four price points"
       desc="The four common scopes I quote against when a UK business owner asks for a website redesign. About half the redesign enquiries I get land on a cheaper scope after diagnosis."
       steps={[
         { label: "UX fix", sub: "£400-£800" },
@@ -839,7 +839,7 @@ const REDESIGN_UX_INTRO = (
 );
 
 const REDESIGN_UX_CLOSE = (
-  <Figure caption="The UX changes with the highest payback on UK business websites — ordered by enquiry-rate impact.">
+  <Figure caption="The UX changes with the highest payback on UK business websites, ordered by enquiry-rate impact.">
     <BarChart
       titleId="rdux-vis-2-title"
       descId="rdux-vis-2-desc"
@@ -857,7 +857,7 @@ const REDESIGN_UX_CLOSE = (
 );
 
 const PROOF_INTRO = (
-  <Figure caption="Three measures of UK web design success — enquiries first, rankings second, technical floor third.">
+  <Figure caption="Three measures of UK web design success: enquiries first, rankings second, technical floor third.">
     <Hierarchy
       titleId="pr-pr-vis-1-title"
       descId="pr-pr-vis-1-desc"
@@ -874,11 +874,11 @@ const PROOF_INTRO = (
 );
 
 const PROOF_CLOSE = (
-  <Figure caption="Aatma Aesthetics outcomes after the redesign — local pack, organic and enquiry trajectory at month 5.">
+  <Figure caption="Aatma Aesthetics outcomes after the redesign: local pack, organic and enquiry trajectory at month 5.">
     <BarChart
       titleId="pr-pr-vis-2-title"
       descId="pr-pr-vis-2-desc"
-      title="Aatma Aesthetics — month 5 outcome indicators"
+      title="Aatma Aesthetics: month 5 outcome indicators"
       desc="Indicative outcomes for the Aatma Aesthetics redesign at month five post-launch. Numbers shown directionally; full case study covers methodology and Search Console data."
       bars={[
         { label: "Local pack visibility", value: 1, max: 1, colour: C.secondary },
@@ -891,7 +891,7 @@ const PROOF_CLOSE = (
 );
 
 const PORTFOLIO_INTRO = (
-  <Figure caption="How I curate the UK web design portfolio — four criteria before a build is published.">
+  <Figure caption="How I curate the UK web design portfolio: four criteria before a build is published.">
     <Hierarchy
       titleId="por-vis-1-title"
       descId="por-vis-1-desc"
@@ -909,7 +909,7 @@ const PORTFOLIO_INTRO = (
 );
 
 const PORTFOLIO_CLOSE = (
-  <Figure caption="The kind of UK web design work I take on next — sectors and scopes most likely to convert into enquiries.">
+  <Figure caption="The kind of UK web design work I take on next: sectors and scopes most likely to convert into enquiries.">
     <BarChart
       titleId="por-vis-2-title"
       descId="por-vis-2-desc"
@@ -927,11 +927,11 @@ const PORTFOLIO_CLOSE = (
 );
 
 const CASESTUDIES_INTRO = (
-  <Figure caption="Aatma Aesthetics — the diagnosis findings that drove the website redesign brief.">
+  <Figure caption="Aatma Aesthetics: the diagnosis findings that drove the website redesign brief.">
     <BarChart
       titleId="cs-vis-1-title"
       descId="cs-vis-1-desc"
-      title="Aatma Aesthetics — pre-redesign issues found"
+      title="Aatma Aesthetics: pre-redesign issues found"
       desc="The five technical and conversion issues found during the free pre-redesign diagnosis on the Aatma Aesthetics website. Each was scoped into the redesign and fixed at launch."
       bars={[
         { label: "Avg position", value: 30, max: 30, colour: C.accent, suffix: "" },
@@ -945,12 +945,12 @@ const CASESTUDIES_INTRO = (
 );
 
 const CASESTUDIES_CLOSE = (
-  <Figure caption="Aatma Aesthetics — the redesign methodology, six-step process from diagnosis to launch.">
+  <Figure caption="Aatma Aesthetics: the redesign methodology, six-step process from diagnosis to launch.">
     <ProcessFlow
       titleId="cs-vis-2-title"
       descId="cs-vis-2-desc"
       title="The Aatma redesign methodology"
-      desc="Six-step methodology applied to the Aatma Aesthetics redesign — diagnosis, architecture, content depth, schema, mobile UX, and launch. Same methodology applies to every healthcare and trust-sensitive build."
+      desc="Six-step methodology applied to the Aatma Aesthetics redesign: diagnosis, architecture, content depth, schema, mobile UX, and launch. Same methodology applies to every healthcare and trust-sensitive build."
       steps={[
         { label: "Diagnose", sub: "GSC + audit" },
         { label: "Architect", sub: "Treatment IA" },

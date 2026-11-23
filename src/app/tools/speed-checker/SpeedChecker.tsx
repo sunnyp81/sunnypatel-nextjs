@@ -491,7 +491,7 @@ export default function SpeedChecker() {
         <div className="space-y-4 text-sm text-muted-foreground">
           <p>
             Since the June 2021 Page Experience update, Google uses Core Web
-            Vitals (LCP, FID/INP, and CLS) as ranking signals. Pages that
+            Vitals (LCP, INP, and CLS) as ranking signals. Pages that
             deliver a fast, visually stable experience have a measurable
             advantage in search rankings&mdash;especially on mobile, where
             Google now uses mobile-first indexing for all sites.

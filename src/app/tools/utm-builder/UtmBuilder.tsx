@@ -132,7 +132,7 @@ export default function UtmBuilder() {
 
       {/* Form */}
       <div className="rounded-xl border border-hairline bg-surface-1 dark:bg-white/[0.02] p-6 shadow-[var(--elev)]">
-        {/* Website URL — full width */}
+        {/* Website URL, full width */}
         <div className="mb-5">
           <label htmlFor="utm-website" className="text-sm font-medium text-foreground">
             Website URL <span className="text-destructive dark:text-red-400">*</span>
@@ -324,22 +324,22 @@ export default function UtmBuilder() {
         </h2>
         <ul className="space-y-2 text-sm text-muted-foreground">
           <li>
-            <span className="text-foreground font-medium">utm_source</span> — identifies which site or platform sent the traffic (e.g. google, facebook, newsletter). Required by Google Analytics.
+            <span className="text-foreground font-medium">utm_source</span>: identifies which site or platform sent the traffic (e.g. google, facebook, newsletter). Required by Google Analytics.
           </li>
           <li>
-            <span className="text-foreground font-medium">utm_medium</span> — the marketing channel or type of link (e.g. cpc, email, social, banner). Helps you compare channel performance.
+            <span className="text-foreground font-medium">utm_medium</span>: the marketing channel or type of link (e.g. cpc, email, social, banner). Helps you compare channel performance.
           </li>
           <li>
-            <span className="text-foreground font-medium">utm_campaign</span> — the specific campaign name, promotion, or strategic keyword (e.g. spring-sale, product-launch). Groups all links from the same campaign.
+            <span className="text-foreground font-medium">utm_campaign</span>: the specific campaign name, promotion, or strategic keyword (e.g. spring-sale, product-launch). Groups all links from the same campaign.
           </li>
           <li>
-            <span className="text-foreground font-medium">utm_term</span> — optional. Used mainly for paid search to identify the keyword you bid on. Useful for tracking individual ad group keywords.
+            <span className="text-foreground font-medium">utm_term</span>: optional. Used mainly for paid search to identify the keyword you bid on. Useful for tracking individual ad group keywords.
           </li>
           <li>
-            <span className="text-foreground font-medium">utm_content</span> — optional. Differentiates similar content or links within the same campaign (e.g. hero-banner vs. sidebar-cta). Great for A/B testing.
+            <span className="text-foreground font-medium">utm_content</span>: optional. Differentiates similar content or links within the same campaign (e.g. hero-banner vs. sidebar-cta). Great for A/B testing.
           </li>
           <li>
-            <span className="text-foreground font-medium">How to use</span> — paste the generated URL into your marketing campaigns. When someone clicks the link, Google Analytics automatically captures each UTM parameter so you can see exactly which sources, mediums, and campaigns drive traffic and conversions.
+            <span className="text-foreground font-medium">How to use</span>: paste the generated URL into your marketing campaigns. When someone clicks the link, Google Analytics automatically captures each UTM parameter so you can see exactly which sources, mediums, and campaigns drive traffic and conversions.
           </li>
         </ul>
       </div>

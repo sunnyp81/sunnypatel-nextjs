@@ -30,7 +30,7 @@ const FAQS = [
     a: "You receive a written report on 60 ChatGPT answers: 20 agreed buyer questions asked signed out three times each on separate days. I record for each answer whether your business is mentioned, whether your page is cited and whether you are recommended. I code two competitors you choose from the same answers. You also get the sources ChatGPT cites, any wrong facts about your business, a ranked list of the ten fixes most likely to help, and a sheet with every raw answer. A walkthrough call closes the audit. Other AI tools are not included.",
   },
   {
-    q: "How is this different from the AI visibility tools we have seen?",
+    q: "How is this different from other AI visibility tools?",
     a: "AI answers can change between runs. I use repeated observations and report their variation with the prompt set, dates and testing conditions. The technical findings and prioritised plan explain what the observations can and cannot establish. Measurement uses sources whose terms permit the agreed collection method.",
   },
   {
@@ -43,7 +43,7 @@ const FAQS = [
   },
   {
     q: "What happens after the audit?",
-    a: "The £795 audit delivers the report, prioritised plan and walkthrough; implementation is a separate scope. Your team can carry out the plan. Fractional support starts from £1,500 per month with the audit fee credited against your first month and no minimum contract. Before starting, we agree the monthly delivery allowance, named tasks, content and development responsibilities, tool costs and approval process in writing. External coverage depends on editors and is not guaranteed.",
+    a: "The £795 audit delivers the report, prioritised plan and walkthrough; implementation is a separate scope. Your team can carry out the plan. Fractional support starts from £1,500 per month with the audit fee credited against your first month and no minimum contract. Before starting, you and I agree the monthly delivery allowance, named tasks, content and development responsibilities, tool costs and approval process in writing. External coverage depends on editors and is not guaranteed.",
   },
   {
     q: "Can you build AI agents or automation for us?",
@@ -249,7 +249,7 @@ export default function AiVisibilityPage() {
               </p>
               <p>
                 Search access, useful answers and verifiable business information are
-                areas we can inspect. An assistant&apos;s selection process is not fully
+                areas I can inspect. An assistant&apos;s selection process is not fully
                 observable, so an omission cannot always be explained from your page alone.
               </p>
               <p className="font-medium text-foreground">
@@ -280,8 +280,8 @@ export default function AiVisibilityPage() {
               ))}
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Access guidance: <a href="https://developers.openai.com/api/docs/bots" className="text-brand underline">OpenAI crawler controls</a> and{" "}
-              <a href="https://developers.google.com/search/docs/appearance/ai-features" className="text-brand underline">Google AI feature requirements</a>.
+              Access guidance: <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener noreferrer" className="text-brand underline">OpenAI crawler controls</a> and{" "}
+              <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer" className="text-brand underline">Google AI feature requirements</a>.
             </p>
           </section>
 
@@ -360,7 +360,7 @@ export default function AiVisibilityPage() {
               <p>
                 The audit includes the report, answer sheet, fix list and walkthrough. It covers ChatGPT only. Website changes,
                 content production and external coverage are separate scopes. Before
-                fractional work starts, we agree the delivery allowance, tasks, owners,
+                fractional work starts, you and I agree the delivery allowance, tasks, owners,
                 additional costs and approval process in writing. Neither fee guarantees
                 that an assistant will cite or recommend your business.
               </p>

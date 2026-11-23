@@ -108,7 +108,7 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
             AI Visibility Checker
           </h1>
           <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-            Inspect crawl directives, structured data, public entity search matches and page structure. This technical diagnostic uses our own heuristics; it does not query live AI answers or measure retrieval, recommendations or citations.
+            Inspect crawl directives, structured data, public entity search matches and page structure. This technical diagnostic uses my own heuristics; it does not query live AI answers or measure retrieval, recommendations or citations.
           </p>
         </div>
       )}
@@ -117,9 +117,9 @@ export default function AiVisibilityChecker({ showHeading = true }: { showHeadin
         <p>Bot roles differ: OAI-SearchBot supports ChatGPT search, while GPTBot concerns model training. PerplexityBot supports Perplexity search. Googlebot controls Google Search crawling, including AI features; Google-Extended covers some other Google uses.</p>
         <p>Allowing a bot in robots.txt does not prove that firewalls permit it or that the page will be selected. User-requested fetchers also have different rules. Neither llms.txt nor FAQ markup is required for Google AI features.</p>
         <p className="flex flex-wrap gap-x-4 gap-y-1">
-          <a href="https://developers.openai.com/api/docs/bots" className="underline">OpenAI crawler roles</a>
-          <a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" className="underline">Perplexity crawler roles</a>
-          <a href="https://developers.google.com/search/docs/appearance/ai-features" className="underline">Google AI feature guidance</a>
+          <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener noreferrer" className="underline">OpenAI crawler roles</a>
+          <a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener noreferrer" className="underline">Perplexity crawler roles</a>
+          <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer" className="underline">Google AI feature guidance</a>
         </p>
       </div>
 

@@ -1,0 +1,37 @@
+title: UK Business AI Adoption Statistics (ONS and DSIT)
+metaTitle: 'UK Business AI Adoption Statistics (ONS and DSIT)'
+description: >-
+  Official UK business AI adoption figures side by side with base, month and
+  size band, and why the ONS 30%, the government survey 32% and the Business
+  Data Survey 41% differ. Every figure linked to its source.
+ogImage: '/images/blog/hero-uk-ai-adoption-statistics.webp'
+date: '2026-11-23'
+lastUpdated: '2026-11-23'
+tags:
+  - Statistics
+  - AI Adoption
+  - UK Business
+  - ONS
+keyStats:
+  - value: 30%
+    label: UK businesses using at least one AI technology, all sizes
+    source: ONS BICS Wave 165, September 2026
+  - value: 32%
+    label: Private sector businesses with 5 or more employees using AI
+    source: Government AI adoption survey, 7 January to 21 April 2026
+  - value: 41%
+    label: Businesses that handle digitised data and use AI
+    source: UK Business Data Survey, October 2025 to January 2026
+faqs:
+  - question: What percentage of UK businesses use AI?
+    answer: >-
+      It depends on who is counted. The ONS reported 30% of UK businesses of all sizes using at least one AI technology in September 2026 (Business Insights and Conditions Survey, Wave 165, published 8 October 2026), and 38% among businesses with 10 or more employees. The government AI adoption survey, published 29 October 2026, reported 32% of private sector businesses with 5 or more employees, interviewed between 7 January and 21 April 2026. Name the source, month and base when you cite either.
+  - question: Why do the ONS, the government survey and the Business Data Survey give different numbers?
+    answer: >-
+      They count different businesses at different times with different questions. The ONS 30% covers businesses of all sizes in September 2026. The government survey's 32% covers private sector businesses with 5 or more employees, interviewed between 7 January and 21 April 2026, and counts piloting as use. The UK Business Data Survey's 41% covers only businesses that handle digitised data, 4,090 of the 4,450 that took part, between October 2025 and January 2026. They are three measurements, not three versions of one number.
+  - question: Which UK AI adoption figure is safest to cite?
+    answer: >-
+      Cite one figure with its source, month and base in the same sentence, for example: the ONS reported that 30% of UK businesses used at least one AI technology in September 2026. Do not mix figures from different surveys in one comparison, and do not describe a survey estimate as a count of businesses.
+  - question: Which businesses use AI most?
+    answer: >-
+      Larger businesses and information and communication businesses, in every source. The ONS reported 28.7% of businesses with 0 to 9 employees and 50.9% of those with 250 or more using AI in September 2026. Its September 2026 bulletin put information and communication at 60%, the highest of any industry surveyed.

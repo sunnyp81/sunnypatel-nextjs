@@ -26,7 +26,7 @@ export default function ToolsPage() {
             Free SEO Tools
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Practical tools for keyword research, technical SEO, content analysis, and campaign tracking. Most tools run in your browser. The ones that check a live URL send that URL to my server to fetch the page, and the speed checker and website grader also send it to Google PageSpeed Insights. I do not store the URLs you enter, and no sign-up is needed.
+            Practical tools for keyword research, technical SEO, content analysis, and campaign tracking. Most tools run in your browser. The ones that check a live URL send that URL to my server to fetch the page, and the speed checker and website grader also send it to Google PageSpeed Insights. My code does not save the URLs you enter. No sign-up is needed.
           </p>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
             Not sure what a result means for your site? Book a{" "}

@@ -367,7 +367,7 @@ export default function KeywordDensity() {
             <span className="text-foreground font-medium">Target keyword</span>: optionally enter your focus keyword to see its count and density prominently displayed, with a recommendation on whether the density is within the ideal 0.5 to 2.5% range.
           </li>
           <li>
-            <span className="text-foreground font-medium">1-word phrases</span>: shows the top 20 single words by frequency. Common stop words (the, a, is, etc.) are filtered by default, toggle this off to see all words.
+            <span className="text-foreground font-medium">1-word phrases</span>: shows the top 20 single words by frequency. Common stop words (the, a, is, etc.) are filtered by default. Toggle this off to see all words.
           </li>
           <li>
             <span className="text-foreground font-medium">2-word &amp; 3-word phrases</span>: shows the top 20 bigrams and trigrams, useful for spotting over-used phrases or finding your content&apos;s natural keyword themes.

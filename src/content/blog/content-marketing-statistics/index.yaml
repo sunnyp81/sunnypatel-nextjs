@@ -5,7 +5,7 @@ description: >-
   search data, AI-content ranking study, B2B strategy and investment data.
 ogImage: '/images/blog/hero-content-marketing-statistics.webp'
 date: '2026-02-01'
-lastUpdated: '2026-10-23'
+lastUpdated: '2026-11-23'
 tags:
   - Content Marketing
   - Statistics
@@ -15,28 +15,23 @@ keyStats:
   - value: '748%'
     label: ROI for thought-leadership SEO campaigns
     source: First Page Sage, 2026
-  - value: $2.77
-    label: Return for every $1 spent on content marketing across all channels
-    source: SQ Magazine, revised August 2026
   - value: '97%'
-    label: Of B2B marketers say their organisation has a content marketing strategy
-    source: Content Marketing Institute, 2026
+    label: Of B2B marketers say they have a content strategy
+    source: Content Marketing Institute, 2026 report
 faqs:
   - question: What is the ROI of content marketing in 2026?
     answer: >-
       It depends what's being measured. Thought-leadership SEO campaigns return
-      748% (First Page Sage, 2026), against 117% for technical SEO. Content
-      marketing overall, across every channel
-      and format, returns $2.77 for every $1 spent (SQ Magazine), lower because
-      it includes formats that don't compound the way indexed, evergreen
-      content does.
+      748% (First Page Sage, campaign data from Q1 2021 to Q3 2025), against
+      117% for technical SEO. Both are First Page Sage's own campaign
+      benchmarks, so treat them as one firm's data.
   - question: Do B2B and B2C companies use content marketing differently?
     answer: >-
-      97% of B2B marketers say their organisation has a content marketing
-      strategy, but only 59% rate their overall marketing as effective over the
-      past 12 months, and most of that is only "somewhat effective" (47%)
-      against "highly effective" (12%) (Content Marketing Institute, B2B
-      Content and Marketing Trends 2026). CMI's 2026 research covers B2B only,
+      97% of B2B marketers say they have a content strategy, but only 59% rate
+      their marketing as at least somewhat effective over the last 12 months,
+      and most of that is "somewhat effective" (47%) against "highly effective"
+      (12%) (Content Marketing Institute, B2B Content and Marketing Trends:
+      Insights for 2026, 1,015 B2B marketers). CMI's 2026 research covers B2B only,
       so there is no current B2C figure from the same source to compare
       against.
   - question: How often should you publish blog content?
@@ -46,19 +41,17 @@ faqs:
       monthly or less among the habits associated with weak results.
   - question: Does AI-generated content rank as well as human-written content?
     answer: >-
-      Not on its own. Semrush's April 2026 study of 42,000 posts found
-      human-written content holds Google's #1 position 80% of the time versus
-      9% for pure AI content. A separate 16-month Digital Applied study of
-      4,200 articles found unedited AI content ranks roughly 23% lower than
-      human-authored pieces on the same keywords, while AI content with
-      substantive human editing, original data and expert attribution performs
-      within 4% of fully human-written content.
+      Not on its own. Semrush's April 2026 study of 42,000 blog posts across
+      20,000 keywords found content classified as human-written in Google's #1
+      position 80% of the time, against 9% for content classified as purely
+      AI-generated.
   - question: How much of my marketing budget should go to content?
     answer: >-
       CMI's B2B Content and Marketing Trends 2026 research (1,015 marketers)
       doesn't publish a content budget share. It does show where budgets are moving: 45% of B2B
-      marketers name AI-powered marketing tools as a top area for increased
-      2026 investment, while human resources rank last at 9%.
+      marketers name AI-powered marketing tools among the top three areas
+      where they expect to increase investment in 2026, while human resources
+      rank last at 9%.
   - question: Is blogging still worth it with AI Overviews and zero-click search?
     answer: >-
       Yes, but the target has shifted. 68% of US Google searches now end

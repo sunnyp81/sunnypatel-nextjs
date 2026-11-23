@@ -25,9 +25,9 @@ export const STAT_GROUPS: StatGroup[] = [
         shortTitle: "UK SEO statistics",
         summary: "Search engine share, click-through rates, agency numbers and AI referral data for the UK.",
         figure: {
-          value: "91.35%",
+          value: "90.62%",
           label: "of UK search referrals came from Google",
-          source: "Statcounter, September 2026",
+          source: "Statcounter, October 2026",
         },
         downloads: [
           { label: "CSV", href: "/downloads/seo-statistics-uk-2026.csv" },

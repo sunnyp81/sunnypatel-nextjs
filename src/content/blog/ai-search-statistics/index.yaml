@@ -7,7 +7,7 @@ description: >-
   rates for the US and UK, and the most cited websites in AI answers.
 ogImage: '/images/blog/hero-ai-search-statistics.webp'
 date: '2026-02-15'
-lastUpdated: '2026-10-23'
+lastUpdated: '2026-11-23'
 tags:
   - AI Search
   - Statistics
@@ -37,10 +37,10 @@ faqs:
 
   - question: How many people use AI search in 2026?
     answer: >-
-      More than 1.2 billion people use ChatGPT each week (OpenAI, October 2026), up from 900 million weekly active users in February 2026, and the ChatGPT mobile app reached 1 billion monthly active users in May 2026 (Sensor Tower estimate). The Gemini app passed 900 million monthly users and Google AI Overviews 2.5 billion (Google I/O, May 2026). In the UK, 54% of adults now use AI tools such as ChatGPT, Copilot or Gemini (Ofcom, April 2026). Despite this, AI platforms send only 0.32% to 1.08% of website traffic (SE Ranking, Conductor, 2026).
+      More than 1.2 billion people use ChatGPT each week (OpenAI, October 2026), up from more than 900 million weekly active users in February 2026, and the ChatGPT mobile app reached 1 billion monthly active users in May 2026 (Sensor Tower estimate). The Gemini app passed 900 million monthly users and Google AI Overviews 2.5 billion (Google I/O, May 2026). In the UK, 54% of adults now use AI tools such as ChatGPT, Copilot or Gemini (Ofcom, April 2026). Despite this, AI platforms send only 0.32% to 1.08% of website traffic (SE Ranking, Conductor, 2026).
   - question: What is Google's search market share compared with AI search in 2026?
     answer: >-
-      Statcounter recorded Google at 89.94% and Bing at 5.29% of worldwide search engine page referrals in September 2026. That denominator excludes questions
+      Statcounter recorded Google at 91.04% and Bing at 4.77% of worldwide search engine page referrals in October 2026. That denominator excludes questions
       asked inside ChatGPT and Perplexity, so it is not a share of all search and
       AI activity. OpenAI's 2.5 billion daily ChatGPT prompts (July 2025) and
       Google's more than 5 trillion annual searches (March 2025) use different
@@ -59,8 +59,8 @@ faqs:
   - question: Which websites are cited most often in AI answers?
     answer: >-
       Among the top Google AI Overview sources tracked by Ahrefs, YouTube accounts
-      for 22.9% of that top-source citation share and Reddit 18.5% (3 million+ US
-      queries; report updated 2 September 2026). This is not their share of every
+      for 24.5% of that top-source citation share and Reddit 18.1% (3 million+ US
+      queries; report updated 3 November 2026). This is not their share of every
       AI Overview citation. Profound separately reports 57% of all citations on
       brand-owned sites across eight platforms and 11.84 billion citations from 16
       April to 16 July 2026. Semrush followed 230,000 prompts and more than 100

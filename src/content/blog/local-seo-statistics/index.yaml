@@ -6,7 +6,7 @@ description: >-
   still hold.
 ogImage: '/images/blog/hero-local-seo-statistics.webp'
 date: '2026-01-28'
-lastUpdated: '2026-10-23'
+lastUpdated: '2026-11-23'
 tags:
   - Local SEO
   - Statistics
@@ -31,7 +31,7 @@ faqs:
       An average Google Business Profile gets around 1,260 views and 33 website clicks a month, with 59 total actions (clicks, calls, and direction requests combined), based on 2017 to 2018 listing data. Customers are 2.7 times more likely to consider a business reputable if they find a complete Business Profile, yet average profile completeness across multi-location brand locations is only 86.6%. (Sources: BrightLocal Google My Business Insights Study, 2019; Google Business Profile Help; SOCi Local Visibility Index, 2026)
   - question: Do more Google reviews always mean a higher local pack ranking?
     answer: >-
-      Not directly. Review count matters, but review recency sits close behind it: in Whitespark's 2026 Local Search Ranking Factors survey, review quantity ranked ninth and recency eleventh among Local Pack factors, and contributors said a steady trickle of recent reviews can lift a business above one sitting on a large but ageing pile. Top-three businesses average 561 Google reviews, but chasing hundreds more matters less than keeping new reviews coming. (Sources: Semrush, 2025, via Shopify; Whitespark, 2026)
+      Not directly. Review count matters, but review recency sits close behind it: in Whitespark's 2026 Local Search Ranking Factors survey, review quantity ranked ninth and recency eleventh among Local Pack factors, and contributors said a steady trickle of recent reviews can lift a business above one sitting on a large but ageing pile. Top-three businesses average 561 Google reviews, but chasing hundreds more matters less than keeping new reviews coming. (Sources: Semrush figure cited by Shopify, 2026; Whitespark, 2026)
   - question: Does replying to Google reviews improve local search rankings?
     answer: >-
       No direct evidence supports that reply activity itself moves rankings, according to the consensus among experienced local SEOs discussing it on Local Search Forum. It is a trust and conversion factor instead: 80% of consumers say they're likely to use a business that responds to all its reviews, and 42% say they're unlikely to use one that never replies. (Sources: BrightLocal Local Consumer Review Survey 2026, US adults; Local Search Forum, 2026)
@@ -43,4 +43,4 @@ faqs:
       The sources do not show a local-specific click reduction. Ahrefs found lower organic CTR in its informational-keyword samples (58% lower for the top-ranking page when an AI Overview is present, comparing December 2023 with December 2025, up from 34.5% in its April 2025 study); that does not establish a local-search-specific reduction. A Whitespark study found AI Overviews on 68% of local business-type queries across local, informational and hybrid searches in three US cities, but only about 15% of pure local-intent queries, and a Local Pack listing sits outside the AI Overview snippet, which is one reason Google Business Profile visibility matters more now, not less. (Sources: Whitespark, 2025, via Shopify; Ahrefs, 2026)
   - question: What percentage of "near me" searches lead to a store visit?
     answer: >-
-      76% of consumers who search for "near me" visit a business within a day. Published estimates for total monthly "near me" search volume vary widely by source and methodology, so the growth trend matters more than any single volume figure. (Sources: Backlinko, updated December 2025; Searchlab, 2026)
+      76% of consumers who search for "near me" visit a business within a day. Published estimates for total monthly "near me" search volume vary widely by source and methodology, so treat any single volume figure with caution. (Source: Google figure cited by Backlinko, page updated December 2025)

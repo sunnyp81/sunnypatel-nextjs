@@ -77,6 +77,10 @@ export const TOOLS_OG_DATA: Record<string, ToolOgEntry> = {
     description:
       "Check redirect chains and HTTP status codes for any URL. Detect 301, 302, and redirect loops. Visualise the full redirect path. Free technical SEO tool.",
   },
+  "redirect-map-checker": {
+    headline: "Free Redirect Map Checker",
+    description: "Check a migration redirect map for gaps, chains, loops and conflicts.",
+  },
   "review-link": {
     headline: "Google Review Link Generator",
     description:

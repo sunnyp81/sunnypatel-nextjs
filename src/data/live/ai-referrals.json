@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16",
+  "updatedAt": "2026-11-23",
   "frame": {
     "properties": 108,
     "responded": 108,
@@ -269,36 +269,48 @@
         "Gemini": 11,
         "Claude": 4
       }
+    },
+    {
+      "weekStart": "2026-11-09",
+      "weekEnd": "2026-11-15",
+      "sessions": 25475,
+      "ai": 120,
+      "share": 0.47,
+      "assistants": {
+        "ChatGPT": 114,
+        "Claude": 4,
+        "Gemini": 2
+      }
     }
   ],
   "window": {
-    "start": "2026-10-12",
-    "end": "2026-11-08",
-    "sessions": 101163,
-    "ai": 702,
-    "share": 0.69,
-    "sitesWithSessions": 98,
+    "start": "2026-10-19",
+    "end": "2026-11-15",
+    "sessions": 91521,
+    "ai": 639,
+    "share": 0.7,
+    "sitesWithSessions": 101,
     "sitesWithAi": 46,
     "medianSiteShare": 0.0,
-    "largestSiteSessionShare": 12.26,
+    "largestSiteSessionShare": 10.95,
     "excludingLargest": {
-      "sessions": 88757,
-      "ai": 614,
-      "share": 0.69
+      "sessions": 81504,
+      "ai": 567,
+      "share": 0.7
     },
     "assistants": {
-      "ChatGPT": 623,
-      "Microsoft Copilot": 38,
-      "Gemini": 25,
-      "Perplexity": 9,
-      "Claude": 7
+      "ChatGPT": 581,
+      "Gemini": 22,
+      "Microsoft Copilot": 18,
+      "Claude": 10,
+      "Perplexity": 8
     }
   },
   "prior": {
-    "start": "2026-09-14",
-    "end": "2026-10-11",
-    "sessions": 95095,
-    "ai": 1503,
-    "share": 1.58
+    "start": "2026-09-21",
+    "end": "2026-10-18",
+    "sessions": 102518,
+    "ai": 1265,
+    "share": 1.23
   }
 }

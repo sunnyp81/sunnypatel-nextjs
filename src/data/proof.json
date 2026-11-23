@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-11-16",
+  "updatedAt": "2026-11-23",
   "source": "Google Search Console API, sc-domain:sunnypatel.co.uk",
   "summary28d": {
-    "clicks": 119,
-    "impressions": 51939,
-    "avgPosition": 22.2
+    "clicks": 128,
+    "impressions": 54082,
+    "avgPosition": 21.3
   },
   "summary12mo": {
-    "clicks": 620,
-    "impressions": 438719,
-    "avgPosition": 28.2
+    "clicks": 642,
+    "impressions": 451846,
+    "avgPosition": 27.9
   },
   "rankings": [
     {
       "query": "seo consultant reading",
-      "position": 5.9
+      "position": 5.8
     },
     {
       "query": "best geo agency uk",
-      "position": 8
+      "position": 8.1
     },
     {
       "query": "best geo agencies uk",
@@ -29,19 +29,15 @@
       "position": 10.1
     },
     {
-      "query": "keyword scraper",
-      "position": 11.2
+      "query": "seo consulting business",
+      "position": 11
     },
     {
-      "query": "aeo consultant",
-      "position": 11.3
+      "query": "keyword scraper",
+      "position": 11
     }
   ],
   "weeklyClicks": [
-    {
-      "weekStart": "2026-09-19",
-      "clicks": 37
-    },
     {
       "weekStart": "2026-09-26",
       "clicks": 34
@@ -69,6 +65,10 @@
     {
       "weekStart": "2026-11-07",
       "clicks": 24
+    },
+    {
+      "weekStart": "2026-11-14",
+      "clicks": 22
     }
   ],
   "caseStudy": {

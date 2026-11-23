@@ -310,6 +310,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.7,
   },
   {
+    url: `${SITE_URL}/tools/redirect-map-checker/`,
+    lastModified: new Date("2026-11-22"),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
     url: `${SITE_URL}/tools/utm-builder/`,
     lastModified: LAST_DEPLOY,
     changeFrequency: "monthly",

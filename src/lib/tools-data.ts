@@ -101,6 +101,13 @@ export const tools: Tool[] = [
     category: "Technical SEO",
   },
   {
+    name: "Redirect Map Checker",
+    description:
+      "Paste old URLs and a redirect map to find missing redirects, chains and loops before a migration.",
+    href: "/tools/redirect-map-checker/",
+    category: "Technical SEO",
+  },
+  {
     name: "UTM Link Builder",
     description:
       "Build UTM-tagged campaign URLs with presets for common sources and mediums.",

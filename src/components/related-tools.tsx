@@ -26,6 +26,16 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
       "/tools/internal-links/",
       "/tools/serp-preview/",
     ],
+    "/tools/redirect-map-checker/": [
+      "/tools/redirect-checker/",
+      "/tools/broken-links/",
+      "/tools/sitemap-generator/",
+    ],
+    "/tools/redirect-checker/": [
+      "/tools/redirect-map-checker/",
+      "/tools/broken-links/",
+      "/tools/ssl-checker/",
+    ],
     "/tools/schema-validator/": [
       "/tools/schema-generator/",
       "/tools/robots-generator/",

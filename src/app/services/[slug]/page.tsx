@@ -779,7 +779,14 @@ function buildSections(
       </>
     ),
     [pos.whoFor]: (
-      <WhoForGrid yesItems={convData.yesFor} noItems={convData.noFor} />
+      <WhoForGrid
+        yesItems={convData.yesFor}
+        noItems={
+          slug === "seo-migration-consultant"
+            ? convData.noFor.filter((item) => !item.startsWith("New sites with fewer than 10 pages"))
+            : convData.noFor
+        }
+      />
     ),
   };
 

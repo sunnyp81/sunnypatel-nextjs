@@ -42,7 +42,7 @@ export function OngoingSupportSection() {
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground dark:text-white/70">
             Choose hands-on implementation or advice for your team to deliver. Before an
-            engagement starts, we agree the tasks, allowance, owners, costs and approvals.
+            engagement starts, you and I agree the tasks, allowance, owners, costs and approvals.
           </p>
         </div>
 

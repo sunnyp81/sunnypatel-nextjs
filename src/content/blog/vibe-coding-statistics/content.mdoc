@@ -2,10 +2,10 @@ _Last checked: 24 November 2026. Every figure below was read from the publicatio
 
 ## At a glance
 
-1. **Most developers use AI tools.** 84% of Stack Overflow's 2025 respondents used or planned to use them (n = 33,662, [Stack Overflow](https://survey.stackoverflow.co/2025/ai)). Google's DORA report put use at work at 90% for June and July 2025 (nearly 5,000 respondents, [DORA](https://services.google.com/fh/files/misc/2025_state_of_ai_assisted_software_development.pdf)).
+1. **Most surveyed developers use AI tools.** 84% of Stack Overflow's 2025 respondents used or planned to use them (n = 33,662, [Stack Overflow](https://survey.stackoverflow.co/2025/ai)). Google's DORA report put use at work at 90% for June and July 2025 (nearly 5,000 technology professionals, [DORA](https://services.google.com/fh/files/misc/2025_state_of_ai_assisted_software_development.pdf)).
 2. **Few say they vibe code.** 72.2% said it is not part of their professional work, and 11.9% said yes (Stack Overflow 2025, n = 26,564).
 3. **Trust trails use.** 46% distrusted the accuracy of AI tools and 33% trusted it (Stack Overflow 2025, n = 33,244).
-4. **Vendor tests of raw models show security gaps.** Veracode found a 56% average security pass rate in July 2026, for raw models with no security prompting ([Veracode](https://www.veracode.com/news/llms-are-getting-smarter-but-not-safer-veracode-2026-genai-code-security-report-finds-ai-generated-code-security-has-stalled-at-56%25-pass-rate/)).
+4. **Vendor tests of raw models show security gaps.** Veracode reported an average security pass rate of 56% across the four testing snapshots and more than 100 models it has tracked, with no security-specific prompting, in its report of 28 July 2026 ([Veracode](https://www.veracode.com/news/llms-are-getting-smarter-but-not-safer-veracode-2026-genai-code-security-report-finds-ai-generated-code-security-has-stalled-at-56%25-pass-rate/)).
 5. **GitHub reports 180 million-plus developers.** About 80% of new ones used Copilot in their first week ([Octoverse 2025](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/)).
 
 Each figure comes from a different group of people in a different period. I list the base next to every number. For AI search usage rather than developer tools, see my [AI search statistics](/blog/ai-search-statistics/).
@@ -22,7 +22,7 @@ Use the row that matches your claim. Quote its base and date in the same sentenc
 | **80%** use AI at least an hour a day | Respondents who answered, 10,926 | 2026 survey | [Stack Overflow Developer Survey 2026](https://survey.stackoverflow.co/2026/ai) | 2026 (date not stated on page) |
 | **90%** use AI at work | About 5,000 technology professionals worldwide | 13 June to 21 July 2025 | [DORA 2025 report](https://services.google.com/fh/files/misc/2025_state_of_ai_assisted_software_development.pdf) | 23 September 2025 |
 | **90%** use AI coding agents weekly at work, **68%** daily | Over 15,000 professional developers | May to July 2026 | [JetBrains Research](https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/) | 18 August 2026 |
-| **56%** average security pass rate | 11 raw models on Veracode's leaderboard (vendor test) | Report of 28 July 2026 | [Veracode 2026 GenAI Code Security Report](https://www.veracode.com/news/llms-are-getting-smarter-but-not-safer-veracode-2026-genai-code-security-report-finds-ai-generated-code-security-has-stalled-at-56%25-pass-rate/) | 28 July 2026 |
+| **56%** average security pass rate | Veracode's tracked models, tested raw with no security prompting; the 2026 leaderboard ranks 11 (vendor test) | Report of 28 July 2026 | [Veracode 2026 GenAI Code Security Report](https://www.veracode.com/news/llms-are-getting-smarter-but-not-safer-veracode-2026-genai-code-security-report-finds-ai-generated-code-security-has-stalled-at-56%25-pass-rate/) | 28 July 2026 |
 | **45%** of test cases had an OWASP Top 10 flaw | 80 tasks, more than 100 models (vendor test) | Report of 30 July 2025 | [Veracode 2025 GenAI Code Security Report](https://www.veracode.com/press-release/ai-generated-code-poses-major-security-risks-in-nearly-half-of-all-development-tasks-veracode-research-reveals/) | 30 July 2025 |
 | **180 million-plus** developers on GitHub | GitHub's own platform data | 1 September 2024 to 31 August 2025 | [GitHub Octoverse 2025](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/) | 28 October 2025 (updated 28 February 2026) |
 
@@ -30,25 +30,23 @@ Use the row that matches your claim. Quote its base and date in the same sentenc
 
 Between 80% and 90% in the recent surveys. The wording of each question differs. I do not join them into one trend.
 
-{% chart type="bar" eyebrow="Five surveys, five questions" title="Headline AI use among developers, by survey and measure" data="Stack Overflow 2025 use or plan to use:84|DORA 2025 use AI at work:90|JetBrains 2025 regular AI tool use:85|Stack Overflow 2026 an hour or more a day:80|JetBrains 2026 agents weekly at work:90" suffix="%" source="Stack Overflow 2025 (n = 33,662) and 2026 (n = 10,926); DORA 2025 (nearly 5,000); JetBrains 2025 (24,534) and 2026 (over 15,000 professional developers)" /%}
+{% chart type="bar" eyebrow="Five surveys, five questions" title="Headline AI use among survey respondents, by survey and measure" data="Stack Overflow 2025 use or plan to use:84|DORA 2025 use AI at work:90|JetBrains 2025 regular AI tool use:85|Stack Overflow 2026 an hour or more a day:80|JetBrains 2026 agents weekly at work:90" suffix="%" source="Stack Overflow 2025 (n = 33,662) and 2026 (n = 10,926); DORA 2025 (nearly 5,000); JetBrains 2025 (24,534) and 2026 (over 15,000 professional developers)" /%}
 
 - **Stack Overflow 2025.** 84% of respondents used or planned to use AI tools. 51% of professional developers used them daily (n = 26,004) ([survey](https://survey.stackoverflow.co/2025/ai)).
-- **Stack Overflow 2026.** The survey drew 30,903 responses from 169 countries. Of the 10,926 who answered the daily-use chart, 30.9% used AI for four hours or more a day. The three bands of an hour or more add to 80.3% ([survey](https://survey.stackoverflow.co/2026/ai)).
+- **Stack Overflow 2026.** The survey drew 30,903 responses from 169 countries. Stack Overflow's chart (n = 10,926, all who answered) shows 30.9% at four hours or more a day. Its headline words the same 31% as a share of daily AI users, which the chart table does not match. The three bands of an hour or more add to 80.3% ([survey](https://survey.stackoverflow.co/2026/ai)).
 - **DORA 2025.** 90% of respondents used AI as part of their work ([report](https://services.google.com/fh/files/misc/2025_state_of_ai_assisted_software_development.pdf)). The survey ran from 13 June to 21 July 2025.
 - **JetBrains 2025.** 85% regularly used AI tools for coding and development. 62% relied on at least one AI coding assistant, agent or code editor. The base was 24,534 developers in 194 countries ([post of 15 October 2025](https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/)).
 - **JetBrains 2026.** 90% of professional developers used AI coding agents at work at least weekly and 68% daily in May to July 2026. The survey was reweighted to represent the global developer population ([post of 18 August 2026](https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/)).
 
 ## How many developers are vibe coding?
 
-A minority. The term comes from a post by Andrej Karpathy on [X](https://x.com/karpathy/status/1886192184808149383) on 2 February 2025. He wrote of "a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
+A minority. Andrej Karpathy introduced the term in a post on [X](https://x.com/karpathy/status/1886192184808149383) on 2 February 2025. He wrote of "a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
 
 The Stack Overflow 2025 survey asked whether vibe coding is part of professional development work. It defined the term as the process of generating software from LLM prompts. 26,564 respondents answered ([survey](https://survey.stackoverflow.co/2025/ai)).
 
 {% chart type="bar" eyebrow="Stack Overflow Developer Survey 2025" title="Is vibe coding part of your professional development work?" data="No:72.2|No, emphatically:5.3|Yes:11.9|Yes, somewhat:2.8|I have tried it:2.1|Yes, emphatically:0.4" suffix="%" highlight="No" source="Stack Overflow Developer Survey 2025, AI section, n = 26,564. Not sure (1.2%) and uncategorised (4%) are left out." /%}
 
 The three yes answers add up to 15.1% (11.9% plus 2.8% plus 0.4%). That sum is mine. The survey page prints the three shares and not the total. The 2026 survey page I read has no vibe coding question, so 2025 is the newest edition with one.
-
-JetBrains measured something nearby for 2026. It asked over 15,000 professional developers what share of last month's work code was fully generated by AI agents. The average answer was about 47%. About 22% relied almost entirely on agents, with more than 80% of their code agent-generated ([post of 26 August 2026](https://blog.jetbrains.com/research/2026/08/how-much-code-do-developers-really-let-agents-write/)). That is agent use, not vibe coding as Stack Overflow defined it.
 
 ## Do developers trust AI output?
 
@@ -69,19 +67,19 @@ Two more 2025 Stack Overflow figures show the friction (n = 31,476). 66% named "
 It depends on what is tested. The only figures I use here come from Veracode. It is a security vendor. It designed the 2025 tests and scored them with its own static analysis tool.
 
 {% stats %}
-{% stat value="56%" label="average security pass rate, 11 raw models, 2026" source="Veracode, 28 July 2026" /%}
-{% stat value="45%" label="of 80 test cases had an OWASP Top 10 flaw, 2025" source="Veracode, 30 July 2025" /%}
+{% stat value="56%" label="average security pass rate across Veracode's tracked models, 2026" source="Veracode, 28 July 2026" /%}
+{% stat value="45%" label="of test cases (80 tasks across 100+ models) introduced an OWASP Top 10 flaw, 2025" source="Veracode, 30 July 2025" /%}
 {% /stats %}
 
-**The 2026 report** (28 July 2026) found an average pass rate of 56%, "virtually unchanged" from the year before. The models failed nearly 44% of the time with no security prompting. The top model scored 68% and the lowest 50%. By language, Python scored 63% and Java 30%.
+**The 2026 report** (28 July 2026) found an average pass rate of 56%, "virtually unchanged" from the year before. The models failed nearly 44% of the time with no security prompting. On its 11-model leaderboard the top model scored 68% and the lowest 50%. By language, Python scored 63% and Java 30%.
 
 **The 2025 report** (30 July 2025) used 80 curated code-completion tasks across more than 100 models. In 45% of test cases the models introduced a flaw in the OWASP Top 10. Java failed over 70% of the time. Python, C# and JavaScript failed between 38% and 45%. Cross-site scripting (CWE-80) failed 86% and log injection (CWE-117) 88%.
 
-{% chart type="bar" eyebrow="Veracode 2026 GenAI Code Security Report" title="Security pass rate of raw models, 2026" data="Top model:68|Average:56|Lowest model:50" suffix="%" highlight="Average" source="Veracode, press release of 28 July 2026. 11 models on the leaderboard." /%}
+{% chart type="bar" eyebrow="Veracode 2026 GenAI Code Security Report" title="Security pass rate of raw models, 2026" data="Top model:68|Average:56|Lowest model:50" suffix="%" highlight="Average" source="Veracode, press release of 28 July 2026. Top and lowest are from the 11-model leaderboard. The 56% average is Veracode's figure across all tracked models, not the mean of these 11." /%}
 
-Veracode states the limit itself. The tests ran against raw models and not agents or production environments with tooling, guardrails or human review. So these results do not say how code that went through review or scanning performs. They also do not say that AI-generated code is insecure in general. Veracode's own advice is to treat AI code like any unreviewed code.
+Veracode states the limit itself. The tests ran against raw models and not agents or production environments with tooling, guardrails or human review. Veracode states this limit itself, so the results do not show how reviewed or scanned code performs. Veracode's Chris Wysopal says AI-generated code "needs to be treated like any unreviewed code".
 
-The two reports are not one series. The 2025 figure counts test cases with a flaw. The 2026 figure is a pass rate across a different set of models. I do not subtract one from the other.
+The two reports are not one series. The 2025 figure counts test cases with a flaw. The 2026 figure is a pass rate and not a count of test cases. Veracode's release does not describe a like-for-like set of models or tasks, so I do not subtract one from the other. I do not subtract one from the other.
 
 ## How big is AI-assisted development on GitHub?
 
@@ -105,12 +103,12 @@ What a site built this way needs is the same as any other site. The content has 
 
 | Source | Publisher | Published | Sample and period | Type |
 |---|---|---|---|---|
-| [Stack Overflow Developer Survey 2025, AI section](https://survey.stackoverflow.co/2025/ai) | Stack Overflow | 2025 (no date on page) | Each question has its own n, from 26,004 to 33,662 on this page. The page gives no total or fieldwork dates | Online survey |
+| [Stack Overflow Developer Survey 2025, AI section](https://survey.stackoverflow.co/2025/ai) | Stack Overflow | 2025 (no date on page) | Each question has its own n, from 26,004 to 33,662 on this page. Visible text gives no total or fieldwork dates | Online survey |
 | [Stack Overflow Developer Survey 2026](https://survey.stackoverflow.co/2026/) | Stack Overflow | 2026 (no date on page) | 30,903 responses, 169 countries. Each chart has its own n | Online survey |
 | [2025 DORA State of AI-assisted Software Development](https://services.google.com/fh/files/misc/2025_state_of_ai_assisted_software_development.pdf) | Google Cloud (DORA) | 23 September 2025 announcement | Nearly 5,000 technology professionals, 13 June to 21 July 2025 | Survey and interviews |
 | [State of Developer Ecosystem 2025](https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/) | JetBrains Research | 15 October 2025 | 24,534 developers, 194 countries | Vendor survey |
-| [AI coding agent adoption](https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/) and [share of code](https://blog.jetbrains.com/research/2026/08/how-much-code-do-developers-really-let-agents-write/) | JetBrains Research | 18 and 26 August 2026 | Over 15,000 professional developers, May to July 2026, reweighted | Vendor survey |
-| [2026 GenAI Code Security Report](https://www.veracode.com/news/llms-are-getting-smarter-but-not-safer-veracode-2026-genai-code-security-report-finds-ai-generated-code-security-has-stalled-at-56%25-pass-rate/) | Veracode | 28 July 2026 | 11 raw models on the leaderboard. Task count not stated | Vendor benchmark |
+| [AI coding agent adoption](https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/) | JetBrains Research | 18 August 2026 | Over 15,000 professional developers, May to July 2026, reweighted | Vendor survey |
+| [2026 GenAI Code Security Report](https://www.veracode.com/news/llms-are-getting-smarter-but-not-safer-veracode-2026-genai-code-security-report-finds-ai-generated-code-security-has-stalled-at-56%25-pass-rate/) | Veracode | 28 July 2026 | More than 100 models tracked over four snapshots; 11 on the 2026 leaderboard. Task count not stated | Vendor benchmark |
 | [2025 GenAI Code Security Report](https://www.veracode.com/press-release/ai-generated-code-poses-major-security-risks-in-nearly-half-of-all-development-tasks-veracode-research-reveals/) | Veracode | 30 July 2025 | 80 tasks, more than 100 models | Vendor benchmark |
 | [Octoverse 2025](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/) | GitHub | 28 October 2025, updated 28 February 2026 | GitHub platform data, 1 September 2024 to 31 August 2025 | Vendor platform data |
 
@@ -120,7 +118,7 @@ Limits that apply to every figure on this page:
 - JetBrains, Veracode and GitHub sell developer tools or security products. Their reports are vendor research.
 - The surveys define AI use differently. Do not put two of them in one comparison.
 - I did not use figures from blogs that repeat these reports. A figure is on this page only if I read it at its publisher.
-- Stack Overflow's 2025 and 2026 pages give no publication date and no overall respondent total for 2025. I state neither.
+- Stack Overflow's 2025 and 2026 pages show no publication date and no fieldwork dates. The visible text of the 2025 AI page gives no overall respondent total, so each figure here carries its own question base.
 
 ## How to cite this page
 

@@ -13,7 +13,7 @@ tags:
   - Developers
 keyStats:
   - value: 84%
-    label: Developers using or planning to use AI tools
+    label: Survey respondents using or planning to use AI tools
     source: Stack Overflow Developer Survey 2025, n = 33,662
   - value: 72%
     label: Respondents who say they are not vibe coding
@@ -27,7 +27,7 @@ faqs:
       Most say they do not. In the Stack Overflow Developer Survey 2025, 72.2% of the 26,564 respondents who answered said vibe coding is not part of their professional work. 11.9% said yes, 2.8% said yes somewhat and 0.4% said yes emphatically. The survey defined vibe coding as generating software from LLM prompts. The 2026 survey page has no vibe coding question.
   - question: Is AI-generated code insecure?
     answer: >-
-      One vendor test says raw models often write code that fails a security check. Veracode's 2026 report found an average security pass rate of 56% across the 11 models it ranked, with no security prompting. The tests ran against raw models and not agents or production environments with tooling, guardrails or human review. They do not show how reviewed code performs.
+      One vendor test says raw models often write code that fails a security check. Veracode's 2026 report reported an average security pass rate of 56% across the models it has tracked, with no security-specific prompting. Its 11-model leaderboard ranged from 50% to 68%. The tests ran against raw models and not agents or production environments with tooling, guardrails or human review.
   - question: Do developers trust AI-generated code?
     answer: >-
       Less than they use it. In the Stack Overflow 2025 survey, 46% of 33,244 respondents distrusted the accuracy of AI tools and 33% trusted it. In the DORA 2025 survey, 24% reported a great deal or a lot of trust in AI-generated output and 30% reported a little or none. The two surveys asked different questions, so I do not combine them.

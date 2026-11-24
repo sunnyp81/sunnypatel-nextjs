@@ -30,27 +30,39 @@ URL Inspection shows what Google sees for one page. Add your site to Search Cons
 1. Paste the full page URL into the search bar at the top of Search Console.
 2. Read the indexed result. Google says that result is not live: it is "from most recently indexed version of a page, not the live version on the web."
 3. Click **Test live URL**. The page must be reachable without a login.
-4. Open the tested page. Google says "A screenshot of the rendered page is available only in a live test."
-5. If the screenshot is blank or shows a loading state, Google did not get your content.
+4. Look at the screenshot. Google says "A screenshot of the rendered page is available only in a live test."
+5. Click **View tested page** and then **More info** to see the page code. Search it for the same sentence you use in Test 3. If it is missing, Google did not receive that content.
 6. If the page is not indexed, read the Page indexing section. Google says it explains "why the page wasn't indexed".
 
 For a vibe-coded site this is the most reliable test. It uses Google's own fetch. Lovable's docs name it as the way to check pre-rendered output: "To check the pre-rendered output yourself, use Google's URL Inspection tool or a social platform's link debugger."
 
 ### Test 3: what the server sends
 
-`curl` is a free tool that fetches a page and prints the HTML. It runs no JavaScript. What it prints is the first thing a crawler receives. Open Terminal on a Mac or PowerShell on Windows. On Windows type `curl.exe` instead of `curl`. Replace the address and the phrase with your own.
+`curl` is a free tool that fetches a page and prints the HTML. It runs no JavaScript. It shows what a client that runs no scripts receives. Open Terminal on a Mac or PowerShell on Windows. Replace the address and the phrase with your own. Pick a short phrase with no apostrophes or symbols, because HTML can write them as codes and give a false 0.
+
+On a Mac, in Terminal:
 
 ```bash
-# 1. Is a sentence from my page in the HTML the server sends? Prints a count.
-curl -sL https://yourdomain.com/your-page/ | grep -c -i "a sentence from your page"
+# 1. Is a phrase from my page in the HTML the server sends? Prints a count.
+curl -sL https://yourdomain.com/your-page/ | grep -c -i "a phrase from your page"
 
 # 2. Which title does the server send?
 curl -sL https://yourdomain.com/your-page/ | grep -o -i "<title>[^<]*</title>"
 ```
 
-On Windows, swap the part after the pipe for `Select-String "a sentence from your page"`. The flags `-s` for silent and `-L` to follow redirects come from the [curl manual](https://curl.se/docs/manpage.html).
+On Windows, in PowerShell:
 
-Chrome's DevTools documentation draws the line this test relies on: "HTML represents initial page content and the DOM represents active, current page content." `curl` shows the HTML. A browser shows the DOM.
+```powershell
+# 1. Prints a count of lines that contain the phrase.
+(curl.exe -sL https://yourdomain.com/your-page/ | Select-String -Pattern "a phrase from your page" | Measure-Object).Count
+
+# 2. Which title does the server send?
+curl.exe -sL https://yourdomain.com/your-page/ | Select-String -Pattern "<title>[^<]*</title>" | ForEach-Object { $_.Matches.Value }
+```
+
+The flags `-s` for silent and `-L` to follow redirects come from the [curl manual](https://curl.se/docs/manpage.html).
+
+Chrome's [DevTools documentation](https://developer.chrome.com/docs/devtools/dom) (last updated 1 March 2019) draws the line this test relies on: "HTML represents initial page content and the DOM represents active, current page content." `curl` shows the HTML. A browser shows the DOM.
 
 | What you see | What it means | Next step |
 |---|---|---|
@@ -79,7 +91,7 @@ The table lists what each platform's own documentation says, checked on 24 Novem
 | Replit | Static Deployments "deliver pre-rendered HTML". They are "not compatible with Replit Apps created using Agent". How other deployment types render: not found in the docs I read. | SEO Agent can add a `robots.txt` and a `sitemap.xml`. A Lighthouse audit runs after every publish. SEO Agent needs a paid plan. | The SEO rating runs only for "public web-facing deployment types". |
 | Cursor | Not a host. The docs call it "a coding agent for building ambitious software". Rendering follows the framework and host you choose. | Not found in the docs. | Not found in the docs. |
 
-Sources: Lovable's [SEO and AI search](https://docs.lovable.dev/features/seo-aeo), [site metadata](https://docs.lovable.dev/features/site-metadata) and [hosting](https://docs.lovable.dev/features/hosting) pages. Bolt's [hosting](https://support.bolt.new/bolt-cloud/hosting), [publish](https://support.bolt.new/bolt-cloud/hosting/publish) and [publish issues](https://support.bolt.new/troubleshooting/publish-issues) pages and its [index](https://support.bolt.new/llms.txt). The v0 [full-stack apps](https://v0.app/docs/full-stack-apps), [deployments](https://v0.app/docs/deployments) and [custom domain](https://v0.app/docs/custom-domains) pages (each marked last updated 23 November 2026). Replit's [improve your SEO](https://docs.replit.com/build/improve-seo), [SEO Rating](https://docs.replit.com/features/publishing/seo-rating) and [deployment types](https://docs.replit.com/features/publishing/deployment-types) pages. The [Cursor docs](https://cursor.com/docs) and their index. I did not see a date on the Lovable, Bolt, Replit or Cursor pages. Docs change, so check the date on any copy you read later.
+Sources: Lovable's [SEO and AI search](https://docs.lovable.dev/features/seo-aeo), [site metadata](https://docs.lovable.dev/features/site-metadata) and [hosting](https://docs.lovable.dev/features/hosting) pages. Bolt's [hosting](https://support.bolt.new/bolt-cloud/hosting), [publish](https://support.bolt.new/bolt-cloud/hosting/publish) and [publish issues](https://support.bolt.new/troubleshooting/publish-issues) pages and its [index](https://support.bolt.new/llms.txt). The v0 [full-stack apps](https://v0.app/docs/full-stack-apps), [deployments](https://v0.app/docs/deployments) and [custom domain](https://v0.app/docs/custom-domains) pages (each marked last updated 23 November 2026). Replit's [improve your SEO](https://docs.replit.com/build/improve-seo), [SEO Rating](https://docs.replit.com/features/publishing/seo-rating), [SEO Agent](https://docs.replit.com/features/publishing/seo-agent) and [deployment types](https://docs.replit.com/features/publishing/deployment-types) pages. The [Cursor docs](https://cursor.com/docs) and their index. I did not see a date on the Lovable, Bolt, Replit or Cursor pages. Docs change, so check the date on any copy you read later.
 
 Vercel, which makes v0, published a [blog post](https://vercel.com/blog/how-v0-is-building-seo-optimized-sites-by-default) on 2 May 2025 and modified it on 3 March 2026. It says: "Your deployed websites are server-rendered by default, with full HTML returned at the time of the request". That is a vendor's marketing post, not documentation. It does not replace Test 2 and Test 3 on your own site.
 
@@ -95,7 +107,7 @@ An unpublished or private site cannot appear in search. Lovable's docs say only 
 
 ### 2. Remove accidental noindex and robots.txt blocks
 
-Lovable's docs list two high-impact findings: "A `noindex` tag on every page" and "A `robots.txt` file that blocks crawlers on a live site". Google says `noindex` drops the page from results. It also says a page blocked by robots.txt never has its `noindex` read, and that robots.txt is "not a mechanism for keeping a web page out of Google".
+Lovable's docs list two high-impact findings: "A `noindex` tag on every page" and "A `robots.txt` file that blocks crawlers on a live site". Google's [noindex guide](https://developers.google.com/search/docs/crawling-indexing/block-indexing) (updated 10 December 2025) says `noindex` drops the page from results. It also says a page blocked by robots.txt never has its `noindex` read. Its [robots.txt introduction](https://developers.google.com/search/docs/crawling-indexing/robots/intro) (updated 10 December 2025) says robots.txt is "not a mechanism for keeping a web page out of Google".
 
 ```text
 Search the whole project for any noindex robots tag or header and for any
@@ -107,7 +119,7 @@ Open `yourdomain.com/robots.txt` yourself too. A rule of `Disallow: /` blocks th
 
 ### 3. Get the content into the HTML the server sends
 
-Google says crawling works well "for classical websites or server-side rendered pages where the HTML in the HTTP response contains all content". Pages built from an app shell need Google to run the JavaScript first. Google says the page "may stay on this queue for a few seconds, but it can take longer than that". Lovable's docs add that on older apps "Content that loads late may be missing" from the pre-rendered page.
+Google's [JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics) (updated 4 March 2026) says crawling works well "for classical websites or server-side rendered pages where the HTML in the HTTP response contains all content". Pages built from an app shell need Google to run the JavaScript first. Google says the page "may stay on this queue for a few seconds, but it can take longer than that". Lovable's docs add that on older apps "Content that loads late may be missing" from the pre-rendered page.
 
 ```text
 Change this project so the content of every public page is in the HTML the
@@ -130,10 +142,18 @@ of the page itself on my own domain. Show me the title of each page when done.
 
 ### 5. Return a real 404 for pages that do not exist
 
-Bolt's docs suggest a redirect rule that sends every unknown address to the home file with a 200 status: `/* /index.html 200`. Google says that with client-side routing, "using meaningful HTTP status codes can be impossible or impractical". It tells you to prevent soft 404 errors in single-page apps. Both are sourced facts. The test is yours to run.
+Bolt's docs suggest a redirect rule that sends every unknown address to the home file with a 200 status: `/* /index.html 200`. Google says that with client-side routing, "using meaningful HTTP status codes can be impossible or impractical". Its [JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics) and [JavaScript troubleshooting guide](https://developers.google.com/search/docs/crawling-indexing/javascript/fix-search-javascript) (updated 18 December 2025) tell you to prevent soft 404 errors in single-page apps. Both are sourced facts. The test is yours to run.
+
+On a Mac, in Terminal:
 
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" https://yourdomain.com/this-page-does-not-exist/
+```
+
+On Windows, in PowerShell:
+
+```powershell
+curl.exe -s -o NUL -w "%{http_code}" https://yourdomain.com/this-page-does-not-exist/
 ```
 
 A result of `404` is the pass. My [redirect checker](/tools/redirect-checker/) shows the status code for any URL without a terminal.
@@ -145,7 +165,7 @@ HTTP status 404. If my host cannot do that for a single-page app, tell me.
 
 ### 6. Add a sitemap and a robots.txt
 
-Google says "A sitemap helps search engines discover URLs on your site, but it doesn't guarantee that all the items in your sitemap will be crawled and indexed." Google lists a new site with few external links as one that may need one. Lovable's review flags sitemaps that list "placeholder routes or relative URLs".
+Google's [sitemaps overview](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview) (updated 10 December 2025) says "A sitemap helps search engines discover URLs on your site, but it doesn't guarantee that all the items in your sitemap will be crawled and indexed." Google lists a new site with few external links as one that may need one. Lovable's review flags sitemaps that list "placeholder routes or relative URLs".
 
 My [sitemap generator](/tools/sitemap-generator/) reads the HTML a server returns and follows its links. It leaves out pages with a `noindex` or a canonical that points elsewhere. My [robots.txt generator](/tools/robots-generator/) builds the file with a `Sitemap:` line.
 
@@ -161,7 +181,7 @@ Submit the sitemap in Search Console. Use URL Inspection to request indexing for
 
 ### 8. Link every page from another page
 
-Google says that if a site's pages are properly linked, it "can usually discover most of your site". Make sure each page you want found has a link to it from the home page or a hub page.
+The same sitemaps overview says that if a site's pages are properly linked, Google "can usually discover most of your site". Make sure each page you want found has a link to it from the home page or a hub page.
 
 ```text
 List every public page that has no link to it from another page on the site.
@@ -181,11 +201,11 @@ They need to be allowed in and to receive your content. Google, OpenAI, Anthropi
 
 Three steps follow from those pages. Check that your `robots.txt` does not block these crawlers. Check that the page is indexed in Google. Check that the content is in the server HTML.
 
-The OpenAI, Anthropic and Perplexity pages do not say whether their crawlers run JavaScript. A Vercel and MERJ study published on 17 December 2024 found that "none of the major AI crawlers currently render JavaScript". The data is almost two years old. Vercel also provides v0. Treat the study as one vendor's measurement. Content in the server HTML does not depend on the answer.
+The OpenAI, Anthropic and Perplexity pages do not say whether their crawlers run JavaScript. A Vercel and MERJ [study](https://vercel.com/blog/the-rise-of-the-ai-crawler) published on 17 December 2024 found that "none of the major AI crawlers currently render JavaScript". The data is almost two years old. Vercel also provides v0. Treat the study as one vendor's measurement. Content in the server HTML does not depend on the answer.
 
 Lovable's docs say its verified crawlers include those of ChatGPT, Perplexity, Claude and Gemini, and that "Any client that asks for Markdown gets a Markdown version of the page". Those are platform features. I cannot confirm them on your site without a test.
 
-Two things I do not recommend as a way to be cited. An `llms.txt` file is one: Lovable's docs say "Lovable does not require `llms.txt`". Schema markup is the other. Neither appears in the crawler pages above.
+Two things I do not recommend as a way to be cited. An `llms.txt` file is one: Lovable's docs say "Lovable does not require `llms.txt`". Schema markup is the other. None of the four crawler pages above lists either as a requirement.
 
 How other sites describe your business is a separate question. No crawler page above says it decides citations. I treat a consistent description elsewhere as a sensible supporting step, not a documented rule. My guide to [a brand not appearing in ChatGPT](/blog/brand-not-appearing-in-chatgpt/) covers how I check it.
 
@@ -204,7 +224,7 @@ Run this list on the home page and one inner page.
 | 7 | Each page has a self-referencing canonical | URL Inspection, indexed result | Google's chosen canonical matches your address |
 | 8 | A missing URL returns 404 | `curl -w "%{http_code}"` | `404` |
 | 9 | A sitemap exists and lists real pages | Open `/sitemap.xml` | Full addresses of live pages only |
-| 10 | Search Console is verified and the sitemap is submitted | Search Console, Sitemaps report | Status shows Success: fetched and read without errors |
+| 10 | Search Console is verified and the sitemap is submitted | Search Console, [Sitemaps report](https://support.google.com/webmasters/answer/7451001?hl=en-GB) | Status shows Success: fetched and read without errors |
 | 11 | Google can render the page | URL Inspection live test, screenshot | Screenshot shows your content |
 | 12 | Every page is linked from another page | Compare the sitemap with your menus | No orphan pages |
 

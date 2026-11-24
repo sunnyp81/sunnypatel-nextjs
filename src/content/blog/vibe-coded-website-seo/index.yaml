@@ -53,5 +53,5 @@ faqs:
     answer: >-
       Open the URL Inspection tool in Search Console, paste the page address
       and click Test live URL. Google says the screenshot of the rendered page
-      is available only in a live test. A blank screenshot means Google did not
-      receive your content.
+      is available only in a live test. Click View tested page and More info,
+      then search the page code for a sentence from your page.

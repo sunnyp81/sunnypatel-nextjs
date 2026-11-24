@@ -460,13 +460,11 @@ export default function OgPreview() {
           {/* SEO tip */}
           <div className="rounded-xl border border-brand/20 bg-brand/5 p-6">
             <h3 className="text-sm font-semibold text-brand-ink dark:text-brand" style={{ fontFamily: 'var(--font-heading)' }}>
-              Why Open Graph tags matter for SEO
+              Why Open Graph tags matter
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Open Graph tags control how your content appears when shared on social media. While they are not a direct
-              Google ranking factor, well-optimised social previews increase click-through rates from platforms like
-              Facebook, Twitter/X, and LinkedIn. Higher engagement drives more referral traffic, brand signals,
-              and natural backlinks &mdash; all of which have an indirect but meaningful impact on search rankings.
+              Open Graph tags control how your content appears when shared on social media. They are not a
+              Google ranking factor. A clear title, description and image help people decide whether to click a shared link.
               At minimum, every page should have <code className="rounded bg-black/[0.06] dark:bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand-ink dark:text-brand">og:title</code>,{' '}
               <code className="rounded bg-black/[0.06] dark:bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand-ink dark:text-brand">og:description</code>, and{' '}
               <code className="rounded bg-black/[0.06] dark:bg-white/[0.06] px-1 py-0.5 text-xs font-mono text-brand-ink dark:text-brand">og:image</code> set.

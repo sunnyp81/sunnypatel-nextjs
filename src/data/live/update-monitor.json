@@ -1,17 +1,111 @@
 {
   "updates": [
     {
+      "id": "AXrqxXXdtSjj3672ux7X",
+      "name": "December 2026 core update",
+      "type": "core",
+      "start": "2026-11-24T15:02:00+00:00",
+      "end": null,
+      "status": "rolling-out",
+      "url": "https://status.search.google.com/incidents/AXrqxXXdtSjj3672ux7X",
+      "googleNotes": [
+        {
+          "when": "2026-11-24T15:03:11+00:00",
+          "text": "Preannounced the December 2026 core update, which focuses on multiple improvements to how our systems understand and rank relevant content (including for longer and more complex questions), as well as improving personalized results for people who have personalization turned on. This core update applies to all locations and languages where Google Search is available, and our guidance about general core updates applies. This update is scheduled to be released in December 2026."
+        }
+      ],
+      "news": [
+        {
+          "source": "Search Engine Roundtable",
+          "title": "Google December 2026 Core Update Preannounced - Complex Queries & Personalization",
+          "url": "https://www.seroundtable.com/google-december-2026-core-update-42615.html",
+          "date": "2026-11-24",
+          "summary": "Google has preannounced the December 2026 core update, which is new for Google. The December 2026 core update is not live yet, but it will be live sometime in December."
+        },
+        {
+          "source": "Search Engine Roundtable",
+          "title": "Google November 2026 Core Update Has Completed Rolling Out - What Happened?",
+          "url": "https://www.seroundtable.com/google-november-2026-core-update-done-42571.html",
+          "date": "2026-11-24",
+          "summary": "Google's November 2026 broad core update has officially completed rolling out. Google updated the Search Status Dashboard to document the rollout completed on November 24, 2026 at 9:03 am ET."
+        },
+        {
+          "source": "Search Engine Journal",
+          "title": "Google Announces December 2026 Core Update Ahead Of Rollout",
+          "url": "https://www.searchenginejournal.com/google-december-2026-core-update/598760/",
+          "date": "2026-11-24",
+          "summary": "Google announced a December core update focused on ranking relevant content for longer questions and improving results when personalization is on."
+        },
+        {
+          "source": "Search Engine Journal",
+          "title": "Google Confirms November 2026 Core Update Is Complete",
+          "url": "https://www.searchenginejournal.com/google-november-2026-core-update-complete/598751/",
+          "date": "2026-11-24",
+          "summary": "Google’s November 2026 core update finished Nov. 24, just before a holiday week that could complicate Search Console comparisons for retailers."
+        },
+        {
+          "source": "Search Engine Journal",
+          "title": "Check Your Nov. 18 Rank Data Before Blaming The Core Update",
+          "url": "https://www.searchenginejournal.com/check-your-nov-18-rank-data-before-blaming-the-core-update/598449/",
+          "date": "2026-11-23",
+          "summary": "A rank tracker received about a tenth of its usual Google results for hours during the core update, with a sign-in page among the blocks."
+        }
+      ],
+      "community": [
+        {
+          "source": "Bluesky",
+          "author": "Barry Schwartz",
+          "handle": "rustybrick.com",
+          "url": "https://bsky.app/profile/rustybrick.com/post/3n32x6wbflh24",
+          "date": "2026-11-24",
+          "text": "Google preannounced the December 2026 core update but we don't know when it will launch exactly - here is what we do know.",
+          "likes": 2
+        },
+        {
+          "source": "Bluesky",
+          "author": "Barry Schwartz",
+          "handle": "rustybrick.com",
+          "url": "https://bsky.app/profile/rustybrick.com/post/3n32usnoalc2e",
+          "date": "2026-11-24",
+          "text": "Google November 2026 core update is complete - here is a short short video I just made on this news - more details at",
+          "likes": 3
+        },
+        {
+          "source": "Bluesky",
+          "author": "Barry Schwartz",
+          "handle": "rustybrick.com",
+          "url": "https://bsky.app/profile/rustybrick.com/post/3n32tbqt4r62q",
+          "date": "2026-11-24",
+          "text": "The Google November 2026 core update is now officially done rolling out - here is everything we know",
+          "likes": 1
+        },
+        {
+          "source": "Bluesky",
+          "author": "Glenn Gabe",
+          "handle": "glenngabe.bsky.social",
+          "url": "https://bsky.app/profile/glenngabe.bsky.social/post/3n32s7sgrcc2e",
+          "date": "2026-11-24",
+          "text": "I believe the core update will complete soon, maybe today. With this update, I haven't seen tremors during the rollout yet, which we sometimes see during broad core updates.",
+          "likes": 0
+        }
+      ]
+    },
+    {
       "id": "WLxcJyC6jMWMfryxsKMc",
       "name": "November 2026 core update",
       "type": "core",
       "start": "2026-11-10T18:06:00+00:00",
-      "end": null,
-      "status": "rolling-out",
+      "end": "2026-11-24T14:03:00+00:00",
+      "status": "complete",
       "url": "https://status.search.google.com/incidents/WLxcJyC6jMWMfryxsKMc",
       "googleNotes": [
         {
           "when": "2026-11-10T18:07:10+00:00",
           "text": "Released the November 2026 core update, which applies globally and to all languages. The rollout may take up to 2 weeks to complete."
+        },
+        {
+          "when": "2026-11-24T14:03:26+00:00",
+          "text": "The rollout was complete as of November 24, 2026."
         }
       ],
       "news": [
@@ -255,7 +349,7 @@
     "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
     "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
   ],
-  "checkedAt": "2026-11-23T18:30:37.386Z",
-  "changedAt": "2026-11-23T18:30:37.386Z",
-  "statusChangedAt": "2026-11-17T22:42:54.251Z"
+  "checkedAt": "2026-11-24T17:58:21.013Z",
+  "changedAt": "2026-11-24T17:58:21.013Z",
+  "statusChangedAt": "2026-11-24T17:58:21.013Z"
 }

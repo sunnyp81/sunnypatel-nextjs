@@ -1,0 +1,57 @@
+title: 'Vibe-Coded Website SEO: Get a Lovable, Bolt or v0 Site Indexed and Cited'
+metaTitle: 'Vibe-Coded Website SEO: Lovable, Bolt and v0'
+description: >-
+  Three tests anyone can run and eight fixes for a Lovable, Bolt, v0, Replit
+  or Cursor site that is not in Google or AI answers. Platform docs checked 24
+  November 2026.
+ogImage: /images/blog/hero-vibe-coded-website-seo.webp
+date: '2026-11-24'
+lastUpdated: '2026-11-24'
+tags:
+  - Technical SEO
+  - AI Search
+  - SEO Checklist
+faqs:
+  - question: Why is my Lovable site not showing on Google?
+    answer: >-
+      Check four things in order. Lovable's docs say only publicly published
+      apps can appear in search. They advise connecting a custom domain,
+      submitting a sitemap in Search Console and requesting indexing for
+      priority pages. They also say new pages can take days and sometimes
+      longer. Run the URL Inspection live test on one page to see what Google
+      receives.
+  - question: Is a vibe-coded website bad for SEO?
+    answer: >-
+      I do not rate platforms. Each builder's docs describe rendering
+      differently, and some are silent on it. Lovable's docs say apps created
+      from 13 May 2026 render on the server. Test your own pages with the
+      URL Inspection tool and a curl check instead of relying on a general
+      verdict.
+  - question: Do ChatGPT and Perplexity crawlers see my page?
+    answer: >-
+      They can if your robots.txt allows them and the content is in the HTML
+      the server sends. OpenAI documents OAI-SearchBot for ChatGPT search and
+      Perplexity documents PerplexityBot. Neither page says whether its
+      crawlers run JavaScript, so put your content in the server HTML.
+  - question: Do I need an llms.txt file to be cited by AI?
+    answer: >-
+      No source I checked says so. Lovable's docs say Lovable does not require
+      llms.txt. Google says there are no additional requirements to appear in
+      AI Overviews or AI Mode beyond being indexed and eligible for a snippet.
+  - question: Do I need a sitemap for a small vibe-coded site?
+    answer: >-
+      Google says it can usually discover most of a site whose pages are
+      properly linked. It lists a new site with few external links as one that
+      may need a sitemap. A sitemap helps discovery and does not guarantee
+      indexing.
+  - question: Should I use the lovable.app address or my own domain?
+    answer: >-
+      Lovable's docs say a lovable.app address suits MVPs, demos and projects
+      driven by social or paid traffic. They advise a custom domain to build
+      search presence and to verify it in Search Console.
+  - question: How do I see what Google sees on my page?
+    answer: >-
+      Open the URL Inspection tool in Search Console, paste the page address
+      and click Test live URL. Google says the screenshot of the rendered page
+      is available only in a live test. A blank screenshot means Google did not
+      receive your content.

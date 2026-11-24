@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="900" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">How Google processes a JavaScript page</title>
+  <desc id="desc">Three phases. Crawl: Googlebot checks robots.txt, fetches the HTML and reads its links. Render: pages with a 200 status wait in a queue, then headless Chromium runs the JavaScript. Index: Google indexes the rendered HTML and queues the links it finds.</desc>
+  <rect width="720" height="900" rx="24" fill="#f4f7fc"/>
+  <g font-family="Arial,sans-serif">
+    <text x="38" y="62" fill="#0d1526" font-size="29" font-weight="700">How Google processes a JavaScript page</text>
+    <rect x="38" y="92" width="644" height="200" rx="16" fill="#e3ecfb" stroke="#2f5fd9" stroke-width="3"/><text x="62" y="136" fill="#1f4fc4" font-size="22" font-weight="700">PHASE 1</text><text x="62" y="176" fill="#0d1526" font-size="28" font-weight="700">Crawl</text><text x="62" y="214" fill="#33415a" font-size="24">Checks robots.txt, then fetches the URL.</text><text x="62" y="248" fill="#33415a" font-size="24">Reads links from the HTML response.</text>
+    <path d="M360 300 V330 M348 320 L360 332 L372 320" fill="none" stroke="#5b6b88" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="344" width="644" height="234" rx="16" fill="#eef1f6" stroke="#7c8aa3" stroke-width="3"/><text x="62" y="388" fill="#4a5873" font-size="22" font-weight="700">PHASE 2</text><text x="62" y="428" fill="#0d1526" font-size="28" font-weight="700">Render</text><text x="62" y="466" fill="#33415a" font-size="24">Pages with a 200 status join a queue.</text><text x="62" y="500" fill="#33415a" font-size="24">The wait is seconds, sometimes longer.</text><text x="62" y="534" fill="#33415a" font-size="24">Headless Chromium runs the JavaScript.</text>
+    <path d="M360 586 V616 M348 606 L360 618 L372 606" fill="none" stroke="#5b6b88" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="630" width="644" height="200" rx="16" fill="#fbf1d9" stroke="#c8921a" stroke-width="3"/><text x="62" y="674" fill="#8a5d00" font-size="22" font-weight="700">PHASE 3</text><text x="62" y="714" fill="#0d1526" font-size="28" font-weight="700">Index</text><text x="62" y="752" fill="#33415a" font-size="24">Google indexes the rendered HTML.</text><text x="62" y="786" fill="#33415a" font-size="24">Links in it join the crawl queue.</text>
+    <text x="38" y="872" fill="#4a5873" font-size="19">Source: Google Search Central, JavaScript SEO basics.</text>
+  </g>
+</svg>

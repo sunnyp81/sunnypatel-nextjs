@@ -1,0 +1,54 @@
+title: 'JavaScript SEO for Developers: Test and Fix What Crawlers See'
+metaTitle: 'JavaScript SEO for Developers: React, Next.js and Astro'
+description: >-
+  How Google renders JavaScript, how to test what Googlebot and AI crawlers
+  receive, and the fixes for React, Next.js and Astro sites.
+ogImage: /images/blog/hero-javascript-seo-for-developers.webp
+date: '2026-11-23'
+lastUpdated: '2026-11-23'
+tags:
+  - Technical SEO
+  - AI Search
+  - SEO Checklist
+faqs:
+  - question: Does Google render JavaScript?
+    answer: >-
+      Yes. Google runs JavaScript with an evergreen version of Chromium.
+      Googlebot fetches the HTML first. The page then waits in a render queue.
+      Google says the wait can be a few seconds or longer.
+  - question: Is client-side rendering bad for SEO?
+    answer: >-
+      Client-side rendering carries more risk than server-side rendering or
+      static generation. Google can render the content after a queue. Google
+      also says not all bots can run JavaScript. Put content that must be found
+      in the server HTML.
+  - question: How do I test what Googlebot sees?
+    answer: >-
+      Use the URL Inspection tool in Search Console. Click Test live URL and
+      then View tested page to read the rendered HTML, the screenshot and the
+      JavaScript console output. Run curl on the same URL to see the HTML
+      before any script runs.
+  - question: Why is my single-page app returning soft 404s?
+    answer: >-
+      A single-page app often answers every URL with a 200 status and shows
+      the error in the browser. Google reports a soft 404 when a 200 page looks
+      like an error or an empty page. Redirect to a URL that returns a real 404
+      or add a noindex robots tag with JavaScript.
+  - question: Do AI crawlers run JavaScript?
+    answer: >-
+      The OpenAI, Anthropic and Perplexity crawler pages do not say. All three
+      were checked on 23 November 2026. A Vercel and MERJ study published on 17
+      December 2024 found that none of the major AI crawlers it measured
+      rendered JavaScript. Content in the server HTML does not depend on the
+      answer.
+  - question: Is dynamic rendering still recommended?
+    answer: >-
+      No. Google calls dynamic rendering a workaround and not a recommended
+      solution. Its documentation recommends server-side rendering, static
+      rendering or hydration.
+  - question: Do I need Next.js for React SEO?
+    answer: >-
+      No. Any setup that sends the content in the first HTML response works.
+      The React docs recommend starting a new app with a framework. React
+      Router can server-render or pre-render routes. Astro renders React
+      components to HTML by default.

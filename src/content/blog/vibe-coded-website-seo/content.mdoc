@@ -5,7 +5,7 @@ A vibe-coded website can look finished in a browser and still send crawlers an e
 1. **Test what the server sends before you change anything.** A site: search, the URL Inspection tool in Search Console and one `curl` command take about 10 minutes.
 2. **Your builder's own documentation says how it renders pages.** Lovable's docs say apps created from 13 May 2026 render on the server. Older Lovable apps are pre-rendered for verified crawlers only. The table below lists what each platform's docs say and where they are silent.
 3. **Fix in this order.** Public site on your own domain, no accidental `noindex`, content in the HTML the server sends, a unique title and canonical per page, a sitemap, then Search Console.
-4. **Google sets no extra requirement for AI answers.** A page must be indexed and eligible to show a snippet. Nothing on this page guarantees a ranking or a citation.
+4. **Google sets no extra requirement for AI answers.** A page must be indexed and eligible to show a snippet to be a supporting link. Nothing on this page guarantees a ranking or a citation.
 
 ## How do I check whether my vibe-coded site is indexed?
 
@@ -31,7 +31,7 @@ URL Inspection shows what Google sees for one page. Add your site to Search Cons
 2. Read the indexed result. Google says that result is not live: it is "from most recently indexed version of a page, not the live version on the web."
 3. Click **Test live URL**. The page must be reachable without a login.
 4. Look at the screenshot. Google says "A screenshot of the rendered page is available only in a live test."
-5. Click **View tested page** and then **More info** to see the page code. Search it for the same sentence you use in Test 3. If it is missing, Google did not receive that content.
+5. Click **View tested page** and then **More info** to see the page code. Search it for the same sentence you use in Test 3. If it is missing, Google did not receive that content. If it is there, Test 3 still tells you whether it was in the HTML the server sent.
 6. If the page is not indexed, read the Page indexing section. Google says it explains "why the page wasn't indexed".
 
 For a vibe-coded site this is the most reliable test. It uses Google's own fetch. Lovable's docs name it as the way to check pre-rendered output: "To check the pre-rendered output yourself, use Google's URL Inspection tool or a social platform's link debugger."
@@ -60,6 +60,8 @@ On Windows, in PowerShell:
 curl.exe -sL https://yourdomain.com/your-page/ | Select-String -Pattern "<title>[^<]*</title>" | ForEach-Object { $_.Matches.Value }
 ```
 
+If the title command prints nothing, open the page source and look for the title. Some sites write it as `<title data-rh="true">`, which this pattern skips.
+
 The flags `-s` for silent and `-L` to follow redirects come from the [curl manual](https://curl.se/docs/manpage.html).
 
 Chrome's [DevTools documentation](https://developer.chrome.com/docs/devtools/dom) (last updated 1 March 2019) draws the line this test relies on: "HTML represents initial page content and the DOM represents active, current page content." `curl` shows the HTML. A browser shows the DOM.
@@ -67,8 +69,8 @@ Chrome's [DevTools documentation](https://developer.chrome.com/docs/devtools/dom
 | What you see | What it means | Next step |
 |---|---|---|
 | Count above 0 | The server sends your content | Go to fixes 4 to 7 below |
-| Count 0 on a Lovable app created before 13 May 2026 | Not proof that Google sees nothing. Lovable's docs say unverified bots "see the regular single-page app" | Use Test 2 |
-| Count 0 on any other platform | JavaScript adds the content in the browser | Go to fix 3 below |
+| Count 0 on a Lovable app created before 13 May 2026 (22 June 2026 on Enterprise) | Not proof that Google sees nothing. Lovable's docs say unverified bots "see the regular single-page app" | Use Test 2 |
+| Count 0 anywhere else | Check the phrase first. If it is right, JavaScript probably adds the content in the browser or the host blocked the request | Go to fix 3 below |
 | Same title for every page you test | One set of metadata for the whole site | Go to fix 4 below |
 
 The `curl` caveat is the one most guides miss. Lovable's docs say pre-rendering "is only served to verified crawlers" and that third-party scanner tools "may report your pages as empty" on older apps. The diagram shows what each requester receives.
@@ -86,12 +88,12 @@ The table lists what each platform's own documentation says, checked on 24 Novem
 | Platform | Rendering | Metadata, sitemap and robots.txt | Visibility and domain |
 |---|---|---|---|
 | Lovable | Apps created from 13 May 2026 (22 June 2026 on Enterprise) "use TanStack Start with server-side rendering". "Older React + Vite apps are pre-rendered for verified crawlers when they request a page." | A `robots.txt` comes with every new project, "but not always a sitemap". Starting metadata is generic. Older apps "carry one set of metadata for the whole site". | "Only publicly published apps can appear in search results." The docs say to connect a custom domain to build search presence. |
-| Bolt | Hosting publishes "pages that are already built as HTML files". It supports single-page apps built with React, Vue or Svelte and Next.js apps with server rendering. What a single-page app sends to crawlers: not found in the docs. | Not found in the docs. The Help Center index lists no page on SEO, sitemaps or robots.txt. | Public sites: "search engines can find and list it in search results." Custom domains are for Pro users only. |
+| Bolt | Hosting publishes "pages that are already built as HTML files". It supports single-page apps built with React, Vue or Svelte and Next.js apps with server rendering. What a single-page app sends to crawlers: not found in the docs. | No page on metadata, sitemaps or robots.txt found in the docs. The docs mention an "SEO/GEO" skill and an SEO prompt category but not what they produce. | Public sites: "search engines can find and list it in search results." Custom domains are for Pro users only. |
 | v0 | The docs say v0 "defaults to Next.js". The docs list React Server Components among the things v0 can use "for improved performance and SEO". | Not found in the docs. | Every deployment gets a `vercel.app` URL. Custom domains are set up through Vercel. The first publish asks who can access the app. |
-| Replit | Static Deployments "deliver pre-rendered HTML". They are "not compatible with Replit Apps created using Agent". How other deployment types render: not found in the docs I read. | SEO Agent can add a `robots.txt` and a `sitemap.xml`. A Lighthouse audit runs after every publish. SEO Agent needs a paid plan. | The SEO rating runs only for "public web-facing deployment types". |
-| Cursor | Not a host. The docs call it "a coding agent for building ambitious software". Rendering follows the framework and host you choose. | Not found in the docs. | Not found in the docs. |
+| Replit | Static Deployments "deliver pre-rendered HTML". Replit's docs say they are "not compatible with Replit Apps created using Agent", because Agent builds full-stack apps that need a backend server. How other deployment types render: not found in the docs I read. | SEO Agent can add a `robots.txt` and a `sitemap.xml`. A Lighthouse audit runs after every successful publish. SEO Agent needs a paid plan. | The SEO rating runs only for "public web-facing deployment types". |
+| Cursor | The docs call it "a coding agent for building ambitious software". Cloud agents can also build and publish web apps: "Cursor handles the hosting, database, auth, and secrets." How those apps render: not found in the docs. | Not found in the docs. | Private and team apps "sit behind Cursor sign-in". Public apps are open to "Anyone with the link". "Public sharing is disabled by default for Teams and Enterprise". Custom domains: not found in the docs. |
 
-Sources: Lovable's [SEO and AI search](https://docs.lovable.dev/features/seo-aeo), [site metadata](https://docs.lovable.dev/features/site-metadata) and [hosting](https://docs.lovable.dev/features/hosting) pages. Bolt's [hosting](https://support.bolt.new/bolt-cloud/hosting), [publish](https://support.bolt.new/bolt-cloud/hosting/publish) and [publish issues](https://support.bolt.new/troubleshooting/publish-issues) pages and its [index](https://support.bolt.new/llms.txt). The v0 [full-stack apps](https://v0.app/docs/full-stack-apps), [deployments](https://v0.app/docs/deployments) and [custom domain](https://v0.app/docs/custom-domains) pages (each marked last updated 23 November 2026). Replit's [improve your SEO](https://docs.replit.com/build/improve-seo), [SEO Rating](https://docs.replit.com/features/publishing/seo-rating), [SEO Agent](https://docs.replit.com/features/publishing/seo-agent) and [deployment types](https://docs.replit.com/features/publishing/deployment-types) pages. The [Cursor docs](https://cursor.com/docs) and their index. I did not see a date on the Lovable, Bolt, Replit or Cursor pages. Docs change, so check the date on any copy you read later.
+Sources: Lovable's [SEO and AI search](https://docs.lovable.dev/features/seo-aeo), [site metadata](https://docs.lovable.dev/features/site-metadata) and [hosting](https://docs.lovable.dev/features/hosting) pages. Bolt's [hosting](https://support.bolt.new/bolt-cloud/hosting), [publish](https://support.bolt.new/bolt-cloud/hosting/publish) [publish issues](https://support.bolt.new/troubleshooting/publish-issues), [skills](https://support.bolt.new/building/skills) and [prompt library](https://support.bolt.new/prompting/prompt-library) pages and its [index](https://support.bolt.new/llms.txt). The v0 [full-stack apps](https://v0.app/docs/full-stack-apps), [deployments](https://v0.app/docs/deployments) and [custom domain](https://v0.app/docs/custom-domains) pages (each marked last updated 23 November 2026). Replit's [improve your SEO](https://docs.replit.com/build/improve-seo), [SEO Rating](https://docs.replit.com/features/publishing/seo-rating), [SEO Agent](https://docs.replit.com/features/publishing/seo-agent) and [deployment types](https://docs.replit.com/features/publishing/deployment-types) pages. Cursor's [Apps](https://cursor.com/docs/cloud-agent/apps) page and [docs index](https://cursor.com/llms.txt). The Lovable and Bolt pages show no date on screen. Their page data gives a modified date of 11 November 2026. I found none for Replit or Cursor. Docs change, so check the date on any copy you read later.
 
 Vercel, which makes v0, published a [blog post](https://vercel.com/blog/how-v0-is-building-seo-optimized-sites-by-default) on 2 May 2025 and modified it on 3 March 2026. It says: "Your deployed websites are server-rendered by default, with full HTML returned at the time of the request". That is a vendor's marketing post, not documentation. It does not replace Test 2 and Test 3 on your own site.
 
@@ -107,7 +109,7 @@ An unpublished or private site cannot appear in search. Lovable's docs say only 
 
 ### 2. Remove accidental noindex and robots.txt blocks
 
-Lovable's docs list two high-impact findings: "A `noindex` tag on every page" and "A `robots.txt` file that blocks crawlers on a live site". Google's [noindex guide](https://developers.google.com/search/docs/crawling-indexing/block-indexing) (updated 10 December 2025) says `noindex` drops the page from results. It also says a page blocked by robots.txt never has its `noindex` read. Its [robots.txt introduction](https://developers.google.com/search/docs/crawling-indexing/robots/intro) (updated 10 December 2025) says robots.txt is "not a mechanism for keeping a web page out of Google".
+Lovable's docs give these among their examples of high-impact findings: "A `noindex` tag on every page" and "A `robots.txt` file that blocks crawlers on a live site". Google's [noindex guide](https://developers.google.com/search/docs/crawling-indexing/block-indexing) (updated 10 December 2025) says `noindex` drops the page from results. It also says a page blocked by robots.txt never has its `noindex` read. Its [robots.txt introduction](https://developers.google.com/search/docs/crawling-indexing/robots/intro) (updated 10 December 2025) says robots.txt is "not a mechanism for keeping a web page out of Google".
 
 ```text
 Search the whole project for any noindex robots tag or header and for any
@@ -128,7 +130,7 @@ prerendering for every public route. Then show me the exact command to check
 it for the /about page.
 ```
 
-On Lovable the docs say an existing project can be upgraded to TanStack Start, "which gives it full server-side rendering". On Bolt the docs say hosting publishes pages already built as HTML files, so ask for a static build with prerendering. Run Test 3 again after the change.
+On Lovable the docs say an existing project can be upgraded to TanStack Start, "which gives it full server-side rendering". On Bolt the docs say hosting publishes pages already built as HTML files. Bolt's own prompt for server-rendered frameworks asks for "SPA mode or prerendering". Only prerendering puts your content in the HTML, so ask for prerendering. Run Test 3 again after the change.
 
 ### 4. Give every page its own title, description and canonical
 
@@ -142,7 +144,7 @@ of the page itself on my own domain. Show me the title of each page when done.
 
 ### 5. Return a real 404 for pages that do not exist
 
-Bolt's docs suggest a redirect rule that sends every unknown address to the home file with a 200 status: `/* /index.html 200`. Google says that with client-side routing, "using meaningful HTTP status codes can be impossible or impractical". Its [JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics) and [JavaScript troubleshooting guide](https://developers.google.com/search/docs/crawling-indexing/javascript/fix-search-javascript) (updated 18 December 2025) tell you to prevent soft 404 errors in single-page apps. Both are sourced facts. The test is yours to run.
+Single-page app hosts often use a catch-all rule such as `/* /index.html 200`. Bolt's docs give that rule as the fix when pages other than home show "Page not found". A rule like that sends a 200 for any address. Google says that with client-side routing, "using meaningful HTTP status codes can be impossible or impractical". Its [JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics) and [JavaScript troubleshooting guide](https://developers.google.com/search/docs/crawling-indexing/javascript/fix-search-javascript) (updated 18 December 2025) tell you to prevent soft 404 errors in single-page apps. Both are sourced facts. The test is yours to run.
 
 On a Mac, in Terminal:
 
@@ -194,14 +196,14 @@ They need to be allowed in and to receive your content. Google, OpenAI, Anthropi
 
 | Crawler | What its own page says | Source |
 |---|---|---|
-| Google AI Overviews and AI Mode | A page "must be indexed and eligible to be shown in Google Search with a snippet". "There are no additional requirements to appear in AI Overviews or AI Mode." | [Google AI features](https://developers.google.com/search/docs/appearance/ai-features), updated 10 December 2025 |
-| OpenAI (ChatGPT search) | OAI-SearchBot "is used to surface websites in search results in ChatGPT's search features". Sites opted out of it "will not be shown in ChatGPT search answers". | [OpenAI crawlers](https://developers.openai.com/api/docs/bots) |
+| Google AI Overviews and AI Mode | To be a supporting link, a page "must be indexed and eligible to be shown in Google Search with a snippet". "There are no additional requirements to appear in AI Overviews or AI Mode." | [Google AI features](https://developers.google.com/search/docs/appearance/ai-features), updated 10 December 2025 |
+| OpenAI (ChatGPT search) | OAI-SearchBot "is used to surface websites in search results in ChatGPT's search features". Sites opted out of it "will not be shown in ChatGPT search answers". They "can still appear as navigational links". OpenAI also recommends allowing requests from its published IP ranges. | [OpenAI crawlers](https://developers.openai.com/api/docs/bots) |
 | Anthropic (Claude) | Disabling Claude-SearchBot "may reduce your site's visibility and accuracy in user search results". | [Anthropic crawlers](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler) |
-| Perplexity | Perplexity recommends allowing PerplexityBot in your `robots.txt` file so that your site can appear in its search results. | [Perplexity crawlers](https://docs.perplexity.ai/docs/resources/perplexity-crawlers) |
+| Perplexity | Perplexity says "To ensure your site appears in search results, we recommend allowing PerplexityBot in your site's robots.txt file and permitting requests from our published IP ranges". | [Perplexity crawlers](https://docs.perplexity.ai/docs/resources/perplexity-crawlers) |
 
-Three steps follow from those pages. Check that your `robots.txt` does not block these crawlers. Check that the page is indexed in Google. Check that the content is in the server HTML.
+Three steps follow from those pages. Check that your `robots.txt` does not block these crawlers. Check that the page is indexed in Google. Check that the content is in the server HTML. If a firewall or bot rule sits in front of your site, check that it lets the published crawler IP ranges through.
 
-The OpenAI, Anthropic and Perplexity pages do not say whether their crawlers run JavaScript. A Vercel and MERJ [study](https://vercel.com/blog/the-rise-of-the-ai-crawler) published on 17 December 2024 found that "none of the major AI crawlers currently render JavaScript". The data is almost two years old. Vercel also provides v0. Treat the study as one vendor's measurement. Content in the server HTML does not depend on the answer.
+The OpenAI, Anthropic and Perplexity pages do not say whether their crawlers run JavaScript. A Vercel and MERJ [study](https://vercel.com/blog/the-rise-of-the-ai-crawler) published on 17 December 2024 found that "none of the major AI crawlers currently render JavaScript". It tested OAI-SearchBot, ChatGPT-User, GPTBot, ClaudeBot and PerplexityBot among others, not Claude-SearchBot. It reported that Gemini and AppleBot do render JavaScript. The data is almost two years old. Vercel also provides v0. Treat the study as one vendor's measurement. Content in the server HTML does not depend on the answer.
 
 Lovable's docs say its verified crawlers include those of ChatGPT, Perplexity, Claude and Gemini, and that "Any client that asks for Markdown gets a Markdown version of the page". Those are platform features. I cannot confirm them on your site without a test.
 
@@ -228,4 +230,4 @@ Run this list on the home page and one inner page.
 | 11 | Google can render the page | URL Inspection live test, screenshot | Screenshot shows your content |
 | 12 | Every page is linked from another page | Compare the sitemap with your menus | No orphan pages |
 
-If you want the checks run for you, my [technical SEO audit](/services/technical-seo-services/) is a fixed £495 for a standard site. My [AI visibility audit](/ai-visibility/) is a fixed £795 and checks where your business appears in ChatGPT answers.
+If you want the checks run for you, my [technical SEO audit](/services/technical-seo-audit/) is a fixed £495 for a standard site of up to around 500 pages. My [AI visibility audit](/ai-visibility/) is a fixed £795 and checks whether AI assistants can read, verify and cite your website.

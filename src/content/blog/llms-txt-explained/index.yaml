@@ -1,0 +1,59 @@
+title: 'llms.txt Explained: What It Is, Who Reads It and Whether to Bother'
+metaTitle: 'llms.txt Explained: What It Is and Who Reads It'
+description: >-
+  What llms.txt is, what Google, OpenAI, Anthropic, Perplexity and Bing say
+  about it in their own documentation and blog posts, what it costs to add and
+  my view.
+  Sources checked 24 November 2026.
+ogImage: /images/blog/hero-llms-txt-explained.webp
+date: '2026-11-24'
+lastUpdated: '2026-11-24'
+tags:
+  - AI Search
+  - Technical SEO
+faqs:
+  - question: What is llms.txt?
+    answer: >-
+      A plain Markdown file at the root of a website that gives AI agents a
+      short guide to the site. Jeremy Howard proposed it on 3 September 2024.
+      The only required part is a heading with the site name. It is a proposal
+      and not an official web standard.
+  - question: Does Google use llms.txt?
+    answer: >-
+      Google's guide to generative AI features in Search, last updated 10 July
+      2026, says Google Search ignores these files. It says creating one will
+      "neither harm nor help" visibility or rankings in Google Search. Google's
+      Chrome team separately audits for the file in Lighthouse and calls it
+      optional.
+  - question: Do ChatGPT, Claude and Perplexity read my llms.txt?
+    answer: >-
+      Their crawler documentation does not say. OpenAI, Anthropic and Perplexity
+      each publish an llms.txt for their own developer docs. Their crawler pages
+      explain robots.txt user agents and do not mention whether the crawlers
+      read a site owner's file. I have not tested it.
+  - question: Will llms.txt get my site cited by AI?
+    answer: >-
+      No source I checked says so. Google says no extra files are needed to
+      appear in AI Overviews or AI Mode. OpenAI, Anthropic and Perplexity each
+      name robots.txt access for their search crawlers. Ahrefs found that 97
+      percent of the valid llms.txt files in its sample received no requests in
+      May 2026.
+  - question: Can llms.txt hurt my site?
+    answer: >-
+      Google says a file does not harm Google Search rankings. I found no
+      source showing harm elsewhere. The risks are practical. Links go stale,
+      listed URLs redirect or return 404, and you may list pages you did not
+      mean to promote. Common Crawl also found steering and promotional
+      instructions aimed at AI tools in some files, so keep yours factual.
+  - question: How do I make an llms.txt file?
+    answer: >-
+      Write a Markdown file with an H1 for the site name, a blockquote
+      summary and H2 sections of links with short notes. Save it as llms.txt at
+      the site root. My generator drafts one in the browser and you review
+      every link before you publish it.
+  - question: Is llms.txt the same as robots.txt?
+    answer: >-
+      No. Robots.txt tells crawlers which URLs they can access. The llms.txt
+      proposal says its file is used on demand when an agent needs information
+      while assisting a user. A file you publish does not block or allow any
+      crawler.

@@ -2,7 +2,8 @@ title: 'llms.txt Explained: What It Is, Who Reads It and Whether to Bother'
 metaTitle: 'llms.txt Explained: What It Is and Who Reads It'
 description: >-
   What llms.txt is, what Google, OpenAI, Anthropic, Perplexity and Bing say
-  about it in their own documentation, what it costs to add and my view.
+  about it in their own documentation and blog posts, what it costs to add and
+  my view.
   Sources checked 24 November 2026.
 ogImage: /images/blog/hero-llms-txt-explained.webp
 date: '2026-11-24'
@@ -42,8 +43,8 @@ faqs:
       Google says a file does not harm Google Search rankings. I found no
       source showing harm elsewhere. The risks are practical. Links go stale,
       listed URLs redirect or return 404, and you may list pages you did not
-      mean to promote. Common Crawl also found injected instructions in some
-      files, so keep yours factual.
+      mean to promote. Common Crawl also found steering and promotional
+      instructions aimed at AI tools in some files, so keep yours factual.
   - question: How do I make an llms.txt file?
     answer: >-
       Write a Markdown file with an H1 for the site name, a blockquote

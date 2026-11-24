@@ -1,0 +1,133 @@
+llms.txt is a plain Markdown file at the root of a website that gives AI agents a short, curated guide to the site. This guide says what the file is and what each company's own documentation says about it. It also says what it costs and gives my view. I checked every source on 24 November 2026. I have not tested whether llms.txt changes anything, and nothing here is a promise of a ranking or a citation.
+
+## At a glance
+
+1. **It is a proposal, not a standard.** Jeremy Howard published it on 3 September 2024. The proposal's own page was last modified on 10 August 2026.
+2. **Google says its search products ignore it.** Google's generative AI guide says creating one will "neither harm nor help" visibility in Google Search. Google's Chrome team audits for it in Lighthouse and calls it optional.
+3. **OpenAI, Anthropic and Perplexity publish one for their own docs.** Their crawler pages say nothing about reading yours. The Bing blog posts I read do not mention it either.
+4. **It costs little.** The risks are stale links, redirecting links and listing pages you did not mean to promote.
+5. **My view: optional.** Publish one if you run developer documentation. Otherwise fix crawling and indexing first. I have not tested either route.
+
+## What is llms.txt and where did it come from?
+
+The proposal describes itself as "A proposal to standardise on using an /llms.txt file to provide information to help agents use a website." Its author is Jeremy Howard. The page says it was published on 3 September 2024. The [current version](https://llmstxt.org/) is v2 and was modified on 10 August 2026.
+
+The proposal gives its reason. A web page wraps its information in navigation and scripts. An agent has to strip that back to text. The file puts the useful pages in one place. The proposal says "Agents are expected to view or search llms.txt to find the information they need, then follow the relevant links."
+
+The proposal is open about its main use. It says "llms.txt files are used most heavily for software documentation, where coding agents follow them to find API references and tutorials." It also says its expectation was that the file would be useful "mainly" for inference. That means answering a question while a user waits. It does not mean training a model.
+
+Google's Chrome documentation calls it "an emerging convention".
+
+## What does an llms.txt file look like?
+
+The proposal sets an order. The H1 with the site name is "the only required section". A blockquote summary comes next. Then come optional paragraphs and H2 sections of links. Each link is a Markdown link with an optional note after a colon. A section called Optional holds links an agent can skip.
+
+This short example follows that format. The business and the URLs are made up.
+
+```markdown
+# Riverside Bakery
+
+> A family bakery in Reading that sells bread, cakes and wedding cakes. Orders are taken online or in the shop.
+
+## Key pages
+
+- [Opening hours and address](https://example.com/visit/): Where the shop is and when it opens
+- [Wedding cakes](https://example.com/wedding-cakes/): Sizes, flavours, prices and lead times
+- [Allergen information](https://example.com/allergens/): Which products contain which allergens
+
+## Optional
+
+- [The bakery story](https://example.com/about/): How the bakery started
+```
+
+Each link should point to a page that works and answers one clear question. The proposal also asks for clean Markdown copies of pages. That is a second job and you do not need it to publish the file.
+
+## Who says they read llms.txt?
+
+I looked at each company's own pages. For each one I searched the fetched text for "llms" and read what the page says about getting included. "No mention" below means I found nothing on the pages named. It does not show that the crawler ignores the file.
+
+| Operator | What its own pages say about llms.txt | What its pages say controls inclusion | Source and date shown |
+|---|---|---|---|
+| Google Search | "You don't need to create new machine readable files, AI text files, markup, or Markdown to appear in Google Search (including its generative AI capabilities), as Google Search itself doesn't use them." Creating a file "will neither harm nor help your site's visibility or rankings in Google Search, as Google Search ignores them." | A page must be indexed and eligible to show with a snippet. "There are no additional technical requirements." | [Optimizing for generative AI features](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), last updated 10 July 2026 |
+| Google AI Overviews and AI Mode | The page does not name the file. It says "You don't need to create new machine readable files, AI text files, or markup to appear in these features." | "There are no additional requirements to appear in AI Overviews or AI Mode, nor other special optimizations necessary." | [Google AI features](https://developers.google.com/search/docs/appearance/ai-features), last updated 10 December 2025 |
+| Google Chrome (Lighthouse) | Lighthouse audits for it. The page says "providing the file is optional at the moment." A missing file is marked Not Applicable. | Not covered. This audit is about agents in a browser and not about Google Search. | [Lighthouse llms.txt audit](https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt), last updated 5 May 2026 |
+| OpenAI | No mention for site owners. OpenAI publishes [an llms.txt](https://developers.openai.com/llms.txt) for its own developer site. | "OpenAI uses OAI-SearchBot and GPTBot robots.txt tags to enable webmasters to manage how their sites and content work with AI." | [OpenAI crawlers](https://developers.openai.com/api/docs/bots), no date shown |
+| Anthropic | No mention. Anthropic publishes [an llms.txt](https://platform.claude.com/llms.txt) for its developer docs. | "Anthropic's Bots respect 'do not crawl' signals by honoring industry standard directives in robots.txt." | [Anthropic crawler article](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler), shown as "Updated over 2 weeks ago" |
+| Perplexity | No mention for site owners. Perplexity publishes [an llms.txt](https://docs.perplexity.ai/llms.txt) for its API docs. | "To ensure your site appears in search results, we recommend allowing PerplexityBot in your site's robots.txt file" | [Perplexity crawlers](https://docs.perplexity.ai/docs/resources/perplexity-crawlers), no date shown |
+| Microsoft Bing | No mention in the three Bing blog posts I read (31 July 2025, February 2026 and 30 October 2026). The Bing Webmaster help pages load by script and I could not read them, so I make no claim about them. | The July 2025 post says "sitemaps remain a foundational signal". The October 2026 post describes training preferences expressed in robots.txt. | [Bing sitemaps post](https://blogs.bing.com/webmaster/July-2025/Keeping-Content-Discoverable-with-Sitemaps-in-AI-Powered-Search), 31 July 2025, and [Bing preferences post](https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/), 30 October 2026 |
+
+Two points need care. First, Google shows two positions in two products. The Search team says Search ignores the file. The Chrome team audits for it. The Chrome audit is about browser agents. Second, a company that publishes an llms.txt for its own docs is not saying its crawler reads yours. I fetched each of those files on 24 November 2026 and each returned a text file. Google's Gemini API docs have one at [aistudio.google.com](https://aistudio.google.com/llms.txt). So do [Cloudflare](https://developers.cloudflare.com/llms.txt), [Vercel](https://vercel.com/llms.txt) and [Stripe](https://docs.stripe.com/llms.txt).
+
+### What did a Google staff member say?
+
+On 17 June 2025 John Mueller of Google replied on [Bluesky](https://bsky.app/profile/johnmu.com/post/3lrshm4gggs2v): "FWIW no AI system currently uses llms.txt." That post is 17 months old at the time of writing. I could not open the original of any later statement, so I leave them out. The proposal and the Ahrefs data below both describe AI coding agents fetching the file.
+
+### Has anyone measured who requests it?
+
+Two studies I opened measure parts of it.
+
+{% stats %}
+{% stat value="97%" label="Of about 38,000 domains with a valid file, the share that saw no requests for it in May 2026" source="Ahrefs, 15 June 2026" /%}
+{% stat value="77%" label="Of the bots that did fetch the file, the share that were not AI tools" source="Ahrefs, 15 June 2026" /%}
+{% stat value="0" label="AI bot share of requests to /llms.txt paths that returned 404" source="Ahrefs, 15 June 2026" /%}
+{% /stats %}
+
+[Ahrefs](https://ahrefs.com/blog/llmstxt-study/) is an SEO software vendor. It studied "all 137,210 domains in Ahrefs Web Analytics that received traffic in May 2026". It says its customers skew technical and SEO-aware. It also says "fetched" does not mean "read". Of the 3 percent of files that were requested, its table puts AI agents and agentic infrastructure at 10.5 percent of requests, with Claude-Code as an example. That is one vendor's data for one month. I have not checked it against server logs of my own.
+
+[Common Crawl](https://commoncrawl.org/blog/a-content-analysis-of-llms-txt-files-from-the-july-2026-crawl-archive) publishes a web crawl archive. It asked for /llms.txt on a random sample of hosts it had recently fetched without problems. It reports that "69.8% returned 404". It also studied the contents of 584,107 files from its July 2026 crawl. It did not study who reads them.
+
+I found no primary measurement from an AI company. I did not use two other log studies because I could not open their originals.
+
+## How does llms.txt compare with robots.txt and sitemap.xml?
+
+The three files do different jobs.
+
+| | llms.txt | robots.txt | sitemap.xml |
+|---|---|---|---|
+| Purpose | A curated guide to a site for agents, per the proposal | Google says it "tells search engine crawlers which URLs the crawler can access on your site" | Google says "Search engines like Google read this file to crawl your site more efficiently" |
+| Who reads it, according to documentation | The proposal expects agents to. Google Search says it ignores it. The OpenAI, Anthropic and Perplexity crawler pages do not say | Google. OpenAI, Anthropic and Perplexity each name it as the way to manage their bots | Google. Bing's blog calls sitemaps "a foundational signal" |
+| Required or optional | Optional. Lighthouse says "optional at the moment" | Not stated on the pages I read | Optional. Google lists cases where "You might not need a sitemap" |
+| What it can do | Nothing is enforced | Controls crawler access | Helps discovery. Google says it "doesn't guarantee" crawling or indexing |
+
+The proposal agrees that they differ: "robots.txt and llms.txt have different purposes." A published llms.txt does not block or allow a crawler. Use robots.txt for that.
+
+## What does it cost and what can go wrong?
+
+The money cost is close to nothing. The file is a few kilobytes of text. My estimate of the time cost is about an hour for a small site to choose the pages and write the notes. After that you need a recurring check.
+
+These are the risks I see. The first three are my own reading of how the file works. The last two come from Common Crawl.
+
+- **Stale links.** The file lists URLs. When a page moves the entry is wrong until you edit it.
+- **Redirecting or missing pages.** My own file had this problem. On 23 November 2026 I removed 27 URLs from this site's llms-full.txt (commit 883145a). Today 26 of them return a permanent redirect and one returns 404. A file that points at redirects gives every reader an extra hop.
+- **Pages you did not mean to promote.** A generator that pulls URLs from a sitemap can list thin or private-looking pages. Read every line.
+- **The wrong file at the path.** Among the HTTP 200 responses to requests for /llms.txt and /llms-full.txt, Common Crawl found 40.36% came back as text/html and 10.61% looked like a robots.txt file. A single-page app can return its shell for any unknown URL. Open /llms.txt in a browser and check that it is plain text.
+- **Injected instructions.** Common Crawl graded 3,793 files as carrying "mild steering" and 102 as promotional. Write facts only. Do not write instructions to AI tools.
+
+## Should you add one? My recommendation
+
+This is my view and not a finding from a source.
+
+- **You run developer or API documentation:** publish one. The proposal names software documentation as its main use. Ahrefs found some AI agent requests among the files that were read. It is cheap.
+- **You run any other site:** treat it as optional. No source I read says it brings citations or rankings. Google says it makes no difference to Google Search. Spend the hour on crawling and indexing first. One reason to add one anyway is that Chrome's Lighthouse audits for it.
+- **Someone is selling it as a service:** ask for the operator document that says the crawler reads it. I found none for Google Search, OpenAI, Anthropic, Perplexity or Bing.
+
+I publish one on this site at [sunnypatel.co.uk/llms.txt](https://sunnypatel.co.uk/llms.txt). I have not measured any effect from it. I have not run a test of llms.txt on any site. I would change this view if an operator's documentation named the file or if a test of mine showed a difference. Until then I do not claim a benefit.
+
+## How do I make an llms.txt file?
+
+Use my free [llms.txt generator](/tools/llms-txt-generator/). It runs in your browser. You enter the site name and a summary and then add link sections. The optional prefill reads your homepage and sitemap and fetches up to 20 pages to read their titles. It does not check whether a listed URL redirects. Check each link yourself. Then copy or download the text and put it at the site root as llms.txt.
+
+## What does affect whether AI tools can include my site?
+
+The operators' own pages point to the same basics.
+
+| Operator | What its page says to do | Source |
+|---|---|---|
+| Google | Be indexed and eligible to show with a snippet. Check "that crawling is allowed in robots.txt, and by any CDN or hosting infrastructure". | [Google AI features](https://developers.google.com/search/docs/appearance/ai-features) |
+| OpenAI | "we recommend allowing OAI-SearchBot in your site's robots.txt file and allowing requests from our published IP ranges below." | [OpenAI crawlers](https://developers.openai.com/api/docs/bots) |
+| Anthropic | Disabling Claude-SearchBot "may reduce your site's visibility and accuracy in user search results." | [Anthropic crawler article](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler) |
+| Perplexity | Allow PerplexityBot in robots.txt and permit its published IP ranges. | [Perplexity crawlers](https://docs.perplexity.ai/docs/resources/perplexity-crawlers) |
+
+For scale, Cloudflare's 2025 Radar review says Googlebot was responsible for "over 28% of traffic from Verified Bots" and GPTBot for "about 7.5%" on its network. That is one vendor's global data for 2025 in its [Year in Review](https://blog.cloudflare.com/radar-2025-year-in-review/). It shows which crawlers are active and not what they read.
+
+My own advice, not an operator statement, is to check that the words on the page are in the HTML your server sends. My [vibe-coded website guide](/blog/vibe-coded-website-seo/) has three tests for that. My guide to [what LLM optimisation means](/blog/what-is-llm-optimisation/) covers the wider term. For how AI answers about a brand are measured, see my [AI visibility audit](/ai-visibility/).

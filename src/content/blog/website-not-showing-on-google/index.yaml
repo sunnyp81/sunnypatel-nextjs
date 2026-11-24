@@ -1,7 +1,7 @@
-title: 'Why Is My Website Not Showing on Google? A 10-Minute Diagnosis'
-metaTitle: 'Website Not Showing on Google? 10-Minute Diagnosis'
+title: 'Why Is My Website Not Showing on Google? A Step-by-Step Diagnosis'
+metaTitle: 'Website Not Showing on Google? Step-by-Step Diagnosis'
 description: >-
-  A seven-step decision tree for UK business owners: ten causes of a website
+  A step-by-step decision tree for UK business owners: ten causes of a website
   missing from Google, how to tell which applies, and the free fix for each.
 ogImage: /images/blog/hero-website-not-showing-on-google.webp
 date: '2026-11-24'
@@ -20,9 +20,11 @@ faqs:
   - question: How long does a new website take to show on Google?
     answer: >-
       Google gives a range of "a day or two to a few weeks, typically,
-      depending on many factors". It also says to allow at least a week after
-      submitting a sitemap or an index request before assuming a problem. No
-      one can promise a date.
+      depending on many factors". Its URL Inspection help says indexing
+      "typically takes only a day or so, but can take much longer in some
+      cases". Google also says to allow at least a week after submitting a
+      sitemap or an index request before assuming a problem. No one can
+      promise a date.
   - question: Why does my website show for my business name but not for my services?
     answer: >-
       The site is probably indexed and not ranking for those searches. Google
@@ -31,8 +33,10 @@ faqs:
       address to confirm. The job is then ranking work.
   - question: Can I pay Google to show my website?
     answer: >-
-      No. Google says it "does not accept payment for
-      crawling, indexing or ranking". Fix the cause in Search Console instead.
+      Not for ordinary search results. Google says it "doesn't accept payment to
+      crawl a site more frequently, or rank it higher". Google Ads is a separate
+      paid service that shows adverts, and it does not fix a site that is
+      missing from search results. Fix the cause in Search Console instead.
   - question: Does a robots.txt file keep my page out of Google?
     answer: >-
       No. Google says robots.txt "is not a mechanism for keeping a web page out

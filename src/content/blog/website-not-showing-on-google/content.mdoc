@@ -1,72 +1,73 @@
-The common reasons a website is missing from Google are these ten: it is new, closed to visitors, told to stay out, blocked, found but not indexed, moved badly, penalised, hacked, removed on request, or already in Google and just not where you look. This guide works through them in a fixed order with free tools. Every statement about Google below comes from a Google page I read on 24 November 2026. The page is named beside the statement.
+This guide checks ten reasons a website can be missing from Google: it is new, closed to visitors, told to stay out, blocked, found but not indexed, moved badly, penalised, hacked, removed on request, or already in Google and just not where you look. This guide works through them in a fixed order with free tools. Every quotation from Google below comes from a Google page I read on 24 November 2026, and the page is linked beside it. Quotations about WordPress, Wix, Squarespace and Shopify come from those platforms' help pages. Plain-English explanations, tool notes and the order of the checks are my own.
 
-Two terms first. **Indexed** means Google has stored your page and can show it. **Search Console** is Google's free tool that shows what Google knows about your site.
+Two terms first. **Indexed** means Google has added your page to its index, the store it draws results from. It does not guarantee the page will show. **Search Console** is Google's free tool that shows what Google knows about your site.
 
 ## At a glance
 
-1. **Start with a `site:` search.** Type `site:yourdomain.co.uk` into Google. Pages in the list mean the site is in Google. Nothing in the list means keep going.
-2. **Stop at the first check that fails.** The order is: open to visitors, not told to stay out, not blocked, Search Console status, penalty and hacking reports, then the age of the site.
-3. **Several fixes are one setting.** WordPress, Wix, Squarespace and Shopify each have a visibility switch. A forgotten switch is a common cause.
+1. **Search `site:` plus the exact address of the page you care about.** For example `site:yourdomain.co.uk/services/`. Google says that if you see results, the page is in the index. Nothing in the list means keep going.
+2. **Stop at the first check that fails.** The order is: new or not, the page's own search, open to visitors, not told to stay out, Search Console status, penalty and hacking reports, then removals.
+3. **Several fixes are one setting.** WordPress, Wix, Squarespace and Shopify each have a visibility switch. A forgotten switch is worth checking before anything technical.
 4. **No one can promise a date.** Google says indexing "isn't guaranteed". For a new page it gives a range of "a day or two to a few weeks, typically".
-5. **Get help when the report names a penalty, a hack or a botched move.** Those need a person.
+5. **Get help when the report names a penalty, a hack or a botched move.** Those need a person. So does an older site where every check is clear.
 
 ## The decision tree
 
-Follow the steps from top to bottom. Each box tells you which cause to read next.
+Follow the steps from top to bottom. Each box tells you which cause to read next. The labels in quotation marks are the status names as written in Google's help. I have not seen your live screen, so the wording there may differ slightly.
 
-![Decision tree with seven steps that takes a website owner from a site: search to one of ten causes of a site not showing on Google](/images/blog/website-not-showing-decision-tree.svg)
+![Decision tree with eight steps that takes a website owner from a new-site check and a site: search to one of ten causes of a site not showing on Google](/images/blog/website-not-showing-decision-tree.svg)
 
 The same steps as text:
 
-1. **Search `site:yourdomain.co.uk` in Google.** Pages show: go to [cause 1](#cause-1-is-my-site-in-google-but-not-where-i-look). Nothing shows: step 2.
-2. **Open your site in a private browser window.** A password, a "coming soon" page or a "private" notice means [cause 2](#cause-2-is-my-site-closed-to-visitors). It opens normally: step 3.
-3. **Check your platform's hide-from-search setting.** It is switched on: [cause 3](#cause-3-did-something-tell-google-to-stay-out). It is off: step 4.
-4. **Inspect your homepage in Search Console.** Read the reason it gives. Blocked by robots.txt: [cause 4](#cause-4-is-my-site-blocked-by-robotstxt). Crawled, discovered or duplicate: [cause 5](#cause-5-did-google-find-my-page-and-choose-not-to-index-it). Redirect or not found: [cause 6](#cause-6-did-a-move-or-redesign-change-my-addresses). None of these: step 5.
-5. **Open the Manual actions and Security issues reports.** A problem is listed: [cause 7](#cause-7-has-google-applied-a-manual-action) or [cause 8](#cause-8-has-my-site-been-hacked). Both are clear: step 6.
-6. **Check the Removals tool.** A request is listed: [cause 9](#cause-9-did-someone-ask-google-to-remove-it). None: step 7.
-7. **Is the site new?** Then it is [cause 10](#cause-10-is-my-site-too-new-for-google-to-have-found-it).
+1. **Is the page or site new?** New means created, rebuilt or submitted in the last few weeks. Yes: read [cause 10](#cause-10-is-my-site-too-new-for-google-to-have-found-it) for what to expect, then carry on with step 2, because a new site can have other causes too. No: step 2.
+2. **Search `site:` followed by the exact address of the page you want found.** For example `site:yourdomain.co.uk/services/`. It shows: [cause 1](#cause-1-is-my-site-in-google-but-not-where-i-look). It does not show: step 3.
+3. **Open the page in a private browser window.** A password, a "coming soon" page or a "private" notice means [cause 2](#cause-2-is-my-site-closed-to-visitors). It opens normally: step 4.
+4. **Check your platform's hide-from-search setting.** It is switched on: [cause 3](#cause-3-did-something-tell-google-to-stay-out). It is off: step 5.
+5. **Inspect that page in Search Console and read the status.** "URL is on Google": [cause 1](#cause-1-is-my-site-in-google-but-not-where-i-look). "URL blocked by robots.txt": [cause 4](#cause-4-is-my-site-blocked-by-robotstxt). "Crawled - currently not indexed", "Discovered - currently not indexed" or a duplicate status: [cause 5](#cause-5-did-google-find-my-page-and-choose-not-to-index-it). "Page with redirect", "Not found (404)", "Soft 404", "Server error (5xx)" or a 401 or 403 block: [cause 6](#cause-6-is-the-page-redirecting-or-returning-an-error). Anything else: step 6.
+6. **Open the Manual actions and Security issues reports.** A problem is listed: [cause 7](#cause-7-has-google-applied-a-manual-action) or [cause 8](#cause-8-has-my-site-been-hacked). Both are clear: step 7.
+7. **Check the Removals tool.** A request is listed: [cause 9](#cause-9-did-someone-ask-google-to-remove-it). None: step 8.
+8. **Everything is clear and the site is not new?** Go to [When should I get help?](#when-should-i-get-help).
 
 ## Before you start: add your site to Search Console
 
-Steps 4 to 6 need a free Search Console account. Google says you "must first prove that you own the site". Your web developer or host can often do this for you.
+Steps 5 to 7 need a free Search Console account. Google says you "must first prove that you own the site". Your web developer or host can often do this for you.
 
 1. Go to Search Console and open the property selector.
 2. Select **+ Add property**. Google's [add a property help](https://support.google.com/webmasters/answer/34592) lists the choices.
 3. Choose a verification method. Google says "You will be asked to choose a verification method".
-4. Wait. Google says "Data should begin to appear in your property in a few days".
+4. Wait. Google says "Data should begin to appear in your property in a few days". The Search Console steps may have to wait until then.
 
-Google also says Search Console can show "an error that might prevent Google from understanding your site" ([Get your website on Google](https://developers.google.com/search/docs/fundamentals/get-on-google), last updated 10 December 2025).
+[Get your website on Google](https://developers.google.com/search/docs/fundamentals/get-on-google) (last updated 10 December 2025) says Search Console can show "an error that might prevent Google from understanding your site".
 
 ## Cause 1: Is my site in Google but not where I look?
 
-**How to tell.** Step 1 listed pages. Or your business name finds you and your service does not.
+**How to tell.** Step 2 listed the page, or URL Inspection says "URL is on Google". Or your business name finds you and your service does not. Google's [URL Inspection help](https://support.google.com/webmasters/answer/9012289) says "URL is on Google means that the URL is eligible to appear in Search results, but is not guaranteed to be there".
 
 **What Google says.** Google's [help page on missing pages](https://support.google.com/webmasters/answer/7474347) says "Many people assume that they are not on Google, when in fact their page simply appears low in Search results". Results also differ by person. Google's [How Search works](https://developers.google.com/search/docs/fundamentals/how-search-works) page (last updated 18 December 2025) says relevance can include "the user's location, language, and device (desktop or phone)". Two people can see two lists for one search.
 
 **What to do.**
 1. Turn off SafeSearch. Google lists "Turn off safe search" as the first check.
-2. Search for the exact address of your homepage. Google says "For a definitive test of whether your URL is appearing, search for the page URL on Google".
+2. Search `site:` followed by the exact address of the page. Google's example is `site:example.com/petstore/hamsters` ([missing pages help](https://support.google.com/webmasters/answer/7474347)). To confirm a page is on Google, Google's [URL Inspection help](https://support.google.com/webmasters/answer/9012289) also says "search for the page URL on Google".
 3. If the page appears, it is indexed. The job is now ranking, and that is slower work. My guide on [how long SEO takes](/blog/how-long-does-seo-take/) sets out what to expect.
 
-Google also warns that the `site:` operator "doesn't necessarily return all the URLs that are indexed". Treat an empty list as a reason to check further, not as proof.
+[Get your website on Google](https://developers.google.com/search/docs/fundamentals/get-on-google) warns that the `site:` operator "doesn't necessarily return all the URLs that are indexed". Treat an empty list as a reason to check further, not as proof.
 
 ## Cause 2: Is my site closed to visitors?
 
 **How to tell.** Open your address in a private window. You see a password box, a "coming soon" page or a "private" notice.
 
-**What Google says.** The same help page lists password protection among the common reasons: "You are blocking the page with a robots.txt file, a noindex directive, or some other mechanism, such as password protection".
+**What Google says.** The same help page lists password protection among the reasons a page is blocked: "You are blocking the page with a robots.txt file, a noindex directive, or some other mechanism, such as password protection".
 
 **What to do.** Each platform has a switch.
 
-1. **Squarespace.** Squarespace's help says "All sites are set to private by default". Open the Site Availability panel, select Public and click Save. After publishing, Squarespace says "search engines can find and index your site". Page: [Publish or hide your site](https://support.squarespace.com/hc/en-us/articles/360002088548-Publish-or-hide-your-site), last updated 10 September 2026.
+1. **Squarespace.** Squarespace's help says "All sites are set to private by default". Make sure the site is on a paid subscription, open the Site Availability panel, select Public and click Save. After publishing, Squarespace says "search engines can find and index your site". Page: [Publish or hide your site](https://support.squarespace.com/hc/en-us/articles/360002088548-Publish-or-hide-your-site), last updated 10 September 2026.
 2. **Shopify.** Shopify says "In private mode, all of your online store's pages are hidden from visitors and search engines". The steps are: from your Shopify admin, go to Online Store, click Private, select Public and click Update. Page: [Restrict access to your online store](https://help.shopify.com/en/manual/online-store/themes/password-page).
-3. **Wix.** Wix says "Password protected pages and private member pages don't show in search results, as they are not crawled and indexed". Remove the password from any page you want found. Page: [Preventing Search Engines from Indexing Your Page](https://support.wix.com/en/article/wix-editor-preventing-search-engines-from-indexing-your-page).
+3. **Wix.** Wix says "Password protected pages and private member pages don't show in search results, as they are not crawled and indexed". If a page you want found is password protected, remove the password. This step is my advice. Wix's page only says these pages are not crawled. Page: [Preventing Search Engines from Indexing Your Page](https://support.wix.com/en/article/wix-editor-preventing-search-engines-from-indexing-your-page).
 
 ## Cause 3: Did something tell Google to stay out?
 
-**How to tell.** The site opens for visitors. Search Console says the homepage is marked "noindex". Or a platform setting asks search engines to stay away.
+**How to tell.** The site opens for visitors. The Page indexing report help lists a status "URL marked 'noindex'". That is the label as written in Google's help. Or a platform setting asks search engines to stay away.
 
-**What Google says.** Google says noindex can be set with a meta tag or an HTTP response header ([Block indexing](https://developers.google.com/search/docs/crawling-indexing/block-indexing), last updated 10 December 2025). A meta tag is a line of hidden code in the page. The Page indexing report describes the status: "When Google tried to index the page it encountered a 'noindex' directive and therefore did not index it".
+**What Google says.** Google says noindex can be set with a meta tag or an HTTP response header ([Block indexing](https://developers.google.com/search/docs/crawling-indexing/block-indexing), last updated 10 December 2025). A meta tag is a line of hidden code in the page. The [Page indexing report help](https://support.google.com/webmasters/answer/7440203) describes the status: "When Google tried to index the page it encountered a 'noindex' directive and therefore did not index it".
 
 **What to do.** Check the setting for your platform. Menu names change, so each row links to the platform's own page.
 
@@ -79,16 +80,16 @@ Google also warns that the `site:` operator "doesn't necessarily return all the 
 
 WordPress says to "Check the Discourage search engines from indexing this site box to ask search engines not to index this site". So leave it unticked. Wix says "Disable the Let search engines index your site toggle to prevent search engines from indexing your site". So leave it on. Squarespace's steps to hide a site are to open the Settings panel, click Crawlers and check the box next to the block option. So leave it unticked.
 
-Paste your homepage into my [free website grader](/tools/website-grader/). It reads the page's meta robots tag and flags noindex.
+Paste your homepage into my [free website grader](/tools/website-grader/). It reads the page's meta robots tag and flags noindex. It does not read the HTTP header version, so a clean result does not rule out noindex.
 
 ## Cause 4: Is my site blocked by robots.txt?
 
-**How to tell.** URL Inspection says "URL blocked by robots.txt".
+**How to tell.** Google's [Page indexing report help](https://support.google.com/webmasters/answer/7440203) lists the status as "URL blocked by robots.txt". In URL Inspection, the Crawl allowed? line says whether a robots.txt rule blocked the page. The wording on your screen may differ slightly.
 
-**What Google says.** robots.txt is a small file at the root of your site that tells crawlers which pages they may visit. Google says "This page was blocked by your site's robots.txt file". It also says robots.txt "is not a mechanism for keeping a web page out of Google". To keep a page out, "block indexing with noindex or password-protect the page" ([Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro), last updated 10 December 2025).
+**What Google says.** robots.txt is a file on your site that tells crawlers which URLs they can access. Google says "This page was blocked by your site's robots.txt file". It also says robots.txt "is not a mechanism for keeping a web page out of Google". To keep a page out, "block indexing with noindex or password-protect the page" ([Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro), last updated 10 December 2025).
 
 **What to do.**
-1. Type your full homepage address into the inspection search bar at the top of any Search Console screen. Google says the URL "must be in the currently opened property".
+1. Type the full address of your page into the inspection search bar at the top of any Search Console screen. Google says the URL "must be in the currently opened property".
 2. Read the page status. Google says "URL is not on Google means that the URL can't appear in Search results".
 3. If the reason is robots.txt, ask your developer to remove the rule that blocks your pages. My [robots.txt generator](/tools/robots-generator/) has a "Standard (allow all)" preset that gives them a clean file to compare.
 
@@ -98,40 +99,49 @@ Paste your homepage into my [free website grader](/tools/website-grader/). It re
 
 | Status in Search Console | What Google says it means | What to do |
 |---|---|---|
-| Crawled - currently not indexed | "The page was crawled by Google but not indexed" | The status gives no reason. Make the page clearly useful and different from your other pages, and link to it from your menu or other pages. |
-| Discovered - currently not indexed | "The page was found by Google, but not crawled yet" | Link to it from pages that are indexed. Wait and check again. |
-| Duplicate without user-selected canonical | "This page is a duplicate of another page, although it doesn't indicate a preferred canonical page" | Ask your developer to name the main version of the page. |
+| Crawled - currently not indexed | "The page was crawled by Google but not indexed" | Google says this "doesn't necessarily indicate an issue that needs attention". For an important page it says to "use the URL Inspection tool and other tools to diagnose if there are any issues on your site". My view, not Google's: make the page clearly useful and link to it from your menu. |
+| Discovered - currently not indexed | "The page was found by Google, but not crawled yet" | Google says it "wanted to crawl the URL but this was expected to overload the site" and so rescheduled the crawl. Google's [missing pages help](https://support.google.com/webmasters/answer/7474347) says to make sure "you can reach any page on your site by following a chain of one or more links from your homepage". Check again in a week. |
+| Duplicate without user-selected canonical | "This page is a duplicate of another page, although it doesn't indicate a preferred canonical page" | Google says "This is not an error, but is working as intended". If Google picked the wrong main version, ask your developer to name the one you want. |
 | Duplicate, Google chose different canonical than user | "Google thinks another URL makes a better canonical" | Check which address Google picked. It may be the one you want. |
 
 A canonical is the address Google treats as the main copy of a page. Google says "Search results will point only to the canonical page".
 
-Google also says "Don't expect every URL on your site to be indexed". The Page indexing help adds "The URL is not indexed, either because of an indexing error, or because of a legitimate reason".
+The [Page indexing report help](https://support.google.com/webmasters/answer/7440203) says "Don't expect every URL on your site to be indexed" and "The URL is not indexed, either because of an indexing error, or because of a legitimate reason".
 
 If your pages are crawled but arrive empty, the site may build its pages in the browser. That is a developer job. My guide for [AI-built websites](/blog/vibe-coded-website-seo/) has three tests anyone can run. My [JavaScript SEO guide](/blog/javascript-seo-for-developers/) gives the developer's fixes.
 
-## Cause 6: Did a move or redesign change my addresses?
+## Cause 6: Is the page redirecting or returning an error?
 
-**How to tell.** The site was rebuilt, moved to a new domain or moved to https. URL Inspection says "Page with redirect" or "Not found (404)". Old addresses lead nowhere.
+**How to tell.** URL Inspection shows one of these statuses. The labels and quotations are from Google's [Page indexing report help](https://support.google.com/webmasters/answer/7440203). The wording on your screen may differ slightly.
 
-**What Google says.** Google's help page on missing pages says "pages that previously performed well may now rank poorly if mistakes were made when executing the move". The fix it gives is "Use 301 redirects". A redirect sends visitors and Google from an old address to a new one. The statuses read "This is a non-canonical URL that redirects to another page" and "This page returned a 404 error when requested".
+| Status | What Google says | What to do |
+|---|---|---|
+| Page with redirect | "This is a non-canonical URL that redirects to another page. As such, this URL will not be indexed." | My note, not Google's: a redirect from the http or non-www version of your address is normal. Inspect the address it redirects to. |
+| Not found (404) | "This page returned a 404 error when requested" | If you want the page found, restore it or redirect it to its new page. |
+| Soft 404 | "The page request returns what we think is a soft 404 response" | Ask your developer to return a real 404 for pages that do not exist, and to add real content to pages that do. |
+| Server error (5xx) | "Your server returned a 500-level error when the page was requested" | Ask your host to check the server. |
+| Blocked due to unauthorized request (401) | "The page was blocked to Googlebot by a request for authorization (401 response)" | Google says to "remove authorization requirements for this page". |
+| Blocked due to access forbidden (403) | "Googlebot never provides credentials, so your server is returning this error incorrectly" | Ask your host to let Google's crawler in. |
 
-**What to do.**
+**What Google says about a move.** Google's [missing pages help](https://support.google.com/webmasters/answer/7474347) says "pages that previously performed well may now rank poorly if mistakes were made when executing the move". The fix it gives is "Use 301 redirects". A redirect sends visitors and Google from an old address to a new one.
+
+**What to do after a move or redesign.**
 1. List five old addresses that used to bring in visitors.
 2. Paste each into my [redirect checker](/tools/redirect-checker/). It shows the status code and the full path.
-3. Each old address should reach its matching new page by one redirect. Send any that end in a 404 to your developer with the list.
+3. Each old address should reach its matching new page with a 301 redirect, as Google advises. Fewer hops is cleaner, which is my view. Send any that end in a 404 to your developer with the list.
 
 ## Cause 7: Has Google applied a manual action?
 
 **How to tell.** The Manual actions report in Search Console lists a problem. Google says that with no problem "you'll see a green check mark".
 
-**What Google says.** A manual action means "a human reviewer at Google has determined that pages on the site are not compliant with Google's spam policies". Pages are "ranked lower or omitted from search results" ([Manual actions report](https://support.google.com/webmasters/answer/9044175)). If you bought or inherited the site, Google says "It's possible that you got a site with existing manual actions filed against it".
+**What Google says.** A manual action means "a human reviewer at Google has determined that pages on the site are not compliant with Google's spam policies". Pages are "ranked lower or omitted from search results" ([Manual actions report](https://support.google.com/webmasters/answer/9044175)). If you bought or inherited the site, Google's [missing pages help](https://support.google.com/webmasters/answer/7474347) says "It's possible that you got a site with existing manual actions filed against it".
 
 **What to do.**
 1. Open the Manual actions report and read the issue.
 2. Fix it on every affected page.
 3. Select **Request Review** in the report and describe your fixes.
 
-My [Google penalty recovery guide](/blog/google-penalty-recovery/) explains what the common actions mean.
+My [Google penalty recovery guide](/blog/google-penalty-recovery/) explains what the manual actions mean.
 
 ## Cause 8: Has my site been hacked?
 
@@ -154,36 +164,37 @@ My [Google penalty recovery guide](/blog/google-penalty-recovery/) explains what
 
 ## Cause 10: Is my site too new for Google to have found it?
 
-**How to tell.** Steps 1 to 6 found nothing and the site is days or weeks old.
+**How to tell.** Step 1 said the page or site is new, or steps 2 to 7 found nothing and the site is days or weeks old.
 
 {% stats %}
 {% stat value="A day or two to a few weeks" label="Typical time for Google to crawl and index a new page, and Google adds that it depends on many factors" source="Google, Why is my page missing from Google Search?" /%}
 {% stat value="At least 1 week" label="How long Google says to wait after a sitemap or index request before assuming a problem" source="Google, Why is my page missing from Google Search?" /%}
-{% stat value="Up to a week or two" label="How long Google says indexing can take after a request" source="Google, URL Inspection tool help" /%}
+{% stat value="A day or so, up to a week or two" label="Google says indexing \"typically takes only a day or so, but can take much longer in some cases\" and also \"can take up to a week or two\"" source="Google, URL Inspection tool help" /%}
 {% /stats %}
 
-**What Google says.** "It can take a few weeks for Google to notice a new site" ([Get your website on Google](https://developers.google.com/search/docs/fundamentals/get-on-google)). Google also says "Googlebot doesn't crawl all the pages it discovered" and "Google doesn't guarantee that it will crawl, index, or serve your page". Nothing here is a promise of a date.
+**What Google says.** "It can take a few weeks for Google to notice a new site" ([Get your website on Google](https://developers.google.com/search/docs/fundamentals/get-on-google)). [How Search works](https://developers.google.com/search/docs/fundamentals/how-search-works) also says "Googlebot doesn't crawl all the pages it discovered" and "Google doesn't guarantee that it will crawl, index, or serve your page". Nothing here is a promise of a date.
 
 **What to do.**
-1. Make a sitemap. A sitemap is a list of your pages for Google to read. Most platforms make one for you. If yours does not, my [sitemap generator](/tools/sitemap-generator/) builds a draft from the links on your site. Review it before you use it.
+1. Make a sitemap. A sitemap is a list of your pages for Google to read. Google's missing pages help says "Many website hosting services create and submit a sitemap for you". If yours does not, my [sitemap generator](/tools/sitemap-generator/) builds a draft from the links on your site. Review it before you use it.
 2. In the Sitemaps report, paste the sitemap address into **Add a new sitemap** and submit it. Google says "There is no guarantee that a page URL discovered in a sitemap has been or will be crawled or indexed by Google".
-3. In URL Inspection, inspect your homepage and choose **Request indexing**. Google says "Submitting a request does not guarantee that the page will appear in the Google Index" and "There is a daily limit to how many index requests you can submit".
-4. Do not repeat the request. Google says "requesting a recrawl multiple times for the same URL won't get it crawled any faster".
+3. In URL Inspection, inspect your page and choose **Request indexing**. Google says "Submitting a request does not guarantee that the page will appear in the Google Index" and "There is a daily limit to how many index requests you can submit".
+4. Do not repeat the request. Google's [Ask Google to recrawl your URLs](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl) says "requesting a recrawl multiple times for the same URL won't get it crawled any faster".
 
 ## Symptom, likely cause, check, fix
 
 | Symptom | Likely cause | Check | Fix |
 |---|---|---|---|
-| `site:` lists pages but not for your service | Indexed but not ranking, or results differ by place | Search the exact page address | Work on ranking (cause 1) |
+| `site:` lists the page, or URL Inspection says "URL is on Google", but you do not see it for your service | Indexed but not ranking, or results differ by place | Search `site:` plus the exact page address | Work on ranking (cause 1) |
 | Site shows a password or "coming soon" | Closed to visitors | Private window | Make it public (cause 2) |
-| Site opens but Search Console says "noindex" | Told to stay out | Platform setting, website grader | Switch the setting off (cause 3) |
+| Site opens but Search Console lists "URL marked 'noindex'" | Told to stay out | Platform setting, website grader | Switch the setting off (cause 3) |
 | "URL blocked by robots.txt" | robots.txt blocks the page | URL Inspection | Developer removes the rule (cause 4) |
 | "Crawled" or "Discovered" but not indexed | Found, not indexed | Page indexing report | Improve and link to the page (cause 5) |
-| Old addresses show "Page with redirect" or 404 | Move or redesign | Redirect checker | Add 301 redirects (cause 6) |
+| Page shows "Page with redirect", "Not found (404)", "Soft 404", "Server error (5xx)" or a 401 or 403 block | Redirect or error | Redirect checker, URL Inspection | Fix the redirect or the error (cause 6) |
 | Manual actions lists an issue | Manual action | Manual actions report | Fix, then Request Review (cause 7) |
 | Security issues lists "Hacked content" | Hacked site | Security issues report | Clean and secure the site (cause 8) |
 | Removals shows a request | Removed on request | Temporary Removals tab | Cancel it (cause 9) |
-| Nothing found and the site is days old | Too new | Sitemaps report | Submit a sitemap and wait (cause 10) |
+| The page or site is new | Too new | Sitemaps report | Submit a sitemap and wait (cause 10) |
+| Every check is clear and the site is not new | Unknown | None left in this guide | Get help (see below) |
 
 ## Will fixing this get me into AI answers?
 
@@ -195,7 +206,7 @@ Ask your web developer or host first when the fix is a setting, a redirect or a 
 
 - Search Console lists a manual action or a security issue.
 - You moved or rebuilt the site and many old addresses end in a 404.
-- You have worked through all ten causes and still find no reason.
+- You have worked through the steps, the site is not new and you still find no reason.
 - The site is large and you cannot tell which pages matter.
 
 My [technical SEO audit](/services/technical-seo-audit/) costs £495 fixed for a standard site of up to around 500 pages. It does not include the fixes themselves. I make no promise about rankings or how quickly Google will index a page.

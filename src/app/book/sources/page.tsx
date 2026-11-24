@@ -81,7 +81,7 @@ function SourceItem({ source }: { source: BookSource }) {
     <li className="border-t border-hairline py-5 first:border-t-0 first:pt-0">
       <a
         href={source.url}
-        rel="noopener"
+        target="_blank" rel="noopener noreferrer"
         className="group text-base font-semibold text-foreground underline decoration-hairline-strong underline-offset-4 transition-colors hover:text-brand-ink hover:decoration-current focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-ink"
       >
         {source.title}

@@ -286,7 +286,7 @@ export default function RobotsGenerator() {
           Robots.txt Generator
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Build a valid robots.txt with a visual editor. Add user-agent rules, allow/disallow paths, crawl-delay, and sitemap references — then copy or download.
+          Build a valid robots.txt with a visual editor. Add user-agent rules, allow/disallow paths, crawl-delay, and sitemap references, then copy or download.
         </p>
       </div>
 
@@ -598,16 +598,16 @@ export default function RobotsGenerator() {
           <div>
             <h3 className="mb-1 font-medium text-foreground">Crawl-delay</h3>
             <p>
-              The <code className="rounded bg-surface-3 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">Crawl-delay</code> directive (in seconds) asks bots to wait between requests. Googlebot ignores this — configure crawl rate in Google Search Console instead. Bing and Yandex do respect it.
+              The <code className="rounded bg-surface-3 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">Crawl-delay</code> directive (in seconds) asks bots to wait between requests. Googlebot ignores this, so configure crawl rate in Google Search Console instead. Bing and Yandex do respect it.
             </p>
           </div>
           <div>
             <h3 className="mb-1 font-medium text-foreground">Common pitfalls</h3>
             <ul className="mt-1 list-disc space-y-1 pl-5">
-              <li>Robots.txt does not prevent indexing — use a <code className="rounded bg-surface-3 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">noindex</code> meta tag or X-Robots-Tag header for that.</li>
-              <li>Blocking CSS/JS files can hurt rendering and SEO — Google needs these to understand your pages.</li>
+              <li>Robots.txt does not prevent indexing. Use a <code className="rounded bg-surface-3 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">noindex</code> meta tag or X-Robots-Tag header for that.</li>
+              <li>Blocking CSS/JS files can hurt rendering and SEO. Google needs these to understand your pages.</li>
               <li>Wildcards (<code className="rounded bg-surface-3 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">*</code> in paths) and end-of-URL markers (<code className="rounded bg-surface-3 dark:bg-white/[0.06] px-1.5 py-0.5 text-foreground">$</code>) are supported by Google and Bing but not all bots.</li>
-              <li>The file must be served from the root domain — not a subdirectory.</li>
+              <li>The file must be served from the root domain, not a subdirectory.</li>
               <li>If your robots.txt returns a 5xx error, Google treats it as if all URLs are blocked.</li>
             </ul>
           </div>

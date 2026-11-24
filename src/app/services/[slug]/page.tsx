@@ -38,7 +38,7 @@ const GENERIC_DATA = {
   testimonials: [
     {
       quote:
-        "The SEO work delivered real results \u2014 I\u2019m seeing more clicks compared to this time last year in Google Analytics, without having to spend loads on advertising. Super impressed.",
+        "The SEO work delivered real results: I\u2019m seeing more clicks compared to this time last year in Google Analytics, without having to spend loads on advertising. Super impressed.",
       name: "Dr Shaan Patel",
       role: "Founder, Aatma Aesthetics",
       location: "UK",
@@ -255,7 +255,7 @@ const SEO_LONDON_DATA = {
     },
     {
       quote:
-        "The SEO work delivered real results \u2014 I\u2019m seeing more clicks compared to this time last year without having to spend loads on advertising.",
+        "The SEO work delivered real results: I\u2019m seeing more clicks compared to this time last year without having to spend loads on advertising.",
       name: "Dr Shaan Patel",
       role: "Founder, Aatma Aesthetics",
       location: "UK",
@@ -779,7 +779,14 @@ function buildSections(
       </>
     ),
     [pos.whoFor]: (
-      <WhoForGrid yesItems={convData.yesFor} noItems={convData.noFor} />
+      <WhoForGrid
+        yesItems={convData.yesFor}
+        noItems={
+          slug === "seo-migration-consultant"
+            ? convData.noFor.filter((item) => !item.startsWith("New sites with fewer than 10 pages"))
+            : convData.noFor
+        }
+      />
     ),
   };
 

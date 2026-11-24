@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run test:tools && npm run test:leads && node scripts/normalize-content.mjs && node scripts/validate-blog-images.mjs && node scripts/build-light-image-manifest.mjs && next build",
-    "test:tools": "node --test scripts/test-safe-public-fetch.mjs scripts/test-diagnostic-node-proxy.mjs && node scripts/test-tool-result-states.cjs",
+    "test:tools": "node --test scripts/test-safe-public-fetch.mjs scripts/test-diagnostic-node-proxy.mjs && node scripts/test-tool-result-states.cjs && node --test scripts/test-redirect-map-checker.cjs",
     "test:leads": "node --test scripts/test-lead-qualification.mjs scripts/test-contact-api-qualification.mjs",
     "start": "next start",
     "lint": "eslint",

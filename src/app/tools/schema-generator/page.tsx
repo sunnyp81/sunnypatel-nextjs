@@ -220,7 +220,7 @@ export default function SchemaGeneratorPage() {
                 WebPage describes an individual page; WebSite describes the site as a whole.
                 This generator has a WebSite template but no dedicated WebPage template. Use
                 a matching specific template where appropriate, or build a WebPage block using
-                the <a href="https://schema.org/WebPage" className="text-brand underline underline-offset-2 hover:opacity-80">Schema.org WebPage reference</a>.
+                the <a href="https://schema.org/WebPage" target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-2 hover:opacity-80">Schema.org WebPage reference</a>.
                 A generic WebPage declaration alone does not qualify a page for every Google rich result.
               </p>
             </div>
@@ -236,7 +236,7 @@ export default function SchemaGeneratorPage() {
               If you include an aggregate rating, verify the rating value and count against
               genuine ratings shown to visitors. This generator&apos;s field checks do not verify
               those facts or assess every Google eligibility rule. Follow the
-              {" "}<a href="https://developers.google.com/search/docs/appearance/structured-data/product-snippet" className="text-brand underline underline-offset-2 hover:opacity-80">Google Product snippet requirements</a>,
+              {" "}<a href="https://developers.google.com/search/docs/appearance/structured-data/product-snippet" target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-2 hover:opacity-80">Google Product snippet requirements</a>,
               then test both the generated code and the published URL.
             </p>
           </section>
@@ -295,7 +295,7 @@ export default function SchemaGeneratorPage() {
               Google&apos;s Rich Results Test checks supported Google search features; the Schema
               Markup Validator checks the broader Schema.org vocabulary. Passing a validator is
               a code check, not proof of search visibility. Google&apos;s
-              {" "}<a href="https://developers.google.com/search/docs/appearance/ai-features" className="text-brand underline underline-offset-2 hover:opacity-80">AI feature guidance</a>
+              {" "}<a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-2 hover:opacity-80">AI feature guidance</a>
               {" "}requires no special schema for AI Overviews or AI Mode. Keep structured data
               consistent with the visible page and retain useful explanations in the page text.
             </p>

@@ -64,7 +64,7 @@ function FactRow({ fact }: { fact: Fact }) {
           {external ? (
             <a
               href={fact.source}
-              rel="noopener"
+              target="_blank" rel="noopener noreferrer"
               className="underline decoration-hairline-strong underline-offset-4 hover:text-brand-ink focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-ink"
             >
               {fact.sourceLabel}

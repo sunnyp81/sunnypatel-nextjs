@@ -187,13 +187,13 @@ function Entry({ e }: { e: CatalogueEntry }) {
         </Field>
         <Field label="Licence">
           {e.licence}{" "}
-          <a href={e.licenceUrl ?? LICENCE_URL} rel="noopener" className={linkClass}>
+          <a href={e.licenceUrl ?? LICENCE_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>
             Licence text
           </a>
           {e.extraLicence && (
             <>
               {" "}
-              <a href={e.extraLicence.url} rel="noopener" className={linkClass}>
+              <a href={e.extraLicence.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
                 {e.extraLicence.name}
               </a>
             </>

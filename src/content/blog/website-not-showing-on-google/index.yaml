@@ -1,0 +1,46 @@
+title: 'Why Is My Website Not Showing on Google? A 10-Minute Diagnosis'
+metaTitle: 'Website Not Showing on Google? 10-Minute Diagnosis'
+description: >-
+  A seven-step decision tree for UK business owners: ten causes of a website
+  missing from Google, how to tell which applies, and the free fix for each.
+ogImage: /images/blog/hero-website-not-showing-on-google.webp
+date: '2026-11-24'
+lastUpdated: '2026-11-24'
+tags:
+  - Technical SEO
+  - SEO Checklist
+  - Search Console
+faqs:
+  - question: How do I check if my website is on Google?
+    answer: >-
+      Type site:yourdomain.co.uk into Google with your own domain. Pages in the
+      list mean the site is in Google. Google says the operator "doesn't
+      necessarily return all the URLs that are indexed", so confirm with the
+      URL Inspection tool in Search Console.
+  - question: How long does a new website take to show on Google?
+    answer: >-
+      Google gives a range of "a day or two to a few weeks, typically,
+      depending on many factors". It also says to allow at least a week after
+      submitting a sitemap or an index request before assuming a problem. No
+      one can promise a date.
+  - question: Why does my website show for my business name but not for my services?
+    answer: >-
+      The site is probably indexed and not ranking for those searches. Google
+      says "Many people assume that they are not on Google, when in fact their
+      page simply appears low in Search results". Search for the exact page
+      address to confirm. The job is then ranking work.
+  - question: Can I pay Google to show my website?
+    answer: >-
+      No. Google says it "does not accept payment for
+      crawling, indexing or ranking". Fix the cause in Search Console instead.
+  - question: Does a robots.txt file keep my page out of Google?
+    answer: >-
+      No. Google says robots.txt "is not a mechanism for keeping a web page out
+      of Google". To keep a page out, "block indexing with noindex or
+      password-protect the page".
+  - question: Does fixing indexing get my business into Google AI answers?
+    answer: >-
+      Indexing is the first step and not a guarantee. Google says a page must be
+      "indexed and eligible to be shown in Google Search with a snippet" and
+      that there are no additional requirements to appear in AI Overviews or AI
+      Mode.

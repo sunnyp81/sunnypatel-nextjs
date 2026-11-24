@@ -1,0 +1,179 @@
+AI bots made an average of 4.2% of HTML requests across Cloudflare's customer base from 1 January to 2 December 2025, and Anthropic's crawl-to-refer ratio on Cloudflare's network reached as much as 500,000:1. Both figures come from the [Cloudflare Radar 2025 Year in Review](https://blog.cloudflare.com/radar-2025-year-in-review/), published on 15 December 2025. Cloudflare is a vendor measuring its own network, so these are not figures for the whole web.
+
+_Last checked: 24 November 2026. Every figure below was read from the publication it links to. Each one describes one company's network or hosted sites in one period._
+
+## At a glance
+
+1. **AI bots made an average 4.2% of HTML requests on Cloudflare's customer base in 2025.** The share ran from 2.4% in early April to 6.4% in late June. Googlebot alone made 4.5% ([Cloudflare, 15 December 2025](https://blog.cloudflare.com/radar-2025-year-in-review/)).
+2. **Anthropic's crawl-to-refer ratio reached as much as 500,000:1 in 2025.** After May it ranged from about 25,000:1 to about 100,000:1. OpenAI reached as much as 3,700:1 in March. Perplexity's peaks were generally below 400:1 and below 200:1 from September (same source).
+3. **Training is the largest crawl purpose.** Over the 12 months to July 2025 Cloudflare put AI crawling at 80% training, 18% search and 2% user actions ([Cloudflare, 29 August 2025](https://blog.cloudflare.com/crawlers-click-ai-bots-training/)). By June 2026 Cloudflare said 52% of the crawler requests it saw were for AI training, up from 22% in spring 2025 ([Cloudflare, 30 September 2026](https://blog.cloudflare.com/agentic-web/)).
+4. **Vercel's network logged 569 million GPTBot requests against 4.5 billion from Googlebot.** That was one month before 17 December 2024 ([Vercel and MERJ](https://vercel.com/blog/the-rise-of-the-ai-crawler)).
+
+{% stats %}
+{% stat value="4.2%" label="of HTML requests from AI bots, 2025 average" source="Cloudflare, 1 Jan to 2 Dec 2025" /%}
+{% stat value="500,000:1" label="highest Anthropic crawl-to-refer ratio (as much as)" source="Cloudflare, 2025" /%}
+{% stat value="52%" label="of crawler requests were for AI training, June 2026" source="Cloudflare, 30 Sep 2026" /%}
+{% /stats %}
+
+## Which figure can I cite?
+
+Use the row that matches your sentence. Name the network and the period in the same sentence.
+
+| Figure | What was measured | Whose network or sample | Period | Source | Published |
+|---|---|---|---|---|---|
+| **4.2%** (average) | AI bot share of HTML requests | Cloudflare's customer base | 2025, to 2 December | [Cloudflare Radar 2025 Year in Review](https://blog.cloudflare.com/radar-2025-year-in-review/) | 15 December 2025 |
+| **4.5%** | Googlebot share of HTML requests | Cloudflare's customer base | 2025, to 2 December | Same | 15 December 2025 |
+| **over 28%** | Googlebot share of Verified Bot traffic | Cloudflare network | 1 January to 2 December 2025 | Same | 15 December 2025 |
+| **as much as 500,000:1** | Anthropic crawl-to-refer ratio | Cloudflare network | 2025 | Same | 15 December 2025 |
+| **38,065.7** | Anthropic crawl-to-refer ratio, monthly | Cloudflare Radar data | July 2025 | [The crawl-to-click gap](https://blog.cloudflare.com/crawlers-click-ai-bots-training/) | 29 August 2025 |
+| **52%** | Share of crawler requests for AI training | Cloudflare network | June 2026 | [The Internet has a second audience](https://blog.cloudflare.com/agentic-web/) | 30 September 2026 |
+| **569 million** | GPTBot requests | Vercel network | One month, late 2024 (dates not stated) | [The rise of the AI crawler](https://vercel.com/blog/the-rise-of-the-ai-crawler) | 17 December 2024 |
+| **15.1%** | Request share of LLM training and data collection crawlers | 5 million sites hosted by Hostinger | Three 6-day windows | [66 billion bot requests analysis](https://www.hostinger.com/blog/ai-bot-analysis) | 20 January 2026 |
+
+Safe wording follows this pattern: "AI bots made an average of 4.2% of HTML requests across Cloudflare's customer base from 1 January to 2 December 2025 (Cloudflare Radar 2025 Year in Review, 15 December 2025)."
+
+## How much of bot traffic is AI crawlers?
+
+On Cloudflare's network Googlebot was the largest Verified Bot in 2025. It was "responsible for over 28% of traffic from Verified Bots". OpenAI's GPTBot originated "about 7.5%" and Bingbot generated 6%. Cloudflare counts Googlebot in its AI crawler overview because it crawls for both search indexing and AI training.
+
+{% chart type="bar" eyebrow="Cloudflare Verified Bot traffic" title="Share of Verified Bot traffic by bot, 2025" data="Googlebot (over 28):28|GPTBot (about 7.5):7.5|Bingbot:6" suffix="%" source="Cloudflare Radar 2025 Year in Review, 1 January to 2 December 2025, Cloudflare network. Verified Bots only." /%}
+
+Cloudflare also groups Verified Bots by category. Search engine crawlers made 40% of Verified Bot traffic and AI crawlers made 20%. SEO bots made over 13%.
+
+The HTML view is narrower. Cloudflare classified HTML requests across its customer base as human, AI bot or other bot. Its figures differ from the all-content shares on Radar because they cover HTML only.
+
+{% chart type="bar" eyebrow="Cloudflare, HTML requests only" title="Share of HTML requests, 2025" data="Googlebot:4.5|AI bots (average):4.2" suffix="%" source="Cloudflare Radar 2025 Year in Review, 2025 to 2 December, Cloudflare's customer base. Cloudflare broke Googlebot out separately from AI bots." /%}
+
+The AI bot share varied from 2.4% in early April to 6.4% in late June. Googlebot's share started the year just under 2.5%, peaked at 11% in late April and ended with a 5% share. As of 2 December 2025 humans made 47% of HTML requests and non-AI bots made 44%.
+
+Other vendors measure other things. Hostinger analysed 66.7 billion anonymised log entries from 5 million websites it hosts, across three 6-day windows. It grouped the verified bots it could identify by stated purpose.
+
+{% chart type="bar" eyebrow="Hostinger, 5 million hosted sites" title="Share of bot requests by group" data="Scripts and generic bots:34.6|Classic search engine bots:30.5|LLM training and data collection:15.1|SEO and monitoring tools:9.7|AI and assistant-facing:6.9|Social and ad bots:3.3" suffix="%" source="Hostinger, 66 billion bot requests analysis, 20 January 2026. 66.7 billion log entries, three 6-day windows (13 to 18 June, 20 to 25 August, 20 to 25 November). Hostinger's own grouping." /%}
+
+Hostinger's groups are its own and its sample is its own customers. Do not set them beside Cloudflare's shares as one series.
+
+Vercel and MERJ counted requests by crawler on Vercel's network in the month before 17 December 2024.
+
+{% chart type="bar" eyebrow="Vercel network, one month" title="Requests by crawler, millions" data="Googlebot:4500|GPTBot:569|Claude:370|AppleBot:314|PerplexityBot:24.4" source="Vercel and MERJ, The rise of the AI crawler, 17 December 2024. Googlebot is counted across Gemini and Search. Microsoft Copilot was excluded for lacking a unique user agent." /%}
+
+Vercel says GPTBot, Claude, AppleBot and PerplexityBot combined made nearly 1.3 billion fetches, "a little over 28% of Googlebot's volume". Two other Vercel findings concern efficiency. ChatGPT spent 34.82% of its fetches on 404 pages and Claude 34.16%. Googlebot spent 8.22%.
+
+## What are the crawl-to-refer ratios by operator?
+
+A crawl-to-refer ratio is requests made by a platform's crawlers divided by visits that platform sends. Cloudflare's definition is that the metric "compares total number of requests from relevant user agents associated with a given search or AI platform where the response was of Content-type: text/html by the total number of requests for HTML content where the Referer header contained a hostname associated with a given search or AI platform." Cloudflare adds that "a high ratio means a whole lot of AI crawling without sending actual humans to a Web site."
+
+Cloudflare's own caveat matters. Referrals from native apps carry no Referer header, so the ratios "may overstate the respective ratios, but it is unclear by how much" ([Cloudflare, 1 July 2025](https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/)).
+
+The Year in Review gives ratios as ranges and peaks across 2025. The qualifiers are part of the figure.
+
+| Platform | What Cloudflare reported for 2025 |
+|---|---|
+| Anthropic | "as much as 500,000:1", erratic from January to May. After that "~25,000:1 to ~100,000:1" |
+| OpenAI | "as much as 3,700:1 in March" |
+| Perplexity | Below 100:1 at the start, above 700:1 in late March, peaks "generally below 400:1" and "below 200:1 from September onwards" |
+| Microsoft | Peak values "generally in the 50:1 to 70:1 range" |
+| Google | Just over 3:1 at the start, "as high as 30:1" by April, back to 3:1 by mid-July |
+| DuckDuckGo | Below 1:1 for the first three quarters, then 1.5:1 from mid-October |
+
+Source: [Cloudflare Radar 2025 Year in Review](https://blog.cloudflare.com/radar-2025-year-in-review/), 15 December 2025. Cloudflare network, worldwide. Cloudflare says the metric can be volatile day to day. It attributes Anthropic's early erratic values to sparse referral traffic.
+
+For single months there is a table in an earlier Cloudflare post. It covers January to July 2025 and comes from the same Radar data. The chart shows July 2025 on a linear scale, so the smaller bars are barely visible. The table keeps the exact values.
+
+{% chart type="bar" eyebrow="Cloudflare Radar, July 2025" title="Crawl-to-refer ratio by platform, July 2025" data="Anthropic:38065.7|OpenAI:1091.4|Perplexity:194.8|Microsoft:40.7|Google:5.4" source="Cloudflare, The crawl-to-click gap, 29 August 2025. Monthly Radar data, Cloudflare network. A different series from the 2025 peaks in the table above." /%}
+
+| Platform | January 2025 | July 2025 | Change, January to July |
+|---|---|---|---|
+| Anthropic | 286,930.1 | 38,065.7 | -86.7% |
+| OpenAI | 1,217.4 | 1,091.4 | -10.4% |
+| Perplexity | 54.6 | 194.8 | +256.7% |
+| Microsoft | 38.5 | 40.7 | +5.7% |
+| Google | 3.8 | 5.4 | +43% |
+| DuckDuckGo | 0.1 | 0.3 | +116.3% |
+
+Source: [Cloudflare, The crawl-to-click gap](https://blog.cloudflare.com/crawlers-click-ai-bots-training/), 29 August 2025, table of Cloudflare Radar crawl-to-refer ratios. Cloudflare writes that Anthropic "still crawled 38,000 pages for every referred page visit in July 2025".
+
+The two Cloudflare series differ. The Year in Review quotes peaks across the year and the August post lists monthly values. They measure the same metric over different windows, so do not mix them in one sentence.
+
+Cloudflare published one more weekly example. For 19 to 26 June 2025 its ratios ran from Anthropic's 70,900:1 down to Mistral's 0.1:1.
+
+## Which crawlers do what?
+
+Each operator documents separate crawlers for training, search and user requests. The three purposes carry different robots.txt consequences, so a ratio for a company mixes them.
+
+| Operator | Crawler | Purpose in the operator's documentation | Robots.txt note in the documentation |
+|---|---|---|---|
+| OpenAI | GPTBot | Training: "crawl content that may be used in training our generative AI foundation models" | Disallowing it signals content should not be used for training |
+| OpenAI | OAI-SearchBot | Search: "used to surface websites in search results in ChatGPT's search features" | Opting out means a site will not be shown in ChatGPT search answers |
+| OpenAI | ChatGPT-User | User actions: may visit a page when a user asks ChatGPT or a CustomGPT a question | "robots.txt rules may not apply" |
+| Anthropic | ClaudeBot | Training: collecting web content "that could potentially contribute to their training" | Restricting it signals future material should be excluded from training |
+| Anthropic | Claude-SearchBot | Search: "navigates the web to improve search result quality for users" | Disabling it may reduce visibility in search results |
+| Anthropic | Claude-User | User requests: may access websites when individuals ask Claude questions | Disabling it prevents retrieval in response to a user query |
+| Perplexity | PerplexityBot | Search: "designed to surface and link websites in search results on Perplexity", "not used to crawl content for AI foundation models" | Allow it to appear in Perplexity search |
+| Perplexity | Perplexity-User | User actions: may visit a page to answer a question | "generally ignores robots.txt rules" |
+| Google | Googlebot | Common crawler "used to find information for building Google's search indexes" | Cloudflare also counts it as an AI training crawler |
+| Google | Google-Extended | Token that controls whether crawled content may be used to train Gemini models | "does not impact a site's inclusion in Google Search" |
+
+Sources: [OpenAI](https://platform.openai.com/docs/bots), [Anthropic](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler), [Perplexity](https://docs.perplexity.ai/guides/bots) and [Google](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers), read on 24 November 2026. Google's page was last updated on 30 October 2026. Google-Extended has no separate user agent string, and the page describes it as a robots.txt token.
+
+The mix has moved. Cloudflare reported that training was 80% of AI crawling in the 12 months to July 2025, with search at 18% and user actions at 2%. In its 2025 Year in Review, training reached "as much as 7-8x search crawling and 32x user action crawling at peak". Cloudflare also reported that user action crawling grew. Its headline says "over 15x in 2025" and its body text says "up over 21x from January through early December". Quote one of them with its exact wording and period, not both as one number.
+
+## What do AI services send back?
+
+The published referral side is the denominator in the ratios above. For the share of site traffic that AI assistants send, read my [AI search statistics](/blog/ai-search-statistics/) page. It lists referral studies with their samples.
+
+Cloudflare's own reading in July 2025 was that "the trend continues to be more crawls and fewer referrals when compared in relation to each other". In September 2026 it wrote that "more than half of Internet traffic wasn't human" this year and that daily requests from AI agents on its network "grew by more than 1,700%" over the past year.
+
+### My own portfolio data, not crawler data
+
+I do not hold crawler request logs for my own sites, so I cannot give a crawl-to-refer ratio for them. I do track AI referral sessions across the properties I own. This is the referral side only, from my own sites and not a sample of the web.
+
+{% live-ai-figure /%}
+
+My [AI referral traffic study](/blog/ai-referral-traffic-study/) explains the source rules and the panel.
+
+## What can a site owner control?
+
+A site owner controls crawling through robots.txt user agents and through network rules. The operators in the table above document their own user agents, so use their pages for current names. Cloudflare describes robots.txt directives as "effectively a 'keep out' sign" and not formal access control ([Cloudflare Year in Review](https://blog.cloudflare.com/radar-2025-year-in-review/)).
+
+OpenAI documents that each setting is independent. A site can allow OAI-SearchBot to appear in ChatGPT search and disallow GPTBot to signal that content should not be used for training:
+
+```
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+```
+
+Vercel found that "The robots.txt file is effective for all measured crawlers" in its late 2024 test. Perplexity-User and ChatGPT-User are user-triggered fetchers, so robots.txt may not stop them, per their operators.
+
+Cloudflare reported that fewer than 1% of sites on its network block search crawlers, while 17% block training (30 September 2026). My [robots.txt generator](/tools/robots-generator/) builds the file. My [AI visibility](/ai-visibility/) page explains how I check whether a site appears in AI answers.
+
+## Methodology and limits
+
+| Source | Publisher | Published | Sample and period | Type |
+|---|---|---|---|---|
+| [Cloudflare Radar 2025 Year in Review](https://blog.cloudflare.com/radar-2025-year-in-review/) | Cloudflare | 15 December 2025 | Cloudflare network and customer base, 1 January to 2 December 2025 | Vendor network data |
+| [The crawl-to-click gap](https://blog.cloudflare.com/crawlers-click-ai-bots-training/) | Cloudflare | 29 August 2025 | Cloudflare Radar data, January to July 2025 | Vendor network data |
+| [The crawl before the fall of referrals](https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/) | Cloudflare | 1 July 2025 | Radar metric launch, example week 19 to 26 June 2025 | Vendor network data |
+| [The Internet has a second audience](https://blog.cloudflare.com/agentic-web/) | Cloudflare | 30 September 2026 | Cloudflare network, to September 2026 | Vendor network data |
+| [The rise of the AI crawler](https://vercel.com/blog/the-rise-of-the-ai-crawler) | Vercel and MERJ | 17 December 2024 | Vercel network and test sites, one month (dates not stated) | Vendor network data |
+| [66 billion bot requests analysis](https://www.hostinger.com/blog/ai-bot-analysis) | Hostinger | 20 January 2026 | 66.7 billion log entries, 5 million hosted sites, three 6-day windows | Vendor hosting data |
+
+Limits that apply to every figure on this page:
+
+- Each vendor measures its own traffic. Cloudflare, Vercel and Hostinger sell network, hosting or security products.
+- None of the samples is a sample of the web, and none is UK-specific.
+- Cloudflare's HTML shares and its Verified Bot shares have different bases. Hostinger's group shares are a third base.
+- Crawl-to-refer ratios can overstate when referrals carry no Referer header. A ratio mixes training, search and user-triggered crawlers.
+- I did not quote the Cloudflare Radar dashboard, which returned an access error to my fetch. Ahrefs publishes an AI bot activity benchmark whose values sit in interactive charts I could not read, so I left it out.
+- Vercel's data is from late 2024 and describes one month on its network.
+- I did not use figures from blogs that repeat these reports.
+
+## How to cite this page
+
+Cite the primary source for any figure you publish. A safe pattern:
+
+> Cloudflare reported that AI bots made an average of 4.2% of HTML requests across its customer base in 2025 (Cloudflare Radar 2025 Year in Review, 15 December 2025).
+
+To cite this summary: Sunny Patel, "AI crawler traffic statistics: how much bots take and send back", sunnypatel.co.uk/blog/ai-crawler-traffic-statistics/, last checked 24 November 2026.

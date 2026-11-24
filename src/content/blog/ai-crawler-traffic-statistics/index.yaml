@@ -1,0 +1,37 @@
+title: 'AI Crawler Traffic Statistics: How Much Bots Take and Send Back'
+metaTitle: 'AI Crawler Traffic Statistics: Bots vs Referrals'
+description: >-
+  Cloudflare, Vercel and Hostinger figures on AI crawler requests and
+  crawl-to-refer ratios by operator, each with its network, period and source,
+  plus the crawler definitions from OpenAI, Anthropic, Perplexity and Google.
+ogImage: '/images/blog/hero-ai-crawler-traffic-statistics.webp'
+date: '2026-11-24'
+lastUpdated: '2026-11-24'
+tags:
+  - Statistics
+  - AI Crawlers
+  - AI Search
+  - Technical SEO
+keyStats:
+  - value: 4.2%
+    label: Average share of HTML requests made by AI bots across Cloudflare's customer base in 2025
+    source: Cloudflare Radar 2025 Year in Review, 1 January to 2 December 2025
+  - value: 500,000:1
+    label: Highest Anthropic crawl-to-refer ratio on Cloudflare's network in 2025 ("as much as")
+    source: Cloudflare Radar 2025 Year in Review, published 15 December 2025
+  - value: 38,000
+    label: Pages Anthropic crawled for every referred page visit in July 2025, on Cloudflare's network
+    source: Cloudflare, 29 August 2025
+faqs:
+  - question: How much of website traffic is AI crawlers?
+    answer: >-
+      On Cloudflare's customer base, AI bots made an average of 4.2% of HTML requests in 2025, from 1 January to 2 December. The share ranged from 2.4% in early April to 6.4% in late June. Googlebot alone made 4.5%. This counts HTML page requests only, on one vendor's network, and it is not a figure for the whole web.
+  - question: What is a crawl-to-refer ratio?
+    answer: >-
+      It compares how often a platform's crawlers request pages with how often visitors arrive from that platform. Cloudflare Radar divides requests from a platform's crawler user agents that returned HTML by requests for HTML whose Referer header contained a hostname of that platform. A high ratio means a lot of crawling without sending people to a site.
+  - question: Which AI company has the highest crawl-to-refer ratio?
+    answer: >-
+      On Cloudflare's network Anthropic had the highest ratios in 2025, reaching as much as 500,000:1 and ranging from about 25,000:1 to about 100,000:1 after May. In July 2025 the monthly figure was 38,065.7 for Anthropic, 1,091.4 for OpenAI and 194.8 for Perplexity. Cloudflare notes that app traffic without a Referer header can overstate the ratios.
+  - question: Do AI crawlers respect robots.txt?
+    answer: >-
+      The operators say their training and search crawlers do. OpenAI, Anthropic and Perplexity each document separate user agents for training, search and user-triggered fetches. OpenAI says robots.txt rules may not apply to ChatGPT-User, and Perplexity says Perplexity-User generally ignores them, because a user asked for the fetch.

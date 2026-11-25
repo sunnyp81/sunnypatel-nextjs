@@ -56,6 +56,15 @@
           "source": "Bluesky",
           "author": "Barry Schwartz",
           "handle": "rustybrick.com",
+          "url": "https://bsky.app/profile/rustybrick.com/post/3n35gf2ve4cgl",
+          "date": "2026-11-25",
+          "text": "social on the Google search ranking hub, @gregfinn.bsky.social on how to rank in AI Mode and AI Overviews and @themarketinganu.bsky.social Google Ads hack and more",
+          "likes": 0
+        },
+        {
+          "source": "Bluesky",
+          "author": "Barry Schwartz",
+          "handle": "rustybrick.com",
           "url": "https://bsky.app/profile/rustybrick.com/post/3n32x6wbflh24",
           "date": "2026-11-24",
           "text": "Google preannounced the December 2026 core update but we don't know when it will launch exactly - here is what we do know.",
@@ -87,6 +96,24 @@
           "date": "2026-11-24",
           "text": "I believe the core update will complete soon, maybe today. With this update, I haven't seen tremors during the rollout yet, which we sometimes see during broad core updates.",
           "likes": 0
+        },
+        {
+          "source": "Bluesky",
+          "author": "Barry Schwartz",
+          "handle": "rustybrick.com",
+          "url": "https://bsky.app/profile/rustybrick.com/post/3n33cegt7cs2b",
+          "date": "2026-11-24",
+          "text": "The Google December 2026 core update pre-announcement is confusing - I made a quick video to try to clarify what this is all about",
+          "likes": 2
+        },
+        {
+          "source": "Bluesky",
+          "author": "Barry Schwartz",
+          "handle": "rustybrick.com",
+          "url": "https://bsky.app/profile/rustybrick.com/post/3n33auw3aakmv",
+          "date": "2026-11-24",
+          "text": "Not a huge fan of AI for infographics but I made this to summarize the Google core update news because it is confusing - Pre-announced December core update that I covered at",
+          "likes": 1
         }
       ]
     },
@@ -349,7 +376,7 @@
     "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
     "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
   ],
-  "checkedAt": "2026-11-24T17:58:21.013Z",
-  "changedAt": "2026-11-24T17:58:21.013Z",
+  "checkedAt": "2026-11-25T17:27:09.370Z",
+  "changedAt": "2026-11-25T17:27:09.370Z",
   "statusChangedAt": "2026-11-24T17:58:21.013Z"
 }

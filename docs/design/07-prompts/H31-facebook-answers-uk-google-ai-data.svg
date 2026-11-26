@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+<defs>
+<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="470" y1="0" x2="1960" y2="0">
+<stop offset="0" stop-color="#5B8AEF"/><stop offset="0.4" stop-color="#5B8AEF"/><stop offset="0.75" stop-color="#D79F1E"/><stop offset="1" stop-color="#D79F1E"/></linearGradient>
+<filter id="wide" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="38"/></filter>
+<filter id="mid" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="12"/></filter>
+<g id="art" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M560 440 H800 Q860 440 860 500 V640 Q860 700 800 700 H640 L570 770 L585 700 H560 Q500 700 500 640 V500 Q500 440 560 440 Z"/>
+<path d="M660 760 V800 Q660 850 710 850 H770 L800 905 L830 850 H930 Q980 850 980 800 V690 Q980 640 930 640 H905"/>
+<path d="M860 560 C1080 400 1270 840 1508 620"/>
+<circle cx="1700" cy="620" r="192"/>
+<path d="M1838 756 L1955 873"/>
+<path d="M1700 540 Q1712 608 1780 620 Q1712 632 1700 700 Q1688 632 1620 620 Q1688 608 1700 540 Z"/>
+</g></defs>
+<rect width="2400" height="1350" fill="#050507"/>
+<use href="#art" stroke="url(#g)" stroke-width="60" opacity="0.7" filter="url(#wide)"/>
+<use href="#art" stroke="url(#g)" stroke-width="34" opacity="1" filter="url(#mid)"/>
+<use href="#art" stroke="url(#g)" stroke-width="22"/>
+<use href="#art" stroke="#ffffff" stroke-width="6" opacity="0.4"/>
+</svg>

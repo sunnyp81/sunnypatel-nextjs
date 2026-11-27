@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { reader } from "@/lib/content";
 import lastmod from "@/data/lastmod.json";
+import { EXPERIMENTS, lastUpdatedOf } from "@/data/experiments";
 import { trackerLastUpdated } from "@/lib/update-monitor-meta";
 
 const SITE_URL = "https://sunnypatel.co.uk";
@@ -114,6 +115,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     changeFrequency: "weekly",
     priority: 0.6,
   },
+  ...EXPERIMENTS.map((e) => ({
+    url: `${SITE_URL}/research/experiments/${e.slug}/`,
+    lastModified: new Date(lastUpdatedOf(e)),
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  })),
   {
     url: `${SITE_URL}/statistics/`,
     lastModified: new Date("2026-10-23"),

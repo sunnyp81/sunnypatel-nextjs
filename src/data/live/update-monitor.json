@@ -17,6 +17,13 @@
       "news": [
         {
           "source": "Search Engine Roundtable",
+          "title": "Search News Buzz Video Recap: Google November Core Update, December Core Preannounced, Search Ranking Hub, Google StarSearch & Search Ad News",
+          "url": "https://www.seroundtable.com/video-11-2273-2026-42627.html",
+          "date": "2026-11-27",
+          "summary": "This week, we covered the completion of the Google November 2026 core update and then were hit by a surprise, preannounced Google December 2026 core update; no, it is not live yet."
+        },
+        {
+          "source": "Search Engine Roundtable",
           "title": "Google December 2026 Core Update Preannounced - Complex Queries & Personalization",
           "url": "https://www.seroundtable.com/google-december-2026-core-update-42615.html",
           "date": "2026-11-24",
@@ -383,7 +390,7 @@
     "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
     "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
   ],
-  "checkedAt": "2026-11-26T17:07:25.791Z",
-  "changedAt": "2026-11-26T17:07:25.791Z",
+  "checkedAt": "2026-11-27T16:50:55.892Z",
+  "changedAt": "2026-11-27T16:50:55.892Z",
   "statusChangedAt": "2026-11-24T17:58:21.013Z"
 }

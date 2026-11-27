@@ -1,4 +1,4 @@
-export type ExperimentStatus = "running" | "concluded" | "inconclusive" | "failed";
+export type ExperimentStatus = "planned" | "running" | "concluded" | "inconclusive" | "failed";
 
 export type RegistrationLabel =
   | "exploratory (logged after the fact)"
@@ -26,13 +26,26 @@ export interface Experiment {
   label: RegistrationLabel;
   status: ExperimentStatus;
   hypothesis: string;
-  change: string;
-  /** ISO date the change went live. */
-  changeDate: string;
+  change?: string;
+  /** ISO date the change went live. Absent for planned entries. */
+  changeDate?: string;
+  /** ISO date the protocol was registered in this register. */
+  registeredDate?: string;
+  /** What is randomised or counted. */
+  unit?: string;
+  arms?: { name: string; description: string }[];
+  design?: string;
+  power?: string;
+  priorWork?: { label: string; href: string; note?: string }[];
+  limits?: string;
+  /** What will be shared when the test reads back. */
+  publishable?: string;
+  /** URL slug of the child page. */
+  slug: string;
   baseline?: string;
-  comparison: string;
+  comparison?: string;
   metric: string;
-  window: string;
+  window?: string;
   /** ISO date of the next planned readback. Running entries only. */
   readbackDate?: string;
   outcome: string;
@@ -45,13 +58,14 @@ export interface Experiment {
 }
 
 export const STATUS_LABELS: Record<ExperimentStatus, string> = {
+  planned: "Planned",
   running: "Running",
   concluded: "Concluded",
   inconclusive: "Inconclusive",
   failed: "Failed",
 };
 
-export const STATUS_ORDER: ExperimentStatus[] = ["running", "concluded", "inconclusive", "failed"];
+export const STATUS_ORDER: ExperimentStatus[] = ["planned", "running", "concluded", "inconclusive", "failed"];
 
 const AFTER_THE_FACT: ExperimentUpdate[] = [
   { date: "2026-11-02", note: "Logged in this register after the fact. No readback is pending." },
@@ -60,6 +74,7 @@ const AFTER_THE_FACT: ExperimentUpdate[] = [
 export const EXPERIMENTS: Experiment[] = [
   {
     id: "EXP-001",
+    slug: "bulk-title-rewrite-three-sites",
     title: "Bulk title rewrite on three sites",
     site: "Three of my own sites. Two were large programmatic sites of about 144,000 and 776 pages.",
     label: "exploratory (logged after the fact)",
@@ -78,6 +93,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-002",
+    slug: "query-matched-titles-four-pages",
     title: "Query-matched titles on four pages",
     site: "sunnypatel.co.uk",
     label: "exploratory (logged after the fact)",
@@ -97,6 +113,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-003",
+    slug: "direct-answer-passage-rewrites",
     title: "Direct-answer passage rewrites",
     site: "sunnypatel.co.uk",
     label: "exploratory (logged after the fact)",
@@ -119,6 +136,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-004",
+    slug: "aeo-buying-fit-pilot",
     title: "AEO buying-fit pilot",
     site: "sunnypatel.co.uk",
     label: "exploratory (logged after the fact)",
@@ -148,6 +166,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-005",
+    slug: "specific-redirects-old-recipe-urls",
     title: "Specific redirects for old recipe URLs",
     site: "shecookssheeats.co.uk",
     label: "registered before the result",
@@ -170,6 +189,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-006",
+    slug: "berkshire-hub-de-target",
     title: "Berkshire hub de-target",
     site: "sunnypatel.co.uk",
     label: "registered before the result",
@@ -194,6 +214,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-007",
+    slug: "price-led-title-network-page",
     title: "Price-led title on one network page",
     site: "chargefinder.uk, a UK electric vehicle charging price site",
     label: "registered before the result",
@@ -213,6 +234,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-008",
+    slug: "reading-site-301-merge",
     title: "301 merge of a small Reading site",
     site: "A small Reading local-SEO site, merged into sunnypatel.co.uk",
     label: "registered before the result",
@@ -237,6 +259,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-009",
+    slug: "provider-guide-evidence-repair-schema-fix",
     title: "Evidence repair on a provider guide and a schema fix",
     site: "sunnypatel.co.uk",
     label: "registered before the result",
@@ -259,6 +282,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-010",
+    slug: "audit-page-retitle-niche-service-offers",
     title: "Audit page retitle and niche service page offers",
     site: "sunnypatel.co.uk",
     label: "registered before the result",
@@ -282,6 +306,7 @@ export const EXPERIMENTS: Experiment[] = [
   },
   {
     id: "EXP-011",
+    slug: "honest-titles-dfe-figures-school-pages",
     title: "Honest titles and DfE figures on 20 school pages",
     site: "catchment.school, a UK school admissions data site",
     label: "registered before the result",
@@ -303,17 +328,253 @@ export const EXPERIMENTS: Experiment[] = [
     outcome: "No result yet.",
     updates: [{ date: "2026-11-01", note: "Registered with the release, before any result." }],
   },
+  {
+    id: "EXP-012",
+    slug: "ctr-at-a-stable-google-position",
+    title: "Click-through rate at a stable Google position, September to November 2026",
+    site: "Three of my own sites with the most Google clicks: chargefinder.uk, a UK water hardness site and a UK noise checker site.",
+    label: "registered before the result",
+    status: "running",
+    registeredDate: "2026-11-27",
+    unit: "Query, page and device rows in Search Console, fixed from the September window.",
+    hypothesis:
+      "Click-through rate fell between September and November 2026 for the same query and page rows held at the same average position. This is an observational check, not an experiment. I noticed the fall before writing this down.",
+    design:
+      "Retrospective comparison of two 28-day windows, 1 to 28 September and 28 October to 24 November 2026. Rows qualify with 50 or more impressions in both windows, average position 1 to 10 in both and a position change of 1.0 or less. Rows that later leave the band are reported, not dropped. Pages whose title or description changed between windows are reported separately.",
+    comparison: "The same rows in the earlier window.",
+    metric: "Google Search Console Web click-through rate, all countries and UK only.",
+    window:
+      "1 to 28 September 2026 against 28 October to 24 November 2026, with a second read excluding 9 to 11 November (a Search Console logging fault).",
+    power: "Not a powered test. Uncertainty is clustered by page and query, and the three sites are reported separately.",
+    limits:
+      "A stable average position does not mean the results page looked the same. I have no reliable measure of AI Overview presence, so this cannot say why click-through rate moved.",
+    priorWork: [
+      {
+        label: "Ahrefs, \"AI Overviews reduce clicks\" (April 2025)",
+        href: "https://ahrefs.com/blog/ai-overviews-reduce-clicks/",
+        note: "Ahrefs measured AI Overview exposure; I cannot.",
+      },
+    ],
+    publishable: "One chart per site of click-through rate by position band in each window, the row counts and the exit table.",
+    readbackDate: "2026-12-11",
+    outcome: "Running. No result yet.",
+    updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
+  },
+  {
+    id: "EXP-013",
+    slug: "internal-link-for-found-not-indexed-pages",
+    title: "One internal link for pages Google has found but not indexed",
+    site: "My own sites with pages Google reports as \"Discovered\" or \"Crawled, currently not indexed\". Sites are described by sector in the result.",
+    label: "registered before the result",
+    status: "planned",
+    registeredDate: "2026-11-27",
+    unit: "Individual URLs, randomised within site, page template and starting index state.",
+    hypothesis:
+      "Adding one relevant contextual link from an indexed page coincides with more of these URLs being indexed 28 days later than leaving them alone.",
+    arms: [
+      {
+        name: "Link",
+        description: "One new contextual link from a relevant indexed page on the same site. Sitemap lastmod is held constant.",
+      },
+      { name: "Control", description: "Unchanged. Sitemap lastmod is held constant." },
+    ],
+    metric: "Share of URLs indexed at day 28, using the URL Inspection verdict and the Google-selected canonical.",
+    power:
+      "Set before the start by simulating the assignment from the inventory's own baseline indexing rate. If it cannot reach 80% power for the effect I set in advance, the test runs as descriptive and says so.",
+    limits:
+      "Google does not take part in IndexNow, so IndexNow is not part of this test (see EXP-014). Donor pages are not shared between arms.",
+    priorWork: [
+      {
+        label: "Agility CMS, sitemap lastmod and IndexNow case (July 2026)",
+        href: "https://agilitycms.com/blog/sitemap-lastmod-indexnow-faster-indexing",
+        note: "a single-site case without a control group.",
+      },
+    ],
+    publishable: "Indexed share by arm at day 28 with its interval, and the inventory size by starting state.",
+    outcome: "Planned. The URL inventory is being built.",
+    updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
+  },
+  {
+    id: "EXP-014",
+    slug: "indexnow-on-new-pages-and-first-bing-crawl",
+    title: "IndexNow on new pages and time to first Bing crawl",
+    site: "New pages on my own sites, described by sector.",
+    label: "registered before the result",
+    status: "planned",
+    registeredDate: "2026-11-27",
+    unit: "New pages, randomised in blocks by site, template and publishing week.",
+    hypothesis:
+      "Submitting a new page to IndexNow when it goes live coincides with a faster first Bingbot fetch than not submitting it.",
+    arms: [
+      { name: "Submit", description: "IndexNow request at publish." },
+      { name: "Control", description: "No submission, with automatic submission switched off for control pages." },
+    ],
+    metric: "Days from publish to the first Bingbot fetch in server logs, with the bot's identity verified.",
+    power: "Set by simulation once the publishing rate per site is known.",
+    limits:
+      "Search Console's lastCrawlTime is the latest crawl, not the first, so Google crawl and index timing are secondary measures only. Pages never fetched within the window are kept and marked as not fetched.",
+    priorWork: [
+      {
+        label: "Microsoft, IndexNow talk at IETF 123 (2025)",
+        href: "https://datatracker.ietf.org/meeting/123/materials/slides-123-maprg-sessa-indexnow-a-real-time-protocol-for-measurable-web-indexing-efficiency",
+      },
+      {
+        label: "SEOkit24, IndexNow against robots.txt (2026)",
+        href: "https://seokit24.com/blog/index-now-vs-robots-txt/",
+      },
+    ],
+    publishable: "Time-to-fetch curves by arm and the count of pages never fetched.",
+    outcome: "Planned. Checking which sites already submit automatically.",
+    updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
+  },
+  {
+    id: "EXP-015",
+    slug: "moving-an-existing-contextual-link-higher",
+    title: "Moving an existing contextual link higher on the page",
+    site: "A UK water hardness site first, then chargefinder.uk pages outside EXP-016.",
+    label: "registered before the result",
+    status: "planned",
+    registeredDate: "2026-11-27",
+    unit: "Donor and recipient page clusters, matched in pairs within each site. No page appears in both arms or in EXP-016.",
+    hypothesis:
+      "Moving an existing link to a recipient page into the first paragraphs of the donor page coincides with more Google clicks to the recipient than leaving the link where it is.",
+    arms: [
+      {
+        name: "Moved",
+        description: "The same link, anchor and target, placed earlier; the surrounding text is unchanged.",
+      },
+      { name: "Control", description: "Unchanged." },
+    ],
+    metric: "Recipient page Google Search Console Web clicks.",
+    power:
+      "Calculated from recipient cluster counts and their week-to-week variation before the start. My first estimate puts the smallest detectable change close to the effect I expect, so this may end inconclusive.",
+    limits: "The water hardness site changed on 22 to 23 November 2026, so the test waits for a clean baseline.",
+    priorWork: [
+      {
+        label: "SearchPilot, breadcrumb placement tests (August 2025)",
+        href: "https://www.searchpilot.com/resources/case-studies/does-breadcrumb-placement-impact-seo-performance",
+      },
+    ],
+    publishable: "Recipient clicks by arm with the interval, and the cluster map.",
+    outcome: "Planned. Waiting for a clean baseline after 2 December 2026.",
+    updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
+  },
+  {
+    id: "EXP-016",
+    slug: "answer-first-block-and-owner-facts-chatgpt-citations",
+    title: "Answer-first block and owner facts, measured by ChatGPT citations",
+    site: "chargefinder.uk and a UK fitness equipment review site.",
+    label: "registered before the result",
+    status: "planned",
+    registeredDate: "2026-11-20",
+    unit: "16 randomised page pairs; repeated prompts are measurements, not extra units.",
+    hypothesis:
+      "Adding an answer-first block and owner-supplied facts to pages ranking 4 to 20 coincides with those pages being cited more often in logged-out ChatGPT answers than their untouched pair.",
+    arms: [
+      {
+        name: "Treated",
+        description: "Answer block of 40 to 90 words under the H1 plus 200 to 500 words of owner facts, added only.",
+      },
+      { name: "Control", description: "Unchanged." },
+    ],
+    metric:
+      "Share of repeated logged-out ChatGPT answers that cite the assigned page, compared within pairs with an exact sign-flip test.",
+    power:
+      "Exploratory decision rule of a 20-point difference at p below 0.10, set on 20 November 2026. Power cannot be simulated until a valid baseline exists.",
+    limits:
+      "The change is one package, so a result cannot say which part worked. The baseline must be valid by 11 December 2026 or the test is parked.",
+    priorWork: [
+      {
+        label: "Vishwakarma et al., controlled citation study (2026)",
+        href: "https://arxiv.org/abs/2605.25517",
+      },
+    ],
+    publishable: "Citation share by arm and pair, with every pair shown.",
+    outcome: "Planned. The baseline capture is in rehearsal.",
+    updates: [
+      { date: "2026-11-20", note: "Protocol and page pairs written before any change; assignment by logged coin flip." },
+      { date: "2026-11-27", note: "Added to this register. Decision date set for 11 December 2026." },
+    ],
+  },
+  {
+    id: "EXP-017",
+    slug: "time-from-new-page-to-first-ai-citation",
+    title: "Time from a new page going live to its first AI citation",
+    site: "The new pages in EXP-014.",
+    label: "registered before the result",
+    status: "planned",
+    registeredDate: "2026-11-27",
+    unit: "New pages, one frozen prompt per page.",
+    hypothesis: "Descriptive only: how many days pass before a new page is first cited, per engine.",
+    design:
+      "Daily capture for 90 days from publication. Perplexity's API and logged-out ChatGPT are recorded separately. Pages never cited stay in the data. Failed captures are missing, not zero.",
+    metric: "Days to the first observed citation of the page, per engine.",
+    power: "Descriptive. Precision depends on how many pages get cited at all.",
+    priorWork: [
+      {
+        label: "LoudFace, how long until AI engines cite a new page (November 2026)",
+        href: "https://www.loudface.co/research/how-long-until-ai-engines-cite-a-new-page",
+      },
+    ],
+    publishable: "Share of pages cited by day 7, 30 and 90 per engine.",
+    outcome: "Planned. Starts with EXP-014.",
+    updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
+  },
+  {
+    id: "EXP-018",
+    slug: "launch-outcomes-for-new-sites",
+    title: "Launch outcomes for each new site I build",
+    site: "Every new site I launch from 27 November 2026, described by sector.",
+    label: "registered before the result",
+    status: "running",
+    registeredDate: "2026-11-27",
+    unit: "Sites. Descriptive only; no comparison group.",
+    hypothesis:
+      "Descriptive: what share of a new site's launch pages are indexed 28 days after launch, and how that changes as my build standard changes.",
+    metric: "Share of the frozen launch URL list indexed at day 28, from Search Console. Day 7 and day 90 are also recorded.",
+    power: "Descriptive. A handful of different sites cannot show what works.",
+    limits: "Sites with analytics switched off are recorded as unavailable, not zero.",
+    publishable: "A running table, one row per site.",
+    readbackDate: "2027-02-25",
+    outcome: "Running. Logging forward from 27 November 2026.",
+    updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
+  },
+];
+
+export interface CutTest {
+  title: string;
+  /** ISO date the test was cut. */
+  cut: string;
+  reason: string;
+}
+
+export const CUT_TESTS: CutTest[] = [
+  {
+    title: "Hand-written titles and descriptions on 20 pages of a UK noise checker site",
+    cut: "2026-11-27",
+    reason:
+      "The site had about 5,090 Google clicks in 84 days, which is not enough for 20 page pairs. My own rule limits title edits on sites over 500 pages after EXP-001. SearchPilot's 2025 metadata tests already cover the question.",
+  },
 ];
 
 /** Latest update date across all entries, falling back to the change date. */
+export function lastUpdatedOf(e: Experiment): string {
+  const dates = [e.changeDate, e.registeredDate, ...e.updates.map((u) => u.date)].filter((d): d is string => !!d);
+  return dates.reduce((latest, d) => (d > latest ? d : latest), "0000-00-00");
+}
+
 export const EXPERIMENTS_LAST_UPDATED = EXPERIMENTS.reduce((latest, e) => {
-  const dates = [e.changeDate, ...e.updates.map((u) => u.date)];
-  for (const d of dates) if (d > latest) latest = d;
-  return latest;
+  const d = lastUpdatedOf(e);
+  return d > latest ? d : latest;
 }, "0000-00-00");
+
+export function experimentBySlug(slug: string): Experiment | undefined {
+  return EXPERIMENTS.find((e) => e.slug === slug);
+}
 
 export function statusCounts(): Record<ExperimentStatus, number> {
   const counts: Record<ExperimentStatus, number> = {
+    planned: 0,
     running: 0,
     concluded: 0,
     inconclusive: 0,

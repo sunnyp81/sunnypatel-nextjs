@@ -2,6 +2,7 @@ import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, schemaGraph } from "@/lib/schema";
 import { ResearchShell, Section, NextStep, linkClass } from "@/components/research/shell";
+import { NEW_RULES, PREREG_TEXT } from "@/data/experiment-method";
 import { RESEARCH_LAST_CHECKED, SITE_URL, formatDate } from "@/data/research-catalogue";
 
 const PAGE_URL = `${SITE_URL}/research/methodology/`;
@@ -306,6 +307,22 @@ export default function MethodologyPage() {
             </Link>
             .
           </p>
+        </Section>
+
+        <Section id="experiments" title="How do I run the experiments?">
+          <p>
+            The{" "}
+            <Link href="/research/experiments/" className={linkClass}>
+              experiment register
+            </Link>{" "}
+            holds tests on my own sites, each with its own page. {PREREG_TEXT}
+          </p>
+          <p>These rules apply from EXP-012 onwards. The small-n rule and the minimum window still apply.</p>
+          <ul className="list-disc space-y-2 pl-5">
+            {NEW_RULES.map((r) => (
+              <li key={r}>{r}</li>
+            ))}
+          </ul>
         </Section>
 
         <Section id="limits" title="What do these studies not show?">

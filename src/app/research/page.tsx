@@ -12,6 +12,8 @@ import {
   formatDate,
   type Study,
 } from "@/data/research-catalogue";
+import { EXPERIMENTS, statLine, type Experiment } from "@/data/experiments";
+import { BUILD_DATE } from "@/components/research/experiment-bits";
 
 const PAGE_URL = `${SITE_URL}/research/`;
 
@@ -27,6 +29,15 @@ export function generateMetadata() {
 const recurring = STUDIES.filter((s) => s.status === "recurring");
 const current = STUDIES.filter((s) => !s.status).sort((a, b) => b.date.localeCompare(a.date));
 const withdrawn = STUDIES.filter((s) => s.status === "withdrawn");
+
+const registeredOn = (e: Experiment) => e.registeredDate ?? e.updates[0].date;
+const nextReadbacks = EXPERIMENTS.filter((e) => e.readbackDate && e.readbackDate >= BUILD_DATE)
+  .sort((a, b) => (a.readbackDate as string).localeCompare(b.readbackDate as string) || a.id.localeCompare(b.id))
+  .slice(0, 3);
+const overdueCount = EXPERIMENTS.filter((e) => e.status === "running" && e.readbackDate && e.readbackDate < BUILD_DATE).length;
+const newestTests = [...EXPERIMENTS]
+  .sort((a, b) => registeredOn(b).localeCompare(registeredOn(a)) || b.id.localeCompare(a.id))
+  .slice(0, 2);
 
 const SCHEMA = schemaGraph(
   {
@@ -195,6 +206,63 @@ export default function ResearchHub() {
           </p>
         }
       >
+        <section id="experiments" aria-labelledby="experiments-title" className="mb-14 scroll-mt-28">
+          <h2 id="experiments-title" className="text-2xl font-bold text-foreground md:text-3xl" style={headingStyle}>
+            Experiments on my own sites
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Dated tests with the hypothesis, comparison and window written down. Failures and inconclusive tests are
+            included.
+          </p>
+          <p className="mt-3 text-sm font-semibold text-foreground">{statLine()}</p>
+          <div className="mt-6 grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 className="text-lg font-semibold text-foreground" style={headingStyle}>
+                Next readbacks
+              </h3>
+              <ul className="mt-2 list-none space-y-2 p-0 text-sm">
+                {nextReadbacks.map((e) => (
+                  <li key={e.id}>
+                    <Link href={`/research/experiments/${e.slug}/`} className={linkClass}>
+                      {e.id}: {e.title}
+                    </Link>
+                    <span className="block text-muted-foreground">
+                      <time dateTime={e.readbackDate}>{formatDate(e.readbackDate as string)}</time>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              {overdueCount > 0 && (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {overdueCount} earlier readbacks are overdue and are marked on the register.
+                </p>
+              )}
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-foreground" style={headingStyle}>
+                Newest registered
+              </h3>
+              <ul className="mt-2 list-none space-y-2 p-0 text-sm">
+                {newestTests.map((e) => (
+                  <li key={e.id}>
+                    <Link href={`/research/experiments/${e.slug}/`} className={linkClass}>
+                      {e.id}: {e.title}
+                    </Link>
+                    <span className="block text-muted-foreground">
+                      Registered <time dateTime={registeredOn(e)}>{formatDate(registeredOn(e))}</time>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="mt-6 text-sm">
+            <Link href="/research/experiments/" className={`${linkClass} inline-flex min-h-11 items-center`}>
+              Open the full experiment register
+            </Link>
+          </p>
+        </section>
+
         <dl className="mb-12 grid max-w-2xl grid-cols-3 gap-px overflow-hidden rounded-md border border-hairline bg-hairline text-sm">
           <div className="bg-background p-4">
             <dt className="text-xs text-muted-foreground">Studies</dt>

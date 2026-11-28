@@ -9,7 +9,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { breadcrumbSchema, schemaGraph } from "@/lib/schema";
 import { Field, StatusChips } from "@/components/research/experiment-bits";
 import { formatDate } from "@/data/research-catalogue";
-import { EXPERIMENTS, experimentBySlug, lastUpdatedOf, type Experiment } from "@/data/experiments";
+import { EXPERIMENTS, experimentBySlug, isObservational, lastUpdatedOf, type Experiment } from "@/data/experiments";
 
 const SITE_URL = "https://sunnypatel.co.uk";
 const HUB_URL = `${SITE_URL}/research/experiments/`;
@@ -42,6 +42,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     path: `/research/experiments/${e.slug}`,
   });
 }
+
+const short = (t: string) => t.length <= 110 && !t.includes(". ");
 
 function Time({ iso }: { iso: string }) {
   return <time dateTime={iso}>{formatDate(iso)}</time>;
@@ -106,8 +108,7 @@ export default async function ExperimentPage({ params }: { params: Promise<{ slu
                 { label: e.id },
               ]}
             />
-            <p className="mb-3 mt-4 text-xs font-semibold uppercase tracking-widest text-brand-ink">At a glance</p>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="mt-4 flex flex-wrap items-center gap-2">
               <span className="font-mono text-sm text-muted-foreground">{e.id}</span>
               <StatusChips e={e} />
             </div>
@@ -126,15 +127,18 @@ export default async function ExperimentPage({ params }: { params: Promise<{ slu
               <Field label="Registered">
                 <Time iso={e.registeredDate ?? e.updates[0].date} />
               </Field>
-              <Field label="Change made">
-                {e.changeDate ? <Time iso={e.changeDate} /> : "Not yet"}
-              </Field>
-              {e.readbackDate ? (
+              {isObservational(e) ? (
+                <Field label="Type">Observational check. Nothing on the site was changed.</Field>
+              ) : (
+                <Field label="Change made">{e.changeDate ? <Time iso={e.changeDate} /> : "Not yet"}</Field>
+              )}
+              {e.comparison && short(e.comparison) && <Field label="Comparison">{e.comparison}</Field>}
+              {e.window && short(e.window) && <Field label="Window">{e.window}</Field>}
+              {e.power && short(e.power) && <Field label="Power">{e.power}</Field>}
+              {e.readbackDate && (
                 <Field label="Next readback">
                   <Time iso={e.readbackDate} />
                 </Field>
-              ) : (
-                <Field label="Outcome">{e.outcome}</Field>
               )}
             </dl>
           </div>
@@ -142,9 +146,9 @@ export default async function ExperimentPage({ params }: { params: Promise<{ slu
         </div>
 
         <div className="mx-auto max-w-3xl px-6 py-12">
-          {(e.arms || e.design || e.change) && (
+          {(e.arms || e.design || (e.change && !isObservational(e))) && (
             <Block id="design" title="Design and arms">
-              {e.change && (
+              {e.change && !isObservational(e) && (
                 <p>
                   <span className="font-semibold text-foreground">Change made: </span>
                   {e.change}
@@ -181,19 +185,19 @@ export default async function ExperimentPage({ params }: { params: Promise<{ slu
             </Block>
           )}
 
-          {e.comparison && (
+          {e.comparison && !short(e.comparison) && (
             <Block id="comparison" title="Comparison">
               <p>{e.comparison}</p>
             </Block>
           )}
 
-          {e.window && (
+          {e.window && !short(e.window) && (
             <Block id="window" title="Window">
               <p>{e.window}</p>
             </Block>
           )}
 
-          {e.power && (
+          {e.power && !short(e.power) && (
             <Block id="power" title="Power">
               <p>{e.power}</p>
             </Block>
@@ -302,23 +306,33 @@ export default async function ExperimentPage({ params }: { params: Promise<{ slu
             </Link>
           </p>
 
-          <section aria-labelledby="exp-cta" className="mb-8">
-            <h2 id="exp-cta" className="text-xl font-bold text-foreground md:text-2xl" style={headingStyle}>
-              Want a test like these on your site?
-            </h2>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              The free 20-minute diagnosis is the place to start. I look at your site and tell you what is worth
-              testing first.
+          {e.status === "failed" || e.status === "inconclusive" ? (
+            <p className="mb-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              If you want me to look at what is worth testing on your site, the free 20-minute diagnosis is{" "}
+              <Link href="/contact/" className={`${linkCls} text-foreground`}>
+                the place to start
+              </Link>
+              .
             </p>
-            <div className="mt-6">
-              <GradientButton asChild>
-                <Link href="/contact/" className="gap-2">
-                  Book the free diagnosis
-                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </Link>
-              </GradientButton>
-            </div>
-          </section>
+          ) : (
+            <section aria-labelledby="exp-cta" className="mb-8">
+              <h2 id="exp-cta" className="text-xl font-bold text-foreground md:text-2xl" style={headingStyle}>
+                Want a test like these on your site?
+              </h2>
+              <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                The free 20-minute diagnosis is the place to start. I look at your site and tell you what is worth
+                testing first.
+              </p>
+              <div className="mt-6">
+                <GradientButton asChild>
+                  <Link href="/contact/" className="gap-2">
+                    Book the free diagnosis
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                  </Link>
+                </GradientButton>
+              </div>
+            </section>
+          )}
         </div>
 
         <Footer />

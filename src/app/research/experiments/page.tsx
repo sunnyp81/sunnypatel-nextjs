@@ -8,14 +8,13 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { breadcrumbSchema, schemaGraph } from "@/lib/schema";
 import { CiteBlock } from "@/components/live/live-stats";
 import { NEW_RULES, PREREG_TEXT } from "@/data/experiment-method";
-import { BUILD_DATE, StatusChips } from "@/components/research/experiment-bits";
+import { BUILD_DATE, isOverdue } from "@/components/research/experiment-bits";
 import {
   CUT_TESTS,
   EXPERIMENTS,
   EXPERIMENTS_LAST_UPDATED,
-  STATUS_LABELS,
-  STATUS_ORDER,
-  statusCounts,
+  statLine,
+  statusLabelOf,
   type Experiment,
 } from "@/data/experiments";
 
@@ -40,7 +39,6 @@ function formatDate(iso: string) {
   });
 }
 
-const counts = statusCounts();
 const CSV_URL = "/research/experiments.csv";
 const total = EXPERIMENTS.length;
 
@@ -149,50 +147,86 @@ function ReadbackTimeline() {
 const headingStyle = { fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" } as const;
 
 function firstSentence(text: string) {
-  if (text.length <= 130) return text;
+  if (text.length <= 140) return text;
   const i = text.indexOf(". ");
   return i > 0 ? text.slice(0, i + 1) : text;
 }
 
-function IndexRow({ e }: { e: Experiment }) {
-  const anchor = e.id.toLowerCase();
+const GROUPS: { id: string; title: string; items: Experiment[] }[] = [
+  {
+    id: "results",
+    title: "Results",
+    items: EXPERIMENTS.filter((e) => ["concluded", "inconclusive", "failed"].includes(e.status)),
+  },
+  {
+    id: "running",
+    title: "Running",
+    items: EXPERIMENTS.filter((e) => e.status === "running").sort(
+      (a, b) => (a.readbackDate ?? "9999").localeCompare(b.readbackDate ?? "9999") || a.id.localeCompare(b.id)
+    ),
+  },
+  { id: "planned", title: "Planned", items: EXPERIMENTS.filter((e) => e.status === "planned") },
+].filter((g) => g.items.length > 0);
+
+function GroupTable({ id, title, items }: { id: string; title: string; items: Experiment[] }) {
+  const th = "px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground";
   return (
-    <li id={anchor} className="scroll-mt-28">
-      <Link
-        href={`/research/experiments/${e.slug}/`}
-        className="group flex h-full flex-col rounded-md border border-hairline-strong p-5 transition-colors hover:border-brand-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-ink"
-      >
-        <span className="flex flex-wrap items-center gap-2">
-          <span className="font-mono text-xs text-muted-foreground">{e.id}</span>
-          <StatusChips e={e} />
-        </span>
-        <span className="mt-2 text-lg font-bold leading-snug text-foreground" style={headingStyle}>
-          {e.title}
-        </span>
-        <span className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          <span className="font-semibold text-foreground">Site: </span>
-          {e.site}
-        </span>
-        <span className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-          <span className="font-semibold text-foreground">Primary metric: </span>
-          {e.metric}
-        </span>
-        <span className="mt-2 text-sm leading-relaxed text-foreground">
-          {e.readbackDate && (
-            <>
-              <span className="font-semibold">Next readback: </span>
-              <time dateTime={e.readbackDate}>{formatDate(e.readbackDate)}</time>
-              {". "}
-            </>
-          )}
-          {firstSentence(e.outcome)}
-        </span>
-        <span className="mt-4 inline-flex items-center gap-2 pt-1 text-sm font-semibold text-brand-ink">
-          Read the test page
-          <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
-        </span>
-      </Link>
-    </li>
+    <div className="mt-8" id={`group-${id}`}>
+      <h3 className="text-lg font-bold text-foreground" style={headingStyle}>
+        {title} <span className="text-sm font-normal text-muted-foreground">({items.length})</span>
+      </h3>
+      <table className="mt-2 block w-full border-collapse text-left text-sm md:table">
+        <caption className="sr-only">{title} tests</caption>
+        <thead className="sr-only md:table-header-group md:not-sr-only">
+          <tr className="border-b border-hairline-strong">
+            <th scope="col" className={th}>ID</th>
+            <th scope="col" className={th}>Test</th>
+            <th scope="col" className={th}>Site</th>
+            <th scope="col" className={th}>Status</th>
+            <th scope="col" className={th}>Next readback or outcome</th>
+          </tr>
+        </thead>
+        <tbody className="block md:table-row-group">
+          {items.map((e) => {
+            const overdue = isOverdue(e);
+            return (
+              <tr
+                key={e.id}
+                id={e.id.toLowerCase()}
+                className="block scroll-mt-28 border-b border-hairline py-3 md:table-row md:py-0 [&>td]:block [&>td]:px-0 [&>td]:py-0.5 md:[&>td]:table-cell md:[&>td]:px-3 md:[&>td]:py-3 md:[&>td]:align-top"
+              >
+                <td className="font-mono text-xs text-muted-foreground">{e.id}</td>
+                <td className="font-semibold text-foreground">
+                  <Link href={`/research/experiments/${e.slug}/`} className="underline decoration-hairline-strong underline-offset-4 hover:text-brand-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-ink">
+                    {e.title}
+                  </Link>
+                </td>
+                <td className="text-muted-foreground md:max-w-[16rem]">{e.site}</td>
+                <td>
+                  <span className="inline-flex flex-wrap items-center gap-1.5">
+                    <span className="inline-flex items-center rounded-md border border-hairline-strong px-2 py-0.5 text-xs font-semibold text-foreground">
+                      {statusLabelOf(e)}
+                    </span>
+                    {overdue && (
+                      <span className="inline-flex items-center rounded-md border-2 border-foreground px-2 py-0.5 text-xs font-semibold text-foreground">
+                        Readback overdue
+                      </span>
+                    )}
+                  </span>
+                </td>
+                <td className="text-foreground">
+                  {e.readbackDate && e.status !== "inconclusive" && e.status !== "failed" && e.status !== "concluded" ? (
+                    <time dateTime={e.readbackDate}>{formatDate(e.readbackDate)}</time>
+                  ) : (
+                    firstSentence(e.outcome)
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -205,64 +239,37 @@ export default function ExperimentsPage() {
         <Navbar />
         <div id="main-content" tabIndex={-1} />
 
-        <div className="relative pb-10 pt-32">
+        <div className="relative pb-6 pt-28">
           <div className="mx-auto max-w-5xl px-6">
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Research", href: "/research/" }, { label: "SEO experiments" }]} />
 
-            <p className="mb-3 mt-4 text-xs font-semibold uppercase tracking-widest text-brand-ink">Research</p>
             <h1
-              className="text-3xl font-bold text-foreground md:text-5xl"
+              className="mt-2 text-3xl font-bold text-foreground md:text-4xl"
               style={{ fontFamily: "var(--font-heading)", letterSpacing: "-0.03em" }}
             >
               SEO experiment register
             </h1>
-            <div className="mt-5 max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground">
+            <div className="mt-4 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground">
               <p>
-                This register holds {total} dated SEO tests on my own sites. {counts.planned} are planned,{" "}
-                {counts.running} are running, {counts.inconclusive} are inconclusive and {counts.failed} failed.
-                None has a clean win yet.
+                Dated SEO tests on my own sites, with failures and inconclusive ones included. Tests I wrote up after
+                the fact are labelled that way, and I never log client sites here.
               </p>
-              <p className="text-base">
-                I never log client sites here. Each test has its own page with what I changed, what I compare it
-                with and how long I wait. Tests I wrote up after the fact are labelled that way. Tests I set up in
-                advance are labelled as registered before the result.
-              </p>
-              <p className="text-base">
-                Register opened 2 November 2026. Last updated {formatDate(EXPERIMENTS_LAST_UPDATED)}.
+              <p className="font-semibold text-foreground">
+                {statLine()} Last updated {formatDate(EXPERIMENTS_LAST_UPDATED)}.
               </p>
             </div>
-
-            <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-hairline bg-hairline text-sm md:grid-cols-5">
-              {STATUS_ORDER.map((s) => (
-                <div key={s} className="bg-background p-4 last:col-span-2 md:last:col-span-1">
-                  <dt className="text-xs text-muted-foreground">{STATUS_LABELS[s]}</dt>
-                  <dd
-                    className="mt-1 text-2xl font-bold tabular-nums text-foreground"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {counts[s]}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-px bg-hairline" />
         </div>
 
         <div className="mx-auto max-w-5xl px-6 py-12">
           <section id="entries" aria-labelledby="entries-title" className="mb-14 scroll-mt-28">
-            <h2 id="entries-title" className="text-2xl font-bold text-foreground" style={headingStyle}>
+            <h2 id="entries-title" className="sr-only">
               The tests
             </h2>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              Oldest first. Each card opens the test page. A running test shows its next readback date and no
-              outcome until the readback is done.
-            </p>
-            <ol className="mt-6 grid list-none gap-4 p-0 md:grid-cols-2">
-              {EXPERIMENTS.map((e) => (
-                <IndexRow key={e.id} e={e} />
-              ))}
-            </ol>
+            {GROUPS.map((g) => (
+              <GroupTable key={g.id} {...g} />
+            ))}
 
             <ReadbackTimeline />
           </section>

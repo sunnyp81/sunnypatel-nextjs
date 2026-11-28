@@ -2,7 +2,8 @@ export type ExperimentStatus = "planned" | "running" | "concluded" | "inconclusi
 
 export type RegistrationLabel =
   | "exploratory (logged after the fact)"
-  | "registered before the result";
+  | "registered before the result"
+  | "observational, retrospective";
 
 export interface ExperimentUpdate {
   /** ISO date. */
@@ -64,6 +65,15 @@ export const STATUS_LABELS: Record<ExperimentStatus, string> = {
   inconclusive: "Inconclusive",
   failed: "Failed",
 };
+
+export function isObservational(e: Experiment): boolean {
+  return e.label === "observational, retrospective";
+}
+
+/** Display label: observational checks that are open read "Analysis open". */
+export function statusLabelOf(e: Experiment): string {
+  return isObservational(e) && e.status === "running" ? "Analysis open" : STATUS_LABELS[e.status];
+}
 
 export const STATUS_ORDER: ExperimentStatus[] = ["planned", "running", "concluded", "inconclusive", "failed"];
 
@@ -333,8 +343,8 @@ export const EXPERIMENTS: Experiment[] = [
     slug: "ctr-at-a-stable-google-position",
     title: "Click-through rate at a stable Google position, September to November 2026",
     site: "Three of my own sites with the most Google clicks: chargefinder.uk, a UK water hardness site and a UK noise checker site.",
-    label: "registered before the result",
-    status: "running",
+    label: "observational, retrospective",
+    status: "inconclusive",
     registeredDate: "2026-11-27",
     unit: "Query, page and device rows in Search Console, fixed from the September window.",
     hypothesis:
@@ -356,9 +366,21 @@ export const EXPERIMENTS: Experiment[] = [
       },
     ],
     publishable: "One chart per site of click-through rate by position band in each window, the row counts and the exit table.",
-    readbackDate: "2026-12-11",
-    outcome: "Running. No result yet.",
-    updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
+    outcome:
+      "Inconclusive. Site-wide click-through rate fell on two sites and rose on one, but on rows held at the same position no change cleared my screen, and those rows carry under 2% of each site's clicks.",
+    result: {
+      metric: "Search Console Web clicks and impressions on fixed query and page rows at a stable position, all countries",
+      baseline:
+        "chargefinder.uk: 15 clicks from 2,854 impressions (16 rows). Water hardness site: 32 clicks from 887 impressions (11 rows). Noise checker site: no rows qualified once pages with changed titles were removed.",
+      after: "chargefinder.uk: 14 clicks from 2,987 impressions. Water hardness site: 44 clicks from 873 impressions.",
+      n: "The fixed rows carried 0.57% (chargefinder.uk) and 1.96% (water hardness site) of each site's September clicks.",
+      verdict:
+        "Inconclusive. Site-wide click-through rate moved from 2.32% to 1.82% on chargefinder.uk, 1.95% to 2.26% on the water hardness site and 7.09% to 4.78% on the noise checker site, but I cannot tell from this whether that is a real loss at the same position or a change in which queries the sites showed for. A stable-position check this strict keeps too few rows to answer it.",
+    },
+    updates: [
+      { date: "2026-11-27", note: "Registered in this register before any change or data collection." },
+      { date: "2026-11-28", note: "Readback done. Inconclusive. The cohort rule kept too few rows; the next version needs a looser position band set before the pull." },
+    ],
   },
   {
     id: "EXP-013",
@@ -391,7 +413,8 @@ export const EXPERIMENTS: Experiment[] = [
       },
     ],
     publishable: "Indexed share by arm at day 28 with its interval, and the inventory size by starting state.",
-    outcome: "Planned. The URL inventory is being built.",
+    outcome:
+      "Planned. Inventory done on 27 November 2026: 2,152 stuck URLs in a sample of 5,723 inspected across 103 of my sites (1,684 crawled and 468 discovered, not indexed).",
     updates: [{ date: "2026-11-27", note: "Registered in this register before any change or data collection." }],
   },
   {
@@ -582,4 +605,10 @@ export function statusCounts(): Record<ExperimentStatus, number> {
   };
   for (const e of EXPERIMENTS) counts[e.status] += 1;
   return counts;
+}
+
+/** One-line counts, e.g. "18 tests: 5 planned, 10 running, 0 concluded, 2 inconclusive, 1 failed." */
+export function statLine(): string {
+  const c = statusCounts();
+  return `${EXPERIMENTS.length} tests: ${c.planned} planned, ${c.running} running, ${c.concluded} concluded, ${c.inconclusive} inconclusive, ${c.failed} failed.`;
 }

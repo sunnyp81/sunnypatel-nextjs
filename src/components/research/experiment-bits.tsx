@@ -1,4 +1,4 @@
-import { STATUS_LABELS, type Experiment } from "@/data/experiments";
+import { statusLabelOf, type Experiment } from "@/data/experiments";
 
 export const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
@@ -10,7 +10,7 @@ export function StatusChips({ e }: { e: Experiment }) {
   return (
     <>
       <span className="inline-flex items-center rounded-md border border-hairline-strong px-2 py-0.5 text-xs font-semibold text-foreground">
-        {STATUS_LABELS[e.status]}
+        {statusLabelOf(e)}
       </span>
       <span className="inline-flex items-center rounded-md border border-dashed border-hairline-strong px-2 py-0.5 text-xs font-semibold text-foreground">
         {e.label}

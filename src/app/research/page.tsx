@@ -12,7 +12,7 @@ import {
   formatDate,
   type Study,
 } from "@/data/research-catalogue";
-import { EXPERIMENTS, STATUS_LABELS, STATUS_ORDER, statusCounts, type Experiment } from "@/data/experiments";
+import { EXPERIMENTS, statLine, type Experiment } from "@/data/experiments";
 import { BUILD_DATE } from "@/components/research/experiment-bits";
 
 const PAGE_URL = `${SITE_URL}/research/`;
@@ -30,7 +30,6 @@ const recurring = STUDIES.filter((s) => s.status === "recurring");
 const current = STUDIES.filter((s) => !s.status).sort((a, b) => b.date.localeCompare(a.date));
 const withdrawn = STUDIES.filter((s) => s.status === "withdrawn");
 
-const expCounts = statusCounts();
 const registeredOn = (e: Experiment) => e.registeredDate ?? e.updates[0].date;
 const nextReadbacks = EXPERIMENTS.filter((e) => e.readbackDate && e.readbackDate >= BUILD_DATE)
   .sort((a, b) => (a.readbackDate as string).localeCompare(b.readbackDate as string) || a.id.localeCompare(b.id))
@@ -215,16 +214,7 @@ export default function ResearchHub() {
             Dated tests with the hypothesis, comparison and window written down. Failures and inconclusive tests are
             included.
           </p>
-          <dl className="mt-5 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-md border border-hairline bg-hairline text-sm sm:grid-cols-5">
-            {STATUS_ORDER.map((st) => (
-              <div key={st} className="bg-background p-4 last:col-span-2 sm:last:col-span-1">
-                <dt className="text-xs text-muted-foreground">{STATUS_LABELS[st]}</dt>
-                <dd className="mt-1 text-2xl font-bold tabular-nums text-foreground" style={headingStyle}>
-                  {expCounts[st]}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <p className="mt-3 text-sm font-semibold text-foreground">{statLine()}</p>
           <div className="mt-6 grid gap-8 md:grid-cols-2">
             <div>
               <h3 className="text-lg font-semibold text-foreground" style={headingStyle}>

@@ -150,7 +150,7 @@ export const EXPERIMENTS: Experiment[] = [
     title: "AEO buying-fit pilot",
     site: "sunnypatel.co.uk",
     label: "exploratory (logged after the fact)",
-    status: "running",
+    status: "inconclusive",
     hypothesis:
       "I expect the practice to fit consultant and audit requests better in AI answers. I expect clearer independent delivery, prices, ownership and supported evidence to coincide with that better fit. Removing unsupported proof and absolute claims should also cut wrong descriptions of the business.",
     change:
@@ -163,15 +163,23 @@ export const EXPERIMENTS: Experiment[] = [
     metric:
       "GA4 sessions from the eight AI sources, and captured answers to the six prompts.",
     window: "Reviews at day 7, 14 and 28. Completed-window analytics at day 32.",
-    readbackDate: "2026-11-04",
     outcome:
-      "No result yet. My first capture of ChatGPT answers stalled, so I have no baseline answers. A missing capture is not a zero. The protocol allows a descriptive comparison only.",
+      "AI assistant sessions were 47 before and 48 after, so I saw no change, and I never captured the six buyer-prompt answers, so I cannot say whether the practice fits those requests better. Many other changes overlapped, so no cause is claimed. Inconclusive.",
     note: "The frozen protocol file did not match its recorded hash. I kept the original and logged an erratum (v1.3). I do not claim verified pre-registration, so this entry is exploratory.",
+    result: {
+      metric: "GA4 sessions from the eight AI assistant sources, worldwide, host sunnypatel.co.uk",
+      baseline: "47 sessions (27 engaged), 5 September to 2 October 2026. ChatGPT 43, Perplexity 3, Gemini 1.",
+      after: "48 sessions (31 engaged), 4 to 31 October 2026. ChatGPT 45, Perplexity 2, Gemini 1.",
+      n: "Raw counts only. No buyer-prompt answers were ever captured, so the answer metric has no data.",
+      verdict: "Inconclusive. Sessions did not change, the prompt metric could not be read and other changes overlapped.",
+    },
     updates: [
       {
         date: "2026-11-02",
         note: "Logged in this register as exploratory. The protocol erratum says not to claim verified pre-registration.",
       },
+    
+      { date: "2026-11-28", note: "Readback done." },
     ],
   },
   {
@@ -203,7 +211,7 @@ export const EXPERIMENTS: Experiment[] = [
     title: "Berkshire hub de-target",
     site: "sunnypatel.co.uk",
     label: "registered before the result",
-    status: "running",
+    status: "inconclusive",
     hypothesis:
       "Taking town names out of the Berkshire hub lets each town page own its own queries.",
     change:
@@ -216,11 +224,20 @@ export const EXPERIMENTS: Experiment[] = [
     metric:
       "Share of impressions and average position per page for each town group. Submissions of the new town-page forms in GA4.",
     window: "9 to 23 November 2026, which is 14 to 28 days after release.",
-    readbackDate: "2026-11-09",
     outcome:
-      "No result yet. I count it a success if the town pages hold the majority share of impressions and their positions improve.",
+      "Two of the three town pages now hold most of their town's impressions: Wokingham 78% (from 42%) and Maidenhead 69% (from 52%), and all three rank higher. Bracknell is level at about 41%. There were no clicks or town-page form submissions, and other changes landed in the same weeks, so I cannot credit the hub edit. Inconclusive.",
     evidence: { label: "The Berkshire hub", href: "/services/seo-berkshire/" },
-    updates: [{ date: "2026-10-26", note: "Registered with the change, before any result." }],
+    result: {
+      metric: "Town page share of impressions for each town's non-branded queries, Search Console Web, all countries",
+      baseline: "4 to 24 October 2026, town page share: Bracknell 42% (530 impressions), Wokingham 42% (335), Maidenhead 52% (178).",
+      after: "9 to 23 November 2026, town page share: Bracknell 41% (618 impressions), Wokingham 78% (303), Maidenhead 69% (181).",
+      n: "0 clicks in every group. 0 town-page form submissions in GA4, 27 October to 26 November.",
+      verdict: "Inconclusive. Two town pages gained share and all three rank higher, but there were no clicks and other changes overlapped.",
+    },
+    updates: [
+      { date: "2026-10-26", note: "Registered with the change, before any result." },
+      { date: "2026-11-28", note: "Readback done." },
+    ],
   },
   {
     id: "EXP-007",
@@ -228,7 +245,7 @@ export const EXPERIMENTS: Experiment[] = [
     title: "Price-led title on one network page",
     site: "chargefinder.uk, a UK electric vehicle charging price site",
     label: "registered before the result",
-    status: "running",
+    status: "inconclusive",
     hypothesis:
       "A title that leads with price lifts click-through rate on price queries.",
     change: "A new title on one operator page.",
@@ -238,9 +255,20 @@ export const EXPERIMENTS: Experiment[] = [
       "Two operator pages with unchanged titles act as controls. They are not matched on traffic, so this is a rough comparison.",
     metric: "Query-level click-through rate, changed page against controls.",
     window: "A 14-day lag, then a readback around 16 November 2026.",
-    readbackDate: "2026-11-16",
-    outcome: "No result yet.",
-    updates: [{ date: "2026-10-26", note: "Registered with the change, before any result." }],
+    outcome:
+      "The price-led InstaVolt title did not lift clicks: it had 4 clicks before and 0 after on similar impressions, and its average position slipped from 6.4 to 7.8. The controls were changed on 2 and 13 November and have too few clicks to compare, so this test cannot show an effect either way. Inconclusive.",
+    result: {
+      metric: "Search Console Web clicks, impressions and position for the three network pages, UK",
+      baseline: "28 September to 25 October 2026: InstaVolt (changed) 3,777 impressions, 4 clicks, position 6.35. BP Pulse 3,491, 3 clicks. Pod Point 1,547, 28 clicks.",
+      after: "9 to 25 November 2026: InstaVolt 1,976 impressions, 0 clicks, position 7.83. BP Pulse 2,404, 1 click. Pod Point 1,404, 5 clicks.",
+      n: "Every group is under 30 clicks, so raw counts only. The controls were edited on 2 and 13 November.",
+      verdict: "Inconclusive. The changed page had no clicks after, the controls were not unchanged and the counts are too small to compare.",
+    },
+    updates: [
+      { date: "2026-10-26", note: "Registered with the change, before any result." },
+      { date: "2026-11-28", note: "Readback done." },
+      { date: "2026-11-28", note: "The baseline in this entry (342 impressions at position 5.09) could not be reproduced from Search Console on 28 November 2026." },
+    ],
   },
   {
     id: "EXP-008",
@@ -248,7 +276,7 @@ export const EXPERIMENTS: Experiment[] = [
     title: "301 merge of a small Reading site",
     site: "A small Reading local-SEO site, merged into sunnypatel.co.uk",
     label: "registered before the result",
-    status: "running",
+    status: "concluded",
     hypothesis:
       "Redirecting the old site into matching sunnypatel.co.uk pages costs no Reading visibility. I expect a small gain at most.",
     change:
@@ -261,11 +289,20 @@ export const EXPERIMENTS: Experiment[] = [
     metric:
       "Impressions, clicks and position for Reading queries on sunnypatel.co.uk.",
     window: "9 to 23 November 2026.",
-    readbackDate: "2026-11-09",
     outcome:
-      "No result yet. I expect cleanup, not a ranking change. The overlap means a movement cannot be pinned on the merge.",
+      "Reading visibility on sunnypatel.co.uk did not drop after the old Reading site was merged: about 155 impressions a day against 124, with 2 clicks against 1, which is too few to mean anything. The Reading page moved up from about position 22 to 14, but other changes landed in the same weeks, so I do not credit the merge. No cost found.",
     evidence: { label: "The Reading page", href: "/services/seo-consultant-reading/" },
-    updates: [{ date: "2026-10-27", note: "Registered with the change, before any result." }],
+    result: {
+      metric: "Search Console Web impressions, clicks and position for Reading queries on sunnypatel.co.uk, all countries",
+      baseline: "4 to 24 October 2026: 2,609 impressions (124 a day), 1 click, position 23.8.",
+      after: "9 to 23 November 2026: 2,331 impressions (155 a day), 2 clicks, position 21.4.",
+      n: "1 and 2 clicks. Raw counts only.",
+      verdict: "Concluded: no visibility cost found. I do not credit the merge for the position gain because other changes overlapped.",
+    },
+    updates: [
+      { date: "2026-10-27", note: "Registered with the change, before any result." },
+      { date: "2026-11-28", note: "Readback done." },
+    ],
   },
   {
     id: "EXP-009",
@@ -273,22 +310,33 @@ export const EXPERIMENTS: Experiment[] = [
     title: "Evidence repair on a provider guide and a schema fix",
     site: "sunnypatel.co.uk",
     label: "registered before the result",
-    status: "running",
+    status: "inconclusive",
     hypothesis:
       "Direct case-study links, split source and update dates, and a description that no longer over-promises keep the guide's UK exposure from sliding. The schema fix is a correctness repair, so I only track its position.",
     change:
       "Guide description cut back, byline dates split into sources checked and content updated, and 13 provider profiles linked to a case study on the provider's own site. The schema generator now emits a rating only when both value and count are present. Title, H1 and URL unchanged.",
     changeDate: "2026-10-30",
     baseline:
-      "Guide: 80 impressions and 32 visible queries in the week of 21 to 27 October. Schema generator, UK desktop: position 12.6 for schema markup generator and 12.5 for schema generator.",
+      "Guide: 66 UK impressions and 30 visible queries in the week of 21 to 27 October. Schema generator, UK desktop: position 12.6 for schema markup generator and 12.5 for schema generator.",
     comparison:
       "The same pages before and after. UK and worldwide data are kept apart. No control, and the guide was already losing exposure before the change.",
     metric: "UK impressions and visible query count for the guide. UK desktop position for the two schema queries.",
     window: "13 to 27 November 2026, after recrawl.",
-    readbackDate: "2026-11-13",
-    outcome: "No result yet. I do not claim this change caused the earlier decline.",
+    outcome:
+      "The guide did not keep sliding: UK impressions went from 66 in the baseline week to between 693 and 860 a week, but I do not know what caused the rise and other changes overlapped. The two schema queries had under 10 impressions, too few to read. Inconclusive.",
     evidence: { label: "The UK companies guide", href: "/blog/best-seo-companies-uk/" },
-    updates: [{ date: "2026-10-30", note: "Registered with the change, before any result." }],
+    result: {
+      metric: "Search Console Web UK impressions and visible queries for the guide; UK desktop position for two schema queries",
+      baseline: "Guide, 21 to 27 October 2026: 66 impressions, 30 visible queries, 2 clicks. Schema queries: position 12.6 (16 impressions) and 12.5 (4).",
+      after: "Guide, UK weekly impressions 693 to 860 from 11 November, 0 clicks. 13 to 25 November: 1,530 impressions, 413 queries. Schema queries: position 20.3 (7 impressions) and 48.7 (3).",
+      n: "Schema rows have under 10 impressions, so no position claim.",
+      verdict: "Inconclusive. The guide's exposure rose from the first week, I cannot attribute it and other changes overlapped.",
+    },
+    updates: [
+      { date: "2026-10-30", note: "Registered with the change, before any result." },
+      { date: "2026-11-28", note: "Readback done." },
+      { date: "2026-11-28", note: "Baseline corrected from 80 to 66 UK impressions after a re-pull on 28 November 2026." },
+    ],
   },
   {
     id: "EXP-010",
@@ -309,10 +357,13 @@ export const EXPERIMENTS: Experiment[] = [
     metric:
       "Impressions and position for technical seo audit service and seo audit consultant. AI-assistant landings on the six niche pages. Enquiries in my ledger.",
     window: "14 to 28 November 2026.",
-    readbackDate: "2026-11-14",
+    readbackDate: "2026-12-01",
     outcome: "No result yet.",
     evidence: { label: "The technical SEO audit page", href: "/services/technical-seo-audit/" },
-    updates: [{ date: "2026-10-31", note: "Registered with the change, before any result." }],
+    updates: [
+      { date: "2026-10-31", note: "Registered with the change, before any result." },
+      { date: "2026-11-28", note: "Readback moved to 1 December 2026: Search Console final data only runs to 25 November, so the window had not closed." },
+    ],
   },
   {
     id: "EXP-011",
@@ -334,9 +385,12 @@ export const EXPERIMENTS: Experiment[] = [
       "Bing clicks and click-through rate per URL. Google impressions and position. Groups with under about 30 clicks show raw counts and no percentages.",
     window:
       "Day 14 (15 November) and day 28 (29 November). I roll back early if cohort Bing clicks fall more than 30% against control at day 14 with at least 30 baseline clicks.",
-    readbackDate: "2026-11-15",
+    readbackDate: "2026-12-04",
     outcome: "No result yet.",
-    updates: [{ date: "2026-11-01", note: "Registered with the release, before any result." }],
+    updates: [
+      { date: "2026-11-01", note: "Registered with the release, before any result." },
+      { date: "2026-11-28", note: "Readback moved to 4 December 2026: day 28 is 29 November and Bing page data arrives about a week late." },
+    ],
   },
   {
     id: "EXP-012",

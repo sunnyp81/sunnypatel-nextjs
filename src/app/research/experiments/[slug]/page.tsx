@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const e = experimentBySlug(slug);
   if (!e) return {};
   return buildMetadata({
-    title: `${e.id}: ${e.title} | SEO experiment`,
+    title: `${e.id}: ${e.title}`,
     description: describe(e),
     path: `/research/experiments/${e.slug}`,
   });

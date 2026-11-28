@@ -171,7 +171,7 @@ const GROUPS: { id: string; title: string; items: Experiment[] }[] = [
 function GroupTable({ id, title, items }: { id: string; title: string; items: Experiment[] }) {
   const th = "px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground";
   return (
-    <div className="mt-8" id={`group-${id}`}>
+    <div className="mt-8 first:mt-0" id={`group-${id}`}>
       <h3 className="text-lg font-bold text-foreground" style={headingStyle}>
         {title} <span className="text-sm font-normal text-muted-foreground">({items.length})</span>
       </h3>
@@ -195,7 +195,7 @@ function GroupTable({ id, title, items }: { id: string; title: string; items: Ex
                 id={e.id.toLowerCase()}
                 className="block scroll-mt-28 border-b border-hairline py-3 md:table-row md:py-0 [&>td]:block [&>td]:px-0 [&>td]:py-0.5 md:[&>td]:table-cell md:[&>td]:px-3 md:[&>td]:py-3 md:[&>td]:align-top"
               >
-                <td className="font-mono text-xs text-muted-foreground">{e.id}</td>
+                <td className="whitespace-nowrap font-mono text-xs text-muted-foreground">{e.id}</td>
                 <td className="font-semibold text-foreground">
                   <Link href={`/research/experiments/${e.slug}/`} className="underline decoration-hairline-strong underline-offset-4 hover:text-brand-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-ink">
                     {e.title}
@@ -262,7 +262,7 @@ export default function ExperimentsPage() {
           <div className="absolute bottom-0 left-0 right-0 h-px bg-hairline" />
         </div>
 
-        <div className="mx-auto max-w-5xl px-6 py-12">
+        <div className="mx-auto max-w-5xl px-6 pb-12 pt-6 md:pt-10">
           <section id="entries" aria-labelledby="entries-title" className="mb-14 scroll-mt-28">
             <h2 id="entries-title" className="sr-only">
               The tests

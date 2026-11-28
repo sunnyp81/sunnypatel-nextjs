@@ -16,6 +16,13 @@
       ],
       "news": [
         {
+          "source": "Search Engine Journal",
+          "title": "Core Updates, Ranking Feedback, Google-Agent & WordPress - SEO Pulse",
+          "url": "https://www.searchenginejournal.com/seo-pulse-core-updates-ranking-feedback-google-agent-wordpress/599171/",
+          "date": "2026-11-28",
+          "summary": "This week’s SEO Pulse covers Google’s core updates and ranking feedback, Google-Agent access, WordPress’s shrinking share, and Salesforce’s take on SEO."
+        },
+        {
           "source": "Search Engine Roundtable",
           "title": "Search News Buzz Video Recap: Google November Core Update, December Core Preannounced, Search Ranking Hub, Google StarSearch & Search Ad News",
           "url": "https://www.seroundtable.com/video-11-2273-2026-42627.html",
@@ -399,7 +406,7 @@
     "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
     "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
   ],
-  "checkedAt": "2026-11-28T01:31:33.485Z",
-  "changedAt": "2026-11-28T01:31:33.485Z",
+  "checkedAt": "2026-11-28T15:42:05.849Z",
+  "changedAt": "2026-11-28T15:42:05.849Z",
   "statusChangedAt": "2026-11-24T17:58:21.013Z"
 }

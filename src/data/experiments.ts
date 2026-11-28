@@ -335,7 +335,7 @@ export const EXPERIMENTS: Experiment[] = [
     updates: [
       { date: "2026-10-30", note: "Registered with the change, before any result." },
       { date: "2026-11-28", note: "Readback done." },
-      { date: "2026-11-28", note: "Baseline corrected from 80 to 66 UK impressions after a re-pull on 28 November 2026." },
+      { date: "2026-11-28", note: "Baseline corrected from 80 to 66 UK impressions, and from 32 to 30 UK visible queries, after a re-pull on 28 November 2026." },
     ],
   },
   {

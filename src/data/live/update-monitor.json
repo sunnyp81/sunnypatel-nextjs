@@ -68,6 +68,15 @@
       "community": [
         {
           "source": "Bluesky",
+          "author": "Glenn Gabe",
+          "handle": "glenngabe.bsky.social",
+          "url": "https://bsky.app/profile/glenngabe.bsky.social/post/3n3cvdlkkbs26",
+          "date": "2026-11-27",
+          "text": "The one that sticks out, and possibly the only other pre-announced core update, was the July 2021 core update. Google said some of the June update wasn't ready & would roll out w/the July 2021 core update.",
+          "likes": 2
+        },
+        {
+          "source": "Bluesky",
           "author": "Barry Schwartz",
           "handle": "rustybrick.com",
           "url": "https://bsky.app/profile/rustybrick.com/post/3n35gf2ve4cgl",
@@ -390,7 +399,7 @@
     "https://bsky.app/profile/glenngabe.bsky.social/post/3n254iceebk2r",
     "https://bsky.app/profile/lilyray.nyc/post/3mzy52ldzg22a"
   ],
-  "checkedAt": "2026-11-27T16:50:55.892Z",
-  "changedAt": "2026-11-27T16:50:55.892Z",
+  "checkedAt": "2026-11-28T01:31:33.485Z",
+  "changedAt": "2026-11-28T01:31:33.485Z",
   "statusChangedAt": "2026-11-24T17:58:21.013Z"
 }

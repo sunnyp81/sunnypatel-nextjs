@@ -234,7 +234,7 @@ export default function ExperimentsPage() {
 
             <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-hairline bg-hairline text-sm md:grid-cols-5">
               {STATUS_ORDER.map((s) => (
-                <div key={s} className="bg-background p-4">
+                <div key={s} className="bg-background p-4 last:col-span-2 md:last:col-span-1">
                   <dt className="text-xs text-muted-foreground">{STATUS_LABELS[s]}</dt>
                   <dd
                     className="mt-1 text-2xl font-bold tabular-nums text-foreground"

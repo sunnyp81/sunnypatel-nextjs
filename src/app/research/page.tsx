@@ -217,7 +217,7 @@ export default function ResearchHub() {
           </p>
           <dl className="mt-5 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-md border border-hairline bg-hairline text-sm sm:grid-cols-5">
             {STATUS_ORDER.map((st) => (
-              <div key={st} className="bg-background p-4">
+              <div key={st} className="bg-background p-4 last:col-span-2 sm:last:col-span-1">
                 <dt className="text-xs text-muted-foreground">{STATUS_LABELS[st]}</dt>
                 <dd className="mt-1 text-2xl font-bold tabular-nums text-foreground" style={headingStyle}>
                   {expCounts[st]}
